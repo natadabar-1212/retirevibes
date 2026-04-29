@@ -1,5 +1,7 @@
 {
-  "rewrites": [
-    { "source": "/", "destination": "/index.html" }
+  "buildCommand": "",
+  "outputDirectory": ".",
+  "routes": [
+    { "src": "^/$", "dest": "/index.html" }
   ]
 }
