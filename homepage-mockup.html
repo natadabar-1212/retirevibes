@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>RetireVibes — Good RetireVibes Only</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="shared.css" />
+<style>
+  :root {
+    --cream: #FBF6EE;
+    --cream-soft: #F4ECDD;
+    --terracotta: #C97B5A;
+    --terracotta-dark: #A8593A;
+    --teal: #1B3A4B;
+    --teal-soft: #2E5468;
+    --gold: #C8A064;
+    --gold-soft: #E4C998;
+    --sage: #93A89A;
+    --warm-gray: #7A6E5F;
+    --white: #FFFFFF;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: var(--cream);
+    color: var(--teal);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── Top nav ────────────────────────────────────────────── */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 48px;
+    background: rgba(251, 246, 238, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(27, 58, 75, 0.06);
+  }
+  .wordmark {
+    font-family: var(--serif);
+    font-size: 24px;
+    color: var(--teal);
+    letter-spacing: -0.01em;
+    text-decoration: none;
+  }
+  .wordmark em {
+    color: var(--terracotta);
+    font-style: normal;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+  .nav-links a {
+    color: var(--teal);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .nav-links a:hover { color: var(--terracotta); }
+  .nav-cta {
+    padding: 12px 22px;
+    background: var(--teal);
+    color: var(--white) !important;
+    border-radius: 999px;
+    font-size: 14px;
+    transition: all 0.25s ease;
+  }
+  .nav-cta:hover { background: var(--terracotta); color: var(--white) !important; }
+
+  /* ─── Hero ───────────────────────────────────────────────── */
+  .hero {
+    position: relative;
+    min-height: 720px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 80px 48px 100px;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1499678329028-101435549a4e?auto=format&fit=crop&w=2000&q=80');
+    background-size: cover;
+    background-position: center;
+    background-color: var(--sage);
+  }
+  .hero-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, rgba(251, 246, 238, 0.94) 0%, rgba(251, 246, 238, 0.78) 38%, rgba(251, 246, 238, 0.15) 65%, rgba(0, 0, 0, 0.08) 100%);
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 640px;
+  }
+  .hero-kicker {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--terracotta);
+    margin-bottom: 18px;
+    letter-spacing: 0.01em;
+  }
+  .hero-headline {
+    font-family: var(--serif);
+    font-size: 76px;
+    line-height: 1.02;
+    color: var(--teal);
+    letter-spacing: -0.02em;
+    margin-bottom: 28px;
+  }
+  .hero-headline em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+  .hero-sub {
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--teal-soft);
+    margin-bottom: 36px;
+    max-width: 560px;
+  }
+  .hero-sub strong {
+    color: var(--terracotta-dark);
+    font-weight: 600;
+  }
+  .hero-cta-row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 36px;
+    background: var(--teal);
+    color: var(--white);
+    border: none;
+    border-radius: 999px;
+    font-family: var(--sans);
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-decoration: none;
+  }
+  .btn-primary:hover {
+    background: var(--terracotta);
+    transform: translateY(-1px);
+  }
+  .btn-primary .arrow { transition: transform 0.25s ease; }
+  .btn-primary:hover .arrow { transform: translateX(4px); }
+  .hero-meta {
+    font-size: 13px;
+    color: var(--warm-gray);
+    letter-spacing: 0.04em;
+  }
+
+  /* ─── Reframe band ───────────────────────────────────────── */
+  .reframe {
+    background: var(--cream-soft);
+    padding: 88px 48px;
+    text-align: center;
+  }
+  .reframe-inner {
+    max-width: 880px;
+    margin: 0 auto;
+  }
+  .reframe-label {
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+  .reframe h2 {
+    font-family: var(--serif);
+    font-size: 46px;
+    line-height: 1.15;
+    color: var(--teal);
+    letter-spacing: -0.015em;
+    margin-bottom: 22px;
+  }
+  .reframe h2 em {
+    color: var(--terracotta);
+    font-style: italic;
+  }
+  .reframe p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--teal-soft);
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  /* ─── How it works ───────────────────────────────────────── */
+  .how {
+    padding: 100px 48px;
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+  .section-head {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+  .section-head .label {
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    font-weight: 500;
+  }
+  .section-head h2 {
+    font-family: var(--serif);
+    font-size: 46px;
+    color: var(--teal);
+    margin-top: 12px;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+  }
+  .section-head p {
+    margin-top: 14px;
+    color: var(--teal-soft);
+    font-size: 17px;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.55;
+  }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px;
+  }
+  .step {
+    text-align: left;
+  }
+  .step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--terracotta);
+    color: var(--white);
+    font-family: var(--serif);
+    font-size: 22px;
+    margin-bottom: 22px;
+  }
+  .step h3 {
+    font-family: var(--serif);
+    font-size: 28px;
+    color: var(--teal);
+    line-height: 1.2;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  .step p {
+    font-size: 15px;
+    color: var(--teal-soft);
+    line-height: 1.65;
+  }
+
+  /* ─── Destinations grid ──────────────────────────────────── */
+  .destinations {
+    padding: 60px 48px 100px;
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+  .dest-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  .dest-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 16px;
+  }
+  .dest-card {
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(27, 58, 75, 0.06);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .dest-card-link:hover .dest-card { transform: translateY(-4px); }
+  .dest-photo {
+    position: relative;
+    height: 240px;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--sage);
+  }
+  .card-save {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    color: var(--warm-gray);
+    z-index: 3;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    line-height: 1;
+    font-family: inherit;
+  }
+  .card-save:hover { color: var(--terracotta); transform: scale(1.06); }
+  .card-save.saved { background: var(--terracotta); color: var(--white); }
+  .dest-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.32) 100%);
+  }
+  .dest-flag {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: rgba(251, 246, 238, 0.92);
+    backdrop-filter: blur(6px);
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    color: var(--teal);
+    font-weight: 500;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .dest-body {
+    padding: 22px 22px 26px;
+  }
+  .dest-name {
+    font-family: var(--serif);
+    font-size: 28px;
+    color: var(--teal);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 4px;
+  }
+  .dest-region {
+    font-size: 13px;
+    color: var(--warm-gray);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .dest-vibe {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--teal-soft);
+    margin-bottom: 16px;
+  }
+  .dest-cost {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-top: 14px;
+    border-top: 1px solid rgba(27, 58, 75, 0.08);
+  }
+  .dest-cost-label {
+    font-size: 12px;
+    color: var(--warm-gray);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .dest-cost-value {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--terracotta-dark);
+  }
+
+  /* ─── Social proof ───────────────────────────────────────── */
+  .social {
+    background: var(--teal);
+    color: var(--white);
+    padding: 88px 48px;
+  }
+  .social-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .social-stat {
+    font-family: var(--serif);
+    font-size: 64px;
+    color: var(--gold-soft);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .social-sub {
+    font-size: 17px;
+    color: rgba(255,255,255,0.78);
+    margin-bottom: 56px;
+    line-height: 1.5;
+  }
+  .quotes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    text-align: left;
+  }
+  .quote {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    padding: 28px 26px;
+  }
+  .quote-text {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 19px;
+    line-height: 1.5;
+    color: var(--white);
+    margin-bottom: 18px;
+  }
+  .quote-attr {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.04em;
+  }
+  .quote-attr strong {
+    color: var(--gold-soft);
+    font-weight: 500;
+  }
+
+  /* ─── Final CTA ──────────────────────────────────────────── */
+  .final-cta {
+    padding: 120px 48px;
+    text-align: center;
+    background: var(--cream);
+  }
+  .final-cta h2 {
+    font-family: var(--serif);
+    font-size: 60px;
+    line-height: 1.1;
+    color: var(--teal);
+    letter-spacing: -0.02em;
+    margin-bottom: 22px;
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .final-cta h2 em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+  .final-cta p {
+    font-size: 18px;
+    color: var(--teal-soft);
+    margin-bottom: 36px;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ─── Footer ─────────────────────────────────────────────── */
+  .footer {
+    padding: 48px 48px 36px;
+    border-top: 1px solid rgba(27, 58, 75, 0.08);
+    background: var(--cream-soft);
+  }
+  .footer-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .footer-tag {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--terracotta);
+    font-size: 16px;
+  }
+  .footer-links {
+    display: flex;
+    gap: 28px;
+  }
+  .footer-links a {
+    color: var(--warm-gray);
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .footer-links a:hover { color: var(--teal); }
+  .footer-meta {
+    font-size: 12px;
+    color: var(--warm-gray);
+    text-align: center;
+    margin-top: 24px;
+  }
+
+  /* ─── Responsive ─────────────────────────────────────────── */
+  @media (max-width: 980px) {
+    .nav { padding: 14px 22px; }
+    .nav-links { gap: 18px; }
+    .nav-links a:not(.nav-cta) { display: none; }
+    .hero { padding: 60px 22px 80px; min-height: 600px; }
+    .hero-headline { font-size: 48px; }
+    .hero-sub { font-size: 17px; }
+    .reframe, .how, .destinations, .social, .final-cta { padding-left: 22px; padding-right: 22px; }
+    .reframe h2, .section-head h2 { font-size: 32px; }
+    .steps, .dest-grid, .quotes { grid-template-columns: 1fr; gap: 20px; }
+    .final-cta h2 { font-size: 38px; }
+    .social-stat { font-size: 44px; }
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 480px) {
+    .hero-headline { font-size: 38px; }
+    .hero-sub { font-size: 16px; }
+    .reframe h2, .section-head h2 { font-size: 28px; }
+    .final-cta h2 { font-size: 30px; }
+    .social-stat { font-size: 38px; }
+    .step h3, .dest-name { font-size: 24px; }
+    .quote-text { font-size: 17px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav class="nav">
+  <a class="wordmark" href="homepage-mockup.html">Retire<em>Vibes</em></a>
+  <div class="nav-links">
+    <a href="#destinations">Destinations</a>
+    <a href="#how">How it works</a>
+    <a href="find-an-advisor.html">Find an advisor</a>
+    <a href="my-retirevibes.html">My RetireVibes</a>
+    <a href="results-page-mockup.html" class="nav-cta">Take the quiz →</a>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <p class="hero-kicker">Good RetireVibes only.</p>
+    <h1 class="hero-headline">Where in the <em>world</em> should you retire?</h1>
+    <p class="hero-sub">Take our 8-question vibe quiz and discover your top destinations — from coastal Portugal to the Yucatán to your own backyard — places that feel like <strong>the life you've been imagining</strong>.</p>
+    <div class="hero-cta-row">
+      <a class="btn-primary" href="mockups/vibe-quiz.html">Find my RetireVibes <span class="arrow">→</span></a>
+      <span class="hero-meta">8 questions · ~2 minutes · no signup needed</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── REFRAME ─── -->
+<section class="reframe">
+  <div class="reframe-inner">
+    <p class="reframe-label">A quick reframe</p>
+    <h2>Retirement isn't one place. <em>It's your place.</em></h2>
+    <p>Most retirement tools start with a number you don't have. RetireVibes starts somewhere better — with the kind of life you actually want. Then we show you the places where that life already exists, and what it costs to live there.</p>
+  </div>
+</section>
+
+<!-- ─── HOW IT WORKS ─── -->
+<section class="how" id="how">
+  <div class="section-head">
+    <span class="label">How it works</span>
+    <h2>Three steps from "someday" to "actually, that one"</h2>
+    <p>No spreadsheets. No nest-egg math. Just vibes, real places, and rough monthly costs.</p>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>Tell us your vibe</h3>
+      <p>Eight quick questions about climate, pace, lifestyle, and what makes a day feel good. About two minutes. No money questions, no age questions, no judgment.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>Meet your matches</h3>
+      <p>Three destinations from around the world — domestic and international — revealed countdown style. Each comes with a vibe profile and rough monthly cost, scaled to the lifestyle you described.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>Save, follow, plan</h3>
+      <p>Save your matches, follow how costs change over time, and when you're ready: a financial advisor, a real estate browse, or a 7-day scouting trip — all one click away.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── DESTINATIONS ─── -->
+<section class="destinations" id="destinations">
+  <div class="section-head">
+    <span class="label">A glimpse of the world</span>
+    <h2>Where could you wake up?</h2>
+    <p>A small taste of the places people have matched with so far. Yours could be any of these — or somewhere you haven't even considered yet.</p>
+  </div>
+
+  <div class="dest-grid">
+
+    <a class="dest-card-link" href="destination-porto.html">
+    <article class="dest-card">
+      <div class="dest-photo" style="background-image: url('https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=900&q=80'); background-color: #2E5468;">
+        <span class="dest-flag">🇵🇹 Portugal</span>
+        <button class="card-save" data-name="Porto" onclick="event.stopPropagation(); toggleSave('Porto')" aria-label="Save Porto">♡</button>
+      </div>
+      <div class="dest-body">
+        <h3 class="dest-name">Porto</h3>
+        <div class="dest-region">Northern Portugal · Coastal</div>
+        <p class="dest-vibe">Cobblestone old city, world-class wine, and a slower kind of European cool.</p>
+        <div class="dest-cost">
+          <span class="dest-cost-label">Upscale, from</span>
+          <span class="dest-cost-value">~$3,200/mo</span>
+        </div>
+      </div>
+    </article>
+    </a>
+
+    <a class="dest-card-link" href="destination-merida.html">
+    <article class="dest-card">
+      <div class="dest-photo" style="background-image: url('https://images.unsplash.com/photo-1518638150340-f706e86654de?auto=format&fit=crop&w=900&q=80'); background-color: #C97B5A;">
+        <span class="dest-flag">🇲🇽 Mexico</span>
+        <button class="card-save" data-name="Mérida" onclick="event.stopPropagation(); toggleSave('Mérida')" aria-label="Save Mérida">♡</button>
+      </div>
+      <div class="dest-body">
+        <h3 class="dest-name">Mérida</h3>
+        <div class="dest-region">Yucatán · Colonial</div>
+        <p class="dest-vibe">Pastel facades, mariachi nights, and a price tag that almost feels like a typo.</p>
+        <div class="dest-cost">
+          <span class="dest-cost-label">Upscale, from</span>
+          <span class="dest-cost-value">~$2,400/mo</span>
+        </div>
+      </div>
+    </article>
+    </a>
+
+    <a class="dest-card-link" href="destination-asheville.html">
+    <article class="dest-card">
+      <div class="dest-photo" style="background-image: url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=900&q=80'); background-color: #93A89A;">
+        <span class="dest-flag">🇺🇸 United States</span>
+        <button class="card-save" data-name="Asheville" onclick="event.stopPropagation(); toggleSave('Asheville')" aria-label="Save Asheville">♡</button>
+      </div>
+      <div class="dest-body">
+        <h3 class="dest-name">Asheville</h3>
+        <div class="dest-region">North Carolina · Mountain</div>
+        <p class="dest-vibe">Blue Ridge mornings, craft everything, and four real seasons without the snow shovel.</p>
+        <div class="dest-cost">
+          <span class="dest-cost-label">Comfortable, from</span>
+          <span class="dest-cost-value">~$3,800/mo</span>
+        </div>
+      </div>
+    </article>
+    </a>
+
+    <a class="dest-card-link" href="destination-coming-soon.html?name=Chiang%20Mai">
+    <article class="dest-card">
+      <div class="dest-photo" style="background-image: url('https://images.unsplash.com/photo-1598935898639-81586f7d2129?auto=format&fit=crop&w=900&q=80'); background-color: #C8A064;">
+        <span class="dest-flag">🇹🇭 Thailand</span>
+        <button class="card-save" data-name="Chiang Mai" onclick="event.stopPropagation(); toggleSave('Chiang Mai')" aria-label="Save Chiang Mai">♡</button>
+      </div>
+      <div class="dest-body">
+        <h3 class="dest-name">Chiang Mai</h3>
+        <div class="dest-region">Northern Thailand · Cultural</div>
+        <p class="dest-vibe">Temples, mountain mist, and a cost of living that quietly rewrites what you thought possible.</p>
+        <div class="dest-cost">
+          <span class="dest-cost-label">Upscale, from</span>
+          <span class="dest-cost-value">~$1,400/mo</span>
+        </div>
+      </div>
+    </article>
+    </a>
+
+    <a class="dest-card-link" href="destination-sarasota.html">
+    <article class="dest-card">
+      <div class="dest-photo" style="background-image: url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=900&q=80'); background-color: #93A89A;">
+        <span class="dest-flag">🇺🇸 United States</span>
+        <button class="card-save" data-name="Sarasota" onclick="event.stopPropagation(); toggleSave('Sarasota')" aria-label="Save Sarasota">♡</button>
+      </div>
+      <div class="dest-body">
+        <h3 class="dest-name">Sarasota</h3>
+        <div class="dest-region">Florida · Coastal</div>
+        <p class="dest-vibe">Powdery beaches, year-round sun, and a cultural scene that punches above its weight.</p>
+        <div class="dest-cost">
+          <span class="dest-cost-label">Upscale, from</span>
+          <span class="dest-cost-value">~$4,800/mo</span>
+        </div>
+      </div>
+    </article>
+    </a>
+
+    <a class="dest-card-link" href="destination-coming-soon.html?name=Medell%C3%ADn">
+    <article class="dest-card">
+      <div class="dest-photo" style="background-image: url('https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=900&q=80'); background-color: #2E5468;">
+        <span class="dest-flag">🇨🇴 Colombia</span>
+        <button class="card-save" data-name="Medellín" onclick="event.stopPropagation(); toggleSave('Medellín')" aria-label="Save Medellín">♡</button>
+      </div>
+      <div class="dest-body">
+        <h3 class="dest-name">Medellín</h3>
+        <div class="dest-region">Antioquia · City of Eternal Spring</div>
+        <p class="dest-vibe">70-degree mornings every day of the year, flowers everywhere, a city reborn.</p>
+        <div class="dest-cost">
+          <span class="dest-cost-label">Upscale, from</span>
+          <span class="dest-cost-value">~$2,000/mo</span>
+        </div>
+      </div>
+    </article>
+    </a>
+
+  </div>
+</section>
+
+<!-- ─── SOCIAL PROOF ─── -->
+<section class="social">
+  <div class="social-inner">
+    <div class="social-stat">27,400+</div>
+    <p class="social-sub">Americans have found their RetireVibes so far. Here's what a few of them said when they did.</p>
+    <div class="quotes">
+      <div class="quote">
+        <p class="quote-text">"My number one was Lisbon. I'd literally never thought about Europe — I was sure my answer was going to be Florida. I sent it to my sister and we're both kind of obsessed now."</p>
+        <p class="quote-attr"><strong>Karen, 51</strong> · Naperville, IL</p>
+      </div>
+      <div class="quote">
+        <p class="quote-text">"I was anxious about retirement. The quiz didn't ask about my savings even once and I came out feeling weirdly hopeful. That's not a thing financial websites usually do."</p>
+        <p class="quote-attr"><strong>Marcus, 47</strong> · Atlanta, GA</p>
+      </div>
+      <div class="quote">
+        <p class="quote-text">"Mérida came up as my number two and I'm planning a scouting trip in October. We're not retiring tomorrow — but suddenly there's a real plan, not just dread."</p>
+        <p class="quote-attr"><strong>Linda, 54</strong> · Boulder, CO</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FINAL CTA ─── -->
+<section class="final-cta">
+  <h2>Your retirement should be the <em>best part of the story</em>, not the scariest.</h2>
+  <p>Eight questions. About two minutes. Three places that might just be it.</p>
+  <a class="btn-primary" href="mockups/vibe-quiz.html">Find my RetireVibes <span class="arrow">→</span></a>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <a class="wordmark" href="#" style="font-size:20px;">Retire<em>Vibes</em></a>
+      <p class="footer-tag">Good RetireVibes only.</p>
+    </div>
+    <div class="footer-links">
+      <a href="#destinations">Destinations</a>
+      <a href="#how">How it works</a>
+      <a href="find-an-advisor.html">Find an advisor</a>
+      <a href="scouting-trip.html">Scouting trips</a>
+      <a href="my-retirevibes.html">My RetireVibes</a>
+    </div>
+  </div>
+  <p class="footer-meta">RetireVibes is not a financial advisor. Cost estimates are illustrative; for retirement planning, talk to a fiduciary.</p>
+</footer>
+
+<!-- ═══ SAVE MODAL ═══ -->
+<style>
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(27, 58, 75, 0.55);
+    backdrop-filter: blur(8px);
+    z-index: 100;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    animation: modalFade 0.3s ease;
+  }
+  .modal-overlay.open { display: flex; }
+  @keyframes modalFade { from { opacity: 0; } to { opacity: 1; } }
+  .modal-card {
+    background: var(--cream);
+    border-radius: 20px;
+    max-width: 520px;
+    width: 100%;
+    padding: 48px 44px 40px;
+    position: relative;
+    box-shadow: 0 24px 60px rgba(27, 58, 75, 0.25);
+    animation: modalRise 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  @keyframes modalRise {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  .modal-close {
+    position: absolute; top: 18px; right: 18px;
+    width: 36px; height: 36px;
+    border: none; background: transparent;
+    color: var(--warm-gray); font-size: 24px;
+    cursor: pointer; border-radius: 50%;
+    line-height: 1; transition: all 0.2s ease;
+  }
+  .modal-close:hover { background: rgba(27, 58, 75, 0.06); color: var(--teal); }
+  .modal-eyebrow {
+    font-size: 11px; color: var(--warm-gray);
+    text-transform: uppercase; letter-spacing: 0.18em;
+    font-weight: 500; margin-bottom: 12px;
+  }
+  .modal-title {
+    font-family: var(--serif); font-size: 36px;
+    color: var(--teal); line-height: 1.15;
+    letter-spacing: -0.02em; margin-bottom: 14px;
+  }
+  .modal-title em { color: var(--terracotta); font-style: italic; }
+  .modal-sub {
+    font-size: 16px; color: var(--teal-soft);
+    line-height: 1.55; margin-bottom: 28px;
+  }
+  .modal-input {
+    width: 100%; padding: 16px 18px;
+    border: 1px solid rgba(27, 58, 75, 0.18);
+    border-radius: 12px; font-family: inherit;
+    font-size: 16px; color: var(--teal);
+    margin-bottom: 14px; background: var(--white);
+    transition: all 0.2s ease;
+  }
+  .modal-input:focus {
+    outline: none; border-color: var(--terracotta);
+    box-shadow: 0 0 0 3px rgba(201, 123, 90, 0.15);
+  }
+  .modal-submit {
+    width: 100%; padding: 16px 24px;
+    background: var(--teal); color: var(--white);
+    border: none; border-radius: 12px;
+    font-family: inherit; font-size: 16px;
+    font-weight: 500; cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .modal-submit:hover { background: var(--terracotta); }
+  .modal-fineprint {
+    font-size: 12px; color: var(--warm-gray);
+    margin-top: 16px; line-height: 1.5;
+  }
+  .modal-success-block { text-align: center; padding: 8px 0 4px; }
+  .modal-success-icon {
+    width: 64px; height: 64px;
+    border-radius: 50%; background: var(--gold-soft);
+    color: var(--teal); font-size: 32px;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 22px;
+  }
+  @media (max-width: 480px) {
+    .modal-card { padding: 36px 26px 26px; }
+    .modal-title { font-size: 28px; }
+    .modal-close { top: 12px; right: 12px; }
+  }
+</style>
+
+<div class="modal-overlay" id="saveModal" role="dialog" aria-modal="true" aria-labelledby="saveModalTitle">
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeSaveModal()" aria-label="Close">×</button>
+    <div id="saveForm">
+      <p class="modal-eyebrow">Save your RetireVibes</p>
+      <h2 class="modal-title" id="saveModalTitle">Save <em>this place</em>.</h2>
+      <p class="modal-sub" id="saveModalSub">Just need your email so we can keep this saved for you and send a link to come back anytime. No password needed.</p>
+      <form onsubmit="submitSave(event)">
+        <input type="email" name="email" placeholder="your@email.com" required class="modal-input" autocomplete="email" />
+        <button type="submit" class="modal-submit" id="saveSubmitBtn">Save it →</button>
+      </form>
+      <p class="modal-fineprint">No password to remember. Just save and come back anytime.</p>
+    </div>
+    <div id="saveSuccess" hidden>
+      <div class="modal-success-block">
+        <div class="modal-success-icon">✓</div>
+        <p class="modal-eyebrow">Saved</p>
+        <h2 class="modal-title">All set.</h2>
+        <p class="modal-sub" id="saveSuccessSub">Check your inbox — we sent a link you can use to come back to your saved places anytime.</p>
+        <button class="modal-submit" onclick="closeSaveModal()">Keep exploring</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let _saveContext = {};
+  function openSaveModal(context) {
+    _saveContext = context || {};
+    const modal = document.getElementById('saveModal');
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    const titleEl = document.getElementById('saveModalTitle');
+    const subEl = document.getElementById('saveModalSub');
+    const successSub = document.getElementById('saveSuccessSub');
+    if (_saveContext.type === 'first-save' && _saveContext.name) {
+      titleEl.innerHTML = 'Save <em>' + _saveContext.name + '</em>.';
+      subEl.textContent = "Just need your email so we can save " + _saveContext.name + " for you. No password — come back anytime to see your saved places.";
+      successSub.textContent = _saveContext.name + " is saved to your RetireVibes. Come back anytime to see everything you're keeping an eye on.";
+    }
+    document.getElementById('saveForm').hidden = false;
+    document.getElementById('saveSuccess').hidden = true;
+  }
+  function closeSaveModal() {
+    document.getElementById('saveModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function submitSave(e) {
+    e.preventDefault();
+    const email = e.target.email.value;
+    let saved = {};
+    try { saved = JSON.parse(localStorage.getItem('rv_saved') || '{}'); } catch(err) {}
+    const wasNewAccount = !saved.email;
+    saved.email = email;
+    if (wasNewAccount) saved.account_created_at = new Date().toISOString();
+    saved.saved_at = new Date().toISOString();
+    if (_saveContext.type === 'first-save' && _saveContext.name) {
+      saved.destinations = saved.destinations || [];
+      if (!saved.destinations.includes(_saveContext.name)) saved.destinations.push(_saveContext.name);
+    }
+    try { localStorage.setItem('rv_saved', JSON.stringify(saved)); } catch(err) {}
+    document.getElementById('saveForm').hidden = true;
+    document.getElementById('saveSuccess').hidden = false;
+    updateCardSaveStates();
+  }
+
+  function toggleSave(name) {
+    let saved = {};
+    try { saved = JSON.parse(localStorage.getItem('rv_saved') || '{}'); } catch(e) {}
+    if (!saved.email) {
+      openSaveModal({type:'first-save', name: name});
+      return;
+    }
+    saved.destinations = saved.destinations || [];
+    if (saved.destinations.includes(name)) {
+      saved.destinations = saved.destinations.filter(d => d !== name);
+    } else {
+      saved.destinations.push(name);
+    }
+    try { localStorage.setItem('rv_saved', JSON.stringify(saved)); } catch(e) {}
+    updateCardSaveStates();
+  }
+
+  function updateCardSaveStates() {
+    let saved = {};
+    try { saved = JSON.parse(localStorage.getItem('rv_saved') || '{}'); } catch(e) {}
+    const dests = saved.destinations || [];
+    document.querySelectorAll('.card-save[data-name]').forEach(b => {
+      const name = b.dataset.name;
+      if (dests.includes(name)) {
+        b.classList.add('saved');
+        b.innerHTML = '♥';
+      } else {
+        b.classList.remove('saved');
+        b.innerHTML = '♡';
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('saveModal');
+    if (modal) {
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) closeSaveModal();
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('open')) closeSaveModal();
+      });
+    }
+    updateCardSaveStates();
+  });
+</script>
+<script src="shared.js"></script>
+
+</body>
+</html>

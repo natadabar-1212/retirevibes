@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Find a Retirement Advisor — Retiring in the US — RetireVibes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="shared.css" />
+<style>
+  :root {
+    --cream: #FBF6EE;
+    --cream-soft: #F4ECDD;
+    --terracotta: #C97B5A;
+    --terracotta-dark: #A8593A;
+    --teal: #1B3A4B;
+    --teal-soft: #2E5468;
+    --gold: #C8A064;
+    --gold-soft: #E4C998;
+    --sage: #93A89A;
+    --warm-gray: #7A6E5F;
+    --white: #FFFFFF;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--cream);
+    color: var(--teal);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── Nav ─── */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 48px;
+    background: rgba(251, 246, 238, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(27, 58, 75, 0.06);
+  }
+  .wordmark { font-family: var(--serif); font-size: 24px; color: var(--teal); letter-spacing: -0.01em; text-decoration: none; }
+  .wordmark em { color: var(--terracotta); font-style: normal; }
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-links a { color: var(--teal); text-decoration: none; font-size: 15px; font-weight: 500; }
+  .nav-links a:hover { color: var(--terracotta); }
+  .nav-cta { padding: 12px 22px; background: var(--teal); color: var(--white) !important; border-radius: 999px; font-size: 14px; transition: all 0.25s ease; }
+  .nav-cta:hover { background: var(--terracotta); }
+
+  /* ─── Hero ─── */
+  .hero {
+    background: var(--teal);
+    padding: 88px 48px 96px;
+    position: relative; overflow: hidden;
+  }
+  .hero::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 80% 50%, rgba(147,168,154,0.15) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .hero-inner { max-width: 760px; position: relative; z-index: 1; }
+  .hero-kicker {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 7px 16px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 999px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold-soft); margin-bottom: 24px;
+  }
+  .hero h1 { font-family: var(--serif); font-size: 62px; line-height: 1.04; letter-spacing: -0.02em; color: var(--white); margin-bottom: 22px; }
+  .hero h1 em { font-style: italic; color: var(--gold-soft); }
+  .hero-sub { font-size: 19px; line-height: 1.6; color: rgba(255,255,255,0.75); max-width: 580px; margin-bottom: 36px; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 18px 36px;
+    background: var(--terracotta); color: var(--white);
+    border: none; border-radius: 999px;
+    font-family: var(--sans); font-size: 16px; font-weight: 500;
+    letter-spacing: 0.01em; cursor: pointer;
+    transition: all 0.25s ease; text-decoration: none;
+  }
+  .btn-primary:hover { background: var(--terracotta-dark); transform: translateY(-1px); }
+  .btn-primary .arrow { transition: transform 0.25s ease; }
+  .btn-primary:hover .arrow { transform: translateX(4px); }
+  .hero-partner { margin-top: 14px; font-size: 12px; color: rgba(255,255,255,0.4); letter-spacing: 0.06em; }
+
+  /* ─── Shared ─── */
+  .section { padding: 88px 48px; }
+  .section-inner { max-width: 1240px; margin: 0 auto; }
+  .section-label { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--warm-gray); font-weight: 500; margin-bottom: 14px; }
+  .section-headline { font-family: var(--serif); font-size: 44px; color: var(--teal); line-height: 1.12; letter-spacing: -0.015em; margin-bottom: 16px; }
+  .section-headline em { color: var(--terracotta); font-style: italic; }
+  .section-sub { font-size: 17px; color: var(--teal-soft); line-height: 1.6; max-width: 640px; margin-bottom: 52px; }
+
+  /* ─── Why a fiduciary ─── */
+  .why-bg { background: var(--cream-soft); }
+  .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .why-card { background: var(--white); border-radius: 16px; padding: 30px 26px; border: 1px solid rgba(27,58,75,0.06); }
+  .why-icon { width: 46px; height: 46px; border-radius: 11px; background: var(--cream-soft); display: flex; align-items: center; justify-content: center; font-size: 21px; margin-bottom: 16px; }
+  .why-card h3 { font-family: var(--serif); font-size: 22px; color: var(--teal); margin-bottom: 10px; line-height: 1.2; }
+  .why-card p { font-size: 14px; color: var(--teal-soft); line-height: 1.65; }
+
+  /* ─── What to look for ─── */
+  .look-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .look-card { background: var(--cream-soft); border-radius: 14px; padding: 26px 24px; border-left: 3px solid var(--terracotta); }
+  .look-card h4 { font-family: var(--serif); font-size: 20px; color: var(--teal); margin-bottom: 10px; line-height: 1.2; }
+  .look-card p { font-size: 14px; color: var(--teal-soft); line-height: 1.65; }
+  .look-badge { display: inline-block; margin-bottom: 12px; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--terracotta-dark); background: rgba(201,123,90,0.1); padding: 4px 10px; border-radius: 999px; }
+
+  /* ─── Questions ─── */
+  .questions-bg { background: var(--teal); }
+  .questions-bg .section-label { color: rgba(255,255,255,0.5); }
+  .questions-bg .section-headline { color: var(--white); }
+  .questions-bg .section-headline em { color: var(--gold-soft); }
+  .questions-bg .section-sub { color: rgba(255,255,255,0.65); }
+  .q-list { display: flex; flex-direction: column; gap: 14px; }
+  .q-item {
+    display: flex; gap: 18px; align-items: flex-start;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px; padding: 22px 24px;
+  }
+  .q-num { flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; background: var(--terracotta); color: var(--white); font-family: var(--serif); font-size: 17px; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+  .q-item h4 { font-family: var(--serif); font-size: 19px; color: var(--white); margin-bottom: 6px; line-height: 1.2; }
+  .q-item p { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.6; }
+
+  /* ─── CTA ─── */
+  .cta-section { padding: 88px 48px; }
+  .cta-block {
+    max-width: 860px; margin: 0 auto;
+    background: var(--cream-soft); border-radius: 20px; padding: 56px 52px;
+    display: grid; grid-template-columns: 1fr auto; gap: 36px; align-items: center;
+    border: 1px solid rgba(27,58,75,0.08);
+  }
+  .cta-block h2 { font-family: var(--serif); font-size: 36px; color: var(--teal); line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 12px; }
+  .cta-block h2 em { color: var(--terracotta); font-style: italic; }
+  .cta-block p { font-size: 15px; color: var(--teal-soft); line-height: 1.6; }
+  .cta-right { display: flex; flex-direction: column; gap: 10px; align-items: flex-end; }
+  .partner-badge { font-size: 11px; color: var(--warm-gray); letter-spacing: 0.06em; text-align: right; }
+  .fiduciary-note { margin-top: 28px; padding: 16px 20px; background: var(--white); border-radius: 10px; font-size: 13px; color: var(--warm-gray); line-height: 1.55; border: 1px solid rgba(27,58,75,0.07); grid-column: 1 / -1; }
+  .fiduciary-note strong { color: var(--teal); }
+
+  /* ─── Footer ─── */
+  .footer { padding: 48px 48px 36px; border-top: 1px solid rgba(27,58,75,0.08); background: var(--cream-soft); }
+  .footer-inner { max-width: 1240px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+  .footer-tag { font-family: var(--serif); font-style: italic; color: var(--terracotta); font-size: 16px; }
+  .footer-links { display: flex; gap: 28px; }
+  .footer-links a { color: var(--warm-gray); text-decoration: none; font-size: 14px; }
+  .footer-links a:hover { color: var(--teal); }
+  .footer-meta { font-size: 12px; color: var(--warm-gray); text-align: center; margin-top: 24px; max-width: 1240px; margin-left: auto; margin-right: auto; }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 980px) {
+    .nav { padding: 14px 22px; }
+    .nav-links { gap: 18px; }
+    .nav-links a:not(.nav-cta) { display: none; }
+    .hero, .section, .cta-section { padding-left: 22px; padding-right: 22px; }
+    .hero { padding-top: 64px; padding-bottom: 72px; }
+    .hero h1 { font-size: 40px; }
+    .section-headline { font-size: 30px; }
+    .why-grid { grid-template-columns: 1fr; }
+    .look-grid { grid-template-columns: 1fr; }
+    .cta-block { grid-template-columns: 1fr; padding: 36px 28px; }
+    .cta-right { align-items: flex-start; }
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav class="nav">
+  <a class="wordmark" href="homepage-mockup.html">Retire<em>Vibes</em></a>
+  <div class="nav-links">
+    <a href="homepage-mockup.html#destinations">Destinations</a>
+    <a href="homepage-mockup.html#how">How it works</a>
+    <a href="find-an-advisor.html">Find an advisor</a>
+    <a href="my-retirevibes.html">My RetireVibes</a>
+    <a href="results-page-mockup.html" class="nav-cta">Take the quiz →</a>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-kicker">Next step · Retiring in the US</div>
+    <h1>The right advisor makes <em>retirement feel possible</em>.</h1>
+    <p class="hero-sub">You've found a place that fits the life you want. Now the question is whether the plan fits too. A fiduciary can run the numbers, time your Social Security, and map out exactly what this looks like — without trying to sell you anything along the way.</p>
+    <a class="btn-primary" href="find-an-advisor.html?type=domestic">Find a retirement advisor <span class="arrow">→</span></a>
+    <p class="hero-partner">RetireVibes advisor network</p>
+  </div>
+</section>
+
+<!-- ─── WHY A FIDUCIARY ─── -->
+<section class="section why-bg">
+  <div class="section-inner">
+    <p class="section-label">Why it matters who you talk to</p>
+    <h2 class="section-headline">A fiduciary is different from a <em>financial salesperson</em>.</h2>
+    <p class="section-sub">Most people don't realize that not all financial advisors are legally required to act in your interest. Here's what's actually at stake.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">⚖️</div>
+        <h3>Fiduciaries are legally on your side</h3>
+        <p>A fiduciary is legally obligated to recommend what's best for you — not what earns them the highest commission. Fee-only fiduciaries don't earn money from products they recommend, which removes the conflict of interest entirely.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📅</div>
+        <h3>Social Security timing is a big decision</h3>
+        <p>Claiming at 62 vs. 67 vs. 70 can mean a difference of hundreds of dollars a month for the rest of your life. The right answer depends on your health, your other income sources, and whether you're married. A good advisor models all three scenarios.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🏥</div>
+        <h3>Medicare has more decisions than it looks like</h3>
+        <p>Original Medicare vs. Medicare Advantage. When to add Part D. Whether Medigap makes sense given where you're moving. Missing enrollment windows costs you — permanently in some cases. This is worth getting right the first time.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💰</div>
+        <h3>RMD planning affects everything downstream</h3>
+        <p>Required minimum distributions from your traditional IRA and 401(k) start at 73. How much you're forced to take — and how that interacts with your Social Security and Medicare costs — shapes your entire tax picture in retirement. Planning ahead beats reacting.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🏡</div>
+        <h3>Where you retire has tax implications</h3>
+        <p>Florida has no state income tax. North Carolina does. That difference compounds over a 20-year retirement. A good advisor factors state tax, property tax, and cost of living into the real picture — not just the federal number.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🛡️</div>
+        <h3>Long-term care is the conversation nobody wants to have</h3>
+        <p>The median cost of assisted living in the US is over $54,000 a year — and it's rising. Without a plan, one health event can reshape your entire retirement. A fiduciary will help you weigh long-term care insurance, self-insurance, and hybrid options honestly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHAT TO LOOK FOR ─── -->
+<section class="section">
+  <div class="section-inner">
+    <p class="section-label">Choosing well</p>
+    <h2 class="section-headline">What to look for — and what to <em>avoid</em>.</h2>
+    <p class="section-sub">The right advisor will welcome hard questions. The wrong one will try to rush you past them.</p>
+    <div class="look-grid">
+      <div class="look-card">
+        <span class="look-badge">✓ Look for</span>
+        <h4>Fee-only, fiduciary — always</h4>
+        <p>Fee-only means they charge you directly (flat fee, hourly, or a percentage of assets) and earn nothing from products they recommend. Combined with a fiduciary obligation, this is the cleanest alignment you can get. The NAPFA directory is a good place to start.</p>
+      </div>
+      <div class="look-card">
+        <span class="look-badge">✓ Look for</span>
+        <h4>A CFP with retirement specialization</h4>
+        <p>Certified Financial Planners have a baseline of training and ethics requirements. Look for one who specifically works with pre-retirees and retirees — not someone who does a mix of everything and fits you in. Specialization matters when the decisions are this consequential.</p>
+      </div>
+      <div class="look-card">
+        <span class="look-badge">✓ Look for</span>
+        <h4>Someone who knows your destination's tax picture</h4>
+        <p>If you're moving to Florida for the tax advantages, your advisor should be able to explain exactly what those savings look like for your specific income. If you're moving to Asheville, they should know North Carolina's tax treatment of retirement income. Details matter here.</p>
+      </div>
+      <div class="look-card">
+        <span class="look-badge">⚠ Watch out for</span>
+        <h4>Advisors who lead with products</h4>
+        <p>If the first conversation is about a specific annuity, life insurance policy, or managed fund — before they've understood your full situation — that's a tell. Advisors who earn commissions aren't legally required to recommend what's best for you. Find a fee-only fiduciary instead.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── QUESTIONS ─── -->
+<section class="section questions-bg">
+  <div class="section-inner">
+    <p class="section-label">First call prep</p>
+    <h2 class="section-headline">Questions worth asking <em>before you hire anyone</em>.</h2>
+    <p class="section-sub">A good advisor will welcome every one of these. Use the answers to decide whether to move forward.</p>
+    <div class="q-list">
+      <div class="q-item">
+        <div class="q-num">1</div>
+        <div>
+          <h4>"Are you a fiduciary at all times — not just for retirement accounts?"</h4>
+          <p>Some advisors operate under a fiduciary standard only in certain contexts. You want someone who is always legally obligated to act in your interest, across every recommendation they make.</p>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-num">2</div>
+        <div>
+          <h4>"How do you charge, and do you earn any commissions or referral fees?"</h4>
+          <p>Get the fee structure in writing before you share any financial details. Fee-only is cleaner than AUM (assets under management) for a planning engagement — you're paying for advice, not for someone to hold your money.</p>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-num">3</div>
+        <div>
+          <h4>"Given my income sources and health, when should I claim Social Security?"</h4>
+          <p>A real answer involves running multiple scenarios — not a generic break-even calculation. If you're married, spousal benefit strategy adds another layer. Push for specifics, not principles.</p>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-num">4</div>
+        <div>
+          <h4>"What Medicare path makes sense given where I'm moving and my health history?"</h4>
+          <p>The right answer depends on your destination (provider networks vary significantly by geography), your health, and how you use healthcare. An advisor who treats this as a checkbox item isn't the right one.</p>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-num">5</div>
+        <div>
+          <h4>"How will my RMDs interact with Social Security and Medicare premiums?"</h4>
+          <p>This is the retirement tax trap people most often miss. High RMDs can push your income over IRMAA thresholds, raising your Medicare premiums significantly. Planning your withdrawals around this in advance can save real money.</p>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-num">6</div>
+        <div>
+          <h4>"What's your approach to long-term care planning?"</h4>
+          <p>If they wave this off as something to address later, or immediately recommend a specific insurance product, both are yellow flags. A thoughtful advisor will present options — insurance, self-insurance, hybrid products — and help you think through the tradeoffs for your situation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section class="cta-section">
+  <div class="cta-block">
+    <div>
+      <h2>Ready to talk to someone who can <em>run the actual numbers</em>?</h2>
+      <p>SmartAsset matches you with fiduciary advisors near you — for free. When you fill out the form, mention the destination you're considering. It helps them prep for a more useful first conversation.</p>
+    </div>
+    <div class="cta-right">
+      <a class="btn-primary" href="find-an-advisor.html?type=domestic">Find my advisor <span class="arrow">→</span></a>
+      <span class="partner-badge">RetireVibes advisor network</span>
+    </div>
+    <p class="fiduciary-note"><strong>A note from RetireVibes:</strong> We found the place — that's our job. The financial math is yours to do, ideally with someone who's legally required to help you do it well. We don't earn referral fees that would change what we recommend here. We just think talking to a fiduciary early is almost always worth it.</p>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <a class="wordmark" href="homepage-mockup.html" style="font-size:20px;">Retire<em>Vibes</em></a>
+      <p class="footer-tag">Good RetireVibes only.</p>
+    </div>
+    <div class="footer-links">
+      <a href="homepage-mockup.html#destinations">Destinations</a>
+      <a href="homepage-mockup.html#how">How it works</a>
+      <a href="find-an-advisor.html">Find an advisor</a>
+      <a href="scouting-trip.html">Scouting trips</a>
+      <a href="my-retirevibes.html">My RetireVibes</a>
+    </div>
+  </div>
+  <p class="footer-meta">RetireVibes is not a financial advisor. Nothing on this page constitutes financial, tax, or legal advice. For retirement planning, talk to a licensed fiduciary.</p>
+</footer>
+<script src="shared.js"></script>
+
+</body>
+</html>

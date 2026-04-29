@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Find a Retirement Advisor — RetireVibes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="shared.css" />
+<style>
+  :root {
+    --cream: #FBF6EE;
+    --cream-soft: #F4ECDD;
+    --terracotta: #C97B5A;
+    --terracotta-dark: #A8593A;
+    --teal: #1B3A4B;
+    --teal-soft: #2E5468;
+    --gold: #C8A064;
+    --gold-soft: #E4C998;
+    --sage: #93A89A;
+    --warm-gray: #7A6E5F;
+    --white: #FFFFFF;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--cream);
+    color: var(--teal);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── Nav ─── */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 48px;
+    background: rgba(251,246,238,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(27,58,75,0.06);
+  }
+  .wordmark { font-family: var(--serif); font-size: 24px; color: var(--teal); letter-spacing: -0.01em; text-decoration: none; }
+  .wordmark em { color: var(--terracotta); font-style: normal; }
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-links a { color: var(--teal); text-decoration: none; font-size: 15px; font-weight: 500; }
+  .nav-links a:hover { color: var(--terracotta); }
+  .nav-cta { padding: 12px 22px; background: var(--teal); color: var(--white) !important; border-radius: 999px; font-size: 14px; transition: all 0.25s ease; }
+  .nav-cta:hover { background: var(--terracotta); }
+
+  /* ─── Hero ─── */
+  .hero {
+    padding: 80px 48px 72px;
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+  .hero-kicker {
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--warm-gray); font-weight: 500; margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: 60px; line-height: 1.04; letter-spacing: -0.02em;
+    color: var(--teal); margin-bottom: 20px;
+    max-width: 780px;
+  }
+  .hero h1 em { font-style: italic; color: var(--terracotta); }
+  .hero-sub {
+    font-size: 19px; line-height: 1.6; color: var(--teal-soft);
+    max-width: 620px; margin-bottom: 0;
+  }
+
+  /* ─── Vetting criteria ─── */
+  .criteria-band {
+    background: var(--teal);
+    padding: 56px 48px;
+  }
+  .criteria-inner {
+    max-width: 1240px; margin: 0 auto;
+    display: grid; grid-template-columns: 280px 1fr; gap: 56px; align-items: center;
+  }
+  .criteria-headline {
+    font-family: var(--serif); font-size: 34px; color: var(--white);
+    line-height: 1.15; letter-spacing: -0.01em;
+  }
+  .criteria-headline em { color: var(--gold-soft); font-style: italic; }
+  .criteria-list {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+  }
+  .criterion {
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .criterion-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: rgba(255,255,255,0.08);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 19px; margin-bottom: 4px;
+  }
+  .criterion h4 { font-family: var(--serif); font-size: 17px; color: var(--white); line-height: 1.2; }
+  .criterion p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.55; }
+
+  /* ─── Filter tabs ─── */
+  .filter-row {
+    padding: 40px 48px 0;
+    max-width: 1240px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+  }
+  .filter-tabs { display: flex; gap: 8px; }
+  .filter-tab {
+    padding: 10px 22px;
+    border: 1px solid rgba(27,58,75,0.16);
+    border-radius: 999px;
+    font-size: 14px; font-weight: 500; color: var(--warm-gray);
+    background: transparent; cursor: pointer; font-family: inherit;
+    transition: all 0.2s ease;
+  }
+  .filter-tab:hover { border-color: var(--teal); color: var(--teal); }
+  .filter-tab.active { background: var(--teal); color: var(--white); border-color: var(--teal); }
+  .advisor-count { font-size: 14px; color: var(--warm-gray); }
+  .advisor-count span { color: var(--teal); font-weight: 600; }
+
+  /* ─── Advisor grid ─── */
+  .advisors-section {
+    padding: 32px 48px 80px;
+    max-width: 1240px; margin: 0 auto;
+  }
+  .advisor-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+  .advisor-card {
+    background: var(--white);
+    border-radius: 18px;
+    padding: 32px 30px;
+    border: 1px solid rgba(27,58,75,0.08);
+    display: flex; flex-direction: column; gap: 18px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+  }
+  .advisor-card:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(27,58,75,0.1); }
+  .advisor-card.featured { border-color: rgba(200,160,100,0.4); }
+  .featured-badge {
+    position: absolute; top: 18px; right: 18px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+    color: #4a3200; background: var(--gold-soft);
+    padding: 4px 10px; border-radius: 999px;
+  }
+  .advisor-header { display: flex; gap: 16px; align-items: flex-start; }
+  .advisor-avatar {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: var(--cream-soft);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif); font-size: 26px; color: var(--teal);
+    flex-shrink: 0; overflow: hidden;
+    border: 2px solid rgba(27,58,75,0.08);
+  }
+  .advisor-id { flex: 1; }
+  .advisor-name { font-family: var(--serif); font-size: 24px; color: var(--teal); line-height: 1.1; margin-bottom: 4px; }
+  .advisor-title { font-size: 13px; color: var(--warm-gray); line-height: 1.4; }
+  .advisor-creds {
+    display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px;
+  }
+  .cred {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+    padding: 3px 9px; border-radius: 999px;
+    background: var(--cream-soft); color: var(--teal);
+  }
+  .cred.fiduciary { background: rgba(27,58,75,0.08); color: var(--teal); }
+  .cred.expat { background: rgba(201,123,90,0.12); color: var(--terracotta-dark); }
+  .advisor-specialties {
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .specialty-label { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--warm-gray); font-weight: 500; }
+  .specialty-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; }
+  .spec-tag {
+    font-size: 12px; padding: 4px 10px; border-radius: 999px;
+    background: var(--cream-soft); color: var(--teal); font-weight: 500;
+  }
+  .advisor-quote {
+    font-family: var(--serif); font-style: italic;
+    font-size: 16px; line-height: 1.55; color: var(--teal-soft);
+    border-left: 2px solid var(--terracotta); padding-left: 14px;
+  }
+  .advisor-footer {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 16px; border-top: 1px solid rgba(27,58,75,0.07);
+    margin-top: auto;
+  }
+  .advisor-meta { font-size: 13px; color: var(--warm-gray); line-height: 1.5; }
+  .advisor-meta strong { color: var(--teal); font-weight: 600; }
+  .contact-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 11px 22px;
+    background: var(--teal); color: var(--white);
+    border-radius: 999px; text-decoration: none;
+    font-size: 14px; font-weight: 500; font-family: inherit;
+    border: none; cursor: pointer;
+    transition: all 0.2s ease; white-space: nowrap;
+  }
+  .contact-btn:hover { background: var(--terracotta); }
+  .contact-btn .arrow { transition: transform 0.2s ease; }
+  .contact-btn:hover .arrow { transform: translateX(3px); }
+
+  /* Hidden state */
+  .advisor-card[hidden] { display: none; }
+
+  /* ─── SmartAsset catch-all ─── */
+  .catchall {
+    background: var(--cream-soft);
+    padding: 72px 48px;
+  }
+  .catchall-inner {
+    max-width: 860px; margin: 0 auto;
+    background: var(--white);
+    border-radius: 20px; padding: 52px 48px;
+    border: 1px solid rgba(27,58,75,0.08);
+    display: grid; grid-template-columns: 1fr auto;
+    gap: 36px; align-items: center;
+  }
+  .catchall h2 { font-family: var(--serif); font-size: 34px; color: var(--teal); line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 12px; }
+  .catchall h2 em { color: var(--terracotta); font-style: italic; }
+  .catchall p { font-size: 15px; color: var(--teal-soft); line-height: 1.6; }
+  .catchall-cta { display: flex; flex-direction: column; gap: 10px; align-items: flex-end; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 16px 30px;
+    background: var(--teal); color: var(--white);
+    border: none; border-radius: 999px;
+    font-family: var(--sans); font-size: 15px; font-weight: 500;
+    cursor: pointer; transition: all 0.25s ease; text-decoration: none;
+    white-space: nowrap;
+  }
+  .btn-primary:hover { background: var(--terracotta); transform: translateY(-1px); }
+  .btn-primary .arrow { transition: transform 0.25s ease; }
+  .btn-primary:hover .arrow { transform: translateX(4px); }
+  .catchall-partner { font-size: 11px; color: var(--warm-gray); letter-spacing: 0.06em; text-align: right; }
+
+  /* ─── Transparency note ─── */
+  .transparency {
+    padding: 36px 48px;
+    max-width: 1240px; margin: 0 auto;
+  }
+  .transparency p {
+    font-size: 13px; color: var(--warm-gray); line-height: 1.65;
+    max-width: 720px; padding: 18px 20px;
+    background: var(--cream-soft); border-radius: 10px;
+    border: 1px solid rgba(27,58,75,0.07);
+  }
+  .transparency p strong { color: var(--teal); }
+
+  /* ─── Footer ─── */
+  .footer { padding: 48px 48px 36px; border-top: 1px solid rgba(27,58,75,0.08); background: var(--cream-soft); }
+  .footer-inner { max-width: 1240px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+  .footer-tag { font-family: var(--serif); font-style: italic; color: var(--terracotta); font-size: 16px; }
+  .footer-links { display: flex; gap: 28px; }
+  .footer-links a { color: var(--warm-gray); text-decoration: none; font-size: 14px; }
+  .footer-links a:hover { color: var(--teal); }
+  .footer-meta { font-size: 12px; color: var(--warm-gray); text-align: center; margin-top: 24px; max-width: 1240px; margin-left: auto; margin-right: auto; }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 980px) {
+    .nav { padding: 14px 22px; }
+    .nav-links { gap: 18px; }
+    .nav-links a:not(.nav-cta) { display: none; }
+    .hero { padding: 56px 22px 48px; }
+    .hero h1 { font-size: 40px; }
+    .criteria-band { padding: 44px 22px; }
+    .criteria-inner { grid-template-columns: 1fr; gap: 28px; }
+    .criteria-list { grid-template-columns: 1fr 1fr; }
+    .filter-row { padding: 32px 22px 0; }
+    .advisors-section { padding: 24px 22px 64px; }
+    .advisor-grid { grid-template-columns: 1fr; }
+    .catchall { padding: 48px 22px; }
+    .catchall-inner { grid-template-columns: 1fr; padding: 36px 28px; }
+    .catchall-cta { align-items: flex-start; }
+    .transparency { padding: 28px 22px; }
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 32px; }
+    .criteria-list { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav class="nav">
+  <a class="wordmark" href="homepage-mockup.html">Retire<em>Vibes</em></a>
+  <div class="nav-links">
+    <a href="homepage-mockup.html#destinations">Destinations</a>
+    <a href="homepage-mockup.html#how">How it works</a>
+    <a href="find-an-advisor.html">Find an advisor</a>
+    <a href="my-retirevibes.html">My RetireVibes</a>
+    <a href="results-page-mockup.html" class="nav-cta">Take the quiz →</a>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <p class="hero-kicker">RetireVibes · Advisor network</p>
+  <h1>Advisors who actually know <em>retirement</em>.</h1>
+  <p class="hero-sub">Every advisor on this page is a fiduciary, has a CFP designation, and specializes in retirement — not a generalist who fits it in between college savings accounts and business insurance. Filter by what fits your situation.</p>
+</section>
+
+<!-- ─── VETTING CRITERIA ─── -->
+<section class="criteria-band">
+  <div class="criteria-inner">
+    <h2 class="criteria-headline">How we <em>vet</em> every advisor on this page.</h2>
+    <div class="criteria-list">
+      <div class="criterion">
+        <div class="criterion-icon">⚖️</div>
+        <h4>Fiduciary at all times</h4>
+        <p>Legally obligated to act in your interest — not their firm's.</p>
+      </div>
+      <div class="criterion">
+        <div class="criterion-icon">📜</div>
+        <h4>CFP designation</h4>
+        <p>Certified Financial Planner — a meaningful baseline of training and ethics standards.</p>
+      </div>
+      <div class="criterion">
+        <div class="criterion-icon">🎯</div>
+        <h4>Retirement specialist</h4>
+        <p>Retirement is the primary focus of their practice — not a service line among many.</p>
+      </div>
+      <div class="criterion">
+        <div class="criterion-icon">✓</div>
+        <h4>Verified client history</h4>
+        <p>Real client track record in the situation you're actually planning for.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FILTER ─── -->
+<div class="filter-row" id="filterRow">
+  <div class="filter-tabs">
+    <button class="filter-tab active" data-filter="all" onclick="setFilter('all')">All advisors</button>
+    <button class="filter-tab" data-filter="international" onclick="setFilter('international')">Retiring abroad</button>
+    <button class="filter-tab" data-filter="domestic" onclick="setFilter('domestic')">Staying in the US</button>
+  </div>
+  <div class="advisor-count">Showing <span id="visibleCount">4</span> advisors</div>
+</div>
+
+<!-- ─── ADVISOR GRID ─── -->
+<section class="advisors-section">
+  <div class="advisor-grid" id="advisorGrid">
+
+    <!-- INTERNATIONAL #1 -->
+    <article class="advisor-card featured" data-type="international">
+      <div class="featured-badge">Featured</div>
+      <div class="advisor-header">
+        <div class="advisor-avatar">RH</div>
+        <div class="advisor-id">
+          <div class="advisor-name">Rebecca Holt</div>
+          <div class="advisor-title">CFP®, CRPC® · Horizon Global Financial · Austin, TX</div>
+          <div class="advisor-creds">
+            <span class="cred fiduciary">Fiduciary</span>
+            <span class="cred expat">Expat specialist</span>
+            <span class="cred">Fee-only</span>
+          </div>
+        </div>
+      </div>
+      <div class="advisor-specialties">
+        <span class="specialty-label">Clients retiring in</span>
+        <div class="specialty-tags">
+          <span class="spec-tag">🇵🇹 Portugal</span>
+          <span class="spec-tag">🇲🇽 Mexico</span>
+          <span class="spec-tag">🇪🇸 Spain</span>
+          <span class="spec-tag">🇨🇷 Costa Rica</span>
+        </div>
+      </div>
+      <p class="advisor-quote">"Americans retiring internationally need someone who understands both sides of the border — the US tax obligations don't stop, and the new country's rules add a layer most advisors aren't trained for."</p>
+      <div class="advisor-footer">
+        <div class="advisor-meta">
+          <strong>14 years</strong> specializing in expat retirement<br>
+          Remote consultations · Licensed in TX, CA, FL
+        </div>
+        <button class="contact-btn" onclick="openContactModal('Rebecca Holt')">Get in touch <span class="arrow">→</span></button>
+      </div>
+    </article>
+
+    <!-- INTERNATIONAL #2 -->
+    <article class="advisor-card featured" data-type="international">
+      <div class="featured-badge">Featured</div>
+      <div class="advisor-header">
+        <div class="advisor-avatar">JN</div>
+        <div class="advisor-id">
+          <div class="advisor-name">James Nakamura</div>
+          <div class="advisor-title">CFP®, CPA · Pacific Crossroads Wealth · Seattle, WA</div>
+          <div class="advisor-creds">
+            <span class="cred fiduciary">Fiduciary</span>
+            <span class="cred expat">Expat specialist</span>
+            <span class="cred">Fee-only</span>
+          </div>
+        </div>
+      </div>
+      <div class="advisor-specialties">
+        <span class="specialty-label">Clients retiring in</span>
+        <div class="specialty-tags">
+          <span class="spec-tag">🇵🇹 Portugal</span>
+          <span class="spec-tag">🇲🇽 Mexico</span>
+          <span class="spec-tag">🇹🇭 Thailand</span>
+          <span class="spec-tag">🇨🇴 Colombia</span>
+        </div>
+      </div>
+      <p class="advisor-quote">"The CPA background is the difference. Most advisors can tell you when to claim Social Security. I can also tell you how your RMDs will interact with your FBAR obligations and what to do about it before you move."</p>
+      <div class="advisor-footer">
+        <div class="advisor-meta">
+          <strong>18 years</strong> in international tax & retirement<br>
+          Remote consultations · Licensed in WA, OR, CA, NY
+        </div>
+        <button class="contact-btn" onclick="openContactModal('James Nakamura')">Get in touch <span class="arrow">→</span></button>
+      </div>
+    </article>
+
+    <!-- DOMESTIC #1 -->
+    <article class="advisor-card featured" data-type="domestic">
+      <div class="featured-badge">Featured</div>
+      <div class="advisor-header">
+        <div class="advisor-avatar">CS</div>
+        <div class="advisor-id">
+          <div class="advisor-name">Carol Simmons</div>
+          <div class="advisor-title">CFP®, RICP® · Sunbelt Retirement Advisors · Tampa, FL</div>
+          <div class="advisor-creds">
+            <span class="cred fiduciary">Fiduciary</span>
+            <span class="cred">Retirement income</span>
+            <span class="cred">Fee-only</span>
+          </div>
+        </div>
+      </div>
+      <div class="advisor-specialties">
+        <span class="specialty-label">Specializes in moves to</span>
+        <div class="specialty-tags">
+          <span class="spec-tag">🌴 Florida</span>
+          <span class="spec-tag">⛰️ North Carolina</span>
+          <span class="spec-tag">🌊 South Carolina</span>
+          <span class="spec-tag">🎵 Tennessee</span>
+        </div>
+      </div>
+      <p class="advisor-quote">"The difference between retiring in Florida and North Carolina isn't just weather — it's thousands of dollars a year in state tax treatment. These decisions are permanent. Getting them right before you move is the whole game."</p>
+      <div class="advisor-footer">
+        <div class="advisor-meta">
+          <strong>16 years</strong> in retirement income planning<br>
+          In-person (Tampa) + remote · Licensed in FL, NC, SC, TN
+        </div>
+        <button class="contact-btn" onclick="openContactModal('Carol Simmons')">Get in touch <span class="arrow">→</span></button>
+      </div>
+    </article>
+
+    <!-- DOMESTIC #2 -->
+    <article class="advisor-card featured" data-type="domestic">
+      <div class="featured-badge">Featured</div>
+      <div class="advisor-header">
+        <div class="advisor-avatar">MT</div>
+        <div class="advisor-id">
+          <div class="advisor-name">Michael Torres</div>
+          <div class="advisor-title">CFP®, ChFC® · Mountain West Financial · Denver, CO</div>
+          <div class="advisor-creds">
+            <span class="cred fiduciary">Fiduciary</span>
+            <span class="cred">Long-term care</span>
+            <span class="cred">Fee-only</span>
+          </div>
+        </div>
+      </div>
+      <div class="advisor-specialties">
+        <span class="specialty-label">Specializes in moves to</span>
+        <div class="specialty-tags">
+          <span class="spec-tag">🏔️ Colorado</span>
+          <span class="spec-tag">🌵 Arizona</span>
+          <span class="spec-tag">⛰️ North Carolina</span>
+          <span class="spec-tag">🌴 Florida</span>
+        </div>
+      </div>
+      <p class="advisor-quote">"My clients are usually 8–10 years out when we first talk. That runway is the most valuable thing you have — it's when Roth conversions, Medicare planning, and Social Security timing decisions can actually move the needle."</p>
+      <div class="advisor-footer">
+        <div class="advisor-meta">
+          <strong>12 years</strong> in pre-retirement planning<br>
+          In-person (Denver) + remote · Licensed in CO, AZ, NC, FL
+        </div>
+        <button class="contact-btn" onclick="openContactModal('Michael Torres')">Get in touch <span class="arrow">→</span></button>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ─── SMARTASSET CATCH-ALL ─── -->
+<section class="catchall">
+  <div class="catchall-inner">
+    <div>
+      <h2>Don't see the right fit? <em>We'll match you.</em></h2>
+      <p>Our featured advisors cover the most common retirement situations. If your picture is more complex — or you just want more options — SmartAsset's matching tool connects you with fiduciary advisors based on your specific situation and location. Free, and no obligation to commit.</p>
+    </div>
+    <div class="catchall-cta">
+      <a class="btn-primary" href="https://www.smartasset.com/retirement/retirement-calculator" target="_blank" rel="noopener">Find more advisors <span class="arrow">→</span></a>
+      <span class="catchall-partner">via SmartAsset · Free matching</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TRANSPARENCY ─── -->
+<div class="transparency">
+  <p><strong>How this page works:</strong> Featured advisors have paid for placement on RetireVibes. That doesn't change what we require of them — every advisor listed is a fiduciary, holds a CFP designation, and specializes in retirement. We also earn a referral fee from SmartAsset for matched leads. We never recommend advisors we wouldn't send our own parents to — but you should always do your own due diligence.</p>
+</div>
+
+<!-- ─── FOOTER ─── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <a class="wordmark" href="homepage-mockup.html" style="font-size:20px;">Retire<em>Vibes</em></a>
+      <p style="font-family:var(--serif); font-style:italic; color:var(--terracotta); font-size:16px;">Good RetireVibes only.</p>
+    </div>
+    <div class="footer-links">
+      <a href="homepage-mockup.html#destinations">Destinations</a>
+      <a href="homepage-mockup.html#how">How it works</a>
+      <a href="find-an-advisor.html">Find an advisor</a>
+      <a href="scouting-trip.html">Scouting trips</a>
+      <a href="my-retirevibes.html">My RetireVibes</a>
+    </div>
+  </div>
+  <p class="footer-meta">RetireVibes is not a financial advisor. Nothing on this page constitutes financial, tax, or legal advice. For retirement planning, talk to a licensed fiduciary.</p>
+</footer>
+
+<!-- ─── CONTACT MODAL ─── -->
+<style>
+  .modal-overlay {
+    position: fixed; inset: 0;
+    background: rgba(27,58,75,0.55); backdrop-filter: blur(8px);
+    z-index: 100; display: none; align-items: center; justify-content: center; padding: 24px;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-card {
+    background: var(--cream); border-radius: 20px;
+    max-width: 500px; width: 100%; padding: 48px 44px 40px;
+    position: relative; box-shadow: 0 24px 60px rgba(27,58,75,0.25);
+    animation: modalRise 0.4s cubic-bezier(0.22,1,0.36,1);
+  }
+  @keyframes modalRise { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  .modal-close {
+    position: absolute; top: 18px; right: 18px;
+    width: 36px; height: 36px; border: none; background: transparent;
+    color: var(--warm-gray); font-size: 24px; cursor: pointer; border-radius: 50%; line-height: 1; transition: all 0.2s ease;
+  }
+  .modal-close:hover { background: rgba(27,58,75,0.06); color: var(--teal); }
+  .modal-eyebrow { font-size: 11px; color: var(--warm-gray); text-transform: uppercase; letter-spacing: 0.18em; font-weight: 500; margin-bottom: 10px; }
+  .modal-title { font-family: var(--serif); font-size: 32px; color: var(--teal); line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 12px; }
+  .modal-title em { color: var(--terracotta); font-style: italic; }
+  .modal-sub { font-size: 15px; color: var(--teal-soft); line-height: 1.55; margin-bottom: 24px; }
+  .modal-input {
+    width: 100%; padding: 14px 16px;
+    border: 1px solid rgba(27,58,75,0.18); border-radius: 10px;
+    font-family: inherit; font-size: 15px; color: var(--teal);
+    margin-bottom: 12px; background: var(--white); transition: all 0.2s ease;
+  }
+  .modal-input:focus { outline: none; border-color: var(--terracotta); box-shadow: 0 0 0 3px rgba(201,123,90,0.15); }
+  .modal-submit {
+    width: 100%; padding: 15px 24px;
+    background: var(--teal); color: var(--white); border: none; border-radius: 10px;
+    font-family: inherit; font-size: 15px; font-weight: 500; cursor: pointer; transition: all 0.2s ease;
+  }
+  .modal-submit:hover { background: var(--terracotta); }
+  .modal-fineprint { font-size: 12px; color: var(--warm-gray); margin-top: 14px; line-height: 1.5; }
+  .modal-success { text-align: center; padding: 12px 0; }
+  .modal-success-icon { width: 60px; height: 60px; border-radius: 50%; background: var(--gold-soft); color: var(--teal); font-size: 28px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
+  @media (max-width: 480px) { .modal-card { padding: 36px 24px 28px; } .modal-title { font-size: 26px; } }
+</style>
+
+<div class="modal-overlay" id="contactModal" role="dialog" aria-modal="true">
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeContactModal()" aria-label="Close">×</button>
+    <div id="contactForm">
+      <p class="modal-eyebrow">Get in touch</p>
+      <h2 class="modal-title" id="contactModalTitle">Connect with <em>Rebecca Holt</em>.</h2>
+      <p class="modal-sub">Leave your name, email, and a quick note about where you're hoping to retire. The advisor will reach out within one business day.</p>
+      <form onsubmit="submitContact(event)">
+        <input type="text" placeholder="Your name" required class="modal-input" autocomplete="name" />
+        <input type="email" placeholder="your@email.com" required class="modal-input" autocomplete="email" />
+        <input type="text" placeholder="Where are you hoping to retire? (e.g. Porto, Portugal)" class="modal-input" />
+        <button type="submit" class="modal-submit">Send introduction →</button>
+      </form>
+      <p class="modal-fineprint">No commitment. The advisor will follow up to schedule a free introductory call.</p>
+    </div>
+    <div id="contactSuccess" hidden>
+      <div class="modal-success">
+        <div class="modal-success-icon">✓</div>
+        <p class="modal-eyebrow">Sent</p>
+        <h2 class="modal-title">You're connected.</h2>
+        <p class="modal-sub">Expect a reply within one business day to schedule your introductory call. No commitment — just a conversation.</p>
+        <button class="modal-submit" onclick="closeContactModal()">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ─── Filter logic ───
+  function setFilter(type) {
+    document.querySelectorAll('.filter-tab').forEach(t => {
+      t.classList.toggle('active', t.dataset.filter === type);
+    });
+    const cards = document.querySelectorAll('.advisor-card');
+    let visible = 0;
+    cards.forEach(card => {
+      const show = type === 'all' || card.dataset.type === type;
+      card.hidden = !show;
+      if (show) visible++;
+    });
+    document.getElementById('visibleCount').textContent = visible;
+  }
+
+  // ─── Pre-select from URL param ───
+  document.addEventListener('DOMContentLoaded', function() {
+    const params = new URLSearchParams(window.location.search);
+    const type = params.get('type');
+    if (type === 'international' || type === 'domestic') {
+      setFilter(type);
+      // Scroll filter row into view gently
+      setTimeout(function() {
+        document.getElementById('filterRow').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 300);
+    }
+  });
+
+  // ─── Contact modal ───
+  let _contactAdvisor = '';
+  function openContactModal(advisorName) {
+    _contactAdvisor = advisorName;
+    document.getElementById('contactModalTitle').innerHTML = 'Connect with <em>' + advisorName + '</em>.';
+    document.getElementById('contactForm').hidden = false;
+    document.getElementById('contactSuccess').hidden = true;
+    document.getElementById('contactModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeContactModal() {
+    document.getElementById('contactModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function submitContact(e) {
+    e.preventDefault();
+    document.getElementById('contactForm').hidden = true;
+    document.getElementById('contactSuccess').hidden = false;
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('contactModal');
+    if (modal) {
+      modal.addEventListener('click', function(e) { if (e.target === modal) closeContactModal(); });
+      document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && modal.classList.contains('open')) closeContactModal(); });
+    }
+  });
+</script>
+<script src="shared.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Plan Your Porto Scouting Trip — RetireVibes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="shared.css" />
+<style>
+  :root {
+    --cream: #FBF6EE;
+    --cream-soft: #F4ECDD;
+    --terracotta: #C97B5A;
+    --terracotta-dark: #A8593A;
+    --teal: #1B3A4B;
+    --teal-soft: #2E5468;
+    --gold: #C8A064;
+    --gold-soft: #E4C998;
+    --sage: #93A89A;
+    --warm-gray: #7A6E5F;
+    --white: #FFFFFF;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: var(--cream);
+    color: var(--teal);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── Nav ─────────────────────────────────────────────────── */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 48px;
+    background: rgba(251, 246, 238, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(27, 58, 75, 0.06);
+  }
+  .wordmark {
+    font-family: var(--serif);
+    font-size: 24px;
+    color: var(--teal);
+    letter-spacing: -0.01em;
+    text-decoration: none;
+  }
+  .wordmark em { color: var(--terracotta); font-style: normal; }
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-links a {
+    color: var(--teal);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .nav-links a:hover { color: var(--terracotta); }
+  .nav-cta {
+    padding: 12px 22px;
+    background: var(--teal);
+    color: var(--white) !important;
+    border-radius: 999px;
+    font-size: 14px;
+    transition: all 0.25s ease;
+  }
+  .nav-cta:hover { background: var(--terracotta); }
+
+  /* ─── Hero ───────────────────────────────────────────────── */
+  .hero {
+    position: relative;
+    min-height: 640px;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 48px 72px;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=2000&q=80');
+    background-size: cover;
+    background-position: center 40%;
+  }
+  .hero-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(27,58,75,0.08) 0%, rgba(27,58,75,0.72) 100%);
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 760px;
+  }
+  .hero-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 18px;
+    background: rgba(251, 246, 238, 0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+    margin-bottom: 22px;
+    backdrop-filter: blur(6px);
+  }
+  .hero-kicker::before {
+    content: "";
+    display: inline-block;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--gold-soft);
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: 68px;
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+  .hero h1 em { font-style: italic; color: var(--gold-soft); }
+  .hero-sub {
+    font-size: 19px;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.82);
+    max-width: 580px;
+    margin-bottom: 32px;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 36px;
+    background: var(--terracotta);
+    color: var(--white);
+    border: none;
+    border-radius: 999px;
+    font-family: var(--sans);
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-decoration: none;
+  }
+  .btn-primary:hover { background: var(--terracotta-dark); transform: translateY(-1px); }
+  .btn-primary .arrow { transition: transform 0.25s ease; }
+  .btn-primary:hover .arrow { transform: translateX(4px); }
+  .hero-partner {
+    margin-top: 14px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.06em;
+  }
+
+  /* ─── Why scout ──────────────────────────────────────────── */
+  .why {
+    background: var(--cream-soft);
+    padding: 96px 48px;
+  }
+  .why-inner { max-width: 1240px; margin: 0 auto; }
+  .section-label {
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    font-weight: 500;
+    margin-bottom: 14px;
+  }
+  .section-headline {
+    font-family: var(--serif);
+    font-size: 46px;
+    color: var(--teal);
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+    margin-bottom: 16px;
+  }
+  .section-headline em { color: var(--terracotta); font-style: italic; }
+  .section-sub {
+    font-size: 18px;
+    color: var(--teal-soft);
+    line-height: 1.6;
+    max-width: 640px;
+    margin-bottom: 56px;
+  }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .why-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 32px 28px;
+    border: 1px solid rgba(27, 58, 75, 0.06);
+  }
+  .why-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    background: var(--cream-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 18px;
+  }
+  .why-card h3 {
+    font-family: var(--serif);
+    font-size: 24px;
+    color: var(--teal);
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+  .why-card p {
+    font-size: 15px;
+    color: var(--teal-soft);
+    line-height: 1.65;
+  }
+
+  /* ─── Itinerary ──────────────────────────────────────────── */
+  .itinerary {
+    padding: 96px 48px;
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+  .itinerary-header { margin-bottom: 56px; }
+  .days {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .day {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 30px 28px;
+    border: 1px solid rgba(27, 58, 75, 0.07);
+    display: flex;
+    gap: 22px;
+    align-items: flex-start;
+    transition: transform 0.3s ease;
+  }
+  .day:hover { transform: translateY(-3px); }
+  .day.full-width { grid-column: 1 / -1; }
+  .day-num {
+    flex-shrink: 0;
+    width: 46px; height: 46px;
+    border-radius: 50%;
+    background: var(--terracotta);
+    color: var(--white);
+    font-family: var(--serif);
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .day-num.gold { background: var(--gold); color: #4a3200; }
+  .day-content { flex: 1; }
+  .day-label {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .day-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--teal);
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .day-body {
+    font-size: 15px;
+    color: var(--teal-soft);
+    line-height: 1.65;
+  }
+  .day-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+  }
+  .day-tag {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--cream-soft);
+    color: var(--teal);
+    font-weight: 500;
+  }
+  .day-tag.accent { background: rgba(201, 123, 90, 0.12); color: var(--terracotta-dark); }
+
+  /* ─── What to check ──────────────────────────────────────── */
+  .checklist-section {
+    background: var(--teal);
+    padding: 96px 48px;
+  }
+  .checklist-inner { max-width: 1240px; margin: 0 auto; }
+  .checklist-section .section-label { color: rgba(255,255,255,0.5); }
+  .checklist-section .section-headline { color: var(--white); }
+  .checklist-section .section-headline em { color: var(--gold-soft); }
+  .checklist-section .section-sub { color: rgba(255,255,255,0.7); }
+  .check-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .check-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 32px 28px;
+  }
+  .check-card-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .check-icon {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .check-card h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--white);
+    line-height: 1.2;
+  }
+  .check-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.78);
+    line-height: 1.5;
+  }
+  .check-list li::before {
+    content: "→";
+    color: var(--gold-soft);
+    font-size: 13px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ─── Where to stay ──────────────────────────────────────── */
+  .stay-section {
+    padding: 96px 48px;
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+  .stay-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 32px;
+    align-items: start;
+    margin-top: 48px;
+  }
+  .stay-photo {
+    border-radius: 18px;
+    overflow: hidden;
+    height: 460px;
+    background-image: url('https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=900&q=80');
+    background-size: cover;
+    background-position: center 30%;
+    position: relative;
+  }
+  .stay-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(0,0,0,0.4) 100%);
+    border-radius: 18px;
+  }
+  .stay-photo-cap {
+    position: absolute;
+    bottom: 20px;
+    left: 22px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.8);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    z-index: 1;
+  }
+  .stay-content { display: flex; flex-direction: column; gap: 22px; }
+  .stay-rec-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    font-weight: 500;
+  }
+  .stay-rec {
+    background: var(--cream-soft);
+    border-radius: 14px;
+    padding: 24px 22px;
+    border-left: 3px solid var(--terracotta);
+  }
+  .stay-rec h4 {
+    font-family: var(--serif);
+    font-size: 20px;
+    color: var(--teal);
+    margin-bottom: 8px;
+  }
+  .stay-rec p {
+    font-size: 14px;
+    color: var(--teal-soft);
+    line-height: 1.6;
+  }
+  .stay-tip {
+    font-size: 14px;
+    color: var(--teal-soft);
+    line-height: 1.65;
+    padding: 18px 20px;
+    background: var(--white);
+    border-radius: 12px;
+    border: 1px solid rgba(27, 58, 75, 0.08);
+  }
+  .stay-tip strong { color: var(--teal); font-weight: 600; }
+  .stay-cta-block {
+    background: var(--teal);
+    border-radius: 16px;
+    padding: 28px 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .stay-cta-block h4 {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--white);
+    line-height: 1.2;
+  }
+  .stay-cta-block p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.55;
+  }
+  .booking-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 26px;
+    background: var(--gold);
+    color: #3a2800;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    align-self: flex-start;
+  }
+  .booking-btn:hover { background: var(--gold-soft); transform: translateY(-1px); }
+  .partner-note {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.04em;
+  }
+
+  /* ─── Also worth doing ───────────────────────────────────── */
+  .also-section {
+    background: var(--cream-soft);
+    padding: 80px 48px;
+  }
+  .also-inner { max-width: 1240px; margin: 0 auto; }
+  .also-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+  }
+  .also-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 30px 28px;
+    border: 1px solid rgba(27, 58, 75, 0.07);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .also-card .icon-wrap {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    background: var(--cream-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4px;
+  }
+  .also-card h4 {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--teal);
+    line-height: 1.2;
+  }
+  .also-card p {
+    font-size: 14px;
+    color: var(--teal-soft);
+    line-height: 1.6;
+    flex: 1;
+  }
+  .also-card .cta-link {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--terracotta);
+    text-decoration: none;
+    margin-top: 6px;
+  }
+  .also-card .cta-link:hover { color: var(--terracotta-dark); }
+  .also-card .partner { font-size: 11px; color: var(--warm-gray); }
+
+  /* ─── Footer ─────────────────────────────────────────────── */
+  .footer {
+    padding: 48px 48px 36px;
+    border-top: 1px solid rgba(27, 58, 75, 0.08);
+    background: var(--cream);
+  }
+  .footer-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .footer-tag { font-family: var(--serif); font-style: italic; color: var(--terracotta); font-size: 16px; }
+  .footer-links { display: flex; gap: 28px; }
+  .footer-links a { color: var(--warm-gray); text-decoration: none; font-size: 14px; }
+  .footer-links a:hover { color: var(--teal); }
+  .footer-meta { font-size: 12px; color: var(--warm-gray); text-align: center; margin-top: 24px; max-width: 1240px; margin-left: auto; margin-right: auto; }
+
+  /* ─── Responsive ─────────────────────────────────────────── */
+  @media (max-width: 980px) {
+    .nav { padding: 14px 22px; }
+    .nav-links { gap: 18px; }
+    .nav-links a:not(.nav-cta) { display: none; }
+    .hero { padding: 0 22px 56px; min-height: 520px; }
+    .hero h1 { font-size: 44px; }
+    .hero-sub { font-size: 17px; }
+    .why, .itinerary, .stay-section, .also-section, .checklist-section { padding-left: 22px; padding-right: 22px; }
+    .why-grid, .check-grid, .also-grid { grid-template-columns: 1fr; }
+    .also-grid { grid-template-columns: 1fr; }
+    .days { grid-template-columns: 1fr; }
+    .day.full-width { grid-column: 1; }
+    .stay-grid { grid-template-columns: 1fr; }
+    .stay-photo { height: 280px; }
+    .section-headline { font-size: 32px; }
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 34px; }
+    .section-headline { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav class="nav">
+  <a class="wordmark" href="homepage-mockup.html">Retire<em>Vibes</em></a>
+  <div class="nav-links">
+    <a href="homepage-mockup.html#destinations">Destinations</a>
+    <a href="homepage-mockup.html#how">How it works</a>
+    <a href="find-an-advisor.html">Find an advisor</a>
+    <a href="my-retirevibes.html">My RetireVibes</a>
+    <a href="results-page-mockup.html" class="nav-cta">Take the quiz →</a>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-kicker">Your #1 match · Porto, Portugal</div>
+    <h1>Your <em>7-day</em> Porto scouting trip.</h1>
+    <p class="hero-sub">Before you sign anything, rent anything, or tell anyone — spend a week living there. Walk the neighborhoods. Eat where locals eat. See if the vibe holds up in person.</p>
+    <div style="display:flex; flex-wrap:wrap; gap:14px; align-items:center;">
+      <a class="btn-primary" href="https://www.booking.com/searchresults.html?ss=Porto%2C+Portugal" target="_blank" rel="noopener">Find places to stay <span class="arrow">→</span></a>
+      <a class="btn-primary" href="https://www.expedia.com/lp/flights/us/pt/porto" target="_blank" rel="noopener" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.35); backdrop-filter: blur(6px);">Book flights to Porto <span class="arrow">→</span></a>
+    </div>
+    <p class="hero-partner">Accommodation via Booking.com · Flights via Expedia</p>
+  </div>
+</section>
+
+<!-- ─── WHY SCOUT ─── -->
+<section class="why">
+  <div class="why-inner">
+    <p class="section-label">Before you commit</p>
+    <h2 class="section-headline">The vibe quiz got you here. <em>The scout trip makes it real.</em></h2>
+    <p class="section-sub">You wouldn't buy a car without a test drive. Seven days in Porto is the test drive — and it's one of the better weeks you'll spend this decade.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🧭</div>
+        <h3>The neighborhoods feel different on foot</h3>
+        <p>Foz do Douro, Bonfim, Cedofeita — they read as names on a map. After three days of walking them, you'll know which one is yours. You can't get that from Zillow.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🤝</div>
+        <h3>The expat community will tell you everything</h3>
+        <p>Porto has a large, welcoming community of Americans and Brits who've already done what you're considering. They'll tell you what the relocation guides don't — the good stuff and the annoying stuff.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🔢</div>
+        <h3>The numbers get real</h3>
+        <p>It's one thing to read "~$3,200/mo upscale lifestyle." It's another to spend a week and actually track what you spend on coffee, dinners, groceries, taxis. Reality-check the estimate before you move the money.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ITINERARY ─── -->
+<section class="itinerary">
+  <div class="itinerary-header">
+    <p class="section-label">A loose 7-day framework</p>
+    <h2 class="section-headline">What a good scout trip looks like</h2>
+    <p class="section-sub" style="max-width:580px; margin-top:14px; color:var(--teal-soft); font-size:17px; line-height:1.6;">Not a tourist itinerary — a reconnaissance. The goal is to figure out where you'd actually live, not to hit every wine bar (though you'll hit a few).</p>
+  </div>
+  <div class="days">
+
+    <div class="day">
+      <div class="day-num">1</div>
+      <div class="day-content">
+        <div class="day-label">Arrival day</div>
+        <div class="day-title">Land, orient, do nothing important</div>
+        <p class="day-body">Get in. Find your apartment. Walk to dinner — somewhere within ten minutes of where you're staying, just to see if you can. Notice how the streets feel at night. Sleep well.</p>
+        <div class="day-tags">
+          <span class="day-tag">Arrive & settle</span>
+          <span class="day-tag">First impressions</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-num">2</div>
+      <div class="day-content">
+        <div class="day-label">Day two</div>
+        <div class="day-title">Ribeira & Baixa — the historic heart</div>
+        <p class="day-body">Walk the waterfront, climb to the Clérigos tower, duck into a pastelaria for a pastel de nata. This is tourist Porto. It's beautiful. You're here to see if you can imagine living near it, not in it.</p>
+        <div class="day-tags">
+          <span class="day-tag">Historic center</span>
+          <span class="day-tag">Get your bearings</span>
+          <span class="day-tag accent">Try: Mercado do Bolhão</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-num">3</div>
+      <div class="day-content">
+        <div class="day-label">Day three</div>
+        <div class="day-title">Foz do Douro — where the expats live</div>
+        <p class="day-body">Take the tram west along the river to where the Douro meets the Atlantic. Foz is leafy, calm, walkable, and where a lot of the American and British retiree community has settled. Have lunch at a café and eavesdrop. Find the nearest supermarket and do a real grocery shop.</p>
+        <div class="day-tags">
+          <span class="day-tag">Coastal neighborhood</span>
+          <span class="day-tag">Expat-heavy</span>
+          <span class="day-tag accent">Grocery shop here</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-num">4</div>
+      <div class="day-content">
+        <div class="day-label">Day four</div>
+        <div class="day-title">Bonfim & Cedofeita — the local Porto</div>
+        <p class="day-body">These two neighborhoods are where Portuenses actually live. Less polished, more real — independent bookshops, neighborhood tascas, families on the street. If Foz feels too quiet or too expat-bubble, this is your answer.</p>
+        <div class="day-tags">
+          <span class="day-tag">Local neighborhoods</span>
+          <span class="day-tag">More affordable</span>
+          <span class="day-tag accent">Try: Taberna do Largo</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-num">5</div>
+      <div class="day-content">
+        <div class="day-label">Day five</div>
+        <div class="day-title">Healthcare day</div>
+        <p class="day-body">Visit a private clinic or hospital (Hospital da Luz Porto or CUF Porto) and ask about expat registrations, private insurance plans, and SNS access for residents. Talk to a pharmacist — they're extraordinarily helpful and most speak English. This is the unsexy part of the trip and the most important one.</p>
+        <div class="day-tags">
+          <span class="day-tag">Healthcare research</span>
+          <span class="day-tag accent">Book ahead if possible</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-num">6</div>
+      <div class="day-content">
+        <div class="day-label">Day six</div>
+        <div class="day-title">Douro Valley day trip — lifestyle test</div>
+        <p class="day-body">Rent a car or join a small tour and spend the day in the Douro. Terraced vineyards, quintas, wine at noon. This is what a Tuesday in retirement could look like. Notice how 90 minutes from your apartment feels like a different world entirely.</p>
+        <div class="day-tags">
+          <span class="day-tag">Day trip</span>
+          <span class="day-tag">Wine country</span>
+          <span class="day-tag accent">~€40–80 for a tour</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="day full-width">
+      <div class="day-num gold">7</div>
+      <div class="day-content">
+        <div class="day-label">Final day — the real estate & community debrief</div>
+        <div class="day-title">Walk apartments, meet the community, make your notes</div>
+        <p class="day-body">If you haven't already, book a viewing of two or three apartments in the neighborhoods you liked most. Not to buy — just to understand what €250K or €1,100/mo actually gets you. Then find the local expat meetup (Porto Expats on Facebook is active) or a coffee morning, and talk to people who've done this. They'll answer every question you didn't think to ask. Spend the evening writing down what surprised you — good and bad. That list is worth more than any guide.</p>
+        <div class="day-tags">
+          <span class="day-tag">Apartment viewings</span>
+          <span class="day-tag">Expat community</span>
+          <span class="day-tag">Debrief & reflect</span>
+          <span class="day-tag accent">Porto Expats on Facebook</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── WHAT TO CHECK ─── -->
+<section class="checklist-section">
+  <div class="checklist-inner">
+    <p class="section-label">Your scouting checklist</p>
+    <h2 class="section-headline">What to look for <em>beyond the obvious</em></h2>
+    <p class="section-sub">The views will impress you. These are the things that actually determine whether it works.</p>
+    <div class="check-grid">
+
+      <div class="check-card">
+        <div class="check-card-header">
+          <div class="check-icon">🏘️</div>
+          <h3>Neighborhoods</h3>
+        </div>
+        <ul class="check-list">
+          <li>Can you walk to a café, a pharmacy, and a supermarket from your prospective street?</li>
+          <li>How does the neighborhood feel at 7am? At 9pm on a Tuesday?</li>
+          <li>Are there hills you'd need to navigate daily? (Porto has steep ones.)</li>
+          <li>Is public transit — bus or metro — within a 10-minute walk?</li>
+          <li>What's the noise situation? Street noise, bars, construction?</li>
+        </ul>
+      </div>
+
+      <div class="check-card">
+        <div class="check-card-header">
+          <div class="check-icon">🏥</div>
+          <h3>Healthcare</h3>
+        </div>
+        <ul class="check-list">
+          <li>Locate your nearest private clinic and get a sense of wait times and English availability.</li>
+          <li>Ask at a pharmacy about prescription coverage for expat residents.</li>
+          <li>Find out the process for registering with the SNS (national health system) once you have residency.</li>
+          <li>Check if your prospective neighborhood has a health center (Centro de Saúde).</li>
+          <li>Understand the difference between SNS access and private insurance — most expats do both.</li>
+        </ul>
+      </div>
+
+      <div class="check-card">
+        <div class="check-card-header">
+          <div class="check-icon">🌍</div>
+          <h3>Expat & social life</h3>
+        </div>
+        <ul class="check-list">
+          <li>Attend at least one expat event or coffee morning — even briefly.</li>
+          <li>Ask where English-language services are: churches, book clubs, running clubs.</li>
+          <li>Are there other people your age who've made this move? Talk to two or three of them.</li>
+          <li>Find out which neighborhoods the community gravitates to and why.</li>
+          <li>Ask what they wish they'd known before arriving.</li>
+        </ul>
+      </div>
+
+      <div class="check-card">
+        <div class="check-card-header">
+          <div class="check-icon">📊</div>
+          <h3>Real costs</h3>
+        </div>
+        <ul class="check-list">
+          <li>Track what you actually spend each day — don't estimate, log it.</li>
+          <li>Price a week of groceries at a local market and at Continente or Pingo Doce (the main supermarkets).</li>
+          <li>Note what eating out costs at different levels: pastelaria, tasca, nice restaurant.</li>
+          <li>Get a real quote from 2–3 private health insurance providers.</li>
+          <li>Ask your accommodation host what utilities run per month.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHERE TO STAY ─── -->
+<section class="stay-section">
+  <p class="section-label">Where to base yourself</p>
+  <h2 class="section-headline">Don't stay in a hotel. <em>Stay like a resident.</em></h2>
+
+  <div class="stay-grid">
+    <div class="stay-photo">
+      <div class="stay-photo-cap">Foz do Douro, Porto</div>
+    </div>
+    <div class="stay-content">
+      <div>
+        <p class="stay-rec-label">Our recommendation</p>
+      </div>
+      <div class="stay-rec">
+        <h4>A furnished apartment in Foz or Bonfim</h4>
+        <p>Book a full apartment — not a hotel room — for at least a week. Cooking a few meals, doing a grocery run, and walking to the same café two mornings in a row tells you more about whether you could live somewhere than any itinerary ever could.</p>
+      </div>
+      <div class="stay-tip">
+        <strong>What to budget:</strong> A good apartment in Foz or Cedofeita typically runs €80–€150/night on Booking.com. For a week, that's roughly €600–€1,100 total — call it part of the due diligence budget.
+      </div>
+      <div class="stay-tip">
+        <strong>Tip:</strong> Search for "apartamento" or "apartment" rather than "hotel" to find self-catering options. Look for places with a kitchen, a washing machine, and ideally a balcony. Bonus if it's on a quiet street in the neighborhood you most want to try.
+      </div>
+      <div class="stay-cta-block">
+        <h4>Find your scouting base in Porto</h4>
+        <p>Search apartments, aparthotels, and guesthouses. Filter by neighborhood, amenities, and dates that work for you.</p>
+        <a class="booking-btn" href="https://www.booking.com/searchresults.html?ss=Porto%2C+Portugal&nflt=ht_id%3D201" target="_blank" rel="noopener">
+          Search Porto on Booking.com →
+        </a>
+        <span class="partner-note">You'll leave RetireVibes — Booking.com opens in a new tab</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ALSO WORTH DOING ─── -->
+<section class="also-section">
+  <div class="also-inner">
+    <p class="section-label">While you're planning</p>
+    <h2 class="section-headline">Two more things worth doing in parallel</h2>
+    <div class="also-grid">
+      <div class="also-card">
+        <div class="icon-wrap">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B3A4B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h4>Talk to a retirement advisor</h4>
+        <p>The scouting trip tells you if Porto feels right. A retirement advisor tells you if the numbers work. Find a fiduciary who specializes in international retirement — they'll know Portugal's NHR tax regime, Social Security implications, and how to structure the move financially.</p>
+        <a class="cta-link" href="#">Find an advisor →</a>
+        <span class="partner">via SmartAsset</span>
+      </div>
+      <div class="also-card">
+        <div class="icon-wrap">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B3A4B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <h4>Book your flights to Porto</h4>
+        <p>Francisco Sá Carneiro Airport (OPO) has direct connections from major US hubs via TAP Air Portugal and connecting routes through Lisbon, London, and Amsterdam. Book early — transatlantic fares to Portugal move fast in spring and fall.</p>
+        <a class="cta-link" href="https://www.expedia.com/lp/flights/us/pt/porto" target="_blank" rel="noopener">Search flights to Porto →</a>
+        <span class="partner">via Expedia</span>
+      </div>
+      <div class="also-card">
+        <div class="icon-wrap">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B3A4B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l9-9 9 9"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+        </div>
+        <h4>Browse real listings before you go</h4>
+        <p>Looking at actual properties before your scouting trip sets your expectations accurately and makes your apartment viewings more focused. Idealista is the main platform — filter by Foz, Bonfim, or Cedofeita and get a feel for what your budget actually buys.</p>
+        <a class="cta-link" href="https://www.idealista.pt/en/comprar-casas/porto/" target="_blank" rel="noopener">Browse Porto homes on Idealista →</a>
+        <span class="partner">via Idealista</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <a class="wordmark" href="../homepage-mockup.html" style="font-size:20px;">Retire<em>Vibes</em></a>
+      <p class="footer-tag">Good RetireVibes only.</p>
+    </div>
+    <div class="footer-links">
+      <a href="homepage-mockup.html#destinations">Destinations</a>
+      <a href="homepage-mockup.html#how">How it works</a>
+      <a href="find-an-advisor.html">Find an advisor</a>
+      <a href="scouting-trip.html">Scouting trips</a>
+      <a href="my-retirevibes.html">My RetireVibes</a>
+    </div>
+  </div>
+  <p class="footer-meta">RetireVibes is not a financial advisor. Cost estimates are illustrative; for retirement planning, talk to a fiduciary. Accommodation links go to Booking.com — we may earn a referral fee at no cost to you.</p>
+</footer>
+<script src="shared.js"></script>
+
+</body>
+</html>

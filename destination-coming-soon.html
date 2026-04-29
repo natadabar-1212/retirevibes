@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Destination — RetireVibes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --cream: #FBF6EE; --cream-soft: #F4ECDD;
+    --terracotta: #C97B5A; --terracotta-dark: #A8593A;
+    --teal: #1B3A4B; --teal-soft: #2E5468;
+    --gold: #C8A064; --gold-soft: #E4C998;
+    --sage: #93A89A; --warm-gray: #7A6E5F; --white: #FFFFFF;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--cream); color: var(--teal); font-family: var(--sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+  .nav { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; padding: 18px 48px; background: rgba(251, 246, 238, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(27, 58, 75, 0.06); }
+  .wordmark { font-family: var(--serif); font-size: 24px; color: var(--teal); letter-spacing: -0.01em; text-decoration: none; }
+  .wordmark em { color: var(--terracotta); font-style: normal; }
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-links a { color: var(--teal); text-decoration: none; font-size: 15px; font-weight: 500; }
+  .nav-links a:hover { color: var(--terracotta); }
+  .nav-cta { padding: 12px 22px; background: var(--teal); color: var(--white) !important; border-radius: 999px; font-size: 14px; transition: all 0.25s ease; }
+  .nav-cta:hover { background: var(--terracotta); }
+
+  .hero { position: relative; min-height: 540px; display: flex; align-items: flex-end; overflow: hidden; padding: 80px 48px 60px; }
+  .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; background-color: var(--sage); }
+  .hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(27, 58, 75, 0) 0%, rgba(27, 58, 75, 0.18) 50%, rgba(27, 58, 75, 0.78) 100%); }
+  .hero-inner { position: relative; z-index: 2; width: 100%; max-width: 1240px; margin: 0 auto; color: var(--white); }
+  .back-link { display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; margin-bottom: 28px; transition: color 0.2s ease; }
+  .back-link:hover { color: var(--gold-soft); }
+  .hero-flag { display: inline-block; background: rgba(251, 246, 238, 0.18); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.18); padding: 6px 14px; border-radius: 999px; font-size: 13px; margin-bottom: 18px; }
+  .hero-title { font-family: var(--serif); font-size: 84px; line-height: 0.96; letter-spacing: -0.025em; margin-bottom: 18px; }
+  .hero-tagline { font-family: var(--serif); font-style: italic; font-size: 22px; line-height: 1.35; color: rgba(255,255,255,0.92); max-width: 640px; margin-bottom: 28px; }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .save-btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 26px; background: rgba(251, 246, 238, 0.96); color: var(--teal); border: none; border-radius: 999px; font-family: var(--sans); font-size: 15px; font-weight: 500; cursor: pointer; transition: all 0.25s ease; }
+  .save-btn:hover { background: var(--white); transform: translateY(-1px); }
+  .save-btn .heart { color: var(--terracotta); font-size: 16px; }
+
+  .stats { background: var(--white); padding: 32px 48px; border-bottom: 1px solid rgba(27, 58, 75, 0.06); }
+  .stats-inner { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .stat-cell:not(:last-child) { border-right: 1px solid rgba(27, 58, 75, 0.08); padding-right: 24px; }
+  .stat-label { font-size: 11px; color: var(--warm-gray); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 6px; font-weight: 500; }
+  .stat-value { font-family: var(--serif); font-size: 22px; color: var(--teal); line-height: 1.2; }
+  .stat-sub { font-size: 12px; color: var(--warm-gray); margin-top: 2px; }
+
+  .coming-soon-section { padding: 96px 48px; max-width: 880px; margin: 0 auto; text-align: center; }
+  .cs-eyebrow { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--warm-gray); font-weight: 500; margin-bottom: 16px; }
+  .cs-headline { font-family: var(--serif); font-size: 42px; line-height: 1.15; color: var(--teal); letter-spacing: -0.018em; margin-bottom: 22px; }
+  .cs-headline em { color: var(--terracotta); font-style: italic; }
+  .cs-body { font-size: 17px; color: var(--teal-soft); line-height: 1.65; margin-bottom: 36px; max-width: 640px; margin-left: auto; margin-right: auto; }
+  .cs-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; background: var(--teal); color: var(--white); border: none; border-radius: 999px; font-family: inherit; font-size: 15px; font-weight: 500; cursor: pointer; transition: all 0.25s ease; text-decoration: none; }
+  .btn-primary:hover { background: var(--terracotta); transform: translateY(-1px); }
+  .btn-secondary { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; background: transparent; color: var(--teal); border: 1px solid rgba(27, 58, 75, 0.18); border-radius: 999px; font-family: inherit; font-size: 15px; font-weight: 500; cursor: pointer; transition: all 0.25s ease; text-decoration: none; }
+  .btn-secondary:hover { border-color: var(--terracotta); color: var(--terracotta); }
+
+  .footer { padding: 48px 48px 36px; border-top: 1px solid rgba(27, 58, 75, 0.08); background: var(--cream-soft); margin-top: 60px; }
+  .footer-inner { max-width: 1240px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+  .footer-tag { font-family: var(--serif); font-style: italic; color: var(--terracotta); font-size: 16px; margin-top: 4px; }
+  .footer-links { display: flex; gap: 28px; }
+  .footer-links a { color: var(--warm-gray); text-decoration: none; font-size: 14px; }
+  .footer-links a:hover { color: var(--teal); }
+  .footer-meta { font-size: 12px; color: var(--warm-gray); text-align: center; margin-top: 24px; max-width: 760px; margin-left: auto; margin-right: auto; line-height: 1.55; }
+
+  @media (max-width: 980px) {
+    .nav { padding: 14px 22px; } .nav-links { gap: 18px; } .nav-links a:not(.nav-cta) { display: none; }
+    .hero { padding: 60px 22px 50px; min-height: 460px; } .hero-title { font-size: 56px; } .hero-tagline { font-size: 18px; }
+    .stats { padding: 24px 22px; } .stats-inner { grid-template-columns: 1fr; gap: 16px; }
+    .stat-cell:not(:last-child) { border-right: none; padding-right: 0; padding-bottom: 16px; border-bottom: 1px solid rgba(27, 58, 75, 0.08); }
+    .coming-soon-section { padding: 64px 22px; } .cs-headline { font-size: 30px; }
+    .footer { padding: 36px 22px 28px; } .footer-inner { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 480px) {
+    .hero-title { font-size: 40px; } .hero-tagline { font-size: 16px; } .cs-headline { font-size: 26px; }
+  }
+
+  /* Modal styles (same pattern as other pages) */
+  .modal-overlay { position: fixed; inset: 0; background: rgba(27, 58, 75, 0.55); backdrop-filter: blur(8px); z-index: 100; display: none; align-items: center; justify-content: center; padding: 24px; animation: modalFade 0.3s ease; }
+  .modal-overlay.open { display: flex; }
+  @keyframes modalFade { from { opacity: 0; } to { opacity: 1; } }
+  .modal-card { background: var(--cream); border-radius: 20px; max-width: 520px; width: 100%; padding: 48px 44px 40px; position: relative; box-shadow: 0 24px 60px rgba(27, 58, 75, 0.25); animation: modalRise 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+  @keyframes modalRise { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  .modal-close { position: absolute; top: 18px; right: 18px; width: 36px; height: 36px; border: none; background: transparent; color: var(--warm-gray); font-size: 24px; cursor: pointer; border-radius: 50%; line-height: 1; transition: all 0.2s ease; }
+  .modal-close:hover { background: rgba(27, 58, 75, 0.06); color: var(--teal); }
+  .modal-eyebrow { font-size: 11px; color: var(--warm-gray); text-transform: uppercase; letter-spacing: 0.18em; font-weight: 500; margin-bottom: 12px; }
+  .modal-title { font-family: var(--serif); font-size: 36px; color: var(--teal); line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 14px; }
+  .modal-title em { color: var(--terracotta); font-style: italic; }
+  .modal-sub { font-size: 16px; color: var(--teal-soft); line-height: 1.55; margin-bottom: 28px; }
+  .modal-input { width: 100%; padding: 16px 18px; border: 1px solid rgba(27, 58, 75, 0.18); border-radius: 12px; font-family: inherit; font-size: 16px; color: var(--teal); margin-bottom: 14px; background: var(--white); transition: all 0.2s ease; }
+  .modal-input:focus { outline: none; border-color: var(--terracotta); box-shadow: 0 0 0 3px rgba(201, 123, 90, 0.15); }
+  .modal-submit { width: 100%; padding: 16px 24px; background: var(--teal); color: var(--white); border: none; border-radius: 12px; font-family: inherit; font-size: 16px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; }
+  .modal-submit:hover { background: var(--terracotta); }
+  .modal-fineprint { font-size: 12px; color: var(--warm-gray); margin-top: 16px; line-height: 1.5; }
+  .modal-success-block { text-align: center; padding: 8px 0 4px; }
+  .modal-success-icon { width: 64px; height: 64px; border-radius: 50%; background: var(--gold-soft); color: var(--teal); font-size: 32px; display: flex; align-items: center; justify-content: center; margin: 0 auto 22px; }
+  @media (max-width: 480px) { .modal-card { padding: 36px 26px 26px; } .modal-title { font-size: 28px; } .modal-close { top: 12px; right: 12px; } }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="wordmark" href="homepage-mockup.html">Retire<em>Vibes</em></a>
+  <div class="nav-links">
+    <a href="homepage-mockup.html#how">How it works</a>
+    <a href="homepage-mockup.html#destinations">Destinations</a>
+    <a href="#">Inspiration</a>
+    <a href="my-retirevibes.html">My RetireVibes</a>
+    <a href="mockups/vibe-quiz.html" class="nav-cta">Find my RetireVibes →</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-inner">
+    <a href="javascript:history.back()" class="back-link">← Back</a>
+    <span class="hero-flag" id="heroFlag">🌍 Destination</span>
+    <h1 class="hero-title" id="heroTitle">Destination</h1>
+    <p class="hero-tagline" id="heroTagline">More on this place is on the way.</p>
+    <div class="hero-actions">
+      <button class="save-btn" id="saveBtn" data-name="" onclick="toggleSave(this.dataset.name)"><span class="heart">♡</span> <span id="saveBtnLabel">Save this place</span></button>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="stats-inner" id="statsInner"></div>
+</section>
+
+<section class="coming-soon-section">
+  <p class="cs-eyebrow">Coming soon</p>
+  <h2 class="cs-headline" id="csHeadline">The full guide is <em>still in the works</em>.</h2>
+  <p class="cs-body" id="csBody">We're researching the visa rules, the cost-of-living numbers, the best neighborhoods, and the practical stuff that matters for retirees. Save this place to your RetireVibes and we'll let you know when the full guide goes live.</p>
+  <div class="cs-actions">
+    <a href="homepage-mockup.html#destinations" class="btn-secondary">Browse other destinations</a>
+    <a href="my-retirevibes.html" class="btn-primary">See my saved places →</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <a class="wordmark" href="homepage-mockup.html" style="font-size:20px;">Retire<em>Vibes</em></a>
+      <p class="footer-tag">Good RetireVibes only.</p>
+    </div>
+    <div class="footer-links">
+      <a href="homepage-mockup.html#how">How it works</a>
+      <a href="homepage-mockup.html#destinations">Destinations</a>
+      <a href="#">Inspiration</a>
+      <a href="#">About</a>
+      <a href="#">FAQ</a>
+    </div>
+  </div>
+  <p class="footer-meta">RetireVibes is not a financial advisor. Cost estimates are illustrative; for retirement planning, talk to a fiduciary.</p>
+</footer>
+
+<!-- ═══ SAVE MODAL ═══ -->
+<div class="modal-overlay" id="saveModal" role="dialog" aria-modal="true">
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeSaveModal()" aria-label="Close">×</button>
+    <div id="saveForm">
+      <p class="modal-eyebrow">Save your RetireVibes</p>
+      <h2 class="modal-title" id="saveModalTitle">Save <em>this place</em>.</h2>
+      <p class="modal-sub" id="saveModalSub">Just need your email so we can save this for you. No password — come back anytime to see your saved places.</p>
+      <form onsubmit="submitSave(event)">
+        <input type="email" name="email" placeholder="your@email.com" required class="modal-input" autocomplete="email" />
+        <button type="submit" class="modal-submit">Save it →</button>
+      </form>
+      <p class="modal-fineprint">No password to remember. Just save and come back anytime.</p>
+    </div>
+    <div id="saveSuccess" hidden>
+      <div class="modal-success-block">
+        <div class="modal-success-icon">✓</div>
+        <p class="modal-eyebrow">Saved</p>
+        <h2 class="modal-title">All set.</h2>
+        <p class="modal-sub" id="saveSuccessSub">Saved to your RetireVibes. Come back anytime to see everything you're keeping an eye on.</p>
+        <button class="modal-submit" onclick="closeSaveModal()">Keep exploring</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Shared destination metadata — when a destination is added, drop a row here.
+  const RV_DESTINATIONS = {
+    'Lisbon':              { region: 'Portugal · Capital coast',      flag: '🇵🇹 Portugal',                     tagline: 'Brighter, busier, sun-soaked sister to Porto.', cost: '~$3,400/mo', climate: 'Mild Mediterranean', timezone: 'UTC+0/+1', photo: 'https://images.unsplash.com/photo-1588535536833-89e6a30bb273?auto=format&fit=crop&w=2200&q=85' },
+    'San Sebastián':       { region: 'Spain · Basque coast',          flag: '🇪🇸 Spain',                        tagline: 'Pintxo bars, surf beach in the city, a green Atlantic.', cost: '~$3,800/mo', climate: 'Mild Atlantic', timezone: 'UTC+1/+2', photo: 'https://images.unsplash.com/photo-1551269901-5c5e14c25df7?auto=format&fit=crop&w=2200&q=85' },
+    'Cascais':             { region: 'Portugal · Lisbon coast',       flag: '🇵🇹 Portugal',                     tagline: 'Smaller, beachier, sailboat-y. The quiet upscale option.', cost: '~$3,000/mo', climate: 'Mild Mediterranean', timezone: 'UTC+0/+1', photo: 'https://images.unsplash.com/photo-1583416750470-a44d72e6b58a?auto=format&fit=crop&w=2200&q=85' },
+    'Oaxaca City':         { region: 'Mexico · Highland colonial',    flag: '🇲🇽 Mexico',                       tagline: 'Cooler altitude, foodie capital of Mexico, smaller than Mérida.', cost: '~$2,200/mo', climate: 'Highland mild', timezone: 'UTC−6', photo: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=2200&q=85' },
+    'San Miguel de Allende': { region: 'Mexico · Highland colonial',  flag: '🇲🇽 Mexico',                       tagline: 'Pricier, more Americans, gorgeous. Mild year-round.', cost: '~$2,800/mo', climate: 'Highland mild', timezone: 'UTC−6', photo: 'https://images.unsplash.com/photo-1568659178027-acd35f07c4a3?auto=format&fit=crop&w=2200&q=85' },
+    'Cuenca':              { region: 'Ecuador · Andean colonial',     flag: '🇪🇨 Ecuador',                      tagline: 'UNESCO old city, year-round spring, uses US dollars.', cost: '~$1,800/mo', climate: 'Highland spring', timezone: 'UTC−5', photo: 'https://images.unsplash.com/photo-1558642084-fd07fae5282e?auto=format&fit=crop&w=2200&q=85' },
+    'Naples':              { region: 'Florida · Gulf coast',          flag: '🇺🇸 United States',                tagline: 'Pricier, golfier, slightly more polished Florida.', cost: '~$5,400/mo', climate: 'Subtropical', timezone: 'UTC−5', photo: 'https://images.unsplash.com/photo-1582408921715-18e7806365c1?auto=format&fit=crop&w=2200&q=85' },
+    'Charleston':          { region: 'South Carolina · Atlantic',     flag: '🇺🇸 United States',                tagline: 'More history, more humidity, fewer hurricanes (relatively).', cost: '~$4,200/mo', climate: 'Humid subtropical', timezone: 'UTC−5', photo: 'https://images.unsplash.com/photo-1610715671870-83f06adcadbe?auto=format&fit=crop&w=2200&q=85' },
+    'Boulder':             { region: 'Colorado · Foothills',          flag: '🇺🇸 United States',                tagline: 'Pricier, drier, sunnier. Same outdoor-and-arts energy as Asheville.', cost: '~$5,200/mo', climate: 'Semi-arid mountain', timezone: 'UTC−7', photo: 'https://images.unsplash.com/photo-1602081957921-9137a5d6eaee?auto=format&fit=crop&w=2200&q=85' },
+    'Bend':                { region: 'Oregon · High desert',          flag: '🇺🇸 United States',                tagline: 'Smaller, more remote, world-class outdoors.', cost: '~$4,200/mo', climate: 'High-desert', timezone: 'UTC−8/−7', photo: 'https://images.unsplash.com/photo-1562533733-fed5da4404bd?auto=format&fit=crop&w=2200&q=85' },
+    'Burlington':          { region: 'Vermont · Lake Champlain',      flag: '🇺🇸 United States',                tagline: 'Smaller, colder, lake-side. Same walkable-arts-foodie energy.', cost: '~$3,800/mo', climate: 'Cold continental', timezone: 'UTC−5', photo: 'https://images.unsplash.com/photo-1571687949921-1306bfb24b72?auto=format&fit=crop&w=2200&q=85' },
+    'Chiang Mai':          { region: 'Northern Thailand · Cultural',  flag: '🇹🇭 Thailand',                     tagline: 'Temples, mountain mist, and a cost of living that quietly rewrites what you thought possible.', cost: '~$1,400/mo', climate: 'Tropical', timezone: 'UTC+7', photo: 'https://images.unsplash.com/photo-1598935898639-81586f7d2129?auto=format&fit=crop&w=2200&q=85' },
+    'Medellín':            { region: 'Colombia · City of Eternal Spring', flag: '🇨🇴 Colombia',                tagline: '70-degree mornings every day, flowers everywhere, a city reborn.', cost: '~$2,000/mo', climate: 'Eternal spring', timezone: 'UTC−5', photo: 'https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=2200&q=85' }
+  };
+
+  // Read the destination from URL ?name=X and populate the page
+  function getDestinationName() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('name');
+  }
+
+  function renderDestination() {
+    const name = getDestinationName();
+    const data = name ? RV_DESTINATIONS[name] : null;
+
+    if (!data) {
+      document.getElementById('heroTitle').textContent = 'Destination not found';
+      document.getElementById('heroTagline').textContent = "We don't have this one in the system yet.";
+      document.getElementById('heroFlag').style.display = 'none';
+      document.getElementById('saveBtn').style.display = 'none';
+      document.getElementById('statsInner').innerHTML = '';
+      document.getElementById('csHeadline').innerHTML = 'No match for that destination.';
+      document.getElementById('csBody').textContent = "Browse our destinations or take the vibe quiz to discover places that fit who you are.";
+      return;
+    }
+
+    // Hero
+    document.title = name + ' — RetireVibes';
+    document.getElementById('heroTitle').textContent = name;
+    document.getElementById('heroTagline').textContent = data.tagline;
+    document.getElementById('heroFlag').textContent = data.flag + ' · ' + data.region;
+    document.getElementById('heroBg').style.backgroundImage = "url('" + data.photo + "')";
+    document.getElementById('saveBtn').dataset.name = name;
+    document.getElementById('saveBtnLabel').textContent = 'Save ' + name;
+
+    // Stats — 3 cells (cost, climate, time zone)
+    document.getElementById('statsInner').innerHTML =
+      '<div class="stat-cell"><div class="stat-label">Climate</div><div class="stat-value">' + data.climate + '</div></div>' +
+      '<div class="stat-cell"><div class="stat-label">Time zone</div><div class="stat-value">' + data.timezone + '</div></div>' +
+      '<div class="stat-cell"><div class="stat-label">Monthly cost</div><div class="stat-value">' + data.cost + '</div><div class="stat-sub">Upscale lifestyle</div></div>';
+
+    // Coming soon copy
+    document.getElementById('csHeadline').innerHTML = 'The full <em>' + name + '</em> guide is still in the works.';
+    document.getElementById('csBody').textContent = "We're researching the visa rules, the cost-of-living numbers, the best neighborhoods, and the practical stuff that matters for retirees. Save " + name + " to your RetireVibes and we'll let you know when the full guide goes live.";
+  }
+
+  // ─── Save logic (same pattern as other destination pages) ───────
+  let _saveContext = {};
+  function openSaveModal(context) {
+    _saveContext = context || {};
+    const modal = document.getElementById('saveModal');
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    const titleEl = document.getElementById('saveModalTitle');
+    const subEl = document.getElementById('saveModalSub');
+    const successSub = document.getElementById('saveSuccessSub');
+    if (_saveContext.type === 'first-save' && _saveContext.name) {
+      titleEl.innerHTML = 'Save <em>' + _saveContext.name + '</em>.';
+      subEl.textContent = "Just need your email so we can save " + _saveContext.name + " for you. No password — come back anytime to see your saved places.";
+      successSub.textContent = _saveContext.name + " is saved to your RetireVibes. Come back anytime to see everything you're keeping an eye on.";
+    }
+    document.getElementById('saveForm').hidden = false;
+    document.getElementById('saveSuccess').hidden = true;
+  }
+  function closeSaveModal() { document.getElementById('saveModal').classList.remove('open'); document.body.style.overflow = ''; }
+  function submitSave(e) {
+    e.preventDefault();
+    const email = e.target.email.value;
+    let saved = {};
+    try { saved = JSON.parse(localStorage.getItem('rv_saved') || '{}'); } catch(err) {}
+    const wasNewAccount = !saved.email;
+    saved.email = email;
+    if (wasNewAccount) saved.account_created_at = new Date().toISOString();
+    saved.saved_at = new Date().toISOString();
+    if (_saveContext.type === 'first-save' && _saveContext.name) {
+      saved.destinations = saved.destinations || [];
+      if (!saved.destinations.includes(_saveContext.name)) saved.destinations.push(_saveContext.name);
+    }
+    try { localStorage.setItem('rv_saved', JSON.stringify(saved)); } catch(err) {}
+    document.getElementById('saveForm').hidden = true;
+    document.getElementById('saveSuccess').hidden = false;
+    refreshSaveBtn();
+  }
+  function toggleSave(name) {
+    if (!name) return;
+    let saved = {};
+    try { saved = JSON.parse(localStorage.getItem('rv_saved') || '{}'); } catch(e) {}
+    if (!saved.email) { openSaveModal({type:'first-save', name: name}); return; }
+    saved.destinations = saved.destinations || [];
+    if (saved.destinations.includes(name)) { saved.destinations = saved.destinations.filter(d => d !== name); }
+    else { saved.destinations.push(name); }
+    try { localStorage.setItem('rv_saved', JSON.stringify(saved)); } catch(e) {}
+    refreshSaveBtn();
+  }
+  function refreshSaveBtn() {
+    let saved = {};
+    try { saved = JSON.parse(localStorage.getItem('rv_saved') || '{}'); } catch(e) {}
+    const dests = saved.destinations || [];
+    const btn = document.getElementById('saveBtn');
+    if (!btn) return;
+    const name = btn.dataset.name;
+    if (!name) return;
+    if (dests.includes(name)) { btn.innerHTML = '<span class="heart">✓</span> Saved'; }
+    else { btn.innerHTML = '<span class="heart">♡</span> Save ' + name; }
+  }
+
+  // Wire modal close behavior + initial render
+  document.addEventListener('DOMContentLoaded', function() {
+    renderDestination();
+    refreshSaveBtn();
+    const modal = document.getElementById('saveModal');
+    if (modal) {
+      modal.addEventListener('click', function(e) { if (e.target === modal) closeSaveModal(); });
+      document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && modal.classList.contains('open')) closeSaveModal(); });
+    }
+  });
+</script>
+
+</body>
+</html>

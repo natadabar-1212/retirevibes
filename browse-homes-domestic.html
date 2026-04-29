@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Browse Homes in the US — Retirement Real Estate Guide — RetireVibes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --cream: #FBF6EE;
+    --cream-soft: #F4ECDD;
+    --terracotta: #C97B5A;
+    --terracotta-dark: #A8593A;
+    --teal: #1B3A4B;
+    --teal-soft: #2E5468;
+    --gold: #C8A064;
+    --gold-soft: #E4C998;
+    --sage: #93A89A;
+    --warm-gray: #7A6E5F;
+    --white: #FFFFFF;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: var(--cream);
+    color: var(--teal);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── Nav ─────────────────────────────────────────────────── */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 48px;
+    background: rgba(251, 246, 238, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(27, 58, 75, 0.06);
+  }
+  .wordmark {
+    font-family: var(--serif);
+    font-size: 24px;
+    color: var(--teal);
+    letter-spacing: -0.01em;
+    text-decoration: none;
+  }
+  .wordmark em { color: var(--terracotta); font-style: normal; }
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-links a {
+    color: var(--teal);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .nav-links a:hover { color: var(--terracotta); }
+  .nav-cta {
+    padding: 12px 22px;
+    background: var(--teal);
+    color: var(--white) !important;
+    border-radius: 999px;
+    font-size: 14px;
+    transition: all 0.25s ease;
+  }
+  .nav-cta:hover { background: var(--terracotta); }
+
+  /* ─── Hero ───────────────────────────────────────────────── */
+  .hero {
+    position: relative;
+    min-height: 620px;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 48px 72px;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=2000&q=80');
+    background-size: cover;
+    background-position: center 40%;
+  }
+  .hero-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(170deg, rgba(27,58,75,0.05) 0%, rgba(27,58,75,0.78) 100%);
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 760px;
+  }
+  .hero-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 18px;
+    background: rgba(251, 246, 238, 0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+    margin-bottom: 22px;
+    backdrop-filter: blur(6px);
+  }
+  .hero-kicker::before {
+    content: "";
+    display: inline-block;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--gold-soft);
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: 64px;
+    line-height: 1.03;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+  .hero h1 em { font-style: italic; color: var(--gold-soft); }
+  .hero-sub {
+    font-size: 19px;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.82);
+    max-width: 560px;
+    margin-bottom: 36px;
+  }
+  .hero-btns { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 36px;
+    background: var(--terracotta);
+    color: var(--white);
+    border-radius: 999px;
+    font-family: var(--sans);
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.25s ease;
+  }
+  .btn-primary:hover { background: var(--terracotta-dark); transform: translateY(-1px); }
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 17px 30px;
+    background: rgba(255,255,255,0.12);
+    color: var(--white);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 999px;
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.25s ease;
+  }
+  .btn-ghost:hover { background: rgba(255,255,255,0.2); }
+
+  /* ─── Section shared ─────────────────────────────────────── */
+  .section-label {
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    font-weight: 500;
+    margin-bottom: 14px;
+  }
+  .section-headline {
+    font-family: var(--serif);
+    font-size: 46px;
+    color: var(--teal);
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    margin-bottom: 16px;
+  }
+  .section-headline em { color: var(--terracotta); font-style: italic; }
+  .section-sub {
+    font-size: 18px;
+    color: var(--teal-soft);
+    line-height: 1.6;
+    max-width: 640px;
+    margin-bottom: 56px;
+  }
+
+  /* ─── Destination compare ────────────────────────────────── */
+  .dest-compare {
+    background: var(--cream-soft);
+    padding: 96px 48px;
+  }
+  .dest-compare-inner { max-width: 1240px; margin: 0 auto; }
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+  .compare-card {
+    background: var(--white);
+    border-radius: 18px;
+    padding: 36px 32px;
+    border: 1px solid rgba(27,58,75,0.07);
+  }
+  .compare-flag {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 10px;
+  }
+  .compare-name {
+    font-family: var(--serif);
+    font-size: 34px;
+    color: var(--teal);
+    letter-spacing: -0.015em;
+    margin-bottom: 6px;
+  }
+  .compare-tagline {
+    font-size: 14px;
+    color: var(--warm-gray);
+    margin-bottom: 22px;
+  }
+  .compare-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .cstat { background: var(--cream-soft); border-radius: 10px; padding: 14px 16px; }
+  .cstat-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--warm-gray); font-weight: 600; margin-bottom: 4px; }
+  .cstat-value { font-family: var(--serif); font-size: 22px; color: var(--teal); letter-spacing: -0.01em; }
+  .cstat-sub { font-size: 11px; color: var(--warm-gray); margin-top: 2px; }
+  .compare-pros {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+  .compare-pros li {
+    font-size: 14px;
+    color: var(--teal-soft);
+    line-height: 1.5;
+    padding-left: 18px;
+    position: relative;
+  }
+  .compare-pros li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--sage);
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .compare-watch {
+    font-size: 13px;
+    color: var(--warm-gray);
+    background: rgba(201,123,90,0.07);
+    border-left: 2px solid var(--terracotta);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 14px;
+    line-height: 1.55;
+  }
+  .compare-watch strong { color: var(--terracotta); }
+  .compare-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--teal);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(27,58,75,0.2);
+    padding-bottom: 2px;
+    transition: all 0.2s ease;
+  }
+  .compare-cta:hover { color: var(--terracotta); border-color: var(--terracotta); }
+
+  /* ─── What to look for ───────────────────────────────────── */
+  .what-to-look {
+    background: var(--teal);
+    padding: 96px 48px;
+  }
+  .what-to-look-inner { max-width: 1240px; margin: 0 auto; }
+  .what-to-look .section-label { color: rgba(255,255,255,0.45); }
+  .what-to-look .section-headline { color: var(--white); }
+  .what-to-look .section-sub { color: rgba(255,255,255,0.7); }
+  .look-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+  .look-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 28px 26px;
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 0 18px;
+  }
+  .look-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .look-content {}
+  .look-title {
+    font-family: var(--serif);
+    font-size: 20px;
+    color: var(--gold-soft);
+    margin-bottom: 8px;
+  }
+  .look-body {
+    font-size: 14px;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.6;
+  }
+
+  /* ─── Rent vs. Buy ───────────────────────────────────────── */
+  .rent-vs-buy {
+    background: var(--cream);
+    padding: 96px 48px;
+  }
+  .rent-vs-buy-inner { max-width: 1240px; margin: 0 auto; }
+  .rvb-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .rvb-card {
+    border-radius: 16px;
+    padding: 38px 34px;
+    border: 1px solid rgba(27,58,75,0.1);
+  }
+  .rvb-card.rent { background: var(--white); }
+  .rvb-card.buy { background: var(--cream-soft); }
+  .rvb-title {
+    font-family: var(--serif);
+    font-size: 30px;
+    color: var(--teal);
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .rvb-subtitle { font-size: 14px; color: var(--warm-gray); font-weight: 500; margin-bottom: 22px; }
+  .rvb-points {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+  .rvb-points li {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--teal-soft);
+    padding-left: 20px;
+    position: relative;
+  }
+  .rvb-card.rent .rvb-points li::before { content: "✓"; position: absolute; left: 0; color: #4A7A5A; font-size: 13px; top: 2px; }
+  .rvb-card.buy .rvb-points li::before { content: "✓"; position: absolute; left: 0; color: var(--terracotta); font-size: 13px; top: 2px; }
+  .rvb-note {
+    font-size: 13px;
+    color: var(--warm-gray);
+    line-height: 1.55;
+    background: rgba(27,58,75,0.04);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+
+  /* ─── Agent tip ───────────────────────────────────────────── */
+  .agent-tip {
+    background: var(--cream-soft);
+    padding: 72px 48px;
+  }
+  .agent-tip-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .agent-tip-text {}
+  .agent-tip-text .section-headline { font-size: 38px; margin-bottom: 18px; }
+  .agent-tip-text p {
+    font-size: 16px;
+    color: var(--teal-soft);
+    line-height: 1.7;
+    margin-bottom: 14px;
+  }
+  .agent-questions {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 30px 28px;
+    border: 1px solid rgba(27,58,75,0.08);
+  }
+  .agent-q-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--teal);
+    margin-bottom: 20px;
+  }
+  .agent-q-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .agent-q-list li {
+    font-size: 14px;
+    color: var(--teal-soft);
+    line-height: 1.5;
+    padding-left: 22px;
+    position: relative;
+    border-bottom: 1px solid rgba(27,58,75,0.06);
+    padding-bottom: 14px;
+  }
+  .agent-q-list li:last-child { border-bottom: none; padding-bottom: 0; }
+  .agent-q-list li::before {
+    content: counter(q-count) ".";
+    counter-increment: q-count;
+    position: absolute;
+    left: 0;
+    font-weight: 600;
+    color: var(--terracotta);
+    font-size: 13px;
+  }
+  .agent-questions { counter-reset: q-count; }
+
+  /* ─── Main CTA ───────────────────────────────────────────── */
+  .main-cta {
+    background: var(--teal);
+    padding: 100px 48px;
+    text-align: center;
+  }
+  .main-cta-inner { max-width: 680px; margin: 0 auto; }
+  .cta-headline {
+    font-family: var(--serif);
+    font-size: 52px;
+    color: var(--white);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin-bottom: 18px;
+  }
+  .cta-headline em { color: var(--gold-soft); font-style: italic; }
+  .cta-sub {
+    font-size: 18px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.6;
+    margin-bottom: 40px;
+  }
+  .cta-btns { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
+  .btn-cream {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 32px;
+    background: var(--cream);
+    color: var(--teal);
+    border-radius: 999px;
+    font-family: var(--sans);
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s ease;
+  }
+  .btn-cream:hover { background: var(--white); transform: translateY(-1px); }
+  .btn-ghost-light {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 17px 28px;
+    background: rgba(255,255,255,0.1);
+    color: var(--white);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 999px;
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.25s ease;
+  }
+  .btn-ghost-light:hover { background: rgba(255,255,255,0.18); }
+  .cta-partner-note {
+    margin-top: 20px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* ─── Also consider ──────────────────────────────────────── */
+  .also {
+    background: var(--cream-soft);
+    padding: 88px 48px;
+  }
+  .also-inner { max-width: 1240px; margin: 0 auto; }
+  .also-headline {
+    font-family: var(--serif);
+    font-size: 40px;
+    color: var(--teal);
+    letter-spacing: -0.015em;
+    margin-bottom: 40px;
+  }
+  .also-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .also-card {
+    background: var(--white);
+    border: 1px solid rgba(27,58,75,0.08);
+    border-radius: 14px;
+    padding: 28px 26px;
+    transition: all 0.25s ease;
+    text-decoration: none;
+    display: block;
+  }
+  .also-card:hover { border-color: rgba(27,58,75,0.18); transform: translateY(-2px); }
+  .also-tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 12px;
+  }
+  .also-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--teal);
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+  .also-desc { font-size: 13px; color: var(--teal-soft); line-height: 1.55; margin-bottom: 16px; }
+  .also-link { font-size: 13px; color: var(--terracotta); font-weight: 500; }
+
+  /* ─── Footer ─────────────────────────────────────────────── */
+  footer { background: #0E2130; padding: 48px; }
+  .footer-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .footer-tag { font-size: 13px; color: rgba(255,255,255,0.35); margin-top: 6px; }
+  .footer-links { display: flex; gap: 28px; flex-wrap: wrap; }
+  .footer-links a { font-size: 14px; color: rgba(255,255,255,0.45); text-decoration: none; }
+  .footer-links a:hover { color: rgba(255,255,255,0.75); }
+  .footer-legal {
+    max-width: 1240px;
+    margin: 32px auto 0;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    font-size: 12px;
+    color: rgba(255,255,255,0.25);
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav class="nav">
+  <a class="wordmark" href="homepage-mockup.html">Retire<em>Vibes</em></a>
+  <div class="nav-links">
+    <a href="homepage-mockup.html#destinations">Destinations</a>
+    <a href="homepage-mockup.html#how">How it works</a>
+    <a href="find-an-advisor.html">Find an advisor</a>
+    <a href="my-retirevibes.html">My RetireVibes</a>
+    <a class="nav-cta" href="results-page-mockup.html">Take the quiz →</a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-kicker">Real Estate Guide · Retiring in the US</div>
+    <h1>Find the right zip code<br>for your <em>next chapter.</em></h1>
+    <p class="hero-sub">The neighborhood matters as much as the city. Here's how to shop smart for retirement real estate — and where to start looking.</p>
+    <div class="hero-btns">
+      <a class="btn-primary" href="https://www.zillow.com/homes/for_rent/?searchQueryState=%7B%22usersSearchTerm%22%3A%22Asheville%2C+NC%22%7D" target="_blank" rel="noopener">
+        Browse listings on Zillow →
+      </a>
+      <a class="btn-ghost" href="homepage-mockup.html#destinations">Back to destinations</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DESTINATION COMPARE ═══ -->
+<section class="dest-compare">
+  <div class="dest-compare-inner">
+    <p class="section-label">Your top matches</p>
+    <h2 class="section-headline">Asheville vs. Sarasota —<br><em>the real differences</em></h2>
+    <p class="section-sub">Both made your list. They're more different than they look on paper — especially when you think about what your day-to-day actually looks like.</p>
+
+    <div class="compare-grid">
+
+      <div class="compare-card">
+        <div class="compare-flag">🌲 North Carolina · Mountain</div>
+        <h3 class="compare-name">Asheville</h3>
+        <p class="compare-tagline">The arts city that doesn't feel like retirement.</p>
+        <div class="compare-stats">
+          <div class="cstat">
+            <div class="cstat-label">Median home</div>
+            <div class="cstat-value">~$430K</div>
+            <div class="cstat-sub">2BR condo or small house</div>
+          </div>
+          <div class="cstat">
+            <div class="cstat-label">Rent (2BR)</div>
+            <div class="cstat-value">~$1,900/mo</div>
+            <div class="cstat-sub">Montford / West Asheville</div>
+          </div>
+          <div class="cstat">
+            <div class="cstat-label">State income tax</div>
+            <div class="cstat-value">4.5%</div>
+            <div class="cstat-sub">Flat rate, NC</div>
+          </div>
+          <div class="cstat">
+            <div class="cstat-label">Monthly cost est.</div>
+            <div class="cstat-value">$3,000–4,000</div>
+            <div class="cstat-sub">Comfortable lifestyle</div>
+          </div>
+        </div>
+        <ul class="compare-pros">
+          <li>Walkable neighborhoods — Montford, West Asheville, North Asheville</li>
+          <li>Best brewery scene per capita in the US, real arts culture, live music every night</li>
+          <li>Four seasons, actual mountains, the Blue Ridge Parkway is your backyard</li>
+          <li>Mission Health + HCA regional system; strong independent practices</li>
+          <li>Lower property taxes than most of Florida (effective rate ~0.6%)</li>
+        </ul>
+        <div class="compare-watch"><strong>Watch for:</strong> Post-Helene flood disclosures. River-adjacent properties are experiencing new flood mapping, higher insurance, and some devaluation. Check FEMA flood zone maps before any offer. Non-river neighborhoods are largely unaffected but prices have softened citywide.</div>
+        <a class="compare-cta" href="destination-asheville.html">Full Asheville guide →</a>
+      </div>
+
+      <div class="compare-card">
+        <div class="compare-flag">🌴 Florida · Gulf Coast</div>
+        <h3 class="compare-name">Sarasota</h3>
+        <p class="compare-tagline">Florida's cultural exception — museums, opera, beach.</p>
+        <div class="compare-stats">
+          <div class="cstat">
+            <div class="cstat-label">Median home</div>
+            <div class="cstat-value">~$520K</div>
+            <div class="cstat-sub">2BR, varies by proximity to water</div>
+          </div>
+          <div class="cstat">
+            <div class="cstat-label">Rent (2BR)</div>
+            <div class="cstat-value">~$2,200/mo</div>
+            <div class="cstat-sub">Downtown / Palmer Ranch</div>
+          </div>
+          <div class="cstat">
+            <div class="cstat-label">State income tax</div>
+            <div class="cstat-value">None</div>
+            <div class="cstat-sub">Florida has no state income tax</div>
+          </div>
+          <div class="cstat">
+            <div class="cstat-label">Monthly cost est.</div>
+            <div class="cstat-value">$3,200–4,500</div>
+            <div class="cstat-sub">Comfortable lifestyle</div>
+          </div>
+        </div>
+        <ul class="compare-pros">
+          <li>No state income tax — meaningful for pension, Social Security, and investment income</li>
+          <li>The Ringling, Selby Gardens, a real opera company — Florida's most cultural city</li>
+          <li>Siesta Key Beach is consistently rated best beach in the US. This is not an exaggeration.</li>
+          <li>Sarasota Memorial Hospital is a strong regional system</li>
+          <li>Homestead exemption up to $50K for permanent residents</li>
+        </ul>
+        <div class="compare-watch"><strong>Watch for:</strong> Homeowners insurance has become significantly more expensive in Florida post-Ian and Idalia. Budget $3,000–6,000+/year for a modest home. Flood insurance is separate and mandatory in flood zones. HOA fees in gated communities can run $400–800+/month — read the documents.</div>
+        <a class="compare-cta" href="destination-sarasota.html">Full Sarasota guide →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHAT TO LOOK FOR ═══ -->
+<section class="what-to-look">
+  <div class="what-to-look-inner">
+    <p class="section-label" style="color:rgba(255,255,255,0.45)">Shop differently for retirement</p>
+    <h2 class="section-headline" style="color:var(--white)">What actually matters when you're <em style="color:var(--gold-soft)">not commuting anymore</em></h2>
+    <p class="section-sub" style="color:rgba(255,255,255,0.7);margin-bottom:48px">Your 35-year-old self cared about schools and commute time. Your future self cares about different things. Here's what to optimize for.</p>
+
+    <div class="look-grid">
+      <div class="look-card">
+        <div class="look-icon">🚶</div>
+        <div class="look-content">
+          <h3 class="look-title">Walkability score 70+</h3>
+          <p class="look-body">The day you don't want to drive to get coffee or groceries is closer than you think. Walk Score is imperfect but it's a useful filter. In Asheville: Montford, West Asheville, Downtown. In Sarasota: Downtown, Southside Village, Gulf Gate. Suburban sprawl is a trap — the independence it feels like now becomes dependence later.</p>
+        </div>
+      </div>
+      <div class="look-card">
+        <div class="look-icon">🏠</div>
+        <div class="look-content">
+          <h3 class="look-title">Single-story or elevator building</h3>
+          <p class="look-body">Stairs are fine now. They may not be fine in 10 years — and your knees make the call, not you. This isn't pessimism, it's what occupational therapists recommend: buy the home that works for you at 75, not 55. In Zillow and Realtor.com, filter for "no steps" or "single story." In condos, verify the elevator situation before you're trapped by maintenance.</p>
+        </div>
+      </div>
+      <div class="look-card">
+        <div class="look-icon">🏥</div>
+        <div class="look-content">
+          <h3 class="look-title">Healthcare within 20 minutes</h3>
+          <p class="look-body">Not just a hospital — a hospital system with cardiac care, orthopedics, and a serious ER. Both Mission Asheville and Sarasota Memorial qualify. But also consider: is your specialist 20 minutes away or two hours? Are there Medicare Advantage networks that cover your preferred providers? Run this math before you fall in love with a property.</p>
+        </div>
+      </div>
+      <div class="look-card">
+        <div class="look-icon">💧</div>
+        <div class="look-content">
+          <h3 class="look-title">Flood zone, wildfire zone, insurance reality</h3>
+          <p class="look-body">Pull the FEMA flood map. Look up the property's flood zone before you ask a single other question. In Florida, assume flood insurance is mandatory in any Zone A or AE designation — and budget for it seriously. In Asheville, post-Helene, check which watershed the property sits in. Beautiful river views often come with a real insurance bill attached.</p>
+        </div>
+      </div>
+      <div class="look-card">
+        <div class="look-icon">🏡</div>
+        <div class="look-content">
+          <h3 class="look-title">HOA fees and what they actually cover</h3>
+          <p class="look-body">A $400/month HOA in a well-run community that includes landscaping, exterior maintenance, and a pool is often reasonable. A $600/month HOA with a deferred reserve fund and pending special assessments is a financial time bomb. Read the reserve study (you're legally entitled to it). Ask what special assessments have been levied in the last five years. This is due diligence, not paranoia.</p>
+        </div>
+      </div>
+      <div class="look-card">
+        <div class="look-icon">📡</div>
+        <div class="look-content">
+          <h3 class="look-title">Real broadband — not "up to" speeds</h3>
+          <p class="look-body">If you're doing telehealth, video calls with family, streaming, or any remote work, you need actual fiber or cable broadband — not DSL dressed up as "high speed." Check what's available at the specific address on getinternetservice.com or the provider's own tool. This varies block by block in older neighborhoods. It's a dealbreaker in rural-adjacent areas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ RENT VS. BUY ═══ -->
+<section class="rent-vs-buy">
+  <div class="rent-vs-buy-inner">
+    <p class="section-label">The decision that sets up everything else</p>
+    <h2 class="section-headline">Rent first, or buy <em>right away?</em></h2>
+    <p class="section-sub">Domestic moves are easier to reverse than international ones, but you can still make an expensive mistake. Here's how to think about it.</p>
+
+    <div class="rvb-grid">
+      <div class="rvb-card rent">
+        <h3 class="rvb-title">Rent for a year first</h3>
+        <p class="rvb-subtitle">Lower risk, faster course-correction</p>
+        <ul class="rvb-points">
+          <li>You discover whether you actually want to live there — not just visit — before you're locked in</li>
+          <li>You learn the neighborhood's real character: noise, neighbors, traffic, weekend energy</li>
+          <li>You shop for a home without a deadline, which means you shop better</li>
+          <li>If it's not right, you leave. The cost is a year's rent. Worth it.</li>
+          <li>Especially useful in Asheville right now — the market is shifting and flood zone maps are still being updated post-Helene</li>
+        </ul>
+        <div class="rvb-note">Month-to-month rentals are available in both cities but at a premium. Negotiate a 12-month lease with a 60-day out clause — landlords sometimes agree, especially on higher-end units.</div>
+      </div>
+      <div class="rvb-card buy">
+        <h3 class="rvb-title">Buy when you're confident</h3>
+        <p class="rvb-subtitle">For the right situation, the right time</p>
+        <ul class="rvb-points">
+          <li>You've spent significant time in the city and know the neighborhood you want</li>
+          <li>You're certain about a long-term (10+ year) commitment — transaction costs eat returns on shorter holds</li>
+          <li>In Florida, the Homestead Exemption and Save Our Homes cap on assessed value increase are real long-term benefits for permanent residents</li>
+          <li>You've worked through the buy vs. rent math with a financial advisor, including insurance, HOA, taxes, and opportunity cost</li>
+          <li>You have 10–20% down and a clear picture of how the mortgage payment fits your retirement income</li>
+        </ul>
+        <div class="rvb-note">Current 30-year rates affect the math significantly. Talk to a fee-only financial advisor about whether paying cash vs. carrying a mortgage makes sense given your specific retirement income structure.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ AGENT TIP ═══ -->
+<section class="agent-tip">
+  <div class="agent-tip-inner">
+    <div class="agent-tip-text">
+      <p class="section-label">Work with the right agent</p>
+      <h2 class="section-headline">Find an agent who actually<br><em>knows retirement buyers</em></h2>
+      <p>Most buyer's agents are fine. The ones who work specifically with retirement-age buyers are better — they know which neighborhoods have the density of services you'll want, which HOAs run well, and which flood-zone disclosures are boilerplate vs. real flags.</p>
+      <p>Ask for referrals from expat or retirement community groups before you Google one. The Zillow Premier Agent badge is a marketing program, not a quality signal. Interview two or three. The right one will ask you as many questions as you ask them.</p>
+    </div>
+    <div class="agent-questions">
+      <h3 class="agent-q-title">Questions to ask every agent</h3>
+      <ul class="agent-q-list">
+        <li>How many retirement-age buyers have you represented in the last two years, and what did they end up buying vs. what they thought they wanted?</li>
+        <li>What's your honest take on the flood / insurance situation in this neighborhood right now?</li>
+        <li>Which HOAs in this area have healthy reserve funds and which should I avoid?</li>
+        <li>Are there any pending special assessments on properties I should know about?</li>
+        <li>What have properties like this actually sold for in the last 90 days — not list price, actual sale price?</li>
+        <li>If I hated this purchase in three years, what's my exit — rental market, resale?</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MAIN CTA ═══ -->
+<section class="main-cta">
+  <div class="main-cta-inner">
+    <p class="section-label" style="color:rgba(255,255,255,0.45)">Start browsing</p>
+    <h2 class="cta-headline">See what's actually<br><em>available right now</em></h2>
+    <p class="cta-sub">Real listings, no lead forms, no pressure. Start with Zillow or Realtor.com — filter for your criteria and see what the market looks like before you talk to anyone.</p>
+    <div class="cta-btns">
+      <a class="btn-cream" href="https://www.zillow.com/homes/for_rent/?searchQueryState=%7B%22usersSearchTerm%22%3A%22Asheville%2C+NC%22%7D" target="_blank" rel="noopener">
+        Browse on Zillow →
+      </a>
+      <a class="btn-ghost-light" href="https://www.realtor.com/realestateandhomes-search/Asheville_NC" target="_blank" rel="noopener">
+        Browse on Realtor.com →
+      </a>
+      <a class="btn-ghost-light" href="https://www.redfin.com/city/55078/FL/Sarasota" target="_blank" rel="noopener">
+        Browse Sarasota on Redfin →
+      </a>
+    </div>
+    <p class="cta-partner-note">We link to Zillow, Realtor.com, and Redfin because they're the most complete US listing platforms. We may earn a referral fee if you connect with an agent through our link.</p>
+  </div>
+</section>
+
+<!-- ═══ ALSO CONSIDER ═══ -->
+<section class="also">
+  <div class="also-inner">
+    <p class="section-label">Don't stop here</p>
+    <h2 class="also-headline">You'll also want these</h2>
+    <div class="also-grid">
+      <a class="also-card" href="advisor-domestic.html">
+        <div class="also-tag">Financial planning</div>
+        <h3 class="also-title">Talk to a retirement advisor</h3>
+        <p class="also-desc">Buy vs. rent math, Social Security timing, Medicare enrollment, how your income structure affects the decision. Get the full picture first.</p>
+        <span class="also-link">Find a retirement advisor →</span>
+      </a>
+      <a class="also-card" href="destination-asheville.html">
+        <div class="also-tag">Deep dive</div>
+        <h3 class="also-title">Full Asheville guide</h3>
+        <p class="also-desc">Cost breakdown, day-in-the-life, neighborhoods, healthcare, what the expat community actually says about living there.</p>
+        <span class="also-link">Read the Asheville guide →</span>
+      </a>
+      <a class="also-card" href="destination-sarasota.html">
+        <div class="also-tag">Deep dive</div>
+        <h3 class="also-title">Full Sarasota guide</h3>
+        <p class="also-desc">Gulf Coast living, cost breakdown, neighborhoods from Southside Village to Palmer Ranch, what residents don't tell you upfront.</p>
+        <span class="also-link">Read the Sarasota guide →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a class="wordmark" href="homepage-mockup.html" style="font-size:20px;">Retire<em>Vibes</em></a>
+      <p class="footer-tag">Good RetireVibes only.</p>
+    </div>
+    <div class="footer-links">
+      <a href="homepage-mockup.html#destinations">Destinations</a>
+      <a href="homepage-mockup.html#how">How it works</a>
+      <a href="find-an-advisor.html">Find an advisor</a>
+      <a href="scouting-trip.html">Scouting trips</a>
+      <a href="my-retirevibes.html">My RetireVibes</a>
+    </div>
+  </div>
+  <p class="footer-legal">© 2025 RetireVibes. For informational and inspirational purposes only. We are not financial advisors, real estate agents, or insurance professionals. Property prices, insurance costs, and market conditions change frequently — verify all figures independently before making any real estate decision. Flood zone information is from FEMA and is subject to revision.</p>
+</footer>
+<script src="shared.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sarasota — RetireVibes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="shared.css" />
+<style>
+  :root {
+    --cream: #FBF6EE;
+    --cream-soft: #F4ECDD;
+    --terracotta: #C97B5A;
+    --terracotta-dark: #A8593A;
+    --teal: #1B3A4B;
+    --teal-soft: #2E5468;
+    --gold: #C8A064;
+    --gold-soft: #E4C998;
+    --sage: #93A89A;
+    --warm-gray: #7A6E5F;
+    --white: #FFFFFF;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--cream); color: var(--teal);
+    font-family: var(--sans); font-size: 16px;
+    line-height: 1.6; -webkit-font-smoothing: antialiased;
+  }
+  /* ─── Nav ────────────────────────────────────────────────── */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 48px;
+    background: rgba(251, 246, 238, 0.92); backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(27, 58, 75, 0.06);
+  }
+  .wordmark { font-family: var(--serif); font-size: 24px; color: var(--teal); letter-spacing: -0.01em; text-decoration: none; }
+  .wordmark em { color: var(--terracotta); font-style: normal; }
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-links a { color: var(--teal); text-decoration: none; font-size: 15px; font-weight: 500; }
+  .nav-links a:hover { color: var(--terracotta); }
+  .nav-cta { padding: 12px 22px; background: var(--teal); color: var(--white) !important; border-radius: 999px; font-size: 14px; transition: all 0.25s ease; }
+  .nav-cta:hover { background: var(--terracotta); }
+
+  /* ─── Hero ───────────────────────────────────────────────── */
+  .hero { position: relative; min-height: 620px; display: flex; align-items: flex-end; overflow: hidden; padding: 80px 48px 60px; }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=2200&q=85');
+    background-size: cover; background-position: center; background-color: #93A89A;
+  }
+  .hero-bg::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(27, 58, 75, 0) 0%, rgba(27, 58, 75, 0.18) 50%, rgba(27, 58, 75, 0.78) 100%);
+  }
+  .hero-inner { position: relative; z-index: 2; width: 100%; max-width: 1240px; margin: 0 auto; color: var(--white); }
+  .back-link { display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; margin-bottom: 28px; transition: color 0.2s ease; }
+  .back-link:hover { color: var(--gold-soft); }
+  .hero-flag { display: inline-block; background: rgba(251, 246, 238, 0.18); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.18); padding: 6px 14px; border-radius: 999px; font-size: 13px; margin-bottom: 18px; }
+  .hero-title { font-family: var(--serif); font-size: 96px; line-height: 0.96; letter-spacing: -0.025em; margin-bottom: 18px; }
+  .hero-tagline { font-family: var(--serif); font-style: italic; font-size: 24px; line-height: 1.35; color: rgba(255,255,255,0.92); max-width: 640px; margin-bottom: 28px; }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .save-btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 26px; background: rgba(251, 246, 238, 0.96); color: var(--teal); border: none; border-radius: 999px; font-family: var(--sans); font-size: 15px; font-weight: 500; cursor: pointer; transition: all 0.25s ease; }
+  .save-btn:hover { background: var(--white); transform: translateY(-1px); }
+  .save-btn .heart { color: var(--terracotta); font-size: 16px; }
+  .share-btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 26px; background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.4); border-radius: 999px; font-family: var(--sans); font-size: 15px; font-weight: 500; cursor: pointer; transition: all 0.25s ease; }
+  .share-btn:hover { background: rgba(255,255,255,0.1); }
+
+  /* ─── Quick stats strip (US flavor: state tax + median home instead of language/time zone) ───── */
+  .stats { background: var(--white); padding: 32px 48px; border-bottom: 1px solid rgba(27, 58, 75, 0.06); }
+  .stats-inner { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; }
+  .stat-cell { text-align: left; }
+  .stat-cell:not(:last-child) { border-right: 1px solid rgba(27, 58, 75, 0.08); padding-right: 24px; }
+  .stat-label { font-size: 11px; color: var(--warm-gray); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 6px; font-weight: 500; }
+  .stat-value { font-family: var(--serif); font-size: 22px; color: var(--teal); line-height: 1.2; }
+  .stat-sub { font-size: 12px; color: var(--warm-gray); margin-top: 2px; }
+
+  /* ─── Section base ───────────────────────────────────────── */
+  section.spread { padding: 96px 48px; max-width: 1240px; margin: 0 auto; }
+  .section-head { margin-bottom: 56px; max-width: 720px; }
+  .section-head .label { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--warm-gray); font-weight: 500; margin-bottom: 14px; display: block; }
+  .section-head h2 { font-family: var(--serif); font-size: 46px; line-height: 1.12; color: var(--teal); letter-spacing: -0.018em; }
+  .section-head h2 em { color: var(--terracotta); font-style: italic; }
+  .section-head p.lead { margin-top: 18px; color: var(--teal-soft); font-size: 18px; line-height: 1.55; }
+
+  /* ─── Vibe match cards ───────────────────────────────────── */
+  .vibe-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .vibe-card { background: var(--white); border: 1px solid rgba(27, 58, 75, 0.08); border-radius: 16px; padding: 32px 30px; transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+  .vibe-card:hover { transform: translateY(-2px); }
+  .vibe-card-icon { width: 44px; height: 44px; border-radius: 50%; background: var(--cream-soft); display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 18px; }
+  .vibe-card h3 { font-family: var(--serif); font-size: 24px; color: var(--teal); line-height: 1.2; margin-bottom: 10px; letter-spacing: -0.01em; }
+  .vibe-card p { font-size: 15px; color: var(--teal-soft); line-height: 1.65; }
+
+  /* ─── A day here ─────────────────────────────────────────── */
+  .day { background: var(--cream-soft); }
+  .day-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center; max-width: 1240px; margin: 0 auto; }
+  .day-image { border-radius: 18px; overflow: hidden; aspect-ratio: 4/5; background-image: url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=1100&q=80'); background-size: cover; background-position: center; box-shadow: 0 18px 40px rgba(27, 58, 75, 0.12); }
+  .day-text h2 { font-family: var(--serif); font-size: 40px; line-height: 1.15; color: var(--teal); letter-spacing: -0.018em; margin-bottom: 22px; }
+  .day-text h2 em { color: var(--terracotta); font-style: italic; }
+  .day-text p { font-size: 17px; color: var(--teal-soft); line-height: 1.7; margin-bottom: 18px; }
+  .day-text p:last-child { margin-bottom: 0; }
+
+  /* ─── Numbers ────────────────────────────────────────────── */
+  .numbers-table { background: var(--white); border: 1px solid rgba(27, 58, 75, 0.08); border-radius: 16px; overflow: hidden; }
+  .numbers-row { display: grid; grid-template-columns: 1fr 1.4fr 1fr 1fr; align-items: center; padding: 22px 28px; border-bottom: 1px solid rgba(27, 58, 75, 0.06); gap: 20px; }
+  .numbers-row:last-child { border-bottom: none; }
+  .numbers-row.head { background: var(--cream-soft); font-size: 11px; color: var(--warm-gray); text-transform: uppercase; letter-spacing: 0.14em; padding: 14px 28px; font-weight: 500; }
+  .numbers-row .cat { font-family: var(--serif); font-size: 18px; color: var(--teal); }
+  .numbers-row .desc { font-size: 14px; color: var(--teal-soft); line-height: 1.5; }
+  .numbers-row .price { font-family: var(--serif); font-size: 18px; color: var(--terracotta-dark); }
+  .numbers-totals { background: var(--teal); color: var(--white); padding: 28px 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; border-radius: 16px; margin-top: 20px; }
+  .totals-cell .totals-label { font-size: 11px; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 8px; }
+  .totals-cell .totals-val { font-family: var(--serif); font-size: 32px; color: var(--gold-soft); letter-spacing: -0.01em; }
+  .totals-cell .totals-note { font-size: 13px; color: rgba(255,255,255,0.6); margin-top: 4px; }
+  .numbers-disclaimer { margin-top: 20px; font-size: 13px; color: var(--warm-gray); line-height: 1.6; max-width: 720px; font-style: italic; }
+
+  /* ─── Practical stuff ────────────────────────────────────── */
+  .practical-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .practical-card { background: var(--white); border: 1px solid rgba(27, 58, 75, 0.08); border-radius: 16px; padding: 28px 26px; }
+  .practical-card .pc-label { font-size: 11px; color: var(--warm-gray); text-transform: uppercase; letter-spacing: 0.14em; font-weight: 500; margin-bottom: 12px; }
+  .practical-card h3 { font-family: var(--serif); font-size: 24px; color: var(--teal); line-height: 1.2; margin-bottom: 12px; letter-spacing: -0.01em; }
+  .practical-card p { font-size: 14px; color: var(--teal-soft); line-height: 1.65; margin-bottom: 12px; }
+  .practical-card a { font-size: 13px; color: var(--terracotta); text-decoration: none; font-weight: 500; }
+  .practical-card a:hover { color: var(--terracotta-dark); }
+
+  /* ─── Handoff ────────────────────────────────────────────── */
+  .handoff { background: var(--teal); color: var(--white); }
+  .handoff .section-head h2 { color: var(--white); }
+  .handoff .section-head h2 em { color: var(--gold-soft); }
+  .handoff .section-head .label { color: var(--gold-soft); }
+  .handoff .section-head p.lead { color: rgba(255,255,255,0.78); }
+  .handoff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .handoff-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 28px 26px; transition: all 0.3s ease; }
+  .handoff-card:hover { background: rgba(255,255,255,0.07); transform: translateY(-2px); }
+  .handoff-card .ho-label { font-size: 11px; color: var(--gold-soft); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 14px; font-weight: 500; }
+  .handoff-card h3 { font-family: var(--serif); font-size: 24px; color: var(--white); margin-bottom: 12px; letter-spacing: -0.01em; line-height: 1.2; }
+  .handoff-card p { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.6; margin-bottom: 18px; }
+  .handoff-card a { font-size: 14px; color: var(--gold-soft); font-weight: 500; text-decoration: none; }
+  .handoff-card a:hover { color: var(--white); }
+
+  /* ─── Similar places ─────────────────────────────────────── */
+  .similar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .similar-card { background: var(--white); border: 1px solid rgba(27, 58, 75, 0.06); border-radius: 16px; overflow: hidden; transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); text-decoration: none; color: inherit; display: block; }
+  .similar-card:hover { transform: translateY(-3px); }
+  .similar-photo { position: relative; height: 200px; background-size: cover; background-position: center; background-color: var(--sage); }
+  .card-save { position: absolute; top: 12px; right: 12px; width: 38px; height: 38px; border-radius: 50%; background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(8px); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 17px; color: var(--warm-gray); z-index: 3; transition: all 0.2s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.12); line-height: 1; }
+  .card-save:hover { color: var(--terracotta); transform: scale(1.06); }
+  .card-save.saved { background: var(--terracotta); color: var(--white); }
+  .similar-body { padding: 22px 22px 24px; }
+  .similar-name { font-family: var(--serif); font-size: 24px; color: var(--teal); line-height: 1.15; margin-bottom: 4px; }
+  .similar-region { font-size: 12px; color: var(--warm-gray); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 10px; }
+  .similar-vibe { font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--teal-soft); line-height: 1.5; }
+
+  /* ─── Footer ─────────────────────────────────────────────── */
+  .footer { padding: 48px 48px 36px; border-top: 1px solid rgba(27, 58, 75, 0.08); background: var(--cream-soft); }
+  .footer-inner { max-width: 1240px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+  .footer-tag { font-family: var(--serif); font-style: italic; color: var(--terracotta); font-size: 16px; margin-top: 4px; }
+  .footer-links { display: flex; gap: 28px; }
+  .footer-links a { color: var(--warm-gray); text-decoration: none; font-size: 14px; }
+  .footer-links a:hover { color: var(--teal); }
+  .footer-meta { font-size: 12px; color: var(--warm-gray); text-align: center; margin-top: 24px; max-width: 760px; margin-left: auto; margin-right: auto; line-height: 1.55; }
+
+  /* ─── Responsive ─────────────────────────────────────────── */
+  @media (max-width: 980px) {
+    .nav { padding: 14px 22px; }
+    .nav-links { gap: 18px; }
+    .nav-links a:not(.nav-cta) { display: none; }
+    .hero { padding: 60px 22px 50px; min-height: 540px; }
+    .hero-title { font-size: 60px; }
+    .hero-tagline { font-size: 19px; }
+    .stats { padding: 24px 22px; }
+    .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 18px 20px; }
+    .stat-cell:not(:last-child) { border-right: none; padding-right: 0; }
+    section.spread { padding: 64px 22px; }
+    .section-head h2 { font-size: 32px; }
+    .vibe-grid, .practical-grid, .handoff-grid, .similar-grid { grid-template-columns: 1fr; }
+    .day-grid { grid-template-columns: 1fr; gap: 36px; padding: 64px 22px; }
+    .day-text h2 { font-size: 28px; }
+    .numbers-row { grid-template-columns: 1fr; padding: 18px 20px; gap: 4px; }
+    .numbers-row.head { display: none; }
+    .numbers-totals { grid-template-columns: 1fr; padding: 22px; gap: 18px; }
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 480px) {
+    .hero-title { font-size: 44px; }
+    .hero-tagline { font-size: 17px; }
+    .stats-inner { grid-template-columns: 1fr 1fr; }
+    .stat-value { font-size: 18px; }
+    .section-head h2 { font-size: 26px; }
+    .vibe-card h3, .practical-card h3, .similar-name { font-size: 20px; }
+    .day-text h2 { font-size: 24px; }
+    .totals-cell .totals-val { font-size: 26px; }
+    .numbers-row .cat { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav class="nav">
+  <a class="wordmark" href="homepage-mockup.html">Retire<em>Vibes</em></a>
+  <div class="nav-links">
+    <a href="homepage-mockup.html#destinations">Destinations</a>
+    <a href="homepage-mockup.html#how">How it works</a>
+    <a href="find-an-advisor.html">Find an advisor</a>
+    <a href="my-retirevibes.html">My RetireVibes</a>
+    <a href="results-page-mockup.html" class="nav-cta">Take the quiz →</a>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <a href="results-page-mockup.html" class="back-link">← Back to your results</a>
+    <span class="hero-flag">🇺🇸 Florida, United States · Coastal</span>
+    <h1 class="hero-title">Sarasota</h1>
+    <p class="hero-tagline">Powdery beaches, year-round sun, and a cultural scene that punches above its weight.</p>
+    <div class="hero-actions">
+      <button class="save-btn" data-name="Sarasota" onclick="toggleSave('Sarasota')"><span class="heart">♡</span> Save Sarasota</button>
+      <button class="share-btn">↗ Share</button>
+    </div>
+  </div>
+</section>
+
+<!-- ─── QUICK STATS (US: state tax + median home replace language + time zone) ─── -->
+<section class="stats">
+  <div class="stats-inner">
+    <div class="stat-cell">
+      <div class="stat-label">Population</div>
+      <div class="stat-value">58,000</div>
+      <div class="stat-sub">~860K metro</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">Climate</div>
+      <div class="stat-value">Subtropical</div>
+      <div class="stat-sub">Avg 75°F · sun year-round</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">State income tax</div>
+      <div class="stat-value">0%</div>
+      <div class="stat-sub">Florida — federal only</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">Median home</div>
+      <div class="stat-value">~$520K</div>
+      <div class="stat-sub">2BR condo · ~$3,200/mo rent</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">Monthly cost</div>
+      <div class="stat-value">$3,400–4,800</div>
+      <div class="stat-sub">Upscale lifestyle</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── VIBE MATCH ─── -->
+<section class="spread">
+  <div class="section-head">
+    <span class="label">Why Sarasota might be your place</span>
+    <h2>Four reasons this came up <em>in your matches</em>.</h2>
+    <p class="lead">Based on the vibe profile from your quiz — warmth, walkability, real cultural infrastructure, and the comfort of staying in your own country.</p>
+  </div>
+
+  <div class="vibe-grid">
+    <article class="vibe-card">
+      <div class="vibe-card-icon">🎭</div>
+      <h3>The beach is the bonus, not the headline</h3>
+      <p>Powdery white sand on Siesta Key, sure. But the actual reason Sarasota stays interesting is the Ringling Museum, Asolo Rep theater, Van Wezel concerts, and a Main Street that didn't get suburbanized. Cultural infrastructure normally found in much bigger cities.</p>
+    </article>
+    <article class="vibe-card">
+      <div class="vibe-card-icon">☀️</div>
+      <h3>Outdoor life, year-round</h3>
+      <p>Seventy degrees in February. Kayaking in Sarasota Bay, biking the Legacy Trail through pine flatwoods, a sunset cruise out of Marina Jack, beach walks before breakfast. The pace shifts seasonally — quieter in summer — but it never really stops.</p>
+    </article>
+    <article class="vibe-card">
+      <div class="vibe-card-icon">📋</div>
+      <h3>Easy mode for the practical stuff</h3>
+      <p>No state income tax. Medicare works exactly as you've already mapped out. No language barrier, no visa, no FBAR filings. Every realtor, doctor, and accountant speaks the same language you do. Less to figure out, more to enjoy.</p>
+    </article>
+    <article class="vibe-card">
+      <div class="vibe-card-icon">👨‍👩‍👧</div>
+      <h3>Close to family without commuting back</h3>
+      <p>Direct flights to most US cities and grandkids three hours away on the East Coast. Same time zone, same currency, same holidays. The "still here when needed" version of retirement, with the climate upgrade.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ─── A DAY HERE ─── -->
+<section class="day">
+  <div class="day-grid spread" style="padding: 96px 48px;">
+    <div class="day-image"></div>
+    <div class="day-text">
+      <h2>What a Tuesday in Sarasota <em>feels like</em>.</h2>
+      <p>You wake up to bright morning light through the shutters and the smell of salt air through the open window. Coffee on the lanai, the lizard family that lives in the garden going about their morning. The sky is doing its Florida thing — that particular shade of blue that doesn't quite happen anywhere else.</p>
+      <p>Late morning, a slow ride down the Legacy Trail by bike — eighteen paved miles through pine flatwoods and old citrus groves, mostly flat. Or downtown to the Saturday farmer's market for the week's produce, then a long lunch at the cafe under the banyan tree. Afternoon nap, the way you've earned the right to take it.</p>
+      <p>Evening at Asolo Rep — they're doing Chekhov this season — or a sunset cruise out past the lighthouse. Dinner at one of the Main Street places that's been here since the seventies. By ten you're walking back across the Ringling Bridge and the bay is silver. You don't keep track of the time. This is your regular Tuesday now.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── THE NUMBERS ─── -->
+<section class="spread">
+  <div class="section-head">
+    <span class="label">The numbers</span>
+    <h2>What life in Sarasota <em>costs</em>.</h2>
+    <p class="lead">A monthly snapshot for a couple living comfortably in a central or beach-adjacent neighborhood. Whether this fits your plan is your call — these are facts on the ground, not a recommendation.</p>
+  </div>
+
+  <div class="numbers-table">
+    <div class="numbers-row head">
+      <span>Category</span>
+      <span>What you get</span>
+      <span>Modest</span>
+      <span>Comfortable</span>
+    </div>
+    <div class="numbers-row">
+      <span class="cat">Housing</span>
+      <span class="desc">2-bed condo or small home, central or near a beach. Renting is competitive — start 2–3 months out.</span>
+      <span class="price">$1,700/mo</span>
+      <span class="price">$2,400/mo</span>
+    </div>
+    <div class="numbers-row">
+      <span class="cat">Utilities + AC</span>
+      <span class="desc">Electric (AC drives summer bills up), water, fast internet. Florida summers are not gentle on the meter.</span>
+      <span class="price">$200/mo</span>
+      <span class="price">$260/mo</span>
+    </div>
+    <div class="numbers-row">
+      <span class="cat">Food + groceries</span>
+      <span class="desc">Mix of Publix, Whole Foods, and the Saturday farmer's market. Seafood is genuinely good.</span>
+      <span class="price">$440/mo</span>
+      <span class="price">$620/mo</span>
+    </div>
+    <div class="numbers-row">
+      <span class="cat">Going out</span>
+      <span class="desc">Dinners 2–3 nights a week, theater season tickets, the occasional weekend on St. Armands.</span>
+      <span class="price">$260/mo</span>
+      <span class="price">$480/mo</span>
+    </div>
+    <div class="numbers-row">
+      <span class="cat">Healthcare</span>
+      <span class="desc">Medicare Part B premiums + Medigap or Medicare Advantage for two adults 65+.</span>
+      <span class="price">$300/mo</span>
+      <span class="price">$360/mo</span>
+    </div>
+    <div class="numbers-row">
+      <span class="cat">Insurance</span>
+      <span class="desc">Homeowners + flood + auto. Florida-rate, which is real. Newer construction prices better.</span>
+      <span class="price">$240/mo</span>
+      <span class="price">$340/mo</span>
+    </div>
+    <div class="numbers-row">
+      <span class="cat">Transport</span>
+      <span class="desc">A car is essential here. Gas, registration, occasional Uber for nights out.</span>
+      <span class="price">$260/mo</span>
+      <span class="price">$340/mo</span>
+    </div>
+  </div>
+
+  <div class="numbers-totals">
+    <div class="totals-cell">
+      <div class="totals-label">Modest comfortable</div>
+      <div class="totals-val">~$3,400/mo</div>
+      <div class="totals-note">For a couple, all-in</div>
+    </div>
+    <div class="totals-cell">
+      <div class="totals-label">Upscale comfortable</div>
+      <div class="totals-val">~$4,800/mo</div>
+      <div class="totals-note">For a couple, all-in</div>
+    </div>
+  </div>
+
+  <p class="numbers-disclaimer">Estimates compiled from BLS data, Zillow rentals, Florida insurance averages, and CMS Medicare premium data. Costs vary by neighborhood, beach proximity, and how new your construction is. We update these quarterly.</p>
+</section>
+
+<!-- ─── PRACTICAL STUFF (US: Healthcare/Taxes/Risk replaces Visa/Healthcare/Taxes) ─── -->
+<section class="spread" style="padding-top: 0;">
+  <div class="section-head">
+    <span class="label">The practical stuff</span>
+    <h2>Three things to know <em>before you go further</em>.</h2>
+  </div>
+
+  <div class="practical-grid">
+    <article class="practical-card">
+      <div class="pc-label">Healthcare</div>
+      <h3>Medicare + Medigap</h3>
+      <p>At 65 you age into Medicare. Original Medicare paired with a Medigap plan covers most hospital and outpatient costs. Sarasota Memorial Hospital is the major facility — nationally top-ranked, a teaching hospital, and one of the most respected systems on the Gulf coast. Plenty of cardiology, orthopedic, and primary care options.</p>
+      <a href="#">Compare Medigap vs. Advantage →</a>
+    </article>
+    <article class="practical-card">
+      <div class="pc-label">Taxes</div>
+      <h3>Florida-friendly, with caveats</h3>
+      <p>Florida has no state income tax — IRA withdrawals, pensions, and Social Security stay federal-only. Property taxes run ~1.0–1.3% of assessed value, with a $50K homestead exemption for primary residents. Sales tax is 7%. Most retirees come out ahead, but insurance and property tax costs are real.</p>
+      <a href="#">Run a tax comparison →</a>
+    </article>
+    <article class="practical-card">
+      <div class="pc-label">Risk</div>
+      <h3>Hurricane country, honestly</h3>
+      <p>Sarasota's Gulf coast position means storm surge and wind are real considerations. Direct landfalls are uncommon, but Tampa-area systems can swing through. Newer construction (post-2002) meets stricter wind codes; older homes need careful inspection. Flood insurance is separate from homeowners and required in many zones.</p>
+      <a href="#">Insurance + risk guide →</a>
+    </article>
+  </div>
+</section>
+
+<!-- ─── HANDOFF ─── -->
+<section class="handoff">
+  <div class="spread" style="padding: 96px 48px;">
+    <div class="section-head">
+      <span class="label">Ready to take this further?</span>
+      <h2>Three doors, <em>one click each</em>.</h2>
+      <p class="lead">When you're ready to move from "interesting" to "actually planning," here's where to start. We hand you off to vetted partners — we don't sell anything ourselves.</p>
+    </div>
+
+    <div class="handoff-grid">
+      <article class="handoff-card">
+        <div class="ho-label">The money side</div>
+        <h3>Talk to a fiduciary advisor</h3>
+        <p>Get matched with a retirement advisor who specializes in Florida moves — Medicare timing, withdrawal strategy, homestead and asset protection rules.</p>
+        <a href="advisor-domestic.html">Match me with an advisor →</a>
+      </article>
+      <article class="handoff-card">
+        <div class="ho-label">The home side</div>
+        <h3>Browse Sarasota homes</h3>
+        <p>Live listings from Zillow and Redfin filtered for retirees: single-story, walkable to the beach, post-2002 construction, HOA fees disclosed up front.</p>
+        <a href="browse-homes-domestic.html">See current listings →</a>
+      </article>
+      <article class="handoff-card">
+        <div class="ho-label">The "is this real" side</div>
+        <h3>Spend a long weekend</h3>
+        <p>Domestic moves are easy to test. Pick a week, book a rental, walk the neighborhoods you've been eyeing. We'll line up a local realtor and a neighborhood tour through our partner.</p>
+        <a href="scouting-trip.html">Plan my weekend →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SIMILAR PLACES ─── -->
+<section class="spread">
+  <div class="section-head">
+    <span class="label">Other places that share this vibe</span>
+    <h2>If Sarasota sings to you, <em>so might these</em>.</h2>
+    <p class="lead">Same DNA — coastal or near-coastal, walkable, real cultural infrastructure, US so the practical stuff is easy. Different climates, different price tags.</p>
+  </div>
+
+  <div class="similar-grid">
+    <a class="similar-card" href="destination-coming-soon.html?name=Naples">
+      <div class="similar-photo" style="background-image: url('https://images.unsplash.com/photo-1582408921715-18e7806365c1?auto=format&fit=crop&w=900&q=80');">
+        <button class="card-save" data-name="Naples" onclick="event.preventDefault(); event.stopPropagation(); toggleSave('Naples')" aria-label="Save Naples">♡</button>
+      </div>
+      <div class="similar-body">
+        <h3 class="similar-name">Naples</h3>
+        <div class="similar-region">Florida · Gulf coast</div>
+        <p class="similar-vibe">Pricier, golfier, slightly more polished. Same Gulf-coast climate. Slightly less of an arts scene.</p>
+      </div>
+    </a>
+    <a class="similar-card" href="destination-coming-soon.html?name=Charleston">
+      <div class="similar-photo" style="background-image: url('https://images.unsplash.com/photo-1610715671870-83f06adcadbe?auto=format&fit=crop&w=900&q=80');">
+        <button class="card-save" data-name="Charleston" onclick="event.preventDefault(); event.stopPropagation(); toggleSave('Charleston')" aria-label="Save Charleston">♡</button>
+      </div>
+      <div class="similar-body">
+        <h3 class="similar-name">Charleston</h3>
+        <div class="similar-region">South Carolina · Atlantic coast</div>
+        <p class="similar-vibe">More history, more humidity, fewer hurricanes (relatively). Walkable historic downtown, serious food scene.</p>
+      </div>
+    </a>
+    <a class="similar-card" href="destination-asheville.html">
+      <div class="similar-photo" style="background-image: url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=900&q=80');">
+        <button class="card-save" data-name="Asheville" onclick="event.preventDefault(); event.stopPropagation(); toggleSave('Asheville')" aria-label="Save Asheville">♡</button>
+      </div>
+      <div class="similar-body">
+        <h3 class="similar-name">Asheville</h3>
+        <div class="similar-region">North Carolina · Mountain</div>
+        <p class="similar-vibe">Different climate entirely — Blue Ridge mountains, four seasons. Same arts-and-walkable energy.</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <a class="wordmark" href="homepage-mockup.html" style="font-size:20px;">Retire<em>Vibes</em></a>
+      <p class="footer-tag">Good RetireVibes only.</p>
+    </div>
+    <div class="footer-links">
+      <a href="homepage-mockup.html#destinations">Destinations</a>
+      <a href="homepage-mockup.html#how">How it works</a>
+      <a href="find-an-advisor.html">Find an advisor</a>
+      <a href="scouting-trip.html">Scouting trips</a>
+      <a href="my-retirevibes.html">My RetireVibes</a>
+    </div>
+  </div>
+  <p class="footer-meta">RetireVibes is not a financial advisor. Cost estimates are illustrative and based on third-party data sources; for retirement planning, talk to a fiduciary.</p>
+</footer>
+
+<!-- ═══ SAVE MODAL ═══ -->
+<style>
+  .modal-overlay { position: fixed; inset: 0; background: rgba(27, 58, 75, 0.55); backdrop-filter: blur(8px); z-index: 100; display: none; align-items: center; justify-content: center; padding: 24px; animation: modalFade 0.3s ease; }
+  .modal-overlay.open { display: flex; }
+  @keyframes modalFade { from { opacity: 0; } to { opacity: 1; } }
+  .modal-card { background: var(--cream); border-radius: 20px; max-width: 520px; width: 100%; padding: 48px 44px 40px; position: relative; box-shadow: 0 24px 60px rgba(27, 58, 75, 0.25); animation: modalRise 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+  @keyframes modalRise { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  .modal-close { position: absolute; top: 18px; right: 18px; width: 36px; height: 36px; border: none; background: transparent; color: var(--warm-gray); font-size: 24px; cursor: pointer; border-radius: 50%; line-height: 1; transition: all 0.2s ease; }
+  .modal-close:hover { background: rgba(27, 58, 75, 0.06); color: var(--teal); }
+  .modal-eyebrow { font-size: 11px; color: var(--warm-gray); text-transform: uppercase; letter-spacing: 0.18em; font-weight: 500; margin-bottom: 12px; }
+  .modal-title { font-family: var(--serif); font-size: 36px; color: var(--teal); line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 14px; }
+  .modal-title em { color: var(--terracotta); font-style: italic; }
+  .modal-sub { font-size: 16px; color: var(--teal-soft); line-height: 1.55; margin-bottom: 28px; }
+  .modal-input { width: 100%; padding: 16px 18px; border: 1px solid rgba(27, 58, 75, 0.18); border-radius: 12px; font-family: inherit; font-size: 16px; color: var(--teal); margin-bottom: 14px; background: var(--white); transition: all 0.2s ease; }
+  .modal-input:focus { outline: none; border-color: var(--terracotta); box-shadow: 0 0 0 3px rgba(201, 123, 90, 0.15); }
+  .modal-submit { width: 100%; padding: 16px 24px; background: var(--teal); color: var(--white); border: none; border-radius: 12px; font-family: inherit; font-size: 16px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; }
+  .modal-submit:hover { background: var(--terracotta); }
+  .modal-fineprint { font-size: 12px; color: var(--warm-gray); margin-top: 16px; line-height: 1.5; }
+  .modal-success-block { text-align: center; padding: 8px 0 4px; }
+  .modal-success-icon { width: 64px; height: 64px; border-radius: 50%; background: var(--gold-soft); color: var(--teal); font-size: 32px; display: flex; align-items: center; justify-content: center; margin: 0 auto 22px; }
+  @media (max-width: 480px) { .modal-card { padding: 36px 26px 26px; } .modal-title { font-size: 28px; } .modal-close { top: 12px; right: 12px; } }
+</style>
+
+<div class="modal-overlay" id="saveModal" role="dialog" aria-modal="true" aria-labelledby="saveModalTitle">
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeSaveModal()" aria-label="Close">×</button>
+    <div id="saveForm">
+      <p class="modal-eyebrow">Save your RetireVibes</p>
+      <h2 class="modal-title" id="saveModalTitle">Save <em>this place</em>.</h2>
+      <p class="modal-sub" id="saveModalSub">Just need your email so we can save this for you. No password — come back anytime to see your saved places.</p>
+      <form onsubmit="submitSave(event)">
+        <input type="email" name="email" placeholder="your@email.com" required class="modal-input" autocomplete="email" />
+        <button type="submit" class="modal-submit" id="saveSubmitBtn">Save it →</button>
+      </form>
+      <p class="modal-fineprint">No password to remember. Just save and come back anytime.</p>
+    </div>
+    <div id="saveSuccess" hidden>
+      <div class="modal-success-block">
+        <div class="modal-success-icon">✓</div>
+        <p class="modal-eyebrow">Saved</p>
+        <h2 class="modal-title">All set.</h2>
+        <p class="modal-sub" id="saveSuccessSub">Saved to your RetireVibes. Come back anytime to see everything you're keeping an eye on.</p>
+        <button class="modal-submit" onclick="closeSaveModal()">Keep exploring</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let _saveContext = {};
+  function openSaveModal(context) {
+    _saveContext = context || {};
+    const modal = document.getElementById('saveModal');
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    const titleEl = document.getElementById('saveModalTitle');
+    const subEl = document.getElementById('saveModalSub');
+    const successSub = document.getElementById('saveSuccessSub');
+    if (_saveContext.type === 'first-save' && _saveContext.name) {
+      titleEl.innerHTML = 'Save <em>' + _saveContext.name + '</em>.';
+      subEl.textContent = "Just need your email so we can save " + _saveContext.name + " for you. No password — come back anytime to see your saved places.";
+      successSub.textContent = _saveContext.name + " is saved to your RetireVibes. Come back anytime to see everything you're keeping an eye on.";
+    }
+    document.getElementById('saveForm').hidden = false;
+    document.getElementById('saveSuccess').hidden = true;
+  }
+  function closeSaveModal() { document.getElementById('saveModal').classList.remove('open'); document.body.style.overflow = ''; }
+  function submitSave(e) {
+    e.preventDefault();
+    const email = e.target.email.value;
+    let saved = {};
+    try { saved = JSON.parse(localStorage.getItem('rv_saved') || '{}'); } catch(err) {}
+    const wasNewAccount = !saved.email;
+    saved.email = email;
+    if (wasNewAccount) saved.account_created_at = new Date().toISOString();
+    saved.saved_at = new Date().toISOString();
+    if (_saveContext.type === 'first-save' && _saveContext.name) {
+      saved.destinations = saved.destinations || [];
+      if (!saved.destinations.includes(_saveContext.name)) saved.destinations.push(_saveContext.name);
+    }
+    try { localStorage.setItem('rv_saved', JSON.stringify(saved)); } catch(err) {}
+    document.getElementById('saveForm').hidden = true;
+    document.getElementById('saveSuccess').hidden = false;
+    document.querySelectorAll('.save-btn[data-name]').forEach(b => {
+      const name = b.dataset.name;
+      if ((saved.destinations || []).includes(name)) { b.innerHTML = '<span class="heart">✓</span> Saved'; }
+    });
+    document.querySelectorAll('.card-save[data-name]').forEach(b => {
+      const name = b.dataset.name;
+      if ((saved.destinations || []).includes(name)) { b.classList.add('saved'); b.innerHTML = '♥'; }
+    });
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('saveModal');
+    if (modal) {
+      modal.addEventListener('click', function(e) { if (e.target === modal) closeSaveModal(); });
+      document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && modal.classList.contains('open')) closeSaveModal(); });
+    }
+    try {
+      const saved = JSON.parse(localStorage.getItem('rv_saved') || '{}');
+      const dests = saved.destinations || [];
+      document.querySelectorAll('.save-btn[data-name]').forEach(b => {
+        if (dests.includes(b.dataset.name)) { b.innerHTML = '<span class="heart">✓</span> Saved'; }
+      });
+      document.querySelectorAll('.card-save[data-name]').forEach(b => {
+        if (dests.includes(b.dataset.name)) { b.classList.add('saved'); b.innerHTML = '♥'; }
+      });
+    } catch(err) {}
+  });
+  function toggleSave(name) {
+    let saved = {};
+    try { saved = JSON.parse(localStorage.getItem('rv_saved') || '{}'); } catch(e) {}
+    if (!saved.email) { openSaveModal({type:'first-save', name: name}); return; }
+    saved.destinations = saved.destinations || [];
+    if (saved.destinations.includes(name)) {
+      saved.destinations = saved.destinations.filter(d => d !== name);
+    } else {
+      saved.destinations.push(name);
+    }
+    try { localStorage.setItem('rv_saved', JSON.stringify(saved)); } catch(e) {}
+    const isSaved = saved.destinations.includes(name);
+    document.querySelectorAll('.save-btn[data-name="' + name + '"]').forEach(b => {
+      b.innerHTML = isSaved ? '<span class="heart">✓</span> Saved' : '<span class="heart">♡</span> Save ' + name;
+    });
+    document.querySelectorAll('.card-save[data-name="' + name + '"]').forEach(b => {
+      if (isSaved) { b.classList.add('saved'); b.innerHTML = '♥'; }
+      else { b.classList.remove('saved'); b.innerHTML = '♡'; }
+    });
+  }
+</script>
+<script src="shared.js"></script>
+
+</body>
+</html>

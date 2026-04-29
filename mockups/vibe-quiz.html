@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RetireVibes — The Vibe Quiz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="quiz/styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="logo">
+        <span class="logo-mark"></span>
+        Retire<em>Vibes</em>
+      </div>
+      <div class="progress-wrap" id="progressWrap" style="display:none;"></div>
+      <a href="#" class="exit-link">Save & exit</a>
+    </header>
+    <main class="stage" id="stage"></main>
+  </div>
+
+  <!-- Order matters: scenes & option-scenes load before questions, quiz last -->
+  <script src="quiz/scenes.js"></script>
+  <script src="quiz/option-scenes.js"></script>
+  <script src="quiz/questions.js"></script>
+  <script src="quiz/quiz.js"></script>
+</body>
+</html>

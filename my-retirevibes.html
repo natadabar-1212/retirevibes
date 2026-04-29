@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>My RetireVibes — Your saved places</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --cream: #FBF6EE;
+    --cream-soft: #F4ECDD;
+    --terracotta: #C97B5A;
+    --terracotta-dark: #A8593A;
+    --teal: #1B3A4B;
+    --teal-soft: #2E5468;
+    --gold: #C8A064;
+    --gold-soft: #E4C998;
+    --sage: #93A89A;
+    --warm-gray: #7A6E5F;
+    --white: #FFFFFF;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: var(--cream);
+    color: var(--teal);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── Nav ────────────────────────────────────────────────── */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 48px;
+    background: rgba(251, 246, 238, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(27, 58, 75, 0.06);
+  }
+  .wordmark {
+    font-family: var(--serif);
+    font-size: 24px;
+    color: var(--teal);
+    letter-spacing: -0.01em;
+    text-decoration: none;
+  }
+  .wordmark em { color: var(--terracotta); font-style: normal; }
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-links a {
+    color: var(--teal);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .nav-links a:hover { color: var(--terracotta); }
+  .nav-links a.current { color: var(--terracotta); }
+  .nav-cta {
+    padding: 12px 22px;
+    background: var(--teal);
+    color: var(--white) !important;
+    border-radius: 999px;
+    font-size: 14px;
+    transition: all 0.25s ease;
+  }
+  .nav-cta:hover { background: var(--terracotta); }
+
+  /* ─── Page hero ──────────────────────────────────────────── */
+  .page-hero {
+    padding: 80px 48px 64px;
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+  .page-hero .kicker {
+    font-size: 12px;
+    color: var(--warm-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-weight: 500;
+    margin-bottom: 14px;
+  }
+  .page-hero h1 {
+    font-family: var(--serif);
+    font-size: 64px;
+    line-height: 1.05;
+    color: var(--teal);
+    letter-spacing: -0.02em;
+    margin-bottom: 18px;
+  }
+  .page-hero h1 em {
+    color: var(--terracotta);
+    font-style: italic;
+  }
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    flex-wrap: wrap;
+    color: var(--teal-soft);
+    font-size: 16px;
+  }
+  .meta-row .dot {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: rgba(27, 58, 75, 0.25);
+  }
+  .meta-row strong { color: var(--teal); font-weight: 500; }
+
+  /* ─── Saved grid ─────────────────────────────────────────── */
+  .saved-section {
+    padding: 0 48px 100px;
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+  .saved-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  .saved-card {
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(27, 58, 75, 0.06);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    position: relative;
+  }
+  .saved-card:hover { transform: translateY(-3px); }
+  .saved-photo {
+    position: relative;
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--sage);
+  }
+  .saved-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.25) 100%);
+  }
+  .saved-flag {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: rgba(251, 246, 238, 0.92);
+    backdrop-filter: blur(6px);
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    color: var(--teal);
+    font-weight: 500;
+    z-index: 2;
+  }
+  .card-save {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    color: var(--warm-gray);
+    z-index: 3;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    line-height: 1;
+    font-family: inherit;
+  }
+  .card-save:hover { color: var(--terracotta); transform: scale(1.06); }
+  .card-save.saved {
+    background: var(--terracotta);
+    color: var(--white);
+  }
+  .saved-body {
+    padding: 22px 22px 24px;
+  }
+  .saved-name {
+    font-family: var(--serif);
+    font-size: 26px;
+    color: var(--teal);
+    line-height: 1.15;
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+  }
+  .saved-region {
+    font-size: 12px;
+    color: var(--warm-gray);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .saved-vibe {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--teal-soft);
+    margin-bottom: 14px;
+  }
+  .saved-cost {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-top: 12px;
+    border-top: 1px solid rgba(27, 58, 75, 0.08);
+  }
+  .saved-cost-label {
+    font-size: 11px;
+    color: var(--warm-gray);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .saved-cost-value {
+    font-family: var(--serif);
+    font-size: 17px;
+    color: var(--terracotta-dark);
+  }
+  .saved-card-cta {
+    display: inline-block;
+    margin-top: 14px;
+    color: var(--teal);
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid var(--teal);
+    padding-bottom: 1px;
+  }
+  .saved-card-cta:hover { color: var(--terracotta); border-color: var(--terracotta); }
+  .saved-card-cta.disabled { opacity: 0.45; pointer-events: none; border-color: transparent; }
+
+  /* ─── Empty state ────────────────────────────────────────── */
+  .empty-state {
+    text-align: center;
+    padding: 80px 24px;
+    background: var(--cream-soft);
+    border-radius: 20px;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .empty-state h2 {
+    font-family: var(--serif);
+    font-size: 38px;
+    color: var(--teal);
+    line-height: 1.15;
+    margin-bottom: 14px;
+    letter-spacing: -0.018em;
+  }
+  .empty-state p {
+    font-size: 17px;
+    color: var(--teal-soft);
+    line-height: 1.55;
+    margin-bottom: 32px;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .empty-cta-row {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: var(--teal);
+    color: var(--white);
+    border: none;
+    border-radius: 999px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-decoration: none;
+  }
+  .btn-primary:hover { background: var(--terracotta); transform: translateY(-1px); }
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: transparent;
+    color: var(--teal);
+    border: 1px solid rgba(27, 58, 75, 0.18);
+    border-radius: 999px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-decoration: none;
+  }
+  .btn-secondary:hover { border-color: var(--terracotta); color: var(--terracotta); }
+
+  /* ─── Account row ────────────────────────────────────────── */
+  .account-row {
+    max-width: 1240px;
+    margin: 60px auto 0;
+    padding: 28px 32px;
+    background: var(--cream-soft);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .account-info {
+    font-size: 14px;
+    color: var(--teal-soft);
+  }
+  .account-info strong { color: var(--teal); font-weight: 500; }
+  .account-actions { display: flex; gap: 22px; align-items: center; }
+  .account-actions a, .account-actions button {
+    background: transparent;
+    border: none;
+    color: var(--warm-gray);
+    font-size: 13px;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .account-actions a:hover, .account-actions button:hover { color: var(--terracotta); }
+
+  /* ─── Footer ─────────────────────────────────────────────── */
+  .footer {
+    padding: 48px 48px 36px;
+    border-top: 1px solid rgba(27, 58, 75, 0.08);
+    background: var(--cream-soft);
+    margin-top: 80px;
+  }
+  .footer-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .footer-tag {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--terracotta);
+    font-size: 16px;
+    margin-top: 4px;
+  }
+  .footer-links { display: flex; gap: 28px; }
+  .footer-links a {
+    color: var(--warm-gray);
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .footer-links a:hover { color: var(--teal); }
+  .footer-meta {
+    font-size: 12px;
+    color: var(--warm-gray);
+    text-align: center;
+    margin-top: 24px;
+  }
+
+  /* ─── Responsive ─────────────────────────────────────────── */
+  @media (max-width: 980px) {
+    .nav { padding: 14px 22px; }
+    .nav-links { gap: 18px; }
+    .nav-links a:not(.nav-cta) { display: none; }
+    .page-hero { padding: 56px 22px 40px; }
+    .page-hero h1 { font-size: 42px; }
+    .saved-section { padding: 0 22px 60px; }
+    .saved-grid { grid-template-columns: 1fr; gap: 18px; }
+    .empty-state { padding: 56px 22px; }
+    .empty-state h2 { font-size: 28px; }
+    .account-row { padding: 22px; flex-direction: column; align-items: flex-start; }
+    .footer { padding: 36px 22px 28px; }
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 480px) {
+    .page-hero h1 { font-size: 32px; }
+    .saved-name { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav class="nav">
+  <a class="wordmark" href="homepage-mockup.html">Retire<em>Vibes</em></a>
+  <div class="nav-links">
+    <a href="homepage-mockup.html#how">How it works</a>
+    <a href="homepage-mockup.html#destinations">Destinations</a>
+    <a href="#">Inspiration</a>
+    <a href="my-retirevibes.html" class="current">My RetireVibes</a>
+    <a href="mockups/vibe-quiz.html" class="nav-cta">Find my RetireVibes →</a>
+  </div>
+</nav>
+
+<!-- ─── PAGE HERO ─── -->
+<header class="page-hero">
+  <p class="kicker">Your RetireVibes</p>
+  <h1 id="pageTitle">Welcome back.</h1>
+  <div class="meta-row" id="metaRow">
+    <span><strong id="savedCount">0</strong> places saved</span>
+  </div>
+</header>
+
+<!-- ─── SAVED CONTENT ─── -->
+<main class="saved-section">
+
+  <!-- Empty state (shown when no saves) -->
+  <div class="empty-state" id="emptyState" hidden>
+    <h2>You haven't saved any places yet.</h2>
+    <p>Save the ones that catch your eye. Take the vibe quiz to discover your top three matches, or browse destinations and click any heart you see.</p>
+    <div class="empty-cta-row">
+      <a href="mockups/vibe-quiz.html" class="btn-primary">Take the vibe quiz →</a>
+      <a href="homepage-mockup.html#destinations" class="btn-secondary">Browse destinations →</a>
+    </div>
+  </div>
+
+  <!-- Saved grid (shown when saves exist) -->
+  <div class="saved-grid" id="savedGrid"></div>
+
+  <!-- Account row (shown when account exists) -->
+  <div class="account-row" id="accountRow" hidden>
+    <div class="account-info">
+      Signed in as <strong id="accountEmail"></strong>
+    </div>
+    <div class="account-actions">
+      <a href="mockups/vibe-quiz.html">Retake the quiz</a>
+      <button onclick="signOut()">Sign out</button>
+    </div>
+  </div>
+
+</main>
+
+<!-- ─── FOOTER ─── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <a class="wordmark" href="homepage-mockup.html" style="font-size:20px;">Retire<em>Vibes</em></a>
+      <p class="footer-tag">Good RetireVibes only.</p>
+    </div>
+    <div class="footer-links">
+      <a href="homepage-mockup.html#how">How it works</a>
+      <a href="homepage-mockup.html#destinations">Destinations</a>
+      <a href="#">Inspiration</a>
+      <a href="#">About</a>
+      <a href="#">FAQ</a>
+    </div>
+  </div>
+  <p class="footer-meta">RetireVibes is not a financial advisor. Cost estimates are illustrative; for retirement planning, talk to a fiduciary.</p>
+</footer>
+
+<script>
+  const RV_DESTINATIONS = {
+    'Porto':         { region: 'Northern Portugal · Coastal',     flag: '🇵🇹 Portugal',         vibe: 'Cobblestone old city, world-class wine, and a slower kind of European cool.', cost: '~$3,200/mo', photo: 'https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=900&q=80', url: 'destination-porto.html' },
+    'Mérida':        { region: 'Yucatán, Mexico · Colonial',      flag: '🇲🇽 Mexico',           vibe: 'Pastel facades, mariachi nights, and a price tag that almost feels like a typo.', cost: '~$2,400/mo', photo: 'https://images.unsplash.com/photo-1518638150340-f706e86654de?auto=format&fit=crop&w=900&q=80', url: 'destination-merida.html' },
+    'Sarasota':      { region: 'Florida, USA · Coastal',          flag: '🇺🇸 United States',    vibe: 'Powdery beaches, year-round sun, and a cultural scene that punches above its weight.', cost: '~$4,800/mo', photo: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=900&q=80', url: 'destination-sarasota.html' },
+    'Asheville':     { region: 'North Carolina · Mountain',       flag: '🇺🇸 United States',    vibe: 'Blue Ridge mornings, craft everything, and four real seasons without the snow shovel.', cost: '~$3,800/mo', photo: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=900&q=80', url: 'destination-asheville.html' },
+    'Chiang Mai':    { region: 'Northern Thailand · Cultural',    flag: '🇹🇭 Thailand',         vibe: 'Temples, mountain mist, and a cost of living that quietly rewrites what you thought possible.', cost: '~$1,400/mo', photo: 'https://images.unsplash.com/photo-1598935898639-81586f7d2129?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=Chiang%20Mai' },
+    'Medellín':      { region: 'Antioquia, Colombia · Spring city', flag: '🇨🇴 Colombia',       vibe: '70-degree mornings every day of the year, flowers everywhere, a city reborn.', cost: '~$2,000/mo', photo: 'https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=Medell%C3%ADn' },
+    'Lisbon':        { region: 'Portugal · Capital coast',        flag: '🇵🇹 Portugal',         vibe: 'Brighter, busier, sun-soaked sister to the south.', cost: '~$3,400/mo', photo: 'https://images.unsplash.com/photo-1588535536833-89e6a30bb273?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=Lisbon' },
+    'San Sebastián': { region: 'Spain · Basque coast',            flag: '🇪🇸 Spain',            vibe: 'Pintxo bars on every corner, surf beach in the middle of the city.', cost: '~$3,800/mo', photo: 'https://images.unsplash.com/photo-1551269901-5c5e14c25df7?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=San%20Sebasti%C3%A1n' },
+    'Cascais':       { region: 'Portugal · Lisbon coast',         flag: '🇵🇹 Portugal',         vibe: 'Smaller, beachier, sailboat-y. The quiet upscale option.', cost: '~$3,000/mo', photo: 'https://images.unsplash.com/photo-1583416750470-a44d72e6b58a?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=Cascais' }
+  };
+
+  function loadSavedData() {
+    try { return JSON.parse(localStorage.getItem('rv_saved') || '{}'); } catch(e) { return {}; }
+  }
+
+  function saveSavedData(data) {
+    try { localStorage.setItem('rv_saved', JSON.stringify(data)); } catch(e) {}
+  }
+
+  function renderPage() {
+    const saved = loadSavedData();
+    const dests = saved.destinations || [];
+    const vibeLabel = (function() { try { return localStorage.getItem('rv_vibe_label'); } catch(e) { return null; } })();
+
+    // Title — adapt to whether they have a vibe label
+    const titleEl = document.getElementById('pageTitle');
+    if (vibeLabel) {
+      titleEl.innerHTML = 'Welcome back, <em>' + vibeLabel + '</em>.';
+    } else {
+      titleEl.innerHTML = 'Your saved places.';
+    }
+
+    // Meta row — count + last saved
+    document.getElementById('savedCount').textContent = dests.length;
+
+    // Empty state vs grid
+    const emptyState = document.getElementById('emptyState');
+    const grid = document.getElementById('savedGrid');
+    if (dests.length === 0) {
+      emptyState.hidden = false;
+      grid.innerHTML = '';
+    } else {
+      emptyState.hidden = true;
+      grid.innerHTML = dests.map(name => {
+        const d = RV_DESTINATIONS[name] || { region: '', flag: '', vibe: '', cost: '', photo: '', url: '#' };
+        const hasPage = d.url && d.url !== '#';
+        const cta = hasPage
+          ? '<a href="' + d.url + '" class="saved-card-cta">Open ' + name + ' →</a>'
+          : '<span class="saved-card-cta disabled">Page coming soon</span>';
+        return '<article class="saved-card">' +
+          '<div class="saved-photo" style="background-image:url(\'' + d.photo + '\');">' +
+            '<span class="saved-flag">' + d.flag + '</span>' +
+            '<button class="card-save saved" data-name="' + name + '" onclick="toggleSave(\'' + name + '\')" aria-label="Remove ' + name + '">♥</button>' +
+          '</div>' +
+          '<div class="saved-body">' +
+            '<h3 class="saved-name">' + name + '</h3>' +
+            '<div class="saved-region">' + d.region + '</div>' +
+            (d.vibe ? '<p class="saved-vibe">' + d.vibe + '</p>' : '') +
+            (d.cost ? '<div class="saved-cost"><span class="saved-cost-label">Upscale lifestyle</span><span class="saved-cost-value">' + d.cost + '</span></div>' : '') +
+            cta +
+          '</div>' +
+        '</article>';
+      }).join('');
+    }
+
+    // Account row
+    const accountRow = document.getElementById('accountRow');
+    if (saved.email) {
+      accountRow.hidden = false;
+      document.getElementById('accountEmail').textContent = saved.email;
+    } else {
+      accountRow.hidden = true;
+    }
+  }
+
+  function toggleSave(name) {
+    const saved = loadSavedData();
+    saved.destinations = saved.destinations || [];
+    if (saved.destinations.includes(name)) {
+      saved.destinations = saved.destinations.filter(d => d !== name);
+    } else {
+      saved.destinations.push(name);
+    }
+    saveSavedData(saved);
+    renderPage();
+  }
+
+  function signOut() {
+    if (confirm("Sign out and clear your saved places from this device?")) {
+      try { localStorage.removeItem('rv_saved'); } catch(e) {}
+      try { localStorage.removeItem('rv_vibe_label'); } catch(e) {}
+      window.location.href = 'homepage-mockup.html';
+    }
+  }
+
+  renderPage();
+</script>
+
+</body>
+</html>
