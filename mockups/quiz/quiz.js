@@ -281,7 +281,7 @@ function renderProcessing() {
         <div class="vibe-label">${vibeLabel}</div>
         <p class="vibe-tagline">We've matched you with three destinations that feel like home for a ${vibeLabel.toLowerCase()}.</p>
         <div style="margin-top:36px;">
-          <button class="btn btn-welcome" onclick="try{localStorage.setItem('rv_vibe_label','${vibeLabel}')}catch(e){};window.location.href='../results-page-mockup.html'">Reveal my matches →</button>
+          <button class="btn btn-welcome" onclick="try{localStorage.setItem('rv_vibe_label','${vibeLabel}');localStorage.setItem('rv_quiz_answers',JSON.stringify(state.answers))}catch(e){};window.location.href='../results-page-mockup.html'">Reveal my matches →</button>
         </div>
       </div>
     </div>

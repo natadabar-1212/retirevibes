@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title id="pageTitle">RetireVibes — Destination</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="shared.css" />
+<style>
+  :root {
+    --cream: #FBF6EE;
+    --cream-soft: #F4ECDD;
+    --terracotta: #C97B5A;
+    --terracotta-dark: #A8593A;
+    --teal: #1B3A4B;
+    --teal-soft: #2E5468;
+    --gold: #C8A064;
+    --gold-soft: #E4C998;
+    --sage: #93A89A;
+    --warm-gray: #7A6E5F;
+    --white: #FFFFFF;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--cream); color: var(--teal); font-family: var(--sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+  /* ─── Nav ─────────────────────────────────────────────────── */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 48px;
+    background: rgba(251, 246, 238, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(27, 58, 75, 0.06);
+  }
+  .wordmark { font-family: var(--serif); font-size: 24px; color: var(--teal); letter-spacing: -0.01em; text-decoration: none; }
+  .wordmark em { color: var(--terracotta); font-style: normal; }
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-links a { color: var(--teal); text-decoration: none; font-size: 15px; font-weight: 500; }
+  .nav-links a:hover { color: var(--terracotta); }
+  .nav-cta { padding: 12px 22px; background: var(--teal); color: var(--white) !important; border-radius: 999px; font-size: 14px; transition: all 0.25s ease; }
+  .nav-cta:hover { background: var(--terracotta) !important; }
+
+  /* ─── Hero ───────────────────────────────────────────────── */
+  .hero {
+    position: relative; min-height: 620px;
+    display: flex; align-items: flex-end;
+    overflow: hidden; padding: 80px 48px 60px;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background-size: cover; background-position: center;
+    background-color: var(--teal-soft);
+  }
+  .hero-bg::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(27,58,75,0) 0%, rgba(27,58,75,0.15) 45%, rgba(27,58,75,0.82) 100%);
+  }
+  .hero-inner { position: relative; z-index: 2; width: 100%; max-width: 1240px; margin: 0 auto; color: var(--white); }
+  .back-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: rgba(255,255,255,0.82); text-decoration: none; font-size: 14px;
+    margin-bottom: 28px; transition: color 0.2s ease;
+  }
+  .back-link:hover { color: var(--gold-soft); }
+  .hero-pill {
+    display: inline-block;
+    background: rgba(251,246,238,0.16); backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 6px 14px; border-radius: 999px;
+    font-size: 13px; margin-bottom: 18px; letter-spacing: 0.02em;
+  }
+  .hero-title { font-family: var(--serif); font-size: 92px; line-height: 0.96; letter-spacing: -0.025em; margin-bottom: 20px; }
+  .hero-tagline { font-family: var(--serif); font-style: italic; font-size: 23px; line-height: 1.38; color: rgba(255,255,255,0.9); max-width: 640px; margin-bottom: 30px; }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .save-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 26px; background: rgba(251,246,238,0.96);
+    color: var(--teal); border: none; border-radius: 999px;
+    font-family: var(--sans); font-size: 15px; font-weight: 500;
+    cursor: pointer; transition: all 0.25s ease;
+  }
+  .save-btn:hover { background: var(--white); transform: translateY(-1px); }
+  .save-btn .heart { color: var(--terracotta); }
+  .quiz-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 26px; background: transparent;
+    color: var(--white); border: 1px solid rgba(255,255,255,0.38);
+    border-radius: 999px; font-family: var(--sans); font-size: 15px; font-weight: 500;
+    text-decoration: none; transition: all 0.25s ease;
+  }
+  .quiz-link:hover { background: rgba(255,255,255,0.1); }
+  .hero-photo-cap {
+    position: absolute; bottom: 24px; right: 48px;
+    font-size: 11px; color: rgba(255,255,255,0.6);
+    letter-spacing: 0.1em; text-transform: uppercase; z-index: 2;
+  }
+
+  /* ─── Stats strip ────────────────────────────────────────── */
+  .stats-strip { background: var(--white); padding: 30px 48px; border-bottom: 1px solid rgba(27,58,75,0.06); }
+  .stats-inner { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+  .stat-cell:not(:last-child) { border-right: 1px solid rgba(27,58,75,0.08); padding-right: 20px; }
+  .stat-label { font-size: 11px; color: var(--warm-gray); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 6px; font-weight: 500; }
+  .stat-value { font-family: var(--serif); font-size: 22px; color: var(--teal); line-height: 1.2; }
+  .stat-sub { font-size: 12px; color: var(--warm-gray); margin-top: 2px; }
+
+  /* ─── Section base ───────────────────────────────────────── */
+  .section { padding: 88px 48px; }
+  .section-inner { max-width: 1240px; margin: 0 auto; }
+  .section-alt { background: var(--cream-soft); }
+  .section-dark { background: var(--teal); color: var(--white); }
+  .section-head { margin-bottom: 52px; }
+  .section-head .eyebrow { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--warm-gray); font-weight: 500; display: block; margin-bottom: 14px; }
+  .section-dark .section-head .eyebrow { color: var(--gold-soft); }
+  .section-head h2 { font-family: var(--serif); font-size: 44px; line-height: 1.12; letter-spacing: -0.018em; color: var(--teal); }
+  .section-dark .section-head h2 { color: var(--white); }
+  .section-head h2 em { color: var(--terracotta); font-style: italic; }
+  .section-dark .section-head h2 em { color: var(--gold-soft); }
+  .section-head p.lead { margin-top: 16px; color: var(--teal-soft); font-size: 18px; line-height: 1.55; }
+  .section-dark .section-head p.lead { color: rgba(255,255,255,0.72); }
+
+  /* ─── Tags ───────────────────────────────────────────────── */
+  .tags-wrap { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; }
+  .tag { font-size: 14px; padding: 8px 16px; border-radius: 999px; background: var(--white); color: var(--teal); border: 1px solid rgba(27,58,75,0.1); font-weight: 500; letter-spacing: 0.01em; }
+
+  /* ─── Compare box ────────────────────────────────────────── */
+  .compare-box {
+    background: var(--white); border: 1px solid rgba(27,58,75,0.08);
+    border-radius: 18px; padding: 36px 40px;
+    border-left: 4px solid var(--terracotta);
+  }
+  .compare-box .compare-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm-gray); font-weight: 500; margin-bottom: 14px; }
+  .compare-box p { font-family: var(--serif); font-style: italic; font-size: 22px; line-height: 1.5; color: var(--teal-soft); }
+  .compare-box p strong { color: var(--terracotta-dark); font-style: normal; }
+
+  /* ─── Cost table ─────────────────────────────────────────── */
+  .cost-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 28px; }
+  .cost-card {
+    background: var(--white); border: 1px solid rgba(27,58,75,0.08);
+    border-radius: 16px; padding: 28px 24px; text-align: center;
+    transition: transform 0.25s ease;
+  }
+  .cost-card:hover { transform: translateY(-2px); }
+  .cost-card.highlight { border-color: var(--terracotta); background: var(--cream-soft); }
+  .cost-tier { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--warm-gray); font-weight: 500; margin-bottom: 10px; }
+  .cost-value { font-family: var(--serif); font-size: 38px; color: var(--teal); line-height: 1; letter-spacing: -0.02em; }
+  .cost-unit { font-size: 13px; color: var(--warm-gray); margin-top: 6px; }
+  .cost-note { font-size: 13px; color: var(--warm-gray); font-style: italic; margin-top: 20px; line-height: 1.55; }
+
+  /* ─── Practical cards ────────────────────────────────────── */
+  .practical-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .practical-card {
+    background: var(--white); border: 1px solid rgba(27,58,75,0.08);
+    border-radius: 16px; padding: 30px 28px;
+  }
+  .pc-icon { font-size: 28px; margin-bottom: 16px; }
+  .pc-label { font-size: 11px; color: var(--warm-gray); text-transform: uppercase; letter-spacing: 0.14em; font-weight: 500; margin-bottom: 10px; }
+  .practical-card h3 { font-family: var(--serif); font-size: 22px; color: var(--teal); line-height: 1.2; margin-bottom: 12px; }
+  .practical-card p { font-size: 14px; color: var(--teal-soft); line-height: 1.65; }
+
+  /* ─── Handoff section ────────────────────────────────────── */
+  .handoff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .handoff-card {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 14px; padding: 30px 28px;
+    display: flex; flex-direction: column; gap: 12px;
+    transition: all 0.3s ease;
+  }
+  .handoff-card:hover { background: rgba(255,255,255,0.08); transform: translateY(-2px); }
+  .handoff-card .ho-label { font-size: 11px; color: var(--gold-soft); text-transform: uppercase; letter-spacing: 0.14em; font-weight: 500; }
+  .handoff-card h3 { font-family: var(--serif); font-size: 24px; color: var(--white); line-height: 1.2; letter-spacing: -0.01em; }
+  .handoff-card p { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.6; flex: 1; }
+  .handoff-card a { font-size: 14px; color: var(--gold-soft); font-weight: 500; text-decoration: none; }
+  .handoff-card a:hover { color: var(--white); }
+
+  /* ─── Similar destinations ───────────────────────────────── */
+  .similar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .similar-card {
+    background: var(--white); border: 1px solid rgba(27,58,75,0.08);
+    border-radius: 16px; overflow: hidden; text-decoration: none; color: inherit;
+    transition: transform 0.3s ease;
+  }
+  .similar-card:hover { transform: translateY(-3px); }
+  .similar-photo { height: 200px; background-size: cover; background-position: center; background-color: var(--sage); }
+  .similar-body { padding: 22px 22px 24px; }
+  .similar-region { font-size: 11px; color: var(--warm-gray); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 6px; }
+  .similar-name { font-family: var(--serif); font-size: 26px; color: var(--teal); line-height: 1.1; margin-bottom: 8px; letter-spacing: -0.01em; }
+  .similar-tagline { font-size: 13px; color: var(--teal-soft); line-height: 1.5; margin-bottom: 14px; }
+  .similar-cost { font-size: 13px; color: var(--warm-gray); font-weight: 500; }
+
+  /* ─── Footer ─────────────────────────────────────────────── */
+  footer { background: var(--teal); color: rgba(255,255,255,0.7); padding: 48px 48px 40px; margin-top: 0; }
+  .footer-inner { max-width: 1240px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+  .footer-wordmark { font-family: var(--serif); font-size: 22px; color: var(--white); }
+  .footer-wordmark em { color: var(--terracotta); font-style: normal; }
+  .footer-links { display: flex; gap: 28px; flex-wrap: wrap; }
+  .footer-links a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 14px; transition: color 0.2s ease; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-copy { width: 100%; font-size: 13px; color: rgba(255,255,255,0.4); padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.08); margin-top: 28px; text-align: center; }
+
+  /* ─── Responsive ─────────────────────────────────────────── */
+  @media (max-width: 980px) {
+    .nav { padding: 16px 22px; }
+    .hero { padding: 60px 22px 44px; min-height: 480px; }
+    .hero-title { font-size: 56px; }
+    .hero-tagline { font-size: 18px; }
+    .stats-strip { padding: 24px 22px; }
+    .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .stat-cell:not(:last-child) { border-right: none; padding-right: 0; border-bottom: 1px solid rgba(27,58,75,0.07); padding-bottom: 16px; }
+    .section { padding: 56px 22px; }
+    .section-head h2 { font-size: 32px; }
+    .cost-grid { grid-template-columns: repeat(2, 1fr); }
+    .practical-grid { grid-template-columns: 1fr; }
+    .handoff-grid { grid-template-columns: 1fr; }
+    .similar-grid { grid-template-columns: 1fr; }
+    footer { padding: 36px 22px 32px; }
+    .footer-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .hero-photo-cap { right: 22px; }
+  }
+
+  /* ─── Not found ──────────────────────────────────────────── */
+  .not-found { text-align: center; padding: 120px 48px; }
+  .not-found h1 { font-family: var(--serif); font-size: 52px; margin-bottom: 18px; }
+  .not-found p { font-size: 18px; color: var(--teal-soft); margin-bottom: 32px; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="wordmark" href="homepage-mockup.html">Retire<em>Vibes</em></a>
+  <div class="nav-links">
+    <a href="homepage-mockup.html#destinations">Destinations</a>
+    <a href="homepage-mockup.html#how">How it works</a>
+    <a href="find-an-advisor.html">Find an advisor</a>
+    <a href="my-retirevibes.html">My RetireVibes</a>
+    <a href="mockups/vibe-quiz.html" class="nav-cta">Take the quiz →</a>
+  </div>
+</nav>
+
+<div id="pageContent">
+  <!-- populated by JS -->
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-wordmark">Retire<em>Vibes</em></div>
+    <div class="footer-links">
+      <a href="homepage-mockup.html#destinations">Destinations</a>
+      <a href="homepage-mockup.html#how">How it works</a>
+      <a href="find-an-advisor.html">Find an advisor</a>
+      <a href="scouting-trip.html">Scouting trips</a>
+      <a href="my-retirevibes.html">My RetireVibes</a>
+    </div>
+  </div>
+  <div class="footer-inner">
+    <p class="footer-copy">© 2025 RetireVibes. Cost estimates are for informational purposes only and are not financial advice.</p>
+  </div>
+</footer>
+
+<script src="destinations-data.js"></script>
+<script>
+(function () {
+
+  // ─── Find destination from URL ────────────────────────────
+  function findDest() {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    const name = params.get('name');
+    if (id) return DESTINATIONS.find(d => d.id === id);
+    if (name) {
+      const n = decodeURIComponent(name).toLowerCase().trim();
+      return DESTINATIONS.find(d => d.name.toLowerCase().trim() === n);
+    }
+    return null;
+  }
+
+  // ─── Lifestyle labels ─────────────────────────────────────
+  const LIFESTYLE = ['Simple & comfortable', 'Comfortable with extras', 'Upscale & enjoyable', 'Luxury'];
+
+  // ─── Practical info helpers ───────────────────────────────
+  function getVisaInfo(dest) {
+    if (!dest.isInternational || dest.geographyOptions.includes(0)) {
+      if (dest.country === 'US Virgin Islands') return { icon: '🪪', title: 'US Territory — No Visa', body: 'No passport required for US citizens. Medicare, Social Security, and domestic rights apply. EIT tax incentives are available to qualifying new residents.' };
+      if (dest.country === 'United States Territory') return { icon: '🪪', title: 'US Territory — No Visa', body: 'No passport required for US citizens. Medicare and Social Security apply. Special residency tax incentives may be available — consult an advisor.' };
+      return { icon: '🪪', title: 'No Visa Required', body: 'Full US rights apply — Medicare, Social Security, and domestic protections. No passport or visa needed.' };
+    }
+    const geo = dest.geographyOptions[0];
+    const country = dest.country;
+    // Canada
+    if (geo === 1) return { icon: '🪪', title: 'Visitor: 6 Months', body: 'US citizens can stay in Canada up to 6 months without a visa. Long-term retirement typically requires pursuing Canadian Permanent Residency through one of several immigration streams.' };
+    // Mexico / LatAm
+    if (geo === 2) {
+      if (country === 'Mexico') return { icon: '🪪', title: 'Tourist Permit: 180 Days', body: 'US citizens can enter Mexico visa-free for up to 180 days. Long-term options: Residente Temporal (renewable, up to 4 years) or Residente Permanente. Income threshold applies.' };
+      if (country === 'Panama') return { icon: '🪪', title: 'Pensionado Visa', body: 'Panama\'s legendary Pensionado Visa is widely considered the world\'s best retirement visa — proof of $1,000+/month pension income. Includes discounts on healthcare, travel, and more. USD economy.' };
+      if (country === 'Costa Rica') return { icon: '🪪', title: 'Pensionado / Rentista Visa', body: 'Costa Rica\'s Pensionado Visa requires proof of $1,000+/month pension income. The Rentista Visa requires $2,500/month. Legal residents can access the CAJA public healthcare system.' };
+      if (country === 'Ecuador') return { icon: '🪪', title: 'Retirement Visa', body: 'Ecuador\'s Retirement Visa requires proof of $800+/month pension income from a government source. Process is relatively straightforward and one of Latin America\'s most accessible.' };
+      if (country === 'Uruguay') return { icon: '🪪', title: 'Retirement Residency', body: 'Uruguay\'s retirement residency requires proof of passive income. The process takes 6–12 months but grants full residency benefits in one of South America\'s most stable countries.' };
+      if (country === 'Argentina') return { icon: '🪪', title: 'Rentista Visa', body: 'US citizens can visit Argentina 90 days visa-free, extendable. Temporary residency as a pensioner requires proof of regular income. Note Argentina\'s economic volatility when planning.' };
+      if (country === 'Colombia') return { icon: '🪪', title: 'Pensionado Visa (Migrant M)', body: 'Colombia\'s Migrant Visa for pensioners requires proof of monthly income ≥3× Colombia\'s minimum wage (approx. $820/mo). Renewable annually, path to permanent residency after 2 years.' };
+      if (country === 'Guatemala') return { icon: '🪪', title: 'Pensionado Visa', body: 'Guatemala\'s Retirement Visa (Residente Pensionado) requires proof of $1,000+/month income. One of Latin America\'s most straightforward retirement visa processes.' };
+      if (country === 'Belize') return { icon: '🪪', title: 'QRP Program', body: 'Belize\'s Qualified Retired Persons (QRP) program requires proof of $2,000+/month income. Benefits include duty-free import of household goods and a vehicle.' };
+      return { icon: '🪪', title: 'Retirement Residency Available', body: 'Most countries in this region offer structured retirement visa programs with proof-of-income requirements. Consult an international retirement specialist for this specific destination.' };
+    }
+    // Caribbean
+    if (geo === 3) {
+      if (country === 'Barbados') return { icon: '🪪', title: 'Barbados Welcome Stamp', body: 'The Barbados Welcome Stamp allows 12-month renewable stays with an annual income of US$50,000 or more. An established and well-organized program.' };
+      if (country === 'Honduras') return { icon: '🪪', title: 'Retirement Residency', body: 'Honduras\'s Law of Benefits for Pensioners requires proof of $1,500+/month income. Discounts on various services included. Process is manageable with a local attorney.' };
+      if (country === 'Belize') return { icon: '🪪', title: 'QRP Program', body: 'Belize\'s Qualified Retired Persons (QRP) program: proof of $2,000+/month income. English speaking, USD accepted, and one of the most retirement-friendly programs in the Caribbean.' };
+      if (country === 'Dominican Republic') return { icon: '🪪', title: 'Retirement Visa', body: 'The Dominican Republic\'s Retirement Visa requires proof of $1,500+/month pension income. The process is generally straightforward and the DR is one of the most popular Caribbean retirement destinations.' };
+      if (country === 'Turks and Caicos Islands') return { icon: '🪪', title: 'Permanent Residency', body: 'Turks & Caicos offers Permanent Residency for Persons of Independent Means with financial requirements. No income tax for residents.' };
+      if (country === 'Grenada') return { icon: '🪪', title: 'Residency Available', body: 'Grenada offers long-stay residency options. Tourism stays are via standard tourist entry. Grenada also has a Citizenship by Investment program.' };
+      if (country === 'Saint Kitts and Nevis') return { icon: '🪪', title: 'Citizenship by Investment', body: 'St. Kitts has one of the world\'s oldest Citizenship by Investment programs — minimum $250K contribution. Also offers straightforward long-stay residency options.' };
+      if (country === 'Cayman Islands') return { icon: '🪪', title: 'Permanent Residency', body: 'Cayman Islands Permanent Residency for Persons of Independent Means requires significant net worth (CI$2M+). No income tax for residents.' };
+      return { icon: '🪪', title: 'Residency Options Vary', body: 'Caribbean retirement residency requirements vary significantly by island. Most offer tourist stays of 30–90 days; formal retirement programs have income or investment requirements.' };
+    }
+    // Europe
+    if (geo === 4) {
+      if (country === 'Portugal') return { icon: '🪪', title: 'D7 Visa / Golden Visa', body: 'Portugal\'s D7 Passive Income Visa is ideal for retirees — proof of €760+/month income. The NHR (Non-Habitual Resident) tax program offers significant tax advantages for the first 10 years.' };
+      if (country === 'Spain') return { icon: '🪪', title: 'Non-Lucrative Visa', body: 'Spain\'s Non-Lucrative Visa (NLV) allows retirees with passive income (min ~€2,400/month for one person) to live long-term. Access to Spanish public healthcare as a legal resident.' };
+      if (country === 'Greece') return { icon: '🪪', title: 'Golden Visa / D Visa', body: 'Greece\'s Golden Visa (property investment from €250K) provides residency. A Digital Nomad Visa also offers a long-stay path. Schengen access allows EU travel.' };
+      if (country === 'Italy') return { icon: '🪪', title: 'Elective Residency Visa', body: 'Italy\'s Elective Residency Visa requires proof of substantial passive income (€31K+ per year). Italy also has a flat-tax regime of €100K/year for new residents.' };
+      if (country === 'Croatia') return { icon: '🪪', title: 'Temporary Residence Visa', body: 'Croatia allows long-stay temporary residence permits. As an EU member since 2023, Schengen rules apply. Croatia has specific visa streams for passive income earners.' };
+      if (country === 'Czech Republic') return { icon: '🪪', title: 'Long Stay Visa', body: 'Czech Republic offers a Long Stay Visa (D-visa) for residency purposes with proof of income and accommodation. Schengen Area member — 90-day tourist stays for US citizens without a visa.' };
+      if (country === 'Hungary') return { icon: '🪪', title: 'Guest Investor Visa', body: 'Hungary\'s Guest Investor Program and long-stay residency options are available. Schengen member — 90-day tourist stays without visa.' };
+      if (country === 'Poland') return { icon: '🪪', title: 'Long Stay D-Visa', body: 'Poland\'s national long-stay D-visa allows extended residency. Schengen member — 90-day tourist stays without visa. EU member with stable governance.' };
+      if (country === 'Georgia') return { icon: '🪪', title: '365 Days Visa-Free', body: 'One of the world\'s most generous policies — US citizens can stay in Georgia for a full 365 days without any visa. Long-term residency permits are also available.' };
+      if (country === 'Slovenia') return { icon: '🪪', title: 'Temporary Residence Permit', body: 'Slovenia offers temporary residence permits for those with sufficient means. EU member and Schengen Area — 90-day tourist stays without visa.' };
+      if (country === 'Montenegro') return { icon: '🪪', title: 'Long Stay Visa', body: 'Montenegro\'s long-stay visa allows extended residency. Montenegro also has a Citizenship by Investment program. Not yet EU but a candidate country.' };
+      if (country === 'Malta') return { icon: '🪪', title: 'Malta Retirement Programme', body: 'Malta\'s Retirement Programme (MRP) offers formal residency to retirees receiving pensions or passive income from outside Malta. EU member — Schengen access.' };
+      if (country === 'Cyprus') return { icon: '🪪', title: 'Category F Visa', body: 'Cyprus\'s Category F "Retired Resident" Visa requires proof of foreign income of €9,568+/year. EU member offering Schengen access. Relatively affordable visa process.' };
+      return { icon: '🪪', title: 'Schengen: 90 Days / Long-Stay Visa', body: 'US citizens can visit the Schengen Area for up to 90 days in any 180-day period. Long-term EU retirement requires a national visa or permit — options vary by country.' };
+    }
+    // Australia/NZ
+    if (geo === 5) {
+      if (country === 'Australia') return { icon: '🪪', title: 'ETA + Retirement Visa', body: 'US citizens need an Electronic Travel Authority (ETA) for Australia. Long-term retirement requires a specific visa — the Significant Investor Visa (SIV) is the most accessible. Consult an Australian immigration specialist.' };
+      if (country === 'New Zealand') return { icon: '🪪', title: 'Visitor Visa / Parent Visa', body: 'US citizens can visit New Zealand for up to 9 months. Long-term retirement options are limited without family ties to NZ citizens. Consult an NZ immigration specialist for current pathways.' };
+      return { icon: '🪪', title: 'Visa Required', body: 'Long-term retirement in Australia or New Zealand requires specific visa programs with financial requirements. Consult an immigration specialist for current pathways.' };
+    }
+    // Asia
+    if (geo === 6) {
+      if (country === 'Thailand') return { icon: '🪪', title: 'Thailand Privilege Visa / O-A', body: 'Thailand Privilege Visa (formerly Elite): 5-year renewable visa from ~$15K. Non-Immigrant O-A (Long Stay) requires 800,000 THB (~$23K) in a Thai bank account.' };
+      if (country === 'Malaysia') return { icon: '🪪', title: 'MM2H Visa', body: 'Malaysia\'s My Second Home (MM2H) program is designed for long-term residents: proof of offshore income of RM40,000+/month and a substantial fixed deposit. Recently revised requirements.' };
+      if (country === 'Indonesia') return { icon: '🪪', title: 'Second Home Visa', body: 'Indonesia\'s Second Home Visa (5-year, ~$130K property investment) is the best long-stay option. Standard tourist visas are renewable but complex. No official retirement visa.' };
+      if (country === 'Vietnam') return { icon: '🪪', title: 'E-Visa / Temporary Residence', body: 'Vietnam\'s 90-day e-visa is available to US citizens. A 1-year temporary residence card is possible but requires a local sponsor. No official retirement visa program.' };
+      if (country === 'Sri Lanka') return { icon: '🪪', title: 'Retirement Resident Visa', body: 'Sri Lanka\'s Retirement Resident Visa for those 55+ requires proof of income. The process is relatively accessible and the visa is annually renewable.' };
+      if (country === 'Philippines') return { icon: '🪪', title: 'SRRV — Best in Asia', body: 'The Philippines\' Special Resident Retiree\'s Visa (SRRV) is one of Asia\'s most generous retirement programs. Multiple tiers from $10K–$75K deposit depending on age, with immediate permanent residency.' };
+      if (country === 'Taiwan') return { icon: '🪪', title: 'Gold Card / Investment Visa', body: 'Taiwan does not have a specific retirement visa. The Gold Card (for professionals) and Investment Visas are the main long-stay paths. Standard visitor visa-free stays are 90 days.' };
+      return { icon: '🪪', title: 'Retirement Visa Varies', body: 'Several Asian countries offer dedicated retirement visa programs (Thailand, Malaysia, Philippines). Requirements and ease of process vary significantly — consult a specialist.' };
+    }
+    return { icon: '🪪', title: 'Visa Required', body: 'Long-term residency requirements vary. Consult an international retirement specialist for the most current visa pathways.' };
+  }
+
+  function getHealthcareInfo(dest) {
+    if (!dest.isInternational && dest.country === 'United States') return { icon: '🏥', title: 'Medicare Applies', body: 'Medicare and Medicaid apply in full. Provider networks vary by location — verify your plan covers your specific area before relocating.' };
+    if (dest.country === 'US Virgin Islands' || dest.country === 'United States Territory') return { icon: '🏥', title: 'Medicare Applies (Territory)', body: 'As a US territory, Medicare applies. However, Medicare Advantage plans may have limited local networks — verify your specific plan with your provider before relocating.' };
+    const geo = dest.geographyOptions[0];
+    if (geo === 1) return { icon: '🏥', title: 'Canadian Public Healthcare', body: 'Canadian healthcare is world-class. Access for new immigrants typically requires a 3-month waiting period. Private supplemental insurance is recommended during the transition.' };
+    if (geo === 4) return { icon: '🏥', title: 'EU Healthcare + Private', body: 'EU member states offer public healthcare to legal residents. Supplemental private international health insurance is recommended and typically affordable in Europe.' };
+    if (geo === 5) {
+      if (dest.country === 'Australia') return { icon: '🏥', title: 'Medicare (AU) + Private', body: 'Australia\'s Medicare system covers legal residents. Private health insurance is highly recommended and commonly used. Healthcare quality is excellent.' };
+      return { icon: '🏥', title: 'Public + Private Mix', body: 'New Zealand and Australia have strong public health systems accessible to legal residents. Supplemental private insurance is common and recommended.' };
+    }
+    return { icon: '🏥', title: 'International Insurance Required', body: 'Private international health insurance is strongly recommended. Many retirement destinations have excellent private hospital systems at a fraction of US costs — quality varies by country.' };
+  }
+
+  function getGettingThereInfo(dest) {
+    if (!dest.isInternational && dest.country === 'United States') return { icon: '✈️', title: 'US Domestic Flights', body: 'Direct domestic flights from most US cities, typically 1–5 hours. No passport required. Drive access is also an option from nearby states.' };
+    if (dest.country === 'US Virgin Islands' || dest.country === 'United States Territory') return { icon: '✈️', title: '3–4 Hours from East Coast', body: 'Direct flights from major US East Coast and Southern hubs. No passport required for US citizens — a government-issued ID is sufficient.' };
+    const geo = dest.geographyOptions[0];
+    if (geo === 1) return { icon: '✈️', title: '2–7 Hours from US', body: 'Direct flights from most major US cities. Flight times range from ~2 hours (from Northeast to Eastern Canada) to ~7 hours (from Southeast to Western Canada). US passport required for air travel.' };
+    if (geo === 2) {
+      if (dest.country === 'Mexico') return { icon: '✈️', title: '2–5 Hours from US', body: 'Direct flights from most US cities, many under 3 hours. US passport required. Several major Mexican cities have excellent airport connections.' };
+      return { icon: '✈️', title: '4–9 Hours from US', body: 'Direct or one-stop flights from major US hubs, typically 4–9 hours depending on the city. US passport required. Miami and Houston are major hub cities for Latin American connections.' };
+    }
+    if (geo === 3) return { icon: '✈️', title: '2–5 Hours from US', body: 'Direct flights from major US East Coast and Southern hubs, typically 2–5 hours. US passport required. Miami, Fort Lauderdale, Atlanta, and New York are primary departure points.' };
+    if (geo === 4) return { icon: '✈️', title: '7–10 Hours from US', body: 'Transatlantic flights from major US cities, typically 7–10 hours to Western Europe. US passport required. Many European cities also accessible via connecting hub flights.' };
+    if (geo === 5) return { icon: '✈️', title: '15–21 Hours from US', body: 'Long-haul flights — approximately 15–17 hours from the US West Coast to eastern Australia/NZ, or 21+ hours from the East Coast. US passport required. Consider a stopover routing.' };
+    if (geo === 6) return { icon: '✈️', title: '14–20 Hours from US', body: 'Long-haul flights, typically 14–16 hours from the US West Coast or 18–22 hours from the East Coast. US passport required. Many connections route through Tokyo, Seoul, Hong Kong, or Singapore.' };
+    return { icon: '✈️', title: 'International Flights', body: 'US passport required. Flight times and connection options vary — check routes from your nearest major hub city.' };
+  }
+
+  // ─── Render the full page ─────────────────────────────────
+  function renderPage(dest) {
+    document.title = dest.name + ', ' + dest.country + ' — RetireVibes';
+
+    const lifestyleLabels = LIFESTYLE;
+    const cost1 = dest.costPerMonth[1] ? '~$' + dest.costPerMonth[1].toLocaleString() : '—';
+    const costEntries = Object.entries(dest.costPerMonth);
+
+    const visa = getVisaInfo(dest);
+    const health = getHealthcareInfo(dest);
+    const getting = getGettingThereInfo(dest);
+
+    // Similar destinations (same primary geography, different id, up to 3)
+    const primaryGeo = dest.geographyOptions[0];
+    const similar = DESTINATIONS
+      .filter(d => d.id !== dest.id && d.geographyOptions.includes(primaryGeo))
+      .slice(0, 3);
+
+    const isIntl = dest.isInternational;
+    const advisorHref = isIntl ? 'advisor-international.html' : 'advisor-domestic.html';
+    const homesHref = isIntl ? 'browse-homes-international.html' : 'browse-homes-domestic.html';
+    const advisorLabel = isIntl ? 'Talk to an international advisor' : 'Talk to a US retirement advisor';
+    const advisorDesc = isIntl
+      ? 'Retiring internationally involves tax treaties, currency, and foreign account reporting. Get matched with a fiduciary who specializes in retirement abroad.'
+      : 'Social Security timing, Medicare, RMDs — our advisor partners handle the details. Get matched with a fiduciary who specializes in US retirement.';
+
+    const tagsHtml = dest.tags.map(t => `<span class="tag">${t}</span>`).join('');
+
+    const costsHtml = costEntries.map(([k, v]) => `
+      <div class="cost-card${k == 1 ? ' highlight' : ''}">
+        <div class="cost-tier">${lifestyleLabels[k]}</div>
+        <div class="cost-value">~$${Number(v).toLocaleString()}</div>
+        <div class="cost-unit">per month</div>
+      </div>`).join('');
+
+    const similarHtml = similar.map(s => `
+      <a class="similar-card" href="${s.page}">
+        <div class="similar-photo" style="background-image: url('${s.photo}');"></div>
+        <div class="similar-body">
+          <div class="similar-region">${s.flag} ${s.region}</div>
+          <div class="similar-name">${s.name}</div>
+          <div class="similar-tagline">${s.tagline.substring(0, 90)}${s.tagline.length > 90 ? '…' : ''}</div>
+          <div class="similar-cost">Comfortable lifestyle: ~$${(s.costPerMonth[1] || s.costPerMonth[0] || 0).toLocaleString()}/mo</div>
+        </div>
+      </a>`).join('');
+
+    const html = `
+      <!-- Hero -->
+      <section class="hero">
+        <div class="hero-bg" style="background-image: url('${dest.photo}?auto=format&fit=crop&w=2200&q=85');"></div>
+        <div class="hero-inner">
+          <a class="back-link" href="homepage-mockup.html">← All destinations</a>
+          <div class="hero-pill">${dest.flag} &nbsp;${dest.region}</div>
+          <h1 class="hero-title">${dest.name}</h1>
+          <p class="hero-tagline">${dest.tagline}</p>
+          <div class="hero-actions">
+            <button class="save-btn" onclick="handleSave('${dest.name}')">
+              <span class="heart" id="heartIcon">♡</span> Save ${dest.name}
+            </button>
+            <a class="quiz-link" href="mockups/vibe-quiz.html">Take the quiz →</a>
+          </div>
+        </div>
+        <div class="hero-photo-cap">${dest.photoCap}</div>
+      </section>
+
+      <!-- Stats strip -->
+      <div class="stats-strip">
+        <div class="stats-inner">
+          <div class="stat-cell">
+            <div class="stat-label">Comfortable lifestyle</div>
+            <div class="stat-value">${cost1}<span style="font-size:14px;color:var(--warm-gray);">/mo</span></div>
+            <div class="stat-sub">Estimated monthly cost</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-label">Housing — Buy</div>
+            <div class="stat-value">${dest.housing.buy}</div>
+            <div class="stat-sub">${dest.housing.buyDesc}</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-label">Housing — Rent</div>
+            <div class="stat-value">${dest.housing.rent}</div>
+            <div class="stat-sub">Estimated monthly rent</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-label">Region</div>
+            <div class="stat-value" style="font-size:18px;line-height:1.3;">${dest.region}</div>
+            <div class="stat-sub">${dest.country}</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-label">Destination type</div>
+            <div class="stat-value" style="font-size:18px;line-height:1.3;">${isIntl ? 'International' : 'Domestic US'}</div>
+            <div class="stat-sub">${isIntl ? 'Passport required' : 'No passport needed'}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tags + Compare -->
+      <div class="section">
+        <div class="section-inner">
+          <div class="section-head">
+            <span class="eyebrow">Why it works</span>
+            <h2>What makes <em>${dest.name}</em> different</h2>
+          </div>
+          <div class="tags-wrap">${tagsHtml}</div>
+          <div class="compare-box">
+            <div class="compare-label">How it compares</div>
+            <p>${dest.compare}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lifestyle cost breakdown -->
+      <div class="section section-alt">
+        <div class="section-inner">
+          <div class="section-head">
+            <span class="eyebrow">Cost of living</span>
+            <h2>What life in <em>${dest.name}</em> costs</h2>
+            <p class="lead">Four lifestyle tiers — pick the one that matches how you want to live.</p>
+          </div>
+          <div class="cost-grid">${costsHtml}</div>
+          <p class="cost-note">Estimates cover housing, food, utilities, transportation, and a reasonable entertainment budget. They are illustrative figures, not guarantees — actual costs vary by neighborhood, lifestyle choices, and exchange rates. These are not financial advice.</p>
+        </div>
+      </div>
+
+      <!-- Practical info -->
+      <div class="section">
+        <div class="section-inner">
+          <div class="section-head">
+            <span class="eyebrow">Practical basics</span>
+            <h2>Getting there &amp; getting settled</h2>
+          </div>
+          <div class="practical-grid">
+            <div class="practical-card">
+              <div class="pc-icon">${getting.icon}</div>
+              <div class="pc-label">Getting there</div>
+              <h3>${getting.title}</h3>
+              <p>${getting.body}</p>
+            </div>
+            <div class="practical-card">
+              <div class="pc-icon">${visa.icon}</div>
+              <div class="pc-label">Visa &amp; residency</div>
+              <h3>${visa.title}</h3>
+              <p>${visa.body}</p>
+            </div>
+            <div class="practical-card">
+              <div class="pc-icon">${health.icon}</div>
+              <div class="pc-label">Healthcare</div>
+              <h3>${health.title}</h3>
+              <p>${health.body}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Handoff -->
+      <div class="section section-dark">
+        <div class="section-inner">
+          <div class="section-head">
+            <span class="eyebrow">Next steps</span>
+            <h2>Ready to take <em>${dest.name}</em> further?</h2>
+            <p class="lead">You've found the vibe. Here's how to start turning it into a real plan.</p>
+          </div>
+          <div class="handoff-grid">
+            <div class="handoff-card">
+              <div class="ho-label">Financial planning</div>
+              <h3>${advisorLabel}</h3>
+              <p>${advisorDesc}</p>
+              <a href="${advisorHref}">Find an advisor →</a>
+            </div>
+            <div class="handoff-card">
+              <div class="ho-label">Real estate</div>
+              <h3>Browse homes in ${dest.name}</h3>
+              <p>${isIntl
+                ? `Real listings — apartments, houses, and condos in ${dest.name}. No commitment, just curiosity about what the market looks like.`
+                : `Active listings in ${dest.name} — see what the market looks like before you commit to anything.`}</p>
+              <a href="${homesHref}">Explore ${dest.name} homes →</a>
+            </div>
+            <div class="handoff-card">
+              <div class="ho-label">Scouting</div>
+              <h3>Plan a scouting trip</h3>
+              <p>Spend 7–10 days living like a local — walk the neighborhoods, eat where locals eat, and see if the vibe holds up in person before you commit to anything.</p>
+              <a href="scouting-trip.html">Plan my trip →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      ${similar.length > 0 ? `
+      <!-- Similar destinations -->
+      <div class="section">
+        <div class="section-inner">
+          <div class="section-head">
+            <span class="eyebrow">Also consider</span>
+            <h2>Similar places to explore</h2>
+            <p class="lead">Other destinations in the same region that might be worth a look.</p>
+          </div>
+          <div class="similar-grid">${similarHtml}</div>
+        </div>
+      </div>` : ''}
+    `;
+
+    document.getElementById('pageContent').innerHTML = html;
+
+    // Update save state from localStorage
+    updateSaveState(dest.name);
+  }
+
+  // ─── Save logic ───────────────────────────────────────────
+  function updateSaveState(name) {
+    try {
+      const saved = JSON.parse(localStorage.getItem('rv_saved') || '{}');
+      const isSaved = (saved.destinations || []).includes(name);
+      const btn = document.querySelector('.save-btn');
+      const heart = document.getElementById('heartIcon');
+      if (btn && isSaved) {
+        btn.style.background = 'rgba(201,123,90,0.12)';
+        btn.style.color = 'var(--terracotta)';
+        if (heart) heart.textContent = '♥';
+      }
+    } catch (e) {}
+  }
+
+  window.handleSave = function (name) {
+    try {
+      const saved = JSON.parse(localStorage.getItem('rv_saved') || '{}');
+      if (!saved.email) {
+        alert('Open RetireVibes on your results page to save destinations with your account.');
+        return;
+      }
+      saved.destinations = saved.destinations || [];
+      if (saved.destinations.includes(name)) {
+        saved.destinations = saved.destinations.filter(d => d !== name);
+      } else {
+        saved.destinations.push(name);
+      }
+      localStorage.setItem('rv_saved', JSON.stringify(saved));
+      updateSaveState(name);
+    } catch (e) {}
+  };
+
+  // ─── Init ─────────────────────────────────────────────────
+  if (typeof DESTINATIONS === 'undefined') {
+    document.getElementById('pageContent').innerHTML = `
+      <div class="not-found">
+        <h1>Destination data not loaded</h1>
+        <p>Make sure destinations-data.js is in the same folder as this page.</p>
+      </div>`;
+  } else {
+    const dest = findDest();
+    if (dest) {
+      renderPage(dest);
+    } else {
+      document.getElementById('pageContent').innerHTML = `
+        <div class="not-found">
+          <h1>Destination not found</h1>
+          <p>We couldn't find that destination. Try taking the quiz to see your matched destinations.</p>
+          <a href="mockups/vibe-quiz.html" style="display:inline-block;padding:16px 32px;background:var(--teal);color:#fff;border-radius:999px;text-decoration:none;font-weight:500;">Take the quiz →</a>
+        </div>`;
+    }
+  }
+
+})();
+</script>
+<script src="shared.js"></script>
+</body>
+</html>

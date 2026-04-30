@@ -4,6 +4,21 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Destination — RetireVibes</title>
+<script>
+  // Redirect all destination-coming-soon links to the full destination-detail template.
+  // Preserves ?name= param; destination-detail.html handles name-based lookups natively.
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var name = params.get('name');
+    var id = params.get('id');
+    if (name) {
+      window.location.replace('destination-detail.html?name=' + encodeURIComponent(name));
+    } else if (id) {
+      window.location.replace('destination-detail.html?id=' + encodeURIComponent(id));
+    }
+    // If neither param, fall through to the coming-soon page as a generic fallback.
+  })();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
