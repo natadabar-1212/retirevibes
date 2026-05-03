@@ -50,7 +50,7 @@
   .hero { position: relative; min-height: 620px; display: flex; align-items: flex-end; overflow: hidden; padding: 80px 48px 60px; }
   .hero-bg {
     position: absolute; inset: 0;
-    background-image: url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=2200&q=85');
+    background-image: url('images/sarasota.jpg');
     background-size: cover; background-position: center; background-color: #93A89A;
   }
   .hero-bg::after {
@@ -98,7 +98,7 @@
   /* ─── A day here ─────────────────────────────────────────── */
   .day { background: var(--cream-soft); }
   .day-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center; max-width: 1240px; margin: 0 auto; }
-  .day-image { border-radius: 18px; overflow: hidden; aspect-ratio: 4/5; background-image: url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=1100&q=80'); background-size: cover; background-position: center; box-shadow: 0 18px 40px rgba(27, 58, 75, 0.12); }
+  .day-image { border-radius: 18px; overflow: hidden; aspect-ratio: 4/5; background-image: url('images/sarasota.jpg'); background-size: cover; background-position: center; box-shadow: 0 18px 40px rgba(27, 58, 75, 0.12); }
   .day-text h2 { font-family: var(--serif); font-size: 40px; line-height: 1.15; color: var(--teal); letter-spacing: -0.018em; margin-bottom: 22px; }
   .day-text h2 em { color: var(--terracotta); font-style: italic; }
   .day-text p { font-size: 17px; color: var(--teal-soft); line-height: 1.7; margin-bottom: 18px; }
@@ -204,9 +204,7 @@
 <nav class="nav">
   <a class="wordmark" href="homepage-mockup.html">Retire<em>Vibes</em></a>
   <div class="nav-links">
-    <a href="homepage-mockup.html#destinations">Destinations</a>
-    <a href="homepage-mockup.html#how">How it works</a>
-    <a href="find-an-advisor.html">Find an advisor</a>
+    <a href="destinations.html">Destinations</a>
     <a href="my-retirevibes.html">My RetireVibes</a>
     <a href="results-page-mockup.html" class="nav-cta">Take the quiz →</a>
   </div>
@@ -433,7 +431,7 @@
         <div class="ho-label">The "is this real" side</div>
         <h3>Spend a long weekend</h3>
         <p>Domestic moves are easy to test. Pick a week, book a rental, walk the neighborhoods you've been eyeing. We'll line up a local realtor and a neighborhood tour through our partner.</p>
-        <a href="scouting-trip.html">Plan my weekend →</a>
+        <a href="scouting-trip-domestic.html?city=sarasota">Plan my weekend →</a>
       </article>
     </div>
   </div>
@@ -448,34 +446,34 @@
   </div>
 
   <div class="similar-grid">
-    <a class="similar-card" href="destination-coming-soon.html?name=Naples">
-      <div class="similar-photo" style="background-image: url('https://images.unsplash.com/photo-1582408921715-18e7806365c1?auto=format&fit=crop&w=900&q=80');">
-        <button class="card-save" data-name="Naples" onclick="event.preventDefault(); event.stopPropagation(); toggleSave('Naples')" aria-label="Save Naples">♡</button>
+    <a class="similar-card" href="destination-porto.html">
+      <div class="similar-photo" style="background-image: url('images/porto.jpg');">
+        <button class="card-save" data-name="Porto" onclick="event.preventDefault(); event.stopPropagation(); toggleSave('Porto')" aria-label="Save Porto">♡</button>
       </div>
       <div class="similar-body">
-        <h3 class="similar-name">Naples</h3>
-        <div class="similar-region">Florida · Gulf coast</div>
-        <p class="similar-vibe">Pricier, golfier, slightly more polished. Same Gulf-coast climate. Slightly less of an arts scene.</p>
+        <h3 class="similar-name">Porto</h3>
+        <div class="similar-region">Portugal · Northern Coastal</div>
+        <p class="similar-vibe">Ready to go international? Porto has the coastal walkability, serious restaurant scene, and upscale lifestyle — at roughly half the cost.</p>
       </div>
     </a>
-    <a class="similar-card" href="destination-coming-soon.html?name=Charleston">
-      <div class="similar-photo" style="background-image: url('https://images.unsplash.com/photo-1610715671870-83f06adcadbe?auto=format&fit=crop&w=900&q=80');">
-        <button class="card-save" data-name="Charleston" onclick="event.preventDefault(); event.stopPropagation(); toggleSave('Charleston')" aria-label="Save Charleston">♡</button>
+    <a class="similar-card" href="destination-merida.html">
+      <div class="similar-photo" style="background-image: url('images/merida.jpg');">
+        <button class="card-save" data-name="Mérida" onclick="event.preventDefault(); event.stopPropagation(); toggleSave('Mérida')" aria-label="Save Mérida">♡</button>
       </div>
       <div class="similar-body">
-        <h3 class="similar-name">Charleston</h3>
-        <div class="similar-region">South Carolina · Atlantic coast</div>
-        <p class="similar-vibe">More history, more humidity, fewer hurricanes (relatively). Walkable historic downtown, serious food scene.</p>
+        <h3 class="similar-name">Mérida</h3>
+        <div class="similar-region">Mexico · Yucatán Colonial</div>
+        <p class="similar-vibe">Warm, walkable, colonial — and about half the cost of Sarasota. An international option that's only two hours from Miami.</p>
       </div>
     </a>
     <a class="similar-card" href="destination-asheville.html">
-      <div class="similar-photo" style="background-image: url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=900&q=80');">
+      <div class="similar-photo" style="background-image: url('images/asheville.jpg');">
         <button class="card-save" data-name="Asheville" onclick="event.preventDefault(); event.stopPropagation(); toggleSave('Asheville')" aria-label="Save Asheville">♡</button>
       </div>
       <div class="similar-body">
         <h3 class="similar-name">Asheville</h3>
         <div class="similar-region">North Carolina · Mountain</div>
-        <p class="similar-vibe">Different climate entirely — Blue Ridge mountains, four seasons. Same arts-and-walkable energy.</p>
+        <p class="similar-vibe">Swap the mountains for Gulf Coast beaches. Same domestic ease, same punchy cultural scene — minus the Blue Ridge and plus a lot of sunshine.</p>
       </div>
     </a>
   </div>
@@ -489,8 +487,7 @@
       <p class="footer-tag">Good RetireVibes only.</p>
     </div>
     <div class="footer-links">
-      <a href="homepage-mockup.html#destinations">Destinations</a>
-      <a href="homepage-mockup.html#how">How it works</a>
+      <a href="destinations.html">Destinations</a>
       <a href="find-an-advisor.html">Find an advisor</a>
       <a href="scouting-trip.html">Scouting trips</a>
       <a href="my-retirevibes.html">My RetireVibes</a>

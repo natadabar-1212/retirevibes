@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RetireVibes — Image Check</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, sans-serif; background: #111; color: #eee; padding: 24px; }
+    h1 { font-size: 20px; margin-bottom: 6px; }
+    #summary { font-size: 14px; color: #888; margin-bottom: 20px; }
+    #stats { display: flex; gap: 16px; margin-bottom: 24px; font-size: 13px; flex-wrap: wrap; }
+    .stat { background: #222; border-radius: 8px; padding: 10px 16px; }
+    .stat span { font-size: 22px; font-weight: 700; display: block; }
+    .ok span { color: #4ade80; }
+    .broken span { color: #f87171; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+    .card { background: #1e1e1e; border-radius: 10px; overflow: hidden; border: 2px solid transparent; }
+    .card.good { border-color: #166534; }
+    .card.bad  { border-color: #991b1b; }
+    .photo {
+      height: 140px; background: #333 center/cover no-repeat;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; color: #aaa;
+    }
+    .photo.error { background: #3b0000; color: #f87171; font-weight: 600; font-size: 13px; flex-direction: column; gap: 4px; }
+    .info { padding: 10px 12px; }
+    .name { font-size: 13px; font-weight: 600; }
+    .path { font-size: 10px; color: #555; font-family: monospace; margin-top: 3px; word-break: break-all; }
+  </style>
+</head>
+<body>
+  <h1>RetireVibes — Local Image Check</h1>
+  <p id="summary">Loading destinations…</p>
+  <div id="stats">
+    <div class="stat ok"><span id="n-ok">—</span>✅ Loading</div>
+    <div class="stat broken"><span id="n-broken">—</span>❌ Broken</div>
+  </div>
+  <div class="grid" id="grid"></div>
+
+  <script src="destinations-data.js"></script>
+  <script>
+    const grid = document.getElementById('grid');
+    let ok = 0, broken = 0, total = 0;
+
+    DESTINATIONS.forEach(dest => {
+      total++;
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      const photo = document.createElement('div');
+      photo.className = 'photo';
+      photo.textContent = 'Loading…';
+
+      const info = document.createElement('div');
+      info.className = 'info';
+      info.innerHTML = `
+        <div class="name">${dest.flag || ''} ${dest.name}</div>
+        <div class="path">${dest.photo}</div>
+      `;
+
+      card.appendChild(photo);
+      card.appendChild(info);
+      grid.appendChild(card);
+
+      const img = new Image();
+      img.onload = () => {
+        photo.style.backgroundImage = `url('${dest.photo}')`;
+        photo.textContent = '';
+        card.classList.add('good');
+        ok++;
+        update();
+      };
+      img.onerror = () => {
+        photo.classList.add('error');
+        photo.innerHTML = `<span>🚫</span><span>NOT FOUND</span>`;
+        card.classList.add('bad');
+        broken++;
+        update();
+      };
+      img.src = dest.photo;
+    });
+
+    function update() {
+      document.getElementById('n-ok').textContent = ok;
+      document.getElementById('n-broken').textContent = broken;
+      const done = ok + broken;
+      document.getElementById('summary').textContent =
+        done < total
+          ? `Checking… ${done} / ${total}`
+          : `Done — ${total} destinations checked`;
+    }
+  </script>
+</body>
+</html>

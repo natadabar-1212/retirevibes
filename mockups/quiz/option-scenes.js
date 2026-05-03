@@ -375,6 +375,262 @@ const OPTION_SCENES = {
     </svg>`,
   },
 
+  // ---------- Q4: Geography (where in the world) ----------
+  q4: {
+    us: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+      <rect width="400" height="300" fill="#B8CBD4"/>
+      <rect y="230" width="400" height="70" fill="#C9674F"/>
+      <path d="M0,230 L0,150 L80,150 L120,230 Z" fill="#8A4A38"/>
+      <path d="M140,230 L165,105 L265,105 L285,230 Z" fill="#A85840"/>
+      <rect x="165" y="105" width="100" height="16" fill="#C9674F"/>
+      <path d="M300,230 L315,145 L400,145 L400,230 Z" fill="#8A4A38"/>
+      <circle cx="60" cy="60" r="28" fill="#F9E1B0"/>
+      <path d="M195,300 L178,230 L218,230 Z" fill="#D4A574" opacity="0.5"/>
+    </svg>`,
+    canada: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+      <rect width="400" height="300" fill="#B8CBD4"/>
+      <path d="M0,185 L75,90 L155,145 L235,65 L315,125 L400,90 L400,300 L0,300 Z" fill="#3D5A6C"/>
+      <path d="M235,65 L222,92 L248,92 Z" fill="#FAF4ED"/>
+      <path d="M75,90 L66,110 L84,110 Z" fill="#FAF4ED"/>
+      <path d="M0,245 L80,175 L160,215 L240,165 L320,205 L400,175 L400,300 L0,300 Z" fill="#1F4550"/>
+      <rect y="235" width="400" height="65" fill="#4A8BA8" opacity="0.65"/>
+      <g fill="#1F2D3D">
+        <polygon points="50,245 60,208 70,245"/>
+        <polygon points="340,248 350,208 360,248"/>
+        <polygon points="170,250 178,215 186,250"/>
+      </g>
+    </svg>`,
+    latam: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+      <rect width="400" height="180" fill="#F2A365"/>
+      <rect y="240" width="400" height="60" fill="#8A6E3F"/>
+      <rect y="200" width="400" height="40" fill="#D4A574"/>
+      <rect x="30" y="80" width="340" height="165" fill="#F2E8DC"/>
+      <path d="M60,245 L60,148 Q60,108 98,108 Q136,108 136,148 L136,245 Z" fill="#C9674F"/>
+      <path d="M168,245 L168,138 Q168,98 206,98 Q244,98 244,138 L244,245 Z" fill="#3D5A6C"/>
+      <path d="M276,245 L276,148 Q276,108 314,108 Q352,108 352,148 L352,245 Z" fill="#D4A574"/>
+      <path d="M68,245 L68,152 Q68,116 98,116 Q128,116 128,152 L128,245 Z" fill="#E8C9A0"/>
+      <path d="M176,245 L176,142 Q176,106 206,106 Q236,106 236,142 L236,245 Z" fill="#E8C9A0"/>
+      <path d="M284,245 L284,152 Q284,116 314,116 Q344,116 344,152 L344,245 Z" fill="#E8C9A0"/>
+      <circle cx="340" cy="48" r="24" fill="#F9E1B0" opacity="0.9"/>
+    </svg>`,
+    caribbean: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+      <rect width="400" height="200" fill="#B8CBD4"/>
+      <rect y="185" width="400" height="115" fill="#4A8BA8"/>
+      <path d="M0,200 Q200,188 400,200 L400,218 Q200,208 0,218 Z" fill="#6AA8C0"/>
+      <ellipse cx="200" cy="212" rx="100" ry="20" fill="#D4A574"/>
+      <g transform="translate(162,192)">
+        <rect x="-3" y="-48" width="5" height="52" fill="#5C4A2A" transform="rotate(-10 0 0)"/>
+        <path d="M-3,-42 Q-48,-65 -58,-86 Q-30,-62 -3,-38 Z" fill="#7A8A60"/>
+        <path d="M-3,-42 Q28,-56 38,-76 Q18,-56 -3,-38 Z" fill="#7A8A60"/>
+        <path d="M-3,-42 Q-8,-76 5,-96 Q6,-66 -3,-38 Z" fill="#A8B888"/>
+      </g>
+      <g transform="translate(240,196)">
+        <rect x="-3" y="-42" width="5" height="46" fill="#5C4A2A" transform="rotate(8 0 0)"/>
+        <path d="M-3,-36 Q-38,-58 -46,-76 Q-24,-55 -3,-33 Z" fill="#7A8A60"/>
+        <path d="M-3,-36 Q32,-52 42,-70 Q22,-52 -3,-33 Z" fill="#A8B888"/>
+      </g>
+      <circle cx="316" cy="58" r="30" fill="#F9E1B0"/>
+    </svg>`,
+    europe: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+      <rect width="400" height="300" fill="#E8C9A0"/>
+      <path d="M0,205 Q100,175 200,195 Q300,210 400,185 L400,300 L0,300 Z" fill="#A8B888"/>
+      <rect x="245" y="82" width="105" height="185" fill="#FAF4ED"/>
+      <path d="M252,84 Q297,42 342,84" fill="#C9674F"/>
+      <ellipse cx="297" cy="84" rx="44" ry="20" fill="#C9674F"/>
+      <rect x="293" y="30" width="6" height="24" fill="#5C4A2A"/>
+      <rect x="286" y="36" width="20" height="5" fill="#5C4A2A"/>
+      <rect x="18" y="132" width="82" height="145" fill="#F2E8DC"/>
+      <rect x="110" y="112" width="68" height="165" fill="#FAF4ED"/>
+      <rect x="188" y="142" width="48" height="145" fill="#F2E8DC"/>
+      <rect x="18" y="120" width="82" height="14" fill="#C9674F"/>
+      <rect x="110" y="100" width="68" height="14" fill="#E07A5F"/>
+      <rect x="188" y="130" width="48" height="14" fill="#C9674F"/>
+      <rect x="38" y="148" width="14" height="18" fill="#4A8BA8"/>
+      <rect x="66" y="148" width="14" height="18" fill="#4A8BA8"/>
+      <rect x="120" y="128" width="14" height="18" fill="#4A8BA8"/>
+      <rect x="148" y="128" width="14" height="18" fill="#4A8BA8"/>
+    </svg>`,
+    australiaNZ: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+      <rect width="400" height="300" fill="#B8CBD4"/>
+      <rect y="182" width="400" height="118" fill="#4A8BA8"/>
+      <g transform="translate(218,182)">
+        <path d="M0,0 Q-18,-58 -48,-50 Z" fill="#FAF4ED"/>
+        <path d="M0,0 Q18,-76 58,-52 Z" fill="#FAF4ED"/>
+        <path d="M0,0 Q38,-48 78,-38 Z" fill="#F2E8DC"/>
+        <rect x="-52" y="-5" width="148" height="6" fill="#D4A574"/>
+      </g>
+      <path d="M0,172 Q75,95 152,172" stroke="#1F2D3D" stroke-width="10" fill="none"/>
+      <rect x="0" y="158" width="12" height="28" fill="#1F2D3D"/>
+      <rect x="140" y="158" width="12" height="28" fill="#1F2D3D"/>
+      <circle cx="328" cy="60" r="28" fill="#F9E1B0"/>
+      <path d="M0,198 Q200,208 400,198" stroke="#F9E1B0" stroke-width="2" fill="none" opacity="0.4"/>
+    </svg>`,
+    asia: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+      <rect width="400" height="300" fill="#E8C9A0"/>
+      <rect y="182" width="400" height="118" fill="#D4A574"/>
+      <path d="M0,182 L55,128 L115,165 L195,105 L275,152 L400,132 L400,200 L0,200 Z" fill="#A8B888" opacity="0.55"/>
+      <rect x="172" y="245" width="56" height="38" fill="#1F2D3D"/>
+      <rect x="162" y="215" width="76" height="34" fill="#1F4550"/>
+      <path d="M152,217 L200,196 L248,217 Z" fill="#C9674F"/>
+      <rect x="174" y="188" width="52" height="30" fill="#1F4550"/>
+      <path d="M165,190 L200,170 L235,190 Z" fill="#C9674F"/>
+      <rect x="183" y="162" width="34" height="30" fill="#1F4550"/>
+      <path d="M175,164 L200,146 L225,164 Z" fill="#C9674F"/>
+      <line x1="200" y1="146" x2="200" y2="130" stroke="#5C4A2A" stroke-width="4"/>
+      <circle cx="200" cy="127" r="5" fill="#D4A574"/>
+      <circle cx="308" cy="68" r="28" fill="#F9E1B0" opacity="0.9"/>
+    </svg>`,
+    africa: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+      <rect width="400" height="300" fill="#F2A365"/>
+      <path d="M0,202 L65,128 L138,172 L218,92 L298,152 L400,132 L400,300 L0,300 Z" fill="#C9674F"/>
+      <path d="M0,242 L78,192 L158,222 L238,182 L338,212 L400,200 L400,300 L0,300 Z" fill="#8A4A38"/>
+      <rect x="140" y="182" width="120" height="100" fill="#D4A574"/>
+      <path d="M178,282 L178,224 Q178,204 200,204 Q222,204 222,224 L222,282 Z" fill="#C9674F"/>
+      <ellipse cx="200" cy="218" rx="22" ry="22" fill="#C9674F"/>
+      <path d="M183,282 L183,228 Q183,210 200,210 Q217,210 217,228 L217,282 Z" fill="#8A4A38"/>
+      <g fill="#D4A574">
+        <rect x="140" y="167" width="18" height="16"/>
+        <rect x="165" y="167" width="18" height="16"/>
+        <rect x="217" y="167" width="18" height="16"/>
+        <rect x="242" y="167" width="18" height="16"/>
+      </g>
+      <circle cx="48" cy="60" r="30" fill="#F9E1B0" opacity="0.9"/>
+      <g transform="translate(342,225)">
+        <rect x="-3" y="-38" width="5" height="42" fill="#5C4A2A" transform="rotate(-5 0 0)"/>
+        <path d="M-3,-32 Q-32,-52 -42,-70 Q-21,-50 -3,-28 Z" fill="#7A8A60"/>
+        <path d="M-3,-32 Q22,-45 32,-65 Q14,-48 -3,-28 Z" fill="#7A8A60"/>
+      </g>
+    </svg>`,
+  },
+
+  // ---------- Q8: Priorities (what matters most) ----------
+  q8: {
+    adventure: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+      <rect width="400" height="300" fill="#B8CBD4"/>
+      <path d="M0,225 L95,108 L175,165 L272,62 L395,132 L400,300 L0,300 Z" fill="#3D5A6C"/>
+      <path d="M272,62 L258,96 L286,96 Z" fill="#FAF4ED"/>
+      <path d="M0,262 L115,202 L238,245 L395,212 L400,300 L0,300 Z" fill="#1F4550"/>
+      <g transform="translate(200,228)">
+        <circle cx="0" cy="-35" r="9" fill="#F9E1B0"/>
+        <path d="M-10,-26 L10,-26 L12,2 L-12,2 Z" fill="#C9674F"/>
+        <line x1="0" y1="-26" x2="-20" y2="4" stroke="#C9674F" stroke-width="3" stroke-linecap="round"/>
+        <line x1="0" y1="-22" x2="20" y2="-4" stroke="#C9674F" stroke-width="3" stroke-linecap="round"/>
+        <line x1="-3" y1="2" x2="-10" y2="34" stroke="#C9674F" stroke-width="3" stroke-linecap="round"/>
+        <line x1="3" y1="2" x2="10" y2="34" stroke="#C9674F" stroke-width="3" stroke-linecap="round"/>
+        <line x1="20" y1="-4" x2="28" y2="34" stroke="#5C4A2A" stroke-width="2"/>
+      </g>
+      <circle cx="336" cy="52" r="22" fill="#F9E1B0" opacity="0.85"/>
+    </svg>`,
+    community: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+      <rect width="400" height="300" fill="#D4A574"/>
+      <rect width="400" height="190" fill="#F2E8DC"/>
+      <rect y="248" width="400" height="52" fill="#8A6E3F"/>
+      <rect x="20" y="42" width="72" height="82" fill="#B8CBD4"/>
+      <rect x="308" y="42" width="72" height="82" fill="#B8CBD4"/>
+      <ellipse cx="200" cy="230" rx="92" ry="18" fill="#5C4A2A"/>
+      <rect x="182" y="230" width="36" height="28" fill="#5C4A2A"/>
+      <rect x="158" y="216" width="18" height="14" rx="2" fill="#FAF4ED"/>
+      <rect x="224" y="216" width="18" height="14" rx="2" fill="#FAF4ED"/>
+      <g transform="translate(122,192)">
+        <circle cx="0" cy="-28" r="13" fill="#F9E1B0"/>
+        <path d="M-13,-17 Q0,-21 13,-17 L16,38 L-16,38 Z" fill="#C9674F"/>
+      </g>
+      <g transform="translate(278,192)">
+        <circle cx="0" cy="-28" r="13" fill="#F9E1B0"/>
+        <path d="M-13,-17 Q0,-21 13,-17 L16,38 L-16,38 Z" fill="#3D5A6C"/>
+      </g>
+      <g transform="translate(200,172)">
+        <circle cx="0" cy="-28" r="13" fill="#F9E1B0"/>
+        <path d="M-13,-17 Q0,-21 13,-17 L14,30 L-14,30 Z" fill="#D4A574"/>
+      </g>
+    </svg>`,
+    peace: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+      <rect width="400" height="300" fill="#F2A365"/>
+      <rect y="200" width="400" height="100" fill="#4A8BA8" opacity="0.72"/>
+      <path d="M100,200 Q200,195 300,200 L300,214 Q200,210 100,214 Z" fill="#F9E1B0" opacity="0.38"/>
+      <rect x="70" y="105" width="7" height="132" fill="#5C4A2A"/>
+      <path d="M73,110 Q22,85 2,56 Q32,78 73,105 Z" fill="#7A8A60"/>
+      <path d="M73,110 Q30,74 16,44 Q46,68 73,105 Z" fill="#A8B888"/>
+      <path d="M73,110 Q118,84 138,55 Q115,78 73,105 Z" fill="#7A8A60"/>
+      <rect x="323" y="105" width="7" height="132" fill="#5C4A2A"/>
+      <path d="M326,110 Q278,84 258,55 Q283,78 326,105 Z" fill="#7A8A60"/>
+      <path d="M326,110 Q368,82 388,58 Q364,78 326,105 Z" fill="#A8B888"/>
+      <path d="M73,155 Q200,190 326,155" stroke="#D4A574" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <path d="M78,155 Q200,186 321,155" stroke="#F2E8DC" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <ellipse cx="200" cy="177" rx="50" ry="10" fill="#F9E1B0" opacity="0.75"/>
+      <circle cx="200" cy="58" r="34" fill="#F9E1B0"/>
+      <circle cx="200" cy="58" r="50" fill="#F9E1B0" opacity="0.18"/>
+    </svg>`,
+    purpose: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+      <rect width="400" height="300" fill="#FAF4ED"/>
+      <rect width="400" height="215" fill="#F2E8DC"/>
+      <rect x="220" y="32" width="144" height="120" fill="#B8CBD4"/>
+      <path d="M220,152 L260,102 L300,132 L358,88 L400,112 L400,152 Z" fill="#3D5A6C" opacity="0.55"/>
+      <rect x="20" y="42" width="82" height="175" fill="#D4A574"/>
+      <g fill="#C9674F">
+        <rect x="28" y="56" width="11" height="48"/><rect x="43" y="62" width="10" height="42"/>
+        <rect x="57" y="54" width="13" height="50"/><rect x="74" y="60" width="10" height="44"/>
+        <rect x="28" y="118" width="11" height="44"/><rect x="43" y="112" width="10" height="50"/>
+        <rect x="57" y="116" width="13" height="46"/><rect x="74" y="120" width="10" height="42"/>
+      </g>
+      <rect x="102" y="188" width="254" height="12" fill="#8A6E3F"/>
+      <rect x="112" y="200" width="12" height="48" fill="#8A6E3F"/>
+      <rect x="332" y="200" width="12" height="48" fill="#8A6E3F"/>
+      <rect x="158" y="163" width="102" height="26" rx="3" fill="#1F2D3D"/>
+      <rect x="152" y="187" width="114" height="6" rx="2" fill="#3D5A6C"/>
+      <circle cx="210" cy="148" r="15" fill="#F9E1B0"/>
+      <path d="M197,163 Q210,158 223,163 L226,188 L194,188 Z" fill="#3D5A6C"/>
+      <rect x="280" y="164" width="4" height="24" fill="#5C4A2A"/>
+      <path d="M260,163 L284,161 L284,170 L260,172 Z" fill="#D4A574"/>
+      <circle cx="265" cy="167" r="7" fill="#F9E1B0" opacity="0.8"/>
+    </svg>`,
+    health: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+      <rect width="400" height="300" fill="#E8C9A0"/>
+      <rect y="172" width="400" height="128" fill="#4A8BA8"/>
+      <path d="M0,186 Q100,182 200,186 Q300,192 400,186" stroke="#F9E1B0" stroke-width="2" fill="none" opacity="0.48"/>
+      <rect x="80" y="162" width="240" height="24" fill="#D4A574"/>
+      <rect x="90" y="186" width="220" height="96" fill="#C9A070"/>
+      <rect x="80" y="142" width="240" height="6" fill="#FAF4ED" rx="3"/>
+      <rect x="85" y="142" width="5" height="20" fill="#FAF4ED"/>
+      <rect x="310" y="142" width="5" height="20" fill="#FAF4ED"/>
+      <g transform="translate(200,157)">
+        <line x1="0" y1="0" x2="0" y2="-28" stroke="#F9E1B0" stroke-width="7" stroke-linecap="round"/>
+        <line x1="0" y1="-14" x2="-14" y2="-5" stroke="#F9E1B0" stroke-width="5" stroke-linecap="round"/>
+        <line x1="0" y1="-28" x2="0" y2="-55" stroke="#C9674F" stroke-width="7" stroke-linecap="round"/>
+        <line x1="0" y1="-46" x2="-22" y2="-65" stroke="#C9674F" stroke-width="5" stroke-linecap="round"/>
+        <line x1="0" y1="-46" x2="22" y2="-65" stroke="#C9674F" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="0" cy="-63" r="11" fill="#F9E1B0"/>
+      </g>
+      <circle cx="318" cy="55" r="28" fill="#F9E1B0"/>
+      <ellipse cx="318" cy="174" rx="44" ry="12" fill="#3D5A6C" opacity="0.55"/>
+      <ellipse cx="80" cy="176" rx="30" ry="10" fill="#3D5A6C" opacity="0.48"/>
+    </svg>`,
+    culture: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+      <rect width="400" height="300" fill="#F2E8DC"/>
+      <rect x="58" y="0" width="284" height="242" fill="#FAF4ED"/>
+      <path d="M128,242 L128,102 Q128,52 200,52 Q272,52 272,102 L272,242 Z" fill="#E8C9A0"/>
+      <rect x="128" y="52" width="144" height="190" fill="#F2A365" opacity="0.75"/>
+      <rect x="133" y="152" width="134" height="90" fill="#C9674F" opacity="0.48"/>
+      <rect x="18" y="52" width="92" height="72" fill="#D4A574"/>
+      <rect x="23" y="57" width="82" height="62" fill="#FAF4ED"/>
+      <rect x="28" y="62" width="36" height="52" fill="#3D5A6C"/>
+      <rect x="68" y="77" width="30" height="30" fill="#C9674F"/>
+      <rect x="290" y="62" width="92" height="72" fill="#D4A574"/>
+      <rect x="295" y="67" width="82" height="62" fill="#FAF4ED"/>
+      <circle cx="336" cy="98" r="22" fill="#F2A365"/>
+      <circle cx="336" cy="98" r="14" fill="#C9674F"/>
+      <g transform="translate(100,202)">
+        <circle cx="0" cy="-28" r="12" fill="#F9E1B0"/>
+        <path d="M-12,-18 Q0,-22 12,-18 L14,26 L-14,26 Z" fill="#3D5A6C"/>
+        <ellipse cx="22" cy="0" rx="14" ry="10" fill="#D4A574"/>
+        <circle cx="18" cy="-4" r="4" fill="#C9674F"/>
+        <circle cx="26" cy="4" r="3" fill="#3D5A6C"/>
+        <line x1="12" y1="-5" x2="32" y2="-18" stroke="#5C4A2A" stroke-width="2"/>
+      </g>
+      <rect y="240" width="400" height="12" fill="#D4A574"/>
+    </svg>`,
+  },
+
   // ---------- Q7: Solo or with partner ----------
   q7: {
     solo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">

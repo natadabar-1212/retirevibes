@@ -77,23 +77,29 @@
   .hero-title { font-family: var(--serif); font-size: 92px; line-height: 0.96; letter-spacing: -0.025em; margin-bottom: 20px; }
   .hero-tagline { font-family: var(--serif); font-style: italic; font-size: 23px; line-height: 1.38; color: rgba(255,255,255,0.9); max-width: 640px; margin-bottom: 30px; }
   .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
-  .save-btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 14px 26px; background: rgba(251,246,238,0.96);
-    color: var(--teal); border: none; border-radius: 999px;
-    font-family: var(--sans); font-size: 15px; font-weight: 500;
-    cursor: pointer; transition: all 0.25s ease;
+  /* Floating heart — top-right of hero */
+  .hero-heart {
+    position: absolute; top: 24px; right: 48px; z-index: 10;
+    width: 52px; height: 52px;
+    background: rgba(251,246,238,0.96); backdrop-filter: blur(12px);
+    border: 1.5px solid rgba(255,255,255,0.5);
+    box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+    border-radius: 50%; cursor: pointer;
+    font-size: 22px;
+    color: var(--terracotta); transition: all 0.22s ease;
+    display: flex; align-items: center; justify-content: center;
   }
-  .save-btn:hover { background: var(--white); transform: translateY(-1px); }
-  .save-btn .heart { color: var(--terracotta); }
-  .quiz-link {
+  .hero-heart:hover { background: var(--white); transform: scale(1.1); box-shadow: 0 4px 20px rgba(0,0,0,0.22); }
+  .hero-heart.saved { background: rgba(201,123,90,0.15); color: var(--terracotta-dark); }
+  /* "Start planning" CTA */
+  .plan-link {
     display: inline-flex; align-items: center; gap: 8px;
-    padding: 14px 26px; background: transparent;
-    color: var(--white); border: 1px solid rgba(255,255,255,0.38);
-    border-radius: 999px; font-family: var(--sans); font-size: 15px; font-weight: 500;
+    padding: 14px 28px; background: var(--terracotta);
+    color: var(--white); border-radius: 999px;
+    font-family: var(--sans); font-size: 15px; font-weight: 600;
     text-decoration: none; transition: all 0.25s ease;
   }
-  .quiz-link:hover { background: rgba(255,255,255,0.1); }
+  .plan-link:hover { background: var(--terracotta-dark); transform: translateY(-1px); }
   .hero-photo-cap {
     position: absolute; bottom: 24px; right: 48px;
     font-size: 11px; color: rgba(255,255,255,0.6);
@@ -235,7 +241,6 @@
   <div class="nav-links">
     <a href="homepage-mockup.html#destinations">Destinations</a>
     <a href="homepage-mockup.html#how">How it works</a>
-    <a href="find-an-advisor.html">Find an advisor</a>
     <a href="my-retirevibes.html">My RetireVibes</a>
     <a href="mockups/vibe-quiz.html" class="nav-cta">Take the quiz →</a>
   </div>
@@ -251,7 +256,6 @@
     <div class="footer-links">
       <a href="homepage-mockup.html#destinations">Destinations</a>
       <a href="homepage-mockup.html#how">How it works</a>
-      <a href="find-an-advisor.html">Find an advisor</a>
       <a href="scouting-trip.html">Scouting trips</a>
       <a href="my-retirevibes.html">My RetireVibes</a>
     </div>
@@ -411,15 +415,23 @@
 
     const tagsHtml = dest.tags.map(t => `<span class="tag">${t}</span>`).join('');
 
+    // Highlight the cost tier matching the user's quiz lifestyle answer (Q5, index 4)
+    const userLifestyle = (() => {
+      try {
+        const a = JSON.parse(localStorage.getItem('rv_quiz_answers') || '[]');
+        return Array.isArray(a) && typeof a[4] === 'number' ? a[4] : null;
+      } catch(e) { return null; }
+    })();
+
     const costsHtml = costEntries.map(([k, v]) => `
-      <div class="cost-card${k == 1 ? ' highlight' : ''}">
+      <div class="cost-card${userLifestyle !== null && parseInt(k) === userLifestyle ? ' highlight' : ''}">
         <div class="cost-tier">${lifestyleLabels[k]}</div>
         <div class="cost-value">~$${Number(v).toLocaleString()}</div>
         <div class="cost-unit">per month</div>
       </div>`).join('');
 
     const similarHtml = similar.map(s => `
-      <a class="similar-card" href="${s.page}">
+      <a class="similar-card" href="destination-detail.html?id=${s.id}">
         <div class="similar-photo" style="background-image: url('${s.photo}');"></div>
         <div class="similar-body">
           <div class="similar-region">${s.flag} ${s.region}</div>
@@ -433,16 +445,14 @@
       <!-- Hero -->
       <section class="hero">
         <div class="hero-bg" style="background-image: url('${dest.photo}?auto=format&fit=crop&w=2200&q=85');"></div>
+        <button class="hero-heart" id="heroHeart" onclick="handleSave('${dest.name}')" aria-label="Save ${dest.name}">♡</button>
         <div class="hero-inner">
           <a class="back-link" href="homepage-mockup.html">← All destinations</a>
           <div class="hero-pill">${dest.flag} &nbsp;${dest.region}</div>
           <h1 class="hero-title">${dest.name}</h1>
           <p class="hero-tagline">${dest.tagline}</p>
           <div class="hero-actions">
-            <button class="save-btn" onclick="handleSave('${dest.name}')">
-              <span class="heart" id="heartIcon">♡</span> Save ${dest.name}
-            </button>
-            <a class="quiz-link" href="mockups/vibe-quiz.html">Take the quiz →</a>
+            <a class="plan-link" href="#next-steps">Start exploring →</a>
           </div>
         </div>
         <div class="hero-photo-cap">${dest.photoCap}</div>
@@ -538,7 +548,7 @@
       </div>
 
       <!-- Handoff -->
-      <div class="section section-dark">
+      <div id="next-steps" class="section section-dark">
         <div class="section-inner">
           <div class="section-head">
             <span class="eyebrow">Next steps</span>
@@ -564,7 +574,7 @@
               <div class="ho-label">Scouting</div>
               <h3>Plan a scouting trip</h3>
               <p>Spend 7–10 days living like a local — walk the neighborhoods, eat where locals eat, and see if the vibe holds up in person before you commit to anything.</p>
-              <a href="scouting-trip.html">Plan my trip →</a>
+              <a href="${dest.scoutingPage || 'scouting-trip.html'}">Plan my trip →</a>
             </div>
           </div>
         </div>
@@ -595,12 +605,10 @@
     try {
       const saved = JSON.parse(localStorage.getItem('rv_saved') || '{}');
       const isSaved = (saved.destinations || []).includes(name);
-      const btn = document.querySelector('.save-btn');
-      const heart = document.getElementById('heartIcon');
-      if (btn && isSaved) {
-        btn.style.background = 'rgba(201,123,90,0.12)';
-        btn.style.color = 'var(--terracotta)';
-        if (heart) heart.textContent = '♥';
+      const heart = document.getElementById('heroHeart');
+      if (heart) {
+        heart.textContent = isSaved ? '♥' : '♡';
+        heart.classList.toggle('saved', isSaved);
       }
     } catch (e) {}
   }

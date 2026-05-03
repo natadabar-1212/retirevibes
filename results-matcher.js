@@ -1,22 +1,45 @@
 // results-matcher.js — RetireVibes quiz matching algorithm + results page population
 // Depends on: destinations-data.js (must load first)
+//
+// Answer indices (current order — Geography moved to Q2, Pace to Q3):
+//   Q[0] weather:    0=warm/sunny  1=four seasons  2=mild/temperate  3=cool/crisp
+//   Q[1] setting:    0=beach  1=lake/river  2=mountains  3=city  4=small town  5=countryside
+//   Q[2] geography:  0=US  1=Canada  2=Mexico/LatAm  3=Caribbean  4=Europe  5=Australia/NZ  6=Asia  7=Africa
+//   Q[3] pace:       0=full-throttle  1=mixed  2=slow/easy  3=social-first  (single-select)
+//   Q[4] lifestyle:  0=simple/comfortable  1=comfortable+extras  2=upscale  3=luxury
+//   Q[5] housing:    0=own  1=rent  2=resort/community  3=non-traditional  4=not sure
+//   Q[6] priorities: 0=adventure  1=community  2=peace/simplicity  3=purpose  4=health  5=culture/arts
 
 (function () {
 
   // ─── Read quiz answers from localStorage ───────────────────────────
+  // After removing the partner/solo question, answers has 7 elements (indices 0–6).
+  // Legacy: if stored array has 8 elements (old format with partner/solo at [6]),
+  // priorities were at [7] — detect this and remap so scoring is correct.
   let answers = [];
   try {
     const raw = localStorage.getItem('rv_quiz_answers');
-    if (raw) answers = JSON.parse(raw);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed)) {
+        if (parsed.length === 8) {
+          // Old format: [weather, setting, pace, geo, lifestyle, housing, partner, priorities]
+          // Remap: drop index 6 (partner) AND swap pace/geo to new order [weather, setting, geo, pace, ...]
+          answers = [parsed[0], parsed[1], parsed[3], parsed[2], parsed[4], parsed[5], parsed[7]];
+        } else {
+          answers = parsed;
+        }
+      }
+    }
   } catch (e) {}
 
   // ─── Score each destination ─────────────────────────────────────────
   function scoreDestination(dest) {
     let score = 0;
 
-    // Q[3] Geography — hard gate. If user picked specific regions,
+    // Q[2] Geography — hard gate. If user picked specific regions,
     // destinations outside those regions get a big penalty.
-    const geoAns = answers[3]; // array or null
+    const geoAns = answers[2]; // array
     if (Array.isArray(geoAns) && geoAns.length > 0) {
       const matches = dest.geographyOptions.some(g => geoAns.includes(g));
       if (matches) score += 25;
@@ -25,41 +48,53 @@
 
     // Q[0] Weather — single select
     const weatherAns = answers[0];
-    if (typeof weatherAns === 'number') {
+    if (typeof weatherAns === 'number' && dest.weatherMatch && dest.weatherMatch.length > 0) {
       if (dest.weatherMatch[0] === weatherAns) score += 18; // primary match
       else if (dest.weatherMatch.includes(weatherAns)) score += 9; // secondary match
     }
 
     // Q[1] Setting — multi-select (up to 2)
     const settingAns = answers[1];
-    if (Array.isArray(settingAns)) {
+    if (Array.isArray(settingAns) && dest.settingMatch && dest.settingMatch.length > 0) {
       settingAns.forEach(s => {
         if (dest.settingMatch[0] === s) score += 14; // primary
         else if (dest.settingMatch.includes(s)) score += 8; // secondary
       });
     }
 
-    // Q[2] Pace — multi-select
-    const paceAns = answers[2];
-    if (Array.isArray(paceAns)) {
-      paceAns.forEach(p => {
-        if (dest.paceMatch[0] === p) score += 12; // primary
-        else if (dest.paceMatch.includes(p)) score += 7; // secondary
-      });
+    // Q[3] Pace — single-select
+    const paceAns = answers[3];
+    if (typeof paceAns === 'number' && dest.paceMatch && dest.paceMatch.length > 0) {
+      if (dest.paceMatch[0] === paceAns) score += 12; // primary
+      else if (dest.paceMatch.includes(paceAns)) score += 7; // secondary
     }
 
     // Q[4] Lifestyle — single select
     const lifestyleAns = answers[4];
-    if (typeof lifestyleAns === 'number') {
+    if (typeof lifestyleAns === 'number' && dest.lifestyleMatch) {
       if (dest.lifestyleMatch.includes(lifestyleAns)) score += 16;
       else if (dest.lifestyleMatch.some(l => Math.abs(l - lifestyleAns) === 1)) score += 6;
     }
 
-    // Q[7] Priorities — multi-select (up to 3)
-    const priorityAns = answers[7];
+    // Q[5] Housing — soft signals (not a hard gate, just nudges)
+    const housingAns = answers[5];
+    if (Array.isArray(housingAns) && dest.housing) {
+      // User wants to own → slight penalty if buy info mentions restricted foreign ownership
+      if (housingAns.includes(0)) {
+        const buyInfo = (dest.housing.buy || '').toLowerCase();
+        if (buyInfo.includes('lease') || buyInfo.includes('restricted')) score -= 8;
+      }
+      // Resort/community preference → nudge toward domestic destinations
+      if (housingAns.includes(2) && !dest.isInternational) score += 5;
+      // Non-traditional (RV/boat/slow travel) → slight penalty for international (visa complexity)
+      if (housingAns.includes(3) && dest.isInternational) score -= 4;
+    }
+
+    // Q[6] Priorities — multi-select (up to 3) — index 6 after partner/solo question removed
+    const priorityAns = answers[6];
     if (Array.isArray(priorityAns)) {
       priorityAns.forEach(p => {
-        if (dest.priorityMatch.includes(p)) score += 10;
+        if (dest.priorityMatch && dest.priorityMatch.includes(p)) score += 10;
       });
     }
 
@@ -84,7 +119,7 @@
   function generateProfileText() {
     const weatherLabels = ['warm and sunny', 'four-season', 'mild and temperate', 'cool and crisp'];
     const settingLabels = ['coastal', 'lakeside', 'mountain', 'urban', 'small-town', 'open-country'];
-    const paceLabels = ['active and adventurous', 'creative and cultural', 'relaxed and unhurried', 'social and connected'];
+    const paceLabels = ['full throttle — out doing things most days', 'a good mix of active and slow days', 'slow and easy — unhurried, no fixed agenda', 'social first — your pace follows your people'];
     const lifestyleLabels = ['simple and comfortable', 'comfortable with extras', 'upscale and enjoyable', 'the best of everything'];
     const priorityLabels = ['adventure and new experiences', 'community and belonging', 'peace and simplicity', 'purpose and passion', 'health and wellness', 'culture and creativity'];
 
@@ -92,12 +127,10 @@
     const settingAns = Array.isArray(answers[1]) && answers[1].length > 0
       ? answers[1].slice(0, 2).map(i => settingLabels[i]).join(' or ')
       : 'the right kind of';
-    const paceAns = Array.isArray(answers[2]) && answers[2].length > 0
-      ? paceLabels[answers[2][0]]
-      : 'balanced';
+    const paceAns = typeof answers[3] === 'number' ? paceLabels[answers[3]] : 'balanced';
     const lifestyleAns = typeof answers[4] === 'number' ? lifestyleLabels[answers[4]] : 'comfortable';
-    const topPriorities = Array.isArray(answers[7]) && answers[7].length > 0
-      ? answers[7].slice(0, 3).map(i => priorityLabels[i])
+    const topPriorities = Array.isArray(answers[6]) && answers[6].length > 0
+      ? answers[6].slice(0, 3).map(i => priorityLabels[i])
       : ['community', 'peace', 'purpose'];
 
     return {
@@ -110,10 +143,9 @@
   // ─── Build card HTML ────────────────────────────────────────────────
   function buildCard(dest, rank, compact) {
     const cost = getCostEstimate(dest);
-    const learnLink = dest.page
-      ? `<a class="learn-link" href="${dest.page}">Learn more about ${dest.name}</a>`
-      : '';
-    const tags = dest.tags.map(t => `<span class="tag">${t}</span>`).join('');
+    const destPage = dest.page || ('destination-detail.html?id=' + dest.id);
+    const learnLink = `<a class="learn-link" href="${destPage}">Learn more about ${dest.name}</a>`;
+    const tags = (dest.tags || []).map(t => `<span class="tag">${t}</span>`).join('');
 
     if (compact) {
       return `
@@ -135,7 +167,7 @@
               </div>
               <div>
                 <div class="stat-label">2BR home</div>
-                <div class="stat-value">${dest.housing.buy}</div>
+                <div class="stat-value">${(dest.housing && dest.housing.buy) || 'Varies'}</div>
               </div>
             </div>
             <div class="actions">
@@ -169,11 +201,11 @@
             </div>
             <div>
               <div class="stat-label">Housing snapshot</div>
-              <div class="stat-value">${dest.housing.buy}</div>
-              <div class="stat-sub">${dest.housing.buyDesc} · ${dest.housing.rent} to rent</div>
+              <div class="stat-value">${(dest.housing && dest.housing.buy) || 'Varies'}</div>
+              <div class="stat-sub">${(dest.housing && dest.housing.buyDesc) || ''}${(dest.housing && dest.housing.rent) ? ' · ' + dest.housing.rent + ' to rent' : ''}</div>
             </div>
           </div>
-          <div class="compare">${dest.compare}</div>
+          ${dest.compare ? `<div class="compare">${dest.compare}</div>` : ''}
           <div class="actions">
             <button class="save-heart" data-name="${dest.name}" onclick="toggleSave('${dest.name}')" aria-label="Save ${dest.name}">
               <span class="heart-icon">♡</span> Save ${dest.name}
@@ -195,6 +227,9 @@
       ? `Real listings — apartments, houses, and condos in ${top.name}. No commitment, just curiosity.`
       : `Active listings in ${top.name} — from starter homes to waterfront estates. See what the market looks like.`;
     const homesPartner = top.isInternational ? 'via Idealista / local partner' : 'via Zillow / Realtor.com';
+    const browseLink = top.browseHomesPage || (top.isInternational ? 'browse-homes-international.html' : 'browse-homes-domestic.html');
+    const advisorLink = top.advisorPage || (top.isInternational ? 'advisor-international.html' : 'advisor-domestic.html');
+    const scoutLink = top.scoutingPage || 'scouting-trip.html';
 
     return `
       <div class="handoff-card">
@@ -203,7 +238,7 @@
         </div>
         <h4>Talk to a retirement advisor</h4>
         <p>${advisorDesc}</p>
-        <a class="cta" href="${top.advisorPage}">Find an advisor →</a>
+        <a class="cta" href="${advisorLink}">Find an advisor →</a>
         <span class="partner">via SmartAsset</span>
       </div>
       <div class="handoff-card">
@@ -212,7 +247,7 @@
         </div>
         <h4>${homesLabel}</h4>
         <p>${homesDesc}</p>
-        <a class="cta" href="${top.browseHomesPage}">Explore ${top.name} homes →</a>
+        <a class="cta" href="${browseLink}">Explore ${top.name} homes →</a>
         <span class="partner">${homesPartner}</span>
       </div>
       <div class="handoff-card">
@@ -221,7 +256,7 @@
         </div>
         <h4>Plan a scouting trip</h4>
         <p>Spend 7–10 days living like a local. Walk the neighborhoods, eat where locals eat, see if the vibe holds up in person.</p>
-        <a class="cta" href="${top.scoutingPage}">Plan my trip →</a>
+        <a class="cta" href="${scoutLink}">Plan my trip →</a>
         <span class="partner">via Booking.com</span>
       </div>`;
   }
@@ -274,6 +309,51 @@
     window._rvTopMatch = first;
   }
 
+  // ─── Determine vibe archetype label from quiz answers ──────────────────
+  function getVibeLabel(ans) {
+    const weather    = ans[0];
+    const settings   = Array.isArray(ans[1]) ? ans[1] : [];
+    const geo        = Array.isArray(ans[2]) ? ans[2] : [];  // geography now at index 2
+    const pace       = typeof ans[3] === 'number' ? ans[3] : -1; // pace now single-select at index 3
+    const priorities = Array.isArray(ans[6]) ? ans[6] : [];
+
+    const scores = {
+      'The Sun-Chaser':        0,
+      'The Cultured Wanderer': 0,
+      'The Simplicity Seeker': 0,
+      'The Active Explorer':   0,
+      'The Global Citizen':    0,
+    };
+
+    // Sun-Chaser: warm + beach + slow/social pace
+    if (weather === 0) scores['The Sun-Chaser'] += 3;
+    if (settings.includes(0)) scores['The Sun-Chaser'] += 2;
+    if (pace === 2 || pace === 3) scores['The Sun-Chaser'] += 1;
+
+    // Cultured Wanderer: mixed or social pace + culture/arts priority
+    if (pace === 1 || pace === 3) scores['The Cultured Wanderer'] += 3;
+    if (priorities.includes(5)) scores['The Cultured Wanderer'] += 2;
+    if (priorities.includes(3)) scores['The Cultured Wanderer'] += 1;
+
+    // Simplicity Seeker: slow/easy pace + peace
+    if (pace === 2) scores['The Simplicity Seeker'] += 3;
+    if (priorities.includes(2)) scores['The Simplicity Seeker'] += 2;
+    if (priorities.includes(1)) scores['The Simplicity Seeker'] += 1;
+
+    // Active Explorer: full-throttle pace + adventure/health + mountains/nature
+    if (pace === 0) scores['The Active Explorer'] += 3;
+    if (priorities.includes(0)) scores['The Active Explorer'] += 2;
+    if (settings.includes(2) || settings.includes(5)) scores['The Active Explorer'] += 1;
+    if (priorities.includes(4)) scores['The Active Explorer'] += 1;
+
+    // Global Citizen: international geography + adventure or culture
+    if (geo.some(g => g > 0)) scores['The Global Citizen'] += 2;
+    if (geo.includes(6) || geo.includes(7)) scores['The Global Citizen'] += 2;
+    if (pace === 0 && priorities.includes(5)) scores['The Global Citizen'] += 1;
+
+    return Object.entries(scores).sort((a, b) => b[1] - a[1])[0][0];
+  }
+
   // ─── Init ────────────────────────────────────────────────────────────
   document.addEventListener('DOMContentLoaded', function () {
     if (typeof DESTINATIONS === 'undefined') {
@@ -281,11 +361,38 @@
       return;
     }
 
-    // If no quiz answers, show defaults (keep existing cards as-is)
-    if (!answers || answers.length === 0) return;
+    // If no quiz answers, redirect to the quiz
+    if (!answers || answers.length === 0) {
+      window.location.replace('mockups/vibe-quiz.html');
+      return;
+    }
 
     const ranked = rankDestinations();
     populatePage(ranked);
+
+    // ── Save results to localStorage so My RetireVibes can display them ──
+    try {
+      const vibeLabel = getVibeLabel(answers);
+      const profile   = generateProfileText();
+      const topThree  = ranked.slice(0, 3).map(d => ({
+        name:         d.name,
+        country:      d.country,
+        flag:         d.flag,
+        photo:        d.photo,
+        page:         d.page || ('destination-detail.html?id=' + d.id),
+        tagline:      d.tagline,
+        region:       d.region,
+        costPerMonth: d.costPerMonth
+      }));
+      localStorage.setItem('rv_vibe_label', vibeLabel);
+      localStorage.setItem('rv_quiz_matches', JSON.stringify({
+        matches:      topThree,
+        vibeLabel:    vibeLabel,
+        profilePara1: profile.para1,
+        profilePara2: profile.para2,
+        savedAt:      new Date().toISOString()
+      }));
+    } catch(e) {}
 
     // Update save heart states after dynamic content loads
     if (typeof updateSaveHeartStates === 'function') {

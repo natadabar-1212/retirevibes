@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>My RetireVibes — Your saved places</title>
+<title>My RetireVibes — Your matches &amp; saved places</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="shared.css" />
 <style>
   :root {
     --cream: #FBF6EE;
@@ -64,7 +65,6 @@
     font-weight: 500;
   }
   .nav-links a:hover { color: var(--terracotta); }
-  .nav-links a.current { color: var(--terracotta); }
   .nav-cta {
     padding: 12px 22px;
     background: var(--teal);
@@ -73,11 +73,11 @@
     font-size: 14px;
     transition: all 0.25s ease;
   }
-  .nav-cta:hover { background: var(--terracotta); }
+  .nav-cta:hover { background: var(--terracotta) !important; color: var(--white) !important; }
 
   /* ─── Page hero ──────────────────────────────────────────── */
   .page-hero {
-    padding: 80px 48px 64px;
+    padding: 72px 48px 56px;
     max-width: 1240px;
     margin: 0 auto;
   }
@@ -91,48 +91,264 @@
   }
   .page-hero h1 {
     font-family: var(--serif);
-    font-size: 64px;
+    font-size: 60px;
     line-height: 1.05;
     color: var(--teal);
     letter-spacing: -0.02em;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
   }
   .page-hero h1 em {
     color: var(--terracotta);
     font-style: italic;
   }
-  .meta-row {
-    display: flex;
-    align-items: center;
-    gap: 22px;
-    flex-wrap: wrap;
+  .page-hero .hero-sub {
+    font-size: 17px;
     color: var(--teal-soft);
-    font-size: 16px;
+    line-height: 1.55;
+    max-width: 540px;
   }
-  .meta-row .dot {
-    width: 4px; height: 4px;
-    border-radius: 50%;
-    background: rgba(27, 58, 75, 0.25);
-  }
-  .meta-row strong { color: var(--teal); font-weight: 500; }
 
-  /* ─── Saved grid ─────────────────────────────────────────── */
-  .saved-section {
+  /* ─── Section wrapper ─────────────────────────────────────── */
+  .content-wrap {
     padding: 0 48px 100px;
     max-width: 1240px;
     margin: 0 auto;
   }
+
+  /* ─── Persona card ────────────────────────────────────────── */
+  .persona-section {
+    margin-bottom: 72px;
+  }
+  .persona-card {
+    background: var(--teal);
+    border-radius: 20px;
+    padding: 48px 52px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: start;
+  }
+  .persona-label {
+    font-size: 12px;
+    color: rgba(228, 201, 152, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .persona-name {
+    font-family: var(--serif);
+    font-size: 48px;
+    line-height: 1.1;
+    color: var(--white);
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .persona-name em {
+    color: var(--gold-soft);
+    font-style: italic;
+  }
+  .persona-description {
+    font-size: 17px;
+    color: rgba(251, 246, 238, 0.82);
+    line-height: 1.6;
+    margin-bottom: 18px;
+    max-width: 520px;
+  }
+  .persona-profile {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 16px;
+    color: rgba(228, 201, 152, 0.9);
+    line-height: 1.65;
+    max-width: 520px;
+    border-left: 2px solid rgba(228, 201, 152, 0.3);
+    padding-left: 20px;
+    margin-top: 20px;
+  }
+  .persona-retake {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 28px;
+    padding: 12px 24px;
+    background: rgba(255,255,255,0.1);
+    color: var(--gold-soft);
+    border: 1px solid rgba(228, 201, 152, 0.3);
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.25s ease;
+  }
+  .persona-retake:hover {
+    background: rgba(255,255,255,0.18);
+    border-color: rgba(228, 201, 152, 0.55);
+    color: var(--white);
+  }
+  .persona-badge {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(228,201,152,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 44px;
+    flex-shrink: 0;
+  }
+
+  /* ─── Section heading ─────────────────────────────────────── */
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(27,58,75,0.08);
+  }
+  .section-header h2 {
+    font-family: var(--serif);
+    font-size: 30px;
+    color: var(--teal);
+    letter-spacing: -0.015em;
+  }
+  .section-header .section-link {
+    font-size: 13px;
+    color: var(--warm-gray);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(122,110,95,0.3);
+    padding-bottom: 1px;
+  }
+  .section-header .section-link:hover { color: var(--terracotta); border-color: var(--terracotta); }
+
+  /* ─── Match cards ─────────────────────────────────────────── */
+  .matches-section {
+    margin-bottom: 72px;
+  }
+  .matches-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .match-card {
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(27, 58, 75, 0.07);
+    transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    position: relative;
+  }
+  .match-card:hover { transform: translateY(-3px); }
+  .match-photo {
+    position: relative;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--sage);
+  }
+  .match-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(0,0,0,0.3) 100%);
+  }
+  .match-rank {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    padding: 6px 13px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    z-index: 2;
+  }
+  .match-rank.rank-1 { background: var(--teal); color: var(--gold-soft); }
+  .match-rank.rank-2 { background: rgba(27,58,75,0.78); color: var(--cream-soft); }
+  .match-rank.rank-3 { background: rgba(122,110,95,0.78); color: var(--cream); }
+  .match-flag {
+    position: absolute;
+    bottom: 14px;
+    right: 14px;
+    background: rgba(251, 246, 238, 0.92);
+    backdrop-filter: blur(6px);
+    padding: 5px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    color: var(--teal);
+    font-weight: 500;
+    z-index: 2;
+  }
+  .match-body {
+    padding: 22px 22px 24px;
+  }
+  .match-name {
+    font-family: var(--serif);
+    font-size: 24px;
+    color: var(--teal);
+    line-height: 1.15;
+    margin-bottom: 3px;
+    letter-spacing: -0.01em;
+  }
+  .match-region {
+    font-size: 11px;
+    color: var(--warm-gray);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .match-tagline {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--teal-soft);
+    margin-bottom: 16px;
+  }
+  .match-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 12px;
+    border-top: 1px solid rgba(27,58,75,0.07);
+  }
+  .match-cost {
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--terracotta-dark);
+  }
+  .match-explore {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--teal);
+    text-decoration: none;
+    border-bottom: 1px solid var(--teal);
+    padding-bottom: 1px;
+    transition: all 0.2s ease;
+  }
+  .match-explore:hover { color: var(--terracotta); border-color: var(--terracotta); }
+
+  /* ─── Saved grid ─────────────────────────────────────────── */
+  .saved-section {
+    margin-bottom: 56px;
+  }
   .saved-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
+    gap: 20px;
   }
   .saved-card {
     background: var(--white);
     border-radius: 16px;
     overflow: hidden;
     border: 1px solid rgba(27, 58, 75, 0.06);
-    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
     text-decoration: none;
     color: inherit;
     display: block;
@@ -141,7 +357,7 @@
   .saved-card:hover { transform: translateY(-3px); }
   .saved-photo {
     position: relative;
-    height: 220px;
+    height: 200px;
     background-size: cover;
     background-position: center;
     background-color: var(--sage);
@@ -158,7 +374,7 @@
     left: 14px;
     background: rgba(251, 246, 238, 0.92);
     backdrop-filter: blur(6px);
-    padding: 6px 12px;
+    padding: 5px 10px;
     border-radius: 999px;
     font-size: 12px;
     color: var(--teal);
@@ -169,8 +385,8 @@
     position: absolute;
     top: 14px;
     right: 14px;
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(8px);
@@ -179,7 +395,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 17px;
+    font-size: 16px;
     color: var(--warm-gray);
     z-index: 3;
     transition: all 0.2s ease;
@@ -188,94 +404,99 @@
     font-family: inherit;
   }
   .card-save:hover { color: var(--terracotta); transform: scale(1.06); }
-  .card-save.saved {
-    background: var(--terracotta);
-    color: var(--white);
-  }
-  .saved-body {
-    padding: 22px 22px 24px;
-  }
+  .card-save.saved { background: var(--terracotta); color: var(--white); }
+  .saved-body { padding: 20px 20px 22px; }
   .saved-name {
     font-family: var(--serif);
-    font-size: 26px;
+    font-size: 24px;
     color: var(--teal);
     line-height: 1.15;
-    margin-bottom: 4px;
+    margin-bottom: 3px;
     letter-spacing: -0.01em;
   }
   .saved-region {
-    font-size: 12px;
-    color: var(--warm-gray);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-  }
-  .saved-vibe {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 15px;
-    line-height: 1.5;
-    color: var(--teal-soft);
-    margin-bottom: 14px;
-  }
-  .saved-cost {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    padding-top: 12px;
-    border-top: 1px solid rgba(27, 58, 75, 0.08);
-  }
-  .saved-cost-label {
     font-size: 11px;
     color: var(--warm-gray);
     letter-spacing: 0.08em;
     text-transform: uppercase;
+    margin-bottom: 10px;
   }
-  .saved-cost-value {
+  .saved-vibe {
     font-family: var(--serif);
-    font-size: 17px;
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--teal-soft);
+    margin-bottom: 14px;
+  }
+  .saved-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 11px;
+    border-top: 1px solid rgba(27, 58, 75, 0.07);
+  }
+  .saved-cost {
+    font-family: var(--serif);
+    font-size: 15px;
     color: var(--terracotta-dark);
   }
-  .saved-card-cta {
-    display: inline-block;
-    margin-top: 14px;
-    color: var(--teal);
-    font-size: 13px;
+  .saved-cta {
+    font-size: 12px;
     font-weight: 500;
+    color: var(--teal);
     text-decoration: none;
     border-bottom: 1px solid var(--teal);
     padding-bottom: 1px;
   }
-  .saved-card-cta:hover { color: var(--terracotta); border-color: var(--terracotta); }
-  .saved-card-cta.disabled { opacity: 0.45; pointer-events: none; border-color: transparent; }
+  .saved-cta:hover { color: var(--terracotta); border-color: var(--terracotta); }
+  .saved-cta.disabled { opacity: 0.4; pointer-events: none; border-color: transparent; }
 
-  /* ─── Empty state ────────────────────────────────────────── */
-  .empty-state {
+  /* ─── Empty saved state ───────────────────────────────────── */
+  .saved-empty {
+    padding: 48px 32px;
+    background: var(--cream-soft);
+    border-radius: 16px;
     text-align: center;
-    padding: 80px 24px;
+    color: var(--teal-soft);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .saved-empty p { margin-bottom: 20px; }
+  .saved-empty a {
+    color: var(--teal);
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(27,58,75,0.3);
+  }
+  .saved-empty a:hover { color: var(--terracotta); border-color: var(--terracotta); }
+
+  /* ─── No-quiz empty state ─────────────────────────────────── */
+  .no-quiz-state {
     background: var(--cream-soft);
     border-radius: 20px;
-    max-width: 760px;
-    margin: 0 auto;
+    padding: 72px 48px;
+    text-align: center;
+    margin-bottom: 72px;
   }
-  .empty-state h2 {
+  .no-quiz-state h2 {
     font-family: var(--serif);
-    font-size: 38px;
+    font-size: 40px;
     color: var(--teal);
     line-height: 1.15;
-    margin-bottom: 14px;
     letter-spacing: -0.018em;
+    margin-bottom: 14px;
   }
-  .empty-state p {
+  .no-quiz-state p {
     font-size: 17px;
     color: var(--teal-soft);
     line-height: 1.55;
     margin-bottom: 32px;
-    max-width: 540px;
+    max-width: 480px;
     margin-left: auto;
     margin-right: auto;
   }
-  .empty-cta-row {
+  .cta-row {
     display: flex;
     justify-content: center;
     gap: 14px;
@@ -318,23 +539,19 @@
 
   /* ─── Account row ────────────────────────────────────────── */
   .account-row {
-    max-width: 1240px;
-    margin: 60px auto 0;
-    padding: 28px 32px;
+    margin-top: 16px;
+    padding: 24px 28px;
     background: var(--cream-soft);
     border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 14px;
   }
-  .account-info {
-    font-size: 14px;
-    color: var(--teal-soft);
-  }
+  .account-info { font-size: 14px; color: var(--teal-soft); }
   .account-info strong { color: var(--teal); font-weight: 500; }
-  .account-actions { display: flex; gap: 22px; align-items: center; }
+  .account-actions { display: flex; gap: 20px; align-items: center; }
   .account-actions a, .account-actions button {
     background: transparent;
     border: none;
@@ -366,7 +583,7 @@
     font-family: var(--serif);
     font-style: italic;
     color: var(--terracotta);
-    font-size: 16px;
+    font-size: 15px;
     margin-top: 4px;
   }
   .footer-links { display: flex; gap: 28px; }
@@ -381,26 +598,32 @@
     color: var(--warm-gray);
     text-align: center;
     margin-top: 24px;
+    max-width: 1240px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   /* ─── Responsive ─────────────────────────────────────────── */
   @media (max-width: 980px) {
     .nav { padding: 14px 22px; }
-    .nav-links { gap: 18px; }
-    .nav-links a:not(.nav-cta) { display: none; }
-    .page-hero { padding: 56px 22px 40px; }
-    .page-hero h1 { font-size: 42px; }
-    .saved-section { padding: 0 22px 60px; }
-    .saved-grid { grid-template-columns: 1fr; gap: 18px; }
-    .empty-state { padding: 56px 22px; }
-    .empty-state h2 { font-size: 28px; }
-    .account-row { padding: 22px; flex-direction: column; align-items: flex-start; }
+    .page-hero { padding: 48px 22px 36px; }
+    .page-hero h1 { font-size: 40px; }
+    .content-wrap { padding: 0 22px 60px; }
+    .persona-card { grid-template-columns: 1fr; padding: 36px 28px; gap: 20px; }
+    .persona-badge { display: none; }
+    .persona-name { font-size: 36px; }
+    .matches-grid { grid-template-columns: 1fr; gap: 16px; }
+    .saved-grid { grid-template-columns: 1fr; gap: 16px; }
+    .no-quiz-state { padding: 48px 24px; }
+    .no-quiz-state h2 { font-size: 28px; }
+    .account-row { flex-direction: column; align-items: flex-start; padding: 20px; }
     .footer { padding: 36px 22px 28px; }
     .footer-inner { flex-direction: column; align-items: flex-start; }
   }
   @media (max-width: 480px) {
-    .page-hero h1 { font-size: 32px; }
-    .saved-name { font-size: 22px; }
+    .page-hero h1 { font-size: 30px; }
+    .persona-name { font-size: 28px; }
+    .section-header h2 { font-size: 24px; }
   }
 </style>
 </head>
@@ -410,10 +633,8 @@
 <nav class="nav">
   <a class="wordmark" href="homepage-mockup.html">Retire<em>Vibes</em></a>
   <div class="nav-links">
-    <a href="homepage-mockup.html#how">How it works</a>
-    <a href="homepage-mockup.html#destinations">Destinations</a>
-    <a href="#">Inspiration</a>
-    <a href="my-retirevibes.html" class="current">My RetireVibes</a>
+    <a href="destinations.html">Destinations</a>
+    <a href="my-retirevibes.html">My RetireVibes</a>
     <a href="mockups/vibe-quiz.html" class="nav-cta">Find my RetireVibes →</a>
   </div>
 </nav>
@@ -421,29 +642,56 @@
 <!-- ─── PAGE HERO ─── -->
 <header class="page-hero">
   <p class="kicker">Your RetireVibes</p>
-  <h1 id="pageTitle">Welcome back.</h1>
-  <div class="meta-row" id="metaRow">
-    <span><strong id="savedCount">0</strong> places saved</span>
-  </div>
+  <h1 id="pageTitle">Your retirement picture.</h1>
+  <p class="hero-sub" id="heroSub">Your quiz results, your top matches, and the places you've saved — all in one place.</p>
 </header>
 
-<!-- ─── SAVED CONTENT ─── -->
-<main class="saved-section">
+<!-- ─── MAIN CONTENT ─── -->
+<main class="content-wrap">
 
-  <!-- Empty state (shown when no saves) -->
-  <div class="empty-state" id="emptyState" hidden>
-    <h2>You haven't saved any places yet.</h2>
-    <p>Save the ones that catch your eye. Take the vibe quiz to discover your top three matches, or browse destinations and click any heart you see.</p>
-    <div class="empty-cta-row">
-      <a href="mockups/vibe-quiz.html" class="btn-primary">Take the vibe quiz →</a>
-      <a href="homepage-mockup.html#destinations" class="btn-secondary">Browse destinations →</a>
+  <!-- PERSONA SECTION (shown if quiz taken) -->
+  <section class="persona-section" id="personaSection" hidden>
+    <div class="persona-card">
+      <div>
+        <p class="persona-label">Your retirement persona</p>
+        <h2 class="persona-name" id="personaName">The <em>Sun-Chaser</em></h2>
+        <p class="persona-description" id="personaDescription"></p>
+        <div class="persona-profile" id="personaProfile" hidden></div>
+        <a href="mockups/vibe-quiz.html" class="persona-retake">Retake the quiz →</a>
+      </div>
+      <div class="persona-badge" id="personaBadge">🌅</div>
+    </div>
+  </section>
+
+  <!-- NO-QUIZ STATE (shown if quiz not taken) -->
+  <div class="no-quiz-state" id="noQuizSection" hidden>
+    <h2>What's your retirement vibe?</h2>
+    <p>Take the quiz to discover your top three matched destinations — and see your retirement persona. It takes about two minutes.</p>
+    <div class="cta-row">
+      <a href="mockups/vibe-quiz.html" class="btn-primary">Find my RetireVibes →</a>
+      <a href="destinations.html" class="btn-secondary">Browse destinations</a>
     </div>
   </div>
 
-  <!-- Saved grid (shown when saves exist) -->
-  <div class="saved-grid" id="savedGrid"></div>
+  <!-- YOUR MATCHES SECTION (shown if quiz taken) -->
+  <section class="matches-section" id="matchesSection" hidden>
+    <div class="section-header">
+      <h2>Your top matches</h2>
+      <a href="mockups/vibe-quiz.html" class="section-link">Retake quiz →</a>
+    </div>
+    <div class="matches-grid" id="matchesGrid"></div>
+  </section>
 
-  <!-- Account row (shown when account exists) -->
+  <!-- SAVED DESTINATIONS SECTION -->
+  <section class="saved-section">
+    <div class="section-header">
+      <h2>Saved places</h2>
+      <a href="destinations.html" class="section-link">Browse all destinations →</a>
+    </div>
+    <div id="savedContent"></div>
+  </section>
+
+  <!-- ACCOUNT ROW -->
   <div class="account-row" id="accountRow" hidden>
     <div class="account-info">
       Signed in as <strong id="accountEmail"></strong>
@@ -464,115 +712,274 @@
       <p class="footer-tag">Good RetireVibes only.</p>
     </div>
     <div class="footer-links">
-      <a href="homepage-mockup.html#how">How it works</a>
-      <a href="homepage-mockup.html#destinations">Destinations</a>
-      <a href="#">Inspiration</a>
-      <a href="#">About</a>
-      <a href="#">FAQ</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="find-an-advisor.html">Find an advisor</a>
+      <a href="scouting-trip.html">Scouting trips</a>
+      <a href="my-retirevibes.html">My RetireVibes</a>
     </div>
   </div>
   <p class="footer-meta">RetireVibes is not a financial advisor. Cost estimates are illustrative; for retirement planning, talk to a fiduciary.</p>
 </footer>
 
 <script>
-  const RV_DESTINATIONS = {
-    'Porto':         { region: 'Northern Portugal · Coastal',     flag: '🇵🇹 Portugal',         vibe: 'Cobblestone old city, world-class wine, and a slower kind of European cool.', cost: '~$3,200/mo', photo: 'https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=900&q=80', url: 'destination-porto.html' },
-    'Mérida':        { region: 'Yucatán, Mexico · Colonial',      flag: '🇲🇽 Mexico',           vibe: 'Pastel facades, mariachi nights, and a price tag that almost feels like a typo.', cost: '~$2,400/mo', photo: 'https://images.unsplash.com/photo-1518638150340-f706e86654de?auto=format&fit=crop&w=900&q=80', url: 'destination-merida.html' },
-    'Sarasota':      { region: 'Florida, USA · Coastal',          flag: '🇺🇸 United States',    vibe: 'Powdery beaches, year-round sun, and a cultural scene that punches above its weight.', cost: '~$4,800/mo', photo: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=900&q=80', url: 'destination-sarasota.html' },
-    'Asheville':     { region: 'North Carolina · Mountain',       flag: '🇺🇸 United States',    vibe: 'Blue Ridge mornings, craft everything, and four real seasons without the snow shovel.', cost: '~$3,800/mo', photo: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=900&q=80', url: 'destination-asheville.html' },
-    'Chiang Mai':    { region: 'Northern Thailand · Cultural',    flag: '🇹🇭 Thailand',         vibe: 'Temples, mountain mist, and a cost of living that quietly rewrites what you thought possible.', cost: '~$1,400/mo', photo: 'https://images.unsplash.com/photo-1598935898639-81586f7d2129?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=Chiang%20Mai' },
-    'Medellín':      { region: 'Antioquia, Colombia · Spring city', flag: '🇨🇴 Colombia',       vibe: '70-degree mornings every day of the year, flowers everywhere, a city reborn.', cost: '~$2,000/mo', photo: 'https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=Medell%C3%ADn' },
-    'Lisbon':        { region: 'Portugal · Capital coast',        flag: '🇵🇹 Portugal',         vibe: 'Brighter, busier, sun-soaked sister to the south.', cost: '~$3,400/mo', photo: 'https://images.unsplash.com/photo-1588535536833-89e6a30bb273?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=Lisbon' },
-    'San Sebastián': { region: 'Spain · Basque coast',            flag: '🇪🇸 Spain',            vibe: 'Pintxo bars on every corner, surf beach in the middle of the city.', cost: '~$3,800/mo', photo: 'https://images.unsplash.com/photo-1551269901-5c5e14c25df7?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=San%20Sebasti%C3%A1n' },
-    'Cascais':       { region: 'Portugal · Lisbon coast',         flag: '🇵🇹 Portugal',         vibe: 'Smaller, beachier, sailboat-y. The quiet upscale option.', cost: '~$3,000/mo', photo: 'https://images.unsplash.com/photo-1583416750470-a44d72e6b58a?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=Cascais' }
+(function () {
+
+  /* ── Vibe data ─────────────────────────────────────────────── */
+  const VIBE_DATA = {
+    'The Sun-Chaser': {
+      emoji: '🌅',
+      description: 'You light up somewhere warm, slow, and sun-soaked. You\'re drawn to places where the weather is a lifestyle — where days stretch out, terraces face the sea, and the idea of "a hard winter" doesn\'t apply to you.',
+    },
+    'The Cultured Wanderer': {
+      emoji: '🎭',
+      description: 'You\'re not retiring from life — you\'re retiring into it. History, art, food, music: you want a place that rewards curiosity. Somewhere with layers. Somewhere that surprises you after months of living there.',
+    },
+    'The Simplicity Seeker': {
+      emoji: '🌿',
+      description: 'You\'re done with noise. You want life pared back to what actually matters — good food, genuine people, a slower pace, and the kind of quiet that lets you hear yourself think. The world has plenty of that, once you stop looking in the obvious places.',
+    },
+    'The Active Explorer': {
+      emoji: '⛰️',
+      description: 'Retirement is your launch pad, not a landing. You want trail access, water, elevation, seasons. Places where the landscape itself gives you a reason to get up early and go. You\'ll choose adventure over amenity every time.',
+    },
+    'The Global Citizen': {
+      emoji: '🌍',
+      description: 'You think in time zones. Borders feel more like suggestions than limits. You\'re drawn to the idea of planting yourself somewhere completely different — learning a new place, maybe a new language, and living in a way that most people only talk about.',
+    }
   };
 
-  function loadSavedData() {
+  /* ── Destination lookup ────────────────────────────────────── */
+  const RV_DESTINATIONS = {
+    'Porto':           { region: 'Northern Portugal · Coastal',       flag: '🇵🇹 Portugal',          vibe: 'Cobblestone old city, world-class wine, and a slower kind of European cool.',              cost: '~$3,200/mo', photo: 'https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=900&q=80', url: 'destination-porto.html' },
+    'Mérida':          { region: 'Yucatán, Mexico · Colonial',        flag: '🇲🇽 Mexico',            vibe: 'Pastel facades, mariachi nights, and a price tag that almost feels like a typo.',            cost: '~$2,400/mo', photo: 'https://images.unsplash.com/photo-1518638150340-f706e86654de?auto=format&fit=crop&w=900&q=80', url: 'destination-merida.html' },
+    'Sarasota':        { region: 'Florida, USA · Coastal',            flag: '🇺🇸 United States',     vibe: 'Powdery beaches, year-round sun, and a cultural scene that punches above its weight.',        cost: '~$4,800/mo', photo: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=900&q=80', url: 'destination-sarasota.html' },
+    'Asheville':       { region: 'North Carolina · Mountain',         flag: '🇺🇸 United States',     vibe: 'Blue Ridge mornings, craft everything, and four real seasons without the snow shovel.',       cost: '~$3,800/mo', photo: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=900&q=80', url: 'destination-asheville.html' },
+    'Chiang Mai':      { region: 'Northern Thailand · Cultural',      flag: '🇹🇭 Thailand',          vibe: 'Temples, mountain mist, and a cost of living that quietly rewrites what\'s possible.',        cost: '~$1,400/mo', photo: 'https://images.unsplash.com/photo-1598935898639-81586f7d2129?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=Chiang%20Mai' },
+    'Medellín':        { region: 'Antioquia, Colombia · Spring city',  flag: '🇨🇴 Colombia',         vibe: '70-degree mornings year-round, flowers everywhere, a city completely reborn.',                cost: '~$2,000/mo', photo: 'https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=Medell%C3%ADn' },
+    'Lisbon':          { region: 'Portugal · Capital coast',          flag: '🇵🇹 Portugal',          vibe: 'Brighter, busier, sun-soaked sister to Porto.',                                              cost: '~$3,400/mo', photo: 'https://images.unsplash.com/photo-1588535536833-89e6a30bb273?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=Lisbon' },
+    'Algarve':         { region: 'Southern Portugal · Coastal',       flag: '🇵🇹 Portugal',          vibe: 'Clifftop villages, turquoise coves, and enough sunshine to rearrange your expectations.',    cost: '~$2,800/mo', photo: 'https://images.unsplash.com/photo-1555400038-63f5ba517a47?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=Algarve' },
+    'Málaga':          { region: 'Andalucía, Spain · Coastal',        flag: '🇪🇸 Spain',             vibe: 'Warm winters, flamenco on Fridays, and a tapas bar on every corner.',                        cost: '~$2,900/mo', photo: 'https://images.unsplash.com/photo-1562883676-8c7feb83f09b?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=M%C3%A1laga' },
+    'Florence':        { region: 'Tuscany, Italy · Cultural',         flag: '🇮🇹 Italy',             vibe: 'Renaissance masterpieces on every corner, and the world\'s greatest pasta around the block.',  cost: '~$3,600/mo', photo: 'https://images.unsplash.com/photo-1534445867742-43195f401b6c?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=Florence' },
+    'Barcelona':       { region: '  Catalonia, Spain · Coastal',      flag: '🇪🇸 Spain',             vibe: 'Gaudí, the beach, a world-class food scene — somehow all in one city.',                      cost: '~$3,500/mo', photo: 'https://images.unsplash.com/photo-1583422409516-2895a77efded?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=Barcelona' },
+    'Athens':          { region: 'Attica, Greece · Cultural',         flag: '🇬🇷 Greece',            vibe: 'Mythology underfoot, a city reawakening, and island ferries an hour away.',                  cost: '~$2,600/mo', photo: 'https://images.unsplash.com/photo-1555993539-1732b0258235?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=Athens' },
+    'Cuenca':          { region: 'Azuay, Ecuador · Highland',         flag: '🇪🇨 Ecuador',           vibe: 'Colonial cobblestones at 8,000 feet, an expat community, and jaw-dropping affordability.',    cost: '~$1,600/mo', photo: 'https://images.unsplash.com/photo-1575202326099-a3faf85bdb08?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=Cuenca' },
+    'Ajijic':          { region: 'Jalisco, Mexico · Lakeside',        flag: '🇲🇽 Mexico',            vibe: 'Eternal spring on the shores of Lake Chapala, North America\'s largest expat community.',     cost: '~$1,900/mo', photo: 'https://images.unsplash.com/photo-1516750105099-4b8a83e217ee?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=Ajijic' },
+    'Boquete':         { region: 'Chiriquí, Panama · Highlands',      flag: '🇵🇦 Panama',            vibe: 'Cloud forest, coffee farms, and a little mountain town that keeps punching above its weight.', cost: '~$1,800/mo', photo: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=Boquete' },
+    'Grenada':         { region: 'Caribbean · Spice Isle',            flag: '🇬🇩 Grenada',           vibe: 'Nutmeg and cloves in the air, quiet beaches, and a pace that resets everything.',             cost: '~$2,200/mo', photo: 'https://images.unsplash.com/photo-1548574505-5e239809ee19?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=Grenada' },
+    'Bend':            { region: 'Oregon, USA · High Desert',         flag: '🇺🇸 United States',     vibe: 'Three hundred days of sun, ski slopes and rivers both, craft beer that takes itself seriously.', cost: '~$4,200/mo', photo: 'https://images.unsplash.com/photo-1465188035480-cf3a60801ea5?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=Bend' },
+    'Boise':           { region: 'Idaho, USA · High Desert',          flag: '🇺🇸 United States',     vibe: 'Outdoor everything, a food scene that snuck up on everyone, and more mountain than you\'d expect.', cost: '~$3,600/mo', photo: 'https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=Boise' },
+    'Split':           { region: 'Dalmatia, Croatia · Adriatic',      flag: '🇭🇷 Croatia',           vibe: 'A Roman emperor\'s retirement palace turned living city. The Adriatic outside your window.',   cost: '~$2,800/mo', photo: 'https://images.unsplash.com/photo-1555990793-da11153b6c47?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=Split' },
+    'Penang':          { region: 'Malaysia · Island city',            flag: '🇲🇾 Malaysia',          vibe: 'Street food that makes grown adults emotional, a UNESCO old town, tropical ease.',             cost: '~$1,500/mo', photo: 'https://images.unsplash.com/photo-1570376856729-a1b78f2dba71?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=Penang' },
+    'Montevideo':      { region: 'Uruguay · Rio de la Plata',         flag: '🇺🇾 Uruguay',           vibe: 'The most livable city in Latin America, calm, cosmopolitan, completely under the radar.',      cost: '~$2,500/mo', photo: 'https://images.unsplash.com/photo-1531386151447-fd76ad50012f?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=Montevideo' },
+    'Da Nang':         { region: 'Central Vietnam · Coastal',         flag: '🇻🇳 Vietnam',           vibe: 'Beach city with a mountain backdrop, world-class food, infrastructure ahead of its price.',     cost: '~$1,300/mo', photo: 'https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=Da%20Nang' },
+    'Panama City':     { region: 'Panama · Tropical city',            flag: '🇵🇦 Panama',            vibe: 'First-world infrastructure, US dollar economy, a skyline that surprises everyone.',             cost: '~$2,400/mo', photo: 'https://images.unsplash.com/photo-1518182170546-07661fd94144?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=Panama%20City' },
+    'Cartagena':       { region: 'Bolívar, Colombia · Caribbean',     flag: '🇨🇴 Colombia',          vibe: 'Walled city, bougainvillea everywhere, salsa in the plaza — romantic in the very best sense.', cost: '~$2,100/mo', photo: 'https://images.unsplash.com/photo-1535732820275-9ffd998cac22?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=Cartagena' },
+    'Oaxaca':          { region: 'Oaxaca, Mexico · Colonial',         flag: '🇲🇽 Mexico',            vibe: 'Mole, mezcal, murals, and an arts scene that draws people from everywhere.',                   cost: '~$1,800/mo', photo: 'https://images.unsplash.com/photo-1518638150340-f706e86654de?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=Oaxaca' },
+    'San Miguel de Allende': { region: 'Guanajuato, Mexico · Colonial', flag: '🇲🇽 Mexico',        vibe: 'Cobblestones, rooftop bars, and the most photographed church in Mexico.',                      cost: '~$2,200/mo', photo: 'https://images.unsplash.com/photo-1518638150340-f706e86654de?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=San%20Miguel%20de%20Allende' },
+    'Puerto Vallarta':  { region: 'Jalisco, Mexico · Pacific coast',  flag: '🇲🇽 Mexico',            vibe: 'Old town cobblestones, a crescent bay, and some of Mexico\'s best independent restaurants.',   cost: '~$2,600/mo', photo: 'https://images.unsplash.com/photo-1518638150340-f706e86654de?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=Puerto%20Vallarta' },
+    'Valencia':        { region: 'Valencian Community, Spain',        flag: '🇪🇸 Spain',             vibe: 'More sun than almost anywhere in Europe, better beaches than Barcelona, half the crowds.',      cost: '~$2,700/mo', photo: 'https://images.unsplash.com/photo-1562883676-8c7feb83f09b?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=Valencia' },
+    'Puerto Rico':     { region: 'Caribbean · US Territory',          flag: '🇵🇷 Puerto Rico',       vibe: 'No passport needed, no currency exchange — just a Caribbean island with American conveniences.', cost: '~$3,000/mo', photo: 'https://images.unsplash.com/photo-1548169874-53e85f753f1e?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=Puerto%20Rico' },
+    'Canmore':         { region: 'Alberta, Canada · Rocky Mountains', flag: '🇨🇦 Canada',            vibe: 'Banff National Park at your doorstep. The kind of mountain town people move to and never leave.', cost: '~$4,400/mo', photo: 'https://images.unsplash.com/photo-1465188035480-cf3a60801ea5?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=Canmore' },
+    'Costa Rica':      { region: 'Central America · Pura Vida',       flag: '🇨🇷 Costa Rica',        vibe: 'Rainforest, Pacific coast, stable democracy, and the most genuinely happy country on the index.', cost: '~$2,800/mo', photo: 'https://images.unsplash.com/photo-1518638150340-f706e86654de?auto=format&fit=crop&w=900&q=80', url: 'destination-coming-soon.html?name=Costa%20Rica' }
+  };
+
+  /* ── LocalStorage helpers ──────────────────────────────────── */
+  function getSaved() {
     try { return JSON.parse(localStorage.getItem('rv_saved') || '{}'); } catch(e) { return {}; }
   }
-
-  function saveSavedData(data) {
+  function setSaved(data) {
     try { localStorage.setItem('rv_saved', JSON.stringify(data)); } catch(e) {}
   }
+  function getMatchData() {
+    try {
+      const raw = localStorage.getItem('rv_quiz_matches');
+      return raw ? JSON.parse(raw) : null;
+    } catch(e) { return null; }
+  }
 
-  function renderPage() {
-    const saved = loadSavedData();
+  /* ── Persona section ───────────────────────────────────────── */
+  function renderPersona(matchData) {
+    const section = document.getElementById('personaSection');
+    const label = matchData.vibeLabel || '';
+    const vibeInfo = VIBE_DATA[label] || {};
+
+    // Split "The Sun-Chaser" → "The " + "Sun-Chaser"
+    const parts = label.match(/^(The\s+)(.+)$/);
+    const nameEl = document.getElementById('personaName');
+    if (parts) {
+      nameEl.innerHTML = parts[1] + '<em>' + parts[2] + '</em>';
+    } else {
+      nameEl.textContent = label;
+    }
+
+    document.getElementById('personaBadge').textContent = vibeInfo.emoji || '✨';
+    document.getElementById('personaDescription').textContent = vibeInfo.description || '';
+
+    // Profile text from quiz answers
+    const profileEl = document.getElementById('personaProfile');
+    const lines = [];
+    if (matchData.profilePara1) lines.push(matchData.profilePara1);
+    if (matchData.profilePara2) lines.push(matchData.profilePara2);
+    if (lines.length) {
+      profileEl.innerHTML = lines.map(l => '<p style="margin-bottom:0.5em;">' + l + '</p>').join('');
+      profileEl.hidden = false;
+    }
+
+    section.hidden = false;
+  }
+
+  /* ── Matches section ───────────────────────────────────────── */
+  function renderMatches(matchData) {
+    const section = document.getElementById('matchesSection');
+    const grid = document.getElementById('matchesGrid');
+    const matches = matchData.matches || [];
+    if (!matches.length) return;
+
+    const rankLabels = ['#1 Match', '#2 Match', '#3 Match'];
+    const rankClasses = ['rank-1', 'rank-2', 'rank-3'];
+
+    grid.innerHTML = matches.map(function(m, i) {
+      const d = RV_DESTINATIONS[m.name] || {};
+      const photo  = m.photo || d.photo || '';
+      const flag   = m.flag  || d.flag  || '';
+      const region = m.region || d.region || '';
+      const tagline = m.tagline || d.vibe || '';
+      const cost   = m.costPerMonth || d.cost || '';
+      const url    = m.page || d.url || 'destinations.html';
+
+      return '<article class="match-card">' +
+        '<div class="match-photo" style="background-image:url(\'' + photo + '\');">' +
+          '<span class="match-rank ' + rankClasses[i] + '">' + rankLabels[i] + '</span>' +
+          '<span class="match-flag">' + flag + '</span>' +
+        '</div>' +
+        '<div class="match-body">' +
+          '<h3 class="match-name">' + m.name + '</h3>' +
+          '<div class="match-region">' + region + '</div>' +
+          '<p class="match-tagline">' + tagline + '</p>' +
+          '<div class="match-footer">' +
+            '<span class="match-cost">' + cost + '</span>' +
+            '<a href="' + url + '" class="match-explore">Explore →</a>' +
+          '</div>' +
+        '</div>' +
+      '</article>';
+    }).join('');
+
+    section.hidden = false;
+  }
+
+  /* ── Saved destinations section ────────────────────────────── */
+  function renderSaved() {
+    const saved = getSaved();
     const dests = saved.destinations || [];
-    const vibeLabel = (function() { try { return localStorage.getItem('rv_vibe_label'); } catch(e) { return null; } })();
+    const container = document.getElementById('savedContent');
 
-    // Title — adapt to whether they have a vibe label
-    const titleEl = document.getElementById('pageTitle');
-    if (vibeLabel) {
-      titleEl.innerHTML = 'Welcome back, <em>' + vibeLabel + '</em>.';
-    } else {
-      titleEl.innerHTML = 'Your saved places.';
-    }
-
-    // Meta row — count + last saved
-    document.getElementById('savedCount').textContent = dests.length;
-
-    // Empty state vs grid
-    const emptyState = document.getElementById('emptyState');
-    const grid = document.getElementById('savedGrid');
     if (dests.length === 0) {
-      emptyState.hidden = false;
-      grid.innerHTML = '';
-    } else {
-      emptyState.hidden = true;
-      grid.innerHTML = dests.map(name => {
-        const d = RV_DESTINATIONS[name] || { region: '', flag: '', vibe: '', cost: '', photo: '', url: '#' };
-        const hasPage = d.url && d.url !== '#';
-        const cta = hasPage
-          ? '<a href="' + d.url + '" class="saved-card-cta">Open ' + name + ' →</a>'
-          : '<span class="saved-card-cta disabled">Page coming soon</span>';
-        return '<article class="saved-card">' +
-          '<div class="saved-photo" style="background-image:url(\'' + d.photo + '\');">' +
-            '<span class="saved-flag">' + d.flag + '</span>' +
-            '<button class="card-save saved" data-name="' + name + '" onclick="toggleSave(\'' + name + '\')" aria-label="Remove ' + name + '">♥</button>' +
-          '</div>' +
-          '<div class="saved-body">' +
-            '<h3 class="saved-name">' + name + '</h3>' +
-            '<div class="saved-region">' + d.region + '</div>' +
-            (d.vibe ? '<p class="saved-vibe">' + d.vibe + '</p>' : '') +
-            (d.cost ? '<div class="saved-cost"><span class="saved-cost-label">Upscale lifestyle</span><span class="saved-cost-value">' + d.cost + '</span></div>' : '') +
-            cta +
-          '</div>' +
-        '</article>';
-      }).join('');
+      container.innerHTML =
+        '<div class="saved-empty">' +
+          '<p>You haven\'t saved any destinations yet. Browse destinations and tap the heart to save the ones that catch your eye.</p>' +
+          '<a href="destinations.html">Browse all destinations →</a>' +
+        '</div>';
+      return;
     }
 
-    // Account row
+    container.innerHTML =
+      '<div class="saved-grid">' +
+        dests.map(function(name) {
+          const d = RV_DESTINATIONS[name] || { region: '', flag: '', vibe: '', cost: '', photo: '', url: '#' };
+          const hasPage = d.url && d.url !== '#';
+          const cta = hasPage
+            ? '<a href="' + d.url + '" class="saved-cta">Explore →</a>'
+            : '<span class="saved-cta disabled">Coming soon</span>';
+          return '<article class="saved-card">' +
+            '<div class="saved-photo" style="background-image:url(\'' + d.photo + '\');">' +
+              '<span class="saved-flag">' + d.flag + '</span>' +
+              '<button class="card-save saved" data-name="' + name + '" onclick="toggleSave(\'' + name.replace(/'/g, "\\'") + '\')" aria-label="Remove ' + name + '">♥</button>' +
+            '</div>' +
+            '<div class="saved-body">' +
+              '<h3 class="saved-name">' + name + '</h3>' +
+              '<div class="saved-region">' + d.region + '</div>' +
+              (d.vibe ? '<p class="saved-vibe">' + d.vibe + '</p>' : '') +
+              '<div class="saved-footer">' +
+                (d.cost ? '<span class="saved-cost">' + d.cost + '</span>' : '<span></span>') +
+                cta +
+              '</div>' +
+            '</div>' +
+          '</article>';
+        }).join('') +
+      '</div>';
+  }
+
+  /* ── Account row ───────────────────────────────────────────── */
+  function renderAccount() {
+    const saved = getSaved();
     const accountRow = document.getElementById('accountRow');
     if (saved.email) {
-      accountRow.hidden = false;
       document.getElementById('accountEmail').textContent = saved.email;
-    } else {
-      accountRow.hidden = true;
+      accountRow.hidden = false;
     }
   }
 
-  function toggleSave(name) {
-    const saved = loadSavedData();
+  /* ── Page hero ─────────────────────────────────────────────── */
+  function renderHero(matchData) {
+    if (!matchData) return;
+    const label = matchData.vibeLabel || '';
+    if (label) {
+      const titleEl = document.getElementById('pageTitle');
+      const parts = label.match(/^(The\s+)(.+)$/);
+      if (parts) {
+        titleEl.innerHTML = 'Welcome back, <em>' + parts[2] + '</em>.';
+      } else {
+        titleEl.innerHTML = 'Welcome back.';
+      }
+      document.getElementById('heroSub').textContent = 'Your top matches, your persona, and the places you\'ve saved — all right here.';
+    }
+  }
+
+  /* ── Init ──────────────────────────────────────────────────── */
+  function init() {
+    const matchData = getMatchData();
+
+    if (matchData && matchData.vibeLabel) {
+      renderHero(matchData);
+      renderPersona(matchData);
+      renderMatches(matchData);
+      document.getElementById('noQuizSection').hidden = true;
+    } else {
+      document.getElementById('noQuizSection').hidden = false;
+    }
+
+    renderSaved();
+    renderAccount();
+  }
+
+  /* ── Global save toggle ────────────────────────────────────── */
+  window.toggleSave = function(name) {
+    const saved = getSaved();
     saved.destinations = saved.destinations || [];
     if (saved.destinations.includes(name)) {
-      saved.destinations = saved.destinations.filter(d => d !== name);
+      saved.destinations = saved.destinations.filter(function(d) { return d !== name; });
     } else {
       saved.destinations.push(name);
     }
-    saveSavedData(saved);
-    renderPage();
-  }
+    setSaved(saved);
+    renderSaved();
+  };
 
-  function signOut() {
-    if (confirm("Sign out and clear your saved places from this device?")) {
+  /* ── Sign out ──────────────────────────────────────────────── */
+  window.signOut = function() {
+    if (confirm('Sign out and clear your saved places from this device?')) {
       try { localStorage.removeItem('rv_saved'); } catch(e) {}
       try { localStorage.removeItem('rv_vibe_label'); } catch(e) {}
+      try { localStorage.removeItem('rv_quiz_matches'); } catch(e) {}
       window.location.href = 'homepage-mockup.html';
     }
-  }
+  };
 
-  renderPage();
+  document.addEventListener('DOMContentLoaded', init);
+
+})();
 </script>
 
+<script src="shared.js"></script>
 </body>
 </html>

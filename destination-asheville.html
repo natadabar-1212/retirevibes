@@ -29,7 +29,7 @@
   .nav-cta { padding: 12px 22px; background: var(--teal); color: var(--white) !important; border-radius: 999px; font-size: 14px; transition: all 0.25s ease; }
   .nav-cta:hover { background: var(--terracotta); }
   .hero { position: relative; min-height: 620px; display: flex; align-items: flex-end; overflow: hidden; padding: 80px 48px 60px; }
-  .hero-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=2200&q=85'); background-size: cover; background-position: center; background-color: #93A89A; }
+  .hero-bg { position: absolute; inset: 0; background-image: url('images/asheville.jpg'); background-size: cover; background-position: center; background-color: #93A89A; }
   .hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(27, 58, 75, 0) 0%, rgba(27, 58, 75, 0.18) 50%, rgba(27, 58, 75, 0.78) 100%); }
   .hero-inner { position: relative; z-index: 2; width: 100%; max-width: 1240px; margin: 0 auto; color: var(--white); }
   .back-link { display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; margin-bottom: 28px; transition: color 0.2s ease; }
@@ -64,7 +64,7 @@
   .vibe-card p { font-size: 15px; color: var(--teal-soft); line-height: 1.65; }
   .day { background: var(--cream-soft); }
   .day-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center; max-width: 1240px; margin: 0 auto; }
-  .day-image { border-radius: 18px; overflow: hidden; aspect-ratio: 4/5; background-image: url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1100&q=80'); background-size: cover; background-position: center; box-shadow: 0 18px 40px rgba(27, 58, 75, 0.12); }
+  .day-image { border-radius: 18px; overflow: hidden; aspect-ratio: 4/5; background-image: url('images/asheville.jpg'); background-size: cover; background-position: center; box-shadow: 0 18px 40px rgba(27, 58, 75, 0.12); }
   .day-text h2 { font-family: var(--serif); font-size: 40px; line-height: 1.15; color: var(--teal); letter-spacing: -0.018em; margin-bottom: 22px; }
   .day-text h2 em { color: var(--terracotta); font-style: italic; }
   .day-text p { font-size: 17px; color: var(--teal-soft); line-height: 1.7; margin-bottom: 18px; }
@@ -144,9 +144,7 @@
 <nav class="nav">
   <a class="wordmark" href="homepage-mockup.html">Retire<em>Vibes</em></a>
   <div class="nav-links">
-    <a href="homepage-mockup.html#destinations">Destinations</a>
-    <a href="homepage-mockup.html#how">How it works</a>
-    <a href="find-an-advisor.html">Find an advisor</a>
+    <a href="destinations.html">Destinations</a>
     <a href="my-retirevibes.html">My RetireVibes</a>
     <a href="results-page-mockup.html" class="nav-cta">Take the quiz →</a>
   </div>
@@ -292,7 +290,7 @@
         <div class="ho-label">The "is this real" side</div>
         <h3>Spend a long weekend</h3>
         <p>Domestic moves are easy to test. Pick a week, walk the neighborhoods, do a brewery crawl, drive the Parkway. We'll line up a local realtor and a neighborhood tour.</p>
-        <a href="scouting-trip.html">Plan my weekend →</a>
+        <a href="scouting-trip-domestic.html?city=asheville">Plan my weekend →</a>
       </article>
     </div>
   </div>
@@ -305,34 +303,34 @@
     <p class="lead">Same DNA — small-but-vibrant cities, walkable downtowns, outdoor access at the city limits, four real seasons. Different states, different price tags.</p>
   </div>
   <div class="similar-grid">
-    <a class="similar-card" href="destination-coming-soon.html?name=Boulder">
-      <div class="similar-photo" style="background-image: url('https://images.unsplash.com/photo-1602081957921-9137a5d6eaee?auto=format&fit=crop&w=900&q=80');">
-        <button class="card-save" data-name="Boulder" onclick="event.preventDefault(); event.stopPropagation(); toggleSave('Boulder')" aria-label="Save Boulder">♡</button>
+    <a class="similar-card" href="destination-porto.html">
+      <div class="similar-photo" style="background-image: url('images/porto.jpg');">
+        <button class="card-save" data-name="Porto" onclick="event.preventDefault(); event.stopPropagation(); toggleSave('Porto')" aria-label="Save Porto">♡</button>
       </div>
       <div class="similar-body">
-        <h3 class="similar-name">Boulder</h3>
-        <div class="similar-region">Colorado · Foothills</div>
-        <p class="similar-vibe">Pricier, drier, sunnier. Same outdoor-and-arts energy, more tech money. Hardcore four seasons.</p>
+        <h3 class="similar-name">Porto</h3>
+        <div class="similar-region">Portugal · Northern Coastal</div>
+        <p class="similar-vibe">If you're open to international: the same walkable-cultural-artsy energy, at roughly Asheville's price — with the Atlantic out front.</p>
       </div>
     </a>
-    <a class="similar-card" href="destination-coming-soon.html?name=Bend">
-      <div class="similar-photo" style="background-image: url('https://images.unsplash.com/photo-1562533733-fed5da4404bd?auto=format&fit=crop&w=900&q=80');">
-        <button class="card-save" data-name="Bend" onclick="event.preventDefault(); event.stopPropagation(); toggleSave('Bend')" aria-label="Save Bend">♡</button>
+    <a class="similar-card" href="destination-merida.html">
+      <div class="similar-photo" style="background-image: url('images/merida.jpg');">
+        <button class="card-save" data-name="Mérida" onclick="event.preventDefault(); event.stopPropagation(); toggleSave('Mérida')" aria-label="Save Mérida">♡</button>
       </div>
       <div class="similar-body">
-        <h3 class="similar-name">Bend</h3>
-        <div class="similar-region">Oregon · High desert</div>
-        <p class="similar-vibe">Smaller, more remote, world-class outdoors. Brewery scene rivals Asheville. Drier, sunnier winters.</p>
+        <h3 class="similar-name">Mérida</h3>
+        <div class="similar-region">Mexico · Yucatán Colonial</div>
+        <p class="similar-vibe">Warmer, flatter, and more affordable. Colonial Latin charm instead of mountain craft beer — but the same livable, walkable energy.</p>
       </div>
     </a>
-    <a class="similar-card" href="destination-coming-soon.html?name=Burlington">
-      <div class="similar-photo" style="background-image: url('https://images.unsplash.com/photo-1571687949921-1306bfb24b72?auto=format&fit=crop&w=900&q=80');">
-        <button class="card-save" data-name="Burlington" onclick="event.preventDefault(); event.stopPropagation(); toggleSave('Burlington')" aria-label="Save Burlington">♡</button>
+    <a class="similar-card" href="destination-sarasota.html">
+      <div class="similar-photo" style="background-image: url('images/sarasota.jpg');">
+        <button class="card-save" data-name="Sarasota" onclick="event.preventDefault(); event.stopPropagation(); toggleSave('Sarasota')" aria-label="Save Sarasota">♡</button>
       </div>
       <div class="similar-body">
-        <h3 class="similar-name">Burlington</h3>
-        <div class="similar-region">Vermont · Lake Champlain</div>
-        <p class="similar-vibe">Smaller, colder, lake-side. Same walkable-arts-foodie energy. Real winters but spectacular falls.</p>
+        <h3 class="similar-name">Sarasota</h3>
+        <div class="similar-region">Florida, USA · Gulf Coast</div>
+        <p class="similar-vibe">Swap the mountains for Gulf Coast beaches. Same domestic ease, same punchy cultural scene — minus the Blue Ridge and plus a lot of sunshine.</p>
       </div>
     </a>
   </div>
@@ -345,8 +343,7 @@
       <p class="footer-tag">Good RetireVibes only.</p>
     </div>
     <div class="footer-links">
-      <a href="homepage-mockup.html#destinations">Destinations</a>
-      <a href="homepage-mockup.html#how">How it works</a>
+      <a href="destinations.html">Destinations</a>
       <a href="find-an-advisor.html">Find an advisor</a>
       <a href="scouting-trip.html">Scouting trips</a>
       <a href="my-retirevibes.html">My RetireVibes</a>

@@ -65,8 +65,14 @@
     gap: 10px;
     font-size: 13px;
     color: var(--warm-gray);
-    letter-spacing: 0.08em;
+  }
+  .match-step {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
+    color: var(--warm-gray);
+    margin-right: 4px;
   }
   .dot {
     width: 9px;
@@ -353,23 +359,33 @@
     max-width: 580px;
   }
 
-  /* ─── Profile sidebar (only on #1) ───────────────────────── */
+  /* ─── Profile panel (below #1 card, full-width horizontal) ── */
   .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 320px;
+    display: flex;
+    flex-direction: column;
     gap: 28px;
-    align-items: start;
   }
   .profile-card {
     background: var(--cream-soft);
     border-radius: 18px;
-    padding: 32px 28px;
-    position: sticky;
-    top: 110px;
+    padding: 36px 44px;
+    display: flex;
+    gap: 0;
+    align-items: flex-start;
+  }
+  .profile-left {
+    flex-shrink: 0;
+    width: 240px;
+    padding-right: 40px;
+    border-right: 1px solid rgba(27,58,75,0.1);
+    margin-right: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
   }
   .profile-card h3 {
     font-family: var(--serif);
-    font-size: 24px;
+    font-size: 26px;
     color: var(--teal);
     line-height: 1.2;
     margin-bottom: 6px;
@@ -379,25 +395,27 @@
     color: var(--warm-gray);
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    margin-bottom: 22px;
+    margin-bottom: 0;
+  }
+  .profile-right {
+    flex: 1;
   }
   .profile-card p {
     font-size: 15px;
     line-height: 1.65;
     color: var(--teal-soft);
-    margin-bottom: 18px;
+    margin-bottom: 14px;
   }
   .profile-traits {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
-    margin-top: 8px;
+    margin-top: 6px;
   }
   .profile-traits .tag { font-size: 12px; padding: 5px 11px; }
   .profile-share {
-    margin-top: 22px;
-    padding-top: 18px;
-    border-top: 1px solid rgba(27, 58, 75, 0.1);
+    margin-top: auto;
+    padding-top: 24px;
     font-size: 13px;
     color: var(--warm-gray);
     line-height: 1.5;
@@ -406,6 +424,11 @@
     color: var(--terracotta);
     text-decoration: none;
     font-weight: 500;
+  }
+  @media (max-width: 980px) {
+    .profile-card { flex-direction: column; padding: 28px 24px; }
+    .profile-left { width: 100%; border-right: none; padding-right: 0; margin-right: 0; border-bottom: 1px solid rgba(27,58,75,0.1); padding-bottom: 20px; margin-bottom: 20px; }
+    .profile-share { padding-top: 0; }
   }
 
   /* ─── Footer note ────────────────────────────────────────── */
@@ -689,8 +712,7 @@
     .body, .card.hero .body { padding: 32px 28px; }
     .destination-name { font-size: 38px; }
     .card.hero .destination-name { font-size: 44px; }
-    .hero-grid { grid-template-columns: 1fr; }
-    .profile-card { position: static; }
+    .hero-grid { gap: 20px; }
     .stage { padding: 32px 20px 64px; }
     .topbar { padding: 14px 20px; }
     .other-matches { grid-template-columns: 1fr; }
@@ -705,9 +727,9 @@
 <body>
 
 <header class="topbar">
-  <div class="wordmark">Retire<em>Vibes</em></div>
+  <a class="wordmark" href="homepage-mockup.html" style="text-decoration:none;">Retire<em>Vibes</em></a>
   <div class="progress-dots" id="progressDots">
-    <span>Reveal</span>
+    <span class="match-step">Match <span id="matchStepNum">3</span> of 3</span>
     <span class="dot active"></span>
     <span class="dot"></span>
     <span class="dot"></span>
@@ -768,7 +790,7 @@
     <div id="card-3-slot"></div>
 
     <div class="advance-row">
-      <p class="advance-prompt">Not feeling it?</p>
+      <p class="advance-prompt">Intrigued? Keep going.</p>
       <button class="btn" onclick="goTo(2)">See match #2 <span class="arrow">→</span></button>
     </div>
   </section>
@@ -798,19 +820,23 @@
       <div id="card-1-slot"></div>
 
       <aside class="profile-card">
-        <h3>Your retirement profile</h3>
-        <div class="sub">Based on your answers</div>
-        <div id="profile-text-slot">
-          <p>You're drawn to <strong style="color:var(--teal);font-weight:600;">walkable, warm, culturally rich places</strong> — the kind of city where you'd start the morning at a café and end the night at a candlelit dinner you didn't have to drive to.</p>
-          <p>You want comfort without ostentation, neighbors who become friends, and the freedom to actually live somewhere — not just visit it.</p>
-          <div class="profile-traits">
-            <span class="tag">Slower pace</span>
-            <span class="tag">Coastal &amp; walkable</span>
-            <span class="tag warm">Community</span>
+        <div class="profile-left">
+          <h3>Your retirement profile</h3>
+          <div class="sub">Based on your answers</div>
+          <div class="profile-share">
+            <a href="#" onclick="openShareModal(); return false;">Share your retirement profile →</a>
           </div>
         </div>
-        <div class="profile-share">
-          <a href="#" onclick="openShareModal(); return false;">Share your retirement profile →</a>
+        <div class="profile-right">
+          <div id="profile-text-slot">
+            <p>You're drawn to <strong style="color:var(--teal);font-weight:600;">walkable, warm, culturally rich places</strong> — the kind of city where you'd start the morning at a café and end the night at a candlelit dinner you didn't have to drive to.</p>
+            <p>You want comfort without ostentation, neighbors who become friends, and the freedom to actually live somewhere — not just visit it.</p>
+            <div class="profile-traits">
+              <span class="tag">Slower pace</span>
+              <span class="tag">Coastal &amp; walkable</span>
+              <span class="tag warm">Community</span>
+            </div>
+          </div>
         </div>
       </aside>
     </div>
@@ -877,13 +903,15 @@
     document.getElementById('screen-' + matchNum).classList.add('active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    // Progress dots: index 0 = match #3, 1 = #2, 2 = #1
+    // Progress dots + match counter
     const idx = 3 - matchNum;
     dots.forEach((d, i) => {
       d.classList.remove('active', 'done');
       if (i < idx) d.classList.add('done');
       else if (i === idx) d.classList.add('active');
     });
+    const stepEl = document.getElementById('matchStepNum');
+    if (stepEl) stepEl.textContent = matchNum;
 
     if (matchNum === 1) launchConfetti();
   }
@@ -1190,7 +1218,7 @@
     <p class="modal-eyebrow">Share your results</p>
     <h2 class="modal-title" id="shareModalTitle">Send your <em>match</em> to a friend.</h2>
     <p class="modal-sub">Half the fun is comparing notes. Here's a ready-made message — or just share the link.</p>
-    <div class="share-quote-block">"Just found out my top retirement match is Porto, Portugal 🇵🇹 — took the RetireVibes quiz and I'm kind of obsessed. What's yours?"</div>
+    <div class="share-quote-block" id="shareModalQuote">"Just found out my top retirement match is Porto, Portugal 🇵🇹 — took the RetireVibes quiz and I'm kind of obsessed. What's yours?"</div>
     <div class="share-actions">
       <button class="share-option" id="copyLinkBtn" onclick="copyShareLink()">
         <span class="share-icon">🔗</span>
@@ -1214,6 +1242,12 @@
     document.body.style.overflow = 'hidden';
     if (navigator.share) {
       document.getElementById('nativeShareBtn').style.display = '';
+    }
+    // Update modal quote to reflect actual top match
+    const top = window._rvTopMatch;
+    const quoteEl = document.getElementById('shareModalQuote');
+    if (top && quoteEl) {
+      quoteEl.textContent = '"Just found out my top retirement match is ' + top.name + ', ' + top.country + ' ' + top.flag + ' — took the RetireVibes quiz and I\'m kind of obsessed. What\'s yours?"';
     }
   }
   function closeShareModal() {
@@ -1244,20 +1278,23 @@
   }
   function emailShare(e) {
     e.preventDefault();
-    const vibeLabel = document.getElementById('vibeName') ? document.getElementById('vibeName').textContent : 'RetireVibes';
-    const subject = encodeURIComponent('My top retirement match is Porto, Portugal 🇵🇹');
+    const top = window._rvTopMatch;
+    const destStr = top ? (top.name + ', ' + top.country + ' ' + top.flag) : 'Porto, Portugal 🇵🇹';
+    const subject = encodeURIComponent('My top retirement match is ' + (top ? top.name : 'Porto, Portugal') + ' ' + (top ? top.flag : '🇵🇹'));
     const body = encodeURIComponent(
-      'I just took the RetireVibes quiz and my #1 match is Porto, Portugal 🇵🇹\n\n' +
-      '"Just found out my top retirement match is Porto, Portugal — took the RetireVibes quiz and I\'m kind of obsessed. What\'s yours?"\n\n' +
-      'Take the quiz (it\'s only 8 questions): ' + window.location.origin + '/mockups/vibe-quiz.html'
+      'I just took the RetireVibes quiz and my #1 match is ' + destStr + '\n\n' +
+      '"Just found out my top retirement match is ' + destStr + ' — took the RetireVibes quiz and I\'m kind of obsessed. What\'s yours?"\n\n' +
+      'Take the quiz (it\'s only 7 questions): ' + window.location.origin + '/mockups/vibe-quiz.html'
     );
     window.location.href = 'mailto:?subject=' + subject + '&body=' + body;
   }
   function nativeShare() {
     if (navigator.share) {
+      const top = window._rvTopMatch;
+      const destStr = top ? (top.name + ', ' + top.country + ' ' + top.flag) : 'Porto, Portugal 🇵🇹';
       navigator.share({
-        title: 'My #1 retirement match — Porto, Portugal',
-        text: 'Just found out my top retirement match is Porto, Portugal 🇵🇹 — took the RetireVibes quiz and I\'m kind of obsessed. What\'s yours?',
+        title: 'My #1 retirement match — ' + (top ? top.name : 'Porto'),
+        text: 'Just found out my top retirement match is ' + destStr + ' — took the RetireVibes quiz and I\'m kind of obsessed. What\'s yours?',
         url: window.location.href
       }).catch(function() {});
     }

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RetireVibes — Photo Audit Tool</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, system-ui, sans-serif;
+      background: #1a1a1a;
+      color: #eee;
+      padding: 32px 24px 64px;
+    }
+    h1 {
+      font-size: 22px; font-weight: 600; margin-bottom: 6px;
+      color: #fff;
+    }
+    .subtitle {
+      font-size: 14px; color: #999; margin-bottom: 32px; line-height: 1.6;
+      max-width: 640px;
+    }
+    .subtitle strong { color: #ddd; }
+
+    /* stats bar */
+    #stats {
+      display: flex; gap: 24px; margin-bottom: 28px;
+      font-size: 13px;
+    }
+    .stat { background: #2a2a2a; border-radius: 8px; padding: 10px 16px; }
+    .stat span { font-size: 20px; font-weight: 700; display: block; }
+    .stat-ok span { color: #4ade80; }
+    .stat-broken span { color: #f87171; }
+    .stat-replaced span { color: #60a5fa; }
+
+    /* grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    /* collection header */
+    .collection-label {
+      grid-column: 1 / -1;
+      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: #666; padding: 8px 0 4px;
+      border-top: 1px solid #333; margin-top: 8px;
+    }
+    .collection-label:first-child { border-top: none; margin-top: 0; }
+
+    /* card */
+    .card {
+      background: #252525;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .card.is-broken { border-color: #f87171; }
+    .card.is-replaced { border-color: #60a5fa; }
+
+    .photo-wrap {
+      position: relative;
+      height: 160px;
+      background: #333 no-repeat center/cover;
+    }
+    .broken-badge {
+      display: none;
+      position: absolute; inset: 0;
+      background: rgba(239,68,68,0.85);
+      align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 600; color: #fff;
+      letter-spacing: 0.05em;
+      flex-direction: column; gap: 4px;
+    }
+    .broken-badge .icon { font-size: 28px; }
+    .card.is-broken .broken-badge { display: flex; }
+    .replaced-badge {
+      display: none;
+      position: absolute; top: 8px; right: 8px;
+      background: #2563eb; color: #fff;
+      font-size: 11px; font-weight: 600;
+      padding: 3px 8px; border-radius: 999px;
+      letter-spacing: 0.05em;
+    }
+    .card.is-replaced .replaced-badge { display: block; }
+
+    .card-body { padding: 12px 14px 14px; }
+    .card-name {
+      font-size: 15px; font-weight: 600; color: #fff;
+      display: flex; align-items: center; gap: 6px; margin-bottom: 2px;
+    }
+    .card-region { font-size: 12px; color: #777; margin-bottom: 10px; }
+
+    .card-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .btn {
+      font-size: 12px; font-weight: 500; padding: 6px 12px;
+      border-radius: 6px; border: none; cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn-search {
+      background: #C97B5A; color: #fff;
+    }
+    .btn-edit {
+      background: #333; color: #ccc;
+    }
+    .btn-clear {
+      background: #1e3a5f; color: #93c5fd;
+    }
+
+    .url-input-wrap {
+      display: none; margin-top: 10px;
+    }
+    .url-input-wrap.open { display: block; }
+    .url-input {
+      width: 100%; background: #1a1a1a; border: 1px solid #444;
+      color: #fff; font-size: 12px; padding: 7px 10px;
+      border-radius: 6px; outline: none;
+      font-family: monospace;
+    }
+    .url-input:focus { border-color: #60a5fa; }
+    .url-input::placeholder { color: #555; }
+    .url-hint { font-size: 11px; color: #555; margin-top: 4px; }
+
+    /* output section */
+    #output-section {
+      margin-top: 48px;
+      background: #252525;
+      border-radius: 12px;
+      padding: 24px;
+    }
+    #output-section h2 { font-size: 16px; margin-bottom: 6px; color: #fff; }
+    #output-section p { font-size: 13px; color: #888; margin-bottom: 16px; }
+    #copy-btn {
+      background: #C97B5A; color: #fff;
+      font-size: 14px; font-weight: 600;
+      padding: 10px 24px; border-radius: 8px;
+      border: none; cursor: pointer; margin-bottom: 16px;
+      transition: opacity 0.15s;
+    }
+    #copy-btn:hover { opacity: 0.85; }
+    #output-text {
+      width: 100%;
+      background: #1a1a1a;
+      border: 1px solid #333;
+      color: #9ca3af;
+      font-family: monospace;
+      font-size: 12px;
+      padding: 12px;
+      border-radius: 8px;
+      resize: vertical;
+      min-height: 160px;
+    }
+    .copy-confirm {
+      display: inline-block;
+      font-size: 12px; color: #4ade80;
+      margin-left: 12px; opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .copy-confirm.show { opacity: 1; }
+  </style>
+</head>
+<body>
+
+<h1>RetireVibes — Photo Audit</h1>
+<p class="subtitle">
+  Images marked <strong style="color:#f87171">BROKEN</strong> failed to load. For any image that's wrong or broken:
+  click <strong>Search Unsplash</strong> → pick a photo → right-click it → <strong>Copy image address</strong> → paste into the field.
+  When done, hit <strong>Copy replacements</strong> and paste into your chat.
+</p>
+
+<div id="stats">
+  <div class="stat stat-ok"><span id="count-ok">—</span>Loading OK</div>
+  <div class="stat stat-broken"><span id="count-broken">—</span>Broken / missing</div>
+  <div class="stat stat-replaced"><span id="count-replaced">0</span>Replaced</div>
+</div>
+
+<div class="grid" id="grid"></div>
+
+<div id="output-section">
+  <h2>Copy replacements</h2>
+  <p>Paste the output below into your chat with Claude — it will update all replacements at once.</p>
+  <button id="copy-btn">📋 Copy to clipboard</button>
+  <span class="copy-confirm" id="copy-confirm">Copied!</span>
+  <br>
+  <textarea id="output-text" readonly placeholder="Your replacements will appear here once you paste URLs above…"></textarea>
+</div>
+
+<script>
+const DESTINATIONS = [
+  // Collection 1 — Sun-Chaser's Edit
+  { collection: "01 — The Sun-Chaser's Edit", collectionId: 'sun' },
+  { id: 'sarasota',      name: 'Sarasota',               flag: '🇺🇸', region: 'Florida, USA',            photo: 'photo-1559827260-dc66d52bef19' },
+  { id: 'algarve',       name: 'Algarve',                 flag: '🇵🇹', region: 'Southern Portugal',        photo: 'photo-1555400038-63f5ba517a47' },
+  { id: 'malaga',        name: 'Málaga',                  flag: '🇪🇸', region: 'Andalusia, Spain',          photo: 'photo-1574236170878-f6dad9f15fd0' },
+  { id: 'puerto-vallarta', name: 'Puerto Vallarta',       flag: '🇲🇽', region: 'Jalisco, Mexico',           photo: 'photo-1519046904884-53ec04e7a070' },
+  { id: 'valencia',      name: 'Valencia',                flag: '🇪🇸', region: 'Eastern Spain',             photo: 'photo-1541534741688-6078c6bfb5c5' },
+  { id: 'puerto-rico',   name: 'Puerto Rico',             flag: '🇵🇷', region: 'Caribbean, USA',            photo: 'photo-1548169874-53e85f753f1e' },
+
+  // Collection 2 — Cultured Wanderer's Edit
+  { collection: "02 — The Cultured Wanderer's Edit", collectionId: 'cultured' },
+  { id: 'porto',         name: 'Porto',                   flag: '🇵🇹', region: 'Northern Portugal',         photo: 'photo-1555881400-74d7acaacd8b' },
+  { id: 'florence',      name: 'Florence',                flag: '🇮🇹', region: 'Tuscany, Italy',            photo: 'photo-1534445867742-43195f401b6c' },
+  { id: 'barcelona',     name: 'Barcelona',               flag: '🇪🇸', region: 'Catalonia, Spain',          photo: 'photo-1539037116277-4db20889f2d4' },
+  { id: 'oaxaca',        name: 'Oaxaca',                  flag: '🇲🇽', region: 'Oaxaca, Mexico',            photo: 'photo-1565299624946-b28f40a0ae38' },
+  { id: 'san-miguel',    name: 'San Miguel de Allende',   flag: '🇲🇽', region: 'Guanajuato, Mexico',        photo: 'photo-1568659178027-acd35f07c4a3' },
+  { id: 'athens',        name: 'Athens',                  flag: '🇬🇷', region: 'Attica, Greece',            photo: 'photo-1555993539-1732b0258235' },
+
+  // Collection 3 — Simplicity Seeker's Edit
+  { collection: "03 — The Simplicity Seeker's Edit", collectionId: 'simplicity' },
+  { id: 'merida',        name: 'Mérida',                  flag: '🇲🇽', region: 'Yucatán, Mexico',           photo: 'photo-1518638150340-f706e86654de' },
+  { id: 'chiang-mai',    name: 'Chiang Mai',              flag: '🇹🇭', region: 'Northern Thailand',         photo: 'photo-1598935898639-81586f7d2129' },
+  { id: 'cuenca',        name: 'Cuenca',                  flag: '🇪🇨', region: 'Azuay, Ecuador',            photo: 'photo-1575202326099-a3faf85bdb08' },
+  { id: 'ajijic',        name: 'Ajijic & Lake Chapala',   flag: '🇲🇽', region: 'Jalisco, Mexico',           photo: 'photo-1516750105099-4b8a83e217ee' },
+  { id: 'boquete',       name: 'Boquete',                 flag: '🇵🇦', region: 'Chiriquí, Panama',          photo: 'photo-1441974231531-c6227db76b6e' },
+  { id: 'grenada',       name: 'Grenada',                 flag: '🇬🇩', region: 'Eastern Caribbean',         photo: 'photo-1548574505-5e239809ee19' },
+
+  // Collection 4 — Active Explorer's Edit
+  { collection: "04 — The Active Explorer's Edit", collectionId: 'active' },
+  { id: 'asheville',     name: 'Asheville',               flag: '🇺🇸', region: 'North Carolina, USA',       photo: 'photo-1469854523086-cc02fe5d8800' },
+  { id: 'bend',          name: 'Bend',                    flag: '🇺🇸', region: 'Oregon, USA',               photo: 'photo-1465188035480-cf3a60801ea5' },
+  { id: 'medellin',      name: 'Medellín',                flag: '🇨🇴', region: 'Antioquia, Colombia',       photo: 'photo-1548013146-72479768bada' },
+  { id: 'canmore',       name: 'Canmore',                 flag: '🇨🇦', region: 'Alberta, Canada',           photo: 'photo-1500534314209-a25ddb2bd429' },
+  { id: 'costa-rica',    name: 'Central Valley, Costa Rica', flag: '🇨🇷', region: 'Costa Rica',            photo: 'photo-1501854140801-50d01698950b' },
+  { id: 'boise',         name: 'Boise',                   flag: '🇺🇸', region: 'Idaho, USA',                photo: 'photo-1509316785289-025f5b846b35' },
+
+  // Collection 5 — Global Citizen's Edit
+  { collection: "05 — The Global Citizen's Edit", collectionId: 'global' },
+  { id: 'split',         name: 'Split',                   flag: '🇭🇷', region: 'Dalmatia, Croatia',         photo: 'photo-1555282406-c4e42e852a1e' },
+  { id: 'penang',        name: 'Penang',                  flag: '🇲🇾', region: 'Penang, Malaysia',          photo: 'photo-1570376856729-a1b78f2dba71' },
+  { id: 'montevideo',    name: 'Montevideo',              flag: '🇺🇾', region: 'Montevideo, Uruguay',       photo: 'photo-1531386151447-fd76ad50012f' },
+  { id: 'da-nang',       name: 'Da Nang',                 flag: '🇻🇳', region: 'Central Vietnam',           photo: 'photo-1559592413-7cec4d0cae2b' },
+  { id: 'panama-city',   name: 'Panama City',             flag: '🇵🇦', region: 'Panama City, Panama',       photo: 'photo-1518182170546-07661fd94144' },
+  { id: 'cartagena',     name: 'Cartagena',               flag: '🇨🇴', region: 'Bolívar, Colombia',         photo: 'photo-1535732820275-9ffd998cac22' },
+];
+
+const replacements = {}; // id → new full URL
+const grid = document.getElementById('grid');
+
+function buildCDNUrl(photoId) {
+  return `https://images.unsplash.com/${photoId}?auto=format&fit=crop&w=800&q=80`;
+}
+
+function extractPhotoId(rawUrl) {
+  // Accept a full CDN URL or just the photo ID
+  rawUrl = rawUrl.trim();
+  // Strip query string
+  const noQuery = rawUrl.split('?')[0];
+  // If it's a full URL, get the path segment after images.unsplash.com/
+  const match = noQuery.match(/images\.unsplash\.com\/(.+)$/);
+  if (match) return match[1];
+  // Otherwise assume it's already an ID
+  return noQuery;
+}
+
+function updateStats() {
+  const cards = document.querySelectorAll('.card');
+  let ok = 0, broken = 0, replaced = 0;
+  cards.forEach(c => {
+    if (c.classList.contains('is-replaced')) replaced++;
+    else if (c.classList.contains('is-broken')) broken++;
+    else ok++;
+  });
+  document.getElementById('count-ok').textContent = ok;
+  document.getElementById('count-broken').textContent = broken;
+  document.getElementById('count-replaced').textContent = replaced;
+}
+
+function updateOutput() {
+  const lines = [];
+  for (const [id, url] of Object.entries(replacements)) {
+    const dest = DESTINATIONS.find(d => d.id === id);
+    if (dest) lines.push(`${dest.name}: ${url}`);
+  }
+  document.getElementById('output-text').value = lines.length
+    ? lines.join('\n')
+    : '';
+}
+
+DESTINATIONS.forEach(item => {
+  if (item.collection) {
+    const label = document.createElement('div');
+    label.className = 'collection-label';
+    label.textContent = item.collection;
+    grid.appendChild(label);
+    return;
+  }
+
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.dataset.id = item.id;
+
+  const cdnUrl = buildCDNUrl(item.photo);
+  const searchQuery = encodeURIComponent(item.name + ' ' + item.region);
+
+  card.innerHTML = `
+    <div class="photo-wrap" style="background-image: url('${cdnUrl}')">
+      <div class="broken-badge">
+        <span class="icon">🚫</span>
+        <span>IMAGE BROKEN / MISSING</span>
+      </div>
+      <div class="replaced-badge">REPLACED ✓</div>
+    </div>
+    <div class="card-body">
+      <div class="card-name">${item.flag} ${item.name}</div>
+      <div class="card-region">${item.region}</div>
+      <div class="card-actions">
+        <button class="btn btn-search" onclick="window.open('https://unsplash.com/s/photos/${searchQuery}','_blank')">
+          Search Unsplash ↗
+        </button>
+        <button class="btn btn-edit" onclick="toggleEdit('${item.id}')">
+          Paste URL
+        </button>
+      </div>
+      <div class="url-input-wrap" id="wrap-${item.id}">
+        <input
+          class="url-input"
+          id="input-${item.id}"
+          type="text"
+          placeholder="Paste image URL here (right-click photo → Copy image address)"
+          oninput="handleInput('${item.id}', this.value)"
+        />
+        <div class="url-hint">Paste the full URL from Unsplash — e.g. https://images.unsplash.com/photo-1234…</div>
+      </div>
+    </div>
+  `;
+
+  // Detect broken image
+  const img = new Image();
+  img.onload = () => { updateStats(); };
+  img.onerror = () => {
+    card.classList.add('is-broken');
+    updateStats();
+  };
+  img.src = cdnUrl;
+
+  grid.appendChild(card);
+});
+
+function toggleEdit(id) {
+  const wrap = document.getElementById('wrap-' + id);
+  wrap.classList.toggle('open');
+  if (wrap.classList.contains('open')) {
+    document.getElementById('input-' + id).focus();
+  }
+}
+
+function handleInput(id, rawValue) {
+  const val = rawValue.trim();
+  const card = document.querySelector(`.card[data-id="${id}"]`);
+  const photoWrap = card.querySelector('.photo-wrap');
+
+  if (!val) {
+    delete replacements[id];
+    card.classList.remove('is-replaced');
+    updateOutput();
+    updateStats();
+    return;
+  }
+
+  const photoId = extractPhotoId(val);
+  const newUrl = buildCDNUrl(photoId);
+
+  // Preview the new image
+  const testImg = new Image();
+  testImg.onload = () => {
+    photoWrap.style.backgroundImage = `url('${newUrl}')`;
+    card.classList.remove('is-broken');
+    card.classList.add('is-replaced');
+    replacements[id] = newUrl;
+    updateOutput();
+    updateStats();
+  };
+  testImg.onerror = () => {
+    // Keep showing broken state
+  };
+  testImg.src = newUrl;
+}
+
+// Initial stats after a moment for images to attempt loading
+setTimeout(updateStats, 100);
+setTimeout(updateStats, 2000); // second pass after slow loads
+
+// Copy to clipboard
+document.getElementById('copy-btn').addEventListener('click', () => {
+  const text = document.getElementById('output-text').value;
+  if (!text) return;
+  navigator.clipboard.writeText(text).then(() => {
+    const confirm = document.getElementById('copy-confirm');
+    confirm.classList.add('show');
+    setTimeout(() => confirm.classList.remove('show'), 2000);
+  });
+});
+</script>
+</body>
+</html>

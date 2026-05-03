@@ -1,6 +1,52 @@
 // quiz.js — Vibe Quiz state, render, and event handling
 // Depends on: SCENES (scenes.js), QUESTIONS (questions.js)
 
+// ---------- Retirement facts (shown in right panel per question) ----------
+const FACTS = [
+  {
+    stat: '300+',
+    unit: 'days of sunshine',
+    body: 'The top-ranked retirement destinations — Algarve, Sarasota, Mérida — average over 300 sunny days a year. Climate isn\'t everything, but it changes everything.',
+    icon: '☀️'
+  },
+  {
+    stat: '70%',
+    unit: 'of retirees say it matters',
+    body: 'Access to nature — coastlines, mountains, parks — is one of the top predictors of retirement happiness and daily wellbeing.',
+    icon: '🌿'
+  },
+  {
+    stat: 'The best retirement',
+    unit: 'isn\'t a place — it\'s a rhythm.',
+    body: 'Retirees with the highest life satisfaction didn\'t just find a beautiful backdrop. They found a daily pace that genuinely feels like theirs.',
+    icon: '☕'
+  },
+  {
+    stat: '700,000+',
+    unit: 'Americans living abroad',
+    body: 'Over 700,000 Americans currently collect Social Security while living outside the US. The world is more open than most people realize.',
+    icon: '🌍'
+  },
+  {
+    stat: '20–40%',
+    unit: 'less per month',
+    body: 'Most retirees spend significantly less than during their working years — especially outside major US cities. Lifestyle abroad often costs less and feels like more.',
+    icon: '💛'
+  },
+  {
+    stat: 'Rent first.',
+    unit: 'Then decide.',
+    body: 'Many expats and relocators recommend renting for 1–2 years before buying anywhere new. You get to know a place before you commit to it.',
+    icon: '🔑'
+  },
+  {
+    stat: 'Purpose',
+    unit: 'outlasts leisure.',
+    body: 'Studies show retirees with a clear sense of purpose and community report higher life satisfaction — and tend to live longer, healthier lives.',
+    icon: '🎯'
+  }
+];
+
 // ---------- State ----------
 const state = {
   step: 'welcome',  // 'welcome' | number 0..N-1 | 'processing'
@@ -26,17 +72,21 @@ function renderProgressDots(currentIdx) {
 }
 
 // ---------- Top-level render ----------
+const exitLink = document.querySelector('.exit-link');
+
 function render() {
   stage.innerHTML = '';
   if (state.step === 'welcome') {
     progressWrap.style.display = 'none';
+    if (exitLink) exitLink.style.display = 'none';
     renderWelcome();
   } else if (state.step === 'processing') {
     progressWrap.style.display = 'flex';
-    renderProgressDots(QUESTIONS.length);
+    if (exitLink) exitLink.style.display = 'none';
     renderProcessing();
   } else {
     progressWrap.style.display = 'flex';
+    if (exitLink) exitLink.style.display = '';
     const idx = state.step;
     renderProgressDots(idx);
     renderQuestion(idx);
@@ -71,13 +121,18 @@ function renderWelcome() {
 function renderQuestion(idx) {
   const q = QUESTIONS[idx];
 
-  // Right panel — hero scene (inline SVG)
+  // Right panel — retirement fact card
   const right = document.createElement('section');
-  right.className = 'panel-right';
-  const scene = SCENES[q.sceneKey] || SCENES.welcome;
+  right.className = 'panel-right fact-panel';
+  const fact = FACTS[idx] || FACTS[0];
   right.innerHTML = `
-    <div class="hero-scene">${scene}</div>
-    <div class="hero-caption">${q.caption}</div>
+    <div class="fact-card">
+      <div class="fact-icon">${fact.icon}</div>
+      <div class="fact-stat">${fact.stat}</div>
+      <div class="fact-unit">${fact.unit}</div>
+      <p class="fact-body">${fact.body}</p>
+    </div>
+    <div class="fact-caption">${q.caption}</div>
   `;
 
   // Left panel — question + options
@@ -241,18 +296,18 @@ function next() {
 
 // ---------- Vibe label ----------
 // Generate a 2-word retirement vibe (e.g. "Coastal Wanderer") from answers.
-// Adjective comes from landscape (Q2, multi → first selection).
-// Noun comes from pace (Q3, single).
+// Adjective comes from landscape (Q1, multi → first selection).
+// Noun comes from pace (Q3, single — now at index 3 after Geography moved to Q2).
 function generateVibeLabel() {
-  // Q2 options order: beach / lake / mountain / city / town / countryside
+  // Q1 options order: beach / lake / mountain / city / town / countryside
   const landscapeAdj = ['Coastal', 'Lakeside', 'Mountain', 'Urban', 'Village', 'Pastoral'];
-  // Q3 options order: active / creative / relaxed / social
-  const paceNoun = ['Adventurer', 'Aesthete', 'Wanderer', 'Host'];
+  // Q3 options order: full-throttle / mixed / slow-easy / social-first
+  const paceNoun = ['Adventurer', 'Explorer', 'Wanderer', 'Host'];
 
   const landAns = state.answers[1];
   const landIdx = Array.isArray(landAns) && landAns.length > 0 ? landAns[0] : 0;
-  const paceAns = state.answers[2];
-  const paceIdx = Array.isArray(paceAns) && paceAns.length > 0 ? paceAns[0] : 2;
+  const paceAns = state.answers[3];
+  const paceIdx = typeof paceAns === 'number' ? paceAns : 2;
 
   const adj = landscapeAdj[landIdx] ?? 'Wandering';
   const noun = paceNoun[paceIdx] ?? 'Soul';

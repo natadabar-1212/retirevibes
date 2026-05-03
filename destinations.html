@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Destinations — RetireVibes</title>
+  <meta name="description" content="Explore 100+ retirement destinations — from Mediterranean coastlines to mountain towns to Caribbean islands. Find yours." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    :root {
+      --cream: #FBF6EE;
+      --cream-soft: #F4ECDD;
+      --terracotta: #C97B5A;
+      --terracotta-dark: #A8593A;
+      --teal: #1B3A4B;
+      --teal-soft: #2E5468;
+      --gold: #C8A064;
+      --gold-soft: #E4C998;
+      --sage: #93A89A;
+      --warm-gray: #7A6E5F;
+      --white: #FFFFFF;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'Inter', -apple-system, system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--sans); background: var(--cream); color: var(--teal); }
+    a { text-decoration: none; color: inherit; }
+    em { font-style: italic; }
+
+    /* ─── NAV ─── */
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 68px;
+      background: var(--cream); border-bottom: 1px solid rgba(27,58,75,0.08);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .wordmark { font-family: var(--serif); font-size: 22px; color: var(--teal); }
+    .wordmark em { color: var(--terracotta); }
+    .nav-links { display: flex; align-items: center; gap: 32px; font-size: 15px; }
+    .nav-links a { color: var(--teal); opacity: 0.75; transition: opacity 0.2s; }
+    .nav-links a:hover { opacity: 1; }
+    .nav-cta {
+      background: var(--terracotta); color: var(--white) !important;
+      padding: 10px 22px; border-radius: 999px; opacity: 1 !important;
+      font-weight: 500; transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--terracotta-dark) !important; }
+
+    /* ─── PAGE HERO ─── */
+    .page-hero {
+      background: var(--teal);
+      padding: 80px 48px 72px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 60% 50%, rgba(200,160,100,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page-hero .section-label {
+      display: inline-block;
+      font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold-soft); margin-bottom: 20px;
+    }
+    .page-hero h1 {
+      font-family: var(--serif); font-size: 56px; line-height: 1.04;
+      letter-spacing: -0.02em; color: var(--white); max-width: 680px; margin: 0 auto 20px;
+    }
+    .page-hero h1 em { color: var(--gold-soft); }
+    .page-hero .hero-sub {
+      font-size: 18px; line-height: 1.6; color: rgba(255,255,255,0.72);
+      max-width: 540px; margin: 0 auto 36px;
+    }
+    .page-hero .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--terracotta); color: var(--white);
+      padding: 15px 30px; border-radius: 999px;
+      font-size: 16px; font-weight: 500; transition: background 0.2s;
+    }
+    .page-hero .btn-primary:hover { background: var(--terracotta-dark); }
+    .page-hero .arrow { font-style: normal; }
+
+    /* ─── COLLECTION SECTION ─── */
+    .collection {
+      padding: 72px 48px;
+      border-bottom: 1px solid rgba(27,58,75,0.07);
+    }
+    .collection:nth-child(even) { background: var(--cream-soft); }
+    .collection:nth-child(odd) { background: var(--cream); }
+
+    .collection-header {
+      max-width: 1200px; margin: 0 auto 48px;
+      display: flex; align-items: flex-end; justify-content: space-between;
+      gap: 24px; flex-wrap: wrap;
+    }
+    .collection-header-text { max-width: 620px; }
+    .collection-label {
+      font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--warm-gray); display: block; margin-bottom: 10px;
+    }
+    .collection-title {
+      font-family: var(--serif); font-size: 40px; line-height: 1.1;
+      letter-spacing: -0.015em; color: var(--teal); margin-bottom: 14px;
+    }
+    .collection-title em { color: var(--terracotta); }
+    .collection-desc {
+      font-size: 16px; line-height: 1.65; color: var(--warm-gray);
+    }
+    .collection-quiz-link {
+      white-space: nowrap;
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 14px; font-weight: 500; color: var(--terracotta);
+      border: 1.5px solid var(--terracotta); border-radius: 999px;
+      padding: 10px 22px; transition: all 0.2s;
+      flex-shrink: 0;
+    }
+    .collection-quiz-link:hover { background: var(--terracotta); color: var(--white); }
+
+    /* ─── DESTINATION CARDS ─── */
+    .card-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .dest-card {
+      background: var(--white);
+      border-radius: 16px; overflow: hidden;
+      border: 1px solid rgba(27,58,75,0.07);
+      transition: transform 0.25s, box-shadow 0.25s;
+      display: flex; flex-direction: column;
+      cursor: pointer;
+    }
+    .dest-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(27,58,75,0.12);
+    }
+    .card-photo {
+      width: 100%; aspect-ratio: 3/2;
+      background-size: cover; background-position: center;
+      position: relative;
+    }
+    .card-flag {
+      position: absolute; bottom: 12px; left: 14px;
+      font-size: 22px; line-height: 1;
+      filter: drop-shadow(0 1px 3px rgba(0,0,0,0.3));
+    }
+    .card-cost-badge {
+      position: absolute; top: 12px; right: 12px;
+      background: rgba(27,58,75,0.82); backdrop-filter: blur(4px);
+      color: var(--white); font-size: 11px; font-weight: 500;
+      padding: 4px 10px; border-radius: 999px; letter-spacing: 0.04em;
+    }
+    .card-body {
+      padding: 20px 22px 22px; flex: 1; display: flex; flex-direction: column;
+    }
+    .card-name {
+      font-family: var(--serif); font-size: 22px; line-height: 1.15;
+      color: var(--teal); margin-bottom: 3px;
+    }
+    .card-region {
+      font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--warm-gray); margin-bottom: 10px;
+    }
+    .card-tagline {
+      font-size: 14px; line-height: 1.55; color: rgba(27,58,75,0.72);
+      flex: 1;
+    }
+    .card-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: 16px; padding-top: 14px;
+      border-top: 1px solid rgba(27,58,75,0.07);
+    }
+    .card-explore {
+      font-size: 13px; font-weight: 500; color: var(--terracotta);
+      display: flex; align-items: center; gap: 5px;
+    }
+
+    /* ─── MID-PAGE QUIZ CTA BANNER ─── */
+    .quiz-banner {
+      background: var(--teal);
+      padding: 60px 48px;
+      text-align: center;
+    }
+    .quiz-banner h2 {
+      font-family: var(--serif); font-size: 38px; color: var(--white);
+      line-height: 1.1; letter-spacing: -0.015em; margin-bottom: 14px;
+    }
+    .quiz-banner h2 em { color: var(--gold-soft); }
+    .quiz-banner p { font-size: 16px; color: rgba(255,255,255,0.68); margin-bottom: 28px; }
+    .quiz-banner .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--terracotta); color: var(--white);
+      padding: 14px 28px; border-radius: 999px;
+      font-size: 15px; font-weight: 500; transition: background 0.2s;
+    }
+    .quiz-banner .btn-primary:hover { background: var(--terracotta-dark); }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background: var(--teal); color: rgba(255,255,255,0.6);
+      padding: 52px 48px 40px;
+      display: flex; flex-direction: column; align-items: center; gap: 28px;
+    }
+    .footer-wordmark { font-family: var(--serif); font-size: 26px; color: var(--white); }
+    .footer-wordmark em { color: var(--gold-soft); }
+    .footer-links {
+      display: flex; gap: 32px; flex-wrap: wrap; justify-content: center;
+      font-size: 14px;
+    }
+    .footer-links a { color: rgba(255,255,255,0.6); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-legal { font-size: 12px; text-align: center; line-height: 1.6; max-width: 520px; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 980px) {
+      .page-hero { padding: 60px 24px 56px; }
+      .page-hero h1 { font-size: 40px; }
+      .collection { padding: 52px 24px; }
+      .collection-header { flex-direction: column; align-items: flex-start; }
+      .card-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+      .nav { padding: 0 24px; }
+    }
+    @media (max-width: 600px) {
+      .page-hero h1 { font-size: 32px; }
+      .collection-title { font-size: 30px; }
+      .card-grid { grid-template-columns: 1fr; }
+      .footer { padding: 40px 24px 32px; }
+      .footer-links { gap: 20px; }
+      .quiz-banner { padding: 48px 24px; }
+      .quiz-banner h2 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav class="nav">
+  <a class="wordmark" href="homepage-mockup.html">Retire<em>Vibes</em></a>
+  <div class="nav-links">
+    <a href="destinations.html">Destinations</a>
+    <a href="my-retirevibes.html">My RetireVibes</a>
+    <a href="mockups/vibe-quiz.html" class="nav-cta">Find my RetireVibes →</a>
+  </div>
+</nav>
+
+<!-- ─── PAGE HERO ─── -->
+<section class="page-hero">
+  <span class="section-label">100+ destinations worldwide</span>
+  <h1>Find your <em>place</em> in the world.</h1>
+  <p class="hero-sub">Not a list. Not a ranking. Five curated collections — each one built around a different kind of retirement life. Browse to get inspired. Take the quiz to find your match.</p>
+  <a class="btn-primary" href="mockups/vibe-quiz.html">Find my RetireVibes <span class="arrow">→</span></a>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     COLLECTION 1: THE SUN-CHASER'S EDIT
+═══════════════════════════════════════════════════════════════════ -->
+<section class="collection" id="sun-chaser">
+  <div class="collection-header">
+    <div class="collection-header-text">
+      <span class="collection-label">Collection 01</span>
+      <h2 class="collection-title">The <em>Sun-Chaser's</em> Edit</h2>
+      <p class="collection-desc">You want warmth you can count on — somewhere the sun shows up reliably, the water is close, and the pace of life matches the climate. These are the places where every day feels like the one you've been saving vacation days for.</p>
+    </div>
+    <a class="collection-quiz-link" href="mockups/vibe-quiz.html">Is this your vibe? →</a>
+  </div>
+
+  <div class="card-grid">
+
+    <a class="dest-card" href="destination-sarasota.html">
+      <div class="card-photo" style="background-image: url('images/sarasota.jpg')">
+        <span class="card-flag">🇺🇸</span>
+        <span class="card-cost-badge">from $2,800/mo</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Sarasota</h3>
+        <p class="card-region">Florida, USA</p>
+        <p class="card-tagline">Powdery sand, year-round sunshine, and a cultural scene that punches well above its weight.</p>
+        <div class="card-footer">
+          <span class="card-explore">Explore <span>→</span></span>
+        </div>
+      </div>
+    </a>
+
+    <a class="dest-card" href="destination-coming-soon.html?name=Algarve">
+      <div class="card-photo" style="background-image: url('images/algarve.jpg')">
+        <span class="card-flag">🇵🇹</span>
+        <span class="card-cost-badge">from $1,700/mo</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Algarve</h3>
+        <p class="card-region">Southern Portugal</p>
+        <p class="card-tagline">Sea-carved golden cliffs, 300 days of sunshine, and the most beloved coastline in all of Europe.</p>
+        <div class="card-footer">
+          <span class="card-explore">Explore <span>→</span></span>
+        </div>
+      </div>
+    </a>
+
+    <a class="dest-card" href="destination-coming-soon.html?name=M%C3%A1laga">
+      <div class="card-photo" style="background-image: url('images/malaga.jpg')">
+        <span class="card-flag">🇪🇸</span>
+        <span class="card-cost-badge">from $1,600/mo</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Málaga</h3>
+        <p class="card-region">Andalusia, Spain</p>
+        <p class="card-tagline">Picasso's birthplace, 320 days of sun, and a beachfront promenade that puts even the French Riviera to shame for value.</p>
+        <div class="card-footer">
+          <span class="card-explore">Explore <span>→</span></span>
+        </div>
+      </div>
+    </a>
+
+    <a class="dest-card" href="destination-coming-soon.html?name=Puerto%20Vallarta">
+      <div class="card-photo" style="background-image: url('images/puerto-vallarta.jpg')">
+        <span class="card-flag">🇲🇽</span>
+        <span class="card-cost-badge">from $1,400/mo</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Puerto Vallarta</h3>
+        <p class="card-region">Jalisco, Mexico</p>
+        <p class="card-tagline">Jungle-backed cobblestone streets, a golden Pacific beach, and a lively expat scene that turns happy hour into a social institution.</p>
+        <div class="card-footer">
+          <span class="card-explore">Explore <span>→</span></span>
+        </div>
+      </div>
+    </a>
+
+    <a class="dest-card" href="destination-coming-soon.html?name=Valencia">
+      <div class="card-photo" style="background-image: url('images/valencia.jpg')">
+        <span class="card-flag">🇪🇸</span>
+        <span class="card-cost-badge">from $1,700/mo</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Valencia</h3>
+        <p class="card-region">Eastern Spain</p>
+        <p class="card-tagline">Paella birthplace, blue-flag beaches, and a Mediterranean pace that makes everywhere else feel rushed.</p>
+        <div class="card-footer">
+          <span class="card-explore">Explore <span>→</span></span>
+        </div>
+      </div>
+    </a>
+
+    <a class="dest-card" href="destination-coming-soon.html?name=Puerto%20Rico">
+      <div class="card-photo" style="background-image: url('images/puerto-rico.jpg')">
+        <span class="card-flag">🇵🇷</span>
+        <span class="card-cost-badge">from $1,800/mo</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Puerto Rico</h3>
+        <p class="card-region">Caribbean, USA</p>
+        <p class="card-tagline">A Caribbean island with US citizenship, Medicare, Social Security — and a tax structure that has turned heads worldwide.</p>
+        <div class="card-footer">
+          <span class="card-explore">Explore <span>→</span></span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     COLLECTION 2: THE CULTURED WANDERER'S EDIT
+═══════════════════════════════════════════════════════════════════ -->
+<section class="collection" id="cultured-wanderer">
+  <div class="collection-header">
+    <div class="collection-header-text">
+      <span class="collection-label">Collection 02</span>
+      <h2 class="collection-title">The <em>Cultured Wanderer's</em> Edit</h2>
+      <p class="collection-desc">You want a city with layers — museums, markets, architecture that tells a story, and food that takes the afternoon seriously. These destinations reward the curious. The more you explore, the more there is to find.</p>
+    </div>
+    <a class="collection-quiz-link" href="mockups/vibe-quiz.html">Is this your vibe? →</a>
+  </div>
+
+  <div class="card-grid">
+
+    <a class="dest-card" href="destination-porto.html">
+      <div class="card-photo" style="background-image: url('images/porto.jpg')">
+        <span class="card-flag">🇵🇹</span>
+        <span class="card-cost-badge">from $1,600/mo</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Porto</h3>
+        <p class="card-region">Northern Portugal</p>
+        <p class="card-tagline">Cobblestone streets, world-class wine, and a slower kind of European cool.</p>
+        <div class="card-footer">
+          <span class="card-explore">Explore <span>→</span></span>
+        </div>
+      </div>
+    </a>
+
+    <a class="dest-card" href="destination-coming-soon.html?name=Florence">
+      <div class="card-photo" style="background-image: url('images/florence.jpg')">
+        <span class="card-flag">🇮🇹</span>
+        <span class="card-cost-badge">from $2,000/mo</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Florence</h3>
+        <p class="card-region">Tuscany, Italy</p>
+        <p class="card-tagline">The Uffizi, the Duomo, Chianti wines at dusk — and a life so beautiful it explains why the Renaissance happened here.</p>
+        <div class="card-footer">
+          <span class="card-explore">Explore <span>→</span></span>
+        </div>
+      </div>
+    </a>
+
+    <a class="dest-card" href="destination-coming-soon.html?name=Barcelona">
+      <div class="card-photo" style="background-image: url('images/barcelona.jpg')">
+        <span class="card-flag">🇪🇸</span>
+        <span class="card-cost-badge">from $2,200/mo</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Barcelona</h3>
+        <p class="card-region">Catalonia, Spain</p>
+        <p class="card-tagline">Gaudí's city — where the architecture is surreal, the food is world-class, and the beaches are a 20-minute walk from the Gothic Quarter.</p>
+        <div class="card-footer">
+          <span class="card-explore">Explore <span>→</span></span>
+        </div>
+      </div>
+    </a>
+
+    <a class="dest-card" href="destination-coming-soon.html?name=Oaxaca">
+      <div class="card-photo" style="background-image: url('images/oaxaca.jpg')">
+        <span class="card-flag">🇲🇽</span>
+        <span class="card-cost-badge">from $1,000/mo</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Oaxaca</h3>
+        <p class="card-region">Oaxaca, Mexico</p>
+        <p class="card-tagline">Mezcal mornings, mole that takes three days to make, and an art scene that draws people from around the world.</p>
+        <div class="card-footer">
+          <span class="card-explore">Explore <span>→</span></span>
+        </div>
+      </div>
+    </a>
+
+    <a class="dest-card" href="destination-coming-soon.html?name=San%20Miguel%20de%20Allende">
+      <div class="card-photo" style="background-image: url('images/san-miguel-de-allende.jpg')">
+        <span class="card-flag">🇲🇽</span>
+        <span class="card-cost-badge">from $1,300/mo</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">San Miguel de Allende</h3>
+        <p class="card-region">Guanajuato, Mexico</p>
+        <p class="card-tagline">A UNESCO World Heritage colonial city where the American expat art scene has been going for 70 years — and shows no signs of stopping.</p>
+        <div class="card-footer">
+          <span class="card-explore">Explore <span>→</span></span>
+        </div>
+      </div>
+    </a>
+
+    <a class="dest-card" href="destination-coming-soon.html?name=Athens">
+      <div class="card-photo" style="background-image: url('images/athens.jpg')">
+        <span class="card-flag">🇬🇷</span>
+        <span class="card-cost-badge">from $1,500/mo</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Athens</h3>
+        <p class="card-region">Attica, Greece</p>
+        <p class="card-tagline">Civilization's greatest ruins as your daily backdrop — and an underrated modern city that's having a serious moment.</p>
+        <div class="card-footer">
+          <span class="card-explore">Explore <span>→</span></span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ─── MID-PAGE QUIZ BANNER ─── -->
+<div class="quiz-banner">
+  <h2>Not sure which vibe is <em>yours</em>?</h2>
+  <p>Answer a few questions. We'll match you with the three places that actually fit your life.</p>
+  <a class="btn-primary" href="mockups/vibe-quiz.html">Take the vibe quiz <span class="arrow">→</span></a>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     COLLECTION 3: THE SIMPLICITY SEEKER'S EDIT
+═══════════════════════════════════════════════════════════════════ -->
+<section class="collection" id="simplicity-seeker">
+  <div class="collection-header">
+    <div class="collection-header-text">
+      <span class="collection-label">Collection 03</span>
+      <h2 class="collection-title">The <em>Simplicity Seeker's</em> Edit</h2>
+      <p class="collection-desc">You're not running away from something — you're moving toward a life that's quieter, warmer, and more affordable than the one you're leaving. These destinations give you more of what matters: time, community, ease.</p>
+    </div>
+    <a class="collection-quiz-link" href="mockups/vibe-quiz.html">Is this your vibe? →</a>
+  </div>
+
+  <div class="card-grid">
+
+    <a class="dest-card" href="destination-merida.html">
+      <div class="card-photo" style="background-image: url('images/merida.jpg')">
+        <span class="card-flag">🇲🇽</span>
+        <span class="card-cost-badge">from $1,200/mo</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Mérida</h3>
+        <p class="card-region">Yucatán, Mexico</p>
+        <p class="card-tagline">Colonial pastels, mariachi nights, and a cost of living that almost feels like a typo.</p>
+        <div class="card-footer">
+          <span class="card-explore">Explore <span>→</span></span>
+        </div>
+      </div>
+    </a>
+
+    <a class="dest-card" href="destination-coming-soon.html?name=Chiang%20Mai">
+      <div class="card-photo" style="background-image: url('images/chiang-mai.jpg')">
+        <span class="card-flag">🇹🇭</span>
+        <span class="card-cost-badge">from $900/mo</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Chiang Mai</h3>
+        <p class="card-region">Northern Thailand</p>
+        <p class="card-tagline">Ancient temples, mountain mist, and a cost of living that turns retirement into a daily luxury.</p>
+        <div class="card-footer">
+          <span class="card-explore">Explore <span>→</span></span>
+        </div>
+      </div>
+    </a>
+
+    <a class="dest-card" href="destination-coming-soon.html?name=Cuenca">
+      <div class="card-photo" style="background-image: url('images/cuenca.jpg')">
+        <span class="card-flag">🇪🇨</span>
+        <span class="card-cost-badge">from $900/mo</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Cuenca</h3>
+        <p class="card-region">Azuay, Ecuador</p>
+        <p class="card-tagline">A UNESCO colonial gem at 8,500 feet — spring weather year-round, first-class private healthcare, and a cost of living that makes even Mérida seem expensive.</p>
+        <div class="card-footer">
+          <span class="card-explore">Explore <span>→</span></span>
+        </div>
+      </div>
+    </a>
+
+    <a class="dest-card" href="destination-coming-soon.html?name=Ajijic">
+      <div class="card-photo" style="background-image: url('images/ajijic.jpg')">
+        <span class="card-flag">🇲🇽</span>
+        <span class="card-cost-badge">from $1,000/mo</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Ajijic & Lake Chapala</h3>
+        <p class="card-region">Jalisco, Mexico</p>
+        <p class="card-tagline">Mexico's largest freshwater lake, perfect spring-like weather, and the largest American expat community in Mexico — all in a sleepy lakeside village.</p>
+        <div class="card-footer">
+          <span class="card-explore">Explore <span>→</span></span>
+        </div>
+      </div>
+    </a>
+
+    <a class="dest-card" href="destination-coming-soon.html?name=Boquete">
+      <div class="card-photo" style="background-image: url('images/boquete.jpg')">
+        <span class="card-flag">🇵🇦</span>
+        <span class="card-cost-badge">from $1,100/mo</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Boquete</h3>
+        <p class="card-region">Chiriquí, Panama</p>
+        <p class="card-tagline">Cloud forest coffee country at 4,000 feet — Panama's pensionado visa discounts, perpetual spring weather, and a hiking scene the whole expat world knows about.</p>
+        <div class="card-footer">
+          <span class="card-explore">Explore <span>→</span></span>
+        </div>
+      </div>
+    </a>
+
+    <a class="dest-card" href="destination-coming-soon.html?name=Grenada">
+      <div class="card-photo" style="background-image: url('images/grenada.jpg')">
+        <span class="card-flag">🇬🇩</span>
+        <span class="card-cost-badge">from $1,400/mo</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Grenada</h3>
+        <p class="card-region">Eastern Caribbean</p>
+        <p class="card-tagline">The Spice Isle — nutmeg, cocoa, and a retiree-friendly island that's both genuinely beautiful and genuinely unhurried.</p>
+        <div class="card-footer">
+          <span class="card-explore">Explore <span>→</span></span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     COLLECTION 4: THE ACTIVE EXPLORER'S EDIT
+═══════════════════════════════════════════════════════════════════ -->
+<section class="collection" id="active-explorer">
+  <div class="collection-header">
+    <div class="collection-header-text">
+      <span class="collection-label">Collection 04</span>
+      <h2 class="collection-title">The <em>Active Explorer's</em> Edit</h2>
+      <p class="collection-desc">Retirement for you means more time outside — hiking, cycling, kayaking, skiing, or just waking up to a mountain view and deciding where to go. These places don't just let you stay active. They make it effortless.</p>
+    </div>
+    <a class="collection-quiz-link" href="mockups/vibe-quiz.html">Is this your vibe? →</a>
+  </div>
+
+  <div class="card-grid">
+
+    <a class="dest-card" href="destination-asheville.html">
+      <div class="card-photo" style="background-image: url('images/asheville.jpg')">
+        <span class="card-flag">🇺🇸</span>
+        <span class="card-cost-badge">from $2,200/mo</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Asheville</h3>
+        <p class="card-region">North Carolina, USA</p>
+        <p class="card-tagline">Mountain air, indie bookshops, and a creative scene that somehow makes four seasons feel like a feature.</p>
+        <div class="card-footer">
+          <span class="card-explore">Explore <span>→</span></span>
+        </div>
+      </div>
+    </a>
+
+    <a class="dest-card" href="destination-coming-soon.html?name=Bend">
+      <div class="card-photo" style="background-image: url('images/bend.jpg')">
+        <span class="card-flag">🇺🇸</span>
+        <span class="card-cost-badge">from $2,500/mo</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Bend</h3>
+        <p class="card-region">Oregon, USA</p>
+        <p class="card-tagline">Volcanic peaks, 300 sunny days, and a craft beer scene that somehow keeps pace with the mountain trails.</p>
+        <div class="card-footer">
+          <span class="card-explore">Explore <span>→</span></span>
+        </div>
+      </div>
+    </a>
+
+    <a class="dest-card" href="destination-coming-soon.html?name=Medell%C3%ADn">
+      <div class="card-photo" style="background-image: url('images/medellin.jpg')">
+        <span class="card-flag">🇨🇴</span>
+        <span class="card-cost-badge">from $1,100/mo</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Medellín</h3>
+        <p class="card-region">Antioquia, Colombia</p>
+        <p class="card-tagline">Eternal spring, cable-car city views, and a creative energy that once had to be earned.</p>
+        <div class="card-footer">
+          <span class="card-explore">Explore <span>→</span></span>
+        </div>
+      </div>
+    </a>
+
+    <a class="dest-card" href="destination-coming-soon.html?name=Canmore">
+      <div class="card-photo" style="background-image: url('images/canmore.jpg')">
+        <span class="card-flag">🇨🇦</span>
+        <span class="card-cost-badge">from $2,800/mo</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Canmore</h3>
+        <p class="card-region">Alberta, Canada</p>
+        <p class="card-tagline">Banff National Park on your doorstep, the Canadian Rockies as your wallpaper, and a mountain town that somehow feels both adventurous and grounded.</p>
+        <div class="card-footer">
+          <span class="card-explore">Explore <span>→</span></span>
+        </div>
+      </div>
+    </a>
+
+    <a class="dest-card" href="destination-coming-soon.html?name=Costa%20Rica">
+      <div class="card-photo" style="background-image: url('images/costa-rica.jpg')">
+        <span class="card-flag">🇨🇷</span>
+        <span class="card-cost-badge">from $1,300/mo</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Central Valley, Costa Rica</h3>
+        <p class="card-region">Central Valley, Costa Rica</p>
+        <p class="card-tagline">Pura vida isn't just a saying — it's what happens when you wake up to a volcano view, howler monkeys, and a healthcare system that actually works.</p>
+        <div class="card-footer">
+          <span class="card-explore">Explore <span>→</span></span>
+        </div>
+      </div>
+    </a>
+
+    <a class="dest-card" href="destination-coming-soon.html?name=Boise">
+      <div class="card-photo" style="background-image: url('images/boise.jpg')">
+        <span class="card-flag">🇺🇸</span>
+        <span class="card-cost-badge">from $1,900/mo</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Boise</h3>
+        <p class="card-region">Idaho, USA</p>
+        <p class="card-tagline">A mid-sized city with a river running through it, 100 miles of foothills trails, and a downtown food scene that keeps winning national attention.</p>
+        <div class="card-footer">
+          <span class="card-explore">Explore <span>→</span></span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     COLLECTION 5: THE GLOBAL CITIZEN'S EDIT
+═══════════════════════════════════════════════════════════════════ -->
+<section class="collection" id="global-citizen">
+  <div class="collection-header">
+    <div class="collection-header-text">
+      <span class="collection-label">Collection 05</span>
+      <h2 class="collection-title">The <em>Global Citizen's</em> Edit</h2>
+      <p class="collection-desc">You've always been someone who's more curious than cautious. These destinations — from Adriatic palaces to Southeast Asian food cities to South American capitals — reward that instinct with the most interesting retirement on the list.</p>
+    </div>
+    <a class="collection-quiz-link" href="mockups/vibe-quiz.html">Is this your vibe? →</a>
+  </div>
+
+  <div class="card-grid">
+
+    <a class="dest-card" href="destination-coming-soon.html?name=Split">
+      <div class="card-photo" style="background-image: url('images/split.jpg')">
+        <span class="card-flag">🇭🇷</span>
+        <span class="card-cost-badge">from $1,400/mo</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Split</h3>
+        <p class="card-region">Dalmatia, Croatia</p>
+        <p class="card-tagline">A Roman emperor built his retirement palace here. Two thousand years later, you can see why.</p>
+        <div class="card-footer">
+          <span class="card-explore">Explore <span>→</span></span>
+        </div>
+      </div>
+    </a>
+
+    <a class="dest-card" href="destination-coming-soon.html?name=Penang">
+      <div class="card-photo" style="background-image: url('images/penang.jpg')">
+        <span class="card-flag">🇲🇾</span>
+        <span class="card-cost-badge">from $1,000/mo</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Penang</h3>
+        <p class="card-region">Penang, Malaysia</p>
+        <p class="card-tagline">Asia's food capital, a UNESCO heritage city, and a Malaysia My Second Home visa that makes it one of the easiest places in the world to retire legally.</p>
+        <div class="card-footer">
+          <span class="card-explore">Explore <span>→</span></span>
+        </div>
+      </div>
+    </a>
+
+    <a class="dest-card" href="destination-coming-soon.html?name=Montevideo">
+      <div class="card-photo" style="background-image: url('images/montevideo.jpg')">
+        <span class="card-flag">🇺🇾</span>
+        <span class="card-cost-badge">from $1,500/mo</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Montevideo</h3>
+        <p class="card-region">Montevideo, Uruguay</p>
+        <p class="card-tagline">South America's most progressive capital — a 22km coastal promenade, world-class asado culture, and a stability that makes Uruguay the Switzerland of the region.</p>
+        <div class="card-footer">
+          <span class="card-explore">Explore <span>→</span></span>
+        </div>
+      </div>
+    </a>
+
+    <a class="dest-card" href="destination-coming-soon.html?name=Da%20Nang">
+      <div class="card-photo" style="background-image: url('images/da-nang.jpg')">
+        <span class="card-flag">🇻🇳</span>
+        <span class="card-cost-badge">from $800/mo</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Da Nang</h3>
+        <p class="card-region">Central Vietnam</p>
+        <p class="card-tagline">Long white sand beaches, the ancient town of Hội An thirty minutes south, and a cost of living that feels almost implausible.</p>
+        <div class="card-footer">
+          <span class="card-explore">Explore <span>→</span></span>
+        </div>
+      </div>
+    </a>
+
+    <a class="dest-card" href="destination-coming-soon.html?name=Panama%20City">
+      <div class="card-photo" style="background-image: url('images/panama-city.jpg')">
+        <span class="card-flag">🇵🇦</span>
+        <span class="card-cost-badge">from $1,500/mo</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Panama City</h3>
+        <p class="card-region">Panama City, Panama</p>
+        <p class="card-tagline">A gleaming modern skyline, a walkable old city, and the most retiree-friendly visa in the Americas.</p>
+        <div class="card-footer">
+          <span class="card-explore">Explore <span>→</span></span>
+        </div>
+      </div>
+    </a>
+
+    <a class="dest-card" href="destination-coming-soon.html?name=Cartagena">
+      <div class="card-photo" style="background-image: url('images/cartagena.jpg')">
+        <span class="card-flag">🇨🇴</span>
+        <span class="card-cost-badge">from $1,200/mo</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-name">Cartagena</h3>
+        <p class="card-region">Bolívar, Colombia</p>
+        <p class="card-tagline">A UNESCO Caribbean port city where bougainvillea spills over colonial walls and the cumbia plays until dawn.</p>
+        <div class="card-footer">
+          <span class="card-explore">Explore <span>→</span></span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ─── FINAL QUIZ CTA ─── -->
+<section class="quiz-banner" style="padding: 80px 48px;">
+  <p class="section-label" style="font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:16px;display:block;">Your turn</p>
+  <h2 style="max-width:560px;margin:0 auto 14px;">Stop browsing. Start <em>matching</em>.</h2>
+  <p style="max-width:440px;margin:0 auto 32px;">About two minutes. No money questions. Three places that might just change everything.</p>
+  <a class="btn-primary" href="mockups/vibe-quiz.html">Find my RetireVibes <span class="arrow">→</span></a>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer class="footer">
+  <div class="footer-wordmark">Retire<em>Vibes</em></div>
+  <nav class="footer-links">
+    <a href="destinations.html">Destinations</a>
+    <a href="find-an-advisor.html">Find an advisor</a>
+    <a href="scouting-trip.html">Scouting trips</a>
+    <a href="my-retirevibes.html">My RetireVibes</a>
+  </nav>
+  <p class="footer-legal">Cost estimates are for illustrative purposes only and reflect typical lifestyle ranges. RetireVibes does not provide financial, legal, or tax advice. Consult a licensed professional before making any retirement or relocation decisions.</p>
+</footer>
+
+<script src="shared.js"></script>
+</body>
+</html>
