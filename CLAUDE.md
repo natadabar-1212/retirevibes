@@ -117,20 +117,22 @@ Two shared files handle nav behavior across all pages. **Every page links to bot
   <a class="wordmark" href="homepage-mockup.html">Retire<em>Vibes</em></a>
   <div class="nav-links">
     <a href="homepage-mockup.html#destinations">Destinations</a>
-    <a href="homepage-mockup.html#how">How it works</a>
-    <a href="find-an-advisor.html">Find an advisor</a>
     <a href="my-retirevibes.html">My RetireVibes</a>
     <a href="results-page-mockup.html" class="nav-cta">Take the quiz →</a>
   </div>
 </nav>
 ```
 
-*On the homepage itself, use anchor-only hrefs (`#destinations`, `#how`) instead of the full path.*
+*On the homepage itself, use anchor-only href (`#destinations`) instead of the full path.*
 
 **Footer links (same on every page):**
 ```
 Destinations · How it works · Find an advisor · Scouting trips · My RetireVibes
 ```
+
+- "How it works" → `homepage-mockup.html#how-it-works`
+- "Find an advisor" → `find-an-advisor.html` (general guidance page + advisor directory)
+- "Scouting trips" → `scouting-trips.html` (general tips page, NOT the Porto-specific `scouting-trip.html`)
 
 ---
 
@@ -336,9 +338,9 @@ Americans 40–55. Key emotional state: **anxiety, not curiosity.** 53% of 55–
 
 5. **`shared.js` always last before `</body>`.** Never in `<head>`. It queries the DOM, so it must run after the page is parsed.
 
-6. **Nav is consistent across all pages.** If you change the nav on one page, change it on all. The 5-link structure (Destinations · How it works · Find an advisor · My RetireVibes · [Take the quiz →]) is locked.
+6. **Nav is consistent across all pages.** If you change the nav on one page, change it on all. The 3-link structure (Destinations · My RetireVibes · [Take the quiz →]) is locked. "How it works" and "Find an advisor" are NOT in the nav.
 
-7. **Footer links match nav.** Footer always has: Destinations · How it works · Find an advisor · Scouting trips · My RetireVibes.
+7. **Footer is 5 links, same on every page:** Destinations · How it works · Find an advisor · Scouting trips · My RetireVibes. "Scouting trips" links to `scouting-trips.html` (the general tips page), NOT `scouting-trip.html` (the Porto-specific guide).
 
 8. **No money claims about the user** — see "Critical Brand Rule" above. Audit every piece of new copy against this before shipping.
 

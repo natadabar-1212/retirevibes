@@ -73,6 +73,121 @@
     max-width: 620px; margin-bottom: 0;
   }
 
+  /* ─── General Guidance ─── */
+  .guidance {
+    padding: 80px 48px 72px;
+    border-bottom: 1px solid rgba(27,58,75,0.07);
+  }
+  .guidance-inner {
+    max-width: 1240px; margin: 0 auto;
+    display: flex; flex-direction: column; gap: 88px;
+  }
+  .guidance-block--alt {
+    padding: 64px 56px;
+    background: var(--cream-soft);
+    border-radius: 20px;
+    margin: 0 -56px;
+  }
+  .guidance-label {
+    display: block;
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--warm-gray); font-weight: 500; margin-bottom: 14px;
+  }
+  .guidance-h2 {
+    font-family: var(--serif);
+    font-size: 46px; line-height: 1.1; letter-spacing: -0.018em;
+    color: var(--teal); margin-bottom: 20px;
+  }
+  .guidance-h2 em { color: var(--terracotta); font-style: italic; }
+  .guidance-lead {
+    font-size: 18px; line-height: 1.6; color: var(--teal-soft);
+    max-width: 760px; margin-bottom: 40px;
+  }
+
+  /* Timing grid */
+  .timing-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  }
+  .timing-card {
+    background: var(--white);
+    border: 1px solid rgba(27,58,75,0.08);
+    border-radius: 16px; padding: 28px 26px;
+  }
+  .timing-badge {
+    display: inline-block;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--terracotta-dark);
+    background: rgba(201,123,90,0.1);
+    padding: 4px 10px; border-radius: 999px;
+    margin-bottom: 14px;
+  }
+  .timing-card h3 {
+    font-family: var(--serif); font-size: 22px; color: var(--teal);
+    line-height: 1.2; margin-bottom: 10px; letter-spacing: -0.01em;
+  }
+  .timing-card p { font-size: 14px; color: var(--teal-soft); line-height: 1.65; }
+
+  /* Criteria cards */
+  .criteria-cards {
+    display: flex; flex-direction: column; gap: 16px;
+    margin-top: 40px;
+  }
+  .criteria-card {
+    display: flex; gap: 24px; align-items: flex-start;
+    background: var(--white);
+    border: 1px solid rgba(27,58,75,0.08);
+    border-radius: 14px; padding: 24px 26px;
+  }
+  .cc-number {
+    font-family: var(--serif); font-size: 28px; color: var(--terracotta);
+    line-height: 1; flex-shrink: 0; min-width: 32px;
+    opacity: 0.7;
+  }
+  .cc-body h4 {
+    font-family: var(--serif); font-size: 20px; color: var(--teal);
+    line-height: 1.2; margin-bottom: 6px; letter-spacing: -0.01em;
+  }
+  .cc-body p { font-size: 14px; color: var(--teal-soft); line-height: 1.65; }
+
+  /* Questions list */
+  .questions-list {
+    display: flex; flex-direction: column; gap: 0;
+    margin-top: 40px;
+    border: 1px solid rgba(27,58,75,0.08);
+    border-radius: 16px; overflow: hidden;
+    background: var(--white);
+  }
+  .question-item {
+    display: flex; gap: 24px; align-items: flex-start;
+    padding: 26px 28px;
+    border-bottom: 1px solid rgba(27,58,75,0.06);
+  }
+  .question-item:last-child { border-bottom: none; }
+  .q-num {
+    font-family: var(--serif); font-size: 15px; color: var(--warm-gray);
+    flex-shrink: 0; min-width: 28px; padding-top: 2px;
+    letter-spacing: 0.05em;
+  }
+  .q-body strong {
+    display: block; font-size: 15px; color: var(--teal);
+    font-weight: 600; margin-bottom: 6px; line-height: 1.4;
+  }
+  .q-body p { font-size: 14px; color: var(--teal-soft); line-height: 1.65; margin: 0; }
+
+  /* Divider before directory */
+  .guidance-divider {
+    background: var(--teal);
+    padding: 32px 48px;
+  }
+  .guidance-divider-inner {
+    max-width: 1240px; margin: 0 auto;
+  }
+  .guidance-divider p {
+    font-family: var(--serif); font-style: italic;
+    font-size: 20px; color: rgba(255,255,255,0.85);
+    letter-spacing: -0.01em;
+  }
+
   /* ─── Vetting criteria ─── */
   .criteria-band {
     background: var(--teal);
@@ -266,6 +381,15 @@
     .nav { padding: 14px 22px; }
     .nav-links { gap: 18px; }
     .nav-links a:not(.nav-cta) { display: none; }
+    .guidance { padding: 56px 22px 48px; }
+    .guidance-inner { gap: 56px; }
+    .guidance-block--alt { padding: 40px 28px; margin: 0; }
+    .guidance-h2 { font-size: 32px; }
+    .guidance-lead { font-size: 16px; }
+    .timing-grid { grid-template-columns: 1fr; }
+    .criteria-card { flex-direction: column; gap: 10px; }
+    .guidance-divider { padding: 28px 22px; }
+    .guidance-divider p { font-size: 17px; }
     .hero { padding: 56px 22px 48px; }
     .hero h1 { font-size: 40px; }
     .criteria-band { padding: 44px 22px; }
@@ -304,6 +428,134 @@
   <h1>Advisors who actually know <em>retirement</em>.</h1>
   <p class="hero-sub">Every advisor on this page is a fiduciary, has a CFP designation, and specializes in retirement — not a generalist who fits it in between college savings accounts and business insurance. Filter by what fits your situation.</p>
 </section>
+
+<!-- ─── GENERAL GUIDANCE ─── -->
+<section class="guidance">
+  <div class="guidance-inner">
+
+    <div class="guidance-block">
+      <span class="guidance-label">When to start</span>
+      <h2 class="guidance-h2">Earlier than you think. <em>Much</em> earlier.</h2>
+      <p class="guidance-lead">The most common mistake isn't picking the wrong advisor — it's waiting until you're 18 months from retirement to find one. By then, the high-leverage decisions are mostly locked in.</p>
+      <div class="timing-grid">
+        <div class="timing-card">
+          <div class="timing-badge">10–15 years out</div>
+          <h3>The real planning window</h3>
+          <p>This is when Roth conversions, Social Security optimization, and asset location decisions can actually move the needle — sometimes by six figures over a 20-year retirement. An advisor at this stage is helping you build the foundation, not just manage what you've already built.</p>
+        </div>
+        <div class="timing-card">
+          <div class="timing-badge">5–10 years out</div>
+          <h3>Where most people start</h3>
+          <p>Still plenty of time to adjust the plan. Key questions at this stage: Medicare timing, whether to do a final Roth conversion push, what the withdrawal sequence will look like, and — if you're moving — what state tax treatment means for your income sources.</p>
+        </div>
+        <div class="timing-card">
+          <div class="timing-badge">1–3 years out</div>
+          <h3>Transition planning</h3>
+          <p>If you don't have an advisor yet, now is urgent — not because it's too late to do anything, but because this is when the irreversible decisions happen. Social Security start date, Medicare enrollment windows, and pension elections usually can't be undone. Get someone in the room.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="guidance-block guidance-block--alt">
+      <span class="guidance-label">What to look for</span>
+      <h2 class="guidance-h2">Five things that actually <em>matter</em>.</h2>
+      <div class="criteria-cards">
+        <div class="criteria-card">
+          <div class="cc-number">1</div>
+          <div class="cc-body">
+            <h4>Fiduciary, always</h4>
+            <p>A fiduciary is legally required to act in your interest — not their firm's, not their quota's. Ask directly: "Are you a fiduciary at all times, for all services?" Some advisors are fiduciaries only for certain services. You want "always" as the answer.</p>
+          </div>
+        </div>
+        <div class="criteria-card">
+          <div class="cc-number">2</div>
+          <div class="cc-body">
+            <h4>Fee-only, not fee-based</h4>
+            <p>Fee-only advisors are paid by you directly — hourly, flat fee, or a percentage of assets. Fee-based advisors can also earn commissions from products they sell you. The distinction matters. Ask: "How are you compensated, and do you earn commissions on any products you recommend?"</p>
+          </div>
+        </div>
+        <div class="criteria-card">
+          <div class="cc-number">3</div>
+          <div class="cc-body">
+            <h4>Retirement specialist, not generalist</h4>
+            <p>A generalist handles 401k rollovers, business succession, estate planning, and college savings all in the same week. A retirement specialist has built their practice around the specific phase of life you're entering — drawdown strategy, Social Security, Medicare, and late-stage tax planning. You want the specialist.</p>
+          </div>
+        </div>
+        <div class="criteria-card">
+          <div class="cc-number">4</div>
+          <div class="cc-body">
+            <h4>International experience (if retiring abroad)</h4>
+            <p>Retiring outside the US adds a full layer of complexity that most domestic advisors aren't trained for: FBAR filings, FATCA, foreign tax credits, treaty provisions, and in some countries, local pension rules that interact with US Social Security. An advisor without expat-specific experience is learning on your dime.</p>
+          </div>
+        </div>
+        <div class="criteria-card">
+          <div class="cc-number">5</div>
+          <div class="cc-body">
+            <h4>Real client history in your situation</h4>
+            <p>Ask for examples of clients with a similar profile — similar income sources, similar destination, similar timeline. "I've worked with clients like you" is not the same as "here's what that looked like and what we did." You want specifics, not reassurance.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="guidance-block">
+      <span class="guidance-label">Questions to ask</span>
+      <h2 class="guidance-h2">Six questions for your <em>first conversation</em>.</h2>
+      <p class="guidance-lead">Any good advisor will answer these clearly and without hesitation. Vague answers are information too.</p>
+      <div class="questions-list">
+        <div class="question-item">
+          <span class="q-num">01</span>
+          <div class="q-body">
+            <strong>"Are you a fiduciary at all times, for every service you provide?"</strong>
+            <p>The correct answer is yes. Anything else — "for investment advice, yes" or "as an RIA, yes" — means no for at least some of what they do.</p>
+          </div>
+        </div>
+        <div class="question-item">
+          <span class="q-num">02</span>
+          <div class="q-body">
+            <strong>"How do you charge, and what exactly am I paying for?"</strong>
+            <p>Get the fee structure in writing before you sign anything. Common models: % of assets under management (AUM), hourly, or flat retainer. Each has tradeoffs — understand what you're getting for what you're paying.</p>
+          </div>
+        </div>
+        <div class="question-item">
+          <span class="q-num">03</span>
+          <div class="q-body">
+            <strong>"What percentage of your clients are retired or within five years of retirement?"</strong>
+            <p>A specialist's practice skews heavily toward this demographic. If the answer is less than half, you're not their core client type — and that shows in how well-calibrated their advice is.</p>
+          </div>
+        </div>
+        <div class="question-item">
+          <span class="q-num">04</span>
+          <div class="q-body">
+            <strong>"Have you worked with Americans retiring to [destination]? What does that work look like?"</strong>
+            <p>For international moves specifically. You want someone who has done this before — who knows the visa types, the tax treaty provisions, and which questions to bring to a local attorney vs. handle themselves.</p>
+          </div>
+        </div>
+        <div class="question-item">
+          <span class="q-num">05</span>
+          <div class="q-body">
+            <strong>"Can you walk me through how you'd approach my Social Security and Medicare decisions?"</strong>
+            <p>Not hypothetically — as if you were their client. This tells you immediately whether they understand the nuance (spousal benefits, delayed credits, Medicare IRMAA thresholds) or are giving you a generic answer.</p>
+          </div>
+        </div>
+        <div class="question-item">
+          <span class="q-num">06</span>
+          <div class="q-body">
+            <strong>"What happens if I need to change course — can I get out, and what does that cost?"</strong>
+            <p>Understand exit terms before you begin. AUM-based relationships in particular can have switching costs. Good advisors are transparent about this. It's not a red flag to ask — it's a red flag if they bristle at the question.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="guidance-divider">
+  <div class="guidance-divider-inner">
+    <p>Ready to find one? Our vetted advisors are below — filtered by whether you're retiring in the US or abroad.</p>
+  </div>
+</div>
 
 <!-- ─── VETTING CRITERIA ─── -->
 <section class="criteria-band">
@@ -515,8 +767,9 @@
     </div>
     <div class="footer-links">
       <a href="destinations.html">Destinations</a>
+      <a href="homepage-mockup.html#how-it-works">How it works</a>
       <a href="find-an-advisor.html">Find an advisor</a>
-      <a href="scouting-trip.html">Scouting trips</a>
+      <a href="scouting-trips.html">Scouting trips</a>
       <a href="my-retirevibes.html">My RetireVibes</a>
     </div>
   </div>
