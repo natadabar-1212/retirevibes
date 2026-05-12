@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>RetireVibes — Matcher Test Harness</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --cream: #FBF6EE; --cream-soft: #F4ECDD;
+    --terracotta: #C97B5A; --teal: #1B3A4B; --teal-soft: #2E5468;
+    --gold: #C8A064; --sage: #93A89A; --warm-gray: #7A6E5F;
+    --white: #FFFFFF;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--cream); color: var(--teal); font-family: var(--sans); font-size: 15px; line-height: 1.6; padding: 40px 48px; }
+  h1 { font-family: var(--serif); font-size: 36px; margin-bottom: 6px; }
+  .subtitle { color: var(--warm-gray); font-size: 14px; margin-bottom: 36px; }
+
+  .layout { display: grid; grid-template-columns: 360px 1fr; gap: 40px; align-items: start; }
+
+  /* ── Form panel ─────────────────────────────────────── */
+  .form-panel {
+    background: var(--white);
+    border: 1px solid rgba(27,58,75,0.1);
+    border-radius: 16px;
+    padding: 28px;
+    position: sticky;
+    top: 20px;
+  }
+  .form-panel h2 { font-family: var(--serif); font-size: 20px; margin-bottom: 20px; }
+  .field { margin-bottom: 20px; }
+  .field label { display: block; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--warm-gray); margin-bottom: 8px; }
+  .field select, .field input[type=range] { width: 100%; }
+  select {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1px solid rgba(27,58,75,0.2);
+    border-radius: 8px;
+    font-family: var(--sans);
+    font-size: 14px;
+    background: var(--cream);
+    color: var(--teal);
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A6E5F' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    cursor: pointer;
+  }
+  .checkbox-group { display: flex; flex-direction: column; gap: 6px; }
+  .checkbox-group label {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; font-weight: 400;
+    text-transform: none; letter-spacing: 0;
+    color: var(--teal); cursor: pointer;
+  }
+  .checkbox-group input[type=checkbox] { accent-color: var(--terracotta); width: 15px; height: 15px; }
+
+  .presets { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+  .preset-btn {
+    padding: 6px 12px;
+    border: 1px solid rgba(27,58,75,0.2);
+    border-radius: 999px;
+    background: var(--cream-soft);
+    font-size: 12px; font-family: var(--sans);
+    color: var(--teal); cursor: pointer;
+    transition: all 0.2s;
+  }
+  .preset-btn:hover { background: var(--terracotta); color: white; border-color: var(--terracotta); }
+
+  .run-btn {
+    width: 100%;
+    padding: 14px;
+    background: var(--terracotta);
+    color: white;
+    border: none;
+    border-radius: 999px;
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 8px;
+  }
+  .run-btn:hover { background: #A8593A; }
+
+  /* ── Results panel ──────────────────────────────────── */
+  .results-panel h2 { font-family: var(--serif); font-size: 24px; margin-bottom: 16px; }
+  .scenario-label {
+    background: var(--teal);
+    color: white;
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 13px;
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+  .scenario-label strong { color: var(--gold); }
+
+  .result-row {
+    display: grid;
+    grid-template-columns: 36px 1fr auto;
+    gap: 12px;
+    align-items: center;
+    padding: 14px 18px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    background: var(--white);
+    border: 1px solid rgba(27,58,75,0.08);
+    transition: border-color 0.2s;
+  }
+  .result-row:hover { border-color: var(--terracotta); }
+  .result-row.top1 { border-color: var(--gold); background: #FFF9F0; }
+  .result-row.top2 { border-color: rgba(200,160,100,0.4); }
+  .result-row.top3 { border-color: rgba(200,160,100,0.2); }
+  .result-row.negative { background: rgba(200,80,80,0.04); }
+
+  .rank {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--warm-gray);
+    text-align: center;
+    line-height: 1;
+  }
+  .rank.gold { color: var(--gold); font-size: 26px; }
+  .rank.silver { color: #AAA; font-size: 24px; }
+  .rank.bronze { color: #b87333; font-size: 22px; }
+
+  .dest-info { min-width: 0; }
+  .dest-name { font-weight: 600; font-size: 15px; }
+  .dest-sub { font-size: 12px; color: var(--warm-gray); }
+
+  .score-wrap { text-align: right; }
+  .score-total {
+    font-family: var(--serif);
+    font-size: 24px;
+    color: var(--teal);
+    line-height: 1;
+  }
+  .score-total.negative { color: #C0392B; }
+  .score-breakdown { font-size: 11px; color: var(--warm-gray); margin-top: 2px; white-space: nowrap; }
+
+  .divider { border: none; border-top: 1px dashed rgba(27,58,75,0.15); margin: 16px 0; }
+
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--warm-gray);
+  }
+  .empty-state .icon { font-size: 36px; margin-bottom: 12px; }
+  .empty-state p { font-size: 14px; }
+
+  @media (max-width: 900px) {
+    body { padding: 24px 20px; }
+    .layout { grid-template-columns: 1fr; }
+    .form-panel { position: static; }
+  }
+</style>
+</head>
+<body>
+
+<h1>RetireVibes <em style="color:var(--terracotta);font-style:normal;">Matcher</em> Test Harness</h1>
+<p class="subtitle">Set quiz answers below → run the algorithm → verify the right destinations surface. Internal tool only — not linked from any page.</p>
+
+<div class="layout">
+
+  <!-- ── FORM PANEL ── -->
+  <div class="form-panel">
+    <h2>Quiz Answers</h2>
+
+    <p style="font-size:12px;color:var(--warm-gray);margin-bottom:16px;">Quick-load a persona:</p>
+    <div class="presets">
+      <button class="preset-btn" onclick="loadPreset('beach-us')">🏖️ US beach seeker</button>
+      <button class="preset-btn" onclick="loadPreset('europe-culture')">🏛️ Europe culture</button>
+      <button class="preset-btn" onclick="loadPreset('latam-budget')">🌎 LatAm budget</button>
+      <button class="preset-btn" onclick="loadPreset('mountain-us')">⛰️ US mountain adventurer</button>
+      <button class="preset-btn" onclick="loadPreset('asia-wellness')">🏯 Asia wellness</button>
+      <button class="preset-btn" onclick="loadPreset('open-luxury')">💎 Open to anywhere, luxury</button>
+      <button class="preset-btn" onclick="loadPreset('cool-four-seasons')">🍂 Cool four-seasons, Canada</button>
+    </div>
+
+    <!-- Q0: Weather -->
+    <div class="field">
+      <label>Q1 — Weather</label>
+      <select id="q0">
+        <option value="0">☀️ Warm and sunny year-round</option>
+        <option value="1">🍂 Four seasons</option>
+        <option value="2" selected>🌤️ Mild and temperate</option>
+        <option value="3">❄️ Cool and crisp</option>
+      </select>
+    </div>
+
+    <!-- Q1: Setting (multi, max 2) -->
+    <div class="field">
+      <label>Q2 — Setting (pick 1–2)</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="q1" value="0"> 🏖️ On or near the beach</label>
+        <label><input type="checkbox" name="q1" value="1"> 🛶 By a lake or river</label>
+        <label><input type="checkbox" name="q1" value="2"> ⛰️ Mountains and nature</label>
+        <label><input type="checkbox" name="q1" value="3" checked> 🏙️ Vibrant city</label>
+        <label><input type="checkbox" name="q1" value="4" checked> 🏘️ Charming small town</label>
+        <label><input type="checkbox" name="q1" value="5"> 🌾 Wide open countryside</label>
+      </div>
+    </div>
+
+    <!-- Q2: Geography (multi) -->
+    <div class="field">
+      <label>Q3 — Geography (select all open to)</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="q2" value="0"> 🇺🇸 United States</label>
+        <label><input type="checkbox" name="q2" value="1"> 🇨🇦 Canada</label>
+        <label><input type="checkbox" name="q2" value="2"> 🌎 Mexico &amp; Latin America</label>
+        <label><input type="checkbox" name="q2" value="3"> 🏝️ The Caribbean</label>
+        <label><input type="checkbox" name="q2" value="4" checked> 🏛️ Europe</label>
+        <label><input type="checkbox" name="q2" value="5"> 🇦🇺 Australia or New Zealand</label>
+        <label><input type="checkbox" name="q2" value="6"> 🏯 Asia</label>
+        <label><input type="checkbox" name="q2" value="7"> 🌍 Africa</label>
+      </div>
+    </div>
+
+    <!-- Q3: Pace (single) -->
+    <div class="field">
+      <label>Q4 — Pace</label>
+      <select id="q3">
+        <option value="0">🏃 Full throttle</option>
+        <option value="1" selected>⚖️ A good mix</option>
+        <option value="2">🌿 Slow and easy</option>
+        <option value="3">🥂 Social first</option>
+      </select>
+    </div>
+
+    <!-- Q4: Lifestyle (single) -->
+    <div class="field">
+      <label>Q5 — Lifestyle</label>
+      <select id="q4">
+        <option value="0">🌱 Simple and comfortable</option>
+        <option value="1" selected>☕ Comfortable with extras</option>
+        <option value="2">🥂 Upscale and enjoyable</option>
+        <option value="3">💎 Luxury</option>
+      </select>
+    </div>
+
+    <!-- Q5: Housing (multi) -->
+    <div class="field">
+      <label>Q6 — Housing (select all that apply)</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="q5" value="0"> 🏡 Own my home</label>
+        <label><input type="checkbox" name="q5" value="1" checked> 🔑 Open to renting</label>
+        <label><input type="checkbox" name="q5" value="2"> 🏖️ Resort or retirement community</label>
+        <label><input type="checkbox" name="q5" value="3"> 🚐 Non-traditional (RV, boat, slow travel)</label>
+        <label><input type="checkbox" name="q5" value="4"> 🤔 Not sure yet</label>
+      </div>
+    </div>
+
+    <!-- Q6: Priorities (multi, max 3) -->
+    <div class="field">
+      <label>Q7 — Priorities (pick up to 3)</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="q6" value="0"> 🗺️ Adventure</label>
+        <label><input type="checkbox" name="q6" value="1" checked> 🫂 Community</label>
+        <label><input type="checkbox" name="q6" value="2" checked> 🕊️ Peace &amp; simplicity</label>
+        <label><input type="checkbox" name="q6" value="3"> 🎯 Purpose &amp; passion</label>
+        <label><input type="checkbox" name="q6" value="4"> 🧘 Health &amp; wellness</label>
+        <label><input type="checkbox" name="q6" value="5" checked> 🎭 Culture &amp; creativity</label>
+      </div>
+    </div>
+
+    <button class="run-btn" onclick="runMatcher()">Run the algorithm →</button>
+  </div>
+
+  <!-- ── RESULTS PANEL ── -->
+  <div class="results-panel">
+    <h2>Results</h2>
+    <div id="results-output">
+      <div class="empty-state">
+        <div class="icon">🔍</div>
+        <p>Set your quiz answers and click <strong>Run the algorithm</strong> to see the ranked results.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="destinations-data.js"></script>
+<script>
+// ─── Scoring algorithm (mirrors results-matcher.js exactly) ────────────────
+
+function scoreDestination(dest, answers) {
+  let score = 0;
+  const breakdown = {};
+
+  // Q[2] Geography — hard gate
+  const geoAns = answers[2];
+  if (Array.isArray(geoAns) && geoAns.length > 0) {
+    const matches = dest.geographyOptions.some(g => geoAns.includes(g));
+    if (matches) { score += 25; breakdown.geo = '+25'; }
+    else { score -= 40; breakdown.geo = '−40'; }
+  } else {
+    breakdown.geo = '—';
+  }
+
+  // Q[0] Weather
+  const weatherAns = answers[0];
+  if (typeof weatherAns === 'number' && dest.weatherMatch && dest.weatherMatch.length > 0) {
+    if (dest.weatherMatch[0] === weatherAns) { score += 18; breakdown.weather = '+18'; }
+    else if (dest.weatherMatch.includes(weatherAns)) { score += 9; breakdown.weather = '+9'; }
+    else breakdown.weather = '+0';
+  } else breakdown.weather = '—';
+
+  // Q[1] Setting
+  const settingAns = answers[1];
+  let settingPts = 0;
+  if (Array.isArray(settingAns) && dest.settingMatch && dest.settingMatch.length > 0) {
+    settingAns.forEach(s => {
+      if (dest.settingMatch[0] === s) settingPts += 14;
+      else if (dest.settingMatch.includes(s)) settingPts += 8;
+    });
+  }
+  score += settingPts;
+  breakdown.setting = settingPts ? '+' + settingPts : '+0';
+
+  // Q[3] Pace
+  const paceAns = answers[3];
+  if (typeof paceAns === 'number' && dest.paceMatch && dest.paceMatch.length > 0) {
+    if (dest.paceMatch[0] === paceAns) { score += 12; breakdown.pace = '+12'; }
+    else if (dest.paceMatch.includes(paceAns)) { score += 7; breakdown.pace = '+7'; }
+    else breakdown.pace = '+0';
+  } else breakdown.pace = '—';
+
+  // Q[4] Lifestyle
+  const lifestyleAns = answers[4];
+  if (typeof lifestyleAns === 'number' && dest.lifestyleMatch) {
+    if (dest.lifestyleMatch.includes(lifestyleAns)) { score += 16; breakdown.lifestyle = '+16'; }
+    else if (dest.lifestyleMatch.some(l => Math.abs(l - lifestyleAns) === 1)) { score += 6; breakdown.lifestyle = '+6'; }
+    else breakdown.lifestyle = '+0';
+  } else breakdown.lifestyle = '—';
+
+  // Q[5] Housing (soft signals)
+  const housingAns = answers[5];
+  let housingPts = 0;
+  if (Array.isArray(housingAns) && dest.housing) {
+    if (housingAns.includes(0)) {
+      const buyInfo = (dest.housing.buy || '').toLowerCase();
+      if (buyInfo.includes('lease') || buyInfo.includes('restricted')) housingPts -= 8;
+    }
+    if (housingAns.includes(2) && !dest.isInternational) housingPts += 5;
+    if (housingAns.includes(3) && dest.isInternational) housingPts -= 4;
+  }
+  score += housingPts;
+  breakdown.housing = housingPts ? (housingPts > 0 ? '+' : '') + housingPts : '+0';
+
+  // Q[6] Priorities
+  const priorityAns = answers[6];
+  let priorityPts = 0;
+  if (Array.isArray(priorityAns)) {
+    priorityAns.forEach(p => {
+      if (dest.priorityMatch && dest.priorityMatch.includes(p)) priorityPts += 10;
+    });
+  }
+  score += priorityPts;
+  breakdown.priorities = priorityPts ? '+' + priorityPts : '+0';
+
+  return { score, breakdown };
+}
+
+function readAnswers() {
+  const q0 = parseInt(document.getElementById('q0').value);
+  const q1 = [...document.querySelectorAll('input[name=q1]:checked')].map(el => parseInt(el.value));
+  const q2 = [...document.querySelectorAll('input[name=q2]:checked')].map(el => parseInt(el.value));
+  const q3 = parseInt(document.getElementById('q3').value);
+  const q4 = parseInt(document.getElementById('q4').value);
+  const q5 = [...document.querySelectorAll('input[name=q5]:checked')].map(el => parseInt(el.value));
+  const q6 = [...document.querySelectorAll('input[name=q6]:checked')].map(el => parseInt(el.value));
+  return [q0, q1, q2, q3, q4, q5, q6];
+}
+
+function runMatcher() {
+  if (typeof DESTINATIONS === 'undefined') {
+    document.getElementById('results-output').innerHTML = '<p style="color:red;padding:20px">⚠️ destinations-data.js not loaded. Open this file from the project folder (not directly from Finder).</p>';
+    return;
+  }
+
+  const answers = readAnswers();
+  const scored = DESTINATIONS.map(d => {
+    const { score, breakdown } = scoreDestination(d, answers);
+    return { dest: d, score, breakdown };
+  }).sort((a, b) => b.score - a.score);
+
+  const weatherLabels = ['Warm/sunny', 'Four seasons', 'Mild/temperate', 'Cool/crisp'];
+  const settingLabels = ['Beach', 'Lake/river', 'Mountains', 'City', 'Small town', 'Countryside'];
+  const geoLabels = ['🇺🇸 US', '🇨🇦 Canada', '🌎 LatAm', '🏝️ Caribbean', '🏛️ Europe', '🇦🇺 AuNZ', '🏯 Asia', '🌍 Africa'];
+  const paceLabels = ['Full throttle', 'Mixed', 'Slow/easy', 'Social first'];
+  const lifestyleLabels = ['Simple', 'Comfortable+', 'Upscale', 'Luxury'];
+  const priorityLabels = ['Adventure', 'Community', 'Peace', 'Purpose', 'Health', 'Culture'];
+
+  const geoStr = answers[2].length ? answers[2].map(g => geoLabels[g]).join(', ') : 'Any';
+  const settingStr = answers[1].length ? answers[1].map(s => settingLabels[s]).join(' + ') : 'Any';
+  const priorityStr = answers[6].length ? answers[6].map(p => priorityLabels[p]).join(', ') : 'None';
+
+  const top3 = scored.slice(0, 3);
+  const rest = scored.slice(3, 15);
+  const bottom = scored.filter(s => s.score < 0);
+
+  const rankIcon = (i) => {
+    if (i === 0) return '<span class="rank gold">①</span>';
+    if (i === 1) return '<span class="rank silver">②</span>';
+    if (i === 2) return '<span class="rank bronze">③</span>';
+    return `<span class="rank">${i+1}</span>`;
+  };
+
+  const rowClass = (i, score) => {
+    if (score < 0) return 'result-row negative';
+    if (i === 0) return 'result-row top1';
+    if (i === 1) return 'result-row top2';
+    if (i === 2) return 'result-row top3';
+    return 'result-row';
+  };
+
+  const buildRow = (item, i) => `
+    <div class="${rowClass(i, item.score)}">
+      ${rankIcon(i)}
+      <div class="dest-info">
+        <div class="dest-name">${item.dest.flag} ${item.dest.name}, ${item.dest.country}</div>
+        <div class="dest-sub">${item.dest.region} · ${item.dest.isInternational ? 'International' : 'Domestic'}</div>
+      </div>
+      <div class="score-wrap">
+        <div class="score-total ${item.score < 0 ? 'negative' : ''}">${item.score > 0 ? '+' : ''}${item.score}</div>
+        <div class="score-breakdown">
+          Geo ${item.breakdown.geo} · Weather ${item.breakdown.weather} · Setting ${item.breakdown.setting} · Pace ${item.breakdown.pace} · Lifestyle ${item.breakdown.lifestyle} · Priorities ${item.breakdown.priorities}
+        </div>
+      </div>
+    </div>`;
+
+  let html = `
+    <div class="scenario-label">
+      <strong>Scenario:</strong> ${weatherLabels[answers[0]]} weather · ${settingStr} setting · ${geoStr} · ${paceLabels[answers[3]]} pace · ${lifestyleLabels[answers[4]]} lifestyle · Priorities: ${priorityStr}
+    </div>
+    <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--warm-gray);margin-bottom:10px;">Top 3 Matches</div>
+    ${top3.map((item, i) => buildRow(item, i)).join('')}
+    <hr class="divider">
+    <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--warm-gray);margin-bottom:10px;">Runners-up (#4–15)</div>
+    ${rest.map((item, i) => buildRow(item, i + 3)).join('')}`;
+
+  if (bottom.length > 0) {
+    html += `<hr class="divider">
+    <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:#C0392B;margin-bottom:10px;">Penalized (negative scores — geography mismatch)</div>
+    ${bottom.slice(0, 8).map((item, i) => buildRow(item, scored.indexOf(item))).join('')}`;
+  }
+
+  html += `<p style="font-size:12px;color:var(--warm-gray);margin-top:16px;text-align:right;">${DESTINATIONS.length} destinations scored</p>`;
+
+  document.getElementById('results-output').innerHTML = html;
+  document.querySelector('.results-panel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ─── Preset loader ─────────────────────────────────────────────────────────
+const PRESETS = {
+  'beach-us': {
+    q0: 0,  // warm/sunny
+    q1: [0], // beach
+    q2: [0], // US only
+    q3: 2,   // slow/easy
+    q4: 1,   // comfortable+extras
+    q5: [1], // rent
+    q6: [2, 1, 4]  // peace, community, health
+  },
+  'europe-culture': {
+    q0: 2,  // mild/temperate
+    q1: [3, 4], // city, small town
+    q2: [4], // Europe
+    q3: 3,   // social first
+    q4: 1,   // comfortable+extras
+    q5: [1], // rent
+    q6: [5, 1, 2]  // culture, community, peace
+  },
+  'latam-budget': {
+    q0: 0,  // warm/sunny
+    q1: [3, 4], // city, small town
+    q2: [2], // Mexico/LatAm
+    q3: 2,   // slow/easy
+    q4: 0,   // simple
+    q5: [0, 1], // own or rent
+    q6: [2, 1, 4]  // peace, community, health
+  },
+  'mountain-us': {
+    q0: 1,  // four seasons
+    q1: [2, 5], // mountains, countryside
+    q2: [0], // US only
+    q3: 0,   // full throttle
+    q4: 1,   // comfortable+extras
+    q5: [0], // own
+    q6: [0, 4, 3]  // adventure, health, purpose
+  },
+  'asia-wellness': {
+    q0: 2,  // mild/temperate
+    q1: [2, 3], // mountains, city
+    q2: [6], // Asia
+    q3: 2,   // slow/easy
+    q4: 0,   // simple
+    q5: [1], // rent
+    q6: [4, 2, 5]  // health, peace, culture
+  },
+  'open-luxury': {
+    q0: 2,  // mild/temperate
+    q1: [0, 3], // beach, city
+    q2: [0, 2, 4], // US, LatAm, Europe
+    q3: 1,   // mixed
+    q4: 3,   // luxury
+    q5: [0], // own
+    q6: [5, 0, 1]  // culture, adventure, community
+  },
+  'cool-four-seasons': {
+    q0: 3,  // cool/crisp
+    q1: [1, 5], // lake/river, countryside
+    q2: [0, 1], // US, Canada
+    q3: 2,   // slow/easy
+    q4: 0,   // simple
+    q5: [0], // own
+    q6: [2, 4, 3]  // peace, health, purpose
+  }
+};
+
+function loadPreset(key) {
+  const p = PRESETS[key];
+  if (!p) return;
+
+  document.getElementById('q0').value = p.q0;
+  document.getElementById('q3').value = p.q3;
+  document.getElementById('q4').value = p.q4;
+
+  document.querySelectorAll('input[name=q1]').forEach(el => {
+    el.checked = p.q1.includes(parseInt(el.value));
+  });
+  document.querySelectorAll('input[name=q2]').forEach(el => {
+    el.checked = p.q2.includes(parseInt(el.value));
+  });
+  document.querySelectorAll('input[name=q5]').forEach(el => {
+    el.checked = p.q5.includes(parseInt(el.value));
+  });
+  document.querySelectorAll('input[name=q6]').forEach(el => {
+    el.checked = p.q6.includes(parseInt(el.value));
+  });
+
+  runMatcher();
+}
+</script>
+</body>
+</html>

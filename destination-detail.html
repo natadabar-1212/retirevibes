@@ -55,6 +55,7 @@
     position: absolute; inset: 0;
     background-size: cover; background-position: center;
     background-color: var(--teal-soft);
+    image-rendering: auto;
   }
   .hero-bg::after {
     content: ""; position: absolute; inset: 0;
@@ -444,7 +445,7 @@
     const html = `
       <!-- Hero -->
       <section class="hero">
-        <div class="hero-bg" style="background-image: url('${dest.photo}?auto=format&fit=crop&w=2200&q=85');"></div>
+        <div class="hero-bg" style="background-image: url('${dest.photo}');"></div>
         <button class="hero-heart" id="heroHeart" onclick="handleSave('${dest.name}')" aria-label="Save ${dest.name}">♡</button>
         <div class="hero-inner">
           <a class="back-link" href="homepage-mockup.html">← All destinations</a>
@@ -574,7 +575,7 @@
               <div class="ho-label">Scouting</div>
               <h3>Plan a scouting trip</h3>
               <p>Spend 7–10 days living like a local — walk the neighborhoods, eat where locals eat, and see if the vibe holds up in person before you commit to anything.</p>
-              <a href="${dest.scoutingPage || 'scouting-trip.html'}">Plan my trip →</a>
+              <a href="${dest.id === 'porto' ? 'scouting-trip.html' : 'scouting-trip-detail.html?id=' + dest.id}">Plan my trip →</a>
             </div>
           </div>
         </div>
@@ -617,9 +618,11 @@
     try {
       const saved = JSON.parse(localStorage.getItem('rv_saved') || '{}');
       if (!saved.email) {
-        alert('Open RetireVibes on your results page to save destinations with your account.');
+        // No account yet — open modal to capture email
+        openSaveModal({ type: 'first-save', name: name });
         return;
       }
+      // Account exists — silent toggle
       saved.destinations = saved.destinations || [];
       if (saved.destinations.includes(name)) {
         saved.destinations = saved.destinations.filter(d => d !== name);
@@ -630,6 +633,64 @@
       updateSaveState(name);
     } catch (e) {}
   };
+
+  // Make modal functions available to inline onclick handlers
+  window.openSaveModal = openSaveModal;
+  window.closeSaveModal = closeSaveModal;
+  window.submitSave = submitSave;
+
+  function openSaveModal(context) {
+    _saveContext = context || {};
+    const modal = document.getElementById('saveModal');
+    if (!modal) return;
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    const titleEl = document.getElementById('saveModalTitle');
+    const subEl   = document.getElementById('saveModalSub');
+    const successSub = document.getElementById('saveSuccessSub');
+    if (_saveContext.type === 'first-save' && _saveContext.name) {
+      titleEl.innerHTML  = 'Save <em>' + _saveContext.name + '</em>.';
+      subEl.textContent  = 'Just need your email so we can save ' + _saveContext.name + ' for you. No password — come back anytime to see your saved places.';
+      successSub.textContent = _saveContext.name + ' is saved to your RetireVibes. Come back anytime to see everything you\'re keeping an eye on.';
+    } else {
+      titleEl.innerHTML  = 'Email me <em>my results</em>.';
+      subEl.textContent  = 'We\'ll send your matches to your inbox plus a link to come back anytime — no password needed.';
+      successSub.textContent = 'Check your inbox — we sent your matches plus a link you can use to come back anytime.';
+    }
+    document.getElementById('saveForm').hidden = false;
+    document.getElementById('saveSuccess').hidden = true;
+  }
+
+  function closeSaveModal() {
+    const modal = document.getElementById('saveModal');
+    if (modal) modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function submitSave(e) {
+    e.preventDefault();
+    const email = e.target.email.value;
+    let saved = {};
+    try { saved = JSON.parse(localStorage.getItem('rv_saved') || '{}'); } catch(err) {}
+    const wasNewAccount = !saved.email;
+    saved.email = email;
+    if (wasNewAccount) saved.account_created_at = new Date().toISOString();
+    saved.saved_at = new Date().toISOString();
+    if (_saveContext.type === 'first-save' && _saveContext.name) {
+      saved.destinations = saved.destinations || [];
+      if (!saved.destinations.includes(_saveContext.name)) saved.destinations.push(_saveContext.name);
+    } else {
+      saved.matches_saved = true;
+    }
+    try { localStorage.setItem('rv_saved', JSON.stringify(saved)); } catch(err) {}
+    document.getElementById('saveForm').hidden = true;
+    document.getElementById('saveSuccess').hidden = false;
+    if (_saveContext.name) updateSaveState(_saveContext.name);
+    // Send magic link email
+    if (window.sendMagicLinkEmail) sendMagicLinkEmail(email, saved);
+  }
+
+  let _saveContext = {};
 
   // ─── Init ─────────────────────────────────────────────────
   if (typeof DESTINATIONS === 'undefined') {
@@ -654,6 +715,107 @@
 
 })();
 </script>
+<!-- ═══ SAVE MODAL ═══ -->
+<style>
+  .modal-overlay {
+    position: fixed; inset: 0;
+    background: rgba(27,58,75,0.55);
+    backdrop-filter: blur(8px);
+    z-index: 100; display: none;
+    align-items: center; justify-content: center;
+    padding: 24px;
+    animation: modalFade 0.3s ease;
+  }
+  .modal-overlay.open { display: flex; }
+  @keyframes modalFade { from { opacity: 0; } to { opacity: 1; } }
+  .modal-card {
+    background: var(--cream); border-radius: 20px;
+    max-width: 520px; width: 100%;
+    padding: 48px 44px 40px; position: relative;
+    box-shadow: 0 24px 60px rgba(27,58,75,0.25);
+    animation: modalRise 0.4s cubic-bezier(0.22,1,0.36,1);
+  }
+  @keyframes modalRise { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  .modal-close {
+    position: absolute; top: 18px; right: 18px;
+    width: 36px; height: 36px; border: none;
+    background: transparent; color: var(--warm-gray);
+    font-size: 24px; cursor: pointer; border-radius: 50%;
+    line-height: 1; transition: all 0.2s ease;
+  }
+  .modal-close:hover { background: rgba(27,58,75,0.06); color: var(--teal); }
+  .modal-eyebrow { font-size: 11px; color: var(--warm-gray); text-transform: uppercase; letter-spacing: 0.18em; font-weight: 500; margin-bottom: 12px; }
+  .modal-title { font-family: var(--serif); font-size: 36px; color: var(--teal); line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 14px; }
+  .modal-title em { color: var(--terracotta); font-style: italic; }
+  .modal-sub { font-size: 16px; color: var(--teal-soft); line-height: 1.55; margin-bottom: 28px; }
+  .modal-input {
+    width: 100%; padding: 16px 18px;
+    border: 1px solid rgba(27,58,75,0.18); border-radius: 12px;
+    font-family: inherit; font-size: 16px; color: var(--teal);
+    margin-bottom: 14px; background: var(--white); transition: all 0.2s ease;
+    box-sizing: border-box;
+  }
+  .modal-input:focus { outline: none; border-color: var(--terracotta); box-shadow: 0 0 0 3px rgba(201,123,90,0.15); }
+  .modal-submit {
+    width: 100%; padding: 16px 24px;
+    background: var(--teal); color: var(--white);
+    border: none; border-radius: 12px;
+    font-family: inherit; font-size: 16px; font-weight: 500;
+    cursor: pointer; transition: all 0.2s ease;
+  }
+  .modal-submit:hover { background: var(--terracotta); }
+  .modal-fineprint { font-size: 12px; color: var(--warm-gray); margin-top: 16px; line-height: 1.5; }
+  .modal-success-block { text-align: center; padding: 8px 0 4px; }
+  .modal-success-icon {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: var(--gold-soft); color: var(--teal);
+    font-size: 32px; display: flex; align-items: center;
+    justify-content: center; margin: 0 auto 22px;
+  }
+  @media (max-width: 480px) {
+    .modal-card { padding: 36px 26px 26px; }
+    .modal-title { font-size: 28px; }
+    .modal-close { top: 12px; right: 12px; }
+  }
+</style>
+
+<div class="modal-overlay" id="saveModal" role="dialog" aria-modal="true" aria-labelledby="saveModalTitle">
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeSaveModal()" aria-label="Close">×</button>
+    <div id="saveForm">
+      <p class="modal-eyebrow">Save your RetireVibes</p>
+      <h2 class="modal-title" id="saveModalTitle">Save <em>this place</em>.</h2>
+      <p class="modal-sub" id="saveModalSub">Just need your email so we can keep this saved for you. No password — come back anytime.</p>
+      <form onsubmit="submitSave(event)">
+        <input type="email" name="email" placeholder="your@email.com" required class="modal-input" autocomplete="email" />
+        <button type="submit" class="modal-submit">Save it →</button>
+      </form>
+      <p class="modal-fineprint">No password to remember. Just save and come back anytime.</p>
+    </div>
+    <div id="saveSuccess" hidden>
+      <div class="modal-success-block">
+        <div class="modal-success-icon">✓</div>
+        <p class="modal-eyebrow">Saved</p>
+        <h2 class="modal-title">All set.</h2>
+        <p class="modal-sub" id="saveSuccessSub">Come back anytime to see everything you're keeping an eye on.</p>
+        <button class="modal-submit" onclick="closeSaveModal()">Keep exploring</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Wire up modal dismiss on backdrop click + Escape key
+  document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('saveModal');
+    if (!modal) return;
+    modal.addEventListener('click', function(e) { if (e.target === modal) closeSaveModal(); });
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && modal.classList.contains('open')) closeSaveModal(); });
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="magic-link.js"></script>
 <script src="shared.js"></script>
 </body>
 </html>

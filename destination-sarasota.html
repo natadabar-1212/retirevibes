@@ -437,7 +437,7 @@
         <div class="ho-label">The "is this real" side</div>
         <h3>Spend a long weekend</h3>
         <p>Domestic moves are easy to test. Pick a week, book a rental, walk the neighborhoods you've been eyeing. We'll line up a local realtor and a neighborhood tour through our partner.</p>
-        <a href="scouting-trip-domestic.html?city=sarasota">Plan my weekend →</a>
+        <a href="scouting-trip-detail.html?id=sarasota">Plan my weekend →</a>
       </article>
     </div>
   </div>
@@ -594,6 +594,8 @@
       const name = b.dataset.name;
       if ((saved.destinations || []).includes(name)) { b.classList.add('saved'); b.innerHTML = '♥'; }
     });
+    // Send magic link email
+    if (window.sendMagicLinkEmail) sendMagicLinkEmail(email, saved);
   }
   document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('saveModal');
@@ -633,6 +635,8 @@
     });
   }
 </script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="magic-link.js"></script>
 <script src="shared.js"></script>
 
 </body>

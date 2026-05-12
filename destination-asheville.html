@@ -290,7 +290,7 @@
         <div class="ho-label">The "is this real" side</div>
         <h3>Spend a long weekend</h3>
         <p>Domestic moves are easy to test. Pick a week, walk the neighborhoods, do a brewery crawl, drive the Parkway. We'll line up a local realtor and a neighborhood tour.</p>
-        <a href="scouting-trip-domestic.html?city=asheville">Plan my weekend →</a>
+        <a href="scouting-trip-detail.html?id=asheville">Plan my weekend →</a>
       </article>
     </div>
   </div>
@@ -437,6 +437,8 @@
     document.getElementById('saveSuccess').hidden = false;
     document.querySelectorAll('.save-btn[data-name]').forEach(b => { const name = b.dataset.name; if ((saved.destinations || []).includes(name)) { b.innerHTML = '<span class="heart">✓</span> Saved'; } });
     document.querySelectorAll('.card-save[data-name]').forEach(b => { const name = b.dataset.name; if ((saved.destinations || []).includes(name)) { b.classList.add('saved'); b.innerHTML = '♥'; } });
+    // Send magic link email
+    if (window.sendMagicLinkEmail) sendMagicLinkEmail(email, saved);
   }
   document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('saveModal');
@@ -464,6 +466,8 @@
     document.querySelectorAll('.card-save[data-name="' + name + '"]').forEach(b => { if (isSaved) { b.classList.add('saved'); b.innerHTML = '♥'; } else { b.classList.remove('saved'); b.innerHTML = '♡'; } });
   }
 </script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="magic-link.js"></script>
 <script src="shared.js"></script>
 
 </body>

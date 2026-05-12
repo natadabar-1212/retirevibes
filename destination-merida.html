@@ -871,7 +871,7 @@
         <div class="ho-label">The "is this real" side</div>
         <h3>Plan a 7-day scouting trip</h3>
         <p>A pre-built Mérida recon week — neighborhoods to walk, expat meetups, a local realtor and an immigration lawyer on the calendar. Book through our partner.</p>
-        <a href="#">Plan my trip →</a>
+        <a href="scouting-trip-detail.html?id=merida">Plan my trip →</a>
       </article>
     </div>
   </div>
@@ -1107,6 +1107,8 @@
         b.innerHTML = '♥';
       }
     });
+    // Send magic link email
+    if (window.sendMagicLinkEmail) sendMagicLinkEmail(email, saved);
   }
   document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('saveModal');
@@ -1159,6 +1161,8 @@
     });
   }
 </script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="magic-link.js"></script>
 <script src="shared.js"></script>
 
 </body>

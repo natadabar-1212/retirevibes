@@ -26,7 +26,7 @@ const DESTINATIONS = [
     tagline: 'Cobblestone streets, world-class wine, and a slower kind of European cool.',
     tags: ['Coastal city', 'Mild year-round', 'Walkable', 'Vibrant culture', 'Excellent healthcare', 'Strong expat scene'],
     costPerMonth: { 0: 1600, 1: 2200, 2: 3200, 3: 4800 },
-    housing: { buy: '~$280K', buyDesc: '2BR in Foz do Douro', rent: '~$1,100/mo' },
+    housing: { buy: '~$280K', buyDesc: '2BR in a beachside residential neighborhood', rent: '~$1,100/mo' },
     compare: "That's about <strong>half</strong> what the same lifestyle costs in coastal California — with a walkable old city, a 90-minute drive to wine country, and one of Europe's best public health systems.",
     page: 'destination-porto.html',
     isInternational: true,
@@ -40,6 +40,14 @@ const DESTINATIONS = [
     geographyOptions: [4],        // Europe
     lifestyleMatch: [1, 2],      // comfortable, upscale
     priorityMatch: [1, 2, 5],    // community, peace, culture/arts
+    // Scouting
+    scoutingBestMonths: 'September–May',
+    scoutingAvoidMonths: 'July–August (peak tourist crowds, higher prices)',
+    neighborhoods: [
+      { name: 'Ribeira', desc: 'The historic waterfront — start here. Walk it at different times of day to understand the city\'s rhythm. The energy shifts dramatically from morning to evening.' },
+      { name: 'Foz do Douro', desc: 'Where many long-term expats actually live — quieter residential streets by the Atlantic, walkable to services, and a more accurate picture of what a Porto life costs day to day.' },
+      { name: 'Bonfim & Campanhã', desc: 'Up-and-coming, more affordable, genuinely local. Spend a morning here to understand Porto beyond the postcard — and to see where prices are still realistic.' },
+    ],
   },
 
   {
@@ -67,6 +75,14 @@ const DESTINATIONS = [
     geographyOptions: [2],         // Mexico & Latin America
     lifestyleMatch: [0, 1],       // simple, comfortable
     priorityMatch: [1, 2, 5],     // community, peace, culture/arts
+    // Scouting
+    scoutingBestMonths: 'November–March',
+    scoutingAvoidMonths: 'May–September (extreme heat and humidity — 100°F+ is common)',
+    neighborhoods: [
+      { name: 'Centro Histórico', desc: 'The beating heart of the city — start here. Walk the streets around Plaza Grande at different times of day. The early morning and evening paseo tell you everything about the social life here.' },
+      { name: 'Colonia México & García Ginerés', desc: 'Where many expats actually settle — quieter residential streets, walkable to restaurants and services, with a comfortable mix of locals and international residents. Spend a morning here.' },
+      { name: 'Paseo de Montejo', desc: 'Mérida\'s elegant boulevard — restored mansions, good restaurants, the Anthropology Museum. Helps you understand the city\'s scale and how locals use its public spaces.' },
+    ],
   },
 
   {
@@ -94,6 +110,14 @@ const DESTINATIONS = [
     geographyOptions: [0],         // United States
     lifestyleMatch: [1, 2],       // comfortable, upscale
     priorityMatch: [0, 5, 4, 1],  // adventure, culture/arts, health, community
+    // Scouting
+    scoutingBestMonths: 'April–June or September–October',
+    scoutingAvoidMonths: 'January–February (ice and snow — mountain roads can be difficult)',
+    neighborhoods: [
+      { name: 'West Asheville', desc: 'The most livable residential neighborhood — eclectic, walkable, more affordable than downtown. Great coffee shops, local restaurants, and a genuine community feel. Spend a weekday morning here.' },
+      { name: 'Downtown & River Arts District', desc: 'Start here to understand the creative energy the city is known for. The River Arts District shows you how an old industrial strip becomes a cultural anchor. Walk it on a weekend afternoon.' },
+      { name: 'North Asheville & Kenilworth', desc: 'Quieter, more established residential areas popular with retirees. Good for understanding what daily life looks like outside the tourist core — and what housing stock and prices actually look like.' },
+    ],
   },
 
   {
@@ -121,6 +145,14 @@ const DESTINATIONS = [
     geographyOptions: [0],         // United States
     lifestyleMatch: [1, 2, 3],    // comfortable, upscale, luxury
     priorityMatch: [4, 1, 0],     // health, community, adventure
+    // Scouting
+    scoutingBestMonths: 'October–April',
+    scoutingAvoidMonths: 'June–September (intense heat, humidity, and hurricane season)',
+    neighborhoods: [
+      { name: 'Downtown & Rosemary District', desc: 'The cultural and social core — walkable, restaurant-dense, close to the art museum and theaters. Gives you the best sense of day-to-day city life and whether you\'d actually use it.' },
+      { name: 'Southside Village & Gulf Gate', desc: 'Where long-term residents actually live — more affordable than the barrier islands, walkable to dining, and a realistic baseline for what housing costs look like without the beach premium.' },
+      { name: 'Siesta Key & Lido Key', desc: 'The barrier island neighborhoods. Walk the strips, see the condos, talk to residents. More expensive, but critical to visit if beach access is a priority — see what you\'re actually paying for.' },
+    ],
   },
 
   // ─── COMING-SOON PAGES ─────────────────────────────────────────────
@@ -136,7 +168,7 @@ const DESTINATIONS = [
     tagline: 'Ancient temples, mountain mist, and a cost of living that turns retirement into a daily luxury.',
     tags: ['Mountain city', 'Warm & dry season', 'Expat-friendly', 'World-class food', 'Wellness hub', 'Low cost of living'],
     costPerMonth: { 0: 900, 1: 1400, 2: 2000, 3: 3200 },
-    housing: { buy: '~$120K', buyDesc: '2BR condo in Nimman area', rent: '~$600/mo' },
+    housing: { buy: '~$120K', buyDesc: '2BR condo in the main expat neighborhood', rent: '~$600/mo' },
     compare: "One of the world's most popular retirement destinations for a reason — a comfortable, wellness-focused life costs less here than a studio apartment in most US cities.",
     page: 'destination-coming-soon.html?name=Chiang%20Mai',
     isInternational: true,
@@ -163,7 +195,7 @@ const DESTINATIONS = [
     tagline: 'Eternal spring, cable-car city views, and a creative energy that once had to be earned.',
     tags: ['Eternal spring climate', 'Mountain city', 'Creative scene', 'Modern infrastructure', 'Expat community', 'Affordable'],
     costPerMonth: { 0: 1100, 1: 1700, 2: 2400, 3: 3800 },
-    housing: { buy: '~$160K', buyDesc: '2BR in El Poblado', rent: '~$700/mo' },
+    housing: { buy: '~$160K', buyDesc: '2BR in the main expat neighborhood', rent: '~$700/mo' },
     compare: "A city that's completely reinvented itself — modern metro system, world-class restaurants, and a spring climate 365 days a year at 5,000 feet elevation.",
     page: 'destination-coming-soon.html?name=Medell%C3%ADn',
     isInternational: true,
@@ -199,7 +231,7 @@ const DESTINATIONS = [
     advisorPage: 'advisor-domestic.html',
     browseHomesPage: 'browse-homes-domestic.html',
     scoutingPage: 'scouting-trip.html',
-    weatherMatch: [0, 1],          // warm/sunny, some four seasons at elevation
+    weatherMatch: [1, 3],          // four seasons (primary — cold snowy winters at 7,000ft), cool/crisp
     settingMatch: [2, 4, 3],       // mountains, small town, city
     paceMatch: [1, 2, 0],          // creative, relaxed, active
     geographyOptions: [0],          // United States
@@ -378,7 +410,7 @@ const DESTINATIONS = [
     tagline: 'A Caribbean island with US citizenship, Medicare, Social Security — and a tax structure that has turned heads worldwide.',
     tags: ['US territory', 'Tropical beaches', 'No passport needed', 'Act 22/60 tax incentives', 'Bilingual', 'Ocean lifestyle'],
     costPerMonth: { 0: 1800, 1: 2500, 2: 3500, 3: 5500 },
-    housing: { buy: '~$300K', buyDesc: '2BR condo in Condado/Santurce', rent: '~$1,400/mo' },
+    housing: { buy: '~$300K', buyDesc: '2BR condo in the beach or arts district', rent: '~$1,400/mo' },
     compare: "A US territory with Caribbean beaches — no passport required, Medicare still applies, and unique Act 60 tax incentives that make it one of the most financially interesting retirement destinations in the Americas.",
     page: 'destination-coming-soon.html?name=Puerto%20Rico',
     isInternational: false,
@@ -432,7 +464,7 @@ const DESTINATIONS = [
     tagline: 'Seven hills, 300 days of sun, and a tram-car city where fado fills the evening air.',
     tags: ['Coastal capital', 'Sunny & mild', 'Walkable', 'World cuisine', 'Easy flight connections', 'Strong expat scene'],
     costPerMonth: { 0: 1800, 1: 2600, 2: 3600, 3: 5500 },
-    housing: { buy: '~$380K', buyDesc: '2BR in Príncipe Real', rent: '~$1,400/mo' },
+    housing: { buy: '~$380K', buyDesc: '2BR in an upscale central neighborhood', rent: '~$1,400/mo' },
     compare: "More sun than Porto, bigger city energy, and still one of Western Europe's most affordable capitals — with direct flights to dozens of US cities.",
     page: 'destination-coming-soon.html?name=Lisbon',
     isInternational: true,
@@ -459,7 +491,7 @@ const DESTINATIONS = [
     tagline: 'Paella birthplace, blue-flag beaches, and a Mediterranean pace that makes everywhere else feel rushed.',
     tags: ['Mediterranean coast', 'Warm & sunny', 'Beaches', 'World-class food', 'Bikeable city', 'Affordable for Europe'],
     costPerMonth: { 0: 1700, 1: 2400, 2: 3400, 3: 5200 },
-    housing: { buy: '~$260K', buyDesc: '2BR in Ruzafa neighborhood', rent: '~$1,100/mo' },
+    housing: { buy: '~$260K', buyDesc: '2BR in a trendy central neighborhood', rent: '~$1,100/mo' },
     compare: "Spain's most livable city — sun and beaches without Barcelona prices, a city-bike culture that makes a car optional, and food that people travel across continents to eat.",
     page: 'destination-coming-soon.html?name=Valencia',
     isInternational: true,
@@ -567,7 +599,7 @@ const DESTINATIONS = [
     tagline: 'A gleaming modern skyline, a walkable old city, and the most retiree-friendly visa in the Americas.',
     tags: ['Tropical climate', 'Modern city', 'USD economy', 'Pensionado visa', 'English widely spoken', 'Hub airport'],
     costPerMonth: { 0: 1500, 1: 2200, 2: 3000, 3: 4800 },
-    housing: { buy: '~$200K', buyDesc: '2BR in Marbella', rent: '~$1,100/mo' },
+    housing: { buy: '~$200K', buyDesc: '2BR in an upscale residential district', rent: '~$1,100/mo' },
     compare: "The only country in Latin America where the dollar is the official currency — with the Pensionado visa offering discounts on everything from flights to medical care.",
     page: 'destination-coming-soon.html?name=Panama%20City',
     isInternational: true,
@@ -649,7 +681,7 @@ const DESTINATIONS = [
     tagline: 'Civilization\'s greatest ruins as your daily backdrop — and an underrated modern city that\'s having a serious moment.',
     tags: ['Ancient history', 'Mediterranean climate', 'Walkable neighborhoods', 'Seafood & cuisine', 'Affordable for Europe', 'Island access'],
     costPerMonth: { 0: 1500, 1: 2100, 2: 3000, 3: 4500 },
-    housing: { buy: '~$200K', buyDesc: '2BR in Koukaki or Pagrati', rent: '~$900/mo' },
+    housing: { buy: '~$200K', buyDesc: '2BR in a central residential neighborhood', rent: '~$900/mo' },
     compare: "One of Europe's most affordable capital cities — steps from the Acropolis, an hour from island-hopping, and one of the sunniest capitals in Europe, with costs roughly half of Lisbon.",
     page: 'destination-coming-soon.html?name=Athens',
     isInternational: true,
@@ -675,7 +707,7 @@ const DESTINATIONS = [
     tagline: 'The Uffizi, the Duomo, Chianti wines at dusk — and a life so beautiful it explains why the Renaissance happened here.',
     tags: ['Art capital of the world', 'Mild year-round', 'Walkable', 'World cuisine', 'River city', 'Strong expat community'],
     costPerMonth: { 0: 2000, 1: 2800, 2: 4000, 3: 6200 },
-    housing: { buy: '~$380K', buyDesc: '2BR in Oltrarno or San Frediano', rent: '~$1,500/mo' },
+    housing: { buy: '~$380K', buyDesc: '2BR in a central riverside neighborhood', rent: '~$1,500/mo' },
     compare: "Living in Florence means living inside the world's greatest art museum — only without the crowds, the ticket prices, or the closing times. Tuscan wine country starts 20 minutes from your door.",
     page: 'destination-coming-soon.html?name=Florence',
     isInternational: true,
@@ -701,7 +733,7 @@ const DESTINATIONS = [
     tagline: 'A Roman emperor built his retirement palace here. Two thousand years later, you can see why.',
     tags: ['Adriatic coast', 'Warm & sunny', 'Historic city', 'Island access', 'Emerging expat scene', 'Affordable for Europe'],
     costPerMonth: { 0: 1400, 1: 2000, 2: 2900, 3: 4400 },
-    housing: { buy: '~$220K', buyDesc: '2BR in Meje or Znjan neighborhood', rent: '~$900/mo' },
+    housing: { buy: '~$220K', buyDesc: '2BR in a central or seafront neighborhood', rent: '~$900/mo' },
     compare: "The Adriatic's most dramatic city — you literally live inside a Roman palace — with dozens of islands a short ferry ride away, and costs still well below Western Europe.",
     page: 'destination-coming-soon.html?name=Split',
     isInternational: true,
@@ -788,7 +820,7 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-coming-soon.html?name=Cuenca',
     scoutingPage: 'scouting-trip.html',
-    weatherMatch: [2],             // mild/temperate (eternal spring at altitude)
+    weatherMatch: [2, 3],          // mild/temperate (primary — 2,550m highland spring), cool/crisp secondary
     settingMatch: [3, 4, 2],       // city, small town, mountains
     paceMatch: [2, 1, 3],          // relaxed, creative, social
     geographyOptions: [2],          // Mexico & Latin America
@@ -807,7 +839,7 @@ const DESTINATIONS = [
     tagline: 'Pura vida isn\'t just a saying — it\'s what happens when you wake up to a volcano view, howler monkeys, and a healthcare system that actually works.',
     tags: ['Pura vida lifestyle', 'Mountain & cloud forest', 'Mild year-round', 'Best healthcare in LatAm', 'Nature immersion', 'Established expat scene'],
     costPerMonth: { 0: 1300, 1: 1900, 2: 2700, 3: 4300 },
-    housing: { buy: '~$200K', buyDesc: '2BR home in Escazú or Grecia', rent: '~$800/mo' },
+    housing: { buy: '~$200K', buyDesc: '2BR home in a popular expat suburb or mountain town', rent: '~$800/mo' },
     compare: "The gold standard of Latin American retirement — Costa Rica's CAJA healthcare is rated among the best in the world, its political stability is exceptional, and the Central Valley has spring weather 365 days a year.",
     page: 'destination-coming-soon.html?name=Costa%20Rica',
     isInternational: true,
@@ -948,7 +980,7 @@ const DESTINATIONS = [
     advisorPage: 'advisor-domestic.html',
     browseHomesPage: 'browse-homes-domestic.html',
     scoutingPage: 'scouting-trip.html',
-    weatherMatch: [1, 2],
+    weatherMatch: [1, 3],          // four seasons (primary — cold snowy winters at 5,000ft), cool/crisp
     settingMatch: [2, 4, 3],
     paceMatch: [0, 1, 3],
     geographyOptions: [0],
@@ -1047,7 +1079,7 @@ const DESTINATIONS = [
     tagline: 'Mountains meet ocean in North America\'s most cosmopolitan Pacific city — and somehow, it manages to feel both world-class and deeply livable.',
     tags: ['Ocean & mountains', 'Mild winters', 'World-class food', 'Cosmopolitan', 'English-speaking', 'Outdoor lifestyle'],
     costPerMonth: { 0: 3500, 1: 4800, 2: 6500, 3: 9500 },
-    housing: { buy: '~$820K', buyDesc: '2BR condo in Kitsilano or East Van', rent: '~$3,200/mo' },
+    housing: { buy: '~$820K', buyDesc: '2BR condo in a desirable residential neighborhood', rent: '~$3,200/mo' },
     compare: "One of the world's most desirable cities — ski mountains you can see from the seawall, the mildest winters in Canada, and a Pacific Rim food scene that rivals anywhere in North America.",
     page: 'destination-coming-soon.html?name=Vancouver',
     isInternational: true,
@@ -1073,14 +1105,14 @@ const DESTINATIONS = [
     tagline: 'Canada\'s wine country on a warm Okanagan lake — more sunshine than Vancouver, a thriving food scene, and ski hills within an hour.',
     tags: ['Okanagan wine country', 'Lakeside city', 'Canada\'s sunniest interior', 'Outdoor recreation', 'Growing food scene', 'English-speaking'],
     costPerMonth: { 0: 2600, 1: 3500, 2: 4500, 3: 6500 },
-    housing: { buy: '~$580K', buyDesc: '2BR home in South Pandosy area', rent: '~$2,200/mo' },
+    housing: { buy: '~$580K', buyDesc: '2BR home in a lakeside residential area', rent: '~$2,200/mo' },
     compare: "British Columbia's best-kept secret — more sunshine than Vancouver, a world-class wine region on a warm inland lake, and ski hills an hour away in each direction.",
     page: 'destination-coming-soon.html?name=Kelowna',
     isInternational: true,
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-coming-soon.html?name=Kelowna',
     scoutingPage: 'scouting-trip.html',
-    weatherMatch: [0, 1],
+    weatherMatch: [1, 0],          // four seasons (primary — cold winters, hot dry summers), warm
     settingMatch: [1, 2, 4],
     paceMatch: [0, 2, 1],
     geographyOptions: [1],
@@ -1099,7 +1131,7 @@ const DESTINATIONS = [
     tagline: 'A UNESCO World Heritage walled city with the energy of Paris and the safety of Canada — where French culture runs so deep it\'s been here since 1608.',
     tags: ['UNESCO walled city', 'French culture & cuisine', 'Four seasons', 'Walkable Old Town', 'Bilingual', 'Low crime rate'],
     costPerMonth: { 0: 2400, 1: 3200, 2: 4200, 3: 6000 },
-    housing: { buy: '~$420K', buyDesc: '2BR condo in Saint-Roch or Montcalm', rent: '~$1,700/mo' },
+    housing: { buy: '~$420K', buyDesc: '2BR condo in a central residential neighborhood', rent: '~$1,700/mo' },
     compare: "The most European city in North America — a walled city with a château on the cliffs, 400-year-old French culture, a world-famous Winter Carnival, and costs well below Montréal.",
     page: 'destination-coming-soon.html?name=Qu%C3%A9bec%20City',
     isInternational: true,
@@ -1125,7 +1157,7 @@ const DESTINATIONS = [
     tagline: 'Canada\'s capital city — world-class museums free to enter, the Rideau Canal for skating in winter and cycling in summer, and a bilingual culture that keeps it interesting.',
     tags: ['National capital', 'World-class museums', 'Bilingual city', 'Rideau Canal', 'Four seasons', 'English-speaking'],
     costPerMonth: { 0: 2600, 1: 3500, 2: 4500, 3: 6500 },
-    housing: { buy: '~$520K', buyDesc: '2BR home in Westboro or Glebe', rent: '~$2,100/mo' },
+    housing: { buy: '~$520K', buyDesc: '2BR home in a desirable central neighborhood', rent: '~$2,100/mo' },
     compare: "Canada's most underrated capital — national museums all free to enter, the world's longest naturally frozen skating rink in winter, and costs well below Toronto or Vancouver.",
     page: 'destination-coming-soon.html?name=Ottawa',
     isInternational: true,
@@ -1229,7 +1261,7 @@ const DESTINATIONS = [
     tagline: 'Vancouver Island living at half the price of Victoria — ocean kayaking, old-growth rainforests, and a ferry ride from the city when you need it.',
     tags: ['Vancouver Island', 'Ocean lifestyle', 'Mild year-round', 'Old-growth forest', 'Affordable for BC', 'English-speaking'],
     costPerMonth: { 0: 2200, 1: 3000, 2: 3900, 3: 5600 },
-    housing: { buy: '~$480K', buyDesc: '2BR home in Brechin Hill area', rent: '~$1,900/mo' },
+    housing: { buy: '~$480K', buyDesc: '2BR home in a quiet residential neighborhood', rent: '~$1,900/mo' },
     compare: "Vancouver Island\'s most affordable gateway — the same mild Pacific climate and old-growth forests as Victoria at meaningfully lower costs, with the full island lifestyle.",
     page: 'destination-coming-soon.html?name=Nanaimo',
     isInternational: true,
@@ -1387,7 +1419,7 @@ const DESTINATIONS = [
     tagline: 'The Spice Isle — nutmeg, cocoa, and a retiree-friendly island that\'s both genuinely beautiful and genuinely unhurried.',
     tags: ['The Spice Isle', 'Caribbean beaches', 'English-speaking', 'Lower cost for Caribbean', 'Friendly locals', 'Tropical rainforest interior'],
     costPerMonth: { 0: 1400, 1: 2000, 2: 2800, 3: 4200 },
-    housing: { buy: '~$200K', buyDesc: '2BR home near Grand Anse', rent: '~$900/mo' },
+    housing: { buy: '~$200K', buyDesc: '2BR home near the main beach', rent: '~$900/mo' },
     compare: "One of the Caribbean's most affordable English-speaking islands — Grand Anse Beach ranks among the region's best, costs run significantly below Barbados, and it produces the world's finest nutmeg.",
     page: 'destination-coming-soon.html?name=Grenada',
     isInternational: true,
@@ -1413,7 +1445,7 @@ const DESTINATIONS = [
     tagline: 'A volcanic island with a UNESCO fortress, a narrow-gauge railway, and a citizenship by investment program that\'s been trusted by expats for 40 years.',
     tags: ['English-speaking', 'Volcanic landscape', 'UNESCO Brimstone Fortress', 'Citizenship by investment', 'Small island feel', 'Caribbean charm'],
     costPerMonth: { 0: 1600, 1: 2200, 2: 3200, 3: 5000 },
-    housing: { buy: '~$280K', buyDesc: '2BR home near Basseterre or Frigate Bay', rent: '~$1,100/mo' },
+    housing: { buy: '~$280K', buyDesc: '2BR home near the capital or beach district', rent: '~$1,100/mo' },
     compare: "One of the Caribbean's most respected citizenship and residency programs — a UNESCO World Heritage fortress, a stunning volcanic interior, and a small-island intimacy that makes it easy to build real community.",
     page: 'destination-coming-soon.html?name=St.%20Kitts',
     isInternational: true,
@@ -1519,7 +1551,7 @@ const DESTINATIONS = [
     tagline: 'A UNESCO Caribbean port city where bougainvillea spills over colonial walls and the cumbia plays until dawn — Colombia\'s most romantic city.',
     tags: ['UNESCO Walled City', 'Caribbean coast', 'Warm year-round', 'Colonial architecture', 'Vibrant nightlife', 'Growing expat scene'],
     costPerMonth: { 0: 1200, 1: 1800, 2: 2600, 3: 4000 },
-    housing: { buy: '~$180K', buyDesc: '2BR apartment in Bocagrande or Getsemaní', rent: '~$750/mo' },
+    housing: { buy: '~$180K', buyDesc: '2BR apartment in the beach or old city district', rent: '~$750/mo' },
     compare: "Colombia's Caribbean crown jewel — a UNESCO walled city with one of the most photogenic old towns in the Americas, year-round tropical heat, and costs well below Medellín.",
     page: 'destination-coming-soon.html?name=Cartagena',
     isInternational: true,
@@ -1545,14 +1577,14 @@ const DESTINATIONS = [
     tagline: 'South America\'s most progressive capital — a 22km coastal promenade, world-class asado culture, and a stability that makes Uruguay the Switzerland of the region.',
     tags: ['22km coastal rambla', 'Most stable country in LatAm', 'Mild four seasons', 'Wine & beef culture', 'Low crime', 'Strong expat scene'],
     costPerMonth: { 0: 1500, 1: 2100, 2: 3000, 3: 4600 },
-    housing: { buy: '~$230K', buyDesc: '2BR apartment in Pocitos or Punta Carretas', rent: '~$950/mo' },
+    housing: { buy: '~$230K', buyDesc: '2BR apartment in a beachside residential neighborhood', rent: '~$950/mo' },
     compare: "South America's most underrated capital — Uruguay consistently ranks as Latin America's most stable, most democratic, and least corrupt country, with a sophisticated coastal city that punches well above its size.",
     page: 'destination-coming-soon.html?name=Montevideo',
     isInternational: true,
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-coming-soon.html?name=Montevideo',
     scoutingPage: 'scouting-trip.html',
-    weatherMatch: [2, 1],
+    weatherMatch: [1, 2],          // four seasons (primary — hot summers, cool winters), mild
     settingMatch: [0, 3],
     paceMatch: [2, 3, 1],
     geographyOptions: [2],
@@ -1571,14 +1603,14 @@ const DESTINATIONS = [
     tagline: 'Tango, Malbec, steak at midnight, and a European-style capital so large and layered that you could spend years still discovering it.',
     tags: ['Paris of South America', 'Tango culture', 'Mild four seasons', 'World-class restaurants', 'Massive arts scene', 'Very affordable right now'],
     costPerMonth: { 0: 900, 1: 1400, 2: 2000, 3: 3200 },
-    housing: { buy: 'Variable (see note)', buyDesc: 'Palermo or Belgrano 2BR apartment', rent: '~$600/mo' },
+    housing: { buy: 'Variable (see note)', buyDesc: '2BR apartment in a desirable residential neighborhood', rent: '~$600/mo' },
     compare: "South America's most culturally rich city — world-class opera, tango culture, extraordinary steakhouses and wine, and due to Argentina's economic situation, currently among the most affordable major capitals on earth for dollar-holders.",
     page: 'destination-coming-soon.html?name=Buenos%20Aires',
     isInternational: true,
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-coming-soon.html?name=Buenos%20Aires',
     scoutingPage: 'scouting-trip.html',
-    weatherMatch: [2, 1],
+    weatherMatch: [1, 2],          // four seasons (primary — hot humid summers, cool winters), mild
     settingMatch: [3],
     paceMatch: [1, 3, 2],
     geographyOptions: [2],
@@ -1597,7 +1629,7 @@ const DESTINATIONS = [
     tagline: 'Aldous Huxley called it "the most beautiful lake in the world." The three volcanoes on its shore haven\'t changed. The cost of living still hasn\'t caught up.',
     tags: ['World\'s most beautiful lake', 'Volcanic scenery', 'Mild highland climate', 'Indigenous Mayan culture', 'Artists & writers community', 'Very affordable'],
     costPerMonth: { 0: 800, 1: 1200, 2: 1800, 3: 3000 },
-    housing: { buy: '~$120K', buyDesc: '2BR home in Panajachel or San Marcos', rent: '~$500/mo' },
+    housing: { buy: '~$120K', buyDesc: '2BR home in one of the lakeside villages', rent: '~$500/mo' },
     compare: "One of the most spectacular natural settings in the Americas — a caldera lake ringed by three volcanoes, with indigenous Mayan villages, a global artistic community, and costs among the lowest on this entire list.",
     page: 'destination-coming-soon.html?name=Lake%20Atitl%C3%A1n',
     isInternational: true,
@@ -1651,7 +1683,7 @@ const DESTINATIONS = [
     tagline: 'Gaudí\'s city — where the architecture is surreal, the food is world-class, the beaches are a 20-minute walk from the Gothic Quarter, and the lifestyle simply does not exist anywhere else.',
     tags: ['World-class architecture', 'Mediterranean beach city', 'Warm year-round', 'Culinary capital', 'Walkable neighborhoods', 'Cosmopolitan'],
     costPerMonth: { 0: 2200, 1: 3000, 2: 4200, 3: 6500 },
-    housing: { buy: '~$420K', buyDesc: '2BR in Eixample or Gràcia', rent: '~$1,700/mo' },
+    housing: { buy: '~$420K', buyDesc: '2BR in a central residential neighborhood', rent: '~$1,700/mo' },
     compare: "One of Europe's most magnetic cities — Gaudí's buildings, the Boqueria market, La Barceloneta beach, and a food scene that has consistently produced Michelin stars for 30 years, at costs significantly below London or Paris.",
     page: 'destination-coming-soon.html?name=Barcelona',
     isInternational: true,
@@ -1677,7 +1709,7 @@ const DESTINATIONS = [
     tagline: '320 days of sun, a castle on the hill, palm-lined beach promenades, and a cost of living that remains among the lowest of any Mediterranean city.',
     tags: ['Costa Blanca', 'Very sunny', 'Beach & city', 'Most affordable Spanish coast', 'Large expat community', 'Good infrastructure'],
     costPerMonth: { 0: 1400, 1: 2000, 2: 2900, 3: 4400 },
-    housing: { buy: '~$200K', buyDesc: '2BR in El Centro or San Juan', rent: '~$850/mo' },
+    housing: { buy: '~$200K', buyDesc: '2BR in a central or upscale residential neighborhood', rent: '~$850/mo' },
     compare: "Spain's sunniest and most affordable Mediterranean city — more sunshine than Valencia, better beaches than Madrid, and costs roughly half of Barcelona, with a well-established British and Northern European expat scene.",
     page: 'destination-coming-soon.html?name=Alicante',
     isInternational: true,
@@ -1703,7 +1735,7 @@ const DESTINATIONS = [
     tagline: 'Arguably the most beautiful city in Europe — medieval towers, a river lined with baroque palaces, world-class opera for next to nothing, and a beer culture that\'s both serious and joyful.',
     tags: ['Most beautiful European city', 'Gothic & baroque architecture', 'Four seasons', 'World-class opera & music', 'Beer culture', 'Growing expat scene'],
     costPerMonth: { 0: 1700, 1: 2400, 2: 3400, 3: 5200 },
-    housing: { buy: '~$300K', buyDesc: '2BR in Vinohrady or Žižkov', rent: '~$1,200/mo' },
+    housing: { buy: '~$300K', buyDesc: '2BR in a central residential neighborhood', rent: '~$1,200/mo' },
     compare: "Central Europe's most spectacular city — a completely intact medieval center with Gothic towers and baroque churches, world-class opera and classical music at a fraction of Western European prices, and a thriving expat community.",
     page: 'destination-coming-soon.html?name=Prague',
     isInternational: true,
@@ -1729,14 +1761,14 @@ const DESTINATIONS = [
     tagline: 'A city split by the Danube — Buda\'s castle on one side, Pest\'s ruin bars and Art Nouveau grandeur on the other — with world-famous thermal baths in between.',
     tags: ['Grand thermal baths', 'Danube river city', 'Four seasons', 'Art Nouveau architecture', 'Ruin bar culture', 'Very affordable for Europe'],
     costPerMonth: { 0: 1400, 1: 2000, 2: 2900, 3: 4500 },
-    housing: { buy: '~$240K', buyDesc: '2BR in the 7th or 9th district', rent: '~$980/mo' },
+    housing: { buy: '~$240K', buyDesc: '2BR in a central residential district', rent: '~$980/mo' },
     compare: "Central Europe's most dramatically beautiful capital — a Danube-split city with thermal baths, Art Nouveau grandeur, an extraordinary food scene, and costs roughly half of Vienna across the border.",
     page: 'destination-coming-soon.html?name=Budapest',
     isInternational: true,
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-coming-soon.html?name=Budapest',
     scoutingPage: 'scouting-trip.html',
-    weatherMatch: [1, 2],
+    weatherMatch: [1, 3],          // four seasons (primary — cold winters -2°C avg Jan), cool/crisp
     settingMatch: [3, 1],
     paceMatch: [1, 3, 2],
     geographyOptions: [4],
@@ -1755,7 +1787,7 @@ const DESTINATIONS = [
     tagline: 'An island of eternal spring in the Atlantic — volcanic peaks, laurel forest hikes, levada walks, and a warmth that draws everyone from Churchill to modern retirees.',
     tags: ['Eternal spring climate', 'Volcanic island', 'Madeira wine', 'Levada walks', 'Atlantic island', 'Portuguese EU citizenship path'],
     costPerMonth: { 0: 1500, 1: 2100, 2: 3000, 3: 4600 },
-    housing: { buy: '~$260K', buyDesc: '2BR apartment in Monte or São Martinho', rent: '~$1,000/mo' },
+    housing: { buy: '~$260K', buyDesc: '2BR apartment in a hillside residential neighborhood', rent: '~$1,000/mo' },
     compare: "Portugal's island paradise in the Atlantic — volcanic mountains and lush laurel forests, mild temperatures year-round, and lower costs than Lisbon or Porto, with the same access to Portugal's Non-Habitual Resident tax program.",
     page: 'destination-coming-soon.html?name=Funchal',
     isInternational: true,
@@ -1781,7 +1813,7 @@ const DESTINATIONS = [
     tagline: 'Europe\'s most intact medieval market square, a royal castle, jazz clubs that run all night, and a cost of living that makes other European cities look expensive.',
     tags: ['Medieval old town', 'Royal Wawel Castle', 'Four seasons', 'Jazz & arts scene', 'Very affordable', 'University city'],
     costPerMonth: { 0: 1200, 1: 1700, 2: 2500, 3: 4000 },
-    housing: { buy: '~$180K', buyDesc: '2BR in Kazimierz or Podgórze', rent: '~$750/mo' },
+    housing: { buy: '~$180K', buyDesc: '2BR in a central or riverside neighborhood', rent: '~$750/mo' },
     compare: "Europe's most affordable medieval city — a UNESCO old town with Europe's largest medieval market square, a thriving contemporary arts scene, and costs roughly a third of Prague at comparable quality of life.",
     page: 'destination-coming-soon.html?name=Krak%C3%B3w',
     isInternational: true,
@@ -1807,7 +1839,7 @@ const DESTINATIONS = [
     tagline: 'A Silk Road city where natural wine was invented, sulphur baths have been running for 500 years, and you can stay for a full year with zero visa requirements.',
     tags: ['Natural wine birthplace', 'Sulphur baths', '360-day visa-free for Americans', 'Four seasons', 'Thriving arts scene', 'Very affordable'],
     costPerMonth: { 0: 900, 1: 1400, 2: 2000, 3: 3200 },
-    housing: { buy: '~$120K', buyDesc: '2BR apartment in Vera or Vake', rent: '~$500/mo' },
+    housing: { buy: '~$120K', buyDesc: '2BR apartment in a central or upscale neighborhood', rent: '~$500/mo' },
     compare: "One of Europe's most exciting emerging destinations — Americans can stay 365 days a year with no visa, Georgia invented natural wine 8,000 years ago, and the cost of living rivals Southeast Asia at roughly a third of Western European prices.",
     page: 'destination-coming-soon.html?name=Tbilisi',
     isInternational: true,
@@ -1885,7 +1917,7 @@ const DESTINATIONS = [
     tagline: 'Europe\'s greenest capital — a car-free medieval center, a castle on the hill, the Julian Alps an hour away, and an outdoor culture that puts the rest of Europe to shame.',
     tags: ['Car-free old town', 'Green capital of Europe', 'Four seasons', 'Julian Alps access', 'Growing arts scene', 'Safe & walkable'],
     costPerMonth: { 0: 1600, 1: 2200, 2: 3100, 3: 4800 },
-    housing: { buy: '~$260K', buyDesc: '2BR in the city center or Šiška', rent: '~$1,050/mo' },
+    housing: { buy: '~$260K', buyDesc: '2BR in the city center or a residential neighborhood', rent: '~$1,050/mo' },
     compare: "One of Europe's most livable capitals — a car-free medieval center, Europe's greenest city credentials, Lake Bled and the Triglav mountains an hour away, and costs well below neighboring Austria or Italy.",
     page: 'destination-coming-soon.html?name=Ljubljana',
     isInternational: true,
@@ -1937,7 +1969,7 @@ const DESTINATIONS = [
     tagline: 'Italy at half the price of Tuscany — medieval hill villages, Apennine ski slopes, Adriatic beaches, and some of Italy\'s least-discovered wine country.',
     tags: ['Medieval hill villages', 'Mountains & beaches', 'Italy\'s best kept secret', 'Very affordable for Italy', 'Outdoor lifestyle', 'Authentic Italian life'],
     costPerMonth: { 0: 1400, 1: 2000, 2: 2900, 3: 4500 },
-    housing: { buy: '~$140K', buyDesc: 'Renovated 2BR in Pescara or Chieti', rent: '~$650/mo' },
+    housing: { buy: '~$140K', buyDesc: 'Renovated 2BR in a coastal or hilltop town', rent: '~$650/mo' },
     compare: "Italy's most affordable region — medieval hill towns, ski slopes in the Apennines, Adriatic beaches within 45 minutes, and costs roughly half of Tuscany or Rome, with some of the best pasta you've never heard of.",
     page: 'destination-coming-soon.html?name=Abruzzo',
     isInternational: true,
@@ -1991,7 +2023,7 @@ const DESTINATIONS = [
     tagline: 'A world-class cosmopolitan city with the cost of a small one — Petronas Towers, incredible street food, English-speaking, and the Malaysia My Second Home visa literally built for retirees.',
     tags: ['Modern Asian metropolis', 'English widely spoken', 'MM2H visa for retirees', 'World-class food', 'Excellent healthcare', 'Tropical'],
     costPerMonth: { 0: 1100, 1: 1700, 2: 2500, 3: 4000 },
-    housing: { buy: '~$150K', buyDesc: '2BR condo in Mont Kiara or Bangsar', rent: '~$650/mo' },
+    housing: { buy: '~$150K', buyDesc: '2BR condo in a popular expat neighborhood', rent: '~$650/mo' },
     compare: "Asia's most underrated major city for retirees — English is widely spoken, the Malaysia My Second Home program is specifically designed for long-term retirement stays, and the food scene (Malay, Chinese, Indian, and fusion) rivals any city in the world.",
     page: 'destination-coming-soon.html?name=Kuala%20Lumpur',
     isInternational: true,
@@ -2017,14 +2049,14 @@ const DESTINATIONS = [
     tagline: 'Asia\'s most livable city — extraordinary night markets, mountain hiking from the city center, world-class public transit, and a safety record that makes it one of the most comfortable cities on earth.',
     tags: ['Safest major Asian city', 'Night market culture', 'Mountain access from city', 'Excellent public transit', 'World-class healthcare', 'Subtropical climate'],
     costPerMonth: { 0: 1200, 1: 1800, 2: 2600, 3: 4100 },
-    housing: { buy: '~$280K', buyDesc: '2BR apartment in Da\'an or Xinyi', rent: '~$1,100/mo' },
+    housing: { buy: '~$280K', buyDesc: '2BR apartment in a central upscale district', rent: '~$1,100/mo' },
     compare: "Consistently ranked Asia's most livable city — extraordinary safety record, world-class healthcare, night markets that would take months to fully explore, and hiking trails that begin at MRT stations.",
     page: 'destination-coming-soon.html?name=Taipei',
     isInternational: true,
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-coming-soon.html?name=Taipei',
     scoutingPage: 'scouting-trip.html',
-    weatherMatch: [0, 2],
+    weatherMatch: [2, 0],          // mild/temperate (primary — cool winters ~15°C), warm humid summers
     settingMatch: [3, 2],
     paceMatch: [1, 3, 0],
     geographyOptions: [6],
@@ -2069,7 +2101,7 @@ const DESTINATIONS = [
     tagline: 'A Dutch colonial fort city on the southern tip of Sri Lanka — boutique hotels in 400-year-old buildings, whale-watching season, and an island that feels genuinely undiscovered.',
     tags: ['Dutch colonial fort', 'Indian Ocean coast', 'Warm year-round', 'Emerging expat scene', 'Whale watching', 'Very affordable'],
     costPerMonth: { 0: 700, 1: 1100, 2: 1700, 3: 2800 },
-    housing: { buy: '~$130K', buyDesc: '2BR home near Unawatuna', rent: '~$450/mo' },
+    housing: { buy: '~$130K', buyDesc: '2BR home near a popular beach town', rent: '~$450/mo' },
     compare: "Sri Lanka's most atmospheric coastal city — a UNESCO Dutch fort town on the Indian Ocean, with some of the world's best whale-watching just offshore and costs among the lowest of any destination in this list.",
     page: 'destination-coming-soon.html?name=Galle',
     isInternational: true,
@@ -2095,7 +2127,7 @@ const DESTINATIONS = [
     tagline: 'The Philippines\' most livable city — English spoken everywhere, some of the clearest diving water in Asia, a Special Retiree\'s Resident Visa, and an island-hopping scene you\'d pay thousands to visit on vacation.',
     tags: ['English official language', 'SRRV visa for retirees', 'Island hopping', 'World-class diving', 'Warm year-round', 'Very affordable'],
     costPerMonth: { 0: 900, 1: 1400, 2: 2000, 3: 3200 },
-    housing: { buy: '~$130K', buyDesc: '2BR condo in Lahug or Mandaue', rent: '~$500/mo' },
+    housing: { buy: '~$130K', buyDesc: '2BR condo in a central residential area', rent: '~$500/mo' },
     compare: "The Philippines' most established expat city — English is an official language, the SRRV retirement visa is one of Asia's most generous, and the Visayas island chain surrounding Cebu is world-class diving and island-hopping territory.",
     page: 'destination-coming-soon.html?name=Cebu',
     isInternational: true,
@@ -2201,7 +2233,7 @@ const DESTINATIONS = [
     tagline: 'Australia\'s festival city and wine capital — McLaren Vale and the Barossa Valley on your doorstep, beaches twenty minutes from downtown, and costs well below Sydney or Melbourne.',
     tags: ['Festival city', 'Barossa & McLaren Vale wine', 'Beach access', 'Most affordable major Australian city', 'Walkable city', 'World-class food scene'],
     costPerMonth: { 0: 2800, 1: 3700, 2: 4900, 3: 7000 },
-    housing: { buy: '~$540K', buyDesc: '2BR home in Glenelg or North Adelaide', rent: '~$2,100/mo' },
+    housing: { buy: '~$540K', buyDesc: '2BR home in a beachside suburb or central neighborhood', rent: '~$2,100/mo' },
     compare: "Australia's most underrated city — the Barossa Valley and McLaren Vale wine regions within an hour, Glenelg beach twenty minutes from the CBD, and costs roughly 20–30% below Sydney or Melbourne.",
     page: 'destination-coming-soon.html?name=Adelaide',
     isInternational: true,
@@ -2227,7 +2259,7 @@ const DESTINATIONS = [
     tagline: 'A compact harbour city at the edge of the world — MONA museum, Salamanca market, Mount Wellington hiking from the city, and a cool-climate creativity that gives Hobart a personality entirely its own.',
     tags: ['MONA museum & arts', 'Cool mountain backdrop', 'Salamanca Market', 'Harbour city', 'Affordable for Australia', 'Emerging food scene'],
     costPerMonth: { 0: 2400, 1: 3200, 2: 4200, 3: 6200 },
-    housing: { buy: '~$480K', buyDesc: '2BR home in Battery Point or Sandy Bay', rent: '~$1,900/mo' },
+    housing: { buy: '~$480K', buyDesc: '2BR home in a historic or waterfront neighborhood', rent: '~$1,900/mo' },
     compare: "Australia's most surprising city — home to MONA, one of the world's most talked-about art museums, a legendary Saturday market, direct trailhead access to wilderness from the city centre, and costs well below the mainland capitals.",
     page: 'destination-coming-soon.html?name=Hobart',
     isInternational: true,
@@ -2253,7 +2285,7 @@ const DESTINATIONS = [
     tagline: 'The Great Barrier Reef on one side, the Daintree Rainforest on the other — Cairns sits between two of the world\'s great natural wonders, and somehow still feels unhurried.',
     tags: ['Great Barrier Reef access', 'Daintree Rainforest', 'Tropical year-round', 'Outdoor adventure hub', 'Relaxed pace', 'Affordable for Queensland'],
     costPerMonth: { 0: 2400, 1: 3200, 2: 4200, 3: 6000 },
-    housing: { buy: '~$420K', buyDesc: '2BR home in Edge Hill or Whitfield', rent: '~$1,700/mo' },
+    housing: { buy: '~$420K', buyDesc: '2BR home in a quiet residential suburb', rent: '~$1,700/mo' },
     compare: "One of the world's great natural access points — 30 minutes from the Great Barrier Reef, 45 minutes from the Daintree, the world's oldest living rainforest, and a genuinely tropical pace of life at costs well below the Gold Coast.",
     page: 'destination-coming-soon.html?name=Cairns',
     isInternational: true,
@@ -2279,7 +2311,7 @@ const DESTINATIONS = [
     tagline: 'Queensland\'s most livable stretch of coast — Noosa\'s national park walks, patrolled surf beaches, a genuine food culture, and an hour from Brisbane when city life calls.',
     tags: ['Noosa National Park', 'Patrolled surf beaches', 'Warm year-round', 'Hinterland villages', 'Good food scene', 'Affordable for Queensland coast'],
     costPerMonth: { 0: 2600, 1: 3500, 2: 4600, 3: 6800 },
-    housing: { buy: '~$600K', buyDesc: '2BR home in Buderim or Maroochydore', rent: '~$2,300/mo' },
+    housing: { buy: '~$600K', buyDesc: '2BR home in a hinterland village or coastal suburb', rent: '~$2,300/mo' },
     compare: "Queensland coast living without Gold Coast prices — Noosa Heads National Park walks, excellent surf beaches, a thriving food scene from Montville to Noosaville, and an easy hour's drive to Brisbane.",
     page: 'destination-coming-soon.html?name=Sunshine%20Coast',
     isInternational: true,
@@ -2305,7 +2337,7 @@ const DESTINATIONS = [
     tagline: 'The adventure capital of the world — bungee jumping, ski fields, lake cruises, and fjords within reach, in a setting so dramatic it still doesn\'t look quite real.',
     tags: ['Adventure capital of the world', 'Ski & snow in winter', 'Lake & mountain setting', 'Four seasons', 'Outdoor lifestyle', 'Tourism infrastructure'],
     costPerMonth: { 0: 3200, 1: 4300, 2: 5600, 3: 8000 },
-    housing: { buy: '~$780K', buyDesc: '2BR home or apartment in Frankton', rent: '~$2,800/mo' },
+    housing: { buy: '~$780K', buyDesc: '2BR home or apartment in a lakeside suburb', rent: '~$2,800/mo' },
     compare: "New Zealand's most dramatic setting — The Remarkables mountain range, Lake Wakatipu, and Fiordland National Park within reach, in a town built around outdoor adventure across every season.",
     page: 'destination-coming-soon.html?name=Queenstown',
     isInternational: true,
@@ -2331,7 +2363,7 @@ const DESTINATIONS = [
     tagline: 'New Zealand\'s sunniest and fastest-growing retirement city — a harbour, Mount Maunganui\'s surf beach, kiwifruit country, and a warm community that keeps drawing Kiwis back from Auckland.',
     tags: ['Sunniest NZ city', 'Mount Maunganui beach', 'Harbour lifestyle', 'Warm year-round for NZ', 'Growing expat & retiree community', 'English-speaking'],
     costPerMonth: { 0: 2600, 1: 3500, 2: 4600, 3: 6600 },
-    housing: { buy: '~$560K', buyDesc: '2BR home in Papamoa or Mount Maunganui', rent: '~$2,100/mo' },
+    housing: { buy: '~$560K', buyDesc: '2BR home in a beachside suburb', rent: '~$2,100/mo' },
     compare: "New Zealand's fastest-growing retirement destination — the sunniest city in the country, a world-class surf beach at Mount Maunganui, and a harbour city that consistently attracts New Zealanders seeking a warmer, more relaxed pace.",
     page: 'destination-coming-soon.html?name=Tauranga',
     isInternational: true,
@@ -2385,7 +2417,7 @@ const DESTINATIONS = [
     tagline: 'The crown jewel of the French Riviera — Belle Époque promenades, Mediterranean beaches, and a climate so perfect the British aristocracy named a road after their habit of walking in it.',
     tags: ['French Riviera', 'Mediterranean beach city', 'Warm & sunny', 'Art museums', 'Easy travel hub', 'Strong expat scene'],
     costPerMonth: { 0: 2200, 1: 3200, 2: 4500, 3: 6800 },
-    housing: { buy: '~$380K', buyDesc: '2BR apartment in Cimiez or Nice Centre', rent: '~$1,600/mo' },
+    housing: { buy: '~$380K', buyDesc: '2BR apartment in a central or hilltop neighborhood', rent: '~$1,600/mo' },
     compare: "The Mediterranean at its most glamorous — Nice sits between Monaco and Cannes with its own world-class art scene (Matisse and Chagall museums), a famous open-air market on the Cours Saleya, and more sunshine than almost anywhere in France.",
     page: 'destination-detail.html?id=nice',
     isInternational: true,
@@ -2411,7 +2443,7 @@ const DESTINATIONS = [
     tagline: 'The world\'s wine capital remade itself into one of France\'s most livable cities — grand 18th-century limestone architecture, the Garonne River, and 300 wine châteaux within an hour\'s drive.',
     tags: ['Wine capital of the world', 'UNESCO 18th-century city', 'Mild year-round', 'World-class cuisine', 'River city', 'Walkable'],
     costPerMonth: { 0: 2000, 1: 2800, 2: 4000, 3: 6000 },
-    housing: { buy: '~$340K', buyDesc: '2BR apartment in Chartrons or Saint-Michel', rent: '~$1,400/mo' },
+    housing: { buy: '~$340K', buyDesc: '2BR apartment in a central riverside neighborhood', rent: '~$1,400/mo' },
     compare: "France's most transformed city — once dismissed as 'sleeping beauty,' Bordeaux is now ranked among Europe's most livable cities, with an entire UNESCO-listed 18th-century waterfront, a wine culture that draws visitors from every continent, and direct TGV connections to Paris in 2 hours.",
     page: 'destination-detail.html?id=bordeaux',
     isInternational: true,
@@ -2437,7 +2469,7 @@ const DESTINATIONS = [
     tagline: 'Southern France\'s sunniest city — 300 days of sunshine, a 30-minute tram to the Mediterranean, one of Europe\'s oldest universities, and costs a third below Paris.',
     tags: ['Southern sunshine', 'Near Mediterranean beaches', 'University city', 'Affordable for France', 'Excellent healthcare', 'Walkable'],
     costPerMonth: { 0: 1900, 1: 2700, 2: 3800, 3: 5800 },
-    housing: { buy: '~$290K', buyDesc: '2BR apartment in Antigone or Écusson', rent: '~$1,300/mo' },
+    housing: { buy: '~$290K', buyDesc: '2BR apartment in a central neighborhood', rent: '~$1,300/mo' },
     compare: "France's most overlooked southern city — more sunshine than Nice at lower costs, beach access in under 30 minutes via tram, and one of Europe's oldest medical faculties ensuring healthcare standards remain world-class.",
     page: 'destination-detail.html?id=montpellier',
     isInternational: true,
@@ -2493,7 +2525,7 @@ const DESTINATIONS = [
     tagline: 'Italy\'s heel — Baroque cities of honey-gold stone, trulli houses in the Valle d\'Itria, two coastlines, masseria farmhouse living, and the most affordable corner of the Bel Paese.',
     tags: ['Baroque Lecce & Ostuni', 'Two coastlines', 'Trulli houses', 'Very affordable for Italy', 'Olive oil & wine culture', 'Emerging expat scene'],
     costPerMonth: { 0: 1600, 1: 2200, 2: 3100, 3: 4800 },
-    housing: { buy: '~$180K', buyDesc: '2BR apartment in Lecce or Ostuni', rent: '~$750/mo' },
+    housing: { buy: '~$180K', buyDesc: '2BR apartment in a hilltop or coastal town', rent: '~$750/mo' },
     compare: "Italy's most underrated region — two coastlines (Adriatic and Ionian), Baroque Lecce carved from golden limestone called the 'Florence of the South,' trulli stone houses unique to this region, and costs roughly 40% below Tuscany.",
     page: 'destination-detail.html?id=puglia',
     isInternational: true,
@@ -2519,7 +2551,7 @@ const DESTINATIONS = [
     tagline: 'The Mediterranean\'s largest island — Greek temples, Baroque towns rebuilt after volcanic earthquakes, Mount Etna visible from the coast, and the lowest cost of living in all of Italy.',
     tags: ['Greek & Baroque heritage', 'Mediterranean island', 'Warm year-round', 'Italy\'s most affordable region', 'Mount Etna', 'World-class cuisine'],
     costPerMonth: { 0: 1500, 1: 2100, 2: 3000, 3: 4600 },
-    housing: { buy: '~$150K', buyDesc: '2BR apartment in Catania or Siracusa', rent: '~$650/mo' },
+    housing: { buy: '~$150K', buyDesc: '2BR apartment in a coastal city', rent: '~$650/mo' },
     compare: "Italy at its most ancient and most affordable — Greek temples in Agrigento older than the Colosseum, Baroque Noto and Ragusa, Mount Etna as a constant backdrop, and costs well below the Italian mainland.",
     page: 'destination-detail.html?id=sicily',
     isInternational: true,
@@ -2575,7 +2607,7 @@ const DESTINATIONS = [
     tagline: 'Andalusia\'s passionate capital — flamenco, tapas culture, orange-blossom streets, and 300 days of sun in Spain\'s most exuberant and genuinely beautiful city.',
     tags: ['Flamenco capital', 'Warm & sunny', 'Tapas culture', 'Gothic cathedral', 'Walkable', 'Affordable for Spain'],
     costPerMonth: { 0: 1800, 1: 2500, 2: 3500, 3: 5200 },
-    housing: { buy: '~$250K', buyDesc: '2BR apartment in Triana or Macarena', rent: '~$1,000/mo' },
+    housing: { buy: '~$250K', buyDesc: '2BR apartment in a historic or riverside neighborhood', rent: '~$1,000/mo' },
     compare: "Spain's most characterful city — flamenco in the tablaos, orange trees lining every street, a Gothic cathedral with the world's largest nave, and costs well below Madrid or Barcelona, with Portugal's Algarve two hours away.",
     page: 'destination-detail.html?id=seville',
     isInternational: true,
@@ -2601,14 +2633,14 @@ const DESTINATIONS = [
     tagline: 'The Alhambra palace rises above a city where Moorish culture, university energy, and free tapas with every drink create a quality of life that laughs at its own price tag.',
     tags: ['Alhambra palace', 'Sierra Nevada skiing nearby', 'Free tapas culture', 'University city', 'Very affordable', 'Moorish heritage'],
     costPerMonth: { 0: 1700, 1: 2300, 2: 3200, 3: 4800 },
-    housing: { buy: '~$220K', buyDesc: '2BR apartment in Albaicín or Realejo', rent: '~$900/mo' },
+    housing: { buy: '~$220K', buyDesc: '2BR apartment in a historic hilltop neighborhood', rent: '~$900/mo' },
     compare: "Spain at its most affordable and most beautiful — the Alhambra is one of the world's great buildings, Sierra Nevada skiing starts 45 minutes away, and Granada is the last Spanish city where every drink still comes with a free tapa by tradition.",
     page: 'destination-detail.html?id=granada',
     isInternational: true,
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?id=granada',
     scoutingPage: 'scouting-trip.html',
-    weatherMatch: [0, 1],
+    weatherMatch: [1, 0],          // four seasons (primary — hot summers 40°C+, cold winters at 738m), warm
     settingMatch: [3, 2, 4],
     paceMatch: [1, 2, 3],
     geographyOptions: [4],
@@ -2688,7 +2720,7 @@ const DESTINATIONS = [
     advisorPage: 'advisor-domestic.html',
     browseHomesPage: 'browse-homes-domestic.html',
     scoutingPage: 'scouting-trip.html',
-    weatherMatch: [1, 2],
+    weatherMatch: [1, 3],          // four seasons (primary — cold winters at 5,400ft), cool/crisp
     settingMatch: [2, 4],
     paceMatch: [0, 2, 3],
     geographyOptions: [0],
@@ -2714,7 +2746,7 @@ const DESTINATIONS = [
     advisorPage: 'advisor-domestic.html',
     browseHomesPage: 'browse-homes-domestic.html',
     scoutingPage: 'scouting-trip.html',
-    weatherMatch: [0, 2],
+    weatherMatch: [1, 2],          // four seasons (primary — cold winters, hot humid summers), mild
     settingMatch: [0, 3, 4],
     paceMatch: [2, 1, 3],
     geographyOptions: [0],
@@ -2733,7 +2765,7 @@ const DESTINATIONS = [
     tagline: 'Utah\'s sun belt — red rock canyon country with 300 days of sunshine, Zion National Park 45 minutes away, and consistently the fastest-growing retirement city in America.',
     tags: ['Red rock desert', '300 days of sunshine', 'Zion National Park nearby', 'Golf mecca', 'Fastest-growing retirement city in US', 'English-speaking'],
     costPerMonth: { 0: 2400, 1: 3200, 2: 4200, 3: 6200 },
-    housing: { buy: '~$480K', buyDesc: '2BR home in Dixie Downs or Stone Cliff', rent: '~$1,900/mo' },
+    housing: { buy: '~$480K', buyDesc: '2BR home in a quiet residential neighborhood', rent: '~$1,900/mo' },
     compare: "America's fastest-growing retirement destination — Zion and Bryce Canyon within an hour, more sunshine than Phoenix, world-class golf courses set against dramatic red rock, and a desert landscape that makes every drive feel cinematic.",
     page: 'destination-detail.html?id=st-george-ut',
     isInternational: false,
@@ -2761,7 +2793,7 @@ const DESTINATIONS = [
     tagline: 'The Pitons rise from the sea like twin volcanic cathedrals — St. Lucia\'s twin UNESCO peaks, black sand beaches, rainforest hiking, and an English-speaking island that is somehow still underpriced for how beautiful it is.',
     tags: ['UNESCO Piton peaks', 'Volcanic beaches', 'English-speaking', 'Tropical rainforest', 'Warm year-round', 'Growing expat community'],
     costPerMonth: { 0: 1800, 1: 2600, 2: 3800, 3: 5800 },
-    housing: { buy: '~$280K', buyDesc: '2BR home near Rodney Bay or Cap Estate', rent: '~$1,200/mo' },
+    housing: { buy: '~$280K', buyDesc: '2BR home near the main marina or hillside resort area', rent: '~$1,200/mo' },
     compare: "One of the Caribbean's most dramatically beautiful islands — the twin Piton peaks are among the world's most photographed natural landmarks, the volcanic spa baths are unique to the region, and the cost of living runs meaningfully below Barbados.",
     page: 'destination-detail.html?id=st-lucia',
     isInternational: true,
@@ -2787,7 +2819,7 @@ const DESTINATIONS = [
     tagline: '365 beaches — one for every day of the year — with English as the first language, zero income tax, and a sailing culture so serious it hosts the Caribbean\'s premier regatta every April.',
     tags: ['365 beaches', 'English-speaking', 'Zero income tax', 'Sailing capital of Caribbean', 'Historic Nelson\'s Dockyard', 'Good infrastructure'],
     costPerMonth: { 0: 2200, 1: 3000, 2: 4200, 3: 6500 },
-    housing: { buy: '~$320K', buyDesc: '2BR home near Jolly Harbour or Falmouth', rent: '~$1,400/mo' },
+    housing: { buy: '~$320K', buyDesc: '2BR home near a marina or beachside village', rent: '~$1,400/mo' },
     compare: "The Caribbean's sailing capital — English Harbour's Georgian dockyard is a UNESCO site where tall ships still race each April, 365 beaches ring the island, and no income tax, capital gains tax, or inheritance tax makes it one of the region's most financially attractive options.",
     page: 'destination-detail.html?id=antigua',
     isInternational: true,
@@ -2841,7 +2873,7 @@ const DESTINATIONS = [
     tagline: 'Mexico\'s most authentic Pacific city — a magnificently restored historic district, 21km of beach, a world-class malecón, and Pacific coast prices at a fraction of Los Cabos.',
     tags: ['Pacific coast', 'Restored Old Town', '21km beach', 'Malecón boardwalk', 'Large established expat community', 'Very affordable'],
     costPerMonth: { 0: 1300, 1: 1900, 2: 2700, 3: 4200 },
-    housing: { buy: '~$220K', buyDesc: '2BR condo in Zona Dorada or Olas Altas', rent: '~$900/mo' },
+    housing: { buy: '~$220K', buyDesc: '2BR condo in the beach zone or old town', rent: '~$900/mo' },
     compare: "The Pacific coast's most livable city — a UNESCO-recognized historic center that rivals San Miguel's architecture, 21km of beach, and Mexico's best value for Pacific ocean retirement living.",
     page: 'destination-detail.html?id=mazatlan',
     isInternational: true,
@@ -2867,7 +2899,7 @@ const DESTINATIONS = [
     tagline: 'Mexico\'s second city and cultural heart — tequila, mariachi, and lucha libre were all born here, and a highland spring climate and world-class hospitals make it Mexico\'s medical tourism capital.',
     tags: ['Mexico\'s cultural capital', 'Highland spring climate', 'Medical tourism hub', 'Tequila & mariachi birthplace', 'Large expat scene', 'Modern infrastructure'],
     costPerMonth: { 0: 1400, 1: 2000, 2: 2900, 3: 4500 },
-    housing: { buy: '~$240K', buyDesc: '2BR apartment in Zapopan or Providencia', rent: '~$950/mo' },
+    housing: { buy: '~$240K', buyDesc: '2BR apartment in an upscale suburb or central neighborhood', rent: '~$950/mo' },
     compare: "Mexico's cultural capital — the country's top medical tourism destination, a thriving arts and tech scene, gateway to Lake Chapala and Ajijic 45 minutes away, and a highland spring climate that makes year-round outdoor living easy.",
     page: 'destination-detail.html?id=guadalajara',
     isInternational: true,
@@ -2895,7 +2927,7 @@ const DESTINATIONS = [
     tagline: 'Thailand\'s island legend — limestone karsts jutting from turquoise Andaman water, the world\'s most recognized tropical scenery, and a resort lifestyle that can be as simple or as lavish as you want.',
     tags: ['Andaman Sea beaches', 'Limestone karst scenery', 'World-class diving', 'Strong expat infrastructure', 'Warm year-round', 'All price ranges'],
     costPerMonth: { 0: 1200, 1: 1900, 2: 2800, 3: 4500 },
-    housing: { buy: 'Lease only', buyDesc: 'Villa or condo lease in Rawai or Nai Harn', rent: '~$800/mo' },
+    housing: { buy: 'Lease only', buyDesc: 'Villa or condo lease in a quieter beach area', rent: '~$800/mo' },
     compare: "Thailand's most famous retirement island — the Andaman's limestone karsts are among the world's most recognizable landscapes, Phuket's expat infrastructure spans every budget from backpacker to resort, and private hospitals are world-class.",
     page: 'destination-detail.html?id=phuket',
     isInternational: true,
@@ -2921,7 +2953,7 @@ const DESTINATIONS = [
     tagline: 'The city that reinvented itself — French colonial boulevards, street food that challenges all assumptions about what a meal can cost, a speed and energy that feels unmistakably alive, and costs that rewrite what comfortable living needs.',
     tags: ['French colonial heritage', 'Street food paradise', 'Tropical', 'Growing expat scene', 'Very affordable', 'Modern & fast-moving city'],
     costPerMonth: { 0: 1000, 1: 1500, 2: 2200, 3: 3600 },
-    housing: { buy: 'Restricted for foreigners', buyDesc: 'Long-term apartment in District 2 or Thảo Điền', rent: '~$550/mo' },
+    housing: { buy: 'Restricted for foreigners', buyDesc: 'Long-term apartment in the expat district', rent: '~$550/mo' },
     compare: "Vietnam's most cosmopolitan city — French boulevards lined with coffee shops, a food scene of extraordinary depth, one of the most affordable major cities in Asia, and a pace of reinvention that makes it feel like a city in permanent creative bloom.",
     page: 'destination-detail.html?id=ho-chi-minh-city',
     isInternational: true,
@@ -2949,7 +2981,7 @@ const DESTINATIONS = [
     tagline: 'Australia\'s cultural capital — legendary coffee, hidden laneway bars, world-class galleries, a food scene that tops global rankings, and a European soul transplanted to the Southern Hemisphere.',
     tags: ['Cultural capital of Australia', 'World-class food & coffee', 'Four seasons', 'Arts & gallery scene', 'Walkable neighborhoods', 'Excellent healthcare'],
     costPerMonth: { 0: 3500, 1: 4700, 2: 6200, 3: 9000 },
-    housing: { buy: '~$680K', buyDesc: '2BR apartment in Fitzroy or St Kilda', rent: '~$2,700/mo' },
+    housing: { buy: '~$680K', buyDesc: '2BR apartment in a trendy inner-city neighborhood', rent: '~$2,700/mo' },
     compare: "Australia's cultural and culinary capital — consistently ranked one of the world's most livable cities, with the Yarra River walkways, the National Gallery of Victoria, and a coffee and food culture that Sydney is quietly envious of.",
     page: 'destination-detail.html?id=melbourne',
     isInternational: true,
@@ -2975,7 +3007,7 @@ const DESTINATIONS = [
     tagline: 'The world\'s most isolated major city — and because of that isolation, one of its most self-sufficient, with 3,000 hours of sunshine, Indian Ocean beaches, the Swan Valley wine region, and an outdoor quality of life that consistently polls as Australia\'s happiest.',
     tags: ['Most sunshine in Australia', 'Indian Ocean beaches', 'Margaret River wine region', 'Outdoor lifestyle', 'Clean & safe', 'English-speaking'],
     costPerMonth: { 0: 3000, 1: 4000, 2: 5300, 3: 7800 },
-    housing: { buy: '~$580K', buyDesc: '2BR home in Cottesloe or Fremantle', rent: '~$2,300/mo' },
+    housing: { buy: '~$580K', buyDesc: '2BR home in a beachside suburb', rent: '~$2,300/mo' },
     compare: "Western Australia's sun-drenched capital — more sunshine hours than Sydney or Melbourne, Indian Ocean beaches 20 minutes from the CBD, Margaret River wine and surf country 3 hours south, and a lifestyle that consistently surveys as Australia's happiest.",
     page: 'destination-detail.html?id=perth',
     isInternational: true,
@@ -3001,7 +3033,7 @@ const DESTINATIONS = [
     tagline: 'The garden city rebuilt — Christchurch\'s remarkable post-earthquake reinvention created one of the Southern Hemisphere\'s most thoughtfully designed cities, with Canterbury Plains, ski fields, and the Akaroa peninsula within an hour.',
     tags: ['Garden city', 'Post-earthquake renewal', 'Flat & bikeable', 'Canterbury wine country', 'Southern Alps access', 'English-speaking'],
     costPerMonth: { 0: 2600, 1: 3500, 2: 4600, 3: 6600 },
-    housing: { buy: '~$520K', buyDesc: '2BR home in Merivale or St Albans', rent: '~$2,000/mo' },
+    housing: { buy: '~$520K', buyDesc: '2BR home in a central or garden neighborhood', rent: '~$2,000/mo' },
     compare: "New Zealand's most surprisingly livable city — Christchurch's post-earthquake rebuild created a city that blends heritage charm with world-class urban design, with Akaroa's French-heritage harbor 90 minutes south and ski fields an hour away.",
     page: 'destination-detail.html?id=christchurch-nz',
     isInternational: true,
@@ -3029,7 +3061,7 @@ const DESTINATIONS = [
     tagline: 'The world\'s most romanticized island — terraced rice paddies, Hindu temple smoke, Ubud\'s art galleries and healing culture, and a way of life so distinctive it makes everywhere else feel a little ordinary.',
     tags: ['Iconic rice terraces', 'Hindu spiritual culture', 'World-class yoga & wellness', 'Warm year-round', 'Strong expat community', 'All budgets'],
     costPerMonth: { 0: 1200, 1: 1800, 2: 2600, 3: 4200 },
-    housing: { buy: 'Leasehold only', buyDesc: '25–30 year villa lease in Canggu or Ubud', rent: '~$600/mo' },
+    housing: { buy: 'Leasehold only', buyDesc: '25–30 year villa lease in a beach or cultural village', rent: '~$600/mo' },
     compare: "One of the world's great retirement destinations — Ubud's rice paddy views and world-class wellness retreats, Canggu's beach club culture and digital-nomad energy, and Seminyak's upscale restaurant scene, all at costs that run a fraction of comparable lifestyle destinations.",
     page: 'destination-coming-soon.html?name=Bali',
     isInternational: true,
@@ -3057,7 +3089,7 @@ const DESTINATIONS = [
     tagline: 'Japan\'s most livable city — a compact waterfront, Hakata ramen that people fly in for, a hot spring an hour away, and the most relaxed pace of any major Japanese city, without the crowds of Tokyo or Kyoto.',
     tags: ['Japan\'s most livable city', 'World-famous ramen', 'Compact & walkable', 'Warm climate for Japan', 'Gateway to Korea & China', 'Note: Japan has no retirement visa'],
     costPerMonth: { 0: 1800, 1: 2800, 2: 4000, 3: 6200 },
-    housing: { buy: '~$280K', buyDesc: '2BR apartment in Chuo or Hakata district', rent: '~$900/mo' },
+    housing: { buy: '~$280K', buyDesc: '2BR apartment in a central city district', rent: '~$900/mo' },
     compare: "Japan's most approachable major city — smaller and warmer than Tokyo, more international than Kyoto, with a waterfront food scene centered on Hakata ramen, access to Beppu's famous hot springs by train, and ferry connections to South Korea. Note: Japan currently has no straightforward long-term retirement visa — most expats use long-stay tourist entries, a spouse visa, or a cultural/language visa.",
     page: 'destination-coming-soon.html?name=Fukuoka',
     isInternational: true,
@@ -3085,7 +3117,7 @@ const DESTINATIONS = [
     tagline: 'The Red City — ancient medina lanes, riads with courtyard fountains, the Atlas Mountains on the horizon, and a sensory richness that rewards slow living more than anywhere in the Mediterranean world.',
     tags: ['Ancient medina & souks', 'Riad courtyard lifestyle', 'Atlas Mountains views', 'Warm & sunny year-round', 'Growing expat community', 'Foreigners can buy property'],
     costPerMonth: { 0: 1200, 1: 1800, 2: 2800, 3: 4500 },
-    housing: { buy: '~$140K', buyDesc: 'Restored riad in the medina or villa in Palmeraie', rent: '~$700/mo' },
+    housing: { buy: '~$140K', buyDesc: 'Restored traditional home in the old city or a palm grove villa', rent: '~$700/mo' },
     compare: "Africa's most celebrated expat destination — a UNESCO-listed medina where 1,000-year-old architecture meets a thriving arts scene, the Atlas Mountains an hour away for skiing or trekking, and a cost of living that runs well below comparable Mediterranean cities.",
     page: 'destination-coming-soon.html?name=Marrakech',
     isInternational: true,
@@ -3111,7 +3143,7 @@ const DESTINATIONS = [
     tagline: 'One of the world\'s most dramatically beautiful cities — Table Mountain above, the Atlantic and False Bay below, world-class wine country forty minutes away, and an English-speaking culture that makes it immediately livable.',
     tags: ['Table Mountain', 'Atlantic & False Bay beaches', 'English-speaking', 'Winelands nearby', 'Mediterranean climate', 'South Africa Retired Person Permit'],
     costPerMonth: { 0: 1400, 1: 2000, 2: 3000, 3: 5000 },
-    housing: { buy: '~$220K', buyDesc: '2BR home in Sea Point, Tamboerskloof, or Camps Bay', rent: '~$900/mo' },
+    housing: { buy: '~$220K', buyDesc: '2BR home in a coastal or hillside neighborhood', rent: '~$900/mo' },
     compare: "One of the world's truly great cities — Table Mountain as your permanent backdrop, a Mediterranean wine region (Stellenbosch and Franschhoek) 40 minutes away, world-class beaches on both the Atlantic and False Bay sides, and an English-speaking city where the cost of living runs well below comparable lifestyle cities in Europe or the US. Note: like any major city, Cape Town warrants thoughtful neighbourhood selection for security.",
     page: 'destination-coming-soon.html?name=Cape%20Town',
     isInternational: true,
@@ -3124,6 +3156,407 @@ const DESTINATIONS = [
     geographyOptions: [7],            // Africa
     lifestyleMatch: [0, 1, 2],
     priorityMatch: [0, 5, 4, 2],     // adventure, culture/arts, health, peace
+  },
+
+  {
+    id: 'accra',
+    name: 'Accra',
+    country: 'Ghana',
+    region: 'Greater Accra, Ghana',
+    flag: '🇬🇭',
+    photo: 'images/accra.jpg',
+    photoCap: 'Labadi Beach and the Atlantic coast, Accra',
+    tagline: 'West Africa\'s most livable capital — English-speaking, politically stable, and home to one of the world\'s most warmly welcoming cultures.',
+    tags: ['English-speaking', 'Atlantic coastline', 'Warm year-round', 'Stable democracy', 'Growing expat hub', 'Diaspora-friendly'],
+    costPerMonth: { 0: 1100, 1: 1700, 2: 2600, 3: 4200 },
+    housing: { buy: '~$180K', buyDesc: '2BR apartment in an upscale residential area', rent: '~$900/mo' },
+    compare: "One of West Africa's most established expat destinations — English-speaking, democratically stable, with an Atlantic coastline, a vibrant arts scene, and a diaspora community that has made the city feel increasingly international.",
+    page: 'destination-coming-soon.html?name=Accra',
+    isInternational: true,
+    advisorPage: 'advisor-international.html',
+    browseHomesPage: 'destination-coming-soon.html?name=Accra',
+    scoutingPage: 'scouting-trip.html',
+    weatherMatch: [0],               // warm/sunny tropical year-round
+    settingMatch: [3, 0, 4],         // city, beach/coast, small-town neighborhoods
+    paceMatch: [3, 1, 2],            // social first, creative, relaxed
+    geographyOptions: [7],            // Africa
+    lifestyleMatch: [0, 1, 2],       // simple, comfortable, upscale
+    priorityMatch: [1, 5, 0, 3],     // community, culture/arts, adventure, purpose
+  },
+
+  // ─── GAP-FILLING ADDITIONS ─────────────────────────────────────────────
+  // Targeting: cool/crisp weather (index 3), countryside setting (index 5), Africa region (index 7)
+
+  // ── Cool/crisp US ──────────────────────────────────────────────────────
+
+  {
+    id: 'flagstaff',
+    name: 'Flagstaff',
+    country: 'United States',
+    region: 'Northern Arizona',
+    flag: '🇺🇸',
+    photo: 'images/flagstaff.jpg',
+    photoCap: 'Ponderosa pines and San Francisco Peaks, Flagstaff',
+    tagline: 'Mile-high Arizona with four seasons, ponderosa pine forests, and outdoor adventure — the Southwest without the scorching heat.',
+    tags: ['Four seasons', 'Mountain town', 'Outdoor adventure', 'University town', 'Cool summers', 'Route 66 history'],
+    costPerMonth: { 0: 2200, 1: 2900, 2: 3900, 3: 5600 },
+    housing: { buy: '~$440K', buyDesc: '2BR in central Flagstaff', rent: '~$1,700/mo' },
+    compare: "Arizona retirement without the Phoenix heat — Flagstaff sits at 7,000 feet, gets actual snow, and has the outdoor culture of a Colorado mountain town at lower price points.",
+    page: 'destination-detail.html?id=flagstaff',
+    isInternational: false,
+    advisorPage: 'advisor-domestic.html',
+    browseHomesPage: 'browse-homes-domestic.html',
+    scoutingPage: 'scouting-trips.html',
+    weatherMatch: [3, 1],            // cool/crisp (primary — 7,000ft elevation), four seasons
+    settingMatch: [2, 4, 5],         // mountains, small town, countryside/forest
+    paceMatch: [0, 1, 2],            // active, mixed, slow/easy
+    geographyOptions: [0],           // US
+    lifestyleMatch: [0, 1, 2],       // simple through upscale
+    priorityMatch: [0, 4, 2, 3],     // adventure, health, peace, purpose
+  },
+
+  {
+    id: 'ashland-or',
+    name: 'Ashland',
+    country: 'United States',
+    region: 'Southern Oregon',
+    flag: '🇺🇸',
+    photo: 'images/ashland-or.jpg',
+    photoCap: 'Lithia Park and Ashland Creek, Oregon',
+    tagline: 'A world-class Shakespeare festival, organic farms, Crater Lake an hour away, and a small-town arts scene that punches well above its size.',
+    tags: ['Oregon Shakespeare Festival', 'Arts community', 'Farm-to-table', 'Mild summers', 'Small town', 'Progressive community'],
+    costPerMonth: { 0: 2400, 1: 3100, 2: 4200, 3: 6000 },
+    housing: { buy: '~$490K', buyDesc: '2BR craftsman in central Ashland', rent: '~$1,900/mo' },
+    compare: "The cultural density of a much larger city in a town of 20,000 — the Oregon Shakespeare Festival draws 100,000 visitors a year, and the surrounding Rogue Valley wine country adds a quiet richness to everyday life.",
+    page: 'destination-detail.html?id=ashland-or',
+    isInternational: false,
+    advisorPage: 'advisor-domestic.html',
+    browseHomesPage: 'browse-homes-domestic.html',
+    scoutingPage: 'scouting-trips.html',
+    weatherMatch: [2, 3],            // mild/temperate (primary), cool/crisp winters
+    settingMatch: [4, 2, 5],         // small town (primary), mountains, countryside
+    paceMatch: [1, 2, 3],            // mixed, slow/easy, social
+    geographyOptions: [0],           // US
+    lifestyleMatch: [0, 1, 2],       // simple through upscale
+    priorityMatch: [5, 3, 2, 1],     // culture/arts, purpose, peace, community
+  },
+
+  // ── Cool/crisp + Countryside — Europe ──────────────────────────────────
+
+  {
+    id: 'douro-valley',
+    name: 'Douro Valley',
+    country: 'Portugal',
+    region: 'Trás-os-Montes, Portugal',
+    flag: '🇵🇹',
+    photo: 'images/douro-valley.jpg',
+    photoCap: 'Terraced vineyards above the Douro River, Portugal',
+    tagline: 'UNESCO-listed wine country along a serpentine river — terraced vineyards, quintas to rent, and a silence that Porto and Lisbon can\'t offer.',
+    tags: ['Wine country', 'UNESCO landscape', 'River views', 'Rural Portugal', 'Slow pace', 'Quinta living'],
+    costPerMonth: { 0: 1100, 1: 1700, 2: 2600, 3: 4200 },
+    housing: { buy: '~$190K', buyDesc: '2BR village home or country cottage', rent: '~$650/mo' },
+    compare: "Portugal's wine country at a fraction of Tuscany or Bordeaux prices — a UNESCO landscape, a slower pace than Lisbon, and the NHR tax regime still applies.",
+    page: 'destination-detail.html?id=douro-valley',
+    isInternational: true,
+    advisorPage: 'advisor-international.html',
+    browseHomesPage: 'browse-homes-international.html',
+    scoutingPage: 'scouting-trips.html',
+    weatherMatch: [2, 1],            // mild/temperate, four seasons (hot summers, cool winters)
+    settingMatch: [5, 1, 4],         // countryside (primary), river/lake, small town
+    paceMatch: [2, 1, 3],            // slow/easy (primary), mixed, social
+    geographyOptions: [4],           // Europe
+    lifestyleMatch: [0, 1, 2],       // simple through upscale
+    priorityMatch: [2, 0, 5, 4],     // peace, adventure, culture/arts, health
+  },
+
+  {
+    id: 'alentejo',
+    name: 'Alentejo',
+    country: 'Portugal',
+    region: 'Alentejo, Portugal',
+    flag: '🇵🇹',
+    photo: 'images/alentejo.jpg',
+    photoCap: 'Cork oaks and wildflowers, Alentejo plains',
+    tagline: 'Portugal\'s vast golden interior — cork forests, whitewashed villages, some of the world\'s best olive oil, and a quiet that feels genuinely restorative.',
+    tags: ['Wide open landscape', 'Whitewashed villages', 'Cork forests', 'Wine & olive oil', 'Very low cost', 'Off the beaten path'],
+    costPerMonth: { 0: 1000, 1: 1500, 2: 2200, 3: 3500 },
+    housing: { buy: '~$150K', buyDesc: 'Village home or rural country house', rent: '~$500/mo' },
+    compare: "Among the most affordable corners of Western Europe — a 2-hour drive from Lisbon, with a landscape of rolling plains, medieval castles, and a pace of life that hasn't changed much in decades.",
+    page: 'destination-detail.html?id=alentejo',
+    isInternational: true,
+    advisorPage: 'advisor-international.html',
+    browseHomesPage: 'browse-homes-international.html',
+    scoutingPage: 'scouting-trips.html',
+    weatherMatch: [2, 0],            // mild/temperate, warm summers
+    settingMatch: [5, 4, 2],         // countryside (primary), small town, open landscape
+    paceMatch: [2, 1],               // slow/easy (primary), mixed
+    geographyOptions: [4],           // Europe
+    lifestyleMatch: [0, 1],          // simple, comfortable
+    priorityMatch: [2, 4, 0, 3],     // peace, health, adventure, purpose
+  },
+
+  {
+    id: 'galicia',
+    name: 'Galicia',
+    country: 'Spain',
+    region: 'Galicia, Northwestern Spain',
+    flag: '🇪🇸',
+    photo: 'images/galicia.jpg',
+    photoCap: 'Green coastline and ría, Galicia',
+    tagline: 'The Spain nobody expects — lush, green, rainy, Celtic-inflected, with dramatic Atlantic coastline and some of Spain\'s best seafood at the lowest prices.',
+    tags: ['Green Spain', 'Atlantic coast', 'Camino de Santiago', 'Low cost', 'Seafood culture', 'Celtic heritage'],
+    costPerMonth: { 0: 1200, 1: 1800, 2: 2700, 3: 4200 },
+    housing: { buy: '~$150K', buyDesc: '2BR apartment in a coastal city', rent: '~$600/mo' },
+    compare: "Spain's most affordable and most underrated region — the green, rainy Atlantic northwest that feels nothing like Andalusia, with costs well below the Costa del Sol and a genuine slow-food culture.",
+    page: 'destination-detail.html?id=galicia',
+    isInternational: true,
+    advisorPage: 'advisor-international.html',
+    browseHomesPage: 'browse-homes-international.html',
+    scoutingPage: 'scouting-trips.html',
+    weatherMatch: [2, 3],            // mild/temperate (primary — green, rainy, Atlantic), cool/crisp secondary
+    settingMatch: [5, 0, 4],         // countryside, coastal, small town
+    paceMatch: [2, 1, 3],            // slow/easy, mixed, social
+    geographyOptions: [4],           // Europe
+    lifestyleMatch: [0, 1],          // simple, comfortable
+    priorityMatch: [2, 0, 1, 4],     // peace, adventure, community, health
+  },
+
+  {
+    id: 'county-clare',
+    name: 'County Clare',
+    country: 'Ireland',
+    region: 'County Clare, West Ireland',
+    flag: '🇮🇪',
+    photo: 'images/county-clare.jpg',
+    photoCap: 'Cliffs of Moher, County Clare, Ireland',
+    tagline: 'The Cliffs of Moher, the Burren limestone plateau, trad music in every pub, and the English-speaking ease of Ireland — genuinely wild Atlantic landscape.',
+    tags: ['English-speaking', 'Wild Atlantic Way', 'Cliffs of Moher', 'Traditional music', 'Rural Ireland', 'EU access'],
+    costPerMonth: { 0: 2100, 1: 2900, 2: 4100, 3: 6200 },
+    housing: { buy: '~$320K', buyDesc: '2BR cottage or townhouse in Ennis', rent: '~$1,300/mo' },
+    compare: "English-speaking EU living with one of Europe's most dramatic landscapes — the Cliffs of Moher are 20 minutes from Ennis, Galway city is an hour away, and Shannon Airport connects directly to the US.",
+    page: 'destination-detail.html?id=county-clare',
+    isInternational: true,
+    advisorPage: 'advisor-international.html',
+    browseHomesPage: 'browse-homes-international.html',
+    scoutingPage: 'scouting-trips.html',
+    weatherMatch: [3, 2],            // cool/crisp (primary — Atlantic), mild
+    settingMatch: [5, 0, 4],         // countryside (primary), coastal, small town
+    paceMatch: [2, 3, 1],            // slow/easy, social, mixed
+    geographyOptions: [4],           // Europe
+    lifestyleMatch: [0, 1, 2],       // simple through upscale
+    priorityMatch: [2, 1, 0, 5],     // peace, community, adventure, culture/arts
+  },
+
+  {
+    id: 'cotswolds',
+    name: 'The Cotswolds',
+    country: 'United Kingdom',
+    region: 'Gloucestershire & Oxfordshire, England',
+    flag: '🇬🇧',
+    photo: 'images/cotswolds.jpg',
+    photoCap: 'Bourton-on-the-Water, The Cotswolds',
+    tagline: 'Honey-stone villages, rolling English countryside, centuries-old pubs, and market towns that look almost exactly as they did 300 years ago.',
+    tags: ['English countryside', 'Honey-stone villages', 'English-speaking', 'Heritage towns', 'Antique markets', 'Walking country'],
+    costPerMonth: { 0: 2900, 1: 3900, 2: 5600, 3: 8500 },
+    housing: { buy: '~$650K', buyDesc: '2BR Cotswold stone cottage', rent: '~$2,400/mo' },
+    compare: "The English countryside retirement dream — picture-perfect villages, slow walks along ancient footpaths, and London 90 minutes by train when you want a city fix. The most expensive region on this list, but unmatched for its specific charm.",
+    page: 'destination-detail.html?id=cotswolds',
+    isInternational: true,
+    advisorPage: 'advisor-international.html',
+    browseHomesPage: 'browse-homes-international.html',
+    scoutingPage: 'scouting-trips.html',
+    weatherMatch: [3, 1],            // cool/crisp (primary), four seasons
+    settingMatch: [5, 4, 2],         // countryside (primary), small town, gentle hills
+    paceMatch: [2, 1, 3],            // slow/easy, mixed, social
+    geographyOptions: [4],           // Europe
+    lifestyleMatch: [1, 2, 3],       // comfortable through luxury
+    priorityMatch: [2, 1, 5, 0],     // peace, community, culture/arts, adventure
+  },
+
+  {
+    id: 'dordogne',
+    name: 'Dordogne',
+    country: 'France',
+    region: 'Périgord, Dordogne, France',
+    flag: '🇫🇷',
+    photo: 'images/dordogne.jpg',
+    photoCap: 'Château de Beynac and Dordogne River, France',
+    tagline: 'Prehistoric cave art, medieval bastide villages, foie gras, Bordeaux wines nearby, and a long-established British expat community that\'s made the infrastructure work.',
+    tags: ['Medieval villages', 'French countryside', 'Bordeaux wine nearby', 'Expat community', 'Cave art sites', 'French rural life'],
+    costPerMonth: { 0: 1800, 1: 2500, 2: 3800, 3: 5800 },
+    housing: { buy: '~$280K', buyDesc: 'Stone farmhouse or village home', rent: '~$900/mo' },
+    compare: "France's most accessible rural retirement — a long-established English-speaking expat community, close enough to Bordeaux for world-class wine, and farmhouses that would cost four times as much in Provence.",
+    page: 'destination-detail.html?id=dordogne',
+    isInternational: true,
+    advisorPage: 'advisor-international.html',
+    browseHomesPage: 'browse-homes-international.html',
+    scoutingPage: 'scouting-trips.html',
+    weatherMatch: [2, 1],            // mild/temperate, four seasons (warm summers, cool winters)
+    settingMatch: [5, 4, 1],         // countryside (primary), small town, river
+    paceMatch: [2, 1],               // slow/easy (primary), mixed
+    geographyOptions: [4],           // Europe
+    lifestyleMatch: [0, 1, 2],       // simple through upscale
+    priorityMatch: [2, 5, 1, 0],     // peace, culture/arts, community, adventure
+  },
+
+  {
+    id: 'umbria',
+    name: 'Umbria',
+    country: 'Italy',
+    region: 'Umbria, Central Italy',
+    flag: '🇮🇹',
+    photo: 'images/umbria.jpg',
+    photoCap: 'Rolling hills and hilltop towns, Umbria',
+    tagline: 'Tuscany without the tourists — hilltop medieval towns, olive groves, truffles, and a pace of life that genuinely slows you down.',
+    tags: ['Green heart of Italy', 'Hilltop villages', 'Truffle country', 'Perugia university town', 'Off the tourist trail', 'Medieval heritage'],
+    costPerMonth: { 0: 1500, 1: 2200, 2: 3300, 3: 5200 },
+    housing: { buy: '~$220K', buyDesc: '2BR in a hilltop medieval city', rent: '~$750/mo' },
+    compare: "The Tuscan countryside experience without the Tuscany prices or crowds — hilltop towns like Orvieto and Spoleto are among Italy's most beautiful, and the food (truffles, lentils, cured meats) rivals anywhere in the country.",
+    page: 'destination-detail.html?id=umbria',
+    isInternational: true,
+    advisorPage: 'advisor-international.html',
+    browseHomesPage: 'browse-homes-international.html',
+    scoutingPage: 'scouting-trips.html',
+    weatherMatch: [2, 1],            // mild/temperate, four seasons
+    settingMatch: [5, 4, 2],         // countryside (primary), small town, gentle hills
+    paceMatch: [2, 1, 3],            // slow/easy, mixed, social
+    geographyOptions: [4],           // Europe
+    lifestyleMatch: [0, 1, 2],       // simple through upscale
+    priorityMatch: [2, 5, 1, 4],     // peace, culture/arts, community, health
+  },
+
+  // ── Africa — gap-filling ────────────────────────────────────────────────
+
+  {
+    id: 'stellenbosch',
+    name: 'Stellenbosch',
+    country: 'South Africa',
+    region: 'Western Cape, South Africa',
+    flag: '🇿🇦',
+    photo: 'images/stellenbosch.jpg',
+    photoCap: 'Cape Winelands and Stellenbosch University, South Africa',
+    tagline: 'South Africa\'s wine capital — oak-lined streets, Cape Dutch architecture, world-class Cabernet, and a university town energy 45 minutes from Cape Town.',
+    tags: ['Wine capital', 'Cape Dutch architecture', 'University town', 'Outdoor lifestyle', 'Afrikaans culture', 'World-class food scene'],
+    costPerMonth: { 0: 1300, 1: 1900, 2: 2900, 3: 4800 },
+    housing: { buy: '~$260K', buyDesc: '2BR home in central Stellenbosch', rent: '~$950/mo' },
+    compare: "Cape Town's wine-country neighbor — a third of the price of comparable European wine towns, with better weather, world-class restaurants, and the same dramatic mountain backdrop.",
+    page: 'destination-detail.html?id=stellenbosch',
+    isInternational: true,
+    advisorPage: 'advisor-international.html',
+    browseHomesPage: 'browse-homes-international.html',
+    scoutingPage: 'scouting-trips.html',
+    weatherMatch: [2, 0],            // mild/temperate Mediterranean (primary), warm sunny summers
+    settingMatch: [5, 4, 2],         // countryside/wine country, small town, mountains
+    paceMatch: [1, 2, 3],            // mixed, slow/easy, social
+    geographyOptions: [7],           // Africa
+    lifestyleMatch: [0, 1, 2],       // simple through upscale
+    priorityMatch: [5, 2, 0, 4],     // culture/arts, peace, adventure, health
+  },
+
+  {
+    id: 'nairobi',
+    name: 'Nairobi',
+    country: 'Kenya',
+    region: 'Nairobi, Kenya',
+    flag: '🇰🇪',
+    photo: 'images/nairobi.jpg',
+    photoCap: 'Nairobi skyline with Nairobi National Park',
+    tagline: 'A cosmopolitan East African capital at 5,500 feet — mild year-round, wildlife in the city\'s backyard, and one of Africa\'s most established expat communities.',
+    tags: ['Mild year-round', 'Wildlife nearby', 'Safari gateway', 'Expat hub', 'East African culture', 'Good healthcare'],
+    costPerMonth: { 0: 1200, 1: 1900, 2: 2900, 3: 5000 },
+    housing: { buy: '~$160K', buyDesc: '2BR apartment in an upscale expat neighborhood', rent: '~$900/mo' },
+    compare: "The only major city in the world where you can watch lions roam a national park from the urban skyline — Nairobi sits at highland altitude with year-round spring weather and a surprisingly sophisticated expat infrastructure.",
+    page: 'destination-detail.html?id=nairobi',
+    isInternational: true,
+    advisorPage: 'advisor-international.html',
+    browseHomesPage: 'browse-homes-international.html',
+    scoutingPage: 'scouting-trips.html',
+    weatherMatch: [2],               // mild/temperate year-round (highland climate, ~70°F)
+    settingMatch: [3, 4, 5],         // city, small-town neighborhoods, open landscape nearby
+    paceMatch: [0, 1, 3],            // active, mixed, social
+    geographyOptions: [7],           // Africa
+    lifestyleMatch: [0, 1, 2],       // simple through upscale
+    priorityMatch: [0, 1, 3, 4],     // adventure, community, purpose, health
+  },
+
+  {
+    id: 'zanzibar',
+    name: 'Zanzibar',
+    country: 'Tanzania',
+    region: 'Zanzibar Archipelago, Tanzania',
+    flag: '🇹🇿',
+    photo: 'images/zanzibar.jpg',
+    photoCap: 'Turquoise waters and Stone Town, Zanzibar',
+    tagline: 'Spice-scented Stone Town, turquoise Indian Ocean, and a slow island pace that feels genuinely removed from the world — at a fraction of the Caribbean\'s cost.',
+    tags: ['Indian Ocean island', 'Stone Town UNESCO site', 'Spice Island', 'Warm year-round', 'Low cost', 'Swahili culture'],
+    costPerMonth: { 0: 1000, 1: 1600, 2: 2600, 3: 4200 },
+    housing: { buy: '~$180K', buyDesc: 'Apartment or villa near a beach village', rent: '~$700/mo' },
+    compare: "Indian Ocean island living at a fraction of Maldives or Bali prices — a UNESCO old town, powder-white beaches, and a Swahili culture that's entirely its own.",
+    page: 'destination-detail.html?id=zanzibar',
+    isInternational: true,
+    advisorPage: 'advisor-international.html',
+    browseHomesPage: 'browse-homes-international.html',
+    scoutingPage: 'scouting-trips.html',
+    weatherMatch: [0],               // warm/sunny tropical year-round
+    settingMatch: [0, 4, 3],         // beach (primary), small town Stone Town, city character
+    paceMatch: [2, 3, 1],            // slow/easy (primary), social, mixed
+    geographyOptions: [7],           // Africa
+    lifestyleMatch: [0, 1, 2],       // simple through upscale
+    priorityMatch: [2, 0, 1, 5],     // peace, adventure, community, culture/arts
+  },
+
+  {
+    id: 'mauritius',
+    name: 'Mauritius',
+    country: 'Mauritius',
+    region: 'Indian Ocean Island',
+    flag: '🇲🇺',
+    photo: 'images/mauritius.jpg',
+    photoCap: 'Lagoon and Le Morne Peninsula, Mauritius',
+    tagline: 'The Indian Ocean\'s most polished island — English and French-speaking, world-class infrastructure, a Retired Non-Citizen permit, and lagoons that look like screensavers.',
+    tags: ['English & French speaking', 'Retired Non-Citizen permit', 'World-class infrastructure', 'Indian Ocean', 'Multicultural', 'Tax friendly'],
+    costPerMonth: { 0: 2500, 1: 3600, 2: 5200, 3: 8500 },
+    housing: { buy: '~$400K', buyDesc: 'Apartment or villa in a popular beachside area', rent: '~$1,900/mo' },
+    compare: "The Indian Ocean's most sophisticated retirement destination — English-speaking, politically stable, with a dedicated Retired Non-Citizen residency permit and an island lifestyle that blends African, Indian, French, and British influences.",
+    page: 'destination-detail.html?id=mauritius',
+    isInternational: true,
+    advisorPage: 'advisor-international.html',
+    browseHomesPage: 'browse-homes-international.html',
+    scoutingPage: 'scouting-trips.html',
+    weatherMatch: [0, 2],            // warm/sunny (primary), mild in winter months
+    settingMatch: [0, 4, 5],         // beach (primary), small town, open countryside
+    paceMatch: [2, 1, 3],            // slow/easy, mixed, social
+    geographyOptions: [7],           // Africa
+    lifestyleMatch: [1, 2, 3],       // comfortable through luxury
+    priorityMatch: [2, 0, 1, 4],     // peace, adventure, community, health
+  },
+
+  // ── Cool/crisp + Countryside — Australia/NZ ────────────────────────────
+
+  {
+    id: 'marlborough-nz',
+    name: 'Marlborough',
+    country: 'New Zealand',
+    region: 'Marlborough, South Island, New Zealand',
+    flag: '🇳🇿',
+    photo: 'images/marlborough-nz.jpg',
+    photoCap: 'Marlborough Sounds and vineyard, New Zealand',
+    tagline: 'Sauvignon Blanc country at the top of the South Island — inland vineyards, the fjord-like Sounds, and a rural New Zealand pace that\'s hard to find anywhere else.',
+    tags: ['Wine country', 'Marlborough Sounds', 'Rural New Zealand', 'Outdoor lifestyle', 'English-speaking', 'Four seasons'],
+    costPerMonth: { 0: 2100, 1: 2900, 2: 4100, 3: 6300 },
+    housing: { buy: '~$390K', buyDesc: '2BR in Blenheim or rural Marlborough', rent: '~$1,500/mo' },
+    compare: "New Zealand wine country without the Queenstown price tag — Marlborough produces 80% of NZ's Sauvignon Blanc, the Sounds are a short drive away, and the pace is genuinely rural in a country that does rural remarkably well.",
+    page: 'destination-detail.html?id=marlborough-nz',
+    isInternational: true,
+    advisorPage: 'advisor-international.html',
+    browseHomesPage: 'browse-homes-international.html',
+    scoutingPage: 'scouting-trips.html',
+    weatherMatch: [1, 3],            // four seasons (primary), cool/crisp winters
+    settingMatch: [5, 1, 4],         // countryside/wine country (primary), water/sounds, small town
+    paceMatch: [2, 1, 0],            // slow/easy, mixed, active
+    geographyOptions: [5],           // Australia/NZ
+    lifestyleMatch: [0, 1, 2],       // simple through upscale
+    priorityMatch: [2, 0, 4, 1],     // peace, adventure, health, community
   },
 
 ];

@@ -976,11 +976,17 @@
     }
   };
 
-  document.addEventListener('DOMContentLoaded', init);
+  document.addEventListener('DOMContentLoaded', function() {
+    // Restore saved state from magic link if present, then init
+    if (window.restoreFromMagicLink) restoreFromMagicLink();
+    init();
+  });
 
 })();
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="magic-link.js"></script>
 <script src="shared.js"></script>
 </body>
 </html>

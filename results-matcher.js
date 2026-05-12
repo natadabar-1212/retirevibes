@@ -47,18 +47,23 @@
     }
 
     // Q[0] Weather — single select
+    // Weather is a strong preference signal — penalise destinations that don't
+    // offer the user's climate at all, so e.g. a warm-sunny destination never
+    // beats a cool/crisp one just because it scores well on lifestyle/priorities.
     const weatherAns = answers[0];
     if (typeof weatherAns === 'number' && dest.weatherMatch && dest.weatherMatch.length > 0) {
-      if (dest.weatherMatch[0] === weatherAns) score += 18; // primary match
-      else if (dest.weatherMatch.includes(weatherAns)) score += 9; // secondary match
+      if (dest.weatherMatch[0] === weatherAns) score += 22; // primary match
+      else if (dest.weatherMatch.includes(weatherAns)) score += 10; // secondary match
+      else score -= 15; // no match at all — hard to overcome
     }
 
     // Q[1] Setting — multi-select (up to 2)
+    // "Where you wake up" is a top-tier signal — weighted to match weather.
     const settingAns = answers[1];
     if (Array.isArray(settingAns) && dest.settingMatch && dest.settingMatch.length > 0) {
       settingAns.forEach(s => {
-        if (dest.settingMatch[0] === s) score += 14; // primary
-        else if (dest.settingMatch.includes(s)) score += 8; // secondary
+        if (dest.settingMatch[0] === s) score += 20; // primary
+        else if (dest.settingMatch.includes(s)) score += 10; // secondary
       });
     }
 
@@ -94,7 +99,7 @@
     const priorityAns = answers[6];
     if (Array.isArray(priorityAns)) {
       priorityAns.forEach(p => {
-        if (dest.priorityMatch && dest.priorityMatch.includes(p)) score += 10;
+        if (dest.priorityMatch && dest.priorityMatch.includes(p)) score += 7; // values matter, but less than where/what climate
       });
     }
 
@@ -102,10 +107,54 @@
   }
 
   // ─── Rank destinations ──────────────────────────────────────────────
+  // When the user selects 2+ regions, enforce one result per selected region
+  // so they always get geographic variety — not 3 from the same country.
   function rankDestinations() {
     const scored = DESTINATIONS.map(d => ({ dest: d, score: scoreDestination(d) }));
     scored.sort((a, b) => b.score - a.score);
-    return scored.map(s => s.dest);
+
+    const geoAns = answers[2]; // array of selected region indices
+
+    if (Array.isArray(geoAns) && geoAns.length >= 2) {
+      const result = [];
+      const usedIds = new Set();
+
+      // For each selected region (in the order they appear in geoAns),
+      // pick the highest-scoring destination from that region not yet chosen.
+      geoAns.forEach(function(regionIdx) {
+        const best = scored.find(function(s) {
+          return !usedIds.has(s.dest.id) &&
+                 Array.isArray(s.dest.geographyOptions) &&
+                 s.dest.geographyOptions.includes(regionIdx);
+        });
+        if (best) {
+          result.push(best);
+          usedIds.add(best.dest.id);
+        }
+      });
+
+      // Re-sort the regional winners by overall score so #1 is still the best match.
+      result.sort((a, b) => b.score - a.score);
+
+      // If we have 3+ diverse results, return them.
+      if (result.length >= 3) {
+        return result.slice(0, 3).map(s => s.dest);
+      }
+
+      // Fewer than 3 (e.g. a region had no matches) — fill remaining from top overall.
+      for (const s of scored) {
+        if (result.length >= 3) break;
+        if (!usedIds.has(s.dest.id)) {
+          result.push(s);
+          usedIds.add(s.dest.id);
+        }
+      }
+      result.sort((a, b) => b.score - a.score);
+      return result.slice(0, 3).map(s => s.dest);
+    }
+
+    // Single region or "anywhere" — pure score ranking.
+    return scored.slice(0, 3).map(s => s.dest);
   }
 
   // ─── Get cost estimate for a destination ────────────────────────────
@@ -162,7 +211,7 @@
             <p class="tagline">${dest.tagline}</p>
             <div class="stats">
               <div>
-                <div class="stat-label">Est. monthly cost</div>
+                <div class="stat-label">Est. monthly cost (incl. rent)</div>
                 <div class="stat-value">${cost}<span style="font-size:13px;color:var(--warm-gray);">/mo</span></div>
               </div>
               <div>
@@ -195,14 +244,15 @@
           <div class="tags">${tags}</div>
           <div class="stats">
             <div>
-              <div class="stat-label">Est. monthly lifestyle cost</div>
+              <div class="stat-label">Est. monthly cost (incl. rent)</div>
               <div class="stat-value">${cost}<span style="font-size:16px;color:var(--warm-gray);">/mo</span></div>
-              <div class="stat-sub">Based on your lifestyle preference</div>
+              <div class="stat-sub">Based on your quiz answers</div>
             </div>
             <div>
               <div class="stat-label">Housing snapshot</div>
               <div class="stat-value">${(dest.housing && dest.housing.buy) || 'Varies'}</div>
               <div class="stat-sub">${(dest.housing && dest.housing.buyDesc) || ''}${(dest.housing && dest.housing.rent) ? ' · ' + dest.housing.rent + ' to rent' : ''}</div>
+              <div class="stat-sub" style="margin-top:4px;font-style:italic;">Buying? Your mortgage replaces the rent figure above.</div>
             </div>
           </div>
           ${dest.compare ? `<div class="compare">${dest.compare}</div>` : ''}
@@ -229,7 +279,7 @@
     const homesPartner = top.isInternational ? 'via Idealista / local partner' : 'via Zillow / Realtor.com';
     const browseLink = top.browseHomesPage || (top.isInternational ? 'browse-homes-international.html' : 'browse-homes-domestic.html');
     const advisorLink = top.advisorPage || (top.isInternational ? 'advisor-international.html' : 'advisor-domestic.html');
-    const scoutLink = top.scoutingPage || 'scouting-trip.html';
+    const scoutLink = (top.id === 'porto') ? 'scouting-trip.html' : ('scouting-trip-detail.html?id=' + top.id);
 
     return `
       <div class="handoff-card">

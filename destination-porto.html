@@ -1153,6 +1153,8 @@
         b.innerHTML = '<span class="heart">✓</span> Saved';
       }
     });
+    // Send magic link email
+    if (window.sendMagicLinkEmail) sendMagicLinkEmail(email, saved);
   }
   document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('saveModal');
@@ -1207,6 +1209,8 @@
     });
   }
 </script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="magic-link.js"></script>
 <script src="shared.js"></script>
 
 </body>
