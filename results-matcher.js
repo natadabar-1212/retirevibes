@@ -211,11 +211,12 @@
             <p class="tagline">${dest.tagline}</p>
             <div class="stats">
               <div>
-                <div class="stat-label">Est. monthly cost (incl. rent)</div>
+                <div class="stat-label">Est. monthly cost</div>
                 <div class="stat-value">${cost}<span style="font-size:13px;color:var(--warm-gray);">/mo</span></div>
+                <div class="stat-sub" style="font-size:11px;">${(dest.housing && dest.housing.rent) ? 'Rent ' + dest.housing.rent + ' included' : ''}</div>
               </div>
               <div>
-                <div class="stat-label">2BR home</div>
+                <div class="stat-label">Housing — Buy</div>
                 <div class="stat-value">${(dest.housing && dest.housing.buy) || 'Varies'}</div>
               </div>
             </div>
@@ -244,15 +245,14 @@
           <div class="tags">${tags}</div>
           <div class="stats">
             <div>
-              <div class="stat-label">Est. monthly cost (incl. rent)</div>
+              <div class="stat-label">Est. monthly cost</div>
               <div class="stat-value">${cost}<span style="font-size:16px;color:var(--warm-gray);">/mo</span></div>
-              <div class="stat-sub">Based on your quiz answers</div>
+              <div class="stat-sub">${(dest.housing && dest.housing.rent) ? 'Rent ' + dest.housing.rent + ' included' : 'Based on your quiz answers'}</div>
             </div>
             <div>
-              <div class="stat-label">Housing snapshot</div>
+              <div class="stat-label">Housing — Buy</div>
               <div class="stat-value">${(dest.housing && dest.housing.buy) || 'Varies'}</div>
-              <div class="stat-sub">${(dest.housing && dest.housing.buyDesc) || ''}${(dest.housing && dest.housing.rent) ? ' · ' + dest.housing.rent + ' to rent' : ''}</div>
-              <div class="stat-sub" style="margin-top:4px;font-style:italic;">Buying? Your mortgage replaces the rent figure above.</div>
+              <div class="stat-sub">${(dest.housing && dest.housing.buyDesc) || ''}</div>
             </div>
           </div>
           ${dest.compare ? `<div class="compare">${dest.compare}</div>` : ''}
