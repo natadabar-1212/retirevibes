@@ -592,7 +592,7 @@
   <div class="nav-links">
     <a href="destinations.html">Destinations</a>
     <a href="my-retirevibes.html">My RetireVibes</a>
-    <a class="nav-cta" href="results-page-mockup.html">Take the quiz →</a>
+    <a class="nav-cta" href="mockups/vibe-quiz.html">Take the quiz →</a>
   </div>
 </nav>
 
@@ -604,7 +604,7 @@
     <h1>Find the right zip code<br>for your <em>next chapter.</em></h1>
     <p class="hero-sub">The neighborhood matters as much as the city. Here's how to shop smart for retirement real estate — and where to start looking.</p>
     <div class="hero-btns">
-      <a class="btn-primary" href="https://www.zillow.com/homes/for_rent/?searchQueryState=%7B%22usersSearchTerm%22%3A%22Asheville%2C+NC%22%7D" target="_blank" rel="noopener noreferrer">
+      <a id="hero-browse-btn" class="btn-primary" href="https://www.zillow.com/homes/for_rent/?searchQueryState=%7B%22usersSearchTerm%22%3A%22Asheville%2C+NC%22%7D" target="_blank" rel="noopener noreferrer">
         Browse listings on Zillow →
       </a>
       <a class="btn-ghost" href="homepage-mockup.html#destinations">Back to destinations</a>
@@ -615,13 +615,13 @@
 <!-- ═══ DESTINATION COMPARE ═══ -->
 <section class="dest-compare">
   <div class="dest-compare-inner">
-    <p class="section-label">Your top matches</p>
-    <h2 class="section-headline">Asheville vs. Sarasota —<br><em>the real differences</em></h2>
-    <p class="section-sub">Both made your list. They're more different than they look on paper — especially when you think about what your day-to-day actually looks like.</p>
+    <p id="compare-label" class="section-label">Your top matches</p>
+    <h2 id="compare-headline" class="section-headline">Asheville vs. Sarasota —<br><em>the real differences</em></h2>
+    <p id="compare-sub" class="section-sub">Both made your list. They're more different than they look on paper — especially when you think about what your day-to-day actually looks like.</p>
 
     <div class="compare-grid">
 
-      <div class="compare-card">
+      <div id="card-asheville" class="compare-card">
         <div class="compare-flag">🌲 North Carolina · Mountain</div>
         <h3 class="compare-name">Asheville</h3>
         <p class="compare-tagline">The arts city that doesn't feel like retirement.</p>
@@ -658,7 +658,7 @@
         <a class="compare-cta" href="destination-asheville.html">Full Asheville guide →</a>
       </div>
 
-      <div class="compare-card">
+      <div id="card-sarasota" class="compare-card">
         <div class="compare-flag">🌴 Florida · Gulf Coast</div>
         <h3 class="compare-name">Sarasota</h3>
         <p class="compare-tagline">Florida's cultural exception — museums, opera, beach.</p>
@@ -711,7 +711,7 @@
         <div class="look-icon">🚶</div>
         <div class="look-content">
           <h3 class="look-title">Walkability score 70+</h3>
-          <p class="look-body">The day you don't want to drive to get coffee or groceries is closer than you think. Walk Score is imperfect but it's a useful filter. In Asheville: Montford, West Asheville, Downtown. In Sarasota: Downtown, Southside Village, Gulf Gate. Suburban sprawl is a trap — the independence it feels like now becomes dependence later.</p>
+          <p id="look-walk" class="look-body">The day you don't want to drive to get coffee or groceries is closer than you think. Walk Score is imperfect but it's a useful filter. In Asheville: Montford, West Asheville, Downtown. In Sarasota: Downtown, Southside Village, Gulf Gate. Suburban sprawl is a trap — the independence it feels like now becomes dependence later.</p>
         </div>
       </div>
       <div class="look-card">
@@ -725,14 +725,14 @@
         <div class="look-icon">🏥</div>
         <div class="look-content">
           <h3 class="look-title">Healthcare within 20 minutes</h3>
-          <p class="look-body">Not just a hospital — a hospital system with cardiac care, orthopedics, and a serious ER. Both Mission Asheville and Sarasota Memorial qualify. But also consider: is your specialist 20 minutes away or two hours? Are there Medicare Advantage networks that cover your preferred providers? Run this math before you fall in love with a property.</p>
+          <p id="look-health" class="look-body">Not just a hospital — a hospital system with cardiac care, orthopedics, and a serious ER. Both Mission Asheville and Sarasota Memorial qualify. But also consider: is your specialist 20 minutes away or two hours? Are there Medicare Advantage networks that cover your preferred providers? Run this math before you fall in love with a property.</p>
         </div>
       </div>
       <div class="look-card">
         <div class="look-icon">💧</div>
         <div class="look-content">
           <h3 class="look-title">Flood zone, wildfire zone, insurance reality</h3>
-          <p class="look-body">Pull the FEMA flood map. Look up the property's flood zone before you ask a single other question. In Florida, assume flood insurance is mandatory in any Zone A or AE designation — and budget for it seriously. In Asheville, post-Helene, check which watershed the property sits in. Beautiful river views often come with a real insurance bill attached.</p>
+          <p id="look-flood" class="look-body">Pull the FEMA flood map. Look up the property's flood zone before you ask a single other question. In Florida, assume flood insurance is mandatory in any Zone A or AE designation — and budget for it seriously. In Asheville, post-Helene, check which watershed the property sits in. Beautiful river views often come with a real insurance bill attached.</p>
         </div>
       </div>
       <div class="look-card">
@@ -769,7 +769,7 @@
           <li>You learn the neighborhood's real character: noise, neighbors, traffic, weekend energy</li>
           <li>You shop for a home without a deadline, which means you shop better</li>
           <li>If it's not right, you leave. The cost is a year's rent. Worth it.</li>
-          <li>Especially useful in Asheville right now — the market is shifting and flood zone maps are still being updated post-Helene</li>
+          <li id="rvb-asheville-tip">Especially useful in Asheville right now — the market is shifting and flood zone maps are still being updated post-Helene</li>
         </ul>
         <div class="rvb-note">Month-to-month rentals are available in both cities but at a premium. Negotiate a 12-month lease with a 60-day out clause — landlords sometimes agree, especially on higher-end units.</div>
       </div>
@@ -779,7 +779,7 @@
         <ul class="rvb-points">
           <li>You've spent significant time in the city and know the neighborhood you want</li>
           <li>You're certain about a long-term (10+ year) commitment — transaction costs eat returns on shorter holds</li>
-          <li>In Florida, the Homestead Exemption and Save Our Homes cap on assessed value increase are real long-term benefits for permanent residents</li>
+          <li id="rvb-florida-tip">In Florida, the Homestead Exemption and Save Our Homes cap on assessed value increase are real long-term benefits for permanent residents</li>
           <li>You've worked through the buy vs. rent math with a financial advisor, including insurance, HOA, taxes, and opportunity cost</li>
           <li>You have 10–20% down and a clear picture of how the mortgage payment fits your retirement income</li>
         </ul>
@@ -845,13 +845,13 @@
         <p class="also-desc">Buy vs. rent math, Social Security timing, Medicare enrollment, how your income structure affects the decision. Get the full picture first.</p>
         <span class="also-link">Find a retirement advisor →</span>
       </a>
-      <a class="also-card" href="destination-asheville.html">
+      <a id="also-asheville" class="also-card" href="destination-asheville.html">
         <div class="also-tag">Deep dive</div>
         <h3 class="also-title">Full Asheville guide</h3>
         <p class="also-desc">Cost breakdown, day-in-the-life, neighborhoods, healthcare, what the expat community actually says about living there.</p>
         <span class="also-link">Read the Asheville guide →</span>
       </a>
-      <a class="also-card" href="destination-sarasota.html">
+      <a id="also-sarasota" class="also-card" href="destination-sarasota.html">
         <div class="also-tag">Deep dive</div>
         <h3 class="also-title">Full Sarasota guide</h3>
         <p class="also-desc">Gulf Coast living, cost breakdown, neighborhoods from Southside Village to Palmer Ranch, what residents don't tell you upfront.</p>
@@ -878,6 +878,73 @@
   </div>
   <p class="footer-legal">© 2025 RetireVibes. For informational and inspirational purposes only. We are not financial advisors, real estate agents, or insurance professionals. Property prices, insurance costs, and market conditions change frequently — verify all figures independently before making any real estate decision. Flood zone information is from FEMA and is subject to revision.</p>
 </footer>
+<script>
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var dest = (params.get('destination') || '').toLowerCase();
+  if (dest !== 'asheville' && dest !== 'sarasota') return;
+
+  var isAsheville = dest === 'asheville';
+  var cityName = isAsheville ? 'Asheville' : 'Sarasota';
+
+  // Update compare section framing
+  document.getElementById('compare-label').textContent = 'Your destination';
+  document.getElementById('compare-headline').innerHTML = 'Retiring in ' + cityName + ' —<br><em>what you need to know</em>';
+  document.getElementById('compare-sub').textContent = "Here's what actually matters when you're shopping for retirement real estate in " + cityName + ".";
+
+  // Show only the relevant compare card, single-column
+  document.getElementById(isAsheville ? 'card-sarasota' : 'card-asheville').style.display = 'none';
+  var grid = document.querySelector('.compare-grid');
+  grid.style.gridTemplateColumns = '1fr';
+  grid.style.maxWidth = '640px';
+  grid.style.margin = '0 auto';
+
+  // Update hero browse button
+  var heroBtn = document.getElementById('hero-browse-btn');
+  if (isAsheville) {
+    heroBtn.textContent = 'Browse Asheville listings on Zillow →';
+  } else {
+    heroBtn.href = 'https://www.redfin.com/city/55078/FL/Sarasota';
+    heroBtn.textContent = 'Browse Sarasota listings on Redfin →';
+  }
+
+  // Update main CTA buttons
+  var ctaBtns = document.querySelector('.cta-btns');
+  if (isAsheville) {
+    ctaBtns.innerHTML =
+      '<a class="btn-cream" href="https://www.zillow.com/homes/for_rent/?searchQueryState=%7B%22usersSearchTerm%22%3A%22Asheville%2C+NC%22%7D" target="_blank" rel="noopener noreferrer">Browse on Zillow →</a>' +
+      '<a class="btn-ghost-light" href="https://www.realtor.com/realestateandhomes-search/Asheville_NC" target="_blank" rel="noopener noreferrer">Browse on Realtor.com →</a>';
+  } else {
+    ctaBtns.innerHTML =
+      '<a class="btn-cream" href="https://www.redfin.com/city/55078/FL/Sarasota" target="_blank" rel="noopener noreferrer">Browse Sarasota on Redfin →</a>' +
+      '<a class="btn-ghost-light" href="https://www.zillow.com/homes/Sarasota,FL_rb/" target="_blank" rel="noopener noreferrer">Browse on Zillow →</a>';
+  }
+
+  // Swap walkability body text
+  document.getElementById('look-walk').textContent = isAsheville
+    ? 'The day you don\'t want to drive to get coffee or groceries is closer than you think. Walk Score is imperfect but it\'s a useful filter. In Asheville, aim for Montford, West Asheville, or Downtown. Suburban sprawl is a trap — the independence it feels like now becomes dependence later.'
+    : 'The day you don\'t want to drive to get coffee or groceries is closer than you think. Walk Score is imperfect but it\'s a useful filter. In Sarasota, aim for Downtown, Southside Village, or Gulf Gate. Suburban sprawl is a trap — the independence it feels like now becomes dependence later.';
+
+  // Swap healthcare body text
+  document.getElementById('look-health').textContent = isAsheville
+    ? 'Not just a hospital — a hospital system with cardiac care, orthopedics, and a serious ER. Mission Health / HCA qualifies. But also consider: is your specialist 20 minutes away or two hours? Are there Medicare Advantage networks that cover your preferred providers? Run this math before you fall in love with a property.'
+    : 'Not just a hospital — a hospital system with cardiac care, orthopedics, and a serious ER. Sarasota Memorial qualifies. But also consider: is your specialist 20 minutes away or two hours? Are there Medicare Advantage networks that cover your preferred providers? Run this math before you fall in love with a property.';
+
+  // Swap flood zone body text
+  document.getElementById('look-flood').textContent = isAsheville
+    ? 'Pull the FEMA flood map. Look up the property\'s flood zone before you ask a single other question. Post-Helene, check which watershed the property sits in — river-adjacent areas are experiencing new flood mapping and higher insurance. Beautiful river views often come with a real insurance bill attached.'
+    : 'Pull the FEMA flood map. Look up the property\'s flood zone before you ask a single other question. In Florida, assume flood insurance is mandatory in any Zone A or AE designation — and budget for it seriously ($3,000–6,000+/year). Beautiful water views often come with a real insurance bill attached.';
+
+  // Show/hide rent-vs-buy destination-specific tips
+  var ashTip = document.getElementById('rvb-asheville-tip');
+  var flTip = document.getElementById('rvb-florida-tip');
+  if (ashTip) ashTip.style.display = isAsheville ? '' : 'none';
+  if (flTip) flTip.style.display = isAsheville ? 'none' : '';
+
+  // Show only the relevant also-explore card
+  document.getElementById(isAsheville ? 'also-sarasota' : 'also-asheville').style.display = 'none';
+})();
+</script>
 <script src="shared.js"></script>
 
 </body>
