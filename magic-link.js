@@ -1,6 +1,11 @@
 /* RetireVibes — Magic Link System
  * Handles EmailJS sending + magic link generation + restoration
  * Load AFTER emailjs SDK, BEFORE shared.js
+ *
+ * SECURITY: This file is public (client-side SDK). The public key is
+ * intentionally visible here — EmailJS is designed for this.
+ * To prevent abuse: go to emailjs.com → Settings → Allowed Origins
+ * and restrict this key to https://retirevibes.com only.
  */
 (function () {
 
@@ -12,7 +17,7 @@
   var _ready = false;
   function ensureInit() {
     if (_ready || !window.emailjs) return;
-    emailjs.init(PUBLIC_KEY);
+    emailjs.init({ publicKey: PUBLIC_KEY, blockHeadless: true });
     _ready = true;
   }
 

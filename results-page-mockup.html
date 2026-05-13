@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com data: blob:; connect-src 'self' https://api.emailjs.com;">
 <title>RetireVibes — Your Results</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -1156,12 +1157,20 @@
     const successSub = document.getElementById('saveSuccessSub');
     const submitBtn = document.getElementById('saveSubmitBtn');
     if (_saveContext.type === 'first-save' && _saveContext.name) {
-      titleEl.innerHTML = 'Save <em>' + _saveContext.name + '</em>.';
+      titleEl.textContent = '';
+      titleEl.appendChild(document.createTextNode('Save '));
+      const _titleEm = document.createElement('em'); _titleEm.textContent = _saveContext.name;
+      titleEl.appendChild(_titleEm);
+      titleEl.appendChild(document.createTextNode('.'));
       subEl.textContent = "Just need your email so we can save " + _saveContext.name + " for you. No password — come back anytime to see your saved places.";
       successSub.textContent = _saveContext.name + " is saved to your RetireVibes. Come back anytime to see everything you're keeping an eye on.";
       if (submitBtn) submitBtn.textContent = 'Save it →';
     } else {
-      titleEl.innerHTML = 'Email me <em>my results</em>.';
+      titleEl.textContent = '';
+      titleEl.appendChild(document.createTextNode('Email me '));
+      const _titleEm2 = document.createElement('em'); _titleEm2.textContent = 'my results';
+      titleEl.appendChild(_titleEm2);
+      titleEl.appendChild(document.createTextNode('.'));
       subEl.textContent = "We'll send your matches to your inbox plus a link to come back anytime — no password needed. We'll also let you know when costs, visa rules, or new matches change.";
       successSub.textContent = "Check your inbox — we sent your matches plus a link you can use to come back anytime. We'll be in touch when something changes.";
       if (submitBtn) submitBtn.textContent = 'Email me my matches →';
@@ -1414,7 +1423,12 @@
 
 <script src="destinations-data.js"></script>
 <script src="results-matcher.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<!-- SRI HASH NEEDED: Run this in Terminal to generate the integrity attribute, then paste it below:
+     curl -s https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js | openssl dgst -sha384 -binary | openssl base64 -A
+     Then replace integrity="sha384-PASTE_HASH_HERE" with the result. -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+        integrity="sha384-PASTE_HASH_HERE"
+        crossorigin="anonymous"></script>
 <script src="magic-link.js"></script>
 
 </body>

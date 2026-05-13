@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com data: blob:; connect-src 'self' https://api.emailjs.com;">
 <title>My RetireVibes — Your matches &amp; saved places</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -807,8 +808,12 @@
     // Split "The Sun-Chaser" → "The " + "Sun-Chaser"
     const parts = label.match(/^(The\s+)(.+)$/);
     const nameEl = document.getElementById('personaName');
+    nameEl.textContent = '';
     if (parts) {
-      nameEl.innerHTML = parts[1] + '<em>' + parts[2] + '</em>';
+      nameEl.appendChild(document.createTextNode(parts[1]));
+      const em = document.createElement('em');
+      em.textContent = parts[2];
+      nameEl.appendChild(em);
     } else {
       nameEl.textContent = label;
     }
@@ -816,13 +821,19 @@
     document.getElementById('personaBadge').textContent = vibeInfo.emoji || '✨';
     document.getElementById('personaDescription').textContent = vibeInfo.description || '';
 
-    // Profile text from quiz answers
+    // Profile text from quiz answers — use createElement, not innerHTML
     const profileEl = document.getElementById('personaProfile');
     const lines = [];
     if (matchData.profilePara1) lines.push(matchData.profilePara1);
     if (matchData.profilePara2) lines.push(matchData.profilePara2);
     if (lines.length) {
-      profileEl.innerHTML = lines.map(l => '<p style="margin-bottom:0.5em;">' + l + '</p>').join('');
+      profileEl.textContent = '';
+      lines.forEach(function(l) {
+        const p = document.createElement('p');
+        p.style.marginBottom = '0.5em';
+        p.textContent = l;
+        profileEl.appendChild(p);
+      });
       profileEl.hidden = false;
     }
 
@@ -839,31 +850,72 @@
     const rankLabels = ['#1 Match', '#2 Match', '#3 Match'];
     const rankClasses = ['rank-1', 'rank-2', 'rank-3'];
 
-    grid.innerHTML = matches.map(function(m, i) {
+    // Use createElement — never inject localStorage data via innerHTML
+    grid.textContent = '';
+    matches.forEach(function(m, i) {
       const d = RV_DESTINATIONS[m.name] || {};
-      const photo  = m.photo || d.photo || '';
-      const flag   = m.flag  || d.flag  || '';
-      const region = m.region || d.region || '';
+      const photo   = m.photo || d.photo || '';
+      const flag    = m.flag  || d.flag  || '';
+      const region  = m.region || d.region || '';
       const tagline = m.tagline || d.vibe || '';
-      const cost   = m.costPerMonth || d.cost || '';
-      const url    = m.page || d.url || 'destinations.html';
+      const cost    = m.costPerMonth || d.cost || '';
+      const url     = m.page || d.url || 'destinations.html';
 
-      return '<article class="match-card">' +
-        '<div class="match-photo" style="background-image:url(\'' + photo + '\');">' +
-          '<span class="match-rank ' + rankClasses[i] + '">' + rankLabels[i] + '</span>' +
-          '<span class="match-flag">' + flag + '</span>' +
-        '</div>' +
-        '<div class="match-body">' +
-          '<h3 class="match-name">' + m.name + '</h3>' +
-          '<div class="match-region">' + region + '</div>' +
-          '<p class="match-tagline">' + tagline + '</p>' +
-          '<div class="match-footer">' +
-            '<span class="match-cost">' + cost + '</span>' +
-            '<a href="' + url + '" class="match-explore">Explore →</a>' +
-          '</div>' +
-        '</div>' +
-      '</article>';
-    }).join('');
+      const article = document.createElement('article');
+      article.className = 'match-card';
+
+      const photoDiv = document.createElement('div');
+      photoDiv.className = 'match-photo';
+      photoDiv.style.backgroundImage = "url('" + photo.replace(/'/g, '%27') + "')";
+
+      const rankSpan = document.createElement('span');
+      rankSpan.className = 'match-rank ' + rankClasses[i];
+      rankSpan.textContent = rankLabels[i];
+      photoDiv.appendChild(rankSpan);
+
+      const flagSpan = document.createElement('span');
+      flagSpan.className = 'match-flag';
+      flagSpan.textContent = flag;
+      photoDiv.appendChild(flagSpan);
+
+      const bodyDiv = document.createElement('div');
+      bodyDiv.className = 'match-body';
+
+      const h3 = document.createElement('h3');
+      h3.className = 'match-name';
+      h3.textContent = m.name;
+      bodyDiv.appendChild(h3);
+
+      const regionDiv = document.createElement('div');
+      regionDiv.className = 'match-region';
+      regionDiv.textContent = region;
+      bodyDiv.appendChild(regionDiv);
+
+      const taglineP = document.createElement('p');
+      taglineP.className = 'match-tagline';
+      taglineP.textContent = tagline;
+      bodyDiv.appendChild(taglineP);
+
+      const footerDiv = document.createElement('div');
+      footerDiv.className = 'match-footer';
+
+      const costSpan = document.createElement('span');
+      costSpan.className = 'match-cost';
+      costSpan.textContent = cost;
+      footerDiv.appendChild(costSpan);
+
+      const link = document.createElement('a');
+      link.className = 'match-explore';
+      link.textContent = 'Explore →';
+      // Validate URL is a safe relative path before assigning
+      link.href = /^[a-zA-Z0-9\-_./?=#%&:]+$/.test(url) ? url : 'destinations.html';
+      footerDiv.appendChild(link);
+
+      bodyDiv.appendChild(footerDiv);
+      article.appendChild(photoDiv);
+      article.appendChild(bodyDiv);
+      grid.appendChild(article);
+    });
 
     section.hidden = false;
   }
@@ -873,41 +925,98 @@
     const saved = getSaved();
     const dests = saved.destinations || [];
     const container = document.getElementById('savedContent');
+    container.textContent = '';
 
     if (dests.length === 0) {
-      container.innerHTML =
-        '<div class="saved-empty">' +
-          '<p>You haven\'t saved any destinations yet. Browse destinations and tap the heart to save the ones that catch your eye.</p>' +
-          '<a href="destinations.html">Browse all destinations →</a>' +
-        '</div>';
+      const emptyDiv = document.createElement('div');
+      emptyDiv.className = 'saved-empty';
+      const p = document.createElement('p');
+      p.textContent = "You haven't saved any destinations yet. Browse destinations and tap the heart to save the ones that catch your eye.";
+      const a = document.createElement('a');
+      a.href = 'destinations.html';
+      a.textContent = 'Browse all destinations →';
+      emptyDiv.appendChild(p);
+      emptyDiv.appendChild(a);
+      container.appendChild(emptyDiv);
       return;
     }
 
-    container.innerHTML =
-      '<div class="saved-grid">' +
-        dests.map(function(name) {
-          const d = RV_DESTINATIONS[name] || { region: '', flag: '', vibe: '', cost: '', photo: '', url: '#' };
-          const hasPage = d.url && d.url !== '#';
-          const cta = hasPage
-            ? '<a href="' + d.url + '" class="saved-cta">Explore →</a>'
-            : '<span class="saved-cta disabled">Coming soon</span>';
-          return '<article class="saved-card">' +
-            '<div class="saved-photo" style="background-image:url(\'' + d.photo + '\');">' +
-              '<span class="saved-flag">' + d.flag + '</span>' +
-              '<button class="card-save saved" data-name="' + name + '" onclick="toggleSave(\'' + name.replace(/'/g, "\\'") + '\')" aria-label="Remove ' + name + '">♥</button>' +
-            '</div>' +
-            '<div class="saved-body">' +
-              '<h3 class="saved-name">' + name + '</h3>' +
-              '<div class="saved-region">' + d.region + '</div>' +
-              (d.vibe ? '<p class="saved-vibe">' + d.vibe + '</p>' : '') +
-              '<div class="saved-footer">' +
-                (d.cost ? '<span class="saved-cost">' + d.cost + '</span>' : '<span></span>') +
-                cta +
-              '</div>' +
-            '</div>' +
-          '</article>';
-        }).join('') +
-      '</div>';
+    // Use createElement — never inject localStorage data via innerHTML
+    const gridDiv = document.createElement('div');
+    gridDiv.className = 'saved-grid';
+
+    dests.forEach(function(name) {
+      const d = RV_DESTINATIONS[name] || { region: '', flag: '', vibe: '', cost: '', photo: '', url: '#' };
+      const hasPage = d.url && d.url !== '#';
+
+      const article = document.createElement('article');
+      article.className = 'saved-card';
+
+      const photoDiv = document.createElement('div');
+      photoDiv.className = 'saved-photo';
+      photoDiv.style.backgroundImage = "url('" + (d.photo || '').replace(/'/g, '%27') + "')";
+
+      const flagSpan = document.createElement('span');
+      flagSpan.className = 'saved-flag';
+      flagSpan.textContent = d.flag;
+      photoDiv.appendChild(flagSpan);
+
+      const saveBtn = document.createElement('button');
+      saveBtn.className = 'card-save saved';
+      saveBtn.dataset.name = name;
+      saveBtn.setAttribute('aria-label', 'Remove ' + name);
+      saveBtn.textContent = '♥';
+      saveBtn.addEventListener('click', function() { toggleSave(name); });
+      photoDiv.appendChild(saveBtn);
+
+      const bodyDiv = document.createElement('div');
+      bodyDiv.className = 'saved-body';
+
+      const h3 = document.createElement('h3');
+      h3.className = 'saved-name';
+      h3.textContent = name;
+      bodyDiv.appendChild(h3);
+
+      const regionDiv = document.createElement('div');
+      regionDiv.className = 'saved-region';
+      regionDiv.textContent = d.region;
+      bodyDiv.appendChild(regionDiv);
+
+      if (d.vibe) {
+        const vibeP = document.createElement('p');
+        vibeP.className = 'saved-vibe';
+        vibeP.textContent = d.vibe;
+        bodyDiv.appendChild(vibeP);
+      }
+
+      const footerDiv = document.createElement('div');
+      footerDiv.className = 'saved-footer';
+
+      const costSpan = document.createElement('span');
+      costSpan.className = 'saved-cost';
+      if (d.cost) costSpan.textContent = d.cost;
+      footerDiv.appendChild(costSpan);
+
+      if (hasPage) {
+        const ctaLink = document.createElement('a');
+        ctaLink.href = d.url;
+        ctaLink.className = 'saved-cta';
+        ctaLink.textContent = 'Explore →';
+        footerDiv.appendChild(ctaLink);
+      } else {
+        const ctaSpan = document.createElement('span');
+        ctaSpan.className = 'saved-cta disabled';
+        ctaSpan.textContent = 'Coming soon';
+        footerDiv.appendChild(ctaSpan);
+      }
+
+      bodyDiv.appendChild(footerDiv);
+      article.appendChild(photoDiv);
+      article.appendChild(bodyDiv);
+      gridDiv.appendChild(article);
+    });
+
+    container.appendChild(gridDiv);
   }
 
   /* ── Account row ───────────────────────────────────────────── */
@@ -926,11 +1035,16 @@
     const label = matchData.vibeLabel || '';
     if (label) {
       const titleEl = document.getElementById('pageTitle');
+      titleEl.textContent = '';
       const parts = label.match(/^(The\s+)(.+)$/);
       if (parts) {
-        titleEl.innerHTML = 'Welcome back, <em>' + parts[2] + '</em>.';
+        titleEl.appendChild(document.createTextNode('Welcome back, '));
+        const em = document.createElement('em');
+        em.textContent = parts[2];
+        titleEl.appendChild(em);
+        titleEl.appendChild(document.createTextNode('.'));
       } else {
-        titleEl.innerHTML = 'Welcome back.';
+        titleEl.textContent = 'Welcome back.';
       }
       document.getElementById('heroSub').textContent = 'Your top matches, your persona, and the places you\'ve saved — all right here.';
     }

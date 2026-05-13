@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com data: blob:; connect-src 'self' https://api.emailjs.com;">
 <title>Destination — RetireVibes</title>
 <script>
   // Redirect all destination-coming-soon links to the full destination-detail template.
@@ -253,8 +254,13 @@
       '<div class="stat-cell"><div class="stat-label">Time zone</div><div class="stat-value">' + data.timezone + '</div></div>' +
       '<div class="stat-cell"><div class="stat-label">Monthly cost</div><div class="stat-value">' + data.cost + '</div><div class="stat-sub">Upscale lifestyle</div></div>';
 
-    // Coming soon copy
-    document.getElementById('csHeadline').innerHTML = 'The full <em>' + name + '</em> guide is still in the works.';
+    // Coming soon copy — use createElement, not innerHTML
+    const csEl = document.getElementById('csHeadline');
+    csEl.textContent = '';
+    csEl.appendChild(document.createTextNode('The full '));
+    const _csEm = document.createElement('em'); _csEm.textContent = name;
+    csEl.appendChild(_csEm);
+    csEl.appendChild(document.createTextNode(' guide is still in the works.'));
     document.getElementById('csBody').textContent = "We're researching the visa rules, the cost-of-living numbers, the best neighborhoods, and the practical stuff that matters for retirees. Save " + name + " to your RetireVibes and we'll let you know when the full guide goes live.";
   }
 

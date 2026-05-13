@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com data: blob:; connect-src 'self' https://api.emailjs.com;">
 <title>Find a Retirement Advisor — RetireVibes</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -880,7 +881,12 @@
   let _contactAdvisor = '';
   function openContactModal(advisorName) {
     _contactAdvisor = advisorName;
-    document.getElementById('contactModalTitle').innerHTML = 'Connect with <em>' + advisorName + '</em>.';
+    const titleEl = document.getElementById('contactModalTitle');
+    titleEl.textContent = '';
+    titleEl.appendChild(document.createTextNode('Connect with '));
+    const em = document.createElement('em'); em.textContent = advisorName;
+    titleEl.appendChild(em);
+    titleEl.appendChild(document.createTextNode('.'));
     document.getElementById('contactForm').hidden = false;
     document.getElementById('contactSuccess').hidden = true;
     document.getElementById('contactModal').classList.add('open');

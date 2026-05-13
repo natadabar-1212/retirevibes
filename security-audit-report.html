@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>RetireVibes — Security Audit Report</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --cream: #FBF6EE;
+    --teal: #1B3A4B;
+    --teal-soft: #2E5468;
+    --terracotta: #C97B5A;
+    --warm-gray: #7A6E5F;
+    --green: #1E8449;
+    --red: #C0392B;
+    --orange: #D68910;
+    --gold: #B7950B;
+    --blue: #1A5276;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--cream);
+    color: var(--teal);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media print {
+    body { background: white; font-size: 11pt; }
+    .no-print { display: none; }
+    .finding-card { break-inside: avoid; }
+    h1, h2 { break-after: avoid; }
+  }
+
+  /* ── Layout ── */
+  .page { max-width: 860px; margin: 0 auto; padding: 64px 48px 96px; }
+
+  /* ── Cover ── */
+  .cover { margin-bottom: 64px; padding-bottom: 40px; border-bottom: 2px solid rgba(27,58,75,0.12); }
+  .cover-wordmark { font-family: var(--serif); font-size: 44px; color: var(--teal); line-height: 1; margin-bottom: 8px; }
+  .cover-wordmark em { color: var(--terracotta); font-style: normal; }
+  .cover-subtitle { font-size: 26px; color: var(--terracotta); font-family: var(--serif); margin-bottom: 14px; }
+  .cover-meta { font-size: 14px; color: var(--warm-gray); font-style: italic; }
+  .cover-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-top: 24px; padding: 10px 20px;
+    background: #E8F5E9; color: var(--green);
+    border-radius: 999px; font-size: 14px; font-weight: 600;
+    border: 1px solid rgba(30,132,73,0.2);
+  }
+
+  /* ── Section headings ── */
+  h1 {
+    font-family: var(--serif);
+    font-size: 32px; color: var(--teal);
+    margin: 56px 0 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(27,58,75,0.12);
+  }
+  h2 {
+    font-family: var(--sans);
+    font-size: 18px; font-weight: 700; color: var(--teal);
+    margin: 36px 0 12px;
+    text-transform: uppercase; letter-spacing: 0.06em;
+  }
+
+  /* ── Body text ── */
+  p { margin-bottom: 14px; color: #2c3e50; }
+  p:last-child { margin-bottom: 0; }
+  strong { color: var(--teal); }
+
+  /* ── Summary table ── */
+  .summary-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; }
+  .summary-table th {
+    background: var(--teal); color: white;
+    padding: 10px 14px; text-align: left;
+    font-weight: 600; font-size: 13px; letter-spacing: 0.04em;
+  }
+  .summary-table td { padding: 10px 14px; border-bottom: 1px solid rgba(27,58,75,0.08); vertical-align: top; }
+  .summary-table tr:last-child td { border-bottom: none; }
+  .summary-table tr:nth-child(even) td { background: rgba(251,246,238,0.6); }
+  .sev-badge {
+    display: inline-block; padding: 3px 10px; border-radius: 999px;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+  .sev-medium { background: #FDEBD0; color: #D68910; }
+  .sev-low    { background: #FEF9E7; color: #B7950B; }
+  .sev-info   { background: #EBF5FB; color: #1A5276; }
+  .file-ref { font-family: 'Courier New', monospace; font-size: 12px; color: var(--warm-gray); }
+
+  /* ── Finding cards ── */
+  .finding-card {
+    border-radius: 12px; overflow: hidden;
+    margin: 28px 0; border: 1px solid rgba(27,58,75,0.08);
+    box-shadow: 0 2px 8px rgba(27,58,75,0.06);
+  }
+  .finding-header {
+    padding: 16px 22px 14px;
+    border-bottom: 1px solid rgba(27,58,75,0.08);
+  }
+  .finding-header .id-sev {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 4px;
+  }
+  .finding-header .f-id { font-size: 12px; font-weight: 700; color: var(--warm-gray); letter-spacing: 0.08em; text-transform: uppercase; }
+  .finding-header .f-title { font-size: 17px; font-weight: 700; color: var(--teal); }
+  .finding-header .f-file { font-family: 'Courier New', monospace; font-size: 12px; color: var(--warm-gray); margin-top: 4px; }
+
+  .fh-medium { background: #FDEBD0; }
+  .fh-low    { background: #FEF9E7; }
+  .fh-info   { background: #EBF5FB; }
+
+  .finding-body { padding: 20px 22px; background: white; }
+  .finding-section { margin-bottom: 16px; }
+  .finding-section:last-child { margin-bottom: 0; }
+  .finding-section-label {
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em;
+    margin-bottom: 6px;
+  }
+  .label-problem  { color: #C0392B; }
+  .label-risk     { color: #D68910; }
+  .label-fix      { color: var(--green); }
+  .finding-section p { font-size: 14px; color: #34495e; margin-bottom: 0; }
+
+  .code-block {
+    background: #F4F6F7; border-radius: 8px;
+    padding: 12px 16px; margin-top: 10px;
+    font-family: 'Courier New', monospace; font-size: 12px; color: var(--teal);
+    line-height: 1.7; border-left: 3px solid var(--teal);
+    white-space: pre-wrap; word-break: break-all;
+  }
+
+  /* ── Bullets ── */
+  ul { padding-left: 22px; margin: 12px 0; }
+  ul li { margin-bottom: 6px; font-size: 14px; color: #34495e; }
+  ul li::marker { color: var(--terracotta); }
+
+  ol { padding-left: 22px; margin: 12px 0; }
+  ol li { margin-bottom: 8px; font-size: 14px; color: #34495e; }
+
+  /* ── Checklist ── */
+  .checklist { list-style: none; padding: 0; margin: 16px 0; }
+  .checklist li {
+    padding: 8px 12px 8px 36px; position: relative;
+    margin-bottom: 4px; font-size: 14px;
+    border-radius: 6px; background: rgba(251,246,238,0.7);
+  }
+  .checklist li::before {
+    content: "☐"; position: absolute; left: 10px;
+    color: var(--terracotta); font-size: 16px; line-height: 1;
+  }
+
+  /* ── Print button ── */
+  .print-bar {
+    background: var(--teal); color: white;
+    padding: 14px 24px; text-align: center;
+    font-size: 14px; font-weight: 500;
+  }
+  .print-bar button {
+    background: var(--terracotta); color: white; border: none;
+    padding: 8px 20px; border-radius: 999px; font-family: inherit;
+    font-size: 14px; font-weight: 600; cursor: pointer; margin-left: 12px;
+  }
+  .print-bar button:hover { background: #A8593A; }
+
+  /* ── Footer ── */
+  .report-footer {
+    margin-top: 64px; padding-top: 24px;
+    border-top: 1px solid rgba(27,58,75,0.1);
+    text-align: center; font-size: 13px; color: var(--warm-gray); font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<div class="print-bar no-print">
+  RetireVibes Security Audit Report
+  <button onclick="window.print()">Print / Save as PDF</button>
+</div>
+
+<div class="page">
+
+  <!-- ── Cover ── -->
+  <div class="cover">
+    <div class="cover-wordmark">Retire<em>Vibes</em></div>
+    <div class="cover-subtitle">Security Audit Report</div>
+    <div class="cover-meta">Static Web App &nbsp;·&nbsp; May 2026 &nbsp;·&nbsp; Prepared by Claude</div>
+    <div class="cover-badge">
+      <span>●</span> Overall Risk Level: LOW — appropriate for prototype stage
+    </div>
+  </div>
+
+  <!-- ── Executive Summary ── -->
+  <h1>Executive Summary</h1>
+  <p>RetireVibes is a static HTML/CSS/JS web app with no server-side backend. This significantly limits the attack surface — there is no database, no authentication system, and no server processing of user input. All data storage lives in the visitor's own browser via localStorage.</p>
+  <p>The audit reviewed all 15 HTML files, shared JS/CSS, and the affiliate link inventory. Seven findings were identified. <strong>None are exploitable by a remote attacker without physical access to the victim's browser.</strong> The two Medium-severity findings should be addressed before the real build launches; the Low and Info findings are recommended improvements.</p>
+
+  <!-- ── Summary Table ── -->
+  <h1>Finding Summary</h1>
+  <table class="summary-table">
+    <thead>
+      <tr><th>ID</th><th>Severity</th><th>Finding</th><th>Primary File</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>F-01</strong></td>
+        <td><span class="sev-badge sev-medium">MEDIUM</span></td>
+        <td>Missing referenced JS files (magic-link.js, destinations-data.js, results-matcher.js)</td>
+        <td class="file-ref">results-page-mockup.html</td>
+      </tr>
+      <tr>
+        <td><strong>F-02</strong></td>
+        <td><span class="sev-badge sev-medium">MEDIUM</span></td>
+        <td>innerHTML used with localStorage data — self-XSS pattern</td>
+        <td class="file-ref">my-retirevibes.html</td>
+      </tr>
+      <tr>
+        <td><strong>F-03</strong></td>
+        <td><span class="sev-badge sev-low">LOW</span></td>
+        <td>innerHTML used with dynamic strings (hardcoded source data)</td>
+        <td class="file-ref">find-an-advisor.html, results-page-mockup.html</td>
+      </tr>
+      <tr>
+        <td><strong>F-04</strong></td>
+        <td><span class="sev-badge sev-low">LOW</span></td>
+        <td>External affiliate links missing <code>rel="noreferrer"</code></td>
+        <td class="file-ref">scouting-trip.html, browse-homes-*.html</td>
+      </tr>
+      <tr>
+        <td><strong>F-05</strong></td>
+        <td><span class="sev-badge sev-low">LOW</span></td>
+        <td>CDN script loaded without Subresource Integrity hash</td>
+        <td class="file-ref">results-page-mockup.html</td>
+      </tr>
+      <tr>
+        <td><strong>F-06</strong></td>
+        <td><span class="sev-badge sev-info">INFO</span></td>
+        <td>No Content Security Policy defined on any page</td>
+        <td class="file-ref">All pages</td>
+      </tr>
+      <tr>
+        <td><strong>F-07</strong></td>
+        <td><span class="sev-badge sev-info">INFO</span></td>
+        <td>EmailJS public key will be visible in client-side JS</td>
+        <td class="file-ref">magic-link.js (not yet created)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ── Findings ── -->
+  <h1>Findings</h1>
+
+  <!-- F-01 -->
+  <div class="finding-card">
+    <div class="finding-header fh-medium">
+      <div class="id-sev">
+        <span class="f-id">F-01</span>
+        <span class="sev-badge sev-medium">MEDIUM</span>
+      </div>
+      <div class="f-title">Missing referenced JS files</div>
+      <div class="f-file">results-page-mockup.html — lines 1415–1418</div>
+    </div>
+    <div class="finding-body">
+      <div class="finding-section">
+        <div class="finding-section-label label-problem">Problem</div>
+        <p>The results page loads three JavaScript files that do not exist in the project: <code>destinations-data.js</code>, <code>results-matcher.js</code>, and <code>magic-link.js</code>. The page also loads the EmailJS SDK from jsDelivr, which requires <code>magic-link.js</code> for initialization.</p>
+      </div>
+      <div class="finding-section">
+        <div class="finding-section-label label-risk">Risk</div>
+        <p>Missing script files cause silent failures or console errors when deployed. More importantly, <code>magic-link.js</code> is where the EmailJS public key and service/template IDs will live. If that file is committed to a public GitHub repo without domain restrictions configured first, anyone who finds the key could send unauthorized emails through your account — exhausting your monthly quota or getting your account flagged.</p>
+      </div>
+      <div class="finding-section">
+        <div class="finding-section-label label-fix">How to Fix</div>
+        <p>Create the three missing files. When writing <code>magic-link.js</code>, restrict the EmailJS service to your domain <em>before</em> pushing the key to GitHub. Do this in the EmailJS dashboard under Settings → Allowed Origins.</p>
+        <div class="code-block">// In EmailJS dashboard: Settings → Allowed Origins → https://retirevibes.com
+
+// In magic-link.js:
+emailjs.init({
+  publicKey: 'YOUR_PUBLIC_KEY',
+  blockHeadless: true,  // blocks bots and scrapers
+});</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- F-02 -->
+  <div class="finding-card">
+    <div class="finding-header fh-medium">
+      <div class="id-sev">
+        <span class="f-id">F-02</span>
+        <span class="sev-badge sev-medium">MEDIUM</span>
+      </div>
+      <div class="f-title">innerHTML used with localStorage data (self-XSS)</div>
+      <div class="f-file">my-retirevibes.html — lines 811, 825, 842–866, 886–899, 931</div>
+    </div>
+    <div class="finding-body">
+      <div class="finding-section">
+        <div class="finding-section-label label-problem">Problem</div>
+        <p>The My RetireVibes page reads quiz match data from <code>localStorage</code> (key: <code>rv_quiz_matches</code>) and destination names from <code>rv_saved</code>, then inserts them directly into the DOM via <code>innerHTML</code> without any sanitization. Affected values include the vibe label, profile paragraphs, match card name/photo/flag/tagline, and saved destination names.</p>
+      </div>
+      <div class="finding-section">
+        <div class="finding-section-label label-risk">Risk</div>
+        <p>This is a self-XSS pattern: an attacker would need physical access to the victim's browser to modify localStorage and trigger the injection. A remote attacker cannot exploit this directly. However, if any other vulnerability is introduced that can write to localStorage (e.g., a future URL parameter that isn't validated), this escalates immediately to a stored XSS. It is also a fragile pattern that grows more dangerous as the codebase evolves.</p>
+      </div>
+      <div class="finding-section">
+        <div class="finding-section-label label-fix">How to Fix</div>
+        <p>Replace <code>innerHTML</code> with <code>textContent</code> for all text content. For elements that need italic styling (like the vibe name), use <code>createElement</code> and <code>appendChild</code>.</p>
+        <div class="code-block">// ❌ Before (vulnerable):
+nameEl.innerHTML = parts[1] + '&lt;em&gt;' + parts[2] + '&lt;/em&gt;';
+
+// ✅ After (safe):
+nameEl.textContent = parts[1];
+const em = document.createElement('em');
+em.textContent = parts[2];
+nameEl.appendChild(em);
+
+// For profile paragraphs:
+// ❌ Before:
+profileEl.innerHTML = lines.map(l => '&lt;p&gt;' + l + '&lt;/p&gt;').join('');
+
+// ✅ After:
+lines.forEach(l => {
+  const p = document.createElement('p');
+  p.textContent = l;
+  profileEl.appendChild(p);
+});</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- F-03 -->
+  <div class="finding-card">
+    <div class="finding-header fh-low">
+      <div class="id-sev">
+        <span class="f-id">F-03</span>
+        <span class="sev-badge sev-low">LOW</span>
+      </div>
+      <div class="f-title">innerHTML used with dynamic strings (hardcoded data)</div>
+      <div class="f-file">find-an-advisor.html (line 883), results-page-mockup.html (line 1159), destination-coming-soon.html (line 257)</div>
+    </div>
+    <div class="finding-body">
+      <div class="finding-section">
+        <div class="finding-section-label label-problem">Problem</div>
+        <p>Three pages use <code>innerHTML</code> to inject a dynamic string with an italic accent — the advisor name in the contact modal, the destination name in the save modal title, and the destination name in the coming-soon headline. In all three cases, the source values are currently hardcoded (advisor names from static HTML attributes; destination names from a JS dictionary keyed on URL param).</p>
+      </div>
+      <div class="finding-section">
+        <div class="finding-section-label label-risk">Risk</div>
+        <p>Low risk today because the values are not user-controlled. However, the pattern is fragile — if the data source ever changes (e.g., destination names come from an API or user input), an XSS vulnerability would be silently introduced.</p>
+      </div>
+      <div class="finding-section">
+        <div class="finding-section-label label-fix">How to Fix</div>
+        <p>Same <code>createElement</code> approach as F-02. Three small changes across three files.</p>
+        <div class="code-block">// ❌ Before:
+titleEl.innerHTML = 'Connect with &lt;em&gt;' + advisorName + '&lt;/em&gt;.';
+
+// ✅ After:
+titleEl.textContent = 'Connect with ';
+const em = document.createElement('em');
+em.textContent = advisorName;
+titleEl.appendChild(em);
+titleEl.appendChild(document.createTextNode('.'));</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- F-04 -->
+  <div class="finding-card">
+    <div class="finding-header fh-low">
+      <div class="id-sev">
+        <span class="f-id">F-04</span>
+        <span class="sev-badge sev-low">LOW</span>
+      </div>
+      <div class="f-title">External links missing <code>rel="noreferrer"</code></div>
+      <div class="f-file">scouting-trip.html, browse-homes-international.html, browse-homes-domestic.html, destination pages</div>
+    </div>
+    <div class="finding-body">
+      <div class="finding-section">
+        <div class="finding-section-label label-problem">Problem</div>
+        <p>All external affiliate links (Booking.com, Expedia, Idealista, Zillow, etc.) use <code>rel="noopener"</code> but are missing <code>rel="noreferrer"</code>. The <code>noopener</code> attribute is present and correct — it prevents the linked page from accessing <code>window.opener</code>. But without <code>noreferrer</code>, the browser sends a <code>Referer</code> HTTP header to the destination site revealing exactly which RetireVibes page the user clicked from.</p>
+      </div>
+      <div class="finding-section">
+        <div class="finding-section-label label-risk">Risk</div>
+        <p>Affiliate partners and their analytics will see your internal page URLs in referrer logs — exposing your site structure and traffic patterns. This is a privacy and competitive information concern more than a direct security risk.</p>
+      </div>
+      <div class="finding-section">
+        <div class="finding-section-label label-fix">How to Fix</div>
+        <p>A simple find-and-replace across all HTML files — takes under 5 minutes.</p>
+        <div class="code-block">Find:    rel="noopener"
+Replace: rel="noopener noreferrer"</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- F-05 -->
+  <div class="finding-card">
+    <div class="finding-header fh-low">
+      <div class="id-sev">
+        <span class="f-id">F-05</span>
+        <span class="sev-badge sev-low">LOW</span>
+      </div>
+      <div class="f-title">CDN script loaded without Subresource Integrity hash</div>
+      <div class="f-file">results-page-mockup.html — line 1417</div>
+    </div>
+    <div class="finding-body">
+      <div class="finding-section">
+        <div class="finding-section-label label-problem">Problem</div>
+        <p>The EmailJS browser SDK is loaded from jsDelivr without an <code>integrity</code> attribute. Current tag:</p>
+        <div class="code-block">&lt;script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"&gt;&lt;/script&gt;</div>
+      </div>
+      <div class="finding-section">
+        <div class="finding-section-label label-risk">Risk</div>
+        <p>If jsDelivr (or the EmailJS package on npm) were ever compromised and the CDN served a malicious version of the script, it would run with full page access — including localStorage, form inputs, and the ability to exfiltrate email addresses submitted through the save modal. CDN compromise is rare but has happened (see: Polyfill.io incident, June 2024, which affected 100,000+ websites).</p>
+      </div>
+      <div class="finding-section">
+        <div class="finding-section-label label-fix">How to Fix</div>
+        <p>Generate an SRI hash for the exact file version and add it as the <code>integrity</code> attribute. You can generate one at <strong>srihash.org</strong> — just paste the CDN URL and it gives you the tag.</p>
+        <div class="code-block"># Or generate locally:
+curl -s https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js \
+  | openssl dgst -sha384 -binary | openssl base64 -A
+
+# Then use it in the script tag:
+&lt;script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+        integrity="sha384-PASTE_HASH_HERE"
+        crossorigin="anonymous"&gt;&lt;/script&gt;</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- F-06 -->
+  <div class="finding-card">
+    <div class="finding-header fh-info">
+      <div class="id-sev">
+        <span class="f-id">F-06</span>
+        <span class="sev-badge sev-info">INFO</span>
+      </div>
+      <div class="f-title">No Content Security Policy defined</div>
+      <div class="f-file">All pages</div>
+    </div>
+    <div class="finding-body">
+      <div class="finding-section">
+        <div class="finding-section-label label-problem">Problem</div>
+        <p>No Content Security Policy (CSP) is set on any page — neither as an HTTP response header nor as a <code>&lt;meta&gt;</code> tag. CSP is a browser feature that restricts which scripts, styles, fonts, and other resources can load.</p>
+      </div>
+      <div class="finding-section">
+        <div class="finding-section-label label-risk">Risk</div>
+        <p>Without a CSP, if an XSS vulnerability is ever introduced, the attacker has no browser-level restrictions on what they can do. CSP is defense-in-depth — it does not replace fixing root causes (F-02, F-03), but it limits the blast radius if something goes wrong. Note: GitHub Pages doesn't support HTTP headers, so the <code>&lt;meta&gt;</code> approach is your primary option.</p>
+      </div>
+      <div class="finding-section">
+        <div class="finding-section-label label-fix">How to Fix</div>
+        <p>Add a CSP meta tag to each page's <code>&lt;head&gt;</code>. Start permissive — tighten as the build grows. Add this to <code>shared.css</code>'s companion or bake it into a template.</p>
+        <div class="code-block">&lt;meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  script-src 'self' https://cdn.jsdelivr.net;
+  style-src 'self' https://fonts.googleapis.com 'unsafe-inline';
+  font-src https://fonts.gstatic.com;
+  img-src 'self' https://images.unsplash.com data:;
+  connect-src 'self' https://api.emailjs.com;
+"&gt;</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- F-07 -->
+  <div class="finding-card">
+    <div class="finding-header fh-info">
+      <div class="id-sev">
+        <span class="f-id">F-07</span>
+        <span class="sev-badge sev-info">INFO</span>
+      </div>
+      <div class="f-title">EmailJS public key will be visible in client-side JS</div>
+      <div class="f-file">magic-link.js (not yet created)</div>
+    </div>
+    <div class="finding-body">
+      <div class="finding-section">
+        <div class="finding-section-label label-problem">Problem</div>
+        <p>When <code>magic-link.js</code> is written to initialize EmailJS, it will contain your public key, service ID, and template ID — all visible in page source and in the public GitHub repo.</p>
+      </div>
+      <div class="finding-section">
+        <div class="finding-section-label label-risk">Risk</div>
+        <p>This is expected and by design for EmailJS — their SDK is built to be used client-side. However, an unrestricted key can be discovered by scrapers and used to send unauthorized emails through your account, potentially exhausting your monthly quota or getting your account flagged for spam.</p>
+      </div>
+      <div class="finding-section">
+        <div class="finding-section-label label-fix">How to Fix</div>
+        <p>Three steps when setting up EmailJS:</p>
+        <ol style="margin: 10px 0 0 20px; font-size: 14px; color: #34495e; line-height: 1.8;">
+          <li>Restrict allowed origins to <code>retirevibes.com</code> only (EmailJS dashboard → Settings → Allowed Origins)</li>
+          <li>Enable "Block headless browsers" in EmailJS settings to stop bots</li>
+          <li>Add a comment in <code>magic-link.js</code> noting the key is intentionally public but domain-restricted</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── What's Not a Concern ── -->
+  <h1>What's Not a Concern</h1>
+  <p>For completeness — these common vulnerability classes do not apply to RetireVibes in its current static form:</p>
+  <ul>
+    <li><strong>SQL injection</strong> — no database, no server-side queries</li>
+    <li><strong>Server-Side Request Forgery (SSRF)</strong> — no server</li>
+    <li><strong>Authentication bypass</strong> — no login system exists</li>
+    <li><strong>Session hijacking</strong> — no sessions or cookies set by the app</li>
+    <li><strong>Command injection</strong> — no server-side code execution</li>
+    <li><strong>CSRF</strong> — no state-changing server endpoints</li>
+    <li><strong>URL parameter injection</strong> — all pages that read URL params either validate against a whitelist (<code>destination-coming-soon.html</code>, <code>find-an-advisor.html</code>) or use values only for UI filtering, never for unvalidated DOM injection</li>
+  </ul>
+
+  <!-- ── GitHub checklist ── -->
+  <h1>GitHub Repository Checklist</h1>
+  <p>Separately from the code, verify these settings in your GitHub repo:</p>
+  <ul class="checklist">
+    <li><code>.gitignore</code> is present and excludes any future <code>.env</code> files, <code>node_modules</code>, and OS files like <code>.DS_Store</code></li>
+    <li>No API keys or credentials exist in any commit — including old commits. Use <code>git log -p | grep -i "api_key\|secret\|password"</code> to check history</li>
+    <li>Enable GitHub Secret Scanning (Settings → Security → Secret scanning) — it will alert you if a key is accidentally committed</li>
+    <li>Enable Dependabot alerts if you add npm dependencies in the real build</li>
+    <li>Consider branch protection on <code>main</code> to require review before merging</li>
+  </ul>
+
+  <!-- ── Fix order ── -->
+  <h1>Recommended Fix Order</h1>
+  <p>Prioritized by impact and effort — all seven findings can be addressed in a single focused session:</p>
+  <ol>
+    <li><strong>F-01</strong> — Create the missing JS files; set up EmailJS with domain restriction before pushing the key</li>
+    <li><strong>F-02</strong> — Refactor <code>my-retirevibes.html</code> to use <code>textContent</code> and <code>createElement</code> instead of <code>innerHTML</code></li>
+    <li><strong>F-03</strong> — Fix the three <code>innerHTML</code> instances in <code>find-an-advisor.html</code>, <code>results-page-mockup.html</code>, and <code>destination-coming-soon.html</code> — do this at the same time as F-02</li>
+    <li><strong>F-04</strong> — Global find-and-replace: <code>rel="noopener"</code> → <code>rel="noopener noreferrer"</code></li>
+    <li><strong>F-05</strong> — Generate the SRI hash for EmailJS and add it to the script tag</li>
+    <li><strong>F-06</strong> — Add the CSP meta tag; iterate as the build grows</li>
+  </ol>
+
+  <div class="report-footer">
+    RetireVibes Security Audit &nbsp;·&nbsp; May 2026 &nbsp;·&nbsp; Prepared by Claude &nbsp;·&nbsp; Confidential
+  </div>
+
+</div>
+</body>
+</html>
