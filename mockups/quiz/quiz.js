@@ -111,9 +111,10 @@ function renderWelcome() {
         <span>✦ US and international destinations</span>
         <span>✦ No financial info needed</span>
       </div>
-      <button class="btn btn-welcome" onclick="start()">Find my RetireVibes →</button>
+      <button class="btn btn-welcome">Find my RetireVibes →</button>
     </div>
   `;
+  div.querySelector('.btn-welcome').addEventListener('click', start);
   stage.appendChild(div);
 }
 
@@ -205,12 +206,15 @@ function renderQuestion(idx) {
     ${q.hint ? `<p class="q-hint">${q.hint}</p>` : ''}
     ${body}
     <div class="nav-row">
-      <button class="btn btn-ghost" onclick="back()">← Back</button>
-      <button class="btn btn-primary" id="nextBtn" onclick="next()" disabled>
+      <button class="btn btn-ghost">← Back</button>
+      <button class="btn btn-primary" id="nextBtn" disabled>
         ${idx === QUESTIONS.length - 1 ? 'See my matches' : 'Next'} →
       </button>
     </div>
   `;
+
+  left.querySelector('.btn-ghost').addEventListener('click', back);
+  left.querySelector('#nextBtn').addEventListener('click', next);
 
   stage.appendChild(left);
   stage.appendChild(right);
@@ -336,12 +340,20 @@ function renderProcessing() {
         <div class="vibe-label">${vibeLabel}</div>
         <p class="vibe-tagline">We've matched you with three destinations that feel like home for a ${vibeLabel.toLowerCase()}.</p>
         <div style="margin-top:36px;">
-          <button class="btn btn-welcome" onclick="try{localStorage.setItem('rv_vibe_label','${vibeLabel}');localStorage.setItem('rv_quiz_answers',JSON.stringify(state.answers))}catch(e){};window.location.href='../results-page-mockup.html'">Reveal my matches →</button>
+          <button class="btn btn-welcome" id="revealBtn">Reveal my matches →</button>
         </div>
       </div>
     </div>
   `;
   stage.appendChild(div);
+
+  div.querySelector('#revealBtn').addEventListener('click', function() {
+    try {
+      localStorage.setItem('rv_vibe_label', vibeLabel);
+      localStorage.setItem('rv_quiz_answers', JSON.stringify(state.answers));
+    } catch(e) {}
+    window.location.href = '../results-page-mockup.html';
+  });
 
   const stages = div.querySelectorAll('.reveal-stage');
   const stack = div.querySelector('#revealStack');
