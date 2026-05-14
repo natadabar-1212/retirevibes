@@ -478,9 +478,9 @@
             <div class="stat-sub">${dest.country}</div>
           </div>
           <div class="stat-cell">
-            <div class="stat-label">Destination type</div>
-            <div class="stat-value" style="font-size:18px;line-height:1.3;">${isIntl ? 'International' : 'Domestic US'}</div>
-            <div class="stat-sub">${isIntl ? 'Passport required' : 'No passport needed'}</div>
+            <div class="stat-label">Visa &amp; residency</div>
+            <div class="stat-value" style="font-size:16px;line-height:1.3;">${isIntl ? visa.title : 'No visa needed'}</div>
+            <div class="stat-sub">${isIntl ? 'Residency details below' : 'US citizens only'}</div>
           </div>
         </div>
       </div>
