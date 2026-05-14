@@ -337,7 +337,11 @@
       if (country === 'Montenegro') return { icon: '🪪', title: 'Long Stay Visa', body: 'Montenegro\'s long-stay visa allows extended residency. Montenegro also has a Citizenship by Investment program. Not yet EU but a candidate country.' };
       if (country === 'Malta') return { icon: '🪪', title: 'Malta Retirement Programme', body: 'Malta\'s Retirement Programme (MRP) offers formal residency to retirees receiving pensions or passive income from outside Malta. EU member — Schengen access.' };
       if (country === 'Cyprus') return { icon: '🪪', title: 'Category F Visa', body: 'Cyprus\'s Category F "Retired Resident" Visa requires proof of foreign income of €9,568+/year. EU member offering Schengen access. Relatively affordable visa process.' };
-      return { icon: '🪪', title: 'Schengen: 90 Days / Long-Stay Visa', body: 'US citizens can visit the Schengen Area for up to 90 days in any 180-day period. Long-term EU retirement requires a national visa or permit — options vary by country.' };
+      if (country === 'France') return { icon: '🪪', title: 'Long-Stay Visa (VLS-TS)', body: 'France\'s Long-Stay Visitor Visa (VLS-TS) is the standard path for retirees — valid for 1 year, renewable in-country. Proof of sufficient funds (~€1,600+/month) and health insurance required. France is Schengen — the visa unlocks travel across the Schengen Area.' };
+      if (country === 'Switzerland') return { icon: '🪪', title: 'Schengen 90 Days / Permit B', body: 'Switzerland is in the Schengen Area but not the EU. US citizens can visit 90 days visa-free. Long-term retirement requires a Residence Permit B (Aufenthaltsbewilligung) for financially independent persons. Income/assets requirements apply.' };
+      if (country === 'United Kingdom') return { icon: '🪪', title: 'Standard Visitor: 6 Months', body: 'US citizens can visit the UK for up to 6 months without a visa. The UK is NOT in Schengen. There is no dedicated UK retirement visa — the most common long-stay path is the Standard Visitor extension or the High Value Migrant route. Consult a UK immigration specialist.' };
+      if (country === 'Ireland') return { icon: '🪪', title: 'Stamp 0 Permission', body: 'Ireland is EU but NOT in Schengen. US citizens can visit for up to 90 days without a visa. Long-term retirement uses "Stamp 0" — requires substantial income (~€50K+/year, no recourse to public services). Apply through the Irish Naturalisation and Immigration Service (INIS).' };
+      return { icon: '🪪', title: 'Schengen: 90 Days / Long-Stay Visa', body: 'US citizens can visit the Schengen Area for up to 90 days in any 180-day period. Long-term EU retirement requires a national long-stay visa — requirements vary by country.' };
     }
     // Australia/NZ
     if (geo === 5) {
@@ -354,7 +358,18 @@
       if (country === 'Sri Lanka') return { icon: '🪪', title: 'Retirement Resident Visa', body: 'Sri Lanka\'s Retirement Resident Visa for those 55+ requires proof of income. The process is relatively accessible and the visa is annually renewable.' };
       if (country === 'Philippines') return { icon: '🪪', title: 'SRRV — Best in Asia', body: 'The Philippines\' Special Resident Retiree\'s Visa (SRRV) is one of Asia\'s most generous retirement programs. Multiple tiers from $10K–$75K deposit depending on age, with immediate permanent residency.' };
       if (country === 'Taiwan') return { icon: '🪪', title: 'Gold Card / Investment Visa', body: 'Taiwan does not have a specific retirement visa. The Gold Card (for professionals) and Investment Visas are the main long-stay paths. Standard visitor visa-free stays are 90 days.' };
+      if (country === 'Japan') return { icon: '🪪', title: 'No Official Retirement Visa', body: 'Japan currently has no dedicated retirement visa for Americans. Most long-term expats use a Spouse/Dependent Visa, a Cultural Activities Visa, or carefully managed tourist entries. The government has discussed but not yet launched a retirement visa program. Consult a Japan immigration specialist.' };
       return { icon: '🪪', title: 'Retirement Visa Varies', body: 'Several Asian countries offer dedicated retirement visa programs (Thailand, Malaysia, Philippines). Requirements and ease of process vary significantly — consult a specialist.' };
+    }
+    // Africa
+    if (geo === 7) {
+      if (country === 'Morocco') return { icon: '🪪', title: '90 Days Visa-Free', body: 'US citizens can visit Morocco for up to 90 days without a visa. Long-term residency requires a Residency Permit (Carte de Séjour), obtained locally with proof of income and accommodation. Process is manageable with a local attorney.' };
+      if (country === 'South Africa') return { icon: '🪪', title: 'Retired Person Permit', body: 'South Africa\'s Retired Person Permit requires proof of ZAR 37,000+/month (~$2,000 USD) in net income. Valid for 4 years, renewable. Excellent private healthcare is widely available.' };
+      if (country === 'Ghana') return { icon: '🪪', title: 'Residency Permit', body: 'US citizens can visit Ghana for 30 days on arrival. Long-term residency requires an Indefinite Stay Permit through the Ghana Immigration Service. The Right of Abode may apply to those of documented African ancestry.' };
+      if (country === 'Kenya') return { icon: '🪪', title: 'Class G / Investment Permit', body: 'US citizens require a Kenya eTA (on arrival, ~$50). Long-term residency uses a Class G Dependent Permit or an Investment Permit. No specific retirement visa — consult a Nairobi-based immigration attorney.' };
+      if (country === 'Tanzania') return { icon: '🪪', title: 'Residency Permit', body: 'US citizens need a visa for Tanzania, available on arrival or online ($50). Long-term residency requires a Class B Resident Permit with proof of retirement income or a fixed deposit. Zanzibar has its own permit layer.' };
+      if (country === 'Mauritius') return { icon: '🪪', title: 'Retired Non-Citizen Permit', body: 'One of Africa\'s most structured retirement programs — proof of transferring at least $1,500/month to a Mauritius bank account. Renewable annually. Well-organized process with clear requirements.' };
+      return { icon: '🪪', title: 'Residency Permit Required', body: 'Long-term stays in Africa require country-specific residency permits. Requirements and ease of process vary widely. Consult an international retirement specialist for the most current visa pathways.' };
     }
     return { icon: '🪪', title: 'Visa Required', body: 'Long-term residency requirements vary. Consult an international retirement specialist for the most current visa pathways.' };
   }
@@ -364,7 +379,11 @@
     if (dest.country === 'US Virgin Islands' || dest.country === 'United States Territory') return { icon: '🏥', title: 'Medicare Applies (Territory)', body: 'As a US territory, Medicare applies. However, Medicare Advantage plans may have limited local networks — verify your specific plan with your provider before relocating.' };
     const geo = dest.geographyOptions[0];
     if (geo === 1) return { icon: '🏥', title: 'Canadian Public Healthcare', body: 'Canadian healthcare is world-class. Access for new immigrants typically requires a 3-month waiting period. Private supplemental insurance is recommended during the transition.' };
-    if (geo === 4) return { icon: '🏥', title: 'EU Healthcare + Private', body: 'EU member states offer public healthcare to legal residents. Supplemental private international health insurance is recommended and typically affordable in Europe.' };
+    if (geo === 4) {
+      if (dest.country === 'United Kingdom') return { icon: '🏥', title: 'NHS + Private', body: 'The UK\'s NHS is available to legal residents (not visitors). Private health insurance is widely used by expats for faster access. Healthcare quality is excellent — private cover typically costs less than US premiums.' };
+      if (dest.country === 'Ireland') return { icon: '🏥', title: 'HSE (Ireland) + Private', body: 'Ireland\'s Health Service Executive (HSE) is available to legal residents with Stamp 0 or above. Private health insurance is very common in Ireland and typically required for faster specialist access.' };
+      return { icon: '🏥', title: 'EU Healthcare + Private', body: 'EU member states offer public healthcare to legal residents. Supplemental private international health insurance is recommended and typically affordable in Europe.' };
+    }
     if (geo === 5) {
       if (dest.country === 'Australia') return { icon: '🏥', title: 'Medicare (AU) + Private', body: 'Australia\'s Medicare system covers legal residents. Private health insurance is highly recommended and commonly used. Healthcare quality is excellent.' };
       return { icon: '🏥', title: 'Public + Private Mix', body: 'New Zealand and Australia have strong public health systems accessible to legal residents. Supplemental private insurance is common and recommended.' };
@@ -399,6 +418,16 @@
     const visa = getVisaInfo(dest);
     const health = getHealthcareInfo(dest);
     const getting = getGettingThereInfo(dest);
+
+    // Strip redundant country suffix from region for stat block display
+    // e.g. "Yucatán, Mexico" + country "Mexico" → shows "Yucatán" / "Mexico"
+    // "Northern Portugal" + country "Portugal" → unchanged (doesn't end with ", Portugal")
+    const regionDisplay = (() => {
+      let r = dest.region.replace(/,\s*USA$/i, '');
+      const c = dest.country.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      r = r.replace(new RegExp(',\\s*' + c + '$', 'i'), '');
+      return r.trim();
+    })();
 
     // Similar destinations (same primary geography, different id, up to 3)
     const primaryGeo = dest.geographyOptions[0];
@@ -474,7 +503,7 @@
           </div>
           <div class="stat-cell">
             <div class="stat-label">Region</div>
-            <div class="stat-value" style="font-size:18px;line-height:1.3;">${dest.region}</div>
+            <div class="stat-value" style="font-size:18px;line-height:1.3;">${regionDisplay}</div>
             <div class="stat-sub">${dest.country}</div>
           </div>
           <div class="stat-cell">
