@@ -93,3 +93,33 @@
 @media (max-width: 480px) {
   .nav { padding: 14px 20px; }
 }
+
+/* ─── Screen-reader only utility ────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ─── Focus-visible (global) ────────────────────────────────── */
+/* Gold ring — passes WCAG 1.4.11 non-text contrast on all site backgrounds */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--gold, #C8A064);
+  outline-offset: 3px;
+  border-radius: inherit;
+}
+
+/* ─── Prefers-reduced-motion (global) ───────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

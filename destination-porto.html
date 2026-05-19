@@ -20,7 +20,7 @@
     --gold: #C8A064;
     --gold-soft: #E4C998;
     --sage: #93A89A;
-    --warm-gray: #7A6E5F;
+    --warm-gray: #6A5E4F;
     --white: #FFFFFF;
     --serif: 'DM Serif Display', Georgia, serif;
     --sans: 'Inter', -apple-system, system-ui, sans-serif;
@@ -535,8 +535,8 @@
     position: absolute;
     top: 12px;
     right: 12px;
-    width: 38px;
-    height: 38px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(8px);
@@ -634,6 +634,7 @@
     .stats { padding: 24px 22px; }
     .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 18px 20px; }
     .stat-cell:not(:last-child) { border-right: none; padding-right: 0; }
+    .stat-cell:nth-child(5) { grid-column: 1 / -1; border-bottom: none !important; padding-bottom: 0 !important; }
     section.spread { padding: 64px 22px; }
     .section-head h2 { font-size: 32px; }
     .vibe-grid, .practical-grid, .handoff-grid, .similar-grid {
@@ -709,6 +710,11 @@
       <div class="stat-label">Visa &amp; residency</div>
       <div class="stat-value">D7 Visa</div>
       <div class="stat-sub">€760+/mo income · Golden Visa option</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">Language</div>
+      <div class="stat-value" style="font-size:18px;line-height:1.3;">Portuguese</div>
+      <div class="stat-sub">English spoken in tourist areas; Portuguese helpful day-to-day</div>
     </div>
   </div>
 </section>
@@ -899,7 +905,7 @@
   <div class="similar-grid">
     <a class="similar-card" href="destination-merida.html">
       <div class="similar-photo" style="background-image: url('images/merida.jpg');">
-        <button class="card-save" data-name="Mérida" onclick="event.preventDefault(); event.stopPropagation(); toggleSave('Mérida')" aria-label="Save Mérida">♡</button>
+        <button class="card-save" data-name="Mérida" onclick="event.preventDefault(); event.stopPropagation(); toggleSave('Mérida')" aria-label="Save Mérida" aria-pressed="false"><span aria-hidden="true">♡</span></button>
       </div>
       <div class="similar-body">
         <h3 class="similar-name">Mérida</h3>
@@ -909,7 +915,7 @@
     </a>
     <a class="similar-card" href="destination-asheville.html">
       <div class="similar-photo" style="background-image: url('images/asheville.jpg');">
-        <button class="card-save" data-name="Asheville" onclick="event.preventDefault(); event.stopPropagation(); toggleSave('Asheville')" aria-label="Save Asheville">♡</button>
+        <button class="card-save" data-name="Asheville" onclick="event.preventDefault(); event.stopPropagation(); toggleSave('Asheville')" aria-label="Save Asheville" aria-pressed="false"><span aria-hidden="true">♡</span></button>
       </div>
       <div class="similar-body">
         <h3 class="similar-name">Asheville</h3>
@@ -919,7 +925,7 @@
     </a>
     <a class="similar-card" href="destination-sarasota.html">
       <div class="similar-photo" style="background-image: url('images/sarasota.jpg');">
-        <button class="card-save" data-name="Sarasota" onclick="event.preventDefault(); event.stopPropagation(); toggleSave('Sarasota')" aria-label="Save Sarasota">♡</button>
+        <button class="card-save" data-name="Sarasota" onclick="event.preventDefault(); event.stopPropagation(); toggleSave('Sarasota')" aria-label="Save Sarasota" aria-pressed="false"><span aria-hidden="true">♡</span></button>
       </div>
       <div class="similar-body">
         <h3 class="similar-name">Sarasota</h3>
@@ -980,10 +986,10 @@
   }
   .modal-close {
     position: absolute;
-    top: 18px;
-    right: 18px;
-    width: 36px;
-    height: 36px;
+    top: 16px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
     border: none;
     background: transparent;
     color: var(--warm-gray);
@@ -1082,14 +1088,15 @@
       <h2 class="modal-title" id="saveModalTitle">Send these <em>to your inbox</em>.</h2>
       <p class="modal-sub" id="saveModalSub">We'll email your matches plus a link to come back anytime — no password needed. We'll also let you know when costs, visa rules, or new matches change.</p>
       <form onsubmit="submitSave(event)">
-        <input type="email" name="email" placeholder="your@email.com" required class="modal-input" autocomplete="email" />
+        <label for="save-email" class="sr-only">Email address</label>
+        <input type="email" id="save-email" name="email" placeholder="your@email.com" required class="modal-input" autocomplete="email" />
         <button type="submit" class="modal-submit" id="saveSubmitBtn">Save it →</button>
       </form>
       <p class="modal-fineprint">No password to remember. Just save and come back anytime.</p>
     </div>
     <div id="saveSuccess" hidden>
       <div class="modal-success-block">
-        <div class="modal-success-icon">✓</div>
+        <div class="modal-success-icon" aria-hidden="true">✓</div>
         <p class="modal-eyebrow">Saved</p>
         <h2 class="modal-title">All set.</h2>
         <p class="modal-sub" id="saveSuccessSub">Check your inbox — we sent your matches plus a link you can use to come back anytime. We'll be in touch when something changes.</p>
@@ -1171,9 +1178,11 @@
         }
       });
       document.querySelectorAll('.card-save[data-name]').forEach(b => {
-        if (dests.includes(b.dataset.name)) {
+        const isSaved = dests.includes(b.dataset.name);
+        if (isSaved) {
           b.classList.add('saved');
-          b.innerHTML = '♥';
+          b.setAttribute('aria-pressed', 'true');
+          b.innerHTML = '<span aria-hidden="true">♥</span>';
         }
       });
     } catch(err) {}
@@ -1200,8 +1209,15 @@
       b.innerHTML = isSaved ? '<span class="heart">✓</span> Saved' : '<span class="heart">♡</span> Save ' + name;
     });
     document.querySelectorAll('.card-save[data-name="' + name + '"]').forEach(b => {
-      if (isSaved) { b.classList.add('saved'); b.innerHTML = '♥'; }
-      else { b.classList.remove('saved'); b.innerHTML = '♡'; }
+      if (isSaved) {
+        b.classList.add('saved');
+        b.setAttribute('aria-pressed', 'true');
+        b.innerHTML = '<span aria-hidden="true">♥</span>';
+      } else {
+        b.classList.remove('saved');
+        b.setAttribute('aria-pressed', 'false');
+        b.innerHTML = '<span aria-hidden="true">♡</span>';
+      }
     });
   }
 </script>

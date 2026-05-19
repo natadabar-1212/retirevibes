@@ -19,7 +19,7 @@
     --gold: #C8A064;
     --gold-soft: #E4C998;
     --sage: #93A89A;
-    --warm-gray: #7A6E5F;
+    --warm-gray: #6A5E4F;
     --white: #FFFFFF;
     --serif: 'DM Serif Display', Georgia, serif;
     --sans: 'Inter', -apple-system, system-ui, sans-serif;
@@ -1026,10 +1026,10 @@
   }
   .modal-close {
     position: absolute;
-    top: 18px;
-    right: 18px;
-    width: 36px;
-    height: 36px;
+    top: 16px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
     border: none;
     background: transparent;
     color: var(--warm-gray);
@@ -1128,14 +1128,15 @@
       <h2 class="modal-title" id="saveModalTitle">Send these <em>to your inbox</em>.</h2>
       <p class="modal-sub" id="saveModalSub">We'll email your matches plus a link to come back anytime — no password needed. We'll also let you know when costs, visa rules, or new matches change.</p>
       <form onsubmit="submitSave(event)">
-        <input type="email" name="email" placeholder="your@email.com" required class="modal-input" autocomplete="email" />
+        <label for="save-email" class="sr-only">Email address</label>
+        <input type="email" id="save-email" name="email" placeholder="your@email.com" required class="modal-input" autocomplete="email" />
         <button type="submit" class="modal-submit" id="saveSubmitBtn">Save it →</button>
       </form>
       <p class="modal-fineprint">No password to remember. Just save and come back anytime.</p>
     </div>
     <div id="saveSuccess" hidden>
       <div class="modal-success-block">
-        <div class="modal-success-icon">✓</div>
+        <div class="modal-success-icon" aria-hidden="true">✓</div>
         <p class="modal-eyebrow">Saved</p>
         <h2 class="modal-title">All set.</h2>
         <p class="modal-sub" id="saveSuccessSub">Check your inbox — we sent your matches plus a link you can use to come back anytime. We'll be in touch when something changes.</p>
@@ -1393,10 +1394,12 @@
       const name = btn.dataset.name;
       if (dests.includes(name)) {
         btn.classList.add('saved');
-        btn.innerHTML = '♥';
+        btn.setAttribute('aria-pressed', 'true');
+        btn.innerHTML = '<span aria-hidden="true">♥</span>';
       } else {
         btn.classList.remove('saved');
-        btn.innerHTML = '♡';
+        btn.setAttribute('aria-pressed', 'false');
+        btn.innerHTML = '<span aria-hidden="true">♡</span>';
       }
     });
   }

@@ -20,7 +20,7 @@
     --gold: #C8A064;
     --gold-soft: #E4C998;
     --sage: #93A89A;
-    --warm-gray: #7A6E5F;
+    --warm-gray: #6A5E4F;
     --white: #FFFFFF;
     --serif: 'DM Serif Display', Georgia, serif;
     --sans: 'Inter', -apple-system, system-ui, sans-serif;
@@ -95,16 +95,13 @@
   .hero-bg {
     position: absolute;
     inset: 0;
-    background-image: url('images/porto.jpg');
-    background-size: cover;
-    background-position: center;
-    background-color: var(--sage);
-  }
-  .hero-bg::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(110deg, rgba(251, 246, 238, 0.94) 0%, rgba(251, 246, 238, 0.78) 38%, rgba(251, 246, 238, 0.15) 65%, rgba(0, 0, 0, 0.08) 100%);
+    /* Warm editorial gradient — no destination photo, no geographic bias */
+    background: linear-gradient(120deg,
+      var(--cream)      0%,
+      #F8F1E5          30%,
+      #F0E3CC          60%,
+      #E4CEAE          82%,
+      #D4BA95         100%);
   }
   .hero-inner {
     position: relative;
@@ -318,10 +315,10 @@
   }
   .card-save {
     position: absolute;
-    top: 14px;
-    right: 14px;
-    width: 38px;
-    height: 38px;
+    top: 12px;
+    right: 12px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(8px);
@@ -631,7 +628,7 @@
     <article class="dest-card">
       <div class="dest-photo" style="background-image: url('images/porto.jpg'); background-color: #2E5468;">
         <span class="dest-flag">🇵🇹 Portugal</span>
-        <button class="card-save" data-name="Porto" onclick="event.stopPropagation(); toggleSave('Porto')" aria-label="Save Porto">♡</button>
+        <button class="card-save" data-name="Porto" onclick="event.stopPropagation(); toggleSave('Porto')" aria-label="Save Porto" aria-pressed="false"><span aria-hidden="true">♡</span></button>
       </div>
       <div class="dest-body">
         <h3 class="dest-name">Porto</h3>
@@ -649,7 +646,7 @@
     <article class="dest-card">
       <div class="dest-photo" style="background-image: url('images/merida.jpg'); background-color: #C97B5A;">
         <span class="dest-flag">🇲🇽 Mexico</span>
-        <button class="card-save" data-name="Mérida" onclick="event.stopPropagation(); toggleSave('Mérida')" aria-label="Save Mérida">♡</button>
+        <button class="card-save" data-name="Mérida" onclick="event.stopPropagation(); toggleSave('Mérida')" aria-label="Save Mérida" aria-pressed="false"><span aria-hidden="true">♡</span></button>
       </div>
       <div class="dest-body">
         <h3 class="dest-name">Mérida</h3>
@@ -667,7 +664,7 @@
     <article class="dest-card">
       <div class="dest-photo" style="background-image: url('images/asheville.jpg'); background-color: #93A89A;">
         <span class="dest-flag">🇺🇸 United States</span>
-        <button class="card-save" data-name="Asheville" onclick="event.stopPropagation(); toggleSave('Asheville')" aria-label="Save Asheville">♡</button>
+        <button class="card-save" data-name="Asheville" onclick="event.stopPropagation(); toggleSave('Asheville')" aria-label="Save Asheville" aria-pressed="false"><span aria-hidden="true">♡</span></button>
       </div>
       <div class="dest-body">
         <h3 class="dest-name">Asheville</h3>
@@ -685,7 +682,7 @@
     <article class="dest-card">
       <div class="dest-photo" style="background-image: url('images/chiang-mai.jpg'); background-color: #C8A064;">
         <span class="dest-flag">🇹🇭 Thailand</span>
-        <button class="card-save" data-name="Chiang Mai" onclick="event.stopPropagation(); toggleSave('Chiang Mai')" aria-label="Save Chiang Mai">♡</button>
+        <button class="card-save" data-name="Chiang Mai" onclick="event.stopPropagation(); toggleSave('Chiang Mai')" aria-label="Save Chiang Mai" aria-pressed="false"><span aria-hidden="true">♡</span></button>
       </div>
       <div class="dest-body">
         <h3 class="dest-name">Chiang Mai</h3>
@@ -703,7 +700,7 @@
     <article class="dest-card">
       <div class="dest-photo" style="background-image: url('images/sarasota.jpg'); background-color: #93A89A;">
         <span class="dest-flag">🇺🇸 United States</span>
-        <button class="card-save" data-name="Sarasota" onclick="event.stopPropagation(); toggleSave('Sarasota')" aria-label="Save Sarasota">♡</button>
+        <button class="card-save" data-name="Sarasota" onclick="event.stopPropagation(); toggleSave('Sarasota')" aria-label="Save Sarasota" aria-pressed="false"><span aria-hidden="true">♡</span></button>
       </div>
       <div class="dest-body">
         <h3 class="dest-name">Sarasota</h3>
@@ -721,7 +718,7 @@
     <article class="dest-card">
       <div class="dest-photo" style="background-image: url('images/medellin.jpg'); background-color: #2E5468;">
         <span class="dest-flag">🇨🇴 Colombia</span>
-        <button class="card-save" data-name="Medellín" onclick="event.stopPropagation(); toggleSave('Medellín')" aria-label="Save Medellín">♡</button>
+        <button class="card-save" data-name="Medellín" onclick="event.stopPropagation(); toggleSave('Medellín')" aria-label="Save Medellín" aria-pressed="false"><span aria-hidden="true">♡</span></button>
       </div>
       <div class="dest-body">
         <h3 class="dest-name">Medellín</h3>
@@ -819,8 +816,8 @@
     to { transform: translateY(0); opacity: 1; }
   }
   .modal-close {
-    position: absolute; top: 18px; right: 18px;
-    width: 36px; height: 36px;
+    position: absolute; top: 16px; right: 16px;
+    width: 44px; height: 44px;
     border: none; background: transparent;
     color: var(--warm-gray); font-size: 24px;
     cursor: pointer; border-radius: 50%;
@@ -890,14 +887,15 @@
       <h2 class="modal-title" id="saveModalTitle">Save <em>this place</em>.</h2>
       <p class="modal-sub" id="saveModalSub">Just need your email so we can keep this saved for you and send a link to come back anytime. No password needed.</p>
       <form onsubmit="submitSave(event)">
-        <input type="email" name="email" placeholder="your@email.com" required class="modal-input" autocomplete="email" />
+        <label for="save-email" class="sr-only">Email address</label>
+        <input type="email" id="save-email" name="email" placeholder="your@email.com" required class="modal-input" autocomplete="email" />
         <button type="submit" class="modal-submit" id="saveSubmitBtn">Save it →</button>
       </form>
       <p class="modal-fineprint">No password to remember. Just save and come back anytime.</p>
     </div>
-    <div id="saveSuccess" hidden>
+    <div id="saveSuccess" hidden role="status" aria-live="polite">
       <div class="modal-success-block">
-        <div class="modal-success-icon">✓</div>
+        <div class="modal-success-icon" aria-hidden="true">✓</div>
         <p class="modal-eyebrow">Saved</p>
         <h2 class="modal-title">All set.</h2>
         <p class="modal-sub" id="saveSuccessSub">Check your inbox — we sent a link you can use to come back to your saved places anytime.</p>
@@ -973,10 +971,12 @@
       const name = b.dataset.name;
       if (dests.includes(name)) {
         b.classList.add('saved');
-        b.innerHTML = '♥';
+        b.setAttribute('aria-pressed', 'true');
+        b.innerHTML = '<span aria-hidden="true">♥</span>';
       } else {
         b.classList.remove('saved');
-        b.innerHTML = '♡';
+        b.setAttribute('aria-pressed', 'false');
+        b.innerHTML = '<span aria-hidden="true">♡</span>';
       }
     });
   }

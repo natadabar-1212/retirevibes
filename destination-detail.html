@@ -19,7 +19,7 @@
     --gold: #C8A064;
     --gold-soft: #E4C998;
     --sage: #93A89A;
-    --warm-gray: #7A6E5F;
+    --warm-gray: #6A5E4F;
     --white: #FFFFFF;
     --serif: 'DM Serif Display', Georgia, serif;
     --sans: 'Inter', -apple-system, system-ui, sans-serif;
@@ -218,6 +218,8 @@
     .stats-strip { padding: 24px 22px; }
     .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 16px; }
     .stat-cell:not(:last-child) { border-right: none; padding-right: 0; border-bottom: 1px solid rgba(27,58,75,0.07); padding-bottom: 16px; }
+    /* 5th cell (Language — intl only) spans both columns on mobile */
+    .stat-cell:nth-child(5) { grid-column: 1 / -1; border-bottom: none !important; padding-bottom: 0 !important; }
     .section { padding: 56px 22px; }
     .section-head h2 { font-size: 32px; }
     .cost-grid { grid-template-columns: repeat(2, 1fr); }
@@ -407,6 +409,78 @@
     return { icon: '✈️', title: 'International Flights', body: 'US passport required. Flight times and connection options vary — check routes from your nearest major hub city.' };
   }
 
+  function getLanguageInfo(dest) {
+    const geo = dest.geographyOptions[0];
+    const country = dest.country;
+    // Canada
+    if (geo === 1) {
+      return { lang: 'English / French', note: 'French dominant in Québec; English elsewhere' };
+    }
+    // Mexico / LatAm
+    if (geo === 2) {
+      if (country === 'Belize') return { lang: 'English', note: 'Only English-speaking country in Central America' };
+      if (country === 'Brazil') return { lang: 'Portuguese', note: 'English limited; Spanish not widely understood here' };
+      if (country === 'Panama') return { lang: 'Spanish', note: 'English widely used in Panama City and expat areas' };
+      return { lang: 'Spanish', note: 'English limited outside cities; Spanish is essential' };
+    }
+    // Caribbean
+    if (geo === 3) {
+      if (country === 'Dominican Republic') return { lang: 'Spanish', note: 'English limited outside resort areas' };
+      if (country === 'Honduras') return { lang: 'Spanish', note: 'English limited; Spanish is essential' };
+      if (country === 'Cayman Islands') return { lang: 'English', note: 'No language barrier for Americans' };
+      if (country === 'Turks and Caicos Islands') return { lang: 'English', note: 'No language barrier for Americans' };
+      return { lang: 'English', note: 'English is the official language across most islands' };
+    }
+    // Europe
+    if (geo === 4) {
+      if (country === 'United Kingdom') return { lang: 'English', note: 'No language barrier for Americans' };
+      if (country === 'Ireland') return { lang: 'English', note: 'No language barrier for Americans' };
+      if (country === 'Malta') return { lang: 'Maltese + English', note: 'Both official — English widely used everywhere' };
+      if (country === 'Cyprus') return { lang: 'Greek', note: 'English widely spoken, especially in expat areas' };
+      if (country === 'Switzerland') return { lang: 'Multilingual', note: 'German, French & Italian by region; English common in cities' };
+      if (country === 'Portugal') return { lang: 'Portuguese', note: 'English spoken in tourist areas; Portuguese helpful day-to-day' };
+      if (country === 'Spain') return { lang: 'Spanish', note: 'English limited outside major cities; Spanish opens doors' };
+      if (country === 'France') return { lang: 'French', note: 'English uncommon outside Paris; French is essential' };
+      if (country === 'Italy') return { lang: 'Italian', note: 'English limited outside tourist hubs; Italian is helpful' };
+      if (country === 'Greece') return { lang: 'Greek', note: 'English widely spoken in tourist areas and on the islands' };
+      if (country === 'Croatia') return { lang: 'Croatian', note: 'English widely spoken, especially on the coast' };
+      if (country === 'Czech Republic') return { lang: 'Czech', note: 'English common in Prague; less so in smaller towns' };
+      if (country === 'Hungary') return { lang: 'Hungarian', note: 'English common in Budapest; Hungarian is unique to learn' };
+      if (country === 'Poland') return { lang: 'Polish', note: 'English common in major cities; Polish is helpful' };
+      if (country === 'Georgia') return { lang: 'Georgian', note: 'English spoken by younger generations; Tbilisi is expat-friendly' };
+      if (country === 'Slovenia') return { lang: 'Slovenian', note: 'English widely spoken; many also speak German or Italian' };
+      if (country === 'Montenegro') return { lang: 'Montenegrin', note: 'English spoken in coastal tourist areas; less so inland' };
+      return { lang: 'Local language', note: 'English varies by country and city; expat communities helpful' };
+    }
+    // Australia / NZ
+    if (geo === 5) {
+      return { lang: 'English', note: 'No language barrier for Americans' };
+    }
+    // Asia
+    if (geo === 6) {
+      if (country === 'Thailand') return { lang: 'Thai', note: 'English in tourist areas; Thai helpful in daily life' };
+      if (country === 'Malaysia') return { lang: 'Malay', note: 'English widely spoken — a real practical advantage for expats' };
+      if (country === 'Indonesia') return { lang: 'Indonesian', note: 'English limited outside Bali tourist areas; Bahasa helpful' };
+      if (country === 'Vietnam') return { lang: 'Vietnamese', note: 'English spoken in major cities; Vietnamese helpful outside them' };
+      if (country === 'Sri Lanka') return { lang: 'Sinhala + Tamil', note: 'English widely understood — an official co-language' };
+      if (country === 'Philippines') return { lang: 'Filipino + English', note: 'Both official — no language barrier for Americans' };
+      if (country === 'Taiwan') return { lang: 'Mandarin', note: 'English limited; many signs bilingual; apps essential' };
+      if (country === 'Japan') return { lang: 'Japanese', note: 'English very limited; expat networks and apps are essential' };
+      return { lang: 'Local language', note: 'English prevalence varies; check destination-specific resources' };
+    }
+    // Africa
+    if (geo === 7) {
+      if (country === 'Morocco') return { lang: 'Arabic + French', note: 'French widely used; English limited outside tourist areas' };
+      if (country === 'South Africa') return { lang: 'English', note: 'One of 11 official languages; widely used in business and expat life' };
+      if (country === 'Ghana') return { lang: 'English', note: 'Official language — no language barrier for Americans' };
+      if (country === 'Kenya') return { lang: 'English + Swahili', note: 'Both official; English widely spoken in cities' };
+      if (country === 'Tanzania') return { lang: 'Swahili + English', note: 'Swahili is primary; English spoken in cities and tourist areas' };
+      if (country === 'Mauritius') return { lang: 'Creole', note: 'English + French also official; English widely understood' };
+      return { lang: 'Local language', note: 'English prevalence varies by country' };
+    }
+    return { lang: 'Local language', note: 'Check English prevalence for this destination' };
+  }
+
   // ─── Render the full page ─────────────────────────────────
   function renderPage(dest) {
     document.title = dest.name + ', ' + dest.country + ' — RetireVibes';
@@ -436,6 +510,7 @@
       .slice(0, 3);
 
     const isIntl = dest.isInternational;
+    const lang = isIntl ? getLanguageInfo(dest) : null;
     const advisorHref = isIntl ? 'advisor-international.html' : 'advisor-domestic.html';
     const homesHref = isIntl ? 'browse-homes-international.html' : 'browse-homes-domestic.html';
     const advisorLabel = isIntl ? 'Talk to an international advisor' : 'Talk to a US retirement advisor';
@@ -475,7 +550,7 @@
       <!-- Hero -->
       <section class="hero">
         <div class="hero-bg" style="background-image: url('${dest.photo}');"></div>
-        <button class="hero-heart" id="heroHeart" onclick="handleSave('${dest.name}')" aria-label="Save ${dest.name}">♡</button>
+        <button class="hero-heart" id="heroHeart" onclick="handleSave('${dest.name}')" aria-label="Save ${dest.name}" aria-pressed="false"><span aria-hidden="true">♡</span></button>
         <div class="hero-inner">
           <a class="back-link" href="homepage-mockup.html">← All destinations</a>
           <div class="hero-pill">${dest.flag} &nbsp;${dest.region}</div>
@@ -511,6 +586,12 @@
             <div class="stat-value" style="font-size:16px;line-height:1.3;">${isIntl ? visa.title : 'No visa needed'}</div>
             <div class="stat-sub">${isIntl ? 'Residency details below' : 'US citizens only'}</div>
           </div>
+          ${isIntl && lang ? `
+          <div class="stat-cell">
+            <div class="stat-label">Language</div>
+            <div class="stat-value" style="font-size:18px;line-height:1.3;">${lang.lang}</div>
+            <div class="stat-sub">${lang.note}</div>
+          </div>` : ''}
         </div>
       </div>
 
@@ -632,8 +713,9 @@
       const isSaved = (saved.destinations || []).includes(name);
       const heart = document.getElementById('heroHeart');
       if (heart) {
-        heart.textContent = isSaved ? '♥' : '♡';
+        heart.innerHTML = isSaved ? '<span aria-hidden="true">♥</span>' : '<span aria-hidden="true">♡</span>';
         heart.classList.toggle('saved', isSaved);
+        heart.setAttribute('aria-pressed', isSaved ? 'true' : 'false');
       }
     } catch (e) {}
   }
@@ -762,7 +844,7 @@
   @keyframes modalRise { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
   .modal-close {
     position: absolute; top: 18px; right: 18px;
-    width: 36px; height: 36px; border: none;
+    width: 44px; height: 44px; border: none;
     background: transparent; color: var(--warm-gray);
     font-size: 24px; cursor: pointer; border-radius: 50%;
     line-height: 1; transition: all 0.2s ease;
@@ -811,14 +893,15 @@
       <h2 class="modal-title" id="saveModalTitle">Save <em>this place</em>.</h2>
       <p class="modal-sub" id="saveModalSub">Just need your email so we can keep this saved for you. No password — come back anytime.</p>
       <form onsubmit="submitSave(event)">
-        <input type="email" name="email" placeholder="your@email.com" required class="modal-input" autocomplete="email" />
+        <label for="save-email" class="sr-only">Email address</label>
+        <input type="email" id="save-email" name="email" placeholder="your@email.com" required class="modal-input" autocomplete="email" />
         <button type="submit" class="modal-submit">Save it →</button>
       </form>
       <p class="modal-fineprint">No password to remember. Just save and come back anytime.</p>
     </div>
     <div id="saveSuccess" hidden>
       <div class="modal-success-block">
-        <div class="modal-success-icon">✓</div>
+        <div class="modal-success-icon" aria-hidden="true">✓</div>
         <p class="modal-eyebrow">Saved</p>
         <h2 class="modal-title">All set.</h2>
         <p class="modal-sub" id="saveSuccessSub">Come back anytime to see everything you're keeping an eye on.</p>

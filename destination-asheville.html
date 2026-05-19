@@ -15,7 +15,7 @@
     --terracotta: #C97B5A; --terracotta-dark: #A8593A;
     --teal: #1B3A4B; --teal-soft: #2E5468;
     --gold: #C8A064; --gold-soft: #E4C998;
-    --sage: #93A89A; --warm-gray: #7A6E5F; --white: #FFFFFF;
+    --sage: #93A89A; --warm-gray: #6A5E4F; --white: #FFFFFF;
     --serif: 'DM Serif Display', Georgia, serif;
     --sans: 'Inter', -apple-system, system-ui, sans-serif;
   }
@@ -106,7 +106,7 @@
   .similar-card { background: var(--white); border: 1px solid rgba(27, 58, 75, 0.06); border-radius: 16px; overflow: hidden; transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); text-decoration: none; color: inherit; display: block; }
   .similar-card:hover { transform: translateY(-3px); }
   .similar-photo { position: relative; height: 200px; background-size: cover; background-position: center; background-color: var(--sage); }
-  .card-save { position: absolute; top: 12px; right: 12px; width: 38px; height: 38px; border-radius: 50%; background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(8px); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 17px; color: var(--warm-gray); z-index: 3; transition: all 0.2s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.12); line-height: 1; }
+  .card-save { position: absolute; top: 12px; right: 12px; width: 44px; height: 44px; border-radius: 50%; background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(8px); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 17px; color: var(--warm-gray); z-index: 3; transition: all 0.2s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.12); line-height: 1; }
   .card-save:hover { color: var(--terracotta); transform: scale(1.06); }
   .card-save.saved { background: var(--terracotta); color: var(--white); }
   .similar-body { padding: 22px 22px 24px; }
@@ -305,7 +305,7 @@
   <div class="similar-grid">
     <a class="similar-card" href="destination-porto.html">
       <div class="similar-photo" style="background-image: url('images/porto.jpg');">
-        <button class="card-save" data-name="Porto" onclick="event.preventDefault(); event.stopPropagation(); toggleSave('Porto')" aria-label="Save Porto">♡</button>
+        <button class="card-save" data-name="Porto" onclick="event.preventDefault(); event.stopPropagation(); toggleSave('Porto')" aria-label="Save Porto" aria-pressed="false"><span aria-hidden="true">♡</span></button>
       </div>
       <div class="similar-body">
         <h3 class="similar-name">Porto</h3>
@@ -315,7 +315,7 @@
     </a>
     <a class="similar-card" href="destination-merida.html">
       <div class="similar-photo" style="background-image: url('images/merida.jpg');">
-        <button class="card-save" data-name="Mérida" onclick="event.preventDefault(); event.stopPropagation(); toggleSave('Mérida')" aria-label="Save Mérida">♡</button>
+        <button class="card-save" data-name="Mérida" onclick="event.preventDefault(); event.stopPropagation(); toggleSave('Mérida')" aria-label="Save Mérida" aria-pressed="false"><span aria-hidden="true">♡</span></button>
       </div>
       <div class="similar-body">
         <h3 class="similar-name">Mérida</h3>
@@ -325,7 +325,7 @@
     </a>
     <a class="similar-card" href="destination-sarasota.html">
       <div class="similar-photo" style="background-image: url('images/sarasota.jpg');">
-        <button class="card-save" data-name="Sarasota" onclick="event.preventDefault(); event.stopPropagation(); toggleSave('Sarasota')" aria-label="Save Sarasota">♡</button>
+        <button class="card-save" data-name="Sarasota" onclick="event.preventDefault(); event.stopPropagation(); toggleSave('Sarasota')" aria-label="Save Sarasota" aria-pressed="false"><span aria-hidden="true">♡</span></button>
       </div>
       <div class="similar-body">
         <h3 class="similar-name">Sarasota</h3>
@@ -359,7 +359,7 @@
   @keyframes modalFade { from { opacity: 0; } to { opacity: 1; } }
   .modal-card { background: var(--cream); border-radius: 20px; max-width: 520px; width: 100%; padding: 48px 44px 40px; position: relative; box-shadow: 0 24px 60px rgba(27, 58, 75, 0.25); animation: modalRise 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
   @keyframes modalRise { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-  .modal-close { position: absolute; top: 18px; right: 18px; width: 36px; height: 36px; border: none; background: transparent; color: var(--warm-gray); font-size: 24px; cursor: pointer; border-radius: 50%; line-height: 1; transition: all 0.2s ease; }
+  .modal-close { position: absolute; top: 16px; right: 16px; width: 44px; height: 44px; border: none; background: transparent; color: var(--warm-gray); font-size: 24px; cursor: pointer; border-radius: 50%; line-height: 1; transition: all 0.2s ease; }
   .modal-close:hover { background: rgba(27, 58, 75, 0.06); color: var(--teal); }
   .modal-eyebrow { font-size: 11px; color: var(--warm-gray); text-transform: uppercase; letter-spacing: 0.18em; font-weight: 500; margin-bottom: 12px; }
   .modal-title { font-family: var(--serif); font-size: 36px; color: var(--teal); line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 14px; }
@@ -383,14 +383,15 @@
       <h2 class="modal-title" id="saveModalTitle">Save <em>this place</em>.</h2>
       <p class="modal-sub" id="saveModalSub">Just need your email so we can save this for you. No password — come back anytime to see your saved places.</p>
       <form onsubmit="submitSave(event)">
-        <input type="email" name="email" placeholder="your@email.com" required class="modal-input" autocomplete="email" />
+        <label for="save-email" class="sr-only">Email address</label>
+        <input type="email" id="save-email" name="email" placeholder="your@email.com" required class="modal-input" autocomplete="email" />
         <button type="submit" class="modal-submit" id="saveSubmitBtn">Save it →</button>
       </form>
       <p class="modal-fineprint">No password to remember. Just save and come back anytime.</p>
     </div>
     <div id="saveSuccess" hidden>
       <div class="modal-success-block">
-        <div class="modal-success-icon">✓</div>
+        <div class="modal-success-icon" aria-hidden="true">✓</div>
         <p class="modal-eyebrow">Saved</p>
         <h2 class="modal-title">All set.</h2>
         <p class="modal-sub" id="saveSuccessSub">Saved to your RetireVibes. Come back anytime to see everything you're keeping an eye on.</p>
@@ -463,7 +464,13 @@
     try { localStorage.setItem('rv_saved', JSON.stringify(saved)); } catch(e) {}
     const isSaved = saved.destinations.includes(name);
     document.querySelectorAll('.save-btn[data-name="' + name + '"]').forEach(b => { b.innerHTML = isSaved ? '<span class="heart">✓</span> Saved' : '<span class="heart">♡</span> Save ' + name; });
-    document.querySelectorAll('.card-save[data-name="' + name + '"]').forEach(b => { if (isSaved) { b.classList.add('saved'); b.innerHTML = '♥'; } else { b.classList.remove('saved'); b.innerHTML = '♡'; } });
+    document.querySelectorAll('.card-save[data-name="' + name + '"]').forEach(b => {
+      if (isSaved) {
+        b.classList.add('saved'); b.setAttribute('aria-pressed', 'true'); b.innerHTML = '<span aria-hidden="true">♥</span>';
+      } else {
+        b.classList.remove('saved'); b.setAttribute('aria-pressed', 'false'); b.innerHTML = '<span aria-hidden="true">♡</span>';
+      }
+    });
   }
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>

@@ -12,11 +12,15 @@
 
   if (nav && navLinks) {
 
+    // Give nav-links an id so the hamburger can reference it
+    if (!navLinks.id) navLinks.id = 'primary-nav';
+
     // Inject hamburger button
     const btn = document.createElement('button');
     btn.className = 'hamburger';
     btn.setAttribute('aria-label', 'Toggle navigation menu');
     btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-controls', 'primary-nav');
     btn.innerHTML = '<span></span><span></span><span></span>';
     nav.appendChild(btn);
 
