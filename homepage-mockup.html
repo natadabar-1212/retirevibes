@@ -106,7 +106,7 @@
   .hero-inner {
     position: relative;
     z-index: 2;
-    max-width: 640px;
+    max-width: 860px;
   }
   .hero-kicker {
     font-family: var(--serif);
@@ -133,7 +133,7 @@
     line-height: 1.55;
     color: var(--teal-soft);
     margin-bottom: 36px;
-    max-width: 560px;
+    max-width: 680px;
   }
   .hero-sub strong {
     color: var(--terracotta-dark);
@@ -291,6 +291,9 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 22px;
+  }
+  .dest-card-wrap {
+    position: relative;
   }
   .dest-card-link {
     display: block;
@@ -532,10 +535,15 @@
     .nav { padding: 14px 22px; }
     .nav-links { gap: 18px; }
     .nav-links a:not(.nav-cta) { display: none; }
-    .hero { padding: 60px 22px 80px; min-height: 600px; }
+    .hero { padding: 60px 22px 80px; min-height: 0; }
     .hero-headline { font-size: 48px; }
     .hero-sub { font-size: 17px; }
-    .reframe, .how, .destinations, .social, .final-cta { padding-left: 22px; padding-right: 22px; }
+    .reframe { padding: 56px 22px; }
+    .how { padding: 60px 22px; }
+    .destinations { padding: 40px 22px 60px; }
+    .social { padding: 56px 22px; }
+    .final-cta { padding: 72px 22px; }
+    .footer { padding: 36px 22px 24px; }
     .reframe h2, .section-head h2 { font-size: 32px; }
     .steps, .dest-grid, .quotes { grid-template-columns: 1fr; gap: 20px; }
     .final-cta h2 { font-size: 38px; }
@@ -577,6 +585,7 @@
       <span class="hero-meta">~2 minutes · no signup needed</span>
     </div>
   </div>
+
 </section>
 
 <!-- ─── REFRAME ─── -->
@@ -624,11 +633,11 @@
 
   <div class="dest-grid">
 
+    <div class="dest-card-wrap">
     <a class="dest-card-link" href="destination-porto.html">
     <article class="dest-card">
       <div class="dest-photo" style="background-image: url('images/porto.jpg'); background-color: #2E5468;">
         <span class="dest-flag">🇵🇹 Portugal</span>
-        <button class="card-save" data-name="Porto" onclick="event.stopPropagation(); toggleSave('Porto')" aria-label="Save Porto" aria-pressed="false"><span aria-hidden="true">♡</span></button>
       </div>
       <div class="dest-body">
         <h3 class="dest-name">Porto</h3>
@@ -641,12 +650,14 @@
       </div>
     </article>
     </a>
+    <button class="card-save" data-name="Porto" onclick="toggleSave('Porto')" aria-label="Save Porto" aria-pressed="false"><span aria-hidden="true">♡</span></button>
+    </div>
 
+    <div class="dest-card-wrap">
     <a class="dest-card-link" href="destination-merida.html">
     <article class="dest-card">
       <div class="dest-photo" style="background-image: url('images/merida.jpg'); background-color: #C97B5A;">
         <span class="dest-flag">🇲🇽 Mexico</span>
-        <button class="card-save" data-name="Mérida" onclick="event.stopPropagation(); toggleSave('Mérida')" aria-label="Save Mérida" aria-pressed="false"><span aria-hidden="true">♡</span></button>
       </div>
       <div class="dest-body">
         <h3 class="dest-name">Mérida</h3>
@@ -659,12 +670,14 @@
       </div>
     </article>
     </a>
+    <button class="card-save" data-name="Mérida" onclick="toggleSave('Mérida')" aria-label="Save Mérida" aria-pressed="false"><span aria-hidden="true">♡</span></button>
+    </div>
 
+    <div class="dest-card-wrap">
     <a class="dest-card-link" href="destination-asheville.html">
     <article class="dest-card">
       <div class="dest-photo" style="background-image: url('images/asheville.jpg'); background-color: #93A89A;">
         <span class="dest-flag">🇺🇸 United States</span>
-        <button class="card-save" data-name="Asheville" onclick="event.stopPropagation(); toggleSave('Asheville')" aria-label="Save Asheville" aria-pressed="false"><span aria-hidden="true">♡</span></button>
       </div>
       <div class="dest-body">
         <h3 class="dest-name">Asheville</h3>
@@ -677,12 +690,14 @@
       </div>
     </article>
     </a>
+    <button class="card-save" data-name="Asheville" onclick="toggleSave('Asheville')" aria-label="Save Asheville" aria-pressed="false"><span aria-hidden="true">♡</span></button>
+    </div>
 
+    <div class="dest-card-wrap">
     <a class="dest-card-link" href="destination-coming-soon.html?name=Chiang%20Mai">
     <article class="dest-card">
       <div class="dest-photo" style="background-image: url('images/chiang-mai.jpg'); background-color: #C8A064;">
         <span class="dest-flag">🇹🇭 Thailand</span>
-        <button class="card-save" data-name="Chiang Mai" onclick="event.stopPropagation(); toggleSave('Chiang Mai')" aria-label="Save Chiang Mai" aria-pressed="false"><span aria-hidden="true">♡</span></button>
       </div>
       <div class="dest-body">
         <h3 class="dest-name">Chiang Mai</h3>
@@ -695,12 +710,14 @@
       </div>
     </article>
     </a>
+    <button class="card-save" data-name="Chiang Mai" onclick="toggleSave('Chiang Mai')" aria-label="Save Chiang Mai" aria-pressed="false"><span aria-hidden="true">♡</span></button>
+    </div>
 
+    <div class="dest-card-wrap">
     <a class="dest-card-link" href="destination-sarasota.html">
     <article class="dest-card">
       <div class="dest-photo" style="background-image: url('images/sarasota.jpg'); background-color: #93A89A;">
         <span class="dest-flag">🇺🇸 United States</span>
-        <button class="card-save" data-name="Sarasota" onclick="event.stopPropagation(); toggleSave('Sarasota')" aria-label="Save Sarasota" aria-pressed="false"><span aria-hidden="true">♡</span></button>
       </div>
       <div class="dest-body">
         <h3 class="dest-name">Sarasota</h3>
@@ -713,12 +730,14 @@
       </div>
     </article>
     </a>
+    <button class="card-save" data-name="Sarasota" onclick="toggleSave('Sarasota')" aria-label="Save Sarasota" aria-pressed="false"><span aria-hidden="true">♡</span></button>
+    </div>
 
+    <div class="dest-card-wrap">
     <a class="dest-card-link" href="destination-coming-soon.html?name=Medell%C3%ADn">
     <article class="dest-card">
       <div class="dest-photo" style="background-image: url('images/medellin.jpg'); background-color: #2E5468;">
         <span class="dest-flag">🇨🇴 Colombia</span>
-        <button class="card-save" data-name="Medellín" onclick="event.stopPropagation(); toggleSave('Medellín')" aria-label="Save Medellín" aria-pressed="false"><span aria-hidden="true">♡</span></button>
       </div>
       <div class="dest-body">
         <h3 class="dest-name">Medellín</h3>
@@ -731,6 +750,8 @@
       </div>
     </article>
     </a>
+    <button class="card-save" data-name="Medellín" onclick="toggleSave('Medellín')" aria-label="Save Medellín" aria-pressed="false"><span aria-hidden="true">♡</span></button>
+    </div>
 
   </div>
   <div style="text-align: center; margin-top: 56px;">
