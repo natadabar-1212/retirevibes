@@ -1,21 +1,22 @@
 /* styles.css — Vibe Quiz design system & layout
-   Brand palette: terracotta + ocean + gold on cream. Fraunces (display) + Inter (body). */
+   Brand palette: terracotta + teal + gold on cream. DM Serif Display (display) + Inter (body). */
 
 :root {
-  --cream: #FAF4ED;
-  --sand: #F2E8DC;
-  --sand-deep: #E8D9C4;
-  --terracotta: #E07A5F;
-  --terracotta-deep: #C9674F;
-  --ocean: #2D5F6C;
-  --ocean-deep: #1F4550;
-  --gold: #D4A574;
-  --ink: #1F2D3D;
-  --muted: #6B7A8A;
-  --border: rgba(31, 45, 61, 0.08);
-  --shadow-sm: 0 2px 8px rgba(31, 45, 61, 0.06);
-  --shadow-md: 0 12px 32px rgba(31, 45, 61, 0.10);
-  --shadow-lg: 0 24px 64px rgba(31, 45, 61, 0.14);
+  --cream: #FBF6EE;
+  --sand: #F4ECDD;
+  --sand-deep: #E8D8C0;
+  --terracotta: #C97B5A;
+  --terracotta-deep: #A8593A;
+  --ocean: #1B3A4B;
+  --ocean-deep: #2E5468;
+  --gold: #C8A064;
+  --gold-soft: #E4C998;
+  --ink: #1B3A4B;
+  --muted: #6A5E4F;
+  --border: rgba(27, 58, 75, 0.08);
+  --shadow-sm: 0 2px 8px rgba(27, 58, 75, 0.06);
+  --shadow-md: 0 12px 32px rgba(27, 58, 75, 0.10);
+  --shadow-lg: 0 24px 64px rgba(27, 58, 75, 0.14);
   --radius: 16px;
   --radius-sm: 10px;
   --radius-lg: 24px;
@@ -53,25 +54,15 @@ html, body {
 }
 
 .logo {
-  font-family: 'Fraunces', serif;
-  font-weight: 600;
-  font-size: 22px;
-  letter-spacing: -0.01em;
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 24px;
   color: var(--ink);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.logo-mark {
-  width: 26px; height: 26px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--terracotta) 0%, var(--gold) 100%);
-  display: inline-block;
+  letter-spacing: -0.01em;
+  text-decoration: none;
 }
 .logo em {
-  font-style: italic;
   color: var(--terracotta);
-  font-weight: 500;
+  font-style: normal;
 }
 
 /* ---------- Progress dots ---------- */
@@ -140,7 +131,7 @@ html, body {
   bottom: 32px;
   color: white;
   z-index: 2;
-  font-family: 'Fraunces', serif;
+  font-family: 'DM Serif Display', Georgia, serif;
   font-style: italic;
   font-weight: 400;
   font-size: 14px;
@@ -160,7 +151,7 @@ html, body {
 }
 
 .q-title {
-  font-family: 'Fraunces', serif;
+  font-family: 'DM Serif Display', Georgia, serif;
   font-weight: 500;
   font-size: 40px;
   line-height: 1.15;
@@ -335,7 +326,7 @@ html, body {
   margin-bottom: 40px;
 }
 .slider-value {
-  font-family: 'Fraunces', serif;
+  font-family: 'DM Serif Display', Georgia, serif;
   font-weight: 500;
   font-size: 56px;
   color: var(--terracotta);
@@ -458,7 +449,7 @@ input[type=range]::-moz-range-thumb {
   padding: 40px;
 }
 .welcome-kicker {
-  font-family: 'Fraunces', serif;
+  font-family: 'DM Serif Display', Georgia, serif;
   font-style: italic;
   font-size: 18px;
   letter-spacing: 0.02em;
@@ -467,7 +458,7 @@ input[type=range]::-moz-range-thumb {
   opacity: 0.95;
 }
 .welcome-title {
-  font-family: 'Fraunces', serif;
+  font-family: 'DM Serif Display', Georgia, serif;
   font-weight: 500;
   font-size: 72px;
   line-height: 1.05;
@@ -546,7 +537,7 @@ input[type=range]::-moz-range-thumb {
   min-height: 120px;
 }
 .reveal-stage {
-  font-family: 'Fraunces', serif;
+  font-family: 'DM Serif Display', Georgia, serif;
   font-weight: 400;
   font-size: 22px;
   font-style: italic;
@@ -572,7 +563,7 @@ input[type=range]::-moz-range-thumb {
   transform: scale(1);
 }
 .vibe-eyebrow {
-  font-family: 'Fraunces', serif;
+  font-family: 'DM Serif Display', Georgia, serif;
   font-style: italic;
   font-weight: 400;
   font-size: 16px;
@@ -581,7 +572,7 @@ input[type=range]::-moz-range-thumb {
   margin-bottom: 8px;
 }
 .vibe-label {
-  font-family: 'Fraunces', serif;
+  font-family: 'DM Serif Display', Georgia, serif;
   font-weight: 500;
   font-size: 76px;
   line-height: 1.05;
