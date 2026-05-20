@@ -75,6 +75,7 @@ function renderProgressDots(currentIdx) {
 const exitLink = document.querySelector('.exit-link');
 
 function render() {
+  window.scrollTo({ top: 0, behavior: 'instant' });
   stage.innerHTML = '';
   if (state.step === 'welcome') {
     progressWrap.style.display = 'none';
@@ -162,9 +163,10 @@ function renderQuestion(idx) {
     body = `
       <div class="options image-grid ${colClass}" id="opts">
         ${q.options.map((o, i) => {
+          const val = o.value !== undefined ? o.value : i;
           const isSel = q.type === 'multi'
-            ? Array.isArray(selected) && selected.includes(i)
-            : selected === i;
+            ? Array.isArray(selected) && selected.includes(val)
+            : selected === val;
           const art = o.svg
             ? `<span class="img-svg">${o.svg}</span>`
             : (o.img ? `<span class="img-svg" style="background-image: url('${o.img}');"></span>` : '');
@@ -238,28 +240,35 @@ function renderQuestion(idx) {
       const btn = e.target.closest('.option, .option-image');
       if (!btn) return;
       const i = parseInt(btn.dataset.i);
+      // Use option's explicit value (e.g. Asia value:6) if defined, otherwise use button index
+      const v = q.options[i] && q.options[i].value !== undefined ? q.options[i].value : i;
       if (q.type === 'multi') {
         let arr = Array.isArray(state.answers[idx]) ? [...state.answers[idx]] : [];
-        if (arr.includes(i)) {
-          arr = arr.filter(x => x !== i);
+        if (arr.includes(v)) {
+          arr = arr.filter(x => x !== v);
         } else {
-          arr.push(i);
+          arr.push(v);
           // If a max is set and we've exceeded it, drop the oldest selection
           if (q.max && arr.length > q.max) arr.shift();
         }
         state.answers[idx] = arr;
       } else {
-        state.answers[idx] = i;
+        state.answers[idx] = v;
       }
       // Re-toggle selected class on all option buttons (text or image)
       opts.querySelectorAll('.option, .option-image').forEach((el) => {
         const k = parseInt(el.dataset.i);
+        const kv = q.options[k] && q.options[k].value !== undefined ? q.options[k].value : k;
         const isSel = q.type === 'multi'
-          ? Array.isArray(state.answers[idx]) && state.answers[idx].includes(k)
-          : state.answers[idx] === k;
+          ? Array.isArray(state.answers[idx]) && state.answers[idx].includes(kv)
+          : state.answers[idx] === kv;
         el.classList.toggle('selected', isSel);
       });
       updateNext(idx);
+      // Auto-advance on single-select after a brief delay so the selection registers visually
+      if (q.type === 'single') {
+        setTimeout(next, 380);
+      }
     });
     updateNext(idx);
   }

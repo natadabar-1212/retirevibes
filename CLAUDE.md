@@ -10,7 +10,7 @@
 
 ## What RetireVibes Is
 
-A vibe-driven retirement discovery web app for Americans aged 40–55. Users take an 8-question quiz about lifestyle preferences → get matched with their top 3 retirement destinations (US and international) → explore destination deep-dives → get handed off to affiliate partners (advisor, real estate, travel) when ready to act.
+A vibe-driven retirement discovery web app for Americans aged 40–55. Users take a 7-question quiz about lifestyle preferences → get matched with their top 3 retirement destinations (US and international) → explore destination deep-dives → get handed off to affiliate partners (advisor, real estate, travel) when ready to act.
 
 **It is NOT a financial planning tool.** It is the spark that gets people excited. No nest-egg math, no "you need $X saved," no income questions. That work is explicitly handed off to advisor affiliates.
 
@@ -190,7 +190,9 @@ Client-side only (localStorage). Key: `rv_saved`
 }
 ```
 
-**Key: `rv_vibe_label`** — stores the user's vibe label string from quiz results (e.g. "The Sun-Chaser") for display on results page.
+**Key: `rv_vibe_label`** — stores the user's vibe label string from quiz results (e.g. "Coastal Wanderer") for display on results page.  
+**Key: `rv_quiz_answers`** — raw answers array (7 elements, indices 0–6). Written by quiz, read by results-matcher.js.  
+**Key: `rv_quiz_matches`** — top 3 matched destinations with profile, written by results-matcher.js.
 
 ### Save flow
 1. First heart click on any destination → opens save modal (email required)
@@ -206,29 +208,39 @@ No passwords in prototype. Email-only. Future real build needs:
 
 ---
 
-## The Quiz (8 Questions)
+## The Quiz (7 Questions)
 
-No age, no income, no savings. Vibe-only.
+No age, no income, no savings. Vibe-only. Partner/solo question was removed.
 
 | # | Question | Type |
 |---|---------|------|
-| Q1 | What's your ideal retirement weather? | Single choice |
+| Q1 | What kind of weather feels like home? | Single choice |
 | Q2 | Where do you see yourself waking up every morning? | Multi-select, pick up to 2 |
-| Q3 | How do you want your days to feel in retirement? | Single choice |
-| Q4 | Where in the world are you open to retiring? | Select all that apply |
+| Q3 | Where in the world are you open to retiring? | Select all that apply |
+| Q4 | What's the pace of your ideal retirement? | Single choice |
 | Q5 | When you retire, what kind of lifestyle are you imagining? | Single choice |
 | Q6 | Where do you see yourself living in retirement? | Select all that apply |
-| Q7 | Will you be retiring solo or with a partner? | Single choice |
-| Q8 | What does your ideal retirement really come down to? | Multi-select, pick top 3 |
+| Q7 | What matters most? | Multi-select, pick top 3 |
 
 **Q1 options:** Warm and sunny year round · Four seasons · Mild and temperate · Cool and crisp  
 **Q2 options:** On or near the beach · By a lake or river · Mountains and nature · Vibrant city · Charming small town · Wide open countryside  
-**Q3 options:** Active and adventurous · Creative and cultural · Relaxed and unhurried · Social and connected · A mix of everything  
-**Q4 options:** United States · Canada · Mexico & Latin America · The Caribbean · Europe · Australia or New Zealand · Asia  
+**Q3 options:** United States · Canada · Mexico & Latin America · The Caribbean · Europe · Asia  
+*(Note: Australia/NZ removed from quiz UI. Asia stores internal value 6 — do not renumber. See results-matcher.js answer index map.)*  
+**Q4 options:** Full throttle — active and out most days · A mix — active days with slow ones built in · Slow and easy — unhurried, no agenda · Social first — my pace follows my people  
 **Q5 options:** Simple and comfortable · Comfortable with extras · Upscale and enjoyable · Luxury — the best of everything  
-**Q6 options:** Own my home · Open to renting · Resort or retirement community · Non-traditional (RV, boat, slow travel) · Not sure yet  
-**Q7 options:** Flying solo · With my partner or spouse · Not sure yet  
-**Q8 options:** Adventure and new experiences · Community and belonging · Peace and simplicity · Purpose and passion projects · Health and wellness · Culture, arts and creativity
+**Q6 options:** Own my home · Open to renting · Resort or retirement community · Non-traditional — RV, boat, slow travel · Not sure yet  
+**Q7 options:** Adventure · Community · Peace & simplicity · Purpose & passion · Health & wellness · Culture & creativity
+
+### Answer index map (matches results-matcher.js)
+```
+Q[0] weather:    0=warm/sunny  1=four seasons  2=mild/temperate  3=cool/crisp
+Q[1] setting:    0=beach  1=lake/river  2=mountains  3=city  4=small town  5=countryside
+Q[2] geography:  0=US  1=Canada  2=Mexico/LatAm  3=Caribbean  4=Europe  [5=AusNZ removed]  6=Asia  [7=Africa removed]
+Q[3] pace:       0=full-throttle  1=mixed  2=slow/easy  3=social-first
+Q[4] lifestyle:  0=simple  1=comfortable+extras  2=upscale  3=luxury
+Q[5] housing:    0=own  1=rent  2=resort  3=non-traditional  4=not sure
+Q[6] priorities: 0=adventure  1=community  2=peace  3=purpose  4=health  5=culture/arts
+```
 
 ---
 
@@ -295,10 +307,11 @@ Americans 40–55. Key emotional state: **anxiety, not curiosity.** 53% of 55–
 
 ### Fully built in prototype ✅
 - Homepage with 6 wired destination cards
-- Quiz (8 questions, in `mockups/` subfolder)
+- Quiz (7 questions, in `mockups/` subfolder) — illustrated image cards, auto-advance on single-select, sticky mobile nav
+- Quiz matching algorithm (`results-matcher.js` + `destinations-data.js`) — ~95 scored destinations across 6 geography regions
 - Results page with share modal, save modal, handoff cards
 - 4 destination deep-dive pages (Porto, Mérida, Asheville, Sarasota)
-- Coming-soon page for future destinations (Chiang Mai, Medellín)
+- Coming-soon page for future destinations (Chiang Mai, Medellín, and many more)
 - Scouting trip guide (Porto-specific)
 - Advisor handoff pages (international + domestic)
 - Advisor directory with filter, featured listings, contact modal, SmartAsset catch-all
@@ -308,7 +321,6 @@ Americans 40–55. Key emotional state: **anxiety, not curiosity.** 53% of 55–
 
 ### Not yet built ❌
 - **Account backend** — email capture is UI only; no server, no actual email delivery
-- **Quiz matching logic** — results page is hardcoded to Porto #1, Sarasota #2, Asheville #3; real matching algorithm needed
 - **Inspiration Hub** — editorial content section for retention (planned, not built)
 - **Scouting trip for domestic destinations** — Asheville and Sarasota pages have "Plan my weekend →" linking to `#`; no domestic scouting page exists yet
 - **Mérida scouting trip** — links directly to Inmuebles24 for now
@@ -316,7 +328,8 @@ Americans 40–55. Key emotional state: **anxiety, not curiosity.** 53% of 55–
 - **FAQ page** — placeholder; not built
 - **Resources page** — placeholder; not built
 - **RetireVibes Pro** — freemium tier planned but not built
-- **Search / more destinations** — 6 destinations total in prototype; real build needs more
+- **Australia/NZ geography option** — 10 AusNZ destinations exist in destinations-data.js but quiz UI only shows 6 regions (no AusNZ button). Those destinations won't surface in results until the option is restored.
+- **Search / more destinations** — ~95 destinations in the matching engine; homepage cards show only 6
 - **Email system** — Mailchimp, ConvertKit, or custom; decision pending
 
 ### Placeholder links still in prototype
@@ -362,6 +375,8 @@ Americans 40–55. Key emotional state: **anxiety, not curiosity.** 53% of 55–
 ├── RetireVibes_Product_Brief.md       ← full product brief v1.2
 ├── shared.css                         ← nav styles: active state + mobile hamburger
 ├── shared.js                          ← nav behaviour: hamburger + active detection
+├── results-matcher.js                 ← quiz matching algorithm (reads rv_quiz_answers, scores all destinations)
+├── destinations-data.js               ← all ~95+ destination profiles with scoring weights
 ├── homepage-mockup.html
 ├── results-page-mockup.html
 ├── my-retirevibes.html
@@ -377,7 +392,11 @@ Americans 40–55. Key emotional state: **anxiety, not curiosity.** 53% of 55–
 ├── browse-homes-international.html    ← Porto / Idealista
 ├── browse-homes-domestic.html        ← Asheville + Sarasota / Zillow
 └── mockups/
-    └── vibe-quiz.html                 ← the 8-question quiz
+    ├── vibe-quiz.html                 ← the 7-question quiz entry point
+    └── quiz/
+        ├── questions.js               ← QUESTIONS array — edit to change copy/options/order
+        ├── quiz.js                    ← state, render, event handling
+        └── styles.css                 ← quiz stylesheet (RetireVibes design tokens)
 ```
 
 ---

@@ -50,14 +50,12 @@ const QUESTIONS = [
     sceneKey: 'q4',
     caption: 'Stay open — the right place might surprise you',
     options: [
-      { emoji: '🇺🇸', label: 'United States',            svg: OPTION_SCENES.q4.us },
-      { emoji: '🇨🇦', label: 'Canada',                   svg: OPTION_SCENES.q4.canada },
-      { emoji: '🌎', label: 'Mexico & Latin America',     svg: OPTION_SCENES.q4.latam },
-      { emoji: '🏝️', label: 'The Caribbean',              svg: OPTION_SCENES.q4.caribbean },
-      { emoji: '🏛️', label: 'Europe',                    svg: OPTION_SCENES.q4.europe },
-      { emoji: '🇦🇺', label: 'Australia or New Zealand', svg: OPTION_SCENES.q4.australiaNZ },
-      { emoji: '🏯', label: 'Asia',                       svg: OPTION_SCENES.q4.asia },
-      { emoji: '🌍', label: 'Africa',                     svg: OPTION_SCENES.q4.africa },
+      { emoji: '🇺🇸', label: 'United States',         svg: OPTION_SCENES.q4.us },
+      { emoji: '🇨🇦', label: 'Canada',                svg: OPTION_SCENES.q4.canada },
+      { emoji: '🌎', label: 'Mexico & Latin America',  svg: OPTION_SCENES.q4.latam },
+      { emoji: '🏝️', label: 'The Caribbean',           svg: OPTION_SCENES.q4.caribbean },
+      { emoji: '🏛️', label: 'Europe',                 svg: OPTION_SCENES.q4.europe },
+      { emoji: '🏯', label: 'Asia',                    svg: OPTION_SCENES.q4.asia, value: 6 },
     ]
   },
   {
@@ -70,10 +68,10 @@ const QUESTIONS = [
     sceneKey: 'q3',
     caption: 'Alfama, Lisbon — slow mornings, great coffee',
     options: [
-      { emoji: '🏃', label: 'Full throttle — I want to be out doing things most days', svg: OPTION_SCENES.q3.active },
-      { emoji: '⚖️', label: 'A good mix — active stretches with slow days built in',  svg: OPTION_SCENES.q3.creative },
-      { emoji: '🌿', label: 'Slow and easy — unhurried, no fixed agenda',             svg: OPTION_SCENES.q3.relaxed },
-      { emoji: '🥂', label: 'Social first — my pace follows my people',               svg: OPTION_SCENES.q3.social },
+      { emoji: '🏃', label: 'Full throttle — active and out most days', svg: OPTION_SCENES.q3.active },
+      { emoji: '⚖️', label: 'A mix — active days with slow ones built in',  svg: OPTION_SCENES.q3.creative },
+      { emoji: '🌿', label: 'Slow and easy — unhurried, no agenda',             svg: OPTION_SCENES.q3.relaxed },
+      { emoji: '🥂', label: 'Social first — my pace follows my people', svg: OPTION_SCENES.q3.social },
     ]
   },
   {
@@ -105,7 +103,7 @@ const QUESTIONS = [
       { emoji: '🏡', label: 'Own my home',                       svg: OPTION_SCENES.q6.own },
       { emoji: '🔑', label: 'Open to renting',                   svg: OPTION_SCENES.q6.rent },
       { emoji: '🏖️', label: 'Resort or retirement community',    svg: OPTION_SCENES.q6.resort },
-      { emoji: '🚐', label: 'Non-traditional (RV, boat, slow travel)', svg: OPTION_SCENES.q6.nontraditional },
+      { emoji: '🚐', label: 'Non-traditional — RV, boat, slow travel', svg: OPTION_SCENES.q6.nontraditional },
       { emoji: '🤔', label: 'Not sure yet',                      svg: OPTION_SCENES.q6.notSure },
     ]
   },
