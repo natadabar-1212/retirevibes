@@ -596,11 +596,17 @@ input[type=range]::-moz-range-thumb {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+@keyframes cardPop {
+  0%   { transform: scale(1); }
+  55%  { transform: scale(1.05) translateY(-3px); }
+  100% { transform: translateY(-2px); }
+}
+.option-image.selected { animation: cardPop 0.32s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .panel-left {
-    padding: 40px 24px;
+    padding: 40px 24px 108px; /* bottom padding clears sticky nav */
     min-height: auto;
   }
   .q-title { font-size: 30px; }
@@ -613,4 +619,24 @@ input[type=range]::-moz-range-thumb {
   .options.image-grid.cols-3 { grid-template-columns: 1fr 1fr; }
   .vibe-label { font-size: 48px; }
   .reveal-stage { font-size: 18px; }
+  /* Sticky bottom nav */
+  .nav-row {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-top: 0;
+    padding: 14px 24px 24px; /* extra bottom for home-bar safe area */
+    background: var(--cream);
+    border-top: 1px solid var(--border);
+    box-shadow: 0 -4px 20px rgba(27, 58, 75, 0.07);
+    z-index: 20;
+  }
+  /* Welcome screen meta bullets — stack vertically on mobile */
+  .welcome-meta {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    text-align: center;
+  }
 }
