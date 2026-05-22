@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com data: blob:; connect-src 'self' https://api.emailjs.com;">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com data: blob:; connect-src 'self';">
 <title>RetireVibes — Your Results</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -1426,12 +1426,6 @@
 
 <script src="destinations-data.js"></script>
 <script src="results-matcher.js"></script>
-<!-- SRI HASH NEEDED: Run this in Terminal to generate the integrity attribute, then paste it below:
-     curl -s https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js | openssl dgst -sha384 -binary | openssl base64 -A
-     Then replace integrity="sha384-PASTE_HASH_HERE" with the result. -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
-        integrity="sha384-PASTE_HASH_HERE"
-        crossorigin="anonymous"></script>
 <script src="magic-link.js"></script>
 
 </body>
