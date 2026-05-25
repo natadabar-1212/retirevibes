@@ -267,7 +267,7 @@ function renderQuestion(idx) {
       updateNext(idx);
       // Auto-advance on single-select after a brief delay so the selection registers visually
       if (q.type === 'single') {
-        setTimeout(next, 380);
+        setTimeout(next, 650);
       }
     });
     updateNext(idx);
@@ -334,7 +334,7 @@ function renderProcessing() {
   div.className = 'processing screen';
 
   const vibeLabel = generateVibeLabel();
-  const abroad = Array.isArray(state.answers[3]) && state.answers[3].some(i => i !== 0);
+  const abroad = Array.isArray(state.answers[2]) && state.answers[2].some(i => i !== 0);
 
   div.innerHTML = `
     <div class="processing-bg">${SCENES.processing}</div>

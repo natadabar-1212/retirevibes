@@ -156,15 +156,29 @@ const OPTION_SCENES = {
       <circle cx="183" cy="158" r="9" fill="#1F2D3D"/>
     </svg>`,
     creative: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+      <!-- Mix it up: left = café morning, right = outdoor afternoon -->
       <rect width="400" height="300" fill="#D4A574"/>
-      <ellipse cx="200" cy="170" rx="120" ry="70" fill="#FAF4ED"/>
-      <ellipse cx="155" cy="155" r="14" fill="#E07A5F"/>
-      <circle cx="200" cy="140" r="14" fill="#2D5F6C"/>
-      <circle cx="245" cy="155" r="14" fill="#D4A574"/>
-      <circle cx="175" cy="190" r="14" fill="#C9674F"/>
-      <circle cx="225" cy="190" r="14" fill="#3D5A6C"/>
-      <rect x="280" y="80" width="6" height="100" fill="#5C4A2A" transform="rotate(20 283 130)"/>
-      <ellipse cx="305" cy="73" rx="10" ry="14" fill="#E07A5F" transform="rotate(20 305 73)"/>
+      <circle cx="340" cy="58" r="28" fill="#F9E1B0" opacity="0.9"/>
+      <!-- Mountains backdrop -->
+      <path d="M0,260 L90,150 L180,220 L260,130 L340,195 L400,160 L400,300 L0,300 Z" fill="#4A8BA8" opacity="0.8"/>
+      <path d="M0,265 L90,170 L180,235 L400,265 L400,300 L0,300 Z" fill="#3D7A8A"/>
+      <!-- Left: café table -->
+      <rect x="28" y="196" width="110" height="7" rx="3" fill="#5C4A2A"/>
+      <rect x="52" y="203" width="8" height="38" fill="#5C4A2A"/>
+      <rect x="120" y="203" width="8" height="38" fill="#5C4A2A"/>
+      <!-- Coffee cup -->
+      <rect x="68" y="170" width="24" height="28" rx="3" fill="#FAF4ED"/>
+      <path d="M92,178 Q103,178 103,186 Q103,194 92,194" fill="none" stroke="#FAF4ED" stroke-width="3.5"/>
+      <path d="M75,165 Q77,157 75,149" stroke="#FAF4ED" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.6"/>
+      <path d="M83,163 Q85,154 83,146" stroke="#FAF4ED" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.6"/>
+      <!-- Right: hiker figure -->
+      <circle cx="290" cy="148" r="11" fill="#FAF4ED"/>
+      <line x1="290" y1="159" x2="290" y2="193" stroke="#FAF4ED" stroke-width="5" stroke-linecap="round"/>
+      <line x1="290" y1="172" x2="275" y2="185" stroke="#FAF4ED" stroke-width="4" stroke-linecap="round"/>
+      <line x1="290" y1="172" x2="305" y2="185" stroke="#FAF4ED" stroke-width="4" stroke-linecap="round"/>
+      <line x1="290" y1="193" x2="277" y2="218" stroke="#FAF4ED" stroke-width="4" stroke-linecap="round"/>
+      <line x1="290" y1="193" x2="303" y2="218" stroke="#FAF4ED" stroke-width="4" stroke-linecap="round"/>
+      <line x1="305" y1="168" x2="318" y2="222" stroke="#FAF4ED" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
     </svg>`,
     relaxed: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
       <rect width="400" height="300" fill="#E8C9A0"/>
@@ -182,19 +196,49 @@ const OPTION_SCENES = {
       <circle cx="340" cy="60" r="25" fill="#F9E1B0"/>
     </svg>`,
     social: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+      <!-- Socialite: warm evening terrace dinner scene -->
       <rect width="400" height="300" fill="#C9674F"/>
-      <rect y="230" width="400" height="70" fill="#5C4A2A"/>
-      <g transform="translate(150,150)">
-        <path d="M0,0 L-30,-50 L30,-50 Z" fill="#F9E1B0"/>
-        <rect x="-4" y="0" width="8" height="70" fill="#FAF4ED"/>
-        <ellipse cx="0" cy="75" rx="22" ry="6" fill="#FAF4ED"/>
+      <rect width="400" height="130" fill="#A8503E" opacity="0.45"/>
+      <!-- Terrace floor -->
+      <rect y="242" width="400" height="58" fill="#5C4A2A"/>
+      <rect y="237" width="400" height="7" fill="#7A5C3A"/>
+      <!-- Long dining table -->
+      <rect x="55" y="188" width="290" height="10" rx="3" fill="#F2E8DC"/>
+      <rect x="68" y="198" width="9" height="42" fill="#C8A87A"/>
+      <rect x="323" y="198" width="9" height="42" fill="#C8A87A"/>
+      <!-- Wine glasses -->
+      <g fill="none" stroke="#FAF4ED" stroke-width="2.5">
+        <path d="M118,188 Q118,174 109,167 L127,167 Q118,174 118,188"/>
+        <line x1="118" y1="167" x2="118" y2="159"/><line x1="110" y1="159" x2="126" y2="159"/>
       </g>
-      <g transform="translate(250,150)">
-        <path d="M0,0 L-30,-50 L30,-50 Z" fill="#F9E1B0"/>
-        <rect x="-4" y="0" width="8" height="70" fill="#FAF4ED"/>
-        <ellipse cx="0" cy="75" rx="22" ry="6" fill="#FAF4ED"/>
+      <g fill="none" stroke="#FAF4ED" stroke-width="2.5">
+        <path d="M185,188 Q185,174 176,167 L194,167 Q185,174 185,188"/>
+        <line x1="185" y1="167" x2="185" y2="159"/><line x1="177" y1="159" x2="193" y2="159"/>
       </g>
-      <circle cx="120" cy="60" r="3" fill="#F9E1B0"/><circle cx="280" cy="50" r="3" fill="#F9E1B0"/><circle cx="200" cy="80" r="2" fill="#F9E1B0"/>
+      <g fill="none" stroke="#FAF4ED" stroke-width="2.5">
+        <path d="M252,188 Q252,174 243,167 L261,167 Q252,174 252,188"/>
+        <line x1="252" y1="167" x2="252" y2="159"/><line x1="244" y1="159" x2="260" y2="159"/>
+      </g>
+      <g fill="none" stroke="#FAF4ED" stroke-width="2.5">
+        <path d="M318,188 Q318,174 309,167 L327,167 Q318,174 318,188"/>
+        <line x1="318" y1="167" x2="318" y2="159"/><line x1="310" y1="159" x2="326" y2="159"/>
+      </g>
+      <!-- Candle -->
+      <rect x="196" y="162" width="8" height="26" fill="#F9E1B0"/>
+      <ellipse cx="200" cy="160" rx="7" ry="5" fill="#F2A365"/>
+      <ellipse cx="200" cy="157" rx="3.5" ry="4.5" fill="#F9E1B0" opacity="0.85"/>
+      <!-- Figures (heads + shoulders) -->
+      <circle cx="100" cy="162" r="13" fill="#FAF4ED" opacity="0.92"/>
+      <path d="M86,176 Q100,194 114,176" fill="#FAF4ED" opacity="0.7"/>
+      <circle cx="200" cy="157" r="13" fill="#FAF4ED" opacity="0.92"/>
+      <path d="M186,171 Q200,189 214,171" fill="#FAF4ED" opacity="0.7"/>
+      <circle cx="310" cy="162" r="13" fill="#FAF4ED" opacity="0.92"/>
+      <path d="M296,176 Q310,194 324,176" fill="#FAF4ED" opacity="0.7"/>
+      <!-- Stars -->
+      <circle cx="48" cy="38" r="2" fill="#F9E1B0" opacity="0.7"/>
+      <circle cx="155" cy="22" r="2" fill="#F9E1B0" opacity="0.7"/>
+      <circle cx="355" cy="32" r="2" fill="#F9E1B0" opacity="0.65"/>
+      <circle cx="382" cy="62" r="1.5" fill="#F9E1B0" opacity="0.6"/>
     </svg>`,
     mix: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
       <rect width="400" height="300" fill="#D4A574"/>
