@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title id="pageTitle">RetireVibes — Destination</title>
+<meta id="pageDesc" name="description" content="Explore retirement destinations matched to your lifestyle and vibe on RetireVibes." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -483,7 +484,12 @@
 
   // ─── Render the full page ─────────────────────────────────
   function renderPage(dest) {
-    document.title = dest.name + ', ' + dest.country + ' — RetireVibes';
+    document.title = 'Retire in ' + dest.name + ', ' + dest.country + ' — Cost, Lifestyle & Vibe | RetireVibes';
+    var descEl = document.getElementById('pageDesc');
+    if (descEl) {
+      var cost1Desc = dest.costPerMonth[1] ? '~$' + dest.costPerMonth[1].toLocaleString() + '/mo' : '';
+      descEl.setAttribute('content', 'Explore ' + dest.name + ', ' + dest.country + ' as a retirement destination' + (cost1Desc ? ' — comfortable lifestyle starting at ' + cost1Desc : '') + '. See the vibe, cost of living, visa info, and how it matches your RetireVibes quiz results.');
+    }
 
     const lifestyleLabels = LIFESTYLE;
     const cost1 = dest.costPerMonth[1] ? '~$' + dest.costPerMonth[1].toLocaleString() : '—';
