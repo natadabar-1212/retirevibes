@@ -2,28 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com data: blob:; connect-src 'self' https://api.emailjs.com;">
-  <title>Find Your Retirement Vibe — The 2-Minute RetireVibes Quiz</title>
-  <meta name="description" content="Answer 7 questions about your ideal lifestyle and RetireVibes matches you with 3 retirement destinations that actually fit who you are. No income or savings questions — just your vibe." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="quiz/styles.css">
+  <title>RetireVibes Quiz</title>
+  <script>
+    // Redirect all old /mockups/vibe-quiz.html links to the new canonical URL.
+    window.location.replace('../quiz.html');
+  </script>
 </head>
-<body>
-  <div class="app">
-    <header class="header">
-      <a class="logo" href="../homepage-mockup.html">Retire<em>Vibes</em></a>
-      <div class="progress-wrap" id="progressWrap" style="display:none;"></div>
-    </header>
-    <main class="stage" id="stage"></main>
-  </div>
-
-  <!-- Order matters: scenes & option-scenes load before questions, quiz last -->
-  <script src="quiz/scenes.js"></script>
-  <script src="quiz/option-scenes.js"></script>
-  <script src="quiz/questions.js"></script>
-  <script src="quiz/quiz.js"></script>
-</body>
+<body></body>
 </html>

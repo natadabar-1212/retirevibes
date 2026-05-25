@@ -361,7 +361,8 @@ function renderProcessing() {
       localStorage.setItem('rv_vibe_label', vibeLabel);
       localStorage.setItem('rv_quiz_answers', JSON.stringify(state.answers));
     } catch(e) {}
-    window.location.href = '../results-page-mockup.html';
+    var depth = window.location.pathname.includes('/mockups/') ? '../' : '';
+    window.location.href = depth + 'results-page-mockup.html';
   });
 
   const stages = div.querySelectorAll('.reveal-stage');
