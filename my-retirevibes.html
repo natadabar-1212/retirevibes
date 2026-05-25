@@ -644,7 +644,7 @@
 <header class="page-hero">
   <p class="kicker">Your RetireVibes</p>
   <h1 id="pageTitle">Your retirement picture.</h1>
-  <p class="hero-sub" id="heroSub">Your quiz results, your top matches, and the places you've saved — all in one place.</p>
+  <p class="hero-sub" id="heroSub">Your quiz results, your top matches, and the places you've saved — stored in this browser.</p>
 </header>
 
 <!-- ─── MAIN CONTENT ─── -->
@@ -692,14 +692,13 @@
     <div id="savedContent"></div>
   </section>
 
-  <!-- ACCOUNT ROW -->
-  <div class="account-row" id="accountRow" hidden>
+  <!-- BROWSER STORAGE NOTICE -->
+  <div class="account-row">
     <div class="account-info">
-      Signed in as <strong id="accountEmail"></strong>
+      Your matches and saved places are stored in this browser only. Clear your cache or switch devices and they'll be gone.
     </div>
     <div class="account-actions">
-      <a href="mockups/vibe-quiz.html">Retake the quiz</a>
-      <button onclick="signOut()">Sign out</button>
+      <button onclick="clearAll()">Clear my data</button>
     </div>
   </div>
 
@@ -1019,15 +1018,16 @@
     container.appendChild(gridDiv);
   }
 
-  /* ── Account row ───────────────────────────────────────────── */
-  function renderAccount() {
-    const saved = getSaved();
-    const accountRow = document.getElementById('accountRow');
-    if (saved.email) {
-      document.getElementById('accountEmail').textContent = saved.email;
-      accountRow.hidden = false;
+  /* ── Clear all data ────────────────────────────────────────── */
+  window.clearAll = function() {
+    if (confirm('Clear your quiz results and saved places from this browser?')) {
+      try { localStorage.removeItem('rv_saved'); } catch(e) {}
+      try { localStorage.removeItem('rv_vibe_label'); } catch(e) {}
+      try { localStorage.removeItem('rv_quiz_matches'); } catch(e) {}
+      try { localStorage.removeItem('rv_quiz_answers'); } catch(e) {}
+      window.location.href = 'homepage-mockup.html';
     }
-  }
+  };
 
   /* ── Page hero ─────────────────────────────────────────────── */
   function renderHero(matchData) {
@@ -1064,7 +1064,6 @@
     }
 
     renderSaved();
-    renderAccount();
   }
 
   /* ── Global save toggle ────────────────────────────────────── */
@@ -1080,26 +1079,11 @@
     renderSaved();
   };
 
-  /* ── Sign out ──────────────────────────────────────────────── */
-  window.signOut = function() {
-    if (confirm('Sign out and clear your saved places from this device?')) {
-      try { localStorage.removeItem('rv_saved'); } catch(e) {}
-      try { localStorage.removeItem('rv_vibe_label'); } catch(e) {}
-      try { localStorage.removeItem('rv_quiz_matches'); } catch(e) {}
-      window.location.href = 'homepage-mockup.html';
-    }
-  };
-
-  document.addEventListener('DOMContentLoaded', function() {
-    // Restore saved state from magic link if present, then init
-    if (window.restoreFromMagicLink) restoreFromMagicLink();
-    init();
-  });
+  document.addEventListener('DOMContentLoaded', init);
 
 })();
 </script>
 
-<script src="magic-link.js"></script>
 <script src="shared.js"></script>
 </body>
 </html>

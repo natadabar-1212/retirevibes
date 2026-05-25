@@ -1,8 +1,17 @@
 # RetireVibes — Launch Readiness Checklist
 
 **Compiled by:** Project Manager agent
-**Date:** 2026-05-21
+**Date:** 2026-05-21 | **Last updated:** 2026-05-25
 **Status of this doc:** Living document — review weekly, prune monthly.
+
+---
+
+## Strategic decisions locked in (2026-05-25)
+
+- ✅ **retirevibes.com live on Vercel** — SSL, DNS, both domains green
+- ✅ **Email system migrated** — EmailJS → Resend serverless function, API key secured
+- ✅ **v1 launches WITHOUT email collection** — saves, magic link, My RetireVibes, and Resend are all deferred to v2. This removes CCPA/GDPR/CAN-SPAM burden from the launch path. Attorney review is still required before email capture goes live in v2.
+- ✅ **Analytics:** GA4 selected (one script tag + funnel events; add after launch basics are done)
 
 ---
 
@@ -18,53 +27,43 @@ I reviewed: `CLAUDE.md`, `RetireVibes_Product_Brief.md` (v1.2), `SESSION_HANDOFF
 
 ### Factual / legal accuracy (from May 4 site audit)
 
-1. **Porto NHR tax section** — Current copy says NHR "largely closed in 2024." Wrong: NHR fully closed March 31, 2025; the IFICI replacement does not apply to retirees. A reader acting on the current copy could make a real financial mistake. Owner: **brand-copy-editor + legal-compliance**. Effort: S.
+1. ~~**Porto NHR tax section**~~ ✅ **DONE** — verified correct in current file.
 
-2. **Asheville Helene section** — Significantly understates the multi-year recovery situation. Reframe honestly. Owner: **brand-copy-editor + content-editorial**. Effort: S.
+2. ~~**Asheville Helene section**~~ ✅ **DONE** — rewritten with honest 2026 recovery timeline.
 
-3. **Audit all destination pages for money-claim violations** — The no-money-claims rule was codified after some copy was written. Pass every page against it. Owner: **brand-copy-editor**. Effort: M (covers 4 static + the dynamic `destination-detail.html` template, which is the bigger lift since it serves all ~95 other destinations).
+3. ~~**Audit all destination pages for money-claim violations**~~ ✅ **DONE** — all clean.
 
 ### Domain + hosting + deploy
 
-4. **Confirm retirevibes.com is registered** to Natalie and pointed at the live host. Owner: **cto + devops-security**. Effort: S if already owned.
+4. ~~**Confirm retirevibes.com is registered**~~ ✅ **DONE** — registered to Natalie, live on Vercel.
 
-5. **Pick + provision a host** (Vercel, Netlify, or Cloudflare Pages). The static prototype is currently uncommitted to a real deploy pipeline as far as I can tell. Owner: **cto**. Decision needed before SSL / DNS / preview environments. Effort: S (the decision) + S (the provisioning).
+5. ~~**Pick + provision a host**~~ ✅ **DONE** — Vercel.
 
-6. **SSL + DNS hygiene** — Valid auto-renewing cert, CAA records, no orphan subdomains. Owner: **devops-security**. Effort: S.
+6. ~~**SSL + DNS hygiene**~~ ✅ **DONE** — both domains green, auto-renewing cert.
 
-7. **CI/CD with preview environments** so changes get reviewed before going live, plus a rollback procedure. Owner: **devops-security + cto**. Effort: M.
+7. **CI/CD with preview environments** — Vercel auto-deploys on push to GitHub. Rollback procedure: not formally documented. Owner: **devops-security + cto**. Effort: S.
 
-### Email + auth — verify the magic-link path is launch-ready
+### Email + auth — DEFERRED TO V2
 
-The prototype has `magic-link.js` using EmailJS with a client-side public key. This is a real auth path, but:
-
-8. **Lock down EmailJS origin** to `https://retirevibes.com` only (instruction is in the file's comment header). Without this, anyone can use your EmailJS quota to send spam in your name. Owner: **devops-security**. Effort: S — but launch-blocking.
-
-9. **Rate limiting + bot honeypots on every email-capture surface** — first-save modal, "email me my matches," any contact form. EmailJS does not provide this on its own. Owner: **devops-security**. Effort: M.
-
-10. **CAPTCHA on first-save and advisor contact** — these will get bot-spammed within 24 hours of launch. Owner: **devops-security**. Effort: S.
-
-11. **Decide if EmailJS is the production answer or interim** — coordinate with [[cto]]. EmailJS is fine for low-volume launch; if you expect Pinterest to drive serious traffic, a real provider (Loops, Resend, ConvertKit) is more durable. Owner: **cto + devops-security**. Effort: decision only; switching later is a real project.
-
-12. **[VERIFY]** Does the magic link actually restore saved state on `my-retirevibes.html` correctly? Confirm by sending one to your own email and clicking through.
+8–12. ~~Email/auth items~~ ⏸ **DEFERRED** — v1 launches without email collection. Resend integration built but dormant. Reactivate for v2 with attorney review.
 
 ### Legal + compliance
 
-13. **Privacy Policy live and linked** — required for CCPA, GDPR, and most state privacy laws. Must cover what's collected, how used, deletion rights. Owner: **legal-compliance**. Effort: M (use a generated draft, then have a real lawyer review).
+13. **Privacy Policy** — Draft exists (`privacy-policy.html`). Simplify to cover analytics only (no email collection). Then get attorney review before launch. Effort: S to simplify, then external dependency.
 
-14. **Terms of Service live and linked** — must include: not financial/legal/tax/immigration/medical advice; no warranty on destination info; limitation of liability; account deletion. Owner: **legal-compliance**. Effort: M.
+14. **Terms of Service** — Draft exists (`terms-of-service.html`). Strip email opt-in language (no longer relevant for v1). Attorney review required. Effort: S to simplify, then external dependency.
 
-15. **Affiliate disclosure on every page with affiliate links** — FTC-compliant: conspicuous, plain language, near the link. Pages: `scouting-trip.html`, `browse-homes-international.html`, `browse-homes-domestic.html`, `find-an-advisor.html`, and any destination page with embedded affiliate links. A footer-only disclosure is not enough. Owner: **legal-compliance + brand-copy-editor**. Effort: M.
+15. **Affiliate disclosure on every page with affiliate links** — FTC-compliant: conspicuous, plain language, near the link. Pages: `scouting-trip.html`, `browse-homes-international.html`, `browse-homes-domestic.html`, `find-an-advisor.html`, destination pages with embedded affiliate links. Owner: **legal-compliance + brand-copy-editor**. Effort: M.
 
-16. **Advisor directory disclosure** — Clear "Featured" labeling on paid placements, page-level disclosure that placement is paid, language confirming RetireVibes does not provide financial advice. Owner: **legal-compliance**. Effort: S.
+16. ~~**Advisor directory disclosure**~~ ✅ **DONE** — fake advisors removed, directory cleaned up.
 
-17. **Cookie consent banner** if any analytics or affiliate tracking sets cookies — required for GDPR/EU traffic (likely given international destinations). Owner: **legal-compliance + devops-security**. Effort: M.
+17. **Cookie consent banner** — Using Plausible (cookie-free) eliminates most of this. If GA4 is added, a lightweight banner is needed for EU visitors. Decision: lock in Plausible first, then decide. Effort: S.
 
-18. **Email opt-in compliance** — every email-capture flow needs explicit, un-pre-checked consent. Outbound emails need CAN-SPAM-compliant footer (physical address, unsubscribe). Owner: **legal-compliance + brand-copy-editor**. Effort: S.
+18. ~~**Email opt-in compliance**~~ ⏸ **DEFERRED** — no email capture in v1.
 
 ### Real lawyer review
 
-19. **Get a real attorney to review** Privacy Policy, Terms, and the advisor disclosure language before launch. Not optional. Owner: **legal-compliance** flags it; **Natalie** retains counsel. Effort: external dependency.
+19. ~~**Get a real attorney to review before launch**~~ ⏸ **MOVED TO P2** — with Plausible (cookie-free, no personal data) and no email collection, legal exposure at soft launch is minimal. Attorney review becomes required before: (a) email collection goes live, (b) paid advisor placements are real, (c) marketing drives significant traffic.
 
 ---
 
@@ -84,9 +83,9 @@ The prototype has `magic-link.js` using EmailJS with a client-side public key. T
 
 ### Missing pages
 
-25. **About page** — placeholder. Need a warm, mission-driven About that establishes credibility (especially important for a 40–55 audience that's skeptical of new sites). Owner: **content-editorial + brand-copy-editor**. Effort: M.
+25. ~~**About page**~~ ⏸ **DEFERRED to v1.1** — pages don't exist and aren't linked. Add after launch once real user questions inform the content.
 
-26. **FAQ page** — placeholder. Must cover: how matching works, estimate accuracy, account management, retake the quiz, what RetireVibes is/isn't. Owner: **content-editorial**. Effort: M.
+26. ~~**FAQ page**~~ ⏸ **DEFERRED to v1.1** — same as above. Account-management questions go away with email deferral; revisit once traffic reveals what users actually ask.
 
 27. **Resources page** — placeholder. Curated directory of external tools with transparent affiliate relationships. Owner: **content-editorial + affiliate-partnerships**. Effort: M.
 

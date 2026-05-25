@@ -1,10 +1,20 @@
 /* ═══════════════════════════════════════════════════════════
    RetireVibes — shared nav behaviour
-   Handles: hamburger menu, active nav state
+   Handles: hamburger menu, active nav state, analytics
    ═══════════════════════════════════════════════════════════ */
 
 (function () {
   'use strict';
+
+  /* ─── Plausible Analytics ──────────────────────────────────── */
+  // Cookie-free, privacy-first. No consent banner needed.
+  if (!document.querySelector('script[data-domain="retirevibes.com"]')) {
+    var plausible = document.createElement('script');
+    plausible.defer = true;
+    plausible.setAttribute('data-domain', 'retirevibes.com');
+    plausible.src = 'https://plausible.io/js/script.js';
+    document.head.appendChild(plausible);
+  }
 
   /* ─── Hamburger menu ───────────────────────────────────────── */
   const nav      = document.querySelector('.nav');
