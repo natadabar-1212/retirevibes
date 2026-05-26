@@ -6,15 +6,27 @@
 (function () {
   'use strict';
 
-  /* ─── Plausible Analytics ──────────────────────────────────── */
-  // Cookie-free, privacy-first. No consent banner needed.
-  if (!document.querySelector('script[data-domain="retirevibes.com"]')) {
-    var plausible = document.createElement('script');
-    plausible.defer = true;
-    plausible.setAttribute('data-domain', 'retirevibes.com');
-    plausible.src = 'https://plausible.io/js/script.js';
-    document.head.appendChild(plausible);
+  /* ─── Google Analytics 4 ───────────────────────────────────── */
+  // Replace G-XXXXXXXXXX with your real Measurement ID from GA4.
+  // Setup: analytics.google.com → Admin → Create Property → get Measurement ID.
+  var GA_ID = 'G-W19300JTXV';
+  if (!document.querySelector('script[src*="googletagmanager"]')) {
+    var gas = document.createElement('script');
+    gas.async = true;
+    gas.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(gas);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function() { window.dataLayer.push(arguments); };
+    gtag('js', new Date());
+    gtag('config', GA_ID);
   }
+
+  // Global helper — call rvTrack(eventName, { key: value }) anywhere
+  window.rvTrack = function(event, props) {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', event, props || {});
+    }
+  };
 
   /* ─── Hamburger menu ───────────────────────────────────────── */
   const nav      = document.querySelector('.nav');

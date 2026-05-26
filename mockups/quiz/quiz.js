@@ -288,6 +288,7 @@ function updateNext(idx) {
 // ---------- Navigation ----------
 function start() {
   state.step = 0;
+  window.rvTrack && window.rvTrack('quiz_start');
   render();
 }
 function back() {
@@ -297,10 +298,12 @@ function back() {
 }
 function next() {
   if (typeof state.step === 'number') {
+    window.rvTrack && window.rvTrack('quiz_question_complete', { question_number: state.step + 1 });
     if (state.step < QUESTIONS.length - 1) {
       state.step += 1;
       render();
     } else {
+      window.rvTrack && window.rvTrack('quiz_complete');
       state.step = 'processing';
       render();
     }
@@ -334,6 +337,7 @@ function renderProcessing() {
   div.className = 'processing screen';
 
   const vibeLabel = generateVibeLabel();
+  window.rvTrack && window.rvTrack('vibe_label_generated', { vibe_label: vibeLabel });
   const abroad = Array.isArray(state.answers[2]) && state.answers[2].some(i => i !== 0);
 
   div.innerHTML = `

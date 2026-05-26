@@ -97,35 +97,35 @@ I reviewed: `CLAUDE.md`, `RetireVibes_Product_Brief.md` (v1.2), `SESSION_HANDOFF
 
 ### Audit fixes from the May 4 report (P1/P2 items still likely open)
 
-30. **Mérida stat strip / numbers table mismatch** ($2,000–2,800 vs. $2,920). Owner: **brand-copy-editor**. Effort: XS.
+30. ~~**Mérida stat strip / numbers table mismatch**~~ ✅ **DONE** — stat strip now $1,700–2,900, consistent with table total of ~$2,920.
 
-31. **Sarasota insurance estimate** likely understated by ~2x; revise or add a strong caveat. Owner: **content-editorial**. Effort: S.
+31. ~~**Sarasota insurance estimate**~~ ✅ **DONE** — updated to $500–$900/mo with detailed Florida caveat.
 
-32. **Sarasota HOA row missing** from numbers table — material cost gap. Owner: **content-editorial**. Effort: S.
+32. ~~**Sarasota HOA row missing**~~ ✅ **DONE** — HOA row present at $0–400/mo / $400–800/mo.
 
-33. **Sarasota stat strip rent** — update "$3,200/mo" to "$2,200–$3,200/mo." Owner: **brand-copy-editor**. Effort: XS.
+33. ~~**Sarasota stat strip rent**~~ ✅ **DONE** — reads "$2,200–$3,200/mo range."
 
-34. **Sarasota family vibe card** — remove grandkids assumption. Owner: **brand-copy-editor**. Effort: XS.
+34. ~~**Sarasota family vibe card**~~ ✅ **DONE** — no grandkids assumption in current file.
 
-35. **Sarasota similar-card distance** — "two hours from Miami" → "about 2.5 hours from Miami." Owner: **brand-copy-editor**. Effort: XS.
+35. ~~**Sarasota similar-card distance**~~ ✅ **DONE** — reads "about 2.5 hours from Miami."
 
 ### SEO + technical SEO basics
 
-36. **Title + meta description on every page** — quick win, table stakes for SEO. Owner: **seo-aeo-specialist**. Effort: S.
+36. ~~**Title + meta description on every page**~~ ✅ **DONE** — all pages including destination-detail.html (dynamic).
 
-37. **Sitemap.xml + robots.txt** with the canonical URL set. Owner: **seo-aeo-specialist + devops-security**. Effort: XS.
+37. ~~**Sitemap.xml + robots.txt**~~ ✅ **DONE** — `sitemap.xml`, `robots.txt`, and `vercel.json` created. robots.txt disallows the template/shim files. vercel.json redirects `/` → `/homepage-mockup.html` and sets security headers site-wide.
 
 38. **Schema markup** on destination pages (`Place`, `FAQPage` where applicable, `Article` for content). Owner: **seo-aeo-specialist**. Effort: S.
 
-39. **Fix the quiz URL** — currently at `/mockups/vibe-quiz.html`. Should be `/quiz` or `/take-the-quiz` before launch. The quiz is the most-shared and most-marketed URL; a `/mockups/` prefix is bad. Owner: **cto + seo-aeo-specialist**. Effort: S; coordinate redirects.
+39. ~~**Fix the quiz URL**~~ ✅ **DONE** — canonical URL is now `/quiz.html`; old `/mockups/vibe-quiz.html` redirects to it.
 
-40. **OG image / Twitter card metadata** on at least homepage, results page, and destination pages — these get shared on social. Owner: **seo-aeo-specialist + design-lead**. Effort: S.
+40. ~~**OG image / Twitter card metadata**~~ ✅ **DONE** — added to homepage, quiz, results, all 4 destination pages, and destination-detail.html (dynamic). Results page copy written for shareability ("My RetireVibes Matches…"). Destination images used per page.
 
 ### Analytics + measurement
 
-41. **Pick analytics tool** (Plausible recommended; PostHog if you want funnels and replay; avoid GA4 unless required). Owner: **analytics-lead + cto**. Effort: S.
+41. ~~**Pick analytics tool**~~ ✅ **DONE** — GA4 selected (free, existing Google account). Measurement ID `G-W19300JTXV` wired in shared.js. ✅
 
-42. **Instrument the core funnel** before launch: page views, quiz start, per-question completion, quiz complete, save, email submit, affiliate clicks (per partner), share. Owner: **analytics-lead**. Effort: M.
+42. ~~**Instrument the core funnel**~~ ✅ **DONE** — GA4 + CSPs wired across all pages. Events: `quiz_start`, `quiz_question_complete` (with question_number prop), `quiz_complete`, `vibe_label_generated` (with vibe_label prop). Outbound affiliate clicks tracked automatically via GA4. Page views tracked automatically.
 
 43. **Search Console set up** for organic traffic visibility. Owner: **seo-aeo-specialist**. Effort: XS.
 
@@ -161,21 +161,23 @@ I reviewed: `CLAUDE.md`, `RetireVibes_Product_Brief.md` (v1.2), `SESSION_HANDOFF
 
 56. **Backup strategy** for email-captured leads (export from EmailJS or wherever; weekly cadence). Lead loss is unrecoverable. Owner: **devops-security**. Effort: S.
 
+57. **Expand hand-crafted destination pages** — currently only Porto, Mérida, Asheville, and Sarasota have rich, researched content (neighborhoods, visa details, cost tables, healthcare picture). All other destinations use the thin dynamic template. Natalie's goal: meaningful researched content on all pages before launch. Approach: identify the top 10–15 destinations that surface most frequently as quiz matches, hand-author those first (same structure as the 4 existing pages). Remaining destinations can be a phased rollout post-launch. Owner: **content-editorial**. Effort: L (each page is ~6–8 hours of research + writing). Priority: start early — this is the longest-lead content item on the list.
+
 ---
 
 ## P3 — Defer to post-launch unless something forces it forward
 
-57. **RetireVibes Pro** — explicitly post-MVP per the brief. Build only when users start asking for more destinations or advanced features.
+58. **RetireVibes Pro** — explicitly post-MVP per the brief. Build only when users start asking for more destinations or advanced features.
 
-58. **Australia/NZ region option** — restore only if research suggests demand; otherwise let the 10 destinations sit unused.
+59. **Australia/NZ region option** — restore only if research suggests demand; otherwise let the 10 destinations sit unused.
 
-59. **Tourism board sponsorships** — pursue once you have 30-day traffic numbers to share with sponsors.
+60. **Tourism board sponsorships** — pursue once you have 30-day traffic numbers to share with sponsors.
 
-60. **AEO optimization** — Q&A formatting for AI assistant citations. Real upside but no urgency at launch.
+61. **AEO optimization** — Q&A formatting for AI assistant citations. Real upside but no urgency at launch.
 
-61. **Quarterly check-in email automation** — retention feature from the brief; build once accounts are accumulating.
+62. **Quarterly check-in email automation** — retention feature from the brief; build once accounts are accumulating.
 
-62. **Magic-link as full session restore** vs. ephemeral access — current implementation passes state in the URL. Fine for launch; consider proper session tokens later.
+63. **Magic-link as full session restore** vs. ephemeral access — current implementation passes state in the URL. Fine for launch; consider proper session tokens later.
 
 ---
 

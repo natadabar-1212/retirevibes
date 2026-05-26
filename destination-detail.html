@@ -5,6 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title id="pageTitle">RetireVibes — Destination</title>
 <meta id="pageDesc" name="description" content="Explore retirement destinations matched to your lifestyle and vibe on RetireVibes." />
+<!-- Open Graph (values updated dynamically by renderPage) -->
+<meta id="ogUrl" property="og:url" content="https://www.retirevibes.com/destination-detail.html" />
+<meta id="ogTitle" property="og:title" content="RetireVibes — Retirement Destination" />
+<meta id="ogDesc" property="og:description" content="Explore retirement destinations matched to your lifestyle and vibe on RetireVibes." />
+<meta id="ogImage" property="og:image" content="https://www.retirevibes.com/images/porto.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="RetireVibes" />
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta id="twTitle" name="twitter:title" content="RetireVibes — Retirement Destination" />
+<meta id="twDesc" name="twitter:description" content="Explore retirement destinations matched to your lifestyle and vibe on RetireVibes." />
+<meta id="twImage" name="twitter:image" content="https://www.retirevibes.com/images/porto.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -486,10 +500,22 @@
   function renderPage(dest) {
     document.title = 'Retire in ' + dest.name + ', ' + dest.country + ' — Cost, Lifestyle & Vibe | RetireVibes';
     var descEl = document.getElementById('pageDesc');
-    if (descEl) {
-      var cost1Desc = dest.costPerMonth[1] ? '~$' + dest.costPerMonth[1].toLocaleString() + '/mo' : '';
-      descEl.setAttribute('content', 'Explore ' + dest.name + ', ' + dest.country + ' as a retirement destination' + (cost1Desc ? ' — comfortable lifestyle starting at ' + cost1Desc : '') + '. See the vibe, cost of living, visa info, and how it matches your RetireVibes quiz results.');
-    }
+    var cost1Desc = dest.costPerMonth[1] ? '~$' + dest.costPerMonth[1].toLocaleString() + '/mo' : '';
+    var fullDesc = 'Explore ' + dest.name + ', ' + dest.country + ' as a retirement destination' + (cost1Desc ? ' — comfortable lifestyle starting at ' + cost1Desc : '') + '. See the vibe, cost of living, visa info, and how it matches your RetireVibes quiz results.';
+    if (descEl) descEl.setAttribute('content', fullDesc);
+    // Update OG + Twitter Card tags dynamically
+    var pageUrl = 'https://www.retirevibes.com/destination-detail.html?id=' + (dest.id || '');
+    var ogImg = dest.photo ? 'https://www.retirevibes.com/' + dest.photo : 'https://www.retirevibes.com/images/porto.jpg';
+    var ogTitleText = 'Retire in ' + dest.name + ', ' + dest.country + ' — Cost, Lifestyle & Vibe | RetireVibes';
+    var els = {
+      ogUrl: pageUrl, ogTitle: ogTitleText, ogDesc: fullDesc, ogImage: ogImg,
+      twTitle: ogTitleText, twDesc: fullDesc, twImage: ogImg
+    };
+    Object.keys(els).forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.setAttribute('content', els[id]);
+      if (id === 'ogUrl' && el) el.setAttribute('content', pageUrl);
+    });
 
     const lifestyleLabels = LIFESTYLE;
     const cost1 = dest.costPerMonth[1] ? '~$' + dest.costPerMonth[1].toLocaleString() : '—';
@@ -686,7 +712,7 @@
               <div class="ho-label">Scouting</div>
               <h3>Plan a scouting trip</h3>
               <p>Spend 7–10 days living like a local — walk the neighborhoods, eat where locals eat, and see if the vibe holds up in person before you commit to anything.</p>
-              <a href="${dest.id === 'porto' ? 'scouting-trip.html' : 'scouting-trip-detail.html?id=' + dest.id}">Plan my trip →</a>
+              <a href="${dest.id === 'porto' ? 'scouting-trip.html' : dest.id === 'asheville' || dest.id === 'sarasota' ? 'scouting-trip-domestic.html?city=' + dest.id : 'https://www.booking.com/searchresults.html?ss=' + encodeURIComponent(dest.name + ', ' + dest.country)}" ${dest.id !== 'porto' && dest.id !== 'asheville' && dest.id !== 'sarasota' ? 'target="_blank" rel="noopener"' : ''}>Plan my trip →</a>
             </div>
           </div>
         </div>

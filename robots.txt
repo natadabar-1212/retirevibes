@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Don't index the quiz mockup redirect shim or template files
+Disallow: /mockups/vibe-quiz.html
+Disallow: /destination-detail.html
+Disallow: /destination-coming-soon.html
+
+Sitemap: https://www.retirevibes.com/sitemap.xml
