@@ -112,7 +112,7 @@ function renderWelcome() {
         <span>✦ US and international destinations</span>
         <span>✦ No financial info needed</span>
       </div>
-      <button class="btn btn-welcome">Find my RetireVibes →</button>
+      <button class="btn btn-welcome">Find my RetireVibes<span aria-hidden="true"> →</span></button>
     </div>
   `;
   div.querySelector('.btn-welcome').addEventListener('click', start);
@@ -148,7 +148,9 @@ function renderQuestion(idx) {
       <div class="slider-wrap">
         <div class="slider-value" id="sliderVal">${val}</div>
         <div class="slider-label" id="sliderLabel">${q.live(val)}</div>
-        <input type="range" min="${q.min}" max="${q.max}" value="${val}" id="slider"/>
+        <input type="range" min="${q.min}" max="${q.max}" value="${val}" id="slider"
+          aria-label="${q.title}"
+          aria-valuetext="${val} — ${q.live(val)}" />
         <div class="slider-ticks">
           <span>${q.min}</span>
           <span>${Math.round((q.min + q.max) / 2)}</span>
@@ -171,11 +173,11 @@ function renderQuestion(idx) {
             ? `<span class="img-svg">${o.svg}</span>`
             : (o.img ? `<span class="img-svg" style="background-image: url('${o.img}');"></span>` : '');
           return `
-            <button class="option-image ${isSel ? 'selected' : ''}" data-i="${i}">
+            <button class="option-image ${isSel ? 'selected' : ''}" data-i="${i}" aria-pressed="${isSel ? 'true' : 'false'}">
               ${art}
-              <span class="img-overlay"></span>
+              <span class="img-overlay" aria-hidden="true"></span>
               <span class="img-label">${o.label}</span>
-              <span class="img-check"></span>
+              <span class="img-check" aria-hidden="true"></span>
             </button>
           `;
         }).join('')}
@@ -191,10 +193,10 @@ function renderQuestion(idx) {
             ? Array.isArray(selected) && selected.includes(i)
             : selected === i;
           return `
-            <button class="option ${isSel ? 'selected' : ''}" data-i="${i}">
-              <span class="emoji">${o.emoji}</span>
+            <button class="option ${isSel ? 'selected' : ''}" data-i="${i}" aria-pressed="${isSel ? 'true' : 'false'}">
+              <span class="emoji" aria-hidden="true">${o.emoji}</span>
               <span>${o.label}</span>
-              <span class="check"></span>
+              <span class="check" aria-hidden="true"></span>
             </button>
           `;
         }).join('')}
@@ -208,9 +210,9 @@ function renderQuestion(idx) {
     ${q.hint ? `<p class="q-hint">${q.hint}</p>` : ''}
     ${body}
     <div class="nav-row">
-      <button class="btn btn-ghost">← Back</button>
+      <button class="btn btn-ghost"><span aria-hidden="true">← </span>Back</button>
       <button class="btn btn-primary" id="nextBtn" disabled>
-        ${idx === QUESTIONS.length - 1 ? 'See my matches' : 'Next'} →
+        ${idx === QUESTIONS.length - 1 ? 'See my matches' : 'Next'}<span aria-hidden="true"> →</span>
       </button>
     </div>
   `;
@@ -232,6 +234,8 @@ function renderQuestion(idx) {
       valEl.textContent = v;
       labEl.textContent = q.live(v);
       state.answers[idx] = v;
+      // Keep aria-valuetext in sync for screen readers
+      e.target.setAttribute('aria-valuetext', v + ' — ' + q.live(v));
     });
     document.getElementById('nextBtn').disabled = false;
   } else {
@@ -255,7 +259,7 @@ function renderQuestion(idx) {
       } else {
         state.answers[idx] = v;
       }
-      // Re-toggle selected class on all option buttons (text or image)
+      // Re-toggle selected class and aria-pressed on all option buttons (text or image)
       opts.querySelectorAll('.option, .option-image').forEach((el) => {
         const k = parseInt(el.dataset.i);
         const kv = q.options[k] && q.options[k].value !== undefined ? q.options[k].value : k;
@@ -263,6 +267,7 @@ function renderQuestion(idx) {
           ? Array.isArray(state.answers[idx]) && state.answers[idx].includes(kv)
           : state.answers[idx] === kv;
         el.classList.toggle('selected', isSel);
+        el.setAttribute('aria-pressed', isSel ? 'true' : 'false');
       });
       updateNext(idx);
       // Auto-advance on single-select after a brief delay so the selection registers visually
@@ -353,7 +358,7 @@ function renderProcessing() {
         <div class="vibe-label">${vibeLabel}</div>
         <p class="vibe-tagline">We've matched you with three destinations that feel like home for a ${vibeLabel.toLowerCase()}.</p>
         <div style="margin-top:36px;">
-          <button class="btn btn-welcome" id="revealBtn">Reveal my matches →</button>
+          <button class="btn btn-welcome" id="revealBtn">Reveal my matches<span aria-hidden="true"> →</span></button>
         </div>
       </div>
     </div>

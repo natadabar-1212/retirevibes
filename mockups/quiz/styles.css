@@ -144,7 +144,7 @@ html, body {
 .q-num {
   font-size: 12px;
   font-weight: 600;
-  color: var(--terracotta);
+  color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 0.12em;
   margin-bottom: 16px;
@@ -344,7 +344,11 @@ input[type=range] {
   height: 8px;
   background: var(--sand-deep);
   border-radius: 4px;
-  outline: none;
+}
+input[type=range]:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+  border-radius: 4px;
 }
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;

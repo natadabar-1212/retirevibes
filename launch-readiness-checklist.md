@@ -127,17 +127,17 @@ I reviewed: `CLAUDE.md`, `RetireVibes_Product_Brief.md` (v1.2), `SESSION_HANDOFF
 
 42. ~~**Instrument the core funnel**~~ ✅ **DONE** — GA4 + CSPs wired across all pages. Events: `quiz_start`, `quiz_question_complete` (with question_number prop), `quiz_complete`, `vibe_label_generated` (with vibe_label prop). Outbound affiliate clicks tracked automatically via GA4. Page views tracked automatically.
 
-43. **Search Console set up** for organic traffic visibility. Owner: **seo-aeo-specialist**. Effort: XS.
+43. ~~**Search Console set up**~~ ✅ **DONE** — verified via HTML tag, sitemap submitted, 17 pages discovered.
 
-44. **Define what "launch worked" looks like** — pick 2-3 metrics with a 14-day target. Owner: **analytics-lead + product**. Effort: S.
+44. ~~**Define what "launch worked" looks like**~~ ✅ **DONE** — 14-day targets: 200+ unique visitors, 30%+ homepage→quiz-start rate, 50%+ quiz completion rate, 25+ total quiz completions. North star: quiz completions. Warning sign: high traffic, low quiz starts = homepage not converting; high quiz starts, low completions = quiz drop-off problem.
 
 ### Accessibility + cross-device
 
-45. **WCAG 2.1 AA pass** on the four destination pages + quiz + results page. Particularly: contrast (warm-gray on cream is borderline), touch targets ≥44×44, focus states, form labels. Owner: **design-lead**. Effort: M.
+45. ~~**WCAG 2.1 AA pass**~~ ✅ **DONE** — Fixed: (1) shared.css now loads in quiz.html (brings global focus-visible ring, prefers-reduced-motion, sr-only); (2) slider `outline: none` removed, replaced with proper focus-visible ring; (3) `.q-num` text color changed from terracotta (2.85:1 fail) to muted (5.25:1 pass); (4) `aria-live="polite"` added to quiz stage for screen reader announcements; (5) `aria-pressed` added to all option buttons; (6) slider gets `aria-label` + `aria-valuetext` (kept in sync on drag); (7) decorative arrow glyphs wrapped in `aria-hidden`; (8) decorative spans in option cards marked `aria-hidden`. Save modal already had correct ARIA (role=dialog, aria-modal, aria-labelledby, sr-only label). warm-gray on cream passes at 5.25:1.
 
-46. **Real-device QA** on iPhone, Android, iPad, and at least one older-model phone (audience skews older — they keep phones longer). Test: quiz with one thumb, save modal, email flow, share. Owner: **design-lead + product**. Effort: M.
+46. **Real-device QA** — test script created at `qa-device-test-script.md`. Run on iPhone (recent), iPhone (older), Android, iPad. Covers: nav, homepage, quiz flow end-to-end, save modal, share, destination pages. Owner: **Natalie**. Effort: 30–45 min per device.
 
-47. **Browser test** on Safari 14+, Chrome, Firefox, Edge. Older audience = higher Safari share than tech-product baselines. Owner: **product**. Effort: S.
+47. **Browser test** — test script created at `qa-browser-test-script.md`. Run on Safari (highest priority), Chrome, Firefox, Edge. Covers quiz, results, save/share modals, Porto destination page, JS error check. Known gotchas documented (backdrop-filter, aspect-ratio, localStorage in Safari private mode). Owner: **Natalie**. Effort: 30–45 min total.
 
 ---
 
@@ -171,7 +171,9 @@ I reviewed: `CLAUDE.md`, `RetireVibes_Product_Brief.md` (v1.2), `SESSION_HANDOFF
 
 59. **Australia/NZ region option** — restore only if research suggests demand; otherwise let the 10 destinations sit unused.
 
-60. **Tourism board sponsorships** — pursue once you have 30-day traffic numbers to share with sponsors.
+60. **Social media channels** — create RetireVibes presence on Pinterest, Instagram, and Facebook before or at launch. Pinterest is highest priority for this audience (visual, evergreen, search-driven). Owner: **marketing-lead**. Effort: M.
+
+61. **Tourism board sponsorships** — pursue once you have 30-day traffic numbers to share with sponsors.
 
 61. **AEO optimization** — Q&A formatting for AI assistant citations. Real upside but no urgency at launch.
 
