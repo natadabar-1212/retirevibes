@@ -520,10 +520,10 @@ const DESTINATIONS = [
     costPerMonth: { 0: 1000, 1: 1500, 2: 2100, 3: 3200 },
     housing: { buy: '~$180K', buyDesc: '2BR colonial in Centro', rent: '~$700/mo' },
     compare: "Mexico's cultural heartland — a highland city with spring-like weather year-round, some of the world's most celebrated cuisine, and a creative energy that attracts artists and writers from every continent.",
-    page: 'destination-coming-soon.html?name=Oaxaca',
+    page: 'destination-oaxaca.html',
     isInternational: true,
     advisorPage: 'advisor-international.html',
-    browseHomesPage: 'destination-coming-soon.html?name=Oaxaca',
+    browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
     // Scoring
     weatherMatch: [2, 0],         // mild (highland), warm
@@ -574,7 +574,7 @@ const DESTINATIONS = [
     costPerMonth: { 0: 2000, 1: 2700, 2: 3500, 3: 5200 },
     housing: { buy: '~$360K', buyDesc: '2BR home in Midtown', rent: '~$1,600/mo' },
     compare: "Arizona sunshine without Phoenix prices — a university town with serious trail systems, an emerging food scene, and winters that draw snowbirds from across the country.",
-    page: 'destination-coming-soon.html?name=Tucson',
+    page: 'destination-tucson.html',
     isInternational: false,
     advisorPage: 'advisor-domestic.html',
     browseHomesPage: 'browse-homes-domestic.html',
@@ -601,10 +601,10 @@ const DESTINATIONS = [
     costPerMonth: { 0: 1500, 1: 2200, 2: 3000, 3: 4800 },
     housing: { buy: '~$200K', buyDesc: '2BR in an upscale residential district', rent: '~$1,100/mo' },
     compare: "The only country in Latin America where the dollar is the official currency — with the Pensionado visa offering discounts on everything from flights to medical care.",
-    page: 'destination-coming-soon.html?name=Panama%20City',
+    page: 'destination-panama-city.html',
     isInternational: true,
     advisorPage: 'advisor-international.html',
-    browseHomesPage: 'destination-coming-soon.html?name=Panama%20City',
+    browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
     // Scoring
     weatherMatch: [0],            // warm/sunny (tropical)
@@ -631,10 +631,10 @@ const DESTINATIONS = [
     costPerMonth: { 0: 1600, 1: 2300, 2: 3200, 3: 4900 },
     housing: { buy: '~$240K', buyDesc: '2BR in Soho/Centro', rent: '~$1,000/mo' },
     compare: "The sunniest city in continental Europe — more sunshine than the Canaries, with a transformed arts district, a stunning historic center, and beaches that don't require a vacation to reach.",
-    page: 'destination-coming-soon.html?name=M%C3%A1laga',
+    page: 'destination-malaga.html',
     isInternational: true,
     advisorPage: 'advisor-international.html',
-    browseHomesPage: 'destination-coming-soon.html?name=M%C3%A1laga',
+    browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
     weatherMatch: [0, 2],          // warm/sunny (primary), mild
     settingMatch: [0, 3],          // beach, city
@@ -683,10 +683,10 @@ const DESTINATIONS = [
     costPerMonth: { 0: 1500, 1: 2100, 2: 3000, 3: 4500 },
     housing: { buy: '~$200K', buyDesc: '2BR in a central residential neighborhood', rent: '~$900/mo' },
     compare: "One of Europe's most affordable capital cities — steps from the Acropolis, an hour from island-hopping, and one of the sunniest capitals in Europe, with costs roughly half of Lisbon.",
-    page: 'destination-coming-soon.html?name=Athens',
+    page: 'destination-athens.html',
     isInternational: true,
     advisorPage: 'advisor-international.html',
-    browseHomesPage: 'destination-coming-soon.html?name=Athens',
+    browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
     weatherMatch: [0, 2],          // warm/sunny, mild
     settingMatch: [3, 0],          // city, coastal access
@@ -709,10 +709,10 @@ const DESTINATIONS = [
     costPerMonth: { 0: 2000, 1: 2800, 2: 4000, 3: 6200 },
     housing: { buy: '~$380K', buyDesc: '2BR in a central riverside neighborhood', rent: '~$1,500/mo' },
     compare: "Living in Florence means living inside the world's greatest art museum — only without the crowds, the ticket prices, or the closing times. Tuscan wine country starts 20 minutes from your door.",
-    page: 'destination-coming-soon.html?name=Florence',
+    page: 'destination-florence.html',
     isInternational: true,
     advisorPage: 'advisor-international.html',
-    browseHomesPage: 'destination-coming-soon.html?name=Florence',
+    browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
     weatherMatch: [2, 1],          // mild/temperate, four seasons
     settingMatch: [3, 1],          // city, river
@@ -815,10 +815,10 @@ const DESTINATIONS = [
     costPerMonth: { 0: 900, 1: 1300, 2: 2000, 3: 3200 },
     housing: { buy: '~$150K', buyDesc: '2BR apartment in El Centro', rent: '~$600/mo' },
     compare: "Consistently ranked as one of the world's best retirement destinations — world-class private hospitals, spring weather every day of the year, and monthly costs that are a fraction of any US city.",
-    page: 'destination-coming-soon.html?name=Cuenca',
+    page: 'destination-cuenca.html',
     isInternational: true,
     advisorPage: 'advisor-international.html',
-    browseHomesPage: 'destination-coming-soon.html?name=Cuenca',
+    browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
     weatherMatch: [2, 3],          // mild/temperate (primary — 2,550m highland spring), cool/crisp secondary
     settingMatch: [3, 4, 2],       // city, small town, mountains
@@ -923,7 +923,7 @@ const DESTINATIONS = [
     costPerMonth: { 0: 3000, 1: 4000, 2: 5500, 3: 8000 },
     housing: { buy: '~$580K', buyDesc: '2BR condo near 5th Ave South', rent: '~$2,800/mo' },
     compare: "Florida's most refined beach city — quieter and more upscale than Sarasota, with some of the best shelling beaches in the country and a dining scene that draws chefs from Miami.",
-    page: 'destination-coming-soon.html?name=Naples',
+    page: 'destination-naples-fl.html',
     isInternational: false,
     advisorPage: 'advisor-domestic.html',
     browseHomesPage: 'browse-homes-domestic.html',
@@ -949,7 +949,7 @@ const DESTINATIONS = [
     costPerMonth: { 0: 1900, 1: 2600, 2: 3400, 3: 5000 },
     housing: { buy: '~$380K', buyDesc: '2BR home in the North End', rent: '~$1,600/mo' },
     compare: "Idaho's capital punches well above its size — mountain biking trails from downtown, a river greenbelt, Sun Valley ski country two hours away, and costs well below comparably outdoorsy Western cities.",
-    page: 'destination-coming-soon.html?name=Boise',
+    page: 'destination-boise.html',
     isInternational: false,
     advisorPage: 'advisor-domestic.html',
     browseHomesPage: 'browse-homes-domestic.html',
@@ -1001,7 +1001,7 @@ const DESTINATIONS = [
     costPerMonth: { 0: 3000, 1: 4000, 2: 5500, 3: 8000 },
     housing: { buy: '~$650K', buyDesc: '2BR condo near Old Town', rent: '~$2,500/mo' },
     compare: "Tucson's more upscale neighbor — resort-quality living, a world-class spa scene, 200+ golf courses, and the kind of desert sunrise that makes the cost feel reasonable.",
-    page: 'destination-coming-soon.html?name=Scottsdale',
+    page: 'destination-scottsdale.html',
     isInternational: false,
     advisorPage: 'advisor-domestic.html',
     browseHomesPage: 'browse-homes-domestic.html',
