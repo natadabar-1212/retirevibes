@@ -170,10 +170,10 @@ const DESTINATIONS = [
     costPerMonth: { 0: 900, 1: 1400, 2: 2000, 3: 3200 },
     housing: { buy: '~$120K', buyDesc: '2BR condo in the main expat neighborhood', rent: '~$600/mo' },
     compare: "One of the world's most popular retirement destinations for a reason — a comfortable, wellness-focused life costs less here than a studio apartment in most US cities.",
-    page: 'destination-coming-soon.html?name=Chiang%20Mai',
+    page: 'destination-chiang-mai.html',
     isInternational: true,
     advisorPage: 'advisor-international.html',
-    browseHomesPage: 'destination-coming-soon.html?name=Chiang%20Mai',
+    browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
     // Scoring
     weatherMatch: [0, 2],         // warm/sunny (primary), mild in cool season
@@ -197,10 +197,10 @@ const DESTINATIONS = [
     costPerMonth: { 0: 1100, 1: 1700, 2: 2400, 3: 3800 },
     housing: { buy: '~$160K', buyDesc: '2BR in the main expat neighborhood', rent: '~$700/mo' },
     compare: "A city that's completely reinvented itself — modern metro system, world-class restaurants, and a spring climate 365 days a year at 5,000 feet elevation.",
-    page: 'destination-coming-soon.html?name=Medell%C3%ADn',
+    page: 'destination-medellin.html',
     isInternational: true,
     advisorPage: 'advisor-international.html',
-    browseHomesPage: 'destination-coming-soon.html?name=Medell%C3%ADn',
+    browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
     // Scoring
     weatherMatch: [2, 0],         // mild/temperate (primary - eternal spring), warm
@@ -278,7 +278,7 @@ const DESTINATIONS = [
     costPerMonth: { 0: 2000, 1: 2700, 2: 3500, 3: 5200 },
     housing: { buy: '~$380K', buyDesc: '2BR home in Augusta Road area', rent: '~$1,600/mo' },
     compare: "One of the South's most underrated cities — a nationally recognized downtown, a waterfall park, and easy access to Blue Ridge mountain trails, at costs well below Asheville.",
-    page: 'destination-coming-soon.html?name=Greenville',
+    page: 'destination-greenville.html',
     isInternational: false,
     advisorPage: 'advisor-domestic.html',
     browseHomesPage: 'browse-homes-domestic.html',
@@ -412,7 +412,7 @@ const DESTINATIONS = [
     costPerMonth: { 0: 1800, 1: 2500, 2: 3500, 3: 5500 },
     housing: { buy: '~$300K', buyDesc: '2BR condo in the beach or arts district', rent: '~$1,400/mo' },
     compare: "A US territory with Caribbean beaches — no passport required, Medicare still applies, and unique Act 60 tax incentives that make it one of the most financially interesting retirement destinations in the Americas.",
-    page: 'destination-coming-soon.html?name=Puerto%20Rico',
+    page: 'destination-puerto-rico.html',
     isInternational: false,
     advisorPage: 'advisor-domestic.html',
     browseHomesPage: 'browse-homes-domestic.html',
@@ -466,10 +466,10 @@ const DESTINATIONS = [
     costPerMonth: { 0: 1800, 1: 2600, 2: 3600, 3: 5500 },
     housing: { buy: '~$380K', buyDesc: '2BR in an upscale central neighborhood', rent: '~$1,400/mo' },
     compare: "More sun than Porto, bigger city energy, and still one of Western Europe's most affordable capitals — with direct flights to dozens of US cities.",
-    page: 'destination-coming-soon.html?name=Lisbon',
+    page: 'destination-lisbon.html',
     isInternational: true,
     advisorPage: 'advisor-international.html',
-    browseHomesPage: 'destination-coming-soon.html?name=Lisbon',
+    browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
     // Scoring
     weatherMatch: [2, 0],         // mild/temperate (primary), warm/sunny
@@ -493,10 +493,10 @@ const DESTINATIONS = [
     costPerMonth: { 0: 1700, 1: 2400, 2: 3400, 3: 5200 },
     housing: { buy: '~$260K', buyDesc: '2BR in a trendy central neighborhood', rent: '~$1,100/mo' },
     compare: "Spain's most livable city — sun and beaches without Barcelona prices, a city-bike culture that makes a car optional, and food that people travel across continents to eat.",
-    page: 'destination-coming-soon.html?name=Valencia',
+    page: 'destination-valencia.html',
     isInternational: true,
     advisorPage: 'advisor-international.html',
-    browseHomesPage: 'destination-coming-soon.html?name=Valencia',
+    browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
     // Scoring
     weatherMatch: [0, 2],         // warm/sunny (primary), mild
@@ -657,10 +657,10 @@ const DESTINATIONS = [
     costPerMonth: { 0: 1700, 1: 2400, 2: 3400, 3: 5100 },
     housing: { buy: '~$320K', buyDesc: '2BR villa near Lagos or Tavira', rent: '~$1,200/mo' },
     compare: "Europe's favorite stretch of coastline — cliffs and beaches that look like screensavers, 300+ days of sun, and a well-established English-speaking expat infrastructure that makes the transition simple.",
-    page: 'destination-coming-soon.html?name=Algarve',
+    page: 'destination-algarve.html',
     isInternational: true,
     advisorPage: 'advisor-international.html',
-    browseHomesPage: 'destination-coming-soon.html?name=Algarve',
+    browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
     weatherMatch: [0, 2],          // warm/sunny, mild
     settingMatch: [0, 5, 4],       // beach, countryside, small town
@@ -763,10 +763,10 @@ const DESTINATIONS = [
     costPerMonth: { 0: 1300, 1: 1900, 2: 2800, 3: 4200 },
     housing: { buy: '~$280K', buyDesc: '2BR colonial home near Centro', rent: '~$1,000/mo' },
     compare: "The most established American expat destination in Mexico — 70+ years of expat community infrastructure, a thriving arts colony, and highland spring weather year-round.",
-    page: 'destination-coming-soon.html?name=San%20Miguel%20de%20Allende',
+    page: 'destination-san-miguel.html',
     isInternational: true,
     advisorPage: 'advisor-international.html',
-    browseHomesPage: 'destination-coming-soon.html?name=San%20Miguel%20de%20Allende',
+    browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
     weatherMatch: [2, 0],          // mild (highland spring), warm
     settingMatch: [3, 4],          // city, small town feel
@@ -789,10 +789,10 @@ const DESTINATIONS = [
     costPerMonth: { 0: 1400, 1: 2000, 2: 2900, 3: 4500 },
     housing: { buy: '~$240K', buyDesc: '2BR condo near the Romantic Zone', rent: '~$950/mo' },
     compare: "Mexico's most beloved Pacific coast city — beaches backed by Sierra Madre jungle, a famously welcoming LGBTQ+ community, and one of the most organized expat scenes in the country.",
-    page: 'destination-coming-soon.html?name=Puerto%20Vallarta',
+    page: 'destination-puerto-vallarta.html',
     isInternational: true,
     advisorPage: 'advisor-international.html',
-    browseHomesPage: 'destination-coming-soon.html?name=Puerto%20Vallarta',
+    browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
     weatherMatch: [0],             // warm/sunny year-round
     settingMatch: [0, 3, 2],       // beach, city, mountains/jungle
@@ -841,10 +841,10 @@ const DESTINATIONS = [
     costPerMonth: { 0: 1300, 1: 1900, 2: 2700, 3: 4300 },
     housing: { buy: '~$200K', buyDesc: '2BR home in a popular expat suburb or mountain town', rent: '~$800/mo' },
     compare: "The gold standard of Latin American retirement — Costa Rica's CAJA healthcare is rated among the best in the world, its political stability is exceptional, and the Central Valley has spring weather 365 days a year.",
-    page: 'destination-coming-soon.html?name=Costa%20Rica',
+    page: 'destination-costa-rica.html',
     isInternational: true,
     advisorPage: 'advisor-international.html',
-    browseHomesPage: 'destination-coming-soon.html?name=Costa%20Rica',
+    browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
     weatherMatch: [2, 0],          // mild/temperate (Central Valley), warm in coastal areas
     settingMatch: [2, 5, 4],       // mountains, countryside, small town
