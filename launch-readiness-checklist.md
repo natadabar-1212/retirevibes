@@ -73,7 +73,7 @@ I reviewed: `CLAUDE.md`, `RetireVibes_Product_Brief.md` (v1.2), `SESSION_HANDOFF
 
 20. **Wire Porto scouting trip handoff** — currently `href="#"`, should be `scouting-trip.html`. Owner: **product**. Effort: XS.
 
-21. **Mérida scouting trip handoff** — page doesn't exist. Either build a Mérida scouting page or temp-route to a Booking.com Mérida search. Owner: **product + content-editorial**. Effort: S (temp link) or M (real page).
+21. **Mérida scouting trip handoff** — page doesn't exist. Build a Mérida scouting page (same structure as Porto's `scouting-trip.html`). **Strategy locked (2026-05-28): do NOT route directly to Booking.com.** Every handoff card goes through an editorial wrapper page — never straight to an external site. Owner: **product + content-editorial**. Effort: M.
 
 22. **Asheville + Sarasota scouting handoffs** — point to `scouting-trip-domestic.html` with city param. **[VERIFY]** that page handles both `?city=asheville` and `?city=sarasota`. Owner: **product**. Effort: S.
 
@@ -88,6 +88,20 @@ I reviewed: `CLAUDE.md`, `RetireVibes_Product_Brief.md` (v1.2), `SESSION_HANDOFF
 26. ~~**FAQ page**~~ ⏸ **DEFERRED to v1.1** — same as above. Account-management questions go away with email deferral; revisit once traffic reveals what users actually ask.
 
 27. **Resources page** — placeholder. Curated directory of external tools with transparent affiliate relationships. Owner: **content-editorial + affiliate-partnerships**. Effort: M.
+
+### Handoff card standardization
+
+64. **Standardize handoff CTA labels and routing across all destination pages** — Three decisions locked in on 2026-05-28 that need to be implemented on all current destination pages (Porto, Mérida, Asheville, Sarasota), the results page, and any new destination pages going forward:
+
+    **Advisor card:** CTA changes from "Match me with an advisor →" to "How to find an advisor →" everywhere. We are not doing matching — we're educating and routing. Page destination stays the same (`advisor-international.html` or `advisor-domestic.html`).
+
+    **Real estate card:** Headline changes from "Browse [City] rentals/homes" to "How to find a home in [City]". CTA changes from "See current listings →" to "How to find a home in [City] →". Editorial wrapper page stays as the destination — never route directly to Zillow, Idealista, or Inmuebles24. The affiliate listing links live on the editorial page, not as the CTA destination. Mérida currently breaks this (goes straight to Inmuebles24) — fix to route to `browse-homes-international.html` until a Mérida-specific page exists (see item 65 below).
+
+    **Scouting card:** CTA label standardizes to "Plan a scouting trip →" across all destinations. Mérida currently breaks this (CTA reads "Find accommodation in Mérida →", goes straight to Booking.com) — fix to route to `scouting-trips.html` (general guide) until a Mérida-specific scouting page exists (see item 21 above).
+
+    **No direct external links from handoff cards — ever.** Porto is the model. Every card routes to a RetireVibes editorial page; affiliate links live inside that page.
+
+    Owner: **product + brand-copy-editor**. Effort: S (label + routing changes across 4 pages). Depends on: nothing — can ship immediately.
 
 ### Known data / matching issues
 
@@ -180,6 +194,8 @@ I reviewed: `CLAUDE.md`, `RetireVibes_Product_Brief.md` (v1.2), `SESSION_HANDOFF
 62. **Quarterly check-in email automation** — retention feature from the brief; build once accounts are accumulating.
 
 63. **Magic-link as full session restore** vs. ephemeral access — current implementation passes state in the URL. Fine for launch; consider proper session tokens later.
+
+65. **"How to find a home in [City]" — destination-specific real estate guides for all ~110 destinations** — Decided 2026-05-28. Porto's `browse-homes-international.html` is the structural model, but each destination needs its own page, not a shared generic one. Each page must include: (1) a **Renting** section covering the local rental market, typical lease terms, what to watch out for, neighborhood guidance, and rent ranges; (2) a **Buying** section covering legal standing for foreign buyers, ownership structures (fideicommiso in Mexico, EU property rights in Portugal, etc.), price ranges by neighborhood, the buying process step-by-step, and common pitfalls; (3) embedded affiliate listing links (Idealista, Inmuebles24, Zillow, Realtor.com, Redfin, or local equivalent — source appropriate to the destination). The buying/renting nuances must be genuinely specific to each location — no copy-paste with substituted city names. This is a large content initiative and will be the longest-lead item in the product. Owner: **content-editorial + product + affiliate-partnerships** (affiliate links must be in place per destination). Effort: L per destination × ~110 destinations. Start with the top 10–15 most-matched destinations (cross-reference `destinations-data.js` scoring). Porto already has a version; evaluate whether it meets the new buying/renting standard or needs a rebuild. See also item 57 (hand-crafted destination pages).
 
 ---
 
