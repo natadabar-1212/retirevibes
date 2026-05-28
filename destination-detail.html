@@ -698,21 +698,21 @@
               <div class="ho-label">Financial planning</div>
               <h3>${advisorLabel}</h3>
               <p>${advisorDesc}</p>
-              <a href="${advisorHref}">Find an advisor →</a>
+              <a href="${advisorHref}">How to find an advisor →</a>
             </div>
             <div class="handoff-card">
               <div class="ho-label">Real estate</div>
-              <h3>Browse homes in ${dest.name}</h3>
+              <h3>How to find a home in ${dest.name}</h3>
               <p>${isIntl
-                ? `Real listings — apartments, houses, and condos in ${dest.name}. No commitment, just curiosity about what the market looks like.`
-                : `Active listings in ${dest.name} — see what the market looks like before you commit to anything.`}</p>
-              <a href="${homesHref}">Explore ${dest.name} homes →</a>
+                ? `Renting vs. buying, the neighborhoods worth knowing, what foreign buyers need to understand legally, and where to find listings.`
+                : `Renting vs. buying, the neighborhoods worth knowing, and what to look for before you commit to anything.`}</p>
+              <a href="${homesHref}">How to find a home in ${dest.name} →</a>
             </div>
             <div class="handoff-card">
               <div class="ho-label">Scouting</div>
               <h3>Plan a scouting trip</h3>
               <p>Spend 7–10 days living like a local — walk the neighborhoods, eat where locals eat, and see if the vibe holds up in person before you commit to anything.</p>
-              <a href="${dest.id === 'porto' ? 'scouting-trip.html' : dest.id === 'asheville' || dest.id === 'sarasota' ? 'scouting-trip-domestic.html?city=' + dest.id : 'https://www.booking.com/searchresults.html?ss=' + encodeURIComponent(dest.name + ', ' + dest.country)}" ${dest.id !== 'porto' && dest.id !== 'asheville' && dest.id !== 'sarasota' ? 'target="_blank" rel="noopener"' : ''}>Plan my trip →</a>
+              <a href="${dest.id === 'porto' ? 'scouting-trip.html' : dest.id === 'asheville' || dest.id === 'sarasota' ? 'scouting-trip-domestic.html?city=' + dest.id : 'scouting-trips.html'}">How to scout ${dest.name} →</a>
             </div>
           </div>
         </div>
