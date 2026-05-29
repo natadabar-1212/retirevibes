@@ -1,7 +1,7 @@
 # RetireVibes — Launch Readiness Checklist
 
 **Compiled by:** Project Manager agent
-**Date:** 2026-05-21 | **Last updated:** 2026-05-25
+**Date:** 2026-05-21 | **Last updated:** 2026-05-28
 **Status of this doc:** Living document — review weekly, prune monthly.
 
 ---
@@ -49,15 +49,15 @@ I reviewed: `CLAUDE.md`, `RetireVibes_Product_Brief.md` (v1.2), `SESSION_HANDOFF
 
 ### Legal + compliance
 
-13. **Privacy Policy** — Draft exists (`privacy-policy.html`). Simplify to cover analytics only (no email collection). Then get attorney review before launch. Effort: S to simplify, then external dependency.
+13. ~~**Privacy Policy**~~ ✅ **DRAFTED (2026-05-26)** — `privacy-policy.html` fully written in RetireVibes design system. Covers GA4 analytics only (no email collection), CCPA/GDPR deletion rights, no-financial-advice disclaimer. Footer links added to homepage, all destination pages, find-an-advisor. **⚠️ Attorney review still required before launch.** Owner: **Natalie → attorney**.
 
-14. **Terms of Service** — Draft exists (`terms-of-service.html`). Strip email opt-in language (no longer relevant for v1). Attorney review required. Effort: S to simplify, then external dependency.
+14. ~~**Terms of Service**~~ ✅ **DRAFTED (2026-05-26)** — `terms-of-service.html` fully written. Covers no-warranty, limitation of liability, affiliate disclosure, FTC compliance. Email opt-in language removed (v1 deferred). **⚠️ Attorney review still required before launch.** Owner: **Natalie → attorney**.
 
 15. **Affiliate disclosure on every page with affiliate links** — FTC-compliant: conspicuous, plain language, near the link. Pages: `scouting-trip.html`, `browse-homes-international.html`, `browse-homes-domestic.html`, `find-an-advisor.html`, destination pages with embedded affiliate links. Owner: **legal-compliance + brand-copy-editor**. Effort: M.
 
 16. ~~**Advisor directory disclosure**~~ ✅ **DONE** — fake advisors removed, directory cleaned up.
 
-17. **Cookie consent banner** — Using Plausible (cookie-free) eliminates most of this. If GA4 is added, a lightweight banner is needed for EU visitors. Decision: lock in Plausible first, then decide. Effort: S.
+17. **Cookie consent banner** — GA4 is confirmed (not Plausible). A lightweight banner is needed for EU visitors. Effort: S. Owner: **devops-security + legal-compliance**.
 
 18. ~~**Email opt-in compliance**~~ ⏸ **DEFERRED** — no email capture in v1.
 
@@ -71,11 +71,11 @@ I reviewed: `CLAUDE.md`, `RetireVibes_Product_Brief.md` (v1.2), `SESSION_HANDOFF
 
 ### Broken / placeholder links
 
-20. **Wire Porto scouting trip handoff** — currently `href="#"`, should be `scouting-trip.html`. Owner: **product**. Effort: XS.
+20. ~~**Wire Porto scouting trip handoff**~~ ✅ **DONE (2026-05-26)** — routes to `scouting-trip.html`.
 
-21. **Mérida scouting trip handoff** — page doesn't exist. Build a Mérida scouting page (same structure as Porto's `scouting-trip.html`). **Strategy locked (2026-05-28): do NOT route directly to Booking.com.** Every handoff card goes through an editorial wrapper page — never straight to an external site. Owner: **product + content-editorial**. Effort: M.
+21. **Mérida scouting trip handoff** — currently routes to `scouting-trips.html` (general guide) as interim fix. Full Mérida-specific scouting page still needed. **Strategy locked: never route directly to Booking.com — editorial wrapper required.** Owner: **product + content-editorial**. Effort: M.
 
-22. **Asheville + Sarasota scouting handoffs** — point to `scouting-trip-domestic.html` with city param. **[VERIFY]** that page handles both `?city=asheville` and `?city=sarasota`. Owner: **product**. Effort: S.
+22. ~~**Asheville + Sarasota scouting handoffs**~~ ✅ **DONE (2026-05-26)** — both route to `scouting-trip-domestic.html?city=asheville` and `?city=sarasota`.
 
 23. **"Share my match" button on results page** — needs a working share modal (copy link / native share / mailto). Owner: **product + design-lead**. Effort: S.
 
@@ -91,17 +91,12 @@ I reviewed: `CLAUDE.md`, `RetireVibes_Product_Brief.md` (v1.2), `SESSION_HANDOFF
 
 ### Handoff card standardization
 
-64. **Standardize handoff CTA labels and routing across all destination pages** — Three decisions locked in on 2026-05-28 that need to be implemented on all current destination pages (Porto, Mérida, Asheville, Sarasota), the results page, and any new destination pages going forward:
-
-    **Advisor card:** CTA changes from "Match me with an advisor →" to "How to find an advisor →" everywhere. We are not doing matching — we're educating and routing. Page destination stays the same (`advisor-international.html` or `advisor-domestic.html`).
-
-    **Real estate card:** Headline changes from "Browse [City] rentals/homes" to "How to find a home in [City]". CTA changes from "See current listings →" to "How to find a home in [City] →". Editorial wrapper page stays as the destination — never route directly to Zillow, Idealista, or Inmuebles24. The affiliate listing links live on the editorial page, not as the CTA destination. Mérida currently breaks this (goes straight to Inmuebles24) — fix to route to `browse-homes-international.html` until a Mérida-specific page exists (see item 65 below).
-
-    **Scouting card:** CTA label standardizes to "Plan a scouting trip →" across all destinations. Mérida currently breaks this (CTA reads "Find accommodation in Mérida →", goes straight to Booking.com) — fix to route to `scouting-trips.html` (general guide) until a Mérida-specific scouting page exists (see item 21 above).
-
-    **No direct external links from handoff cards — ever.** Porto is the model. Every card routes to a RetireVibes editorial page; affiliate links live inside that page.
-
-    Owner: **product + brand-copy-editor**. Effort: S (label + routing changes across 4 pages). Depends on: nothing — can ship immediately.
+64. ~~**Standardize handoff CTA labels and routing across all destination pages**~~ ✅ **DONE (2026-05-27)** — Shipped across all 4 hand-crafted pages AND `destination-detail.html` (covering all ~110 dynamic destinations):
+    - Advisor card: → "How to find an advisor →" everywhere
+    - Real estate card: headline → "How to find a home in [City]", CTA → "How to find a home in [City] →"
+    - Scouting card: → "How to scout [City] →"; all direct Booking.com links removed from template
+    - Mérida: removed direct Inmuebles24 + Booking.com links; routes through editorial pages
+    - No direct external links from any handoff card.
 
 ### Known data / matching issues
 
@@ -165,7 +160,7 @@ I reviewed: `CLAUDE.md`, `RetireVibes_Product_Brief.md` (v1.2), `SESSION_HANDOFF
 
 51. **Welcome email when an account is created** — first impression. Owner: **content-editorial + brand-copy-editor + cto** (email service). Effort: S to draft; M to wire.
 
-52. **Featured advisor program live** — Rebecca Holt, James Nakamura, Carol Simmons, Michael Torres are listed; **[VERIFY]** whether these are real advisors who have agreed to be featured, or placeholder names. If placeholders, replace before launch or remove the featured tier and lead with SmartAsset only. Owner: **affiliate-partnerships + legal-compliance**. Effort: dependency on real partners.
+52. ~~**Featured advisor program**~~ ⏸ **DEFERRED POST-LAUNCH** — `find-an-advisor.html` will be informational only in v1. No featured/recommended advisors in first phase. Named advisors in the current file are placeholders and will be removed. Page educates users on what to look for and routes to SmartAsset as catch-all. Featured advisor program (paid placements) is a post-launch revenue initiative once real traffic exists to offer partners. Owner: **affiliate-partnerships** — post-launch.
 
 53. **Mérida scouting trip page** (a real one, not just a Booking link). Owner: **content-editorial**. Effort: M.
 
@@ -175,7 +170,7 @@ I reviewed: `CLAUDE.md`, `RetireVibes_Product_Brief.md` (v1.2), `SESSION_HANDOFF
 
 56. **Backup strategy** for email-captured leads (export from EmailJS or wherever; weekly cadence). Lead loss is unrecoverable. Owner: **devops-security**. Effort: S.
 
-57. **Expand hand-crafted destination pages** — currently only Porto, Mérida, Asheville, and Sarasota have rich, researched content (neighborhoods, visa details, cost tables, healthcare picture). All other destinations use the thin dynamic template. Natalie's goal: meaningful researched content on all pages before launch. Approach: identify the top 10–15 destinations that surface most frequently as quiz matches, hand-author those first (same structure as the 4 existing pages). Remaining destinations can be a phased rollout post-launch. Owner: **content-editorial**. Effort: L (each page is ~6–8 hours of research + writing). Priority: start early — this is the longest-lead content item on the list.
+57. ~~**Expand hand-crafted destination pages**~~ ✅ **APPROACH CHANGED (2026-05-28)** — Porto, Mérida, Asheville, and Sarasota static pages have been deleted and all 4 now route through `destination-detail.html` like every other destination. All ~110+ destinations now have a consistent experience. **⚠️ NEW ISSUE FLAGGED:** A "Project status check" session created 5 new static Canadian destination pages (Canmore, Kelowna, Niagara-on-the-Lake, Vancouver, Victoria) before hitting the context limit. These are the same anti-pattern we just fixed. They need to be: (a) verified that their data exists in `destinations-data.js`, (b) deleted as static files, and (c) any links pointing to them updated to `destination-detail.html?id=X`. Owner: **product**. Effort: S. See item 66.
 
 ---
 
@@ -195,6 +190,8 @@ I reviewed: `CLAUDE.md`, `RetireVibes_Product_Brief.md` (v1.2), `SESSION_HANDOFF
 
 63. **Magic-link as full session restore** vs. ephemeral access — current implementation passes state in the URL. Fine for launch; consider proper session tokens later.
 
+66. **Clean up 5 new Canadian static destination pages** — `destination-canmore.html`, `destination-kelowna.html`, `destination-niagara-on-the-lake.html`, `destination-vancouver.html`, `destination-victoria.html` were created as static files in a session that hit the context limit. These are the same anti-pattern we just fixed for Porto/Mérida/Asheville/Sarasota. Need to verify data exists in `destinations-data.js`, delete the static files, and confirm links route to `destination-detail.html?id=X`. Owner: **product**. Effort: S. Priority: do before any more static pages are created.
+
 65. **"How to find a home in [City]" — destination-specific real estate guides for all ~110 destinations** — Decided 2026-05-28. Porto's `browse-homes-international.html` is the structural model, but each destination needs its own page, not a shared generic one. Each page must include: (1) a **Renting** section covering the local rental market, typical lease terms, what to watch out for, neighborhood guidance, and rent ranges; (2) a **Buying** section covering legal standing for foreign buyers, ownership structures (fideicommiso in Mexico, EU property rights in Portugal, etc.), price ranges by neighborhood, the buying process step-by-step, and common pitfalls; (3) embedded affiliate listing links (Idealista, Inmuebles24, Zillow, Realtor.com, Redfin, or local equivalent — source appropriate to the destination). The buying/renting nuances must be genuinely specific to each location — no copy-paste with substituted city names. This is a large content initiative and will be the longest-lead item in the product. Owner: **content-editorial + product + affiliate-partnerships** (affiliate links must be in place per destination). Effort: L per destination × ~110 destinations. Start with the top 10–15 most-matched destinations (cross-reference `destinations-data.js` scoring). Porto already has a version; evaluate whether it meets the new buying/renting standard or needs a rebuild. See also item 57 (hand-crafted destination pages).
 
 ---
@@ -203,12 +200,12 @@ I reviewed: `CLAUDE.md`, `RetireVibes_Product_Brief.md` (v1.2), `SESSION_HANDOFF
 
 These block sequencing. Answer first.
 
-- **Is retirevibes.com registered?** If yes, when does it expire?
-- **Are the four featured advisors real, signed partners?** Or placeholder names?
-- **What's the realistic launch date?** "When it's ready" is fine, but is there an external trigger (a marketing window, a partner commitment, a personal deadline)?
-- **What's the launch budget?** Affects choices: paid SEO content vs. organic-only, paid host tier vs. free, lawyer for terms vs. template-based.
-- **Soft launch or hard launch?** Soft (just the URL, no announcement, watch for breakage for 2 weeks) vs. hard (Pinterest, PR, email blast on day one). The list above changes weight depending.
-- **Pinterest / Facebook / paid social — comfortable running ads yourself, or want an outside marketer?**
+- ~~**Is retirevibes.com registered?**~~ ✅ Yes — live on Vercel, SSL green.
+- ~~**Are the four featured advisors real, signed partners?**~~ ✅ Resolved — v1 advisor page is informational only, no featured advisors. Featured program is post-launch.
+- **What's the realistic launch date?** Still unconfirmed. Vacation noted as a near-term constraint (~18 days from 2026-05-25).
+- **What's the launch budget?** Still unconfirmed.
+- **Soft launch or hard launch?** Still unconfirmed.
+- **Pinterest / Facebook / paid social — comfortable running ads yourself, or want an outside marketer?** Still unconfirmed.
 
 ---
 
