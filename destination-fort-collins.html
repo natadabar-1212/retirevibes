@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fort Collins, Colorado — RetireVibes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    :root {
+      --cream: #FBF6EE;
+      --cream-soft: #F4ECDD;
+      --terracotta: #C97B5A;
+      --terracotta-dark: #A8593A;
+      --teal: #1B3A4B;
+      --teal-soft: #2E5468;
+      --gold: #C8A064;
+      --gold-soft: #E4C998;
+      --sage: #93A89A;
+      --warm-gray: #7A6E5F;
+      --white: #FFFFFF;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'Inter', -apple-system, system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--cream);
+      color: var(--teal);
+    }
+
+    /* ── NAV ── */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 68px;
+      background: var(--white);
+      border-bottom: 1px solid rgba(27,58,75,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .wordmark {
+      font-family: var(--serif);
+      font-size: 22px;
+      color: var(--teal);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+    .wordmark em { color: var(--terracotta); font-style: italic; }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a {
+      font-size: 15px;
+      color: var(--teal);
+      text-decoration: none;
+      font-weight: 400;
+      opacity: 0.75;
+      transition: opacity 0.2s;
+    }
+    .nav-links a:hover { opacity: 1; }
+    .nav-links .nav-cta {
+      background: var(--terracotta);
+      color: var(--white);
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-weight: 500;
+      opacity: 1;
+      transition: background 0.2s;
+    }
+    .nav-links .nav-cta:hover { background: var(--terracotta-dark); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 560px;
+      overflow: hidden;
+    }
+    .hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(27,58,75,0.15) 0%, rgba(27,58,75,0.62) 100%);
+    }
+    .hero-content {
+      position: absolute;
+      bottom: 52px;
+      left: 0;
+      right: 0;
+      padding: 0 56px;
+      color: var(--white);
+    }
+    .hero-eyebrow {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      opacity: 0.82;
+      margin-bottom: 14px;
+    }
+    .hero-content h1 {
+      font-family: var(--serif);
+      font-size: 68px;
+      line-height: 1.03;
+      letter-spacing: -0.02em;
+      margin-bottom: 18px;
+    }
+    .hero-content h1 em {
+      font-style: italic;
+      color: var(--gold-soft);
+    }
+    .hero-tagline {
+      font-size: 18px;
+      line-height: 1.55;
+      opacity: 0.9;
+      max-width: 580px;
+      font-weight: 300;
+    }
+
+    /* ── TAGS ── */
+    .tags-bar {
+      background: var(--white);
+      padding: 20px 56px;
+      border-bottom: 1px solid rgba(27,58,75,0.07);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--cream-soft);
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 500;
+      border: 1px solid rgba(27,58,75,0.08);
+    }
+
+    /* ── MAIN LAYOUT ── */
+    .page-body {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 64px 40px 80px;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 64px;
+    }
+
+    /* ── SECTION LABELS ── */
+    .section-label {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      margin-bottom: 12px;
+    }
+
+    /* ── COST SECTION ── */
+    .cost-section { margin-bottom: 56px; }
+    .cost-section h2 {
+      font-family: var(--serif);
+      font-size: 36px;
+      letter-spacing: -0.015em;
+      margin-bottom: 8px;
+    }
+    .cost-section h2 em { font-style: italic; color: var(--terracotta); }
+    .cost-intro {
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--warm-gray);
+      margin-bottom: 28px;
+      max-width: 540px;
+    }
+    .cost-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    .cost-card {
+      background: var(--white);
+      border: 1px solid rgba(27,58,75,0.08);
+      border-radius: 16px;
+      padding: 22px 24px;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .cost-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(27,58,75,0.1);
+    }
+    .cost-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      margin-bottom: 8px;
+    }
+    .cost-amount {
+      font-family: var(--serif);
+      font-size: 30px;
+      color: var(--teal);
+      letter-spacing: -0.01em;
+      margin-bottom: 4px;
+    }
+    .cost-desc {
+      font-size: 13px;
+      color: var(--warm-gray);
+      line-height: 1.5;
+    }
+    .cost-compare {
+      background: var(--cream-soft);
+      border-left: 3px solid var(--terracotta);
+      border-radius: 0 10px 10px 0;
+      padding: 18px 22px;
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--teal);
+    }
+
+    /* ── HOUSING ── */
+    .housing-section { margin-bottom: 56px; }
+    .housing-section h2 {
+      font-family: var(--serif);
+      font-size: 36px;
+      letter-spacing: -0.015em;
+      margin-bottom: 8px;
+    }
+    .housing-section h2 em { font-style: italic; color: var(--terracotta); }
+    .housing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .housing-card {
+      background: var(--white);
+      border: 1px solid rgba(27,58,75,0.08);
+      border-radius: 16px;
+      padding: 26px 28px;
+    }
+    .housing-type {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      margin-bottom: 8px;
+    }
+    .housing-price {
+      font-family: var(--serif);
+      font-size: 28px;
+      color: var(--teal);
+      margin-bottom: 6px;
+    }
+    .housing-desc { font-size: 14px; color: var(--warm-gray); line-height: 1.5; }
+
+    /* ── NEIGHBORHOODS ── */
+    .neighborhoods-section { margin-bottom: 56px; }
+    .neighborhoods-section h2 {
+      font-family: var(--serif);
+      font-size: 36px;
+      letter-spacing: -0.015em;
+      margin-bottom: 8px;
+    }
+    .neighborhoods-section h2 em { font-style: italic; color: var(--terracotta); }
+    .neighborhoods-intro {
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--warm-gray);
+      margin-bottom: 24px;
+      max-width: 540px;
+    }
+    .neighborhood-item {
+      border-top: 1px solid rgba(27,58,75,0.1);
+      padding: 24px 0;
+    }
+    .neighborhood-item:last-child { border-bottom: 1px solid rgba(27,58,75,0.1); }
+    .neighborhood-name {
+      font-family: var(--serif);
+      font-size: 20px;
+      color: var(--teal);
+      margin-bottom: 8px;
+    }
+    .neighborhood-desc {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--warm-gray);
+    }
+
+    /* ── SCOUTING ── */
+    .scouting-section { margin-bottom: 56px; }
+    .scouting-section h2 {
+      font-family: var(--serif);
+      font-size: 36px;
+      letter-spacing: -0.015em;
+      margin-bottom: 8px;
+    }
+    .scouting-section h2 em { font-style: italic; color: var(--terracotta); }
+    .scouting-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 20px;
+    }
+    .scouting-card {
+      background: var(--white);
+      border: 1px solid rgba(27,58,75,0.08);
+      border-radius: 14px;
+      padding: 22px 24px;
+    }
+    .scouting-card-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .scouting-card-label.go { color: var(--sage); }
+    .scouting-card-label.avoid { color: var(--terracotta); }
+    .scouting-card p { font-size: 14px; line-height: 1.6; color: var(--warm-gray); }
+
+    /* ── SIDEBAR ── */
+    .sidebar { }
+    .sidebar-card {
+      background: var(--white);
+      border: 1px solid rgba(27,58,75,0.08);
+      border-radius: 18px;
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+    .sidebar-card h3 {
+      font-family: var(--serif);
+      font-size: 22px;
+      color: var(--teal);
+      margin-bottom: 6px;
+    }
+    .sidebar-card p {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--warm-gray);
+      margin-bottom: 20px;
+    }
+    .sidebar-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 13px 20px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .sidebar-btn.primary {
+      background: var(--terracotta);
+      color: var(--white);
+    }
+    .sidebar-btn.primary:hover { background: var(--terracotta-dark); }
+    .sidebar-btn.ghost {
+      background: transparent;
+      color: var(--teal);
+      border: 1.5px solid rgba(27,58,75,0.2);
+      margin-top: 10px;
+    }
+    .sidebar-btn.ghost:hover {
+      background: var(--cream-soft);
+      border-color: rgba(27,58,75,0.35);
+    }
+
+    .sidebar-teal {
+      background: var(--teal);
+      border-radius: 18px;
+      padding: 28px;
+      margin-bottom: 20px;
+      color: var(--white);
+    }
+    .sidebar-teal h3 {
+      font-family: var(--serif);
+      font-size: 22px;
+      margin-bottom: 6px;
+    }
+    .sidebar-teal p {
+      font-size: 14px;
+      line-height: 1.65;
+      opacity: 0.8;
+      margin-bottom: 20px;
+    }
+    .sidebar-teal .sidebar-btn.primary {
+      background: var(--terracotta);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--teal);
+      color: var(--white);
+      padding: 40px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-wordmark {
+      font-family: var(--serif);
+      font-size: 20px;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .footer-wordmark em { color: var(--gold-soft); font-style: italic; }
+    .footer-links {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      width: 100%;
+    }
+
+    @media (max-width: 980px) {
+      .hero-content { padding: 0 24px; }
+      .hero-content h1 { font-size: 44px; }
+      .tags-bar { padding: 16px 24px; }
+      .page-body {
+        grid-template-columns: 1fr;
+        padding: 40px 24px 60px;
+        gap: 0;
+      }
+      .sidebar { margin-top: 48px; }
+      .cost-grid { grid-template-columns: 1fr; }
+      .housing-grid { grid-template-columns: 1fr; }
+      .scouting-grid { grid-template-columns: 1fr; }
+      footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="wordmark" href="homepage-mockup.html">Retire<em>Vibes</em></a>
+    <div class="nav-links">
+      <a href="homepage-mockup.html#destinations">Destinations</a>
+      <a href="my-retirevibes.html">My RetireVibes</a>
+      <a href="results-page-mockup.html" class="nav-cta">Take the quiz →</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <img
+      src="images/fort-collins.jpg"
+      alt="Cache la Poudre River canyon, Fort Collins"
+      class="hero-img"
+    />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">🇺🇸 &nbsp;Fort Collins, Colorado</p>
+      <h1>Fort Collins,<br /><em>Colorado</em></h1>
+      <p class="hero-tagline">A Colorado State University town where craft beer was practically invented — and where the Rockies are close enough to feel like a daily presence.</p>
+    </div>
+  </section>
+
+  <!-- TAGS -->
+  <div class="tags-bar">
+    <span class="tag">🎓 University town</span>
+    <span class="tag">🏔 Mountain proximity</span>
+    <span class="tag">🍂 Four seasons</span>
+    <span class="tag">🍺 Craft beer capital</span>
+    <span class="tag">🚶 Walkable Old Town</span>
+    <span class="tag">🇺🇸 English-speaking</span>
+  </div>
+
+  <div class="page-body">
+    <main>
+
+      <!-- COST OF LIVING -->
+      <section class="cost-section">
+        <p class="section-label">Cost of living</p>
+        <h2>What does life in <em>Fort Collins</em> cost?</h2>
+        <p class="cost-intro">Estimates below cover rent, groceries, utilities, dining, and transportation for one person. Housing is the biggest variable — Old Town proximity adds a meaningful premium.</p>
+
+        <div class="cost-grid">
+          <div class="cost-card">
+            <div class="cost-label">Simple &amp; comfortable</div>
+            <div class="cost-amount">$2,200<span style="font-size:16px;font-family:var(--sans);font-weight:400;color:var(--warm-gray)">/mo</span></div>
+            <div class="cost-desc">Modest apartment, home cooking, occasional dining out, local activities</div>
+          </div>
+          <div class="cost-card">
+            <div class="cost-label">Comfortable with extras</div>
+            <div class="cost-amount">$3,000<span style="font-size:16px;font-family:var(--sans);font-weight:400;color:var(--warm-gray)">/mo</span></div>
+            <div class="cost-desc">Nicer place, regular dining out, ski passes, weekend trips to Denver</div>
+          </div>
+          <div class="cost-card">
+            <div class="cost-label">Upscale &amp; enjoyable</div>
+            <div class="cost-amount">$3,900<span style="font-size:16px;font-family:var(--sans);font-weight:400;color:var(--warm-gray)">/mo</span></div>
+            <div class="cost-desc">Great neighborhood, frequent travel, season ski passes, nice dining</div>
+          </div>
+          <div class="cost-card">
+            <div class="cost-label">Luxury — the best of everything</div>
+            <div class="cost-amount">$5,800<span style="font-size:16px;font-family:var(--sans);font-weight:400;color:var(--warm-gray)">/mo</span></div>
+            <div class="cost-desc">Premier home, unrestricted lifestyle, private club memberships, travel</div>
+          </div>
+        </div>
+
+        <div class="cost-compare">
+          Colorado mountain access without Denver prices — a genuinely walkable Old Town, Rocky Mountain National Park an hour away, and a creative energy that comes from having a large university in the mix.
+        </div>
+      </section>
+
+      <!-- HOUSING -->
+      <section class="housing-section">
+        <p class="section-label">Housing snapshot</p>
+        <h2>Finding a home in <em>Fort Collins</em></h2>
+        <div class="housing-grid">
+          <div class="housing-card">
+            <div class="housing-type">Buy</div>
+            <div class="housing-price">~$450K</div>
+            <div class="housing-desc">2BR home near Old Town. Prices climb quickly for newer builds and mountain-view properties. Old Town bungalows are the most sought-after.</div>
+          </div>
+          <div class="housing-card">
+            <div class="housing-type">Rent</div>
+            <div class="housing-price">~$1,800<span style="font-size:16px;font-family:var(--sans);font-weight:400">/mo</span></div>
+            <div class="housing-desc">2BR near Old Town or Midtown. The CSU academic calendar creates seasonal demand — June–August can be competitive for rentals.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- NEIGHBORHOODS -->
+      <section class="neighborhoods-section">
+        <p class="section-label">Where to spend your time</p>
+        <h2>Fort Collins <em>neighborhoods</em></h2>
+        <p class="neighborhoods-intro">Fort Collins is compact enough to understand quickly, but each district has a distinct feel. Spend time in all three before deciding where you'd actually want to live.</p>
+
+        <div class="neighborhood-item">
+          <div class="neighborhood-name">Old Town</div>
+          <p class="neighborhood-desc">The heart of the city and the reason most people fall for Fort Collins. Start here — the pedestrian mall, brewpubs, bookshops, and weekend farmers' market give you an honest picture of what daily life looks like. Morning coffee to late dinner, it's all within walking distance.</p>
+        </div>
+        <div class="neighborhood-item">
+          <div class="neighborhood-name">Midtown &amp; CSU Area</div>
+          <p class="neighborhood-desc">Where university energy meets affordable, livable neighborhoods. More rental inventory, younger vibe, excellent bike infrastructure. If you want the Fort Collins lifestyle without Old Town prices, this is where to look — and the Oval Farm markets and Mason Corridor trail make it easy to live car-light.</p>
+        </div>
+        <div class="neighborhood-item">
+          <div class="neighborhood-name">Southeast Fort Collins &amp; Fossil Creek</div>
+          <p class="neighborhood-desc">Quieter, more suburban, and often overlooked by first-time visitors — but this is where many long-term residents actually settle. Larger homes, newer construction, quick access to Fossil Creek Reservoir and the foothills trail system. A realistic baseline for what ownership looks like outside the tourist core.</p>
+        </div>
+      </section>
+
+      <!-- SCOUTING -->
+      <section class="scouting-section">
+        <p class="section-label">Planning a visit</p>
+        <h2>When to <em>scout</em> Fort Collins</h2>
+        <div class="scouting-grid">
+          <div class="scouting-card">
+            <div class="scouting-card-label go">Best months to visit</div>
+            <p>May–June or September–October. Spring wildflowers and fall color on the foothills trails are stunning, and temperatures are ideal. Summer is active and lively; just know July–August afternoons can include thunderstorms.</p>
+          </div>
+          <div class="scouting-card">
+            <div class="scouting-card-label avoid">Worth knowing</div>
+            <p>December–February brings real Colorado winters — expect snow, ice, and occasional sub-zero stretches. The flip side: you're an hour from world-class skiing. Test a full winter before committing if cold-season living is a concern.</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <div class="sidebar-card">
+        <h3>Talk to a retirement advisor</h3>
+        <p>Colorado has specific considerations around state income taxes, property taxes, and Social Security — a domestic specialist can walk you through the numbers.</p>
+        <a href="advisor-domestic.html" class="sidebar-btn primary">Find an advisor →</a>
+        <a href="browse-homes-domestic.html" class="sidebar-btn ghost">Browse homes</a>
+      </div>
+
+      <div class="sidebar-teal">
+        <h3>Not sure yet?</h3>
+        <p>Take the 7-question quiz to see how Fort Collins ranks against your other top matches — and discover destinations you might not have considered.</p>
+        <a href="mockups/vibe-quiz.html" class="sidebar-btn primary">Take the quiz →</a>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Quick facts</h3>
+        <p style="margin-bottom:0">
+          <strong style="display:block;margin-bottom:10px;color:var(--teal)">Language</strong> English<br /><br />
+          <strong style="display:block;margin-bottom:10px;color:var(--teal)">Healthcare</strong> US system — Medicare applies. UCHealth Medical Center of the Rockies is the regional hub.<br /><br />
+          <strong style="display:block;margin-bottom:10px;color:var(--teal)">Nearest airport</strong> Denver International (DEN) — about 65 miles south<br /><br />
+          <strong style="display:block;margin-bottom:10px;color:var(--teal)">Climate</strong> 300+ sunny days, cold winters, warm summers. Altitude is 5,003 ft — some people feel it initially.
+        </p>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <a class="footer-wordmark" href="homepage-mockup.html">Retire<em>Vibes</em></a>
+    <nav class="footer-links">
+      <a href="homepage-mockup.html#destinations">Destinations</a>
+      <a href="homepage-mockup.html#how-it-works">How it works</a>
+      <a href="find-an-advisor.html">Find an advisor</a>
+      <a href="scouting-trips.html">Scouting trips</a>
+      <a href="my-retirevibes.html">My RetireVibes</a>
+    </nav>
+    <p class="footer-copy">© 2025 RetireVibes. Good RetireVibes Only.</p>
+  </footer>
+
+  <script src="shared.js"></script>
+</body>
+</html>
