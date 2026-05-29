@@ -552,16 +552,8 @@
 
     const tagsHtml = dest.tags.map(t => `<span class="tag">${t}</span>`).join('');
 
-    // Highlight the cost tier matching the user's quiz lifestyle answer (Q5, index 4)
-    const userLifestyle = (() => {
-      try {
-        const a = JSON.parse(localStorage.getItem('rv_quiz_answers') || '[]');
-        return Array.isArray(a) && typeof a[4] === 'number' ? a[4] : null;
-      } catch(e) { return null; }
-    })();
-
     const costsHtml = costEntries.map(([k, v]) => `
-      <div class="cost-card${userLifestyle !== null && parseInt(k) === userLifestyle ? ' highlight' : ''}">
+      <div class="cost-card">
         <div class="cost-tier">${lifestyleLabels[k]}</div>
         <div class="cost-value">~$${Number(v).toLocaleString()}</div>
         <div class="cost-unit">per month</div>
