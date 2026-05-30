@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grenada — RetireVibes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    :root {
+      --cream: #FBF6EE;
+      --cream-soft: #F4ECDD;
+      --terracotta: #C97B5A;
+      --terracotta-dark: #A8593A;
+      --teal: #1B3A4B;
+      --teal-soft: #2E5468;
+      --gold: #C8A064;
+      --gold-soft: #E4C998;
+      --sage: #93A89A;
+      --warm-gray: #7A6E5F;
+      --white: #FFFFFF;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'Inter', -apple-system, system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--sans); background: var(--cream); color: var(--teal); line-height: 1.6; }
+
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 68px;
+      background: rgba(251,246,238,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(27,58,75,0.08);
+    }
+    .wordmark { font-family: var(--serif); font-size: 22px; color: var(--teal); text-decoration: none; letter-spacing: -0.01em; }
+    .wordmark em { color: var(--terracotta); font-style: italic; }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { font-size: 15px; color: var(--teal); text-decoration: none; font-weight: 400; opacity: 0.8; transition: opacity 0.2s; }
+    .nav-links a:hover { opacity: 1; }
+    .nav-links .nav-cta { background: var(--terracotta); color: var(--white); padding: 10px 22px; border-radius: 999px; font-weight: 500; opacity: 1; transition: background 0.2s; }
+    .nav-links .nav-cta:hover { background: var(--terracotta-dark); }
+
+    .hero {
+      position: relative; height: 88vh; min-height: 560px;
+      display: flex; align-items: flex-end; overflow: hidden;
+    }
+    .hero-img {
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=1800&q=80') center/cover no-repeat;
+    }
+    .hero-img::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(27,58,75,0.88) 0%, rgba(27,58,75,0.3) 50%, transparent 100%);
+    }
+    .hero-content { position: relative; z-index: 1; padding: 0 64px 72px; max-width: 800px; }
+    .hero-label { display: inline-block; font-size: 12px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 18px; }
+    .hero h1 { font-family: var(--serif); font-size: 68px; line-height: 1.02; letter-spacing: -0.02em; color: var(--white); margin-bottom: 20px; }
+    .hero h1 em { color: var(--gold-soft); font-style: italic; }
+    .hero-sub { font-size: 19px; color: rgba(255,255,255,0.82); line-height: 1.55; max-width: 560px; }
+    .hero-badges { display: flex; gap: 10px; margin-top: 28px; flex-wrap: wrap; }
+    .badge { display: inline-flex; align-items: center; gap: 6px; padding: 7px 16px; border-radius: 999px; background: rgba(255,255,255,0.13); border: 1px solid rgba(255,255,255,0.22); color: var(--white); font-size: 13px; font-weight: 500; backdrop-filter: blur(4px); }
+
+    .content-wrap { max-width: 1120px; margin: 0 auto; padding: 0 48px; }
+
+    .intro-section { padding: 96px 0 72px; display: grid; grid-template-columns: 1fr 380px; gap: 80px; align-items: start; }
+    .section-label { font-size: 12px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 18px; display: block; }
+    .intro-text h2 { font-family: var(--serif); font-size: 44px; line-height: 1.1; letter-spacing: -0.015em; color: var(--teal); margin-bottom: 24px; }
+    .intro-text h2 em { color: var(--terracotta); font-style: italic; }
+    .intro-text p { font-size: 17px; line-height: 1.7; color: var(--warm-gray); margin-bottom: 18px; }
+
+    .cost-card { background: var(--teal); border-radius: 18px; padding: 36px 32px; color: var(--white); position: sticky; top: 96px; }
+    .cost-card .card-label { font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 24px; display: block; }
+    .cost-tier { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .cost-tier:last-of-type { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .cost-tier-name { font-size: 12px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 6px; }
+    .cost-amount { font-family: var(--serif); font-size: 30px; color: var(--white); letter-spacing: -0.01em; }
+    .cost-amount span { font-family: var(--sans); font-size: 13px; font-weight: 400; color: rgba(255,255,255,0.55); letter-spacing: 0; }
+    .cost-note { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.5; margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+
+    .vibes-section { padding: 72px 0; border-top: 1px solid rgba(27,58,75,0.1); }
+    .vibes-section h2 { font-family: var(--serif); font-size: 40px; letter-spacing: -0.015em; color: var(--teal); margin-bottom: 48px; }
+    .vibes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .vibe-card { background: var(--white); border-radius: 16px; padding: 32px 28px; border: 1px solid rgba(27,58,75,0.07); transition: transform 0.25s, box-shadow 0.25s; }
+    .vibe-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(27,58,75,0.1); }
+    .vibe-icon { font-size: 28px; margin-bottom: 14px; display: block; }
+    .vibe-card h3 { font-family: var(--serif); font-size: 20px; color: var(--teal); margin-bottom: 10px; }
+    .vibe-card p { font-size: 14px; line-height: 1.65; color: var(--warm-gray); }
+
+    .neighborhoods-section { padding: 72px 0; border-top: 1px solid rgba(27,58,75,0.1); }
+    .neighborhoods-section h2 { font-family: var(--serif); font-size: 40px; letter-spacing: -0.015em; color: var(--teal); margin-bottom: 12px; }
+    .neighborhoods-section > p { font-size: 17px; color: var(--warm-gray); line-height: 1.65; max-width: 640px; margin-bottom: 48px; }
+    .neighborhood-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .neighborhood-card { background: var(--cream-soft); border-radius: 16px; padding: 32px 28px; border: 1px solid rgba(27,58,75,0.07); transition: transform 0.25s; }
+    .neighborhood-card:hover { transform: translateY(-2px); }
+    .neighborhood-card h3 { font-family: var(--serif); font-size: 22px; color: var(--teal); margin-bottom: 8px; }
+    .neighborhood-pill { display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--terracotta); background: rgba(201,123,90,0.1); padding: 4px 12px; border-radius: 999px; margin-bottom: 14px; }
+    .neighborhood-card p { font-size: 14px; line-height: 1.65; color: var(--warm-gray); }
+
+    .know-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .know-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 30px 28px; }
+    .know-card h3 { font-family: var(--serif); font-size: 20px; color: var(--white); margin-bottom: 10px; }
+    .know-card p { font-size: 14px; line-height: 1.65; color: rgba(255,255,255,0.68); }
+
+    .handoff-section { padding: 96px 0; }
+    .handoff-section h2 { font-family: var(--serif); font-size: 40px; letter-spacing: -0.015em; color: var(--teal); margin-bottom: 12px; }
+    .handoff-section > p { font-size: 17px; color: var(--warm-gray); line-height: 1.65; max-width: 560px; margin-bottom: 48px; }
+    .handoff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .handoff-card { background: var(--white); border-radius: 18px; padding: 36px 30px; border: 1px solid rgba(27,58,75,0.08); display: flex; flex-direction: column; transition: transform 0.25s, box-shadow 0.25s; }
+    .handoff-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(27,58,75,0.1); }
+    .handoff-icon { font-size: 32px; margin-bottom: 18px; }
+    .handoff-card h3 { font-family: var(--serif); font-size: 22px; color: var(--teal); margin-bottom: 10px; line-height: 1.25; }
+    .handoff-card p { font-size: 14px; line-height: 1.65; color: var(--warm-gray); flex: 1; margin-bottom: 28px; }
+    .handoff-link { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 500; color: var(--terracotta); text-decoration: none; transition: gap 0.2s; }
+    .handoff-link:hover { gap: 12px; }
+
+    .footer { background: var(--teal); padding: 56px 48px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px; }
+    .footer-wordmark { font-family: var(--serif); font-size: 20px; color: var(--white); text-decoration: none; }
+    .footer-wordmark em { color: var(--gold-soft); font-style: italic; }
+    .footer-links { display: flex; gap: 28px; flex-wrap: wrap; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.35); width: 100%; }
+
+    @media (max-width: 980px) {
+      .hero-content { padding: 0 28px 56px; }
+      .hero h1 { font-size: 44px; }
+      .content-wrap { padding: 0 24px; }
+      .intro-section { grid-template-columns: 1fr; gap: 40px; }
+      .cost-card { position: static; }
+      .vibes-grid, .neighborhood-list, .know-grid, .handoff-grid { grid-template-columns: 1fr; }
+      .footer { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="wordmark" href="homepage-mockup.html">Retire<em>Vibes</em></a>
+    <div class="nav-links">
+      <a href="homepage-mockup.html#destinations">Destinations</a>
+      <a href="my-retirevibes.html">My RetireVibes</a>
+      <a href="results-page-mockup.html" class="nav-cta">Take the quiz →</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-img"></div>
+    <div class="hero-content">
+      <span class="hero-label">🇬🇩 Grenada · Southern Caribbean</span>
+      <h1>Grenada,<br /><em>alive.</em></h1>
+      <p class="hero-sub">The Spice Isle. Lush rainforest tumbling to turquoise bays, the scent of nutmeg and cinnamon in the air, English-speaking and genuinely warm — and sitting below the hurricane belt where most storms pass north.</p>
+      <div class="hero-badges">
+        <span class="badge">🌿 Lush &amp; Green</span>
+        <span class="badge">🌀 Lower Hurricane Risk</span>
+        <span class="badge">🗣️ English Speaking</span>
+        <span class="badge">🏡 Citizenship by Investment</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="content-wrap">
+
+    <section class="intro-section">
+      <div class="intro-text">
+        <span class="section-label">The Vibe</span>
+        <h2>The Caribbean that<br /><em>still feels real.</em></h2>
+        <p>Grenada hasn't been overrun. It doesn't have cruise ship crowds stacking up at every beach, or resort corridors that feel interchangeable with anywhere else. It has a capital — St. George's — that many call the most beautiful in the Caribbean, with a horseshoe harbor, Georgian colonial buildings in colorful pastels, and hillside streets that reward wandering.</p>
+        <p>The island is deeply lush. Inland, you're in rainforest — waterfalls, spice plantations, birdsong. On the coast, you're at sheltered bays with calm, clear water. The combination of environments on a 21-mile-long island is quietly extraordinary.</p>
+        <p>Grenada sits at the southern end of the Caribbean chain, below the main hurricane track. It's not immune — Ivan hit directly in 2004 and caused serious damage — but the statistical risk is meaningfully lower than islands further north. For retirees who spent a lot of time thinking about hurricanes, that matters.</p>
+      </div>
+
+      <div class="cost-card">
+        <span class="card-label">Cost of Living · Est. Monthly</span>
+        <div class="cost-tier">
+          <div class="cost-tier-name">Simple &amp; Comfortable</div>
+          <div class="cost-amount">$2,500 <span>/ month</span></div>
+        </div>
+        <div class="cost-tier">
+          <div class="cost-tier-name">Comfortable with Extras</div>
+          <div class="cost-amount">$3,200 <span>/ month</span></div>
+        </div>
+        <div class="cost-tier">
+          <div class="cost-tier-name">Upscale &amp; Enjoyable</div>
+          <div class="cost-amount">$4,200 <span>/ month</span></div>
+        </div>
+        <p class="cost-note">Grenada costs roughly half what coastal South Carolina runs — for a warmer climate, more natural beauty, and a genuinely unhurried pace. Local produce and seafood are fresh and inexpensive.</p>
+      </div>
+    </section>
+
+    <section class="vibes-section">
+      <span class="section-label">What You'll Love</span>
+      <h2>Life in Grenada</h2>
+      <div class="vibes-grid">
+        <div class="vibe-card">
+          <span class="vibe-icon">🌿</span>
+          <h3>Extraordinary Natural Beauty</h3>
+          <p>Grenada packs rainforest, waterfalls, spice plantations, mangroves, and Caribbean beaches onto one 21-mile island. The interior is hiking and waterfall country. The coast is snorkeling and sailing country.</p>
+        </div>
+        <div class="vibe-card">
+          <span class="vibe-icon">🌀</span>
+          <h3>Lower Hurricane Risk</h3>
+          <p>Sitting at 12°N latitude — south of the main hurricane corridor — Grenada sees significantly fewer direct hits than islands like Puerto Rico, USVI, or the Bahamas. It's not zero risk, but it's notably lower.</p>
+        </div>
+        <div class="vibe-card">
+          <span class="vibe-icon">🗣️</span>
+          <h3>English-Speaking Island</h3>
+          <p>English is the official language — no language barrier to navigate on day one. Government offices, banks, hospitals, and neighbors all operate in English. The transition is easier than most Caribbean moves.</p>
+        </div>
+        <div class="vibe-card">
+          <span class="vibe-icon">🏡</span>
+          <h3>Citizenship by Investment</h3>
+          <p>Grenada's CBI program — one of the Caribbean's most respected — offers citizenship through a qualifying investment. Grenada citizenship includes visa-free access to the UK, EU Schengen zone, and China. Worth exploring with an immigration attorney.</p>
+        </div>
+        <div class="vibe-card">
+          <span class="vibe-icon">🎣</span>
+          <h3>Sailing &amp; Sea Life</h3>
+          <p>Grenada is a major Caribbean sailing hub — the Grenada Sailing Festival is a highlight of the regional calendar. The Molinere Underwater Sculpture Park off the west coast is a unique snorkeling and diving experience.</p>
+        </div>
+        <div class="vibe-card">
+          <span class="vibe-icon">🏥</span>
+          <h3>Improving Healthcare</h3>
+          <p>St. George's General Hospital handles most needs. Private clinics in the capital cover a good range of services. For complex procedures, Trinidad (45 min by plane) and Barbados have modern private hospitals with good reputations.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="neighborhoods-section">
+      <span class="section-label">Where to Land</span>
+      <h2>Areas &amp; Communities</h2>
+      <p>Grenada is small enough that location choices are about vibe more than distance — nowhere is more than an hour from anywhere else.</p>
+      <div class="neighborhood-list">
+        <div class="neighborhood-card">
+          <h3>Grand Anse</h3>
+          <span class="neighborhood-pill">Most Popular</span>
+          <p>The two-mile Grand Anse Beach is the island's crown jewel — calm, wide, lined with palms. The area around it has the most restaurants, supermarkets, and services. The main expat hub. Easy access to the capital St. George's, 10 minutes north.</p>
+        </div>
+        <div class="neighborhood-card">
+          <h3>Lance aux Épines</h3>
+          <span class="neighborhood-pill">Most Established</span>
+          <p>The peninsula just south of Grand Anse — a long-established expat community with yacht club, marinas, and quiet residential roads. A mix of villas and homes. Well-regarded as one of the most comfortable and secure areas on the island.</p>
+        </div>
+        <div class="neighborhood-card">
+          <h3>St. George's</h3>
+          <span class="neighborhood-pill">Most Vibrant</span>
+          <p>The capital is genuinely one of the Caribbean's most beautiful towns — horseshoe harbor, colorful Georgian buildings, a working waterfront with fishing boats and ferries. Urban by Grenadian standards. Good for people who want to be in the middle of local life.</p>
+        </div>
+        <div class="neighborhood-card">
+          <h3>Carriacou</h3>
+          <span class="neighborhood-pill">Most Remote</span>
+          <p>A smaller island 23 miles north of Grenada proper — quieter, more local, lower cost, and ferry-accessible. A handful of expats have put down roots here for a genuinely off-the-beaten-track Caribbean life. Not for everyone, but unforgettable for the right person.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <div style="background: var(--teal); padding: 80px 0;">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 0 48px;">
+      <span class="section-label" style="color: var(--gold-soft);">Know Before You Go</span>
+      <h2 style="font-family: var(--serif); font-size: 40px; letter-spacing: -0.015em; color: var(--white); margin-bottom: 48px;">What to plan for</h2>
+      <div class="know-grid">
+        <div class="know-card">
+          <h3>Residency Options</h3>
+          <p>Grenada offers a Retirement Residency permit for those who can demonstrate sufficient income. The CBI program offers a faster route to permanent residency and citizenship through a qualifying real estate investment (from $220,000) or a national transformation fund contribution. An immigration attorney is valuable here.</p>
+        </div>
+        <div class="know-card">
+          <h3>Eastern Caribbean Dollar</h3>
+          <p>Grenada uses the Eastern Caribbean Dollar (XCD), which has been pegged to the USD at 2.70 XCD to 1 USD for decades — one of the most stable exchange arrangements in the Caribbean. USD is widely accepted at the exchange rate. Simple banking picture.</p>
+        </div>
+        <div class="know-card">
+          <h3>Healthcare Planning</h3>
+          <p>Day-to-day healthcare is manageable on the island. For anything serious — cardiac, oncology, complex surgery — planning ahead for medical travel to Trinidad or Barbados is wise. International health insurance ($200–400/month for a healthy retiree) with medical evacuation coverage is standard practice.</p>
+        </div>
+        <div class="know-card">
+          <h3>Hurricane Risk (Context)</h3>
+          <p>Grenada is less exposed than northern Caribbean islands but not immune. Hurricane Ivan (2004) caused major damage. Most years pass without a direct hit. Long-term residents maintain hurricane shutters and carry wind insurance. Being south of the main track means more frequent near misses than direct hits historically.</p>
+        </div>
+        <div class="know-card">
+          <h3>Internet &amp; Infrastructure</h3>
+          <p>Reliable high-speed internet is available across most of the island — fiber connections reach Grand Anse and Lance aux Épines. Mobile coverage is good. Power can be inconsistent; a UPS or small generator is a common expat investment. The island is well-maintained and functional for day-to-day life.</p>
+        </div>
+        <div class="know-card">
+          <h3>Community &amp; Culture</h3>
+          <p>Grenadians are widely described as among the warmest and most welcoming people in the Caribbean. The expat community is smaller than Barbados or TCI — which some residents see as a feature, not a bug. Festivals, sailing events, and local culture create a rich social calendar year-round.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-wrap">
+    <section class="handoff-section">
+      <span class="section-label">Ready to Go Deeper?</span>
+      <h2>Your next steps</h2>
+      <p>Grenada rewards those who plan ahead. Here's where to start.</p>
+      <div class="handoff-grid">
+        <div class="handoff-card">
+          <div class="handoff-icon">💬</div>
+          <h3>Talk to a retirement advisor</h3>
+          <p>Between the CBI program, Eastern Caribbean Dollar dynamics, US tax obligations abroad, and Social Security planning, Grenada retirement has real complexity. The right advisor — one who knows expat planning — is worth every penny.</p>
+          <a href="advisor-international.html" class="handoff-link">Find an advisor →</a>
+        </div>
+        <div class="handoff-card">
+          <div class="handoff-icon">🏡</div>
+          <h3>Explore homes in Grenada</h3>
+          <p>Browse villas, condos, and land in Grand Anse, Lance aux Épines, and the capital. The Grenada real estate market is active, with English-speaking agents and straightforward foreign ownership rules.</p>
+          <a href="https://www.century21grenada.com/" target="_blank" rel="noopener" class="handoff-link">Browse homes →</a>
+        </div>
+        <div class="handoff-card">
+          <div class="handoff-icon">🧳</div>
+          <h3>Plan a scouting trip</h3>
+          <p>Spend a week exploring Grand Anse and St. George's, sailing the southern coast, and meeting the expat community. Direct flights from New York and Miami make getting there straightforward. Bring your appetite — the food is exceptional.</p>
+          <a href="scouting-trips.html" class="handoff-link">Plan your visit →</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <a class="footer-wordmark" href="homepage-mockup.html">Retire<em>Vibes</em></a>
+    <nav class="footer-links">
+      <a href="homepage-mockup.html#destinations">Destinations</a>
+      <a href="homepage-mockup.html#how-it-works">How it works</a>
+      <a href="find-an-advisor.html">Find an advisor</a>
+      <a href="scouting-trips.html">Scouting trips</a>
+      <a href="my-retirevibes.html">My RetireVibes</a>
+    </nav>
+    <p class="footer-copy">© 2026 RetireVibes · Good RetireVibes Only.</p>
+  </footer>
+
+  <script src="shared.js"></script>
+</body>
+</html>

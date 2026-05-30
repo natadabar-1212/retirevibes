@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>St. Croix, USVI — RetireVibes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    :root {
+      --cream: #FBF6EE;
+      --cream-soft: #F4ECDD;
+      --terracotta: #C97B5A;
+      --terracotta-dark: #A8593A;
+      --teal: #1B3A4B;
+      --teal-soft: #2E5468;
+      --gold: #C8A064;
+      --gold-soft: #E4C998;
+      --sage: #93A89A;
+      --warm-gray: #7A6E5F;
+      --white: #FFFFFF;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'Inter', -apple-system, system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--sans); background: var(--cream); color: var(--teal); line-height: 1.6; }
+
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 68px;
+      background: rgba(251,246,238,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(27,58,75,0.08);
+    }
+    .wordmark { font-family: var(--serif); font-size: 22px; color: var(--teal); text-decoration: none; letter-spacing: -0.01em; }
+    .wordmark em { color: var(--terracotta); font-style: italic; }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { font-size: 15px; color: var(--teal); text-decoration: none; font-weight: 400; opacity: 0.8; transition: opacity 0.2s; }
+    .nav-links a:hover { opacity: 1; }
+    .nav-links .nav-cta { background: var(--terracotta); color: var(--white); padding: 10px 22px; border-radius: 999px; font-weight: 500; opacity: 1; transition: background 0.2s; }
+    .nav-links .nav-cta:hover { background: var(--terracotta-dark); }
+
+    .hero {
+      position: relative; height: 88vh; min-height: 560px;
+      display: flex; align-items: flex-end; overflow: hidden;
+    }
+    .hero-img {
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1800&q=80') center/cover no-repeat;
+    }
+    .hero-img::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(27,58,75,0.88) 0%, rgba(27,58,75,0.3) 50%, transparent 100%);
+    }
+    .hero-content { position: relative; z-index: 1; padding: 0 64px 72px; max-width: 800px; }
+    .hero-label { display: inline-block; font-size: 12px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 18px; }
+    .hero h1 { font-family: var(--serif); font-size: 68px; line-height: 1.02; letter-spacing: -0.02em; color: var(--white); margin-bottom: 20px; }
+    .hero h1 em { color: var(--gold-soft); font-style: italic; }
+    .hero-sub { font-size: 19px; color: rgba(255,255,255,0.82); line-height: 1.55; max-width: 560px; }
+    .hero-badges { display: flex; gap: 10px; margin-top: 28px; flex-wrap: wrap; }
+    .badge { display: inline-flex; align-items: center; gap: 6px; padding: 7px 16px; border-radius: 999px; background: rgba(255,255,255,0.13); border: 1px solid rgba(255,255,255,0.22); color: var(--white); font-size: 13px; font-weight: 500; backdrop-filter: blur(4px); }
+
+    .content-wrap { max-width: 1120px; margin: 0 auto; padding: 0 48px; }
+
+    .intro-section { padding: 96px 0 72px; display: grid; grid-template-columns: 1fr 380px; gap: 80px; align-items: start; }
+    .section-label { font-size: 12px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 18px; display: block; }
+    .intro-text h2 { font-family: var(--serif); font-size: 44px; line-height: 1.1; letter-spacing: -0.015em; color: var(--teal); margin-bottom: 24px; }
+    .intro-text h2 em { color: var(--terracotta); font-style: italic; }
+    .intro-text p { font-size: 17px; line-height: 1.7; color: var(--warm-gray); margin-bottom: 18px; }
+
+    .cost-card { background: var(--teal); border-radius: 18px; padding: 36px 32px; color: var(--white); position: sticky; top: 96px; }
+    .cost-card .card-label { font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 24px; display: block; }
+    .cost-tier { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .cost-tier:last-of-type { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .cost-tier-name { font-size: 12px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 6px; }
+    .cost-amount { font-family: var(--serif); font-size: 30px; color: var(--white); letter-spacing: -0.01em; }
+    .cost-amount span { font-family: var(--sans); font-size: 13px; font-weight: 400; color: rgba(255,255,255,0.55); letter-spacing: 0; }
+    .cost-note { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.5; margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+
+    .vibes-section { padding: 72px 0; border-top: 1px solid rgba(27,58,75,0.1); }
+    .vibes-section h2 { font-family: var(--serif); font-size: 40px; letter-spacing: -0.015em; color: var(--teal); margin-bottom: 48px; }
+    .vibes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .vibe-card { background: var(--white); border-radius: 16px; padding: 32px 28px; border: 1px solid rgba(27,58,75,0.07); transition: transform 0.25s, box-shadow 0.25s; }
+    .vibe-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(27,58,75,0.1); }
+    .vibe-icon { font-size: 28px; margin-bottom: 14px; display: block; }
+    .vibe-card h3 { font-family: var(--serif); font-size: 20px; color: var(--teal); margin-bottom: 10px; }
+    .vibe-card p { font-size: 14px; line-height: 1.65; color: var(--warm-gray); }
+
+    .neighborhoods-section { padding: 72px 0; border-top: 1px solid rgba(27,58,75,0.1); }
+    .neighborhoods-section h2 { font-family: var(--serif); font-size: 40px; letter-spacing: -0.015em; color: var(--teal); margin-bottom: 12px; }
+    .neighborhoods-section > p { font-size: 17px; color: var(--warm-gray); line-height: 1.65; max-width: 640px; margin-bottom: 48px; }
+    .neighborhood-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .neighborhood-card { background: var(--cream-soft); border-radius: 16px; padding: 32px 28px; border: 1px solid rgba(27,58,75,0.07); transition: transform 0.25s; }
+    .neighborhood-card:hover { transform: translateY(-2px); }
+    .neighborhood-card h3 { font-family: var(--serif); font-size: 22px; color: var(--teal); margin-bottom: 8px; }
+    .neighborhood-pill { display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--terracotta); background: rgba(201,123,90,0.1); padding: 4px 12px; border-radius: 999px; margin-bottom: 14px; }
+    .neighborhood-card p { font-size: 14px; line-height: 1.65; color: var(--warm-gray); }
+
+    .know-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .know-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 30px 28px; }
+    .know-card h3 { font-family: var(--serif); font-size: 20px; color: var(--white); margin-bottom: 10px; }
+    .know-card p { font-size: 14px; line-height: 1.65; color: rgba(255,255,255,0.68); }
+
+    .handoff-section { padding: 96px 0; }
+    .handoff-section h2 { font-family: var(--serif); font-size: 40px; letter-spacing: -0.015em; color: var(--teal); margin-bottom: 12px; }
+    .handoff-section > p { font-size: 17px; color: var(--warm-gray); line-height: 1.65; max-width: 560px; margin-bottom: 48px; }
+    .handoff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .handoff-card { background: var(--white); border-radius: 18px; padding: 36px 30px; border: 1px solid rgba(27,58,75,0.08); display: flex; flex-direction: column; transition: transform 0.25s, box-shadow 0.25s; }
+    .handoff-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(27,58,75,0.1); }
+    .handoff-icon { font-size: 32px; margin-bottom: 18px; }
+    .handoff-card h3 { font-family: var(--serif); font-size: 22px; color: var(--teal); margin-bottom: 10px; line-height: 1.25; }
+    .handoff-card p { font-size: 14px; line-height: 1.65; color: var(--warm-gray); flex: 1; margin-bottom: 28px; }
+    .handoff-link { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 500; color: var(--terracotta); text-decoration: none; transition: gap 0.2s; }
+    .handoff-link:hover { gap: 12px; }
+
+    .footer { background: var(--teal); padding: 56px 48px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px; }
+    .footer-wordmark { font-family: var(--serif); font-size: 20px; color: var(--white); text-decoration: none; }
+    .footer-wordmark em { color: var(--gold-soft); font-style: italic; }
+    .footer-links { display: flex; gap: 28px; flex-wrap: wrap; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.35); width: 100%; }
+
+    @media (max-width: 980px) {
+      .hero-content { padding: 0 28px 56px; }
+      .hero h1 { font-size: 44px; }
+      .content-wrap { padding: 0 24px; }
+      .intro-section { grid-template-columns: 1fr; gap: 40px; }
+      .cost-card { position: static; }
+      .vibes-grid, .neighborhood-list, .know-grid, .handoff-grid { grid-template-columns: 1fr; }
+      .footer { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="wordmark" href="homepage-mockup.html">Retire<em>Vibes</em></a>
+    <div class="nav-links">
+      <a href="homepage-mockup.html#destinations">Destinations</a>
+      <a href="my-retirevibes.html">My RetireVibes</a>
+      <a href="results-page-mockup.html" class="nav-cta">Take the quiz →</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-img"></div>
+    <div class="hero-content">
+      <span class="hero-label">🇻🇮 US Virgin Islands · Caribbean</span>
+      <h1>St. Croix,<br /><em>unhurried.</em></h1>
+      <p class="hero-sub">The largest US Virgin Island moves at its own pace — lush, historic, and genuinely relaxed. Retire here and your passport stays in the drawer. Medicare still works. The water is still impossibly blue.</p>
+      <div class="hero-badges">
+        <span class="badge">🇺🇸 US Territory</span>
+        <span class="badge">🏥 Medicare Eligible</span>
+        <span class="badge">🌊 Coral Reefs</span>
+        <span class="badge">🏘️ Historic Christiansted</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="content-wrap">
+
+    <section class="intro-section">
+      <div class="intro-text">
+        <span class="section-label">The Vibe</span>
+        <h2>All the Caribbean.<br /><em>None of the friction.</em></h2>
+        <p>St. Croix is the Caribbean for people who want the beauty without the bureaucratic complexity. As a US territory, you don't need a foreign residency visa, you don't lose Medicare coverage, and you don't have to navigate a foreign banking system. You just show up, find a place, and start living.</p>
+        <p>The island has a different energy than St. Thomas's cruise-ship bustle or St. John's hiker-heavy vibe. St. Croix is quieter, more lived-in, more local. Christiansted's colonial Danish architecture — pastel storefronts, a waterfront boardwalk, working fishing boats in the harbor — gives it a texture that feels genuinely historic rather than manufactured for tourists.</p>
+        <p>The food scene has quietly become excellent. Rain forests in the northwest, wide open cattle country in the east, coral reefs ringing the island, and a sailing culture that's been here for generations. This is a place where people put down roots and mean it.</p>
+      </div>
+
+      <div class="cost-card">
+        <span class="card-label">Cost of Living · Est. Monthly</span>
+        <div class="cost-tier">
+          <div class="cost-tier-name">Simple &amp; Comfortable</div>
+          <div class="cost-amount">$3,500 <span>/ month</span></div>
+        </div>
+        <div class="cost-tier">
+          <div class="cost-tier-name">Comfortable with Extras</div>
+          <div class="cost-amount">$4,500 <span>/ month</span></div>
+        </div>
+        <div class="cost-tier">
+          <div class="cost-tier-name">Upscale &amp; Enjoyable</div>
+          <div class="cost-amount">$5,800 <span>/ month</span></div>
+        </div>
+        <p class="cost-note">St. Croix costs roughly half what Hawaii runs — for a comparable tropical lifestyle. Groceries and imported goods carry an island premium. Includes rent, food, transport, utilities. No foreign healthcare gap to fill.</p>
+      </div>
+    </section>
+
+    <section class="vibes-section">
+      <span class="section-label">What You'll Love</span>
+      <h2>Life in St. Croix</h2>
+      <div class="vibes-grid">
+        <div class="vibe-card">
+          <span class="vibe-icon">🇺🇸</span>
+          <h3>No Foreign Residency Required</h3>
+          <p>US citizens can live in the USVI indefinitely with no visa, no immigration application, no foreign residency process. Move in the same way you'd move to Florida.</p>
+        </div>
+        <div class="vibe-card">
+          <span class="vibe-icon">🏥</span>
+          <h3>Medicare Works Here</h3>
+          <p>Unlike most international destinations, Medicare covers care in US territories. The island has a main hospital and specialist clinics — with Miami or Puerto Rico a short flight away for complex procedures.</p>
+        </div>
+        <div class="vibe-card">
+          <span class="vibe-icon">🤿</span>
+          <h3>World-Class Diving</h3>
+          <p>The Buck Island Reef National Monument — only accessible by boat — offers some of the best snorkeling in the Caribbean. The Wall dive off the north shore is legendary among serious divers.</p>
+        </div>
+        <div class="vibe-card">
+          <span class="vibe-icon">🏛️</span>
+          <h3>Danish Colonial History</h3>
+          <p>Christiansted and Frederiksted are among the best-preserved colonial towns in the Caribbean. Walking those streets feels like stepping into another era — in the best possible way.</p>
+        </div>
+        <div class="vibe-card">
+          <span class="vibe-icon">🍽️</span>
+          <h3>Genuinely Good Food</h3>
+          <p>Farm-to-table restaurants, rum distilleries, local fish markets, and a food truck scene that overdelivers for a small island. St. Croix's food culture has gotten serious attention from national food media.</p>
+        </div>
+        <div class="vibe-card">
+          <span class="vibe-icon">⛵</span>
+          <h3>Sailing &amp; Water Life</h3>
+          <p>Christiansted Harbor has a working marina with sailboats, catamarans, and day charters. The sailing community is active and welcoming. Easy access to the BVI for those who want to range further.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="neighborhoods-section">
+      <span class="section-label">Where to Land</span>
+      <h2>Neighborhoods &amp; Areas</h2>
+      <p>St. Croix is 28 miles long — one of the larger Caribbean islands. Where you land shapes your daily life significantly.</p>
+      <div class="neighborhood-list">
+        <div class="neighborhood-card">
+          <h3>Christiansted</h3>
+          <span class="neighborhood-pill">Most Social</span>
+          <p>The main town on the north shore — historic Danish architecture, a working waterfront, the best restaurant and bar concentration on the island. Walkable, charming, and the hub of expat social life. A mix of condos, apartments above shops, and homes within walking distance of the harbor.</p>
+        </div>
+        <div class="neighborhood-card">
+          <h3>Frederiksted</h3>
+          <span class="neighborhood-pill">Most Laid-Back</span>
+          <p>The quiet town on the west end, with a pier where cruise ships occasionally dock. Slower, more residential, more local. The sunsets here are dramatic. A good choice for people who want a real neighborhood feel without tourist-area prices.</p>
+        </div>
+        <div class="neighborhood-card">
+          <h3>East End</h3>
+          <span class="neighborhood-pill">Most Upscale</span>
+          <p>The luxury end of the island — gated communities, beachfront villas, the Buccaneer resort area. Closest to Christiansted while offering more space and privacy. Popular with retirees who want a home with a view and room to breathe.</p>
+        </div>
+        <div class="neighborhood-card">
+          <h3>North Shore</h3>
+          <span class="neighborhood-pill">Most Scenic</span>
+          <p>The stretch between the two towns offers dramatic coastline, secluded coves, and a rural feel. Less infrastructure but more natural beauty. Ideal for people who want space and quiet, with Christiansted a 15-minute drive.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <div style="background: var(--teal); padding: 80px 0;">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 0 48px;">
+      <span class="section-label" style="color: var(--gold-soft);">Know Before You Go</span>
+      <h2 style="font-family: var(--serif); font-size: 40px; letter-spacing: -0.015em; color: var(--white); margin-bottom: 48px;">What to plan for</h2>
+      <div class="know-grid">
+        <div class="know-card">
+          <h3>No Visa — But Still a Move</h3>
+          <p>Living in the USVI as a US citizen requires no visa or residency permit. That said, shipping your belongings, establishing local banking, registering vehicles, and getting a USVI driver's license are all real logistics to sort. It's simpler than moving abroad — but it's still a move.</p>
+        </div>
+        <div class="know-card">
+          <h3>Medicare Coverage</h3>
+          <p>Medicare Part A and B work in USVI, but the network is smaller than the mainland. Juan F. Luis Hospital is the main facility. For complex procedures, many residents fly to Puerto Rico or Miami. A Medicare Supplement plan is worth carrying.</p>
+        </div>
+        <div class="know-card">
+          <h3>Hurricane Zone</h3>
+          <p>St. Croix was significantly impacted by Hurricane Maria in 2017 and has rebuilt substantially. The island sits in the northern Caribbean hurricane corridor. Most long-term residents carry wind insurance and have a storm plan. Season runs June–November.</p>
+        </div>
+        <div class="know-card">
+          <h3>Island Premium on Goods</h3>
+          <p>Almost everything that isn't locally grown or caught comes by barge or air. Groceries, building materials, cars, and appliances carry a meaningful premium over mainland prices — typically 20–40% more. Locally caught fish, produce, and rum are the exceptions.</p>
+        </div>
+        <div class="know-card">
+          <h3>Tax Advantages</h3>
+          <p>USVI residents pay taxes to the territory rather than the federal government — and the USVI Economic Development Authority offers substantial tax incentives for qualifying businesses and individuals. Worth a conversation with a USVI-based tax advisor.</p>
+        </div>
+        <div class="know-card">
+          <h3>Getting Around</h3>
+          <p>St. Croix drives on the left (British influence), though cars are American-style left-hand drive. A car is essential — the island is 28 miles long and public transport is limited. Many residents own a jeep or truck for the varied terrain.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-wrap">
+    <section class="handoff-section">
+      <span class="section-label">Ready to Go Deeper?</span>
+      <h2>Your next steps</h2>
+      <p>The right preparation makes all the difference. Here's where to start.</p>
+      <div class="handoff-grid">
+        <div class="handoff-card">
+          <div class="handoff-icon">💬</div>
+          <h3>Talk to a retirement advisor</h3>
+          <p>USVI retirement has real advantages — tax structure, Medicare continuity, no foreign residency complexity — but also unique considerations around Social Security, estate planning, and Medicare supplements. Get expert eyes on your situation.</p>
+          <a href="advisor-international.html" class="handoff-link">Find an advisor →</a>
+        </div>
+        <div class="handoff-card">
+          <div class="handoff-icon">🏡</div>
+          <h3>Explore homes in St. Croix</h3>
+          <p>Browse current listings — condos in Christiansted, East End villas, north shore homes. The USVI real estate market is active and navigable with a local agent who knows the island well.</p>
+          <a href="https://www.zillow.com/st-croix-vi/" target="_blank" rel="noopener" class="handoff-link">Browse homes →</a>
+        </div>
+        <div class="handoff-card">
+          <div class="handoff-icon">🧳</div>
+          <h3>Plan a scouting trip</h3>
+          <p>A week in St. Croix will tell you more than months of research. Rent a car, drive the whole island, eat everywhere, talk to people at the marina. It's a small enough island to genuinely know in a week.</p>
+          <a href="scouting-trips.html" class="handoff-link">Plan your visit →</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <a class="footer-wordmark" href="homepage-mockup.html">Retire<em>Vibes</em></a>
+    <nav class="footer-links">
+      <a href="homepage-mockup.html#destinations">Destinations</a>
+      <a href="homepage-mockup.html#how-it-works">How it works</a>
+      <a href="find-an-advisor.html">Find an advisor</a>
+      <a href="scouting-trips.html">Scouting trips</a>
+      <a href="my-retirevibes.html">My RetireVibes</a>
+    </nav>
+    <p class="footer-copy">© 2026 RetireVibes · Good RetireVibes Only.</p>
+  </footer>
+
+  <script src="shared.js"></script>
+</body>
+</html>

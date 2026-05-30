@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Las Terrenas, Dominican Republic — RetireVibes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    :root {
+      --cream: #FBF6EE;
+      --cream-soft: #F4ECDD;
+      --terracotta: #C97B5A;
+      --terracotta-dark: #A8593A;
+      --teal: #1B3A4B;
+      --teal-soft: #2E5468;
+      --gold: #C8A064;
+      --gold-soft: #E4C998;
+      --sage: #93A89A;
+      --warm-gray: #7A6E5F;
+      --white: #FFFFFF;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'Inter', -apple-system, system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--cream);
+      color: var(--teal);
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 68px;
+      background: rgba(251,246,238,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(27,58,75,0.08);
+    }
+    .wordmark {
+      font-family: var(--serif);
+      font-size: 22px;
+      color: var(--teal);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+    .wordmark em { color: var(--terracotta); font-style: italic; }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a {
+      font-size: 15px;
+      color: var(--teal);
+      text-decoration: none;
+      font-weight: 400;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+    .nav-links a:hover { opacity: 1; }
+    .nav-links .nav-cta {
+      background: var(--terracotta);
+      color: var(--white);
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-weight: 500;
+      opacity: 1;
+      transition: background 0.2s;
+    }
+    .nav-links .nav-cta:hover { background: var(--terracotta-dark); }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      height: 88vh;
+      min-height: 560px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1800&q=80') center/cover no-repeat;
+    }
+    .hero-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(27,58,75,0.88) 0%, rgba(27,58,75,0.3) 50%, transparent 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 0 64px 72px;
+      max-width: 800px;
+    }
+    .hero-label {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+      margin-bottom: 18px;
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: 68px;
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .hero h1 em { color: var(--gold-soft); font-style: italic; }
+    .hero-sub {
+      font-size: 19px;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.55;
+      max-width: 560px;
+    }
+    .hero-badges {
+      display: flex;
+      gap: 10px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.13);
+      border: 1px solid rgba(255,255,255,0.22);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 500;
+      backdrop-filter: blur(4px);
+    }
+
+    /* MAIN CONTENT */
+    .content-wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+
+    /* INTRO */
+    .intro-section {
+      padding: 96px 0 72px;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 80px;
+      align-items: start;
+    }
+    .section-label {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      margin-bottom: 18px;
+      display: block;
+    }
+    .intro-text h2 {
+      font-family: var(--serif);
+      font-size: 44px;
+      line-height: 1.1;
+      letter-spacing: -0.015em;
+      color: var(--teal);
+      margin-bottom: 24px;
+    }
+    .intro-text h2 em { color: var(--terracotta); font-style: italic; }
+    .intro-text p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--warm-gray);
+      margin-bottom: 18px;
+    }
+
+    /* COST CARD */
+    .cost-card {
+      background: var(--teal);
+      border-radius: 18px;
+      padding: 36px 32px;
+      color: var(--white);
+      position: sticky;
+      top: 96px;
+    }
+    .cost-card .card-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+      margin-bottom: 24px;
+      display: block;
+    }
+    .cost-tier {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .cost-tier:last-of-type { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .cost-tier-name {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 6px;
+    }
+    .cost-amount {
+      font-family: var(--serif);
+      font-size: 30px;
+      color: var(--white);
+      letter-spacing: -0.01em;
+    }
+    .cost-amount span {
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0;
+    }
+    .cost-note {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.5;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* VIBE GRID */
+    .vibes-section {
+      padding: 72px 0;
+      border-top: 1px solid rgba(27,58,75,0.1);
+    }
+    .vibes-section h2 {
+      font-family: var(--serif);
+      font-size: 40px;
+      letter-spacing: -0.015em;
+      color: var(--teal);
+      margin-bottom: 48px;
+    }
+    .vibes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .vibe-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 32px 28px;
+      border: 1px solid rgba(27,58,75,0.07);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .vibe-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(27,58,75,0.1);
+    }
+    .vibe-icon {
+      font-size: 28px;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .vibe-card h3 {
+      font-family: var(--serif);
+      font-size: 20px;
+      color: var(--teal);
+      margin-bottom: 10px;
+    }
+    .vibe-card p {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--warm-gray);
+    }
+
+    /* NEIGHBORHOODS */
+    .neighborhoods-section {
+      padding: 72px 0;
+      border-top: 1px solid rgba(27,58,75,0.1);
+    }
+    .neighborhoods-section h2 {
+      font-family: var(--serif);
+      font-size: 40px;
+      letter-spacing: -0.015em;
+      color: var(--teal);
+      margin-bottom: 12px;
+    }
+    .neighborhoods-section > p {
+      font-size: 17px;
+      color: var(--warm-gray);
+      line-height: 1.65;
+      max-width: 640px;
+      margin-bottom: 48px;
+    }
+    .neighborhood-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .neighborhood-card {
+      background: var(--cream-soft);
+      border-radius: 16px;
+      padding: 32px 28px;
+      border: 1px solid rgba(27,58,75,0.07);
+      transition: transform 0.25s;
+    }
+    .neighborhood-card:hover { transform: translateY(-2px); }
+    .neighborhood-card h3 {
+      font-family: var(--serif);
+      font-size: 22px;
+      color: var(--teal);
+      margin-bottom: 8px;
+    }
+    .neighborhood-pill {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      background: rgba(201,123,90,0.1);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+    .neighborhood-card p {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--warm-gray);
+    }
+
+    /* KNOW BEFORE YOU GO */
+    .know-section {
+      padding: 72px 0;
+      border-top: 1px solid rgba(27,58,75,0.1);
+      background: var(--teal);
+      margin: 0 -9999px;
+      padding-left: 9999px;
+      padding-right: 9999px;
+    }
+    .know-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+    .know-section .section-label { color: var(--gold-soft); }
+    .know-section h2 {
+      font-family: var(--serif);
+      font-size: 40px;
+      letter-spacing: -0.015em;
+      color: var(--white);
+      margin-bottom: 48px;
+    }
+    .know-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .know-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 30px 28px;
+    }
+    .know-card h3 {
+      font-family: var(--serif);
+      font-size: 20px;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .know-card p {
+      font-size: 14px;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.68);
+    }
+
+    /* HANDOFF SECTION */
+    .handoff-section {
+      padding: 96px 0;
+    }
+    .handoff-section h2 {
+      font-family: var(--serif);
+      font-size: 40px;
+      letter-spacing: -0.015em;
+      color: var(--teal);
+      margin-bottom: 12px;
+    }
+    .handoff-section > p {
+      font-size: 17px;
+      color: var(--warm-gray);
+      line-height: 1.65;
+      max-width: 560px;
+      margin-bottom: 48px;
+    }
+    .handoff-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .handoff-card {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 36px 30px;
+      border: 1px solid rgba(27,58,75,0.08);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .handoff-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(27,58,75,0.1);
+    }
+    .handoff-icon {
+      font-size: 32px;
+      margin-bottom: 18px;
+    }
+    .handoff-card h3 {
+      font-family: var(--serif);
+      font-size: 22px;
+      color: var(--teal);
+      margin-bottom: 10px;
+      line-height: 1.25;
+    }
+    .handoff-card p {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--warm-gray);
+      flex: 1;
+      margin-bottom: 28px;
+    }
+    .handoff-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--terracotta);
+      text-decoration: none;
+      transition: gap 0.2s;
+    }
+    .handoff-link:hover { gap: 12px; }
+
+    /* FOOTER */
+    .footer {
+      background: var(--teal);
+      padding: 56px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .footer-wordmark {
+      font-family: var(--serif);
+      font-size: 20px;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .footer-wordmark em { color: var(--gold-soft); font-style: italic; }
+    .footer-links {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+      width: 100%;
+    }
+
+    @media (max-width: 980px) {
+      .hero-content { padding: 0 28px 56px; }
+      .hero h1 { font-size: 44px; }
+      .content-wrap { padding: 0 24px; }
+      .intro-section { grid-template-columns: 1fr; gap: 40px; }
+      .cost-card { position: static; }
+      .vibes-grid { grid-template-columns: 1fr; }
+      .neighborhood-list { grid-template-columns: 1fr; }
+      .know-grid { grid-template-columns: 1fr; }
+      .handoff-grid { grid-template-columns: 1fr; }
+      .know-inner { padding: 0 24px; }
+      .footer { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="wordmark" href="homepage-mockup.html">Retire<em>Vibes</em></a>
+    <div class="nav-links">
+      <a href="homepage-mockup.html#destinations">Destinations</a>
+      <a href="my-retirevibes.html">My RetireVibes</a>
+      <a href="results-page-mockup.html" class="nav-cta">Take the quiz →</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-img"></div>
+    <div class="hero-content">
+      <span class="hero-label">🇩🇴 Dominican Republic · Caribbean</span>
+      <h1>Las Terrenas,<br /><em>reimagined.</em></h1>
+      <p class="hero-sub">A sun-soaked beach town on the Samaná Peninsula where French cafés meet palm-lined shores — and the lifestyle costs a fraction of anything comparable in the US.</p>
+      <div class="hero-badges">
+        <span class="badge">🌊 Caribbean Beach</span>
+        <span class="badge">☀️ Warm Year-Round</span>
+        <span class="badge">🌍 International Expat Scene</span>
+        <span class="badge">🏖️ Samaná Peninsula</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="content-wrap">
+
+    <!-- INTRO + COST CARD -->
+    <section class="intro-section">
+      <div class="intro-text">
+        <span class="section-label">The Vibe</span>
+        <h2>Europe meets the<br /><em>Caribbean</em></h2>
+        <p>Las Terrenas doesn't feel like most of the Dominican Republic. It feels like somewhere the world discovered quietly, loved deeply, and decided to stay. A sizable French and Italian expat community has shaped its restaurant scene, its slow rhythms, and its particular brand of effortless style — all set against some of the most dramatic beach scenery in the Caribbean.</p>
+        <p>This is a place to wake up to the sound of waves, eat lunch at a beachfront table, and spend your evenings watching the kind of sunsets that don't need a filter. It rewards people who want genuine community — neighbors who've made the same leap you're considering — without the manufactured feel of a resort town.</p>
+        <p>The Samaná Peninsula stays greener and lusher than the rest of the DR. Whale watching season in nearby Samaná Bay is a genuine spectacle. The beaches — El Portillo, Playa Bonita, Playa Las Terrenas itself — rank among the most beautiful in the hemisphere.</p>
+      </div>
+
+      <div class="cost-card">
+        <span class="card-label">Cost of Living · Est. Monthly</span>
+        <div class="cost-tier">
+          <div class="cost-tier-name">Simple &amp; Comfortable</div>
+          <div class="cost-amount">$2,200 <span>/ month</span></div>
+        </div>
+        <div class="cost-tier">
+          <div class="cost-tier-name">Comfortable with Extras</div>
+          <div class="cost-amount">$3,000 <span>/ month</span></div>
+        </div>
+        <div class="cost-tier">
+          <div class="cost-tier-name">Upscale &amp; Enjoyable</div>
+          <div class="cost-amount">$3,800 <span>/ month</span></div>
+        </div>
+        <p class="cost-note">Las Terrenas costs roughly a third of what beachfront Florida runs — for a similar climate and a far more relaxed pace. Includes rent, food, transport, and utilities. Healthcare not included.</p>
+      </div>
+    </section>
+
+    <!-- WHAT YOU'LL LOVE -->
+    <section class="vibes-section">
+      <span class="section-label">What You'll Love</span>
+      <h2>Life in Las Terrenas</h2>
+      <div class="vibes-grid">
+        <div class="vibe-card">
+          <span class="vibe-icon">🌊</span>
+          <h3>World-Class Beaches</h3>
+          <p>Playa Bonita, El Portillo, and the town beach are consistently ranked among the Caribbean's best — uncrowded, warm, and genuinely beautiful year-round.</p>
+        </div>
+        <div class="vibe-card">
+          <span class="vibe-icon">🍷</span>
+          <h3>European Café Culture</h3>
+          <p>French bakeries, Italian trattorias, and beachfront wine bars mix with local Dominican cuisine. The dining scene punches far above what you'd expect for a town this size.</p>
+        </div>
+        <div class="vibe-card">
+          <span class="vibe-icon">🤝</span>
+          <h3>Deep Expat Community</h3>
+          <p>Thousands of Europeans and North Americans have put down roots here. Finding community doesn't require effort — there are clubs, events, and neighbors who've been through exactly what you're planning.</p>
+        </div>
+        <div class="vibe-card">
+          <span class="vibe-icon">🐳</span>
+          <h3>Natural Spectacles</h3>
+          <p>Humpback whales migrate to Samaná Bay each winter in one of the world's best whale-watching events. Los Haitises National Park is a boat ride away. The peninsula stays lush and green all year.</p>
+        </div>
+        <div class="vibe-card">
+          <span class="vibe-icon">🏄</span>
+          <h3>Active Outdoor Life</h3>
+          <p>Kitesurfing, snorkeling, hiking, horseback riding, and paddleboarding are all part of the everyday rhythm. The warm water and consistent winds make this a water sports hub.</p>
+        </div>
+        <div class="vibe-card">
+          <span class="vibe-icon">✈️</span>
+          <h3>Easy Access</h3>
+          <p>El Catey International Airport (AZS) is 20 minutes away with direct flights from major US cities. Santo Domingo is 3 hours by road, with international medical care and all major services.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEIGHBORHOODS -->
+    <section class="neighborhoods-section">
+      <span class="section-label">Where to Land</span>
+      <h2>Neighborhoods &amp; Areas</h2>
+      <p>Las Terrenas has distinct pockets with different feels. Most expats settle within a short walk or drive of the beach — the town is small and navigable on foot or by motorbike.</p>
+      <div class="neighborhood-list">
+        <div class="neighborhood-card">
+          <h3>Town Center</h3>
+          <span class="neighborhood-pill">Most Social</span>
+          <p>The original expat hub, with the highest concentration of restaurants, bars, shops, and street life. Walkable to everything. Best for people who want to be in the middle of it. Noisier — especially on weekends — but the trade-off is community and convenience.</p>
+        </div>
+        <div class="neighborhood-card">
+          <h3>Playa Bonita</h3>
+          <span class="neighborhood-pill">Most Scenic</span>
+          <p>A quieter stretch of coastline just west of town, with some of the most beautiful beach in the DR. More villa-style living, more space, more privacy. A short drive to town for shopping and restaurants. Popular with retirees who want the beauty without the bustle.</p>
+        </div>
+        <div class="neighborhood-card">
+          <h3>El Portillo Area</h3>
+          <span class="neighborhood-pill">Most Relaxed</span>
+          <p>Further east along the coast — a long, wild beach with fewer crowds and a genuine away-from-it-all feeling. Good for those who want space, nature, and quiet as their default setting. Gated communities and standalone villas are most common here.</p>
+        </div>
+        <div class="neighborhood-card">
+          <h3>Pueblo de los Pescadores</h3>
+          <span class="neighborhood-pill">Most Charming</span>
+          <p>The original fishing village tucked inside the town — wooden houses, colorful boats, and some of the best fresh seafood on the island. Walking distance to the beach. A romantic, local-feeling enclave within reach of all the expat amenities.</p>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /content-wrap -->
+
+  <!-- KNOW BEFORE YOU GO (full-bleed teal) -->
+  <div style="background: var(--teal); padding: 80px 0;">
+    <div class="know-inner">
+      <span class="section-label" style="color: var(--gold-soft);">Know Before You Go</span>
+      <h2 style="font-family: var(--serif); font-size: 40px; letter-spacing: -0.015em; color: var(--white); margin-bottom: 48px;">What to plan for</h2>
+      <div class="know-grid">
+        <div class="know-card">
+          <h3>DR Residency Visa</h3>
+          <p>The Dominican Republic offers a straightforward Pensionado (Retiree) visa for those receiving at least $1,500/month in pension or Social Security income. Permanent residency takes 1–2 years. A local immigration attorney makes the process significantly smoother.</p>
+        </div>
+        <div class="know-card">
+          <h3>Healthcare</h3>
+          <p>Las Terrenas has basic clinics for everyday needs. For serious care, Santiago (2 hours) and Santo Domingo (3 hours) have modern private hospitals with English-speaking staff. International health insurance — around $200–400/month — is standard practice for expats here.</p>
+        </div>
+        <div class="know-card">
+          <h3>Currency &amp; Banking</h3>
+          <p>The Dominican Peso (DOP) is the official currency, but US dollars are widely accepted in expat areas and many landlords quote rents in USD. ATMs are available in town. Opening a local bank account is possible but can be paperwork-intensive.</p>
+        </div>
+        <div class="know-card">
+          <h3>Hurricane Season</h3>
+          <p>The DR sits in the Caribbean hurricane belt. The Samaná Peninsula historically sees more rainfall and some hurricane activity, typically June–November. Many expats travel during peak season or carry wind/flood coverage. The rest of the year is largely clear and beautiful.</p>
+        </div>
+        <div class="know-card">
+          <h3>Language</h3>
+          <p>Spanish is the official language. In Las Terrenas specifically, French is widely spoken given the expat community — English is functional but less universal than in USVI or other destinations. Learning basic Spanish pays dividends quickly.</p>
+        </div>
+        <div class="know-card">
+          <h3>Property &amp; Renting</h3>
+          <p>Foreigners can own property freely in the Dominican Republic. The real estate market is active — condos, villas, and apartments all exist at a range of price points. Renting first for 3–6 months before buying is the standard expat approach and strongly recommended.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-wrap">
+
+    <!-- HANDOFF CARDS -->
+    <section class="handoff-section">
+      <span class="section-label">Ready to Go Deeper?</span>
+      <h2>Your next steps</h2>
+      <p>The best retirement decisions happen with the right people in your corner. Here's where to start.</p>
+      <div class="handoff-grid">
+        <div class="handoff-card">
+          <div class="handoff-icon">💬</div>
+          <h3>Talk to a retirement advisor</h3>
+          <p>Moving internationally means navigating Social Security timing, tax treaties, Medicare gaps, and currency exposure. An advisor who specializes in expat retirement planning changes everything.</p>
+          <a href="advisor-international.html" class="handoff-link">Find an advisor →</a>
+        </div>
+        <div class="handoff-card">
+          <div class="handoff-icon">🏡</div>
+          <h3>Explore homes in the DR</h3>
+          <p>Browse real listings in Las Terrenas — from beachfront condos to garden villas. See what the rental and purchase market looks like before you make any decisions.</p>
+          <a href="https://www.inmuebles24.com/propiedades-en-renta-en-las-terrenas,samana.html" target="_blank" rel="noopener" class="handoff-link">Browse homes →</a>
+        </div>
+        <div class="handoff-card">
+          <div class="handoff-icon">🧳</div>
+          <h3>Plan a scouting trip</h3>
+          <p>Nothing compares to spending a week living it. Walk the neighborhoods, eat the food, talk to expats who've been there for years. A scouting trip is the best due diligence you can do.</p>
+          <a href="scouting-trips.html" class="handoff-link">Plan your visit →</a>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /content-wrap -->
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <a class="footer-wordmark" href="homepage-mockup.html">Retire<em>Vibes</em></a>
+    <nav class="footer-links">
+      <a href="homepage-mockup.html#destinations">Destinations</a>
+      <a href="homepage-mockup.html#how-it-works">How it works</a>
+      <a href="find-an-advisor.html">Find an advisor</a>
+      <a href="scouting-trips.html">Scouting trips</a>
+      <a href="my-retirevibes.html">My RetireVibes</a>
+    </nav>
+    <p class="footer-copy">© 2026 RetireVibes · Good RetireVibes Only.</p>
+  </footer>
+
+  <script src="shared.js"></script>
+</body>
+</html>
