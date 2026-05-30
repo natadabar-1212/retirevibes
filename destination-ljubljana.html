@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ljubljana, Slovenia — RetireVibes</title>
+  <meta name="description" content="Discover Ljubljana, Slovenia — Europe's greenest capital with a car-free medieval center, Julian Alps access, and costs well below neighboring Austria or Italy." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #FBF6EE;
+      --cream-soft: #F4ECDD;
+      --terracotta: #C97B5A;
+      --terracotta-dark: #A8593A;
+      --teal: #1B3A4B;
+      --teal-soft: #2E5468;
+      --gold: #C8A064;
+      --gold-soft: #E4C998;
+      --sage: #93A89A;
+      --warm-gray: #7A6E5F;
+      --white: #FFFFFF;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'Inter', -apple-system, system-ui, sans-serif;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--cream);
+      color: var(--teal);
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid rgba(27,58,75,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 64px;
+    }
+    .wordmark {
+      font-family: var(--serif);
+      font-size: 22px;
+      color: var(--teal);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+    .wordmark em { color: var(--terracotta); font-style: italic; }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a {
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--teal);
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+    .nav-links a:hover { opacity: 1; }
+    .nav-links .nav-cta {
+      background: var(--terracotta);
+      color: var(--white);
+      padding: 9px 20px;
+      border-radius: 999px;
+      opacity: 1;
+      transition: background 0.2s;
+    }
+    .nav-links .nav-cta:hover { background: var(--terracotta-dark); }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      height: 560px;
+      overflow: hidden;
+      background: var(--teal);
+    }
+    .hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.72;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(27,58,75,0.1) 0%, rgba(27,58,75,0.65) 100%);
+    }
+    .hero-content {
+      position: absolute;
+      bottom: 56px;
+      left: 0;
+      right: 0;
+      padding: 0 60px;
+      color: var(--white);
+    }
+    .hero-breadcrumb {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 14px;
+    }
+    .hero-breadcrumb a { color: rgba(255,255,255,0.7); text-decoration: none; }
+    .hero-breadcrumb a:hover { color: var(--white); }
+    .hero-flag { font-size: 28px; margin-bottom: 10px; display: block; }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: 68px;
+      line-height: 1.03;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      color: var(--white);
+    }
+    .hero h1 em { color: var(--gold-soft); font-style: italic; }
+    .hero-tagline {
+      font-size: 18px;
+      line-height: 1.55;
+      color: rgba(255,255,255,0.88);
+      max-width: 620px;
+    }
+    .hero-photo-cap {
+      position: absolute;
+      bottom: 16px;
+      right: 20px;
+      font-size: 11px;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.04em;
+    }
+
+    /* TAGS BAR */
+    .tags-bar {
+      background: var(--white);
+      border-bottom: 1px solid rgba(27,58,75,0.07);
+      padding: 18px 60px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .tag {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--teal-soft);
+      background: rgba(27,58,75,0.06);
+      padding: 6px 14px;
+      border-radius: 999px;
+      letter-spacing: 0.01em;
+    }
+
+    /* LAYOUT */
+    .page-body {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 72px 40px 100px;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 64px;
+      align-items: start;
+    }
+    .main-col {}
+    .sidebar {}
+
+    /* SECTION LABELS */
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      margin-bottom: 12px;
+    }
+
+    /* INTRO */
+    .intro-block {
+      margin-bottom: 64px;
+    }
+    .intro-block h2 {
+      font-family: var(--serif);
+      font-size: 42px;
+      line-height: 1.12;
+      letter-spacing: -0.015em;
+      margin-bottom: 20px;
+      color: var(--teal);
+    }
+    .intro-block h2 em { color: var(--terracotta); font-style: italic; }
+    .intro-block p {
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--warm-gray);
+      margin-bottom: 14px;
+    }
+
+    /* COST SECTION */
+    .cost-block {
+      margin-bottom: 64px;
+    }
+    .cost-block h2 {
+      font-family: var(--serif);
+      font-size: 36px;
+      letter-spacing: -0.015em;
+      margin-bottom: 8px;
+      color: var(--teal);
+    }
+    .cost-block .sub {
+      font-size: 16px;
+      color: var(--warm-gray);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+    .cost-tiers {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .cost-tier {
+      background: var(--white);
+      border: 1px solid rgba(27,58,75,0.07);
+      border-radius: 16px;
+      padding: 24px;
+      transition: transform 0.25s;
+    }
+    .cost-tier:hover { transform: translateY(-2px); }
+    .tier-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      margin-bottom: 8px;
+    }
+    .tier-amount {
+      font-family: var(--serif);
+      font-size: 34px;
+      color: var(--teal);
+      letter-spacing: -0.01em;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .tier-desc {
+      font-size: 13px;
+      color: var(--warm-gray);
+      line-height: 1.5;
+    }
+    .cost-compare {
+      background: var(--cream-soft);
+      border-left: 3px solid var(--terracotta);
+      border-radius: 0 12px 12px 0;
+      padding: 18px 22px;
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--teal);
+    }
+    .cost-compare strong { color: var(--terracotta); }
+
+    /* HOUSING */
+    .housing-block {
+      margin-bottom: 64px;
+    }
+    .housing-block h2 {
+      font-family: var(--serif);
+      font-size: 36px;
+      letter-spacing: -0.015em;
+      margin-bottom: 8px;
+      color: var(--teal);
+    }
+    .housing-block .sub {
+      font-size: 16px;
+      color: var(--warm-gray);
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+    .housing-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .housing-card {
+      background: var(--white);
+      border: 1px solid rgba(27,58,75,0.07);
+      border-radius: 16px;
+      padding: 24px;
+    }
+    .housing-card .h-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      margin-bottom: 8px;
+    }
+    .housing-card .h-price {
+      font-family: var(--serif);
+      font-size: 30px;
+      color: var(--teal);
+      letter-spacing: -0.01em;
+      margin-bottom: 6px;
+    }
+    .housing-card .h-desc {
+      font-size: 13px;
+      color: var(--warm-gray);
+      line-height: 1.5;
+    }
+    .housing-note {
+      font-size: 13px;
+      color: var(--warm-gray);
+      line-height: 1.6;
+      padding: 14px 18px;
+      background: rgba(200,160,100,0.08);
+      border-radius: 10px;
+      border: 1px solid rgba(200,160,100,0.18);
+    }
+
+    /* NEIGHBORHOODS */
+    .neighborhoods-block {
+      margin-bottom: 64px;
+    }
+    .neighborhoods-block h2 {
+      font-family: var(--serif);
+      font-size: 36px;
+      letter-spacing: -0.015em;
+      margin-bottom: 8px;
+      color: var(--teal);
+    }
+    .neighborhoods-block .sub {
+      font-size: 16px;
+      color: var(--warm-gray);
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+    .neighborhood-list { display: flex; flex-direction: column; gap: 16px; }
+    .neighborhood-card {
+      background: var(--white);
+      border: 1px solid rgba(27,58,75,0.07);
+      border-radius: 16px;
+      padding: 26px 28px;
+      transition: transform 0.25s;
+    }
+    .neighborhood-card:hover { transform: translateY(-2px); }
+    .neighborhood-card h3 {
+      font-family: var(--serif);
+      font-size: 22px;
+      letter-spacing: -0.01em;
+      color: var(--teal);
+      margin-bottom: 8px;
+    }
+    .neighborhood-card p {
+      font-size: 15px;
+      line-height: 1.68;
+      color: var(--warm-gray);
+    }
+
+    /* SIDEBAR */
+    .sidebar-card {
+      background: var(--white);
+      border: 1px solid rgba(27,58,75,0.07);
+      border-radius: 18px;
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+    .sidebar-card h3 {
+      font-family: var(--serif);
+      font-size: 22px;
+      letter-spacing: -0.01em;
+      color: var(--teal);
+      margin-bottom: 10px;
+    }
+    .sidebar-card p {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--warm-gray);
+      margin-bottom: 16px;
+    }
+    .sidebar-card .cta-btn {
+      display: block;
+      text-align: center;
+      background: var(--terracotta);
+      color: var(--white);
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .sidebar-card .cta-btn:hover { background: var(--terracotta-dark); }
+    .sidebar-card .ghost-btn {
+      display: block;
+      text-align: center;
+      background: transparent;
+      color: var(--teal);
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 11px 20px;
+      border-radius: 999px;
+      border: 1.5px solid rgba(27,58,75,0.25);
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+      margin-top: 10px;
+    }
+    .sidebar-card .ghost-btn:hover { border-color: var(--teal); }
+    .sidebar-essentials { list-style: none; }
+    .sidebar-essentials li {
+      font-size: 14px;
+      color: var(--teal);
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(27,58,75,0.07);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .sidebar-essentials li:last-child { border-bottom: none; }
+    .sidebar-essentials .ess-label { color: var(--warm-gray); font-size: 13px; }
+    .sidebar-essentials .ess-val { font-weight: 600; font-size: 14px; }
+
+    /* BEST MONTHS */
+    .months-block {
+      background: var(--teal);
+      border-radius: 18px;
+      padding: 28px;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .months-block .section-label { color: rgba(255,255,255,0.55); margin-bottom: 10px; }
+    .months-block h3 {
+      font-family: var(--serif);
+      font-size: 20px;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .months-block .month-val {
+      font-size: 15px;
+      color: var(--gold-soft);
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+    .months-block .avoid-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 6px;
+    }
+    .months-block .avoid-val {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.55;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--teal);
+      color: rgba(255,255,255,0.7);
+      padding: 48px 60px;
+      margin-top: 0;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .footer-wordmark {
+      font-family: var(--serif);
+      font-size: 24px;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .footer-wordmark em { color: var(--gold-soft); font-style: italic; }
+    .footer-links {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 980px) {
+      .hero { height: 440px; }
+      .hero h1 { font-size: 46px; }
+      .hero-content { bottom: 36px; padding: 0 24px; }
+      .tags-bar { padding: 16px 24px; }
+      .page-body { grid-template-columns: 1fr; gap: 40px; padding: 40px 24px 80px; }
+      .cost-tiers { grid-template-columns: 1fr 1fr; }
+      .housing-cards { grid-template-columns: 1fr 1fr; }
+      footer { padding: 40px 24px; }
+    }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 36px; }
+      .cost-tiers { grid-template-columns: 1fr; }
+      .housing-cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="wordmark" href="homepage-mockup.html">Retire<em>Vibes</em></a>
+    <div class="nav-links">
+      <a href="homepage-mockup.html#destinations">Destinations</a>
+      <a href="my-retirevibes.html">My RetireVibes</a>
+      <a href="results-page-mockup.html" class="nav-cta">Take the quiz →</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <img class="hero-img" src="images/ljubljana.jpg" alt="Ljubljana Castle and Old Town bridges" />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-breadcrumb">
+        <a href="homepage-mockup.html#destinations">Destinations</a> &nbsp;/&nbsp; Europe
+      </div>
+      <span class="hero-flag">🇸🇮</span>
+      <h1>Ljubljana, <em>Slovenia</em></h1>
+      <p class="hero-tagline">Europe's greenest capital — a car-free medieval center, a castle on the hill, the Julian Alps an hour away, and an outdoor culture that puts the rest of Europe to shame.</p>
+    </div>
+    <div class="hero-photo-cap">Ljubljana Castle and Old Town bridges</div>
+  </section>
+
+  <!-- TAGS BAR -->
+  <div class="tags-bar">
+    <span class="tag">Car-free old town</span>
+    <span class="tag">Green Capital of Europe</span>
+    <span class="tag">Four seasons</span>
+    <span class="tag">Julian Alps access</span>
+    <span class="tag">Growing arts scene</span>
+    <span class="tag">Safe &amp; walkable</span>
+  </div>
+
+  <!-- PAGE BODY -->
+  <div class="page-body">
+    <main class="main-col">
+
+      <!-- INTRO -->
+      <div class="intro-block">
+        <div class="section-label">The Vibe</div>
+        <h2>Small enough to know it.<br/><em>Big enough to never run out.</em></h2>
+        <p>Ljubljana keeps a secret that most Europeans are happy to keep to themselves: it may be the most livable capital city on the continent. Population 300,000, which means you can actually get to know it. The entire city center is car-free — there are no traffic jams to fight, no exhaust to breathe, just cobblestone streets, riverside café terraces, and a castle looking down from the hill above.</p>
+        <p>The Ljubljanica River cuts through the old town and practically begs you to slow down on its banks. Every morning the riverside market fills with local farmers and florists. The coffee culture here rivals Vienna. And then there's what's just outside the city: Lake Bled is an hour away. The Soča Valley — one of the most spectacular river valleys in Europe — is ninety minutes. The Triglav National Park puts you in the Alps proper.</p>
+        <p>Slovenia joined the EU in 2004 and adopted the euro, which makes banking and logistics far simpler than in non-EU Balkan neighbors. Healthcare is high quality and, for legal residents, essentially free. The country ranks consistently among the safest and most corruption-free in Europe. Ljubljana costs a fraction of Vienna or Munich — the cities it most resembles in character.</p>
+      </div>
+
+      <!-- COST OF LIVING -->
+      <div class="cost-block">
+        <div class="section-label">Cost of Living</div>
+        <h2>What a life here actually costs</h2>
+        <p class="sub">Monthly estimates for a couple, all-in — housing, food, transportation, entertainment, and healthcare. Ljubljana sits between Eastern and Western Europe in both geography and price.</p>
+
+        <div class="cost-tiers">
+          <div class="cost-tier">
+            <div class="tier-label">Simple &amp; Comfortable</div>
+            <div class="tier-amount">$1,600</div>
+            <div class="tier-desc">Modest apartment, home cooking, local transit, day hikes on weekends</div>
+          </div>
+          <div class="cost-tier">
+            <div class="tier-label">Comfortable with Extras</div>
+            <div class="tier-amount">$2,200</div>
+            <div class="tier-desc">Nice central apartment, dining out several times a week, active lifestyle</div>
+          </div>
+          <div class="cost-tier">
+            <div class="tier-label">Upscale &amp; Enjoyable</div>
+            <div class="tier-amount">$3,100</div>
+            <div class="tier-desc">Well-located apartment, regular restaurant dinners, travel within Slovenia and Europe</div>
+          </div>
+          <div class="cost-tier">
+            <div class="tier-label">Luxury</div>
+            <div class="tier-amount">$4,800</div>
+            <div class="tier-desc">Premium apartment or house, fine dining, frequent European travel</div>
+          </div>
+        </div>
+
+        <div class="cost-compare">
+          One of Europe's most livable capitals — a car-free medieval center, Europe's greenest city credentials, Lake Bled and the Triglav mountains an hour away, and costs <strong>well below neighboring Austria or Italy</strong>.
+        </div>
+      </div>
+
+      <!-- HOUSING -->
+      <div class="housing-block">
+        <div class="section-label">Housing</div>
+        <h2>What you'll pay to live here</h2>
+        <p class="sub">Slovenia allows foreigners to buy property with no major restrictions, particularly for EU citizens and those with proper residency. Non-EU buyers (including Americans) can purchase through an LLC or with residency established.</p>
+
+        <div class="housing-cards">
+          <div class="housing-card">
+            <div class="h-label">To Buy</div>
+            <div class="h-price">~$260K</div>
+            <div class="h-desc">2BR in the city center or a residential neighborhood</div>
+          </div>
+          <div class="housing-card">
+            <div class="h-label">To Rent</div>
+            <div class="h-price">~$1,050/mo</div>
+            <div class="h-desc">A well-located 2BR apartment; prices have risen but remain far below Western European capitals</div>
+          </div>
+        </div>
+
+        <div class="housing-note">
+          <strong>Expat note:</strong> Americans can buy property in Slovenia but typically need to establish residency or structure the purchase through a Slovenian LLC. Renting first for 6–12 months is standard practice — it lets you understand neighborhoods before committing. Consult an international tax advisor before buying; Slovenia has a bilateral tax treaty with the US.
+        </div>
+      </div>
+
+      <!-- NEIGHBORHOODS -->
+      <div class="neighborhoods-block">
+        <div class="section-label">Where to Spend Time</div>
+        <h2>Three areas worth exploring</h2>
+        <p class="sub">Ljubljana is compact enough to know well. These three areas tell you most of what you need to know about how life here actually works.</p>
+
+        <div class="neighborhood-list">
+          <div class="neighborhood-card">
+            <h3>Staro Mestno Jedro — the Old Town</h3>
+            <p>Start here. The car-free medieval core is the city's heart — Prešeren Square, Triple Bridge, the riverside arcades, the castle hill above. Walk it at different times of day to understand the rhythm. The morning market along the river is one of the best in Central Europe. Evenings bring a genuinely local café and bar culture that feels nothing like a tourist trap.</p>
+          </div>
+          <div class="neighborhood-card">
+            <h3>Trnovo &amp; Krakovo</h3>
+            <p>Where long-term residents actually live — a ten-minute walk from the old town, quieter, with market gardens that have existed since the Middle Ages running right up against residential streets. This is where you find the realistic baseline: what a Ljubljana life costs day to day, what the neighbors are like, what the corner shops and coffee bars are. Spend a weekday morning walking Gradaška ulica and the lanes off it.</p>
+          </div>
+          <div class="neighborhood-card">
+            <h3>Šiška &amp; Bežigrad — the residential city</h3>
+            <p>More affordable, genuinely local, and popular with families and longer-term expats who've moved out of the center. These neighborhoods help you understand Ljubljana beyond the postcard — what housing stock actually looks like, what a supermarket costs, what public transit feels like for a commute. Important to visit if you're seriously considering a move here.</p>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <!-- Best months -->
+      <div class="months-block">
+        <div class="section-label">When to Scout</div>
+        <h3>Best months to visit</h3>
+        <div class="month-val">April – October</div>
+        <div class="avoid-label">Consider avoiding</div>
+        <div class="avoid-val">January – February (cold, grey, and icy — not representative of Ljubljana's appeal)</div>
+      </div>
+
+      <!-- Quick facts -->
+      <div class="sidebar-card">
+        <div class="section-label">Quick Facts</div>
+        <ul class="sidebar-essentials">
+          <li>
+            <span class="ess-label">Currency</span>
+            <span class="ess-val">Euro (€)</span>
+          </li>
+          <li>
+            <span class="ess-label">Language</span>
+            <span class="ess-val">Slovenian; English widely spoken</span>
+          </li>
+          <li>
+            <span class="ess-label">Time zone</span>
+            <span class="ess-val">CET (UTC+1 / +2 summer)</span>
+          </li>
+          <li>
+            <span class="ess-label">Flight from US</span>
+            <span class="ess-val">~11–13 hrs (via Frankfurt, Vienna, or Amsterdam)</span>
+          </li>
+          <li>
+            <span class="ess-label">Visa option</span>
+            <span class="ess-val">90-day Schengen; temporary residence available</span>
+          </li>
+          <li>
+            <span class="ess-label">Healthcare</span>
+            <span class="ess-val">Public + private; high quality, EU-standard</span>
+          </li>
+          <li>
+            <span class="ess-label">Lake Bled</span>
+            <span class="ess-val">~55 min by car</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Advisor CTA -->
+      <div class="sidebar-card">
+        <h3>Talk to an international advisor</h3>
+        <p>Slovenia has its own tax rules, residency pathways, and property laws. An advisor who specializes in European retirement can walk you through the specifics before you commit to anything.</p>
+        <a href="advisor-international.html" class="cta-btn">Find a specialist advisor →</a>
+      </div>
+
+      <!-- Browse homes CTA -->
+      <div class="sidebar-card">
+        <h3>Browse homes in Ljubljana</h3>
+        <p>Get a real sense of the market — neighborhoods, price ranges, what €260K actually buys you here.</p>
+        <a href="https://www.nepremicnine.net/oglasi-prodaja/ljubljana-mesto/" target="_blank" rel="noopener" class="cta-btn">Browse properties →</a>
+        <a href="browse-homes-international.html" class="ghost-btn">International home-buying guide</a>
+      </div>
+
+      <!-- Scouting CTA -->
+      <div class="sidebar-card">
+        <h3>Plan a scouting trip</h3>
+        <p>Ljubljana is three hours from the Adriatic, four from Vienna, and five from Venice. A two-week scouting trip can cover serious ground.</p>
+        <a href="scouting-trips.html" class="cta-btn">Scouting trip guide →</a>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <a class="footer-wordmark" href="homepage-mockup.html">Retire<em>Vibes</em></a>
+      <div class="footer-links">
+        <a href="homepage-mockup.html#destinations">Destinations</a>
+        <a href="homepage-mockup.html#how-it-works">How it works</a>
+        <a href="find-an-advisor.html">Find an advisor</a>
+        <a href="scouting-trips.html">Scouting trips</a>
+        <a href="my-retirevibes.html">My RetireVibes</a>
+      </div>
+      <p class="footer-copy">© 2025 RetireVibes. Good RetireVibes Only.</p>
+    </div>
+  </footer>
+
+  <script src="shared.js"></script>
+</body>
+</html>
