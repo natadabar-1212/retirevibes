@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paphos, Cyprus — RetireVibes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    :root {
+      --cream: #FBF6EE;
+      --cream-soft: #F4ECDD;
+      --terracotta: #C97B5A;
+      --terracotta-dark: #A8593A;
+      --teal: #1B3A4B;
+      --teal-soft: #2E5468;
+      --gold: #C8A064;
+      --gold-soft: #E4C998;
+      --sage: #93A89A;
+      --warm-gray: #7A6E5F;
+      --white: #FFFFFF;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'Inter', -apple-system, system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--sans); background: var(--cream); color: var(--teal); }
+
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 64px;
+      background: rgba(251,246,238,0.95); backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(27,58,75,0.08);
+    }
+    .wordmark { font-family: var(--serif); font-size: 22px; color: var(--teal); text-decoration: none; }
+    .wordmark em { font-style: italic; color: var(--terracotta); }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { font-size: 15px; color: var(--teal); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--terracotta); }
+    .nav-cta { background: var(--terracotta); color: var(--white) !important; padding: 10px 22px; border-radius: 999px; font-size: 15px; font-weight: 600; transition: background 0.2s !important; }
+    .nav-cta:hover { background: var(--terracotta-dark) !important; }
+
+    .hero { position: relative; height: 92vh; min-height: 580px; display: flex; align-items: flex-end; overflow: hidden; }
+    .hero-img { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1557223562-6c77ef16210f?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(27,58,75,0.85) 0%, rgba(27,58,75,0.3) 50%, transparent 100%); }
+    .hero-content { position: relative; z-index: 2; padding: 0 72px 72px; max-width: 860px; }
+    .hero-label { font-size: 12px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 18px; }
+    .hero h1 { font-family: var(--serif); font-size: 68px; line-height: 1.03; letter-spacing: -0.02em; color: var(--white); margin-bottom: 24px; }
+    .hero h1 em { font-style: italic; color: var(--gold-soft); }
+    .hero-sub { font-size: 18px; line-height: 1.6; color: rgba(255,255,255,0.85); max-width: 560px; margin-bottom: 32px; }
+    .vibe-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+    .vibe-tag { display: inline-block; padding: 7px 18px; border-radius: 999px; border: 1.5px solid rgba(255,255,255,0.35); color: var(--white); font-size: 13px; font-weight: 500; letter-spacing: 0.04em; backdrop-filter: blur(4px); }
+
+    section { padding: 96px 72px; }
+    .section-label { font-size: 12px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 16px; }
+    h2 { font-family: var(--serif); font-size: 46px; line-height: 1.1; letter-spacing: -0.015em; color: var(--teal); margin-bottom: 20px; }
+    h2 em { font-style: italic; color: var(--terracotta); }
+    .lead { font-size: 18px; line-height: 1.7; color: var(--warm-gray); max-width: 660px; }
+    .body-text { font-size: 16px; line-height: 1.7; color: var(--warm-gray); max-width: 720px; }
+    .two-col-wide { display: grid; grid-template-columns: 3fr 2fr; gap: 80px; align-items: start; }
+
+    .overview { background: var(--white); }
+    .overview-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 56px; }
+    .stat-card { background: var(--cream); border-radius: 16px; padding: 32px 28px; border: 1px solid rgba(27,58,75,0.07); }
+    .stat-label { font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 8px; }
+    .stat-value { font-family: var(--serif); font-size: 36px; color: var(--teal); line-height: 1.1; }
+    .stat-note { font-size: 14px; color: var(--warm-gray); margin-top: 6px; }
+
+    .cost { background: var(--teal); }
+    .cost .section-label { color: var(--gold-soft); }
+    .cost h2 { color: var(--white); }
+    .cost h2 em { color: var(--gold-soft); }
+    .cost .lead { color: rgba(255,255,255,0.75); }
+    .cost-tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+    .cost-tier { background: rgba(255,255,255,0.08); border-radius: 18px; padding: 36px 28px; border: 1px solid rgba(255,255,255,0.12); }
+    .tier-name { font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 12px; }
+    .tier-price { font-family: var(--serif); font-size: 42px; color: var(--white); line-height: 1; margin-bottom: 6px; }
+    .tier-period { font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 24px; }
+    .tier-items { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .tier-items li { font-size: 14px; color: rgba(255,255,255,0.8); padding-left: 18px; position: relative; }
+    .tier-items li::before { content: '—'; position: absolute; left: 0; color: var(--gold); }
+    .cost-note { font-size: 14px; color: rgba(255,255,255,0.5); margin-top: 32px; font-style: italic; }
+
+    .neighborhoods { background: var(--cream-soft); }
+    .neighborhood-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+    .neighborhood-card { background: var(--white); border-radius: 16px; overflow: hidden; border: 1px solid rgba(27,58,75,0.07); transition: transform 0.25s, box-shadow 0.25s; }
+    .neighborhood-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(27,58,75,0.1); }
+    .neighborhood-img { height: 180px; object-fit: cover; width: 100%; display: block; }
+    .neighborhood-body { padding: 24px; }
+    .neighborhood-name { font-family: var(--serif); font-size: 22px; color: var(--teal); margin-bottom: 8px; }
+    .neighborhood-tag { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 10px; }
+    .neighborhood-desc { font-size: 14px; line-height: 1.65; color: var(--warm-gray); }
+
+    .life { background: var(--white); }
+    .life-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 48px; }
+    .life-card { background: var(--cream); border-radius: 16px; padding: 32px 28px; border: 1px solid rgba(27,58,75,0.06); }
+    .life-icon { font-size: 28px; margin-bottom: 14px; }
+    .life-title { font-family: var(--serif); font-size: 20px; color: var(--teal); margin-bottom: 10px; }
+    .life-desc { font-size: 15px; line-height: 1.65; color: var(--warm-gray); }
+
+    .practical { background: var(--cream-soft); }
+    .practical-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; }
+    .practical-label { font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 10px; }
+    .practical-value { font-family: var(--serif); font-size: 18px; color: var(--teal); margin-bottom: 6px; }
+    .practical-note { font-size: 14px; color: var(--warm-gray); line-height: 1.5; }
+
+    .handoff { background: var(--cream); }
+    .handoff h2 { margin-bottom: 48px; }
+    .handoff-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .handoff-card { background: var(--white); border-radius: 18px; padding: 40px 32px; border: 1px solid rgba(27,58,75,0.07); display: flex; flex-direction: column; transition: transform 0.25s, box-shadow 0.25s; }
+    .handoff-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(27,58,75,0.1); }
+    .handoff-icon { font-size: 32px; margin-bottom: 20px; }
+    .handoff-title { font-family: var(--serif); font-size: 24px; color: var(--teal); margin-bottom: 12px; }
+    .handoff-desc { font-size: 15px; line-height: 1.65; color: var(--warm-gray); flex: 1; margin-bottom: 28px; }
+    .handoff-btn { display: inline-block; padding: 14px 28px; border-radius: 999px; font-size: 15px; font-weight: 600; text-decoration: none; text-align: center; transition: all 0.2s; }
+    .handoff-btn-primary { background: var(--terracotta); color: var(--white); }
+    .handoff-btn-primary:hover { background: var(--terracotta-dark); }
+    .handoff-btn-ghost { border: 2px solid var(--teal); color: var(--teal); }
+    .handoff-btn-ghost:hover { background: var(--teal); color: var(--white); }
+
+    footer { background: var(--teal); color: rgba(255,255,255,0.65); padding: 56px 72px; display: flex; align-items: center; justify-content: space-between; }
+    .footer-wordmark { font-family: var(--serif); font-size: 20px; color: var(--white); text-decoration: none; }
+    .footer-wordmark em { font-style: italic; color: var(--gold-soft); }
+    .footer-links { display: flex; gap: 32px; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy { font-size: 13px; }
+
+    @media (max-width: 980px) {
+      .hero-content { padding: 0 24px 48px; }
+      .hero h1 { font-size: 44px; }
+      section { padding: 64px 24px; }
+      .two-col-wide { grid-template-columns: 1fr; gap: 40px; }
+      .overview-stats, .cost-tiers, .neighborhood-grid, .practical-grid, .handoff-cards, .life-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 24px; text-align: center; padding: 48px 24px; }
+      .footer-links { flex-wrap: wrap; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="wordmark" href="homepage-mockup.html">Retire<em>Vibes</em></a>
+    <div class="nav-links">
+      <a href="homepage-mockup.html#destinations">Destinations</a>
+      <a href="my-retirevibes.html">My RetireVibes</a>
+      <a href="mockups/vibe-quiz.html" class="nav-cta">Take the quiz →</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-img"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-label">Cyprus · Eastern Mediterranean</p>
+      <h1>Ancient island,<br /><em>thoroughly livable.</em></h1>
+      <p class="hero-sub">Paphos sits on Cyprus's southwestern coast, where Aphrodite supposedly rose from the sea. With 340 sunny days a year, English as a practical second language, and a well-established expat community, it's Mediterranean island retirement done right.</p>
+      <div class="vibe-tags">
+        <span class="vibe-tag">340 days of sunshine</span>
+        <span class="vibe-tag">English-friendly</span>
+        <span class="vibe-tag">Ancient history everywhere</span>
+        <span class="vibe-tag">EU member state</span>
+        <span class="vibe-tag">Expat-welcoming</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- OVERVIEW -->
+  <section class="overview">
+    <div class="section-label">The vibe</div>
+    <div class="two-col-wide">
+      <div>
+        <h2>Mediterranean island life,<br /><em>in English.</em></h2>
+        <p class="lead">Cyprus is the easternmost island in the Mediterranean, and Paphos is its most charming corner — a UNESCO World Heritage harbor town with ancient ruins, clear turquoise water, and a seamlessly integrated expat community.</p>
+        <br />
+        <p class="body-text">Britain administered Cyprus until 1960, which left an enduring legacy: English is widely spoken, road signs are bilingual, the driving is on the left, and an enormous British expat community has been here for generations. For Americans, the practical ease of daily life in English is a genuine draw that more complicated European destinations can't match.</p>
+        <br />
+        <p class="body-text">The pace is slow by design. Paphos isn't a big city — the greater area has about 70,000 people. There's no rush, no traffic, no sprawl. The waterfront promenade (the Poseidonos) runs along the harbor past restaurants, cafés, and the ancient Paphos Fort. The Archaeological Park, a UNESCO site containing extraordinary Roman floor mosaics, is essentially in the backyard of half the residential neighborhoods.</p>
+        <br />
+        <p class="body-text">Winters are mild enough to sit outside for lunch in January. Summers are hot (July and August average 90°F+), but the entire island orients its life around the sea — the water is swimmable from April through November. The expat community here is among the most organized in Europe, with active clubs, social groups, and established support networks for new arrivals.</p>
+      </div>
+      <div class="overview-stats">
+        <div class="stat-card">
+          <div class="stat-label">Climate</div>
+          <div class="stat-value">340 Sunny Days</div>
+          <div class="stat-note">Mild winters (60°F), hot summers; swimmable 8 months</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Language</div>
+          <div class="stat-value">Greek + English</div>
+          <div class="stat-note">English widely spoken; left-hand driving (British legacy)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Currency</div>
+          <div class="stat-value">Euro (€)</div>
+          <div class="stat-note">Eurozone member since 2008</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Healthcare</div>
+          <div class="stat-value">Good &amp; Improving</div>
+          <div class="stat-note">GESY universal health system + strong private sector</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Nearest Airport</div>
+          <div class="stat-value">Paphos International</div>
+          <div class="stat-note">Direct flights to UK, Europe; connecting to US via hubs</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Best For</div>
+          <div class="stat-value">Peace &amp; Community</div>
+          <div class="stat-note">Health &amp; wellness, slow pace, history, sea life</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COST -->
+  <section class="cost">
+    <div class="section-label">Cost of living</div>
+    <h2>Island life without<br /><em>island prices.</em></h2>
+    <p class="lead">Cyprus is more affordable than its Mediterranean neighbors — less expensive than mainland Spain and significantly cheaper than Italy or France, while offering comparable (or better) sunshine and a more relaxed pace.</p>
+    <div class="cost-tiers">
+      <div class="cost-tier">
+        <div class="tier-name">Simple &amp; Comfortable</div>
+        <div class="tier-price">$2,200</div>
+        <div class="tier-period">per month, est.</div>
+        <ul class="tier-items">
+          <li>1BR apartment outside the harbor front</li>
+          <li>Supermarket shopping + local produce</li>
+          <li>Occasional taverna dinners</li>
+          <li>Basic car (needed outside Kato Paphos)</li>
+          <li>GESY healthcare enrollment</li>
+        </ul>
+      </div>
+      <div class="cost-tier">
+        <div class="tier-name">Comfortable with Extras</div>
+        <div class="tier-price">$3,000</div>
+        <div class="tier-period">per month, est.</div>
+        <ul class="tier-items">
+          <li>2BR apartment near the sea or harbor</li>
+          <li>Regular dining out, wine culture</li>
+          <li>Day trips around the island</li>
+          <li>Gym, social clubs, activities</li>
+          <li>Good private health supplement</li>
+        </ul>
+      </div>
+      <div class="cost-tier">
+        <div class="tier-name">Upscale &amp; Enjoyable</div>
+        <div class="tier-price">$4,000</div>
+        <div class="tier-period">per month, est.</div>
+        <ul class="tier-items">
+          <li>Villa with pool or luxury sea-view apartment</li>
+          <li>Fine dining, good wine cellar</li>
+          <li>Travel throughout Europe regularly</li>
+          <li>Comprehensive private health plan</li>
+          <li>Golf membership, boat charter days</li>
+        </ul>
+      </div>
+    </div>
+    <p class="cost-note">Estimates are for a single person. A car is almost essential outside the Kato Paphos waterfront area, adding roughly $400–600/month including insurance. Property prices have risen significantly since 2020 due to foreign investment, but rentals remain reasonable.</p>
+  </section>
+
+  <!-- NEIGHBORHOODS -->
+  <section class="neighborhoods">
+    <div class="section-label">Where to live</div>
+    <h2>Harbor, hills, or<br /><em>somewhere quieter.</em></h2>
+    <p class="lead" style="margin-bottom: 0;">Paphos spreads from the ancient harbor up into the hills, with distinct areas that suit different retirement styles.</p>
+    <div class="neighborhood-grid">
+      <div class="neighborhood-card">
+        <img class="neighborhood-img" src="https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&fit=crop&w=600&q=80" alt="Kato Paphos" />
+        <div class="neighborhood-body">
+          <div class="neighborhood-tag">Waterfront &amp; restaurants</div>
+          <div class="neighborhood-name">Kato Paphos</div>
+          <p class="neighborhood-desc">The lower harbor district — restaurants, bars, the famous promenade, the ancient fort, and the Mosaics archaeological park. Most walkable area in Paphos; highest concentration of expats. Premium rents for the location.</p>
+        </div>
+      </div>
+      <div class="neighborhood-card">
+        <img class="neighborhood-img" src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=600&q=80" alt="Peyia" />
+        <div class="neighborhood-body">
+          <div class="neighborhood-tag">Village life with views</div>
+          <div class="neighborhood-name">Peyia</div>
+          <p class="neighborhood-desc">A village 10km north of Paphos, perched above the Coral Bay coastline. Stunning views, a genuine village square with tavernas, and a large established British expat community. Requires a car but noticeably more peaceful than the main town.</p>
+        </div>
+      </div>
+      <div class="neighborhood-card">
+        <img class="neighborhood-img" src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=600&q=80" alt="Universal" />
+        <div class="neighborhood-body">
+          <div class="neighborhood-tag">Residential &amp; convenient</div>
+          <div class="neighborhood-name">Universal / Chlorakas</div>
+          <p class="neighborhood-desc">Residential areas between Kato Paphos and the airport. More local feel, lower rents, proximity to schools and supermarkets. Popular with families and those who want a quieter base with easy access to the harbor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIFE -->
+  <section class="life">
+    <div class="section-label">Day-to-day life</div>
+    <h2>Slow mornings,<br /><em>warm evenings.</em></h2>
+    <div class="life-grid">
+      <div class="life-card">
+        <div class="life-icon">🌊</div>
+        <div class="life-title">The sea is everything</div>
+        <p class="life-desc">Cyprus's water is famously clear and warm. Sea Caves north of Paphos offers spectacular swimming and snorkeling. Coral Bay is a wide sandy beach perfect for long summer afternoons. Scuba diving, boat trips, and paddleboarding are daily activities for many residents, not special occasions.</p>
+      </div>
+      <div class="life-card">
+        <div class="life-icon">🏛️</div>
+        <div class="life-title">History you can touch</div>
+        <p class="life-desc">The Paphos Archaeological Park — right in town — contains Roman floor mosaics of extraordinary beauty, dating to the 3rd and 4th centuries AD. The Tombs of the Kings (a UNESCO site) is carved from solid rock. Aphrodite's Rock, where legend says the goddess rose from the sea, is a 30-minute drive east. You are never far from something remarkable.</p>
+      </div>
+      <div class="life-card">
+        <div class="life-icon">🍽️</div>
+        <div class="life-title">Cypriot food culture</div>
+        <p class="life-desc">Cypriot cuisine is distinct — meze culture (small plates brought continuously), grilled halloumi, fresh seafood, slow-roasted lamb kleftiko, and local Commandaria wine (one of the world's oldest named wines, produced in Cyprus for 3,000 years). The taverna dinner — starting late, lasting hours — is the center of Cypriot social life.</p>
+      </div>
+      <div class="life-card">
+        <div class="life-icon">🏥</div>
+        <div class="life-title">Healthcare</div>
+        <p class="life-desc">Cyprus launched GESY (General Healthcare System) in 2020 — a universal healthcare system where residents contribute based on income and receive comprehensive care. Private healthcare is also excellent and affordable. The Paphos General Hospital handles emergencies; several private clinics serve the expat community with English-speaking staff.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRACTICAL -->
+  <section class="practical">
+    <div class="section-label">The practical side</div>
+    <h2>What you need <em>to know.</em></h2>
+    <div class="practical-grid">
+      <div class="practical-item">
+        <div class="practical-label">Visa</div>
+        <div class="practical-value">Category F Retiree Visa</div>
+        <p class="practical-note">Cyprus's Category F visa is specifically designed for retirees with foreign income. Requires proof of €9,568+ annual income (individual) or €15,712 (couple), clean criminal record, and health insurance. Renewable every 3 years.</p>
+      </div>
+      <div class="practical-item">
+        <div class="practical-label">Taxes</div>
+        <div class="practical-value">Favorable</div>
+        <p class="practical-note">Cyprus offers a flat 5% tax rate on foreign pension income (after a €3,420 annual exemption) for non-domiciled residents — one of the most favorable regimes in Europe. US-Cyprus tax treaty exists but has limited scope; consult a specialist.</p>
+      </div>
+      <div class="practical-item">
+        <div class="practical-label">Driving</div>
+        <div class="practical-value">Left Side of Road</div>
+        <p class="practical-note">British legacy means driving on the left. US licenses are valid for visitors; a Cyprus license is required for residents. The roads are generally good quality; a car is practical for exploring the island and getting to hilltop villages.</p>
+      </div>
+      <div class="practical-item">
+        <div class="practical-label">Property</div>
+        <div class="practical-value">Active Market</div>
+        <p class="practical-note">Non-EU citizens can buy property in Cyprus with government approval (straightforward for residential property). Property prices have risen significantly since 2020 due to investor demand. Most expats rent for the first year before deciding whether to buy.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HANDOFF -->
+  <section class="handoff">
+    <div class="section-label">Ready to explore further?</div>
+    <h2>Your next <em>step.</em></h2>
+    <div class="handoff-cards">
+      <div class="handoff-card">
+        <div class="handoff-icon">🧭</div>
+        <div class="handoff-title">Talk to a retirement advisor</div>
+        <p class="handoff-desc">Cyprus's favorable pension tax regime is genuinely attractive — but structuring your income correctly for the 5% flat rate requires specialist advice. A cross-border financial advisor helps you navigate the Category F visa requirements and Cyprus tax residency alongside your US obligations.</p>
+        <a href="advisor-international.html" class="handoff-btn handoff-btn-primary">Find an advisor →</a>
+      </div>
+      <div class="handoff-card">
+        <div class="handoff-icon">🏡</div>
+        <div class="handoff-title">Browse homes &amp; rentals</div>
+        <p class="handoff-desc">The Paphos rental market offers everything from compact harbor apartments to hillside villas with pools. Renting first is the right move — the difference between Kato Paphos, Peyia, and the inland areas is significant, and you'll want to experience each before committing.</p>
+        <a href="browse-homes-international.html" class="handoff-btn handoff-btn-ghost">Explore rentals →</a>
+      </div>
+      <div class="handoff-card">
+        <div class="handoff-icon">✈️</div>
+        <div class="handoff-title">Plan a scouting trip</div>
+        <p class="handoff-desc">Visit in April, May, or October — when temperatures are perfect (75–82°F), the beaches are swimmable, and the tourist crowds haven't yet arrived or have gone home. A week in Paphos will make it very clear, very quickly, whether this island is for you.</p>
+        <a href="scouting-trips.html" class="handoff-btn handoff-btn-ghost">Plan your trip →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a class="footer-wordmark" href="homepage-mockup.html">Retire<em>Vibes</em></a>
+    <div class="footer-links">
+      <a href="homepage-mockup.html#destinations">Destinations</a>
+      <a href="homepage-mockup.html#how-it-works">How it works</a>
+      <a href="find-an-advisor.html">Find an advisor</a>
+      <a href="scouting-trips.html">Scouting trips</a>
+      <a href="my-retirevibes.html">My RetireVibes</a>
+    </div>
+    <p class="footer-copy">© 2025 RetireVibes. Good RetireVibes Only.</p>
+  </footer>
+
+  <script src="shared.js"></script>
+</body>
+</html>

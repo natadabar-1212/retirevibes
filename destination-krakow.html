@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kraków, Poland — RetireVibes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    :root {
+      --cream: #FBF6EE;
+      --cream-soft: #F4ECDD;
+      --terracotta: #C97B5A;
+      --terracotta-dark: #A8593A;
+      --teal: #1B3A4B;
+      --teal-soft: #2E5468;
+      --gold: #C8A064;
+      --gold-soft: #E4C998;
+      --sage: #93A89A;
+      --warm-gray: #7A6E5F;
+      --white: #FFFFFF;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'Inter', -apple-system, system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--sans); background: var(--cream); color: var(--teal); }
+
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 64px;
+      background: rgba(251,246,238,0.95); backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(27,58,75,0.08);
+    }
+    .wordmark { font-family: var(--serif); font-size: 22px; color: var(--teal); text-decoration: none; }
+    .wordmark em { font-style: italic; color: var(--terracotta); }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { font-size: 15px; color: var(--teal); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--terracotta); }
+    .nav-cta { background: var(--terracotta); color: var(--white) !important; padding: 10px 22px; border-radius: 999px; font-size: 15px; font-weight: 600; transition: background 0.2s !important; }
+    .nav-cta:hover { background: var(--terracotta-dark) !important; }
+
+    .hero { position: relative; height: 92vh; min-height: 580px; display: flex; align-items: flex-end; overflow: hidden; }
+    .hero-img { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(27,58,75,0.85) 0%, rgba(27,58,75,0.3) 50%, transparent 100%); }
+    .hero-content { position: relative; z-index: 2; padding: 0 72px 72px; max-width: 860px; }
+    .hero-label { font-size: 12px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 18px; }
+    .hero h1 { font-family: var(--serif); font-size: 68px; line-height: 1.03; letter-spacing: -0.02em; color: var(--white); margin-bottom: 24px; }
+    .hero h1 em { font-style: italic; color: var(--gold-soft); }
+    .hero-sub { font-size: 18px; line-height: 1.6; color: rgba(255,255,255,0.85); max-width: 560px; margin-bottom: 32px; }
+    .vibe-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+    .vibe-tag { display: inline-block; padding: 7px 18px; border-radius: 999px; border: 1.5px solid rgba(255,255,255,0.35); color: var(--white); font-size: 13px; font-weight: 500; letter-spacing: 0.04em; backdrop-filter: blur(4px); }
+
+    section { padding: 96px 72px; }
+    .section-label { font-size: 12px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 16px; }
+    h2 { font-family: var(--serif); font-size: 46px; line-height: 1.1; letter-spacing: -0.015em; color: var(--teal); margin-bottom: 20px; }
+    h2 em { font-style: italic; color: var(--terracotta); }
+    .lead { font-size: 18px; line-height: 1.7; color: var(--warm-gray); max-width: 660px; }
+    .body-text { font-size: 16px; line-height: 1.7; color: var(--warm-gray); max-width: 720px; }
+    .two-col-wide { display: grid; grid-template-columns: 3fr 2fr; gap: 80px; align-items: start; }
+
+    .overview { background: var(--white); }
+    .overview-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 56px; }
+    .stat-card { background: var(--cream); border-radius: 16px; padding: 32px 28px; border: 1px solid rgba(27,58,75,0.07); }
+    .stat-label { font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 8px; }
+    .stat-value { font-family: var(--serif); font-size: 36px; color: var(--teal); line-height: 1.1; }
+    .stat-note { font-size: 14px; color: var(--warm-gray); margin-top: 6px; }
+
+    .cost { background: var(--teal); }
+    .cost .section-label { color: var(--gold-soft); }
+    .cost h2 { color: var(--white); }
+    .cost h2 em { color: var(--gold-soft); }
+    .cost .lead { color: rgba(255,255,255,0.75); }
+    .cost-tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+    .cost-tier { background: rgba(255,255,255,0.08); border-radius: 18px; padding: 36px 28px; border: 1px solid rgba(255,255,255,0.12); }
+    .tier-name { font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 12px; }
+    .tier-price { font-family: var(--serif); font-size: 42px; color: var(--white); line-height: 1; margin-bottom: 6px; }
+    .tier-period { font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 24px; }
+    .tier-items { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .tier-items li { font-size: 14px; color: rgba(255,255,255,0.8); padding-left: 18px; position: relative; }
+    .tier-items li::before { content: '—'; position: absolute; left: 0; color: var(--gold); }
+    .cost-note { font-size: 14px; color: rgba(255,255,255,0.5); margin-top: 32px; font-style: italic; }
+
+    .neighborhoods { background: var(--cream-soft); }
+    .neighborhood-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+    .neighborhood-card { background: var(--white); border-radius: 16px; overflow: hidden; border: 1px solid rgba(27,58,75,0.07); transition: transform 0.25s, box-shadow 0.25s; }
+    .neighborhood-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(27,58,75,0.1); }
+    .neighborhood-img { height: 180px; object-fit: cover; width: 100%; display: block; }
+    .neighborhood-body { padding: 24px; }
+    .neighborhood-name { font-family: var(--serif); font-size: 22px; color: var(--teal); margin-bottom: 8px; }
+    .neighborhood-tag { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 10px; }
+    .neighborhood-desc { font-size: 14px; line-height: 1.65; color: var(--warm-gray); }
+
+    .life { background: var(--white); }
+    .life-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 48px; }
+    .life-card { background: var(--cream); border-radius: 16px; padding: 32px 28px; border: 1px solid rgba(27,58,75,0.06); }
+    .life-icon { font-size: 28px; margin-bottom: 14px; }
+    .life-title { font-family: var(--serif); font-size: 20px; color: var(--teal); margin-bottom: 10px; }
+    .life-desc { font-size: 15px; line-height: 1.65; color: var(--warm-gray); }
+
+    .practical { background: var(--cream-soft); }
+    .practical-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; }
+    .practical-label { font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 10px; }
+    .practical-value { font-family: var(--serif); font-size: 18px; color: var(--teal); margin-bottom: 6px; }
+    .practical-note { font-size: 14px; color: var(--warm-gray); line-height: 1.5; }
+
+    .handoff { background: var(--cream); }
+    .handoff h2 { margin-bottom: 48px; }
+    .handoff-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .handoff-card { background: var(--white); border-radius: 18px; padding: 40px 32px; border: 1px solid rgba(27,58,75,0.07); display: flex; flex-direction: column; transition: transform 0.25s, box-shadow 0.25s; }
+    .handoff-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(27,58,75,0.1); }
+    .handoff-icon { font-size: 32px; margin-bottom: 20px; }
+    .handoff-title { font-family: var(--serif); font-size: 24px; color: var(--teal); margin-bottom: 12px; }
+    .handoff-desc { font-size: 15px; line-height: 1.65; color: var(--warm-gray); flex: 1; margin-bottom: 28px; }
+    .handoff-btn { display: inline-block; padding: 14px 28px; border-radius: 999px; font-size: 15px; font-weight: 600; text-decoration: none; text-align: center; transition: all 0.2s; }
+    .handoff-btn-primary { background: var(--terracotta); color: var(--white); }
+    .handoff-btn-primary:hover { background: var(--terracotta-dark); }
+    .handoff-btn-ghost { border: 2px solid var(--teal); color: var(--teal); }
+    .handoff-btn-ghost:hover { background: var(--teal); color: var(--white); }
+
+    footer { background: var(--teal); color: rgba(255,255,255,0.65); padding: 56px 72px; display: flex; align-items: center; justify-content: space-between; }
+    .footer-wordmark { font-family: var(--serif); font-size: 20px; color: var(--white); text-decoration: none; }
+    .footer-wordmark em { font-style: italic; color: var(--gold-soft); }
+    .footer-links { display: flex; gap: 32px; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy { font-size: 13px; }
+
+    @media (max-width: 980px) {
+      .hero-content { padding: 0 24px 48px; }
+      .hero h1 { font-size: 44px; }
+      section { padding: 64px 24px; }
+      .two-col-wide { grid-template-columns: 1fr; gap: 40px; }
+      .overview-stats, .cost-tiers, .neighborhood-grid, .practical-grid, .handoff-cards, .life-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 24px; text-align: center; padding: 48px 24px; }
+      .footer-links { flex-wrap: wrap; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="wordmark" href="homepage-mockup.html">Retire<em>Vibes</em></a>
+    <div class="nav-links">
+      <a href="homepage-mockup.html#destinations">Destinations</a>
+      <a href="my-retirevibes.html">My RetireVibes</a>
+      <a href="mockups/vibe-quiz.html" class="nav-cta">Take the quiz →</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-img"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-label">Poland · Central Europe</p>
+      <h1>Medieval grandeur,<br /><em>remarkably alive.</em></h1>
+      <p class="hero-sub">Kraków is one of Europe's most beautiful cities — and one of its most overlooked retirement destinations. A UNESCO Old Town, legendary café culture, world-class museums, and costs that are a fraction of Western Europe.</p>
+      <div class="vibe-tags">
+        <span class="vibe-tag">UNESCO Old Town</span>
+        <span class="vibe-tag">Rich culture &amp; arts</span>
+        <span class="vibe-tag">Four seasons</span>
+        <span class="vibe-tag">Walkable European city</span>
+        <span class="vibe-tag">Exceptional value</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- OVERVIEW -->
+  <section class="overview">
+    <div class="section-label">The vibe</div>
+    <div class="two-col-wide">
+      <div>
+        <h2>The Europe nobody told you<br /><em>was this good.</em></h2>
+        <p class="lead">Kraków escaped World War II remarkably intact. The result is a city that still looks like medieval Europe — but pulses with a modern, intellectual, creative energy that surprises every first-time visitor.</p>
+        <br />
+        <p class="body-text">The Old Town (Stare Miasto) is a UNESCO World Heritage Site, anchored by Rynek Główny — the largest medieval market square in Europe. Surrounding it are Gothic churches, Renaissance courtyards, legendary jazz clubs, and an underground labyrinth of bars and cafés. The Royal Wawel Castle sits on a rocky outcrop above the Vistula River, visible from half the city.</p>
+        <br />
+        <p class="body-text">Kraków is a university city — the Jagiellonian University, founded in 1364, is one of the oldest in Europe. That means the city is perpetually young, lively, and intellectually alive. The expat and digital nomad community has grown substantially in recent years, and English is widely spoken among younger Poles. You won't feel isolated here.</p>
+        <br />
+        <p class="body-text">The cost of living is shockingly low by Western European standards. A dinner for two with wine at a good restaurant might cost $30. A comfortable apartment in the Old Town rents for what you'd pay for a studio in Austin. The tradeoff is winter — Kraków gets cold and gray from November through February. But for those who don't mind real seasons, or who plan to travel to warmer places those months, it's a small price for what you get the rest of the year.</p>
+      </div>
+      <div class="overview-stats">
+        <div class="stat-card">
+          <div class="stat-label">Climate</div>
+          <div class="stat-value">Four Seasons</div>
+          <div class="stat-note">Warm summers (75°F+), cold winters; beautiful spring and fall</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Language</div>
+          <div class="stat-value">Polish</div>
+          <div class="stat-note">English widely spoken in expat, student, and tourist areas</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Currency</div>
+          <div class="stat-value">Złoty (PLN)</div>
+          <div class="stat-note">~4 PLN per USD; not Eurozone but stable</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Healthcare</div>
+          <div class="stat-value">Good &amp; Affordable</div>
+          <div class="stat-note">Private care available at very low cost; top hospitals in Old Town</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Nearest Airport</div>
+          <div class="stat-value">John Paul II Airport</div>
+          <div class="stat-note">15 min from Old Town; direct flights across Europe</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Best For</div>
+          <div class="stat-value">Culture &amp; Value</div>
+          <div class="stat-note">Arts, history, purpose, intellectual life</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COST -->
+  <section class="cost">
+    <div class="section-label">Cost of living</div>
+    <h2>Central Europe costs,<br /><em>Western Europe quality.</em></h2>
+    <p class="lead">Kraków is one of the best value cities in Europe. You can live exceptionally well here for what you'd spend on basics in Paris or Amsterdam.</p>
+    <div class="cost-tiers">
+      <div class="cost-tier">
+        <div class="tier-name">Simple &amp; Comfortable</div>
+        <div class="tier-price">$1,600</div>
+        <div class="tier-period">per month, est.</div>
+        <ul class="tier-items">
+          <li>1BR apartment near the Old Town</li>
+          <li>Home cooking + local market shopping</li>
+          <li>Milk bar (bar mleczny) lunches, café breakfasts</li>
+          <li>Trams and buses for all transport</li>
+          <li>Museums, concerts, cultural events</li>
+        </ul>
+      </div>
+      <div class="cost-tier">
+        <div class="tier-name">Comfortable with Extras</div>
+        <div class="tier-price">$2,200</div>
+        <div class="tier-period">per month, est.</div>
+        <ul class="tier-items">
+          <li>Spacious apartment in Old Town or Kazimierz</li>
+          <li>Regular dining out at mid-range restaurants</li>
+          <li>Polish language classes</li>
+          <li>Weekend trips to the Tatry mountains</li>
+          <li>Comprehensive private health insurance</li>
+        </ul>
+      </div>
+      <div class="cost-tier">
+        <div class="tier-name">Upscale &amp; Enjoyable</div>
+        <div class="tier-price">$3,200</div>
+        <div class="tier-period">per month, est.</div>
+        <ul class="tier-items">
+          <li>Premium Old Town apartment or penthouse</li>
+          <li>Fine dining, wine bars, private clubs</li>
+          <li>Travel within Europe regularly</li>
+          <li>Concierge health care</li>
+          <li>Car, opera subscriptions, memberships</li>
+        </ul>
+      </div>
+    </div>
+    <p class="cost-note">Estimates are for a single person. Poland is still significantly less expensive than Western Europe — Warsaw is about 20% more expensive than Kraków. Rents have risen with remote workers and tourism but remain excellent value.</p>
+  </section>
+
+  <!-- NEIGHBORHOODS -->
+  <section class="neighborhoods">
+    <div class="section-label">Where to live</div>
+    <h2>Three neighborhoods,<br /><em>three different lives.</em></h2>
+    <p class="lead" style="margin-bottom: 0;">Kraków's neighborhoods each have a distinct personality. Most expats start in the Old Town and gradually explore outward.</p>
+    <div class="neighborhood-grid">
+      <div class="neighborhood-card">
+        <img class="neighborhood-img" src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=600&q=80" alt="Old Town" />
+        <div class="neighborhood-body">
+          <div class="neighborhood-tag">UNESCO heritage</div>
+          <div class="neighborhood-name">Stare Miasto (Old Town)</div>
+          <p class="neighborhood-desc">The heart of Kraków — Rynek Główny, St. Mary's Basilica, the Cloth Hall, and dozens of medieval churches and courtyards. The most expensive part of the city but still very affordable by global standards. Everything walkable.</p>
+        </div>
+      </div>
+      <div class="neighborhood-card">
+        <img class="neighborhood-img" src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=600&q=80" alt="Kazimierz" />
+        <div class="neighborhood-body">
+          <div class="neighborhood-tag">Arts &amp; culture</div>
+          <div class="neighborhood-name">Kazimierz</div>
+          <p class="neighborhood-desc">The former Jewish quarter, now Kraków's bohemian hub. Gallery-lined streets, independent bookshops, the best food scene in the city, jazz clubs, and a vibrant weekend antiques market. The expat and creative crowd's favorite.</p>
+        </div>
+      </div>
+      <div class="neighborhood-card">
+        <img class="neighborhood-img" src="https://images.unsplash.com/photo-1519677100203-a0e668c92439?auto=format&fit=crop&w=600&q=80" alt="Podgórze" />
+        <div class="neighborhood-body">
+          <div class="neighborhood-tag">Up-and-coming</div>
+          <div class="neighborhood-name">Podgórze</div>
+          <p class="neighborhood-desc">Across the Vistula from Kazimierz, Podgórze is gentrifying fast. Lower rents, independent cafés moving in, and Schindler's Factory (now an extraordinary WWII museum) as its cultural anchor. Great for those who want off-the-beaten-path.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIFE -->
+  <section class="life">
+    <div class="section-label">Day-to-day life</div>
+    <h2>Culture at every<br /><em>corner.</em></h2>
+    <div class="life-grid">
+      <div class="life-card">
+        <div class="life-icon">🎭</div>
+        <div class="life-title">Arts, music &amp; theater</div>
+        <p class="life-desc">Kraków has over 30 museums, dozens of galleries, a world-class philharmonic, multiple opera venues, and a jazz scene that has been legendary since the communist era. Ticket prices are a fraction of what you'd pay in New York or London. The culture here is genuine and deep — not a tourist simulation.</p>
+      </div>
+      <div class="life-card">
+        <div class="life-icon">☕</div>
+        <div class="life-title">Café culture</div>
+        <p class="life-desc">Kraków's café culture is extraordinary. The Jama Michalika in the Old Town has been serving coffee since 1895. Kazimierz is dense with independent cafés, each with its own personality. Polish coffee culture is serious — espresso, slow mornings, good books. The sort of thing you can build a life around.</p>
+      </div>
+      <div class="life-card">
+        <div class="life-icon">🏔️</div>
+        <div class="life-title">Day trips &amp; the Tatry</div>
+        <p class="life-desc">The Tatra Mountains, on the Slovak border, are 2 hours away. Zakopane — the mountain resort town at the base of the Tatras — is a classic Polish day or weekend trip. Auschwitz-Birkenau (a profoundly important historical site) is 90 minutes. Vienna is a 4-hour train ride. Prague is 7 hours. The location is remarkable for exploration.</p>
+      </div>
+      <div class="life-card">
+        <div class="life-icon">🏥</div>
+        <div class="life-title">Healthcare</div>
+        <p class="life-desc">Private healthcare in Kraków is excellent and very affordable by US standards. A specialist appointment at a quality private clinic costs $30–60. MEDICOVER and LUX MED are the two main private chains, both with English-speaking doctors. Monthly private health insurance runs about $60–120 for comprehensive coverage.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRACTICAL -->
+  <section class="practical">
+    <div class="section-label">The practical side</div>
+    <h2>What you need <em>to know.</em></h2>
+    <div class="practical-grid">
+      <div class="practical-item">
+        <div class="practical-label">Visa</div>
+        <div class="practical-value">Schengen 90-Day</div>
+        <p class="practical-note">US citizens can stay in the Schengen Area 90 days out of every 180 days visa-free. For longer stays, Poland offers a Temporary Residence Permit. Poland joined the EU in 2004 — residency leads to EU permanent residency after 5 years.</p>
+      </div>
+      <div class="practical-item">
+        <div class="practical-label">Taxes</div>
+        <div class="practical-value">Polish Tax System</div>
+        <p class="practical-note">Poland has a progressive income tax (12% / 32%) and a US-Poland tax treaty. If you become tax resident, foreign pension income may be partially exempt. A Polish tax advisor (<em>doradca podatkowy</em>) is essential before establishing residency.</p>
+      </div>
+      <div class="practical-item">
+        <div class="practical-label">Getting Around</div>
+        <div class="practical-value">Excellent Trams</div>
+        <p class="practical-note">Kraków's tram and bus network is extensive and cheap — a monthly pass is about $25. The Old Town is a pedestrian zone. A car is unnecessary for city life. Bolt (Uber equivalent) is cheap and reliable for longer trips.</p>
+      </div>
+      <div class="practical-item">
+        <div class="practical-label">Winter</div>
+        <div class="practical-value">Plan for Cold</div>
+        <p class="practical-note">November through February is genuinely cold (often below freezing) and gray. Some expats plan annual travel to warmer destinations these months. The upside: Christmas markets in Kraków are magical, and summer is long, warm, and spectacular.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HANDOFF -->
+  <section class="handoff">
+    <div class="section-label">Ready to explore further?</div>
+    <h2>Your next <em>step.</em></h2>
+    <div class="handoff-cards">
+      <div class="handoff-card">
+        <div class="handoff-icon">🧭</div>
+        <div class="handoff-title">Talk to a retirement advisor</div>
+        <p class="handoff-desc">Poland's tax system and US-Poland treaty implications are worth understanding before you move. A specialist advisor helps you set up your finances correctly — Social Security, investment accounts, and retirement income structured for a European retirement.</p>
+        <a href="advisor-international.html" class="handoff-btn handoff-btn-primary">Find an advisor →</a>
+      </div>
+      <div class="handoff-card">
+        <div class="handoff-icon">🏡</div>
+        <div class="handoff-title">Browse homes &amp; rentals</div>
+        <p class="handoff-desc">Kraków's rental market has tightened since the pandemic but remains exceptional value. Old Town apartments, Kazimierz lofts, and suburban houses all available at a range of price points. Most expats rent first, then buy if they stay longer than 2 years.</p>
+        <a href="browse-homes-international.html" class="handoff-btn handoff-btn-ghost">Explore rentals →</a>
+      </div>
+      <div class="handoff-card">
+        <div class="handoff-icon">✈️</div>
+        <div class="handoff-title">Plan a scouting trip</div>
+        <p class="handoff-desc">Visit in May, June, or September — shoulder season when the city is alive without peak-summer crowds. Spend time in each neighborhood, eat everything, and walk along the Vistula at sunset. One week and you'll know exactly how you feel about Kraków.</p>
+        <a href="scouting-trips.html" class="handoff-btn handoff-btn-ghost">Plan your trip →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a class="footer-wordmark" href="homepage-mockup.html">Retire<em>Vibes</em></a>
+    <div class="footer-links">
+      <a href="homepage-mockup.html#destinations">Destinations</a>
+      <a href="homepage-mockup.html#how-it-works">How it works</a>
+      <a href="find-an-advisor.html">Find an advisor</a>
+      <a href="scouting-trips.html">Scouting trips</a>
+      <a href="my-retirevibes.html">My RetireVibes</a>
+    </div>
+    <p class="footer-copy">© 2025 RetireVibes. Good RetireVibes Only.</p>
+  </footer>
+
+  <script src="shared.js"></script>
+</body>
+</html>

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lake Atitlán, Guatemala — RetireVibes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    :root {
+      --cream: #FBF6EE;
+      --cream-soft: #F4ECDD;
+      --terracotta: #C97B5A;
+      --terracotta-dark: #A8593A;
+      --teal: #1B3A4B;
+      --teal-soft: #2E5468;
+      --gold: #C8A064;
+      --gold-soft: #E4C998;
+      --sage: #93A89A;
+      --warm-gray: #7A6E5F;
+      --white: #FFFFFF;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'Inter', -apple-system, system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--sans); background: var(--cream); color: var(--teal); }
+
+    /* NAV */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 64px;
+      background: rgba(251,246,238,0.95); backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(27,58,75,0.08);
+    }
+    .wordmark { font-family: var(--serif); font-size: 22px; color: var(--teal); text-decoration: none; }
+    .wordmark em { font-style: italic; color: var(--terracotta); }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { font-size: 15px; color: var(--teal); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--terracotta); }
+    .nav-cta {
+      background: var(--terracotta); color: var(--white) !important;
+      padding: 10px 22px; border-radius: 999px; font-size: 15px; font-weight: 600;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--terracotta-dark) !important; }
+
+    /* HERO */
+    .hero {
+      position: relative; height: 92vh; min-height: 580px;
+      display: flex; align-items: flex-end;
+      overflow: hidden;
+    }
+    .hero-img {
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1601001435957-74f7e2f6c7cd?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(27,58,75,0.85) 0%, rgba(27,58,75,0.3) 50%, transparent 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 0 72px 72px;
+      max-width: 860px;
+    }
+    .hero-label {
+      font-size: 12px; font-weight: 600; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--gold-soft);
+      margin-bottom: 18px;
+    }
+    .hero h1 {
+      font-family: var(--serif); font-size: 68px; line-height: 1.03;
+      letter-spacing: -0.02em; color: var(--white);
+      margin-bottom: 24px;
+    }
+    .hero h1 em { font-style: italic; color: var(--gold-soft); }
+    .hero-sub {
+      font-size: 18px; line-height: 1.6; color: rgba(255,255,255,0.85);
+      max-width: 560px; margin-bottom: 32px;
+    }
+    .vibe-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+    .vibe-tag {
+      display: inline-block; padding: 7px 18px; border-radius: 999px;
+      border: 1.5px solid rgba(255,255,255,0.35); color: var(--white);
+      font-size: 13px; font-weight: 500; letter-spacing: 0.04em;
+      backdrop-filter: blur(4px);
+    }
+
+    /* SECTIONS */
+    section { padding: 96px 72px; }
+    .section-label {
+      font-size: 12px; font-weight: 600; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--warm-gray); margin-bottom: 16px;
+    }
+    h2 {
+      font-family: var(--serif); font-size: 46px; line-height: 1.1;
+      letter-spacing: -0.015em; color: var(--teal); margin-bottom: 20px;
+    }
+    h2 em { font-style: italic; color: var(--terracotta); }
+    .lead { font-size: 18px; line-height: 1.7; color: var(--warm-gray); max-width: 660px; }
+    .body-text { font-size: 16px; line-height: 1.7; color: var(--warm-gray); max-width: 720px; }
+
+    /* TWO-COL LAYOUT */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .two-col-wide { display: grid; grid-template-columns: 3fr 2fr; gap: 80px; align-items: start; }
+
+    /* OVERVIEW */
+    .overview { background: var(--white); }
+    .overview-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 56px; }
+    .stat-card {
+      background: var(--cream); border-radius: 16px; padding: 32px 28px;
+      border: 1px solid rgba(27,58,75,0.07);
+    }
+    .stat-label { font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 8px; }
+    .stat-value { font-family: var(--serif); font-size: 36px; color: var(--teal); line-height: 1.1; }
+    .stat-note { font-size: 14px; color: var(--warm-gray); margin-top: 6px; }
+
+    /* COST */
+    .cost { background: var(--teal); }
+    .cost .section-label { color: var(--gold-soft); }
+    .cost h2 { color: var(--white); }
+    .cost h2 em { color: var(--gold-soft); }
+    .cost .lead { color: rgba(255,255,255,0.75); }
+    .cost-tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+    .cost-tier {
+      background: rgba(255,255,255,0.08); border-radius: 18px;
+      padding: 36px 28px; border: 1px solid rgba(255,255,255,0.12);
+    }
+    .tier-name { font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 12px; }
+    .tier-price { font-family: var(--serif); font-size: 42px; color: var(--white); line-height: 1; margin-bottom: 6px; }
+    .tier-period { font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 24px; }
+    .tier-items { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .tier-items li { font-size: 14px; color: rgba(255,255,255,0.8); padding-left: 18px; position: relative; }
+    .tier-items li::before { content: '—'; position: absolute; left: 0; color: var(--gold); }
+    .cost-note { font-size: 14px; color: rgba(255,255,255,0.5); margin-top: 32px; font-style: italic; }
+
+    /* NEIGHBORHOODS */
+    .neighborhoods { background: var(--cream-soft); }
+    .neighborhood-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+    .neighborhood-card {
+      background: var(--white); border-radius: 16px; overflow: hidden;
+      border: 1px solid rgba(27,58,75,0.07);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .neighborhood-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(27,58,75,0.1); }
+    .neighborhood-img { height: 180px; object-fit: cover; width: 100%; display: block; }
+    .neighborhood-body { padding: 24px; }
+    .neighborhood-name { font-family: var(--serif); font-size: 22px; color: var(--teal); margin-bottom: 8px; }
+    .neighborhood-tag { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 10px; }
+    .neighborhood-desc { font-size: 14px; line-height: 1.65; color: var(--warm-gray); }
+
+    /* LIFE SECTION */
+    .life { background: var(--white); }
+    .life-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 48px; }
+    .life-card {
+      background: var(--cream); border-radius: 16px; padding: 32px 28px;
+      border: 1px solid rgba(27,58,75,0.06);
+    }
+    .life-icon { font-size: 28px; margin-bottom: 14px; }
+    .life-title { font-family: var(--serif); font-size: 20px; color: var(--teal); margin-bottom: 10px; }
+    .life-desc { font-size: 15px; line-height: 1.65; color: var(--warm-gray); }
+
+    /* PRACTICAL */
+    .practical { background: var(--cream-soft); }
+    .practical-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; }
+    .practical-item { padding: 0; }
+    .practical-label { font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 10px; }
+    .practical-value { font-family: var(--serif); font-size: 18px; color: var(--teal); margin-bottom: 6px; }
+    .practical-note { font-size: 14px; color: var(--warm-gray); line-height: 1.5; }
+
+    /* HANDOFF */
+    .handoff { background: var(--cream); }
+    .handoff h2 { margin-bottom: 48px; }
+    .handoff-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .handoff-card {
+      background: var(--white); border-radius: 18px; padding: 40px 32px;
+      border: 1px solid rgba(27,58,75,0.07);
+      display: flex; flex-direction: column;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .handoff-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(27,58,75,0.1); }
+    .handoff-icon { font-size: 32px; margin-bottom: 20px; }
+    .handoff-title { font-family: var(--serif); font-size: 24px; color: var(--teal); margin-bottom: 12px; }
+    .handoff-desc { font-size: 15px; line-height: 1.65; color: var(--warm-gray); flex: 1; margin-bottom: 28px; }
+    .handoff-btn {
+      display: inline-block; padding: 14px 28px; border-radius: 999px;
+      font-size: 15px; font-weight: 600; text-decoration: none; text-align: center;
+      transition: all 0.2s;
+    }
+    .handoff-btn-primary { background: var(--terracotta); color: var(--white); }
+    .handoff-btn-primary:hover { background: var(--terracotta-dark); }
+    .handoff-btn-ghost { border: 2px solid var(--teal); color: var(--teal); }
+    .handoff-btn-ghost:hover { background: var(--teal); color: var(--white); }
+
+    /* FOOTER */
+    footer {
+      background: var(--teal); color: rgba(255,255,255,0.65);
+      padding: 56px 72px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .footer-wordmark { font-family: var(--serif); font-size: 20px; color: var(--white); text-decoration: none; }
+    .footer-wordmark em { font-style: italic; color: var(--gold-soft); }
+    .footer-links { display: flex; gap: 32px; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy { font-size: 13px; }
+
+    @media (max-width: 980px) {
+      .hero-content { padding: 0 24px 48px; }
+      .hero h1 { font-size: 44px; }
+      section { padding: 64px 24px; }
+      .two-col, .two-col-wide { grid-template-columns: 1fr; gap: 40px; }
+      .overview-stats, .cost-tiers, .neighborhood-grid, .practical-grid, .handoff-cards { grid-template-columns: 1fr; }
+      .life-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 24px; text-align: center; padding: 48px 24px; }
+      .footer-links { flex-wrap: wrap; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="wordmark" href="homepage-mockup.html">Retire<em>Vibes</em></a>
+    <div class="nav-links">
+      <a href="homepage-mockup.html#destinations">Destinations</a>
+      <a href="my-retirevibes.html">My RetireVibes</a>
+      <a href="mockups/vibe-quiz.html" class="nav-cta">Take the quiz →</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-img"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-label">Guatemala · Central America</p>
+      <h1>Where volcanoes meet<br /><em>eternal spring.</em></h1>
+      <p class="hero-sub">Lake Atitlán sits at 5,000 feet, cradled by three volcanoes and a dozen Maya villages. It is, without question, one of the most beautiful places on earth — and it barely costs anything to live here.</p>
+      <div class="vibe-tags">
+        <span class="vibe-tag">Nature-immersed</span>
+        <span class="vibe-tag">Bohemian &amp; spiritual</span>
+        <span class="vibe-tag">Year-round warmth</span>
+        <span class="vibe-tag">Tight-knit expat community</span>
+        <span class="vibe-tag">Adventure-ready</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- OVERVIEW -->
+  <section class="overview">
+    <div class="section-label">The vibe</div>
+    <div class="two-col-wide">
+      <div>
+        <h2>Life at the <em>edge of a volcano.</em></h2>
+        <p class="lead">Lake Atitlán doesn't feel like retirement. It feels like you finally did something remarkable with your life.</p>
+        <br />
+        <p class="body-text">The lake stretches 50 square miles between three towering volcanoes — San Pedro, Tolimán, and Atitlán — and the altitude keeps temperatures hovering between 65–80°F year-round. No air conditioning needed. No heavy coats. Just perfect days, hammock afternoons, and spectacular sunsets over the water.</p>
+        <br />
+        <p class="body-text">A loose constellation of villages rings the lake. Panajachel (locals call it "Pana") is the expat and tourist hub, with its lively market street, ATMs, and restaurants. San Marcos La Laguna draws the meditation and yoga crowd. San Pedro La Laguna has a livelier backpacker energy. San Juan La Laguna is quieter, known for its weaving cooperatives and art galleries. Each town is different — and you can reach them all by the iconic wooden <em>lanchas</em> (water taxis) that cross the lake throughout the day.</p>
+        <br />
+        <p class="body-text">The expat community here skews creative, purposeful, and independent. Retired teachers, artists, writers, and wellness practitioners who wanted something far outside the ordinary. Guatemalan culture — particularly the Tz'utujil and Kaqchikel Maya traditions — is vivid and alive all around you, from the daily market in Chichicastenango to the handwoven textiles in every village.</p>
+      </div>
+      <div class="overview-stats">
+        <div class="stat-card">
+          <div class="stat-label">Climate</div>
+          <div class="stat-value">Eternal Spring</div>
+          <div class="stat-note">65–80°F year-round at 5,100 ft elevation</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Language</div>
+          <div class="stat-value">Spanish</div>
+          <div class="stat-note">English spoken in most expat businesses</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Currency</div>
+          <div class="stat-value">Quetzal</div>
+          <div class="stat-note">~7.7 GTQ per USD (stable)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Internet</div>
+          <div class="stat-value">Good</div>
+          <div class="stat-note">Fiber available in Pana, slower in villages</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Nearest Airport</div>
+          <div class="stat-value">Guatemala City</div>
+          <div class="stat-note">~3 hrs to the lake via shuttle</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Best For</div>
+          <div class="stat-value">Nature &amp; Purpose</div>
+          <div class="stat-note">Adventure, wellness, culture, simplicity</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COST -->
+  <section class="cost">
+    <div class="section-label">Cost of living</div>
+    <h2>Your dollar <em>goes far.</em></h2>
+    <p class="lead">Lake Atitlán is one of the most affordable retirement destinations on the planet — and it doesn't feel like a compromise. It feels like abundance.</p>
+    <div class="cost-tiers">
+      <div class="cost-tier">
+        <div class="tier-name">Simple &amp; Comfortable</div>
+        <div class="tier-price">$1,400</div>
+        <div class="tier-period">per month, est.</div>
+        <ul class="tier-items">
+          <li>Comfortable 1BR rental in a village</li>
+          <li>Home-cooked meals + local market shopping</li>
+          <li>Occasional restaurant meals</li>
+          <li>Lanchas, tuk-tuks, local transport</li>
+          <li>Spanish lessons, yoga classes</li>
+        </ul>
+      </div>
+      <div class="cost-tier">
+        <div class="tier-name">Comfortable with Extras</div>
+        <div class="tier-price">$2,000</div>
+        <div class="tier-period">per month, est.</div>
+        <ul class="tier-items">
+          <li>Spacious home with lake or volcano views</li>
+          <li>Mix of home cooking and dining out regularly</li>
+          <li>Private Spanish tutor or wellness retreats</li>
+          <li>Weekend trips around Guatemala</li>
+          <li>Comfortable healthcare coverage</li>
+        </ul>
+      </div>
+      <div class="cost-tier">
+        <div class="tier-name">Upscale &amp; Enjoyable</div>
+        <div class="tier-price">$2,800</div>
+        <div class="tier-period">per month, est.</div>
+        <ul class="tier-items">
+          <li>Lakefront home or private villa rental</li>
+          <li>Full-time housekeeper or gardener</li>
+          <li>Regular dining at upscale restaurants</li>
+          <li>Travel throughout Latin America</li>
+          <li>Private health insurance + concierge care</li>
+        </ul>
+      </div>
+    </div>
+    <p class="cost-note">Estimates are for a single person. Couples typically add 30–50%. Costs vary significantly between villages — San Marcos and San Juan trend lower; Panajachel runs higher. These are real-life estimates, not minimums.</p>
+  </section>
+
+  <!-- NEIGHBORHOODS -->
+  <section class="neighborhoods">
+    <div class="section-label">Around the lake</div>
+    <h2>Every village has a <em>different vibe.</em></h2>
+    <p class="lead" style="margin-bottom: 0;">The lake is not one place — it's a collection of distinct communities, each with its own personality. Choose your scene.</p>
+    <div class="neighborhood-grid">
+      <div class="neighborhood-card">
+        <img class="neighborhood-img" src="https://images.unsplash.com/photo-1590859808308-3d2d9c515b1a?auto=format&fit=crop&w=600&q=80" alt="Panajachel" />
+        <div class="neighborhood-body">
+          <div class="neighborhood-tag">Expat hub</div>
+          <div class="neighborhood-name">Panajachel</div>
+          <p class="neighborhood-desc">The most connected town on the lake. ATMs, grocery stores, international restaurants, and a lively market street (Santander). Higher prices than the villages, but easiest for day-to-day logistics.</p>
+        </div>
+      </div>
+      <div class="neighborhood-card">
+        <img class="neighborhood-img" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&q=80" alt="San Marcos La Laguna" />
+        <div class="neighborhood-body">
+          <div class="neighborhood-tag">Wellness &amp; spiritual</div>
+          <div class="neighborhood-name">San Marcos La Laguna</div>
+          <p class="neighborhood-desc">The yoga, meditation, and healing arts capital of Central America. Retreat centers, vegetarian restaurants, crystal shops, and a beautifully slow pace. Beloved by the spiritual and wellness crowd.</p>
+        </div>
+      </div>
+      <div class="neighborhood-card">
+        <img class="neighborhood-img" src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=600&q=80" alt="San Juan La Laguna" />
+        <div class="neighborhood-body">
+          <div class="neighborhood-tag">Quiet &amp; creative</div>
+          <div class="neighborhood-name">San Juan La Laguna</div>
+          <p class="neighborhood-desc">Quieter than Pana, more authentic than San Marcos. Known for women's weaving cooperatives, natural dye workshops, and excellent coffee. A favorite for artists and writers who want to actually get work done.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIFE -->
+  <section class="life">
+    <div class="section-label">Day-to-day life</div>
+    <h2>What life actually <em>looks like.</em></h2>
+    <div class="life-grid">
+      <div class="life-card">
+        <div class="life-icon">🌋</div>
+        <div class="life-title">Adventure at every turn</div>
+        <p class="life-desc">Hike up the San Pedro volcano before breakfast. Kayak across the lake in the afternoon. Day-trip to Chichicastenango market on Thursday or Sunday — one of the most spectacular indigenous markets in Latin America. Guatemala's highlands, colonial Antigua, and the Pacific coast are all within a few hours.</p>
+      </div>
+      <div class="life-card">
+        <div class="life-icon">🧘</div>
+        <div class="life-title">Wellness culture</div>
+        <p class="life-desc">Yoga classes, temazcal (traditional Maya sweat lodge) ceremonies, sound healing, cacao rituals, and massage are all part of ordinary life here. San Marcos alone has more retreat centers per capita than almost anywhere in the world.</p>
+      </div>
+      <div class="life-card">
+        <div class="life-icon">🎨</div>
+        <div class="life-title">A creative community</div>
+        <p class="life-desc">The Atitlán expat community is unusually creative — painters, potters, writers, musicians. Maya textile art is everywhere, and many expats take weaving or natural-dye workshops as a way to connect with local culture. The art scene is small but genuinely good.</p>
+      </div>
+      <div class="life-card">
+        <div class="life-icon">🏥</div>
+        <div class="life-title">Healthcare</div>
+        <p class="life-desc">Basic care is available in Panajachel and surrounding towns at very low cost. For anything serious, Guatemala City is about 3 hours away and has excellent private hospitals at a fraction of US prices. Many expats carry a simple private health plan for around $100–200/month.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRACTICAL -->
+  <section class="practical">
+    <div class="section-label">The practical side</div>
+    <h2>What you need <em>to know.</em></h2>
+    <div class="practical-grid">
+      <div class="practical-item">
+        <div class="practical-label">Visa</div>
+        <div class="practical-value">90-Day Tourist</div>
+        <p class="practical-note">US citizens get 90 days visa-free in the CA-4 (Guatemala, Honduras, El Salvador, Nicaragua). Border runs or temporary residency extend this. Pensionado residency available for $1,000+/month income.</p>
+      </div>
+      <div class="practical-item">
+        <div class="practical-label">Safety</div>
+        <div class="practical-value">Exercise Caution</div>
+        <p class="practical-note">The lake region is considered significantly safer than Guatemala City. Most expats live comfortably for years without incident. Apply the same awareness you'd use in any city abroad.</p>
+      </div>
+      <div class="practical-item">
+        <div class="practical-label">Getting Around</div>
+        <div class="practical-value">Lanchas &amp; Tuk-Tuks</div>
+        <p class="practical-note">The wooden water taxis (lanchas) are the main way to get between villages. Within towns, tuk-tuks run for about $1. A car is rarely necessary for lake life.</p>
+      </div>
+      <div class="practical-item">
+        <div class="practical-label">Banking</div>
+        <div class="practical-value">Cash-Heavy</div>
+        <p class="practical-note">ATMs in Panajachel (Banrural, Banco Industrial). Cards accepted at larger restaurants. Most local markets and smaller villages are cash-only. Bring enough quetzales when traveling around the lake.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HANDOFF -->
+  <section class="handoff">
+    <div class="section-label">Ready to explore further?</div>
+    <h2>Your next <em>step.</em></h2>
+    <div class="handoff-cards">
+      <div class="handoff-card">
+        <div class="handoff-icon">🧭</div>
+        <div class="handoff-title">Talk to a retirement advisor</div>
+        <p class="handoff-desc">Retiring internationally means navigating tax implications, Social Security timing, and cross-border financial planning. A specialist advisor makes sure your money is set up right before you go.</p>
+        <a href="advisor-international.html" class="handoff-btn handoff-btn-primary">Find an advisor →</a>
+      </div>
+      <div class="handoff-card">
+        <div class="handoff-icon">🏡</div>
+        <div class="handoff-title">Browse homes &amp; rentals</div>
+        <p class="handoff-desc">Most expats rent first — it's the smartest way to find your village and get a feel for each community before committing. Long-term rentals are plentiful and the market is landlord-friendly for tenants.</p>
+        <a href="browse-homes-international.html" class="handoff-btn handoff-btn-ghost">Explore rentals →</a>
+      </div>
+      <div class="handoff-card">
+        <div class="handoff-icon">✈️</div>
+        <div class="handoff-title">Plan a scouting trip</div>
+        <p class="handoff-desc">One visit to Lake Atitlán and you'll understand immediately why people never leave. A 7–10 day scouting trip lets you live in Panajachel, explore the villages by lancha, and know for certain if this is your place.</p>
+        <a href="scouting-trips.html" class="handoff-btn handoff-btn-ghost">Plan your trip →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a class="footer-wordmark" href="homepage-mockup.html">Retire<em>Vibes</em></a>
+    <div class="footer-links">
+      <a href="homepage-mockup.html#destinations">Destinations</a>
+      <a href="homepage-mockup.html#how-it-works">How it works</a>
+      <a href="find-an-advisor.html">Find an advisor</a>
+      <a href="scouting-trips.html">Scouting trips</a>
+      <a href="my-retirevibes.html">My RetireVibes</a>
+    </div>
+    <p class="footer-copy">© 2025 RetireVibes. Good RetireVibes Only.</p>
+  </footer>
+
+  <script src="shared.js"></script>
+</body>
+</html>
