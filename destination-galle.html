@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galle, Sri Lanka — RetireVibes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #FBF6EE;
+      --cream-soft: #F4ECDD;
+      --terracotta: #C97B5A;
+      --terracotta-dark: #A8593A;
+      --teal: #1B3A4B;
+      --teal-soft: #2E5468;
+      --gold: #C8A064;
+      --gold-soft: #E4C998;
+      --sage: #93A89A;
+      --warm-gray: #7A6E5F;
+      --white: #FFFFFF;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'Inter', -apple-system, system-ui, sans-serif;
+    }
+
+    body { font-family: var(--sans); background: var(--cream); color: var(--teal); }
+
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 68px; background: var(--white); border-bottom: 1px solid rgba(27,58,75,0.08); position: sticky; top: 0; z-index: 100; }
+    .wordmark { font-family: var(--serif); font-size: 22px; color: var(--teal); text-decoration: none; }
+    .wordmark em { color: var(--terracotta); font-style: italic; }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { font-size: 15px; color: var(--teal); text-decoration: none; font-weight: 500; opacity: 0.75; transition: opacity 0.2s; }
+    .nav-links a:hover { opacity: 1; }
+    .nav-links .nav-cta { background: var(--terracotta); color: var(--white); padding: 10px 22px; border-radius: 999px; opacity: 1; font-weight: 600; font-size: 14px; transition: background 0.2s; }
+    .nav-links .nav-cta:hover { background: var(--terracotta-dark); }
+
+    .hero { position: relative; height: 580px; overflow: hidden; background: linear-gradient(135deg, #0d2137 0%, #1a4a6b 50%, #2980b9 100%); }
+    .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(5,20,40,0.3) 0%, rgba(5,20,40,0.7) 100%); }
+    .hero-content { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 64px 56px; }
+    .hero-label { font-size: 12px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 14px; }
+    .hero-title { font-family: var(--serif); font-size: 68px; line-height: 1.02; letter-spacing: -0.02em; color: var(--white); margin-bottom: 8px; }
+    .hero-title em { color: var(--gold-soft); font-style: italic; }
+    .hero-subtitle { font-size: 18px; color: rgba(255,255,255,0.82); line-height: 1.5; margin-bottom: 32px; max-width: 540px; }
+    .hero-pills { display: flex; gap: 10px; flex-wrap: wrap; }
+    .hero-pill { background: rgba(255,255,255,0.18); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.3); border-radius: 999px; padding: 7px 16px; font-size: 13px; font-weight: 500; color: var(--white); }
+
+    .stats-strip { background: var(--teal); color: var(--white); display: grid; grid-template-columns: repeat(4, 1fr); }
+    .stat-item { padding: 28px 32px; border-right: 1px solid rgba(255,255,255,0.1); }
+    .stat-item:last-child { border-right: none; }
+    .stat-label { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 6px; }
+    .stat-value { font-family: var(--serif); font-size: 28px; color: var(--white); }
+    .stat-note { font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 3px; }
+
+    .page-body { max-width: 1100px; margin: 0 auto; padding: 72px 48px; }
+
+    .intro-section { display: grid; grid-template-columns: 1fr 360px; gap: 64px; margin-bottom: 80px; align-items: start; }
+    .intro-text .section-label { font-size: 12px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 16px; }
+    .intro-text h2 { font-family: var(--serif); font-size: 44px; line-height: 1.08; letter-spacing: -0.015em; color: var(--teal); margin-bottom: 24px; }
+    .intro-text h2 em { color: var(--terracotta); font-style: italic; }
+    .intro-text p { font-size: 16px; line-height: 1.75; color: var(--warm-gray); margin-bottom: 16px; }
+
+    .quick-facts { background: var(--white); border-radius: 18px; padding: 32px; border: 1px solid rgba(27,58,75,0.07); position: sticky; top: 88px; }
+    .quick-facts h3 { font-family: var(--serif); font-size: 20px; color: var(--teal); margin-bottom: 20px; }
+    .fact-row { display: flex; justify-content: space-between; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid rgba(27,58,75,0.06); gap: 12px; }
+    .fact-row:last-child { border-bottom: none; }
+    .fact-key { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm-gray); min-width: 90px; padding-top: 2px; }
+    .fact-val { font-size: 14px; color: var(--teal); text-align: right; font-weight: 500; line-height: 1.5; }
+
+    .section-header { margin-bottom: 36px; }
+    .section-header .section-label { font-size: 12px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 12px; }
+    .section-header h2 { font-family: var(--serif); font-size: 40px; line-height: 1.1; letter-spacing: -0.015em; color: var(--teal); }
+    .section-header h2 em { color: var(--terracotta); font-style: italic; }
+
+    .vibe-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 80px; }
+    .vibe-card { background: var(--white); border-radius: 16px; padding: 32px; border: 1px solid rgba(27,58,75,0.07); transition: transform 0.25s, box-shadow 0.25s; }
+    .vibe-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(27,58,75,0.1); }
+    .vibe-icon { font-size: 32px; margin-bottom: 16px; }
+    .vibe-card h3 { font-family: var(--serif); font-size: 22px; color: var(--teal); margin-bottom: 10px; }
+    .vibe-card p { font-size: 15px; line-height: 1.65; color: var(--warm-gray); }
+
+    .day-section { background: var(--teal); border-radius: 20px; padding: 56px 64px; margin-bottom: 80px; color: var(--white); }
+    .day-section .section-label { color: var(--gold-soft); margin-bottom: 12px; font-size: 12px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; }
+    .day-section h2 { font-family: var(--serif); font-size: 40px; line-height: 1.1; letter-spacing: -0.015em; color: var(--white); margin-bottom: 32px; }
+    .day-section h2 em { color: var(--gold-soft); font-style: italic; }
+    .day-timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .day-time { font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 10px; }
+    .day-block h4 { font-family: var(--serif); font-size: 20px; color: var(--white); margin-bottom: 8px; }
+    .day-block p { font-size: 14px; line-height: 1.65; color: rgba(255,255,255,0.72); }
+
+    .cost-section { margin-bottom: 80px; }
+    .cost-table { background: var(--white); border-radius: 18px; overflow: hidden; border: 1px solid rgba(27,58,75,0.07); }
+    .cost-row { display: grid; grid-template-columns: 1fr auto auto; padding: 18px 32px; border-bottom: 1px solid rgba(27,58,75,0.06); align-items: center; gap: 24px; }
+    .cost-row:last-child { border-bottom: none; }
+    .cost-row.header { background: var(--cream-soft); }
+    .cost-row.header span { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--warm-gray); }
+    .cost-row.total { background: var(--teal); }
+    .cost-row.total .cost-item-name { color: var(--white); font-weight: 600; font-size: 15px; }
+    .cost-row.total .cost-comfortable { color: var(--gold-soft); font-weight: 700; font-size: 16px; }
+    .cost-row.total .cost-upscale { color: rgba(255,255,255,0.7); font-weight: 600; font-size: 15px; }
+    .cost-item-name { font-size: 15px; color: var(--teal); font-weight: 500; }
+    .cost-comfortable { font-size: 15px; color: var(--teal); font-weight: 600; text-align: right; min-width: 110px; }
+    .cost-upscale { font-size: 14px; color: var(--warm-gray); text-align: right; min-width: 110px; }
+    .cost-note { font-size: 13px; color: var(--warm-gray); margin-top: 12px; line-height: 1.6; }
+
+    .neighborhoods-section { margin-bottom: 80px; }
+    .neighborhood-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .neighborhood-card { background: var(--white); border-radius: 16px; padding: 28px; border: 1px solid rgba(27,58,75,0.07); transition: transform 0.25s, box-shadow 0.25s; }
+    .neighborhood-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(27,58,75,0.09); }
+    .neighborhood-tag { display: inline-block; background: var(--cream-soft); border-radius: 999px; padding: 4px 12px; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 14px; }
+    .neighborhood-card h3 { font-family: var(--serif); font-size: 20px; color: var(--teal); margin-bottom: 10px; }
+    .neighborhood-card p { font-size: 14px; line-height: 1.65; color: var(--warm-gray); }
+
+    .practical-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 80px; }
+    .practical-card { background: var(--white); border-radius: 18px; padding: 36px; border: 1px solid rgba(27,58,75,0.07); }
+    .practical-card .section-label { font-size: 12px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 12px; }
+    .practical-card h3 { font-family: var(--serif); font-size: 26px; color: var(--teal); margin-bottom: 16px; }
+    .practical-card p { font-size: 15px; line-height: 1.7; color: var(--warm-gray); margin-bottom: 12px; }
+    .practical-card p:last-child { margin-bottom: 0; }
+    .info-pill { display: inline-block; background: var(--cream-soft); border-radius: 999px; padding: 6px 14px; font-size: 13px; font-weight: 500; color: var(--teal); margin: 4px 4px 4px 0; }
+
+    .handoff-section { margin-bottom: 80px; }
+    .handoff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .handoff-card { background: var(--white); border-radius: 18px; padding: 32px; border: 1px solid rgba(27,58,75,0.07); display: flex; flex-direction: column; transition: transform 0.25s, box-shadow 0.25s; }
+    .handoff-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(27,58,75,0.1); }
+    .handoff-icon { font-size: 28px; margin-bottom: 16px; }
+    .handoff-card h3 { font-family: var(--serif); font-size: 20px; color: var(--teal); margin-bottom: 10px; }
+    .handoff-card p { font-size: 14px; line-height: 1.65; color: var(--warm-gray); flex: 1; margin-bottom: 24px; }
+    .handoff-btn { display: inline-block; background: var(--terracotta); color: var(--white); padding: 12px 22px; border-radius: 999px; font-size: 14px; font-weight: 600; text-decoration: none; text-align: center; transition: background 0.2s; }
+    .handoff-btn:hover { background: var(--terracotta-dark); }
+    .handoff-btn.ghost { background: transparent; color: var(--teal); border: 1.5px solid rgba(27,58,75,0.2); }
+    .handoff-btn.ghost:hover { background: var(--cream-soft); }
+
+    .similar-section { margin-bottom: 80px; }
+    .similar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .similar-card { background: var(--white); border-radius: 16px; overflow: hidden; border: 1px solid rgba(27,58,75,0.07); text-decoration: none; display: block; transition: transform 0.25s, box-shadow 0.25s; }
+    .similar-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(27,58,75,0.1); }
+    .similar-img { height: 160px; overflow: hidden; background: linear-gradient(135deg, var(--teal-soft), var(--teal)); display: flex; align-items: center; justify-content: center; font-size: 48px; }
+    .similar-info { padding: 20px 24px; }
+    .similar-info h4 { font-family: var(--serif); font-size: 18px; color: var(--teal); margin-bottom: 6px; }
+    .similar-info p { font-size: 13px; color: var(--warm-gray); line-height: 1.5; }
+
+    .footer { background: var(--teal); color: var(--white); padding: 48px 64px; display: flex; justify-content: space-between; align-items: center; }
+    .footer-wordmark { font-family: var(--serif); font-size: 20px; color: var(--white); text-decoration: none; }
+    .footer-wordmark em { color: var(--gold-soft); font-style: italic; }
+    .footer-links { display: flex; gap: 32px; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.4); }
+
+    @media (max-width: 980px) {
+      .hero-content { padding: 0 24px 40px; }
+      .hero-title { font-size: 44px; }
+      .stats-strip { grid-template-columns: repeat(2, 1fr); }
+      .page-body { padding: 48px 24px; }
+      .intro-section { grid-template-columns: 1fr; gap: 40px; }
+      .quick-facts { position: static; }
+      .vibe-grid, .day-timeline, .neighborhood-grid, .practical-grid, .handoff-grid, .similar-grid { grid-template-columns: 1fr; }
+      .day-section { padding: 40px 28px; }
+      .footer { flex-direction: column; gap: 24px; text-align: center; padding: 40px 24px; }
+      .footer-links { flex-wrap: wrap; justify-content: center; gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="wordmark" href="homepage-mockup.html">Retire<em>Vibes</em></a>
+    <div class="nav-links">
+      <a href="homepage-mockup.html#destinations">Destinations</a>
+      <a href="my-retirevibes.html">My RetireVibes</a>
+      <a href="results-page-mockup.html" class="nav-cta">Take the quiz →</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <img class="hero-img" src="https://images.unsplash.com/photo-1602231388417-d96d0e853d54?w=1400&q=80&fit=crop" alt="Galle Fort walls with Indian Ocean, Sri Lanka" />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-label">Sri Lanka · Southern Province</div>
+      <h1 class="hero-title">Galle,<br /><em>Sri Lanka</em></h1>
+      <p class="hero-subtitle">A Dutch colonial fort on the Indian Ocean where whitewashed ramparts meet jungle, history pours from every cobblestone, and the world has hardly found it yet.</p>
+      <div class="hero-pills">
+        <span class="hero-pill">🏯 UNESCO Fort</span>
+        <span class="hero-pill">🌊 Indian Ocean</span>
+        <span class="hero-pill">🕊️ Laid-Back</span>
+        <span class="hero-pill">🏛️ Colonial Charm</span>
+        <span class="hero-pill">🌿 Nature Everywhere</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats-strip">
+    <div class="stat-item">
+      <div class="stat-label">Starting From</div>
+      <div class="stat-value">$1,400<span style="font-size:16px">/mo</span></div>
+      <div class="stat-note">Comfortable lifestyle</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-label">Climate</div>
+      <div class="stat-value">Tropical</div>
+      <div class="stat-note">Warm year-round; dry Dec–Apr</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-label">Visa Option</div>
+      <div class="stat-value">RES Visa</div>
+      <div class="stat-note">Retirement visa for 55+, 5-year renewable</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-label">Language</div>
+      <div class="stat-value">English</div>
+      <div class="stat-note">Widely spoken; official languages Sinhala & Tamil</div>
+    </div>
+  </div>
+
+  <div class="page-body">
+
+    <div class="intro-section">
+      <div class="intro-text">
+        <div class="section-label">Why Galle</div>
+        <h2>The fort at the <em>edge</em> of the world</h2>
+        <p>Galle Fort is one of the most extraordinary places in Asia. Built by the Portuguese in 1588 and expanded by the Dutch in the 17th century, it's a UNESCO World Heritage site that still functions as a living neighborhood — with boutique hotels in colonial-era townhouses, excellent restaurants, art galleries, yoga studios, and a local community of Sri Lankan families and a growing cohort of expats who've chosen it as their permanent home.</p>
+        <p>The fort sits on a headland where the Indian Ocean meets Sri Lanka's southern coast. You can walk the rampart walls at sunset and watch the sea in three directions. Jungle Beach — one of the island's hidden gems — is a ten-minute walk. Whales breach offshore from November to April. Sea turtles nest on the beaches. This is a place of profound natural beauty, and the cost of living is a fraction of anything comparable in Europe or North America.</p>
+        <p>Sri Lanka is still early on the expat curve. The infrastructure is improving, the hospitality culture is genuinely warm, and those who've arrived in the past decade have found a place that feels undiscovered in the best possible way.</p>
+      </div>
+      <div class="quick-facts">
+        <h3>Quick Facts</h3>
+        <div class="fact-row"><span class="fact-key">Country</span><span class="fact-val">Sri Lanka</span></div>
+        <div class="fact-row"><span class="fact-key">Region</span><span class="fact-val">Southern Province</span></div>
+        <div class="fact-row"><span class="fact-key">Population</span><span class="fact-val">~100,000</span></div>
+        <div class="fact-row"><span class="fact-key">Nearest City</span><span class="fact-val">Colombo — 1.5 hrs by road</span></div>
+        <div class="fact-row"><span class="fact-key">Best Weather</span><span class="fact-val">Dec – Apr (southwest dry season)</span></div>
+        <div class="fact-row"><span class="fact-key">Currency</span><span class="fact-val">Sri Lankan Rupee (LKR)</span></div>
+        <div class="fact-row"><span class="fact-key">Time Zone</span><span class="fact-val">SLST (UTC+5:30)</span></div>
+        <div class="fact-row"><span class="fact-key">Nearest Airport</span><span class="fact-val">Bandaranaike Intl (CMB) — 1.5 hrs</span></div>
+      </div>
+    </div>
+
+    <div class="section-header">
+      <div class="section-label">The Vibe</div>
+      <h2>What life actually <em>feels</em> like</h2>
+    </div>
+    <div class="vibe-grid">
+      <div class="vibe-card">
+        <div class="vibe-icon">🏯</div>
+        <h3>Living Inside the Fort</h3>
+        <p>The fort's narrow cobblestone streets are lined with colonial townhouses repainted in cream, white, and soft blue. Life is walkable, quiet, and deeply atmospheric. Church Street, Pedlar Street, and the waterfront promenade feel like a different century entirely. Expats who live here tend to stay — the fort gets into you.</p>
+      </div>
+      <div class="vibe-card">
+        <div class="vibe-icon">🐋</div>
+        <h3>Nature at Every Turn</h3>
+        <p>Whale watching from November to April, sea turtle nesting on nearby Rekawa Beach, leopards in Yala National Park (2 hours east), and surfing at Hikkaduwa (18km). For retirees who want to feel connected to the natural world on a daily basis, the south coast of Sri Lanka is one of the most generously gifted places on earth.</p>
+      </div>
+      <div class="vibe-card">
+        <div class="vibe-icon">🍛</div>
+        <h3>Sri Lankan Food Is Underrated Everywhere</h3>
+        <p>Hoppers (bowl-shaped fermented rice pancakes) with sambol and curry for $1.50 at a local joint. Rice and curry — a different sequence of a dozen dishes every day — for $2. Fresh seafood bought at the fishing harbor for pennies per kilo. Sri Lankan cuisine is complex, spiced, and deeply satisfying. The fort also has excellent cafés and internationally influenced restaurants from expat chefs.</p>
+      </div>
+      <div class="vibe-card">
+        <div class="vibe-icon">🌅</div>
+        <h3>Rampart Walks at Sunset</h3>
+        <p>The defining daily ritual in Galle is walking the fort's ocean-facing ramparts as the sun goes down. The walls are wide enough to stroll in pairs, the Indian Ocean stretches in every direction, and the old lighthouse stands against a sky that turns coral and gold. It never gets old. Expats have been doing this walk for years and still stop to take photographs.</p>
+      </div>
+    </div>
+
+    <div class="day-section">
+      <div class="section-label">A Day in the Life</div>
+      <h2>Your <em>Friday</em> in Galle</h2>
+      <div class="day-timeline">
+        <div class="day-block">
+          <div class="day-time">6:45 am</div>
+          <h4>Hoppers & Fishing Harbor</h4>
+          <p>Breakfast at a local hopper shop near the bus station — egg hopper, coconut sambol, dhal, and a pot of Ceylon tea. Then a walk to the fishing harbor to watch the multicolored oruwa outrigger boats come in with the morning catch. You're back home before the heat builds, with fresh kingfish for dinner wrapped in banana leaf.</p>
+        </div>
+        <div class="day-block">
+          <div class="day-time">10:00 am</div>
+          <h4>Fort Life & Gallery Visits</h4>
+          <p>A wander through the fort — the Dutch Reformed Church, the lighthouse, the rows of boutique galleries selling batik, gemstones, and contemporary Sri Lankan art. Coffee at a fort café, then an hour of reading in your courtyard. The sounds: a tuk-tuk, a muezzin, distant surf, a cuckoo in the frangipani tree.</p>
+        </div>
+        <div class="day-block">
+          <div class="day-time">5:00 pm</div>
+          <h4>Rampart Walk & Seafood Dinner</h4>
+          <p>The daily ritual: the rampart walk as the sun drops behind the lighthouse. You stop to chat with the expat couple who moved from Bath three years ago. Then dinner — the kingfish from this morning, grilled with turmeric and lime, with coconut roti. A glass of Sri Lankan arrack on the veranda. The ocean below, glittering.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cost-section">
+      <div class="section-header">
+        <div class="section-label">Cost of Living</div>
+        <h2>What life here <em>actually</em> costs</h2>
+      </div>
+      <div class="cost-table">
+        <div class="cost-row header">
+          <span>Monthly Expense</span><span>Comfortable</span><span>Upscale</span>
+        </div>
+        <div class="cost-row">
+          <span class="cost-item-name">Rent (house or apartment)</span>
+          <span class="cost-comfortable">$400–800</span>
+          <span class="cost-upscale">$1,000–2,000</span>
+        </div>
+        <div class="cost-row">
+          <span class="cost-item-name">Groceries & market</span>
+          <span class="cost-comfortable">$100–180</span>
+          <span class="cost-upscale">$250–400</span>
+        </div>
+        <div class="cost-row">
+          <span class="cost-item-name">Dining out (mix of local & expat restaurants)</span>
+          <span class="cost-comfortable">$150–280</span>
+          <span class="cost-upscale">$400–700</span>
+        </div>
+        <div class="cost-row">
+          <span class="cost-item-name">Transportation (tuk-tuk & car hire)</span>
+          <span class="cost-comfortable">$60–120</span>
+          <span class="cost-upscale">$200–400</span>
+        </div>
+        <div class="cost-row">
+          <span class="cost-item-name">Utilities (electric, water, internet)</span>
+          <span class="cost-comfortable">$70–130</span>
+          <span class="cost-upscale">$150–280</span>
+        </div>
+        <div class="cost-row">
+          <span class="cost-item-name">Private health insurance</span>
+          <span class="cost-comfortable">$120–220</span>
+          <span class="cost-upscale">$300–550</span>
+        </div>
+        <div class="cost-row">
+          <span class="cost-item-name">Domestic help (optional)</span>
+          <span class="cost-comfortable">$100–200</span>
+          <span class="cost-upscale">$200–350</span>
+        </div>
+        <div class="cost-row">
+          <span class="cost-item-name">Entertainment & excursions</span>
+          <span class="cost-comfortable">$150–250</span>
+          <span class="cost-upscale">$400–700</span>
+        </div>
+        <div class="cost-row total">
+          <span class="cost-item-name">Monthly Total (est.)</span>
+          <span class="cost-comfortable">$1,150–2,180</span>
+          <span class="cost-upscale">$2,900–5,380</span>
+        </div>
+      </div>
+      <p class="cost-note">Estimates in USD based on 2025 exchange rates (~300 LKR/USD). Sri Lanka has been rebuilding economically since 2022–23; prices have stabilized. Fort-area rentals command a premium. Figures are illustrative ranges, not guarantees.</p>
+    </div>
+
+    <div class="neighborhoods-section">
+      <div class="section-header">
+        <div class="section-label">Where to Live</div>
+        <h2>Neighborhoods worth <em>knowing</em></h2>
+      </div>
+      <div class="neighborhood-grid">
+        <div class="neighborhood-card">
+          <span class="neighborhood-tag">Most Iconic</span>
+          <h3>Galle Fort</h3>
+          <p>Inside the UNESCO-listed walls. Colonial townhouses converted to boutique rentals, cobblestone streets, the ocean on three sides. The most atmospheric address in Sri Lanka. Premium-priced by local standards, with waiting lists for the best properties.</p>
+        </div>
+        <div class="neighborhood-card">
+          <span class="neighborhood-tag">Beach & Surf</span>
+          <h3>Unawatuna</h3>
+          <p>A 5-minute tuk-tuk from the fort, Unawatuna has a gentle bay beach, excellent dive sites, and a relaxed beach village atmosphere. Popular with younger expats and digital nomads, with great restaurants and a warm community.</p>
+        </div>
+        <div class="neighborhood-card">
+          <span class="neighborhood-tag">Local & Spacious</span>
+          <h3>Weligama / Mirissa</h3>
+          <p>Further east (30–45 min), these surf towns offer more space, lower prices, and extraordinary whale-watching access. Weligama Bay is gentle enough for beginner surfers; Mirissa is where the blue whale boats depart. A quieter alternative for those who want more room.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="practical-grid">
+      <div class="practical-card">
+        <div class="section-label">Healthcare</div>
+        <h3>Local Clinics & Colombo Specialists</h3>
+        <p>Galle has the government Karapitiya Teaching Hospital, a large regional facility, plus several private clinics serving the expat community. For specialist care and surgery, Colombo (1.5 hours north) has Sri Lanka's best private hospitals — Lanka Hospitals, Nawaloka, and the Asiri group — with English-speaking specialists and modern facilities.</p>
+        <p>Most expats carry international health insurance. Medical costs in Sri Lanka are low — a private consultation runs $15–35 USD, and even major procedures are dramatically less expensive than in Western countries. Healthcare quality in Colombo's top hospitals is solid, though the range of specialist subspecialties is narrower than in Bangkok or KL.</p>
+        <div style="margin-top: 16px;">
+          <span class="info-pill">Karapitiya Teaching Hospital</span>
+          <span class="info-pill">Lanka Hospitals (Colombo)</span>
+          <span class="info-pill">Nawaloka Hospital</span>
+        </div>
+      </div>
+      <div class="practical-card">
+        <div class="section-label">Visas & Residency</div>
+        <h3>Retirement Visa & Investor Path</h3>
+        <p>Sri Lanka offers a Retirement Visa (Residence Visa for retirees) for those 55 and older. It requires evidence of monthly income of at least $1,500 USD (or a lump-sum bank deposit of ~$18,000 USD held in a Sri Lankan account). The visa is issued for 5 years and is renewable. It permits full-time residence but not employment.</p>
+        <p>Sri Lanka also offers a Resident Guest scheme and investor visa paths for those purchasing property or making a qualifying investment. The country is updating its long-stay visa framework — a local immigration attorney is the most reliable guide to current requirements, especially given Sri Lanka's recent economic recovery period.</p>
+        <div style="margin-top: 16px;">
+          <span class="info-pill">Retirement Visa (55+)</span>
+          <span class="info-pill">5-year renewable</span>
+          <span class="info-pill">$1,500/mo income</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="handoff-section">
+      <div class="section-header">
+        <div class="section-label">Ready to Go Deeper?</div>
+        <h2>Your next <em>steps</em></h2>
+      </div>
+      <div class="handoff-grid">
+        <div class="handoff-card">
+          <div class="handoff-icon">💼</div>
+          <h3>Talk to a Retirement Advisor</h3>
+          <p>Sri Lanka's retirement visa, tax treaty status, Social Security implications, and Medicare coordination all deserve specialist attention. The right advisor makes a complicated move straightforward.</p>
+          <a href="advisor-international.html" class="handoff-btn">Find an advisor →</a>
+        </div>
+        <div class="handoff-card">
+          <div class="handoff-icon">🏠</div>
+          <h3>Browse Homes in Sri Lanka</h3>
+          <p>Fort properties are rare and move fast. Outside the walls, Unawatuna and Weligama have more availability. Rentals are typically arranged through local agents — showing up in person is the most effective approach.</p>
+          <a href="browse-homes-international.html" class="handoff-btn ghost">Explore real estate →</a>
+        </div>
+        <div class="handoff-card">
+          <div class="handoff-icon">✈️</div>
+          <h3>Plan a Scouting Trip</h3>
+          <p>Fly into Colombo, take the scenic coastal train to Galle (2.5 hrs), and spend two weeks on the south coast. Walk the fort, eat the curries, watch the whales, and feel whether this extraordinary place is home.</p>
+          <a href="scouting-trips.html" class="handoff-btn ghost">Plan your trip →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="similar-section">
+      <div class="section-header">
+        <div class="section-label">You Might Also Love</div>
+        <h2>Similar <em>vibes</em>, different places</h2>
+      </div>
+      <div class="similar-grid">
+        <a href="destination-hoi-an.html" class="similar-card">
+          <div class="similar-img">🏮</div>
+          <div class="similar-info">
+            <h4>Hội An, Vietnam</h4>
+            <p>Another UNESCO town with an extraordinary sense of place — lanterns instead of ramparts, but the same slow-paced magic and remarkable food.</p>
+          </div>
+        </a>
+        <a href="destination-porto.html" class="similar-card">
+          <div class="similar-img">🏛️</div>
+          <div class="similar-info">
+            <h4>Porto, Portugal</h4>
+            <p>If you love historic architecture, walkable city life, and a sense of civilized ease — Porto delivers all of it on the Atlantic edge of Europe.</p>
+          </div>
+        </a>
+        <a href="destination-hua-hin.html" class="similar-card">
+          <div class="similar-img">🏖️</div>
+          <div class="similar-info">
+            <h4>Hua Hin, Thailand</h4>
+            <p>Beach town with excellent infrastructure, a large expat community, and a pace of life that matches Galle's gentle tempo.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <a class="footer-wordmark" href="homepage-mockup.html">Retire<em>Vibes</em></a>
+    <div class="footer-links">
+      <a href="homepage-mockup.html#destinations">Destinations</a>
+      <a href="homepage-mockup.html#how-it-works">How it works</a>
+      <a href="find-an-advisor.html">Find an advisor</a>
+      <a href="scouting-trips.html">Scouting trips</a>
+      <a href="my-retirevibes.html">My RetireVibes</a>
+    </div>
+    <span class="footer-copy">© 2025 RetireVibes</span>
+  </footer>
+
+  <script src="shared.js"></script>
+</body>
+</html>
