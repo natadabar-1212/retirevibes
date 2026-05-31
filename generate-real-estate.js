@@ -485,7 +485,7 @@ function getRentVsBuySection(dest) {
       <div class="rent-vs-buy-inner">
         <p class="section-label">The big decision</p>
         <h2 class="section-headline">Rent first.<br><em>Almost always.</em></h2>
-        <p class="section-sub">Whether you end up buying or renting long-term, starting with a rental gives you local knowledge that no amount of research can replicate.</p>
+        <p class="section-sub" style="max-width:900px">Whether you end up buying or renting long-term, starting with a rental gives you local knowledge that no amount of research can replicate.</p>
         <div class="rvb-grid">
           <div class="rvb-card rent">
             <h3 class="rvb-title">Renting first</h3>
@@ -521,7 +521,7 @@ function getRentVsBuySection(dest) {
       <div class="rent-vs-buy-inner">
         <p class="section-label">The big decision</p>
         <h2 class="section-headline">Rent first.<br><em>Almost always.</em></h2>
-        <p class="section-sub">This isn't financial advice — it's the consistent experience of the expat community: don't buy before you've lived somewhere for at least a year.</p>
+        <p class="section-sub" style="max-width:900px">This isn't financial advice — it's the consistent experience of the expat community: don't buy before you've lived somewhere for at least a year.</p>
         <div class="rvb-grid">
           <div class="rvb-card rent">
             <h3 class="rvb-title">Renting first</h3>
