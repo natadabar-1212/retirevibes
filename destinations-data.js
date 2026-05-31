@@ -679,7 +679,7 @@ const DESTINATIONS = [
     neighborhoods: [
       { name: 'Centro Histórico', desc: "The revitalized city center — the Picasso Museum, Calle Larios, the Alcazaba fortress above. Walkable, dense, increasingly expensive as international demand has driven prices up. The most atmospheric place to live but also the noisiest and most tourist-adjacent." },
       { name: 'Malagueta & El Limonar', desc: "Malagueta sits along the beachfront promenade east of the port — sea views, good restaurants, upscale apartments. El Limonar further east is quieter with larger properties and a more residential pace." },
-      { name: 'Pedregalejo & El Palo', desc: "The old fishing neighborhoods east of the city — authentic, local, affordable relative to the center. Walk the chiringuito strip any evening and you will understand why expats who know Málaga well end up here.' },
+      { name: 'Pedregalejo & El Palo', desc: "The old fishing neighborhoods east of the city — authentic, local, affordable relative to the center. Walk the chiringuito strip any evening and see why long-term expats end up here rather than the pricier tourist zones." },
     ],
     weatherMatch: [0, 2],          // warm/sunny (primary), mild
     settingMatch: [0, 3],          // beach, city
