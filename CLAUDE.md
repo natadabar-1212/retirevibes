@@ -8,6 +8,15 @@
 
 ---
 
+## ⛔ ARCHIVED FILES — DO NOT REFERENCE
+
+94 legacy static destination pages have been archived to `archive/legacy-destination-pages/`. **Never reference, edit, link to, or suggest changes to any `destination-[city].html` file.** They do not exist in the live site.
+
+**The only destination page is:** `destination-detail.html?id=[slug]`  
+**The only destination data source is:** `destinations-data.js`
+
+---
+
 ## Session Protocol — Read This First Every Chat
 
 **At the start of every session, Claude must:**
