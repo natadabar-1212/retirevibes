@@ -44,7 +44,7 @@
   .hero { position: relative; min-height: 580px; display: flex; align-items: flex-end; padding: 0 48px 72px; overflow: hidden; }
   .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center 55%; }
   .hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg,rgba(27,58,75,.1) 0%,rgba(27,58,75,.78) 100%); }
-  .hero-inner { position: relative; z-index: 2; max-width: 760px; }
+  .hero-inner { position: relative; z-index: 2; max-width: 1240px; width: 100%; }
   .hero-kicker { display: inline-flex; align-items: center; gap: 10px; padding: 8px 18px; background: rgba(251,246,238,.15); border: 1px solid rgba(255,255,255,.25); border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 22px; backdrop-filter: blur(6px); }
   .hero-kicker::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--gold-soft); }
   .hero h1 { font-family: var(--serif); font-size: 60px; line-height: 1.04; letter-spacing: -.02em; color: var(--white); margin-bottom: 20px; }
@@ -70,10 +70,10 @@
   .hood-card { background: var(--white); border-radius: 16px; padding: 32px 30px; border: 1px solid rgba(27,58,75,.07); display: grid; grid-template-columns: 1fr auto; gap: 0 16px; align-items: start; }
   .hood-card-main { grid-column: 1; }
   .hood-vibe { grid-column: 2; display: inline-block; padding: 5px 12px; border-radius: 999px; font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; margin-top: 2px; }
-  .vibe-calm { background: rgba(147,168,154,.18); color: #4A7A5A; }
-  .vibe-lively { background: rgba(201,123,90,.14); color: var(--terracotta-dark); }
-  .vibe-local { background: rgba(200,160,100,.18); color: #8A6020; }
-  .vibe-coastal { background: rgba(27,58,75,.1); color: var(--teal); }
+  .vibe-simple { background: rgba(147,168,154,.18); color: #4A7A5A; }
+  .vibe-comfortable { background: rgba(200,160,100,.18); color: #8A6020; }
+  .vibe-upscale { background: rgba(201,123,90,.14); color: var(--terracotta-dark); }
+  .vibe-luxury { background: rgba(27,58,75,.1); color: var(--teal); }
   .hood-name { font-family: var(--serif); font-size: 26px; color: var(--teal); letter-spacing: -.01em; margin-bottom: 10px; }
   .hood-desc { font-size: 14px; line-height: 1.65; color: var(--teal-soft); margin-bottom: 16px; }
   .hood-stats { display: flex; gap: 20px; flex-wrap: wrap; }
@@ -179,7 +179,7 @@
 <nav class="nav">
   <a class="wordmark" href="../../homepage-mockup.html">Retire<em>Vibes</em></a>
   <div class="nav-links">
-    <a href="../../destinations.html">Destinations</a>
+    <a href="../../homepage-mockup.html#destinations">Destinations</a>
     <a href="../../my-retirevibes.html">My RetireVibes</a>
     <a class="nav-cta" href="../../quiz.html">Find my RetireVibes →</a>
   </div>
@@ -194,9 +194,11 @@
     <p class="hero-sub">Real listings, real neighborhoods, no obligation. Browse what's actually available in Alentejo before you commit to anything.</p>
     <div class="hero-btns">
       <a class="btn-primary" href="https://www.idealista.pt/en/arrendar-casas/alentejo-distrito/?ordem=publicado-decrescente" target="_blank" rel="noopener noreferrer">
-        Browse Alentejo listings →
+        Rent in Alentejo →
       </a>
-      <a class="btn-ghost" href="../../destination-detail.html?id=alentejo">Back to Alentejo guide</a>
+      <a class="btn-ghost" href="https://www.idealista.pt/en/comprar-casas/alentejo-distrito/" target="_blank" rel="noopener noreferrer">
+        Buy in Alentejo
+      </a>
     </div>
     <p class="hero-partner">Listings via Idealista · Updated regularly</p>
   </div>
@@ -332,10 +334,10 @@
     <p class="cta-sub">Idealista is Portugal's largest property platform. Real listings, updated daily.</p>
     <div class="cta-btns">
       <a class="btn-primary" href="https://www.idealista.pt/en/arrendar-casas/alentejo-distrito/?ordem=publicado-decrescente" target="_blank" rel="noopener noreferrer">
-        Browse Alentejo rentals →
+        Rent in Alentejo →
       </a>
       <a class="btn-teal" href="https://www.idealista.pt/en/comprar-casas/alentejo-distrito/" target="_blank" rel="noopener noreferrer">
-        Browse to buy
+        Buy in Alentejo
       </a>
       <a class="btn-outline" href="../../scouting-trips.html">Plan a scouting trip first</a>
     </div>
@@ -361,12 +363,7 @@
         <p class="also-desc">US taxation abroad, visa planning, account restructuring before you move. You need someone who has done this before.</p>
         <span class="also-link">Find an advisor →</span>
       </a>
-      <a class="also-card" href="../../destination-detail.html?id=alentejo">
-        <div class="also-tag">The full picture</div>
-        <h3 class="also-title">Back to the Alentejo guide</h3>
-        <p class="also-desc">Cost of living, healthcare, day-in-the-life, and everything else you need to know about retiring in Alentejo.</p>
-        <span class="also-link">Read the full guide →</span>
-      </a>
+
     </div>
   </div>
 </section>
@@ -379,7 +376,7 @@
       <p class="footer-tag">Good RetireVibes only.</p>
     </div>
     <div class="footer-links">
-      <a href="../../destinations.html">Destinations</a>
+      <a href="../../homepage-mockup.html#destinations">Destinations</a>
       <a href="../../homepage-mockup.html#how-it-works">How it works</a>
       <a href="../../find-an-advisor.html">Find an advisor</a>
       <a href="../../scouting-trips.html">Scouting trips</a>

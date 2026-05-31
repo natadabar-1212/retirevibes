@@ -568,8 +568,8 @@ function getNeighborhoodsHTML(dest) {
     { rentLow: roundTo(rentAmt * 0.55, 50),  rentHigh: roundTo(rentAmt * 0.9, 50) },   // neighborhood 3 — value/local area
   ];
 
-  const vibes = ['vibe-coastal', 'vibe-lively', 'vibe-local'];
-  const vibeLabels = ['Established', 'Central', 'Local pick'];
+  const vibes = ['vibe-upscale', 'vibe-comfortable', 'vibe-simple', 'vibe-luxury'];
+  const vibeLabels = ['Upscale', 'Comfortable with Extras', 'Simple & Comfortable', 'Luxury'];
 
   return dest.neighborhoods.map((n, i) => {
     const r = ranges[i] || ranges[2];
@@ -589,7 +589,7 @@ function getNeighborhoodsHTML(dest) {
           <p class="hood-desc">${n.desc}</p>
           <div class="hood-stats">
             <span class="hood-stat"><strong>Est. rent:</strong> ${rentLowFmt}–${rentHighFmt}/mo</span>
-            <span class="hood-stat"><strong>Setting:</strong> ${dest.tags ? dest.tags[0] : 'Residential'}</span>
+            <span class="hood-stat"><strong>Buy from:</strong> ${dest.housing ? dest.housing.buy : 'varies'}</span>
           </div>
         </div>
         <span class="hood-vibe ${vibe}">${vibeLabel}</span>
@@ -607,10 +607,10 @@ function getPortoNeighborhoodsHTML() {
           <div class="hood-stats">
             <span class="hood-stat"><strong>1BR rent:</strong> $975–1,500/mo</span>
             <span class="hood-stat"><strong>2BR rent:</strong> $1,400–2,200/mo</span>
-            <span class="hood-stat"><strong>Vibe:</strong> Calm, walkable, established</span>
+            <span class="hood-stat"><strong>Buy from:</strong> ~$300K</span>
           </div>
         </div>
-        <span class="hood-vibe vibe-coastal">Coastal</span>
+        <span class="hood-vibe vibe-upscale">Upscale</span>
       </div>
       <div class="hood-card">
         <div class="hood-card-main">
@@ -619,10 +619,10 @@ function getPortoNeighborhoodsHTML() {
           <div class="hood-stats">
             <span class="hood-stat"><strong>1BR rent:</strong> $810–1,200/mo</span>
             <span class="hood-stat"><strong>2BR rent:</strong> $1,025–1,625/mo</span>
-            <span class="hood-stat"><strong>Vibe:</strong> Cultural, walkable, local</span>
+            <span class="hood-stat"><strong>Buy from:</strong> ~$260K</span>
           </div>
         </div>
-        <span class="hood-vibe vibe-lively">Lively</span>
+        <span class="hood-vibe vibe-comfortable">Comfortable with Extras</span>
       </div>
       <div class="hood-card">
         <div class="hood-card-main">
@@ -631,10 +631,10 @@ function getPortoNeighborhoodsHTML() {
           <div class="hood-stats">
             <span class="hood-stat"><strong>1BR rent:</strong> $700–1,025/mo</span>
             <span class="hood-stat"><strong>2BR rent:</strong> $920–1,400/mo</span>
-            <span class="hood-stat"><strong>Vibe:</strong> Authentic, up-and-coming</span>
+            <span class="hood-stat"><strong>Buy from:</strong> ~$220K</span>
           </div>
         </div>
-        <span class="hood-vibe vibe-local">Local</span>
+        <span class="hood-vibe vibe-simple">Simple &amp; Comfortable</span>
       </div>
       <div class="hood-card">
         <div class="hood-card-main">
@@ -643,10 +643,10 @@ function getPortoNeighborhoodsHTML() {
           <div class="hood-stats">
             <span class="hood-stat"><strong>1BR rent:</strong> $750–1,150/mo</span>
             <span class="hood-stat"><strong>2BR rent:</strong> $1,025–1,500/mo</span>
-            <span class="hood-stat"><strong>Vibe:</strong> Beach town, relaxed, local</span>
+            <span class="hood-stat"><strong>Buy from:</strong> ~$240K</span>
           </div>
         </div>
-        <span class="hood-vibe vibe-calm">Calm</span>
+        <span class="hood-vibe vibe-luxury">Luxury</span>
       </div>`;
 }
 
@@ -770,7 +770,7 @@ const PAGE_CSS = `
   .hero { position: relative; min-height: 580px; display: flex; align-items: flex-end; padding: 0 48px 72px; overflow: hidden; }
   .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center 55%; }
   .hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg,rgba(27,58,75,.1) 0%,rgba(27,58,75,.78) 100%); }
-  .hero-inner { position: relative; z-index: 2; max-width: 760px; }
+  .hero-inner { position: relative; z-index: 2; max-width: 1240px; width: 100%; }
   .hero-kicker { display: inline-flex; align-items: center; gap: 10px; padding: 8px 18px; background: rgba(251,246,238,.15); border: 1px solid rgba(255,255,255,.25); border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 22px; backdrop-filter: blur(6px); }
   .hero-kicker::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--gold-soft); }
   .hero h1 { font-family: var(--serif); font-size: 60px; line-height: 1.04; letter-spacing: -.02em; color: var(--white); margin-bottom: 20px; }
@@ -796,10 +796,10 @@ const PAGE_CSS = `
   .hood-card { background: var(--white); border-radius: 16px; padding: 32px 30px; border: 1px solid rgba(27,58,75,.07); display: grid; grid-template-columns: 1fr auto; gap: 0 16px; align-items: start; }
   .hood-card-main { grid-column: 1; }
   .hood-vibe { grid-column: 2; display: inline-block; padding: 5px 12px; border-radius: 999px; font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; margin-top: 2px; }
-  .vibe-calm { background: rgba(147,168,154,.18); color: #4A7A5A; }
-  .vibe-lively { background: rgba(201,123,90,.14); color: var(--terracotta-dark); }
-  .vibe-local { background: rgba(200,160,100,.18); color: #8A6020; }
-  .vibe-coastal { background: rgba(27,58,75,.1); color: var(--teal); }
+  .vibe-simple { background: rgba(147,168,154,.18); color: #4A7A5A; }
+  .vibe-comfortable { background: rgba(200,160,100,.18); color: #8A6020; }
+  .vibe-upscale { background: rgba(201,123,90,.14); color: var(--terracotta-dark); }
+  .vibe-luxury { background: rgba(27,58,75,.1); color: var(--teal); }
   .hood-name { font-family: var(--serif); font-size: 26px; color: var(--teal); letter-spacing: -.01em; margin-bottom: 10px; }
   .hood-desc { font-size: 14px; line-height: 1.65; color: var(--teal-soft); margin-bottom: 16px; }
   .hood-stats { display: flex; gap: 20px; flex-wrap: wrap; }
@@ -977,7 +977,7 @@ function generatePage(dest) {
 <nav class="nav">
   <a class="wordmark" href="../../homepage-mockup.html">Retire<em>Vibes</em></a>
   <div class="nav-links">
-    <a href="../../destinations.html">Destinations</a>
+    <a href="../../homepage-mockup.html#destinations">Destinations</a>
     <a href="../../my-retirevibes.html">My RetireVibes</a>
     <a class="nav-cta" href="../../quiz.html">Find my RetireVibes →</a>
   </div>
@@ -992,9 +992,11 @@ function generatePage(dest) {
     <p class="hero-sub">${heroSub}</p>
     <div class="hero-btns">
       <a class="btn-primary" href="${listings.rent}" target="_blank" rel="noopener noreferrer">
-        Browse ${dest.name} listings →
+        Rent in ${dest.name} →
       </a>
-      <a class="btn-ghost" href="${destPage}">Back to ${dest.name} guide</a>
+      <a class="btn-ghost" href="${listings.buy}" target="_blank" rel="noopener noreferrer">
+        Buy in ${dest.name}
+      </a>
     </div>
     <p class="hero-partner">Listings via ${listings.platform} · Updated regularly</p>
   </div>
@@ -1047,10 +1049,10 @@ ${rentVsBuyHTML}
     <p class="cta-sub">${listings.note}</p>
     <div class="cta-btns">
       <a class="btn-primary" href="${listings.rent}" target="_blank" rel="noopener noreferrer">
-        Browse ${dest.name} rentals →
+        Rent in ${dest.name} →
       </a>
       <a class="btn-teal" href="${listings.buy}" target="_blank" rel="noopener noreferrer">
-        Browse to buy
+        Buy in ${dest.name}
       </a>
       <a class="btn-outline" href="${scoutingPage}">Plan a scouting trip first</a>
     </div>
@@ -1078,12 +1080,7 @@ ${rentVsBuyHTML}
           : 'Social Security timing, Medicare coverage, state income tax implications. A fiduciary who works with retirees makes a real difference.'}</p>
         <span class="also-link">Find an advisor →</span>
       </a>
-      <a class="also-card" href="${destPage}">
-        <div class="also-tag">The full picture</div>
-        <h3 class="also-title">Back to the ${dest.name} guide</h3>
-        <p class="also-desc">Cost of living, healthcare, day-in-the-life, and everything else you need to know about retiring in ${dest.name}.</p>
-        <span class="also-link">Read the full guide →</span>
-      </a>
+
     </div>
   </div>
 </section>
@@ -1096,7 +1093,7 @@ ${rentVsBuyHTML}
       <p class="footer-tag">Good RetireVibes only.</p>
     </div>
     <div class="footer-links">
-      <a href="../../destinations.html">Destinations</a>
+      <a href="../../homepage-mockup.html#destinations">Destinations</a>
       <a href="../../homepage-mockup.html#how-it-works">How it works</a>
       <a href="../../find-an-advisor.html">Find an advisor</a>
       <a href="../../scouting-trips.html">Scouting trips</a>
