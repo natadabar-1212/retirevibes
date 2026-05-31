@@ -334,6 +334,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-domestic.html',
     browseHomesPage: 'browse-homes-domestic.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Uptown & Village of Oak Creek", desc: "Uptown is the tourist-heavy center — galleries, shops, Jeep tour operators. The Village of Oak Creek south of the red rocks is where most long-term residents live: quieter, more affordable, easier daily logistics. Spend a week in both to understand the difference before you decide." },
+      { name: "West Sedona", desc: "The practical residential area along Highway 89A — big box stores, the hospital, everyday services. Less atmospheric than the red rock areas but where Sedona residents do their actual living. More affordable than Uptown and genuinely comfortable. Walk Coffee Pot Road any morning to understand the local pace." },
+      { name: "Chapel Area & Schnebly Hill", desc: "The southeastern neighborhoods with direct red rock access — Chapel of the Holy Cross nearby, quieter roads, and the most dramatic views in the city. The premium end of the Sedona market. For buyers who want the landscape as their daily backdrop and are willing to pay for proximity to the trails." },
+    ],
     weatherMatch: [0, 2],          // warm/sunny, mild
     settingMatch: [2, 5, 4],       // mountains/desert, countryside, small town
     paceMatch: [2, 0, 1],          // relaxed, active, creative
@@ -635,6 +640,11 @@ const DESTINATIONS = [
     browseHomesPage: 'browse-homes-domestic.html',
     scoutingPage: 'scouting-trip.html',
     // Scoring
+    neighborhoods: [
+      { name: "University & 4th Avenue", desc: "The walkable urban core around the University of Arizona — independent restaurants, vintage shops, the streetcar line. The most pedestrian-friendly part of Tucson and the most affordable. Genuinely lively for a city of this size. Where buyers who want an urban lifestyle without urban prices tend to look." },
+      { name: "Catalina Foothills & Sam Hughes", desc: "The established residential neighborhoods north of the center — mountain views, good schools, the best restaurants in the city. Sam Hughes is the historic in-town neighborhood that most closely resembles what people picture when they imagine a livable Tucson. The Foothills are more suburban and more expensive, with the Catalinas above." },
+      { name: "Midtown & South Tucson", desc: "The central and southern neighborhoods — more affordable, more diverse, closer to the cultural and arts institutions. Midtown in particular has been gentrifying steadily and offers the best value for buyers who want proximity to the urban core without the university premium." },
+    ],
     weatherMatch: [0],            // warm/sunny
     settingMatch: [2, 5, 3],      // mountains/desert, open countryside, city
     paceMatch: [0, 2, 1],         // active, relaxed, creative
@@ -753,6 +763,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Koukaki & Mets", desc: "The residential neighborhoods immediately south of the Acropolis — quieter than Monastiraki or Psiri, walkable to the main sites, and increasingly popular with long-term expats who want the Athens experience without the tourist density of the center. Good restaurants, local markets, and a genuine neighborhood feel." },
+      { name: "Kolonaki & Exarchia", desc: "The upscale boutique neighborhood on the slopes of Lycabettus Hill and the bohemian student district below it. Kolonaki is expensive, walkable, and full of good cafes and galleries. Exarchia is cheaper, more politically charged, and home to the best bouzoukia and street life in the city. Know which one you are choosing." },
+      { name: "Glyfada & South Suburbs", desc: "The coastal strip south of the city accessible by tram — beaches, seafood restaurants, a more resort-like atmosphere. Popular with expats who want sea access and a quieter pace while remaining connected to the city. Higher prices than the central neighborhoods but a genuinely different quality of daily life." },
+    ],
     weatherMatch: [0, 2],          // warm/sunny, mild
     settingMatch: [3, 0],          // city, coastal access
     paceMatch: [1, 3, 2],          // creative, social, relaxed
@@ -810,6 +825,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Diocletian Palace & Old Town", desc: "The Roman emperor's palace turned living neighborhood — one of the most remarkable places to live in Europe. Apartments within the ancient walls, narrow stone passages, the sea steps from your door. The most expensive addresses in the city and the most in demand. Worth spending a full week here before committing." },
+      { name: "Bacvice & Firule", desc: "The beach neighborhoods east of the old town — the famous Bacvice beach, local restaurants, a residential character that persists year-round. Popular with expats who want the Split lifestyle with slightly more space than the old town offers and easier everyday logistics." },
+      { name: "Znjan & Split 3", desc: "The residential neighborhoods further east — more affordable, newer construction, good transit to the center. Where most Split residents actually live. Less atmospheric than the old town but meaningfully more practical and accessible for buyers working with realistic budgets." },
+    ],
     weatherMatch: [0, 2],          // warm/sunny, mild
     settingMatch: [0, 3, 4],       // coastal, city, small town
     paceMatch: [0, 2, 3],          // active, relaxed, social
@@ -895,6 +915,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "El Centro Historico", desc: "The UNESCO-listed colonial center — the New Cathedral dome visible from everywhere in the valley, the flower market on the square, the Rio Tomebamba running below. The most atmospheric and most in-demand neighborhood. Prices have risen as international attention has grown but remain accessible by global standards." },
+      { name: "El Ejido & Yanuncay", desc: "The established residential neighborhoods south of the historic center — the expat community is concentrated here, with English-speaking services, international groceries, and the daily infrastructure that makes long-term living practical. More affordable than the historic core with better everyday amenities." },
+      { name: "Challuabamba & El Valle", desc: "The newer developments in the surrounding valley — larger properties, lower prices, quieter pace. Popular with buyers who want a proper house with a garden at a fraction of the price of comparable properties anywhere in North America or Europe. A 20-minute drive to the city center." },
+    ],
     weatherMatch: [2, 3],          // mild/temperate (primary — 2,550m highland spring), cool/crisp secondary
     settingMatch: [3, 4, 2],       // city, small town, mountains
     paceMatch: [2, 1, 3],          // relaxed, creative, social
@@ -1086,6 +1111,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-domestic.html',
     browseHomesPage: 'browse-homes-domestic.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Old Town Scottsdale", desc: "The walkable historic center — galleries, restaurants, the waterfront canal, and the most active nightlife in the city. The most in-demand address in Scottsdale and increasingly expensive. Where buyers who want to walk everywhere and accept the weekend tourist energy tend to look." },
+      { name: "North Scottsdale & DC Ranch", desc: "The premium resort communities in the northern desert — golf, gated communities, mountain views, and the highest prices in the metro. Where the amenity-driven retirement lifestyle that defines Scottsdale is most fully expressed. Convenient to nothing without a car but designed for people who have made that trade consciously." },
+      { name: "South Scottsdale & Arcadia", desc: "The more affordable and more local alternative — Arcadia in particular has become one of the most desirable neighborhoods in the Phoenix metro for buyers who want walkable restaurants, proximity to Camelback Mountain, and prices below the Old Town premium." },
+    ],
     weatherMatch: [0],
     settingMatch: [2, 5, 3],
     paceMatch: [0, 2, 3],
@@ -1643,6 +1673,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Bocagrande & El Laguito", desc: "The beach peninsula extending south from the old city — modern high-rise condos, sea views, direct beach access, and the most developed tourist and expat infrastructure in Cartagena. More practical for daily living than the old city, with security that most long-term residents find more manageable." },
+      { name: "Getsemani", desc: "The former working-class neighborhood adjacent to the old city walls — street art, local restaurants, the best nightlife in the city. Gentrifying fast and increasingly popular with international buyers who want authenticity and walkability. Security has improved significantly but still requires awareness." },
+      { name: "Manga & Marbella", desc: "The established residential neighborhoods away from the tourist center — quieter, more local, better value for buyers who want a Cartagena home without the old town premium or the Bocagrande high-rise density. Manga in particular has beautiful older homes and a genuine neighborhood character." },
+    ],
     weatherMatch: [0],
     settingMatch: [0, 3],
     paceMatch: [3, 1, 2],
@@ -1669,6 +1704,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Pocitos & Punta Carretas", desc: "The most popular residential neighborhoods for expats — Pocitos has a beachfront promenade, excellent restaurants, and a European residential feel. Punta Carretas is the upscale shopping and dining district nearby. Both command the highest rents in the city and offer the best daily quality of life." },
+      { name: "Carrasco", desc: "The upscale eastern suburb near the international airport — large homes, tree-lined streets, the best private schools, and the most established foreign resident community in Uruguay. More expensive than Pocitos and more suburban in character. Where families and buyers who prioritize space tend to look." },
+      { name: "Ciudad Vieja & Centro", desc: "The historic port city and the pedestrianized commercial center — the most atmospheric part of Montevideo and the most affordable. Gentrifying slowly but genuinely. Worth spending a week here before deciding whether the pace and infrastructure work for you." },
+    ],
     weatherMatch: [1, 2],          // four seasons (primary — hot summers, cool winters), mild
     settingMatch: [0, 3],
     paceMatch: [2, 3, 1],
@@ -1695,6 +1735,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Palermo & Palermo Soho", desc: "The most popular neighborhood for long-term expats — good restaurants, parks, the most international community in the city. Palermo Soho has the boutiques and cafes; Palermo Hollywood has the restaurants and nightlife. Prices have risen significantly from the pandemic lows but remain accessible by global standards." },
+      { name: "Recoleta & Barrio Norte", desc: "The grand European-style neighborhoods centered on the famous cemetery — wide boulevards, excellent museums, the most elegant architecture in Buenos Aires. More expensive than Palermo and more formal in character. Where expats who want prestige and cultural access over nightlife tend to settle." },
+      { name: "San Telmo & La Boca", desc: "The historic neighborhoods south of the center — cobblestone streets, tango culture, the Sunday antiques market. San Telmo is increasingly livable and gentrifying; La Boca is more for visiting than living. A morning in San Telmo explains why Buenos Aires can feel like a European city despite being in South America." },
+    ],
     weatherMatch: [1, 2],          // four seasons (primary — hot humid summers, cool winters), mild
     settingMatch: [3],
     paceMatch: [1, 3, 2],
@@ -1961,6 +2006,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Old Town (Abanotubani) & Sololaki", desc: "The historic core — sulfur baths, wooden balconied houses, Orthodox churches on every corner. The most atmospheric part of the city and increasingly in demand from international buyers. Sololaki is the belle epoque residential quarter adjacent to the old town: less touristy, more livable, and genuinely beautiful." },
+      { name: "Vera & Vake", desc: "The established residential neighborhoods west of the center — tree-lined streets, good restaurants, the Vake Park. The most popular areas for long-term expats and the diplomatic community. More expensive than the old town but with better everyday infrastructure and a quieter pace." },
+      { name: "Fabrika & Marjanishvili", desc: "The creative district built around a converted Soviet factory — the best bars, coffee shops, and street food in the city. Increasingly popular with remote workers and younger expats. More affordable than Vake and genuinely lively. Where the city is going, which is either a reason to buy or a reason to look elsewhere depending on your preferences." },
+    ],
     weatherMatch: [1, 2],
     settingMatch: [3, 2],
     paceMatch: [1, 3, 2],
@@ -2044,6 +2094,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Old Town & Castle Hill", desc: "The compact medieval center below the castle — the best restaurants and cafes in Slovenia, the pedestrianized riverside, walking distance to everything. Ljubljana is small enough that the old town genuinely functions as a daily neighborhood rather than just a tourist zone. The most expensive addresses in the country and still reasonable by Western European standards." },
+      { name: "Trnovo & Krakovo", desc: "The residential neighborhoods south of the center along the Gradascica river — one of the most livable areas in the city. Trnovo has a local market, good restaurants, and the kind of neighborhood character that makes Ljubljana feel like a village. Where long-term expats tend to settle after they know the city." },
+      { name: "Smartno & Vic", desc: "The western residential neighborhoods — quieter, more suburban, good parks and schools. More affordable than the center with solid everyday infrastructure. Popular with families and buyers who want Ljubljana quality of life at accessible prices." },
+    ],
     weatherMatch: [1, 2],
     settingMatch: [3, 1, 2],
     paceMatch: [0, 1, 2],
@@ -2070,6 +2125,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Stari Grad (Old Town)", desc: "The UNESCO-listed medieval walled city on the bay — one of the most beautiful small towns in the Mediterranean. Apartments within the walls are rare, expensive, and in constant demand. Worth spending several days here to understand whether the tourist density and noise from the cruise ship schedule works for you year-round." },
+      { name: "Dobrota & Prcanj", desc: "The villages stretching north along the bay from Kotor — stone houses on the water, quieter pace, genuine local character. Where most long-term residents and property buyers in the Kotor area actually settle. Better value than the old town with arguably more authentic daily life." },
+      { name: "Risan & Upper Bay", desc: "The quieter upper reaches of the bay — the most affordable and least tourist-adjacent part of the Kotor area. Roman mosaics, a small village center, and the kind of rural Mediterranean pace that is genuinely hard to find elsewhere. For buyers who want the bay setting without any tourist infrastructure." },
+    ],
     weatherMatch: [0, 2],
     settingMatch: [0, 2, 3],
     paceMatch: [0, 2, 1],
@@ -2365,6 +2425,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?name=Adelaide',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Norwood & Rose Park", desc: "The eastern inner suburbs — The Parade shopping and restaurant strip, federation-era homes, walking distance to the parklands. Consistently ranked among the most livable suburbs in Adelaide. Where long-term residents and expat buyers tend to settle once they know the city." },
+      { name: "Glenelg & Brighton", desc: "The beach suburbs on the Gulf St Vincent — the jetty, the Esplanade, good restaurants, and direct tram access back to the CBD. The most popular lifestyle destination in Adelaide for buyers who want beach access without sacrificing city connectivity." },
+      { name: "North Adelaide & College Park", desc: "The gracious inner-city suburbs north of the CBD — heritage homes, the O'Connell Street dining precinct, the best urban parks in the city. More expensive than the eastern suburbs but with the best combination of walkability and architectural character in Adelaide." },
+    ],
     weatherMatch: [0, 2],
     settingMatch: [3, 0, 5],
     paceMatch: [1, 3, 2],
@@ -3109,6 +3174,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?id=phuket',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Rawai & Nai Harn", desc: "The quieter southern end of the island — local seafood market, Nai Harn beach, a genuine expat community that has been here for decades. The most popular area for long-term residents and retirees who want the Phuket lifestyle without the tourist resort intensity of the north. Prices are lower than Patong and the pace is genuinely different." },
+      { name: "Cherng Talay & Bang Tao", desc: "The developing northwest corridor — the Laguna resort complex, Bang Tao beach, new villa communities and international schools. The fastest-growing part of the island for long-term buyers. Good infrastructure, beach access, and the best balance of amenity and relative quiet outside the south." },
+      { name: "Kathu & Phuket Town", desc: "The inland residential areas — lower prices, more local character, Phuket Town has the old Sino-Portuguese architecture and the best food scene on the island. Popular with buyers who want a Phuket base without paying the beach premium. Good access to healthcare and everyday services." },
+    ],
     weatherMatch: [0],
     settingMatch: [0, 2],            // beach, island/mountains
     paceMatch: [2, 0, 3],
@@ -3163,6 +3233,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?id=melbourne',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Fitzroy & Collingwood", desc: "The creative inner-city neighborhoods north of the CBD — the best coffee in the world (Melbourne makes that claim and backs it up), independent restaurants, galleries, and a walkable intensity that makes it one of the most livable urban areas in Australia. Expensive by Melbourne standards but accessible by global ones." },
+      { name: "St Kilda & Port Melbourne", desc: "The bayside neighborhoods south of the CBD — the Esplanade, the beach, the weekend market, excellent restaurants along Fitzroy Street. The most popular destination for expats and international buyers who want Melbourne lifestyle with ocean access. More expensive than the inner north but the sea breeze justifies it." },
+      { name: "Hawthorn & Kew", desc: "The established eastern suburbs along the Yarra River — grand Victorian homes, excellent schools, leafy streets, and easy tram access to the CBD. Where Melbourne families and established professionals live. More suburban than Fitzroy but the housing quality is exceptional and the parks are some of the best in the city." },
+    ],
     weatherMatch: [1, 2],
     settingMatch: [3, 1],
     paceMatch: [1, 3, 0],
