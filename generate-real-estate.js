@@ -1007,7 +1007,7 @@ function generatePage(dest) {
         Buy in ${dest.name}
       </a>
     </div>
-    <p class="hero-partner">Listings via ${listings.platform} · Updated regularly</p>
+
   </div>
 </section>
 
