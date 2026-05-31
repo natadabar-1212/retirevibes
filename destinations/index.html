@@ -187,12 +187,13 @@
       <button class="filter-btn active" data-region="all">All regions</button>
       <button class="filter-btn" data-region="Europe">Europe</button>
       <button class="filter-btn" data-region="Latin America">Latin America</button>
-      <button class="filter-btn" data-region="Southeast Asia">Southeast Asia</button>
+      
+      <button class="filter-btn" data-region="Asia">Asia</button>
       <button class="filter-btn" data-region="Central America">Central America</button>
       <button class="filter-btn" data-region="Caribbean">Caribbean</button>
       <button class="filter-btn" data-region="North America">North America</button>
-      <button class="filter-btn" data-region="East Asia">East Asia</button>
-      <button class="filter-btn" data-region="South Asia">South Asia</button>
+      
+      
       <button class="filter-btn" data-region="Middle East & Africa">Middle East & Africa</button>
       <button class="filter-btn" data-region="Oceania">Oceania</button>
     </div>
@@ -286,6 +287,9 @@
       btn.classList.add('active');
       activeRegion = btn.dataset.region;
       allDestinations.forEach(d => {
+      if (['East Asia','South Asia','Southeast Asia'].includes(d.region)) d.region = 'Asia';
+    });
+    allDestinations.forEach(d => {
       if (['East Asia','South Asia','Southeast Asia'].includes(d.region)) d.region = 'Asia';
     });
     render();
