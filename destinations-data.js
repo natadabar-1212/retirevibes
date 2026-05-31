@@ -2749,7 +2749,7 @@ const DESTINATIONS = [
     browseHomesPage: 'browse-homes-domestic.html',
     scoutingPage: 'scouting-trip.html',
     neighborhoods: [
-      { name: 'The Peninsula & Historic District', desc: "The most iconic and expensive part of Charleston — Rainbow Row, the Battery, Church Street. Living here means immersion in one of America"s great historic cities. It also means tourist foot traffic, limited parking, and prices that reflect the demand.' },
+      { name: 'The Peninsula & Historic District', desc: "The most iconic and expensive part of Charleston — Rainbow Row, the Battery, Church Street. Living here means immersion in one of America's great historic cities. It also means tourist foot traffic, limited parking, and prices that reflect the demand." },
       { name: 'Mount Pleasant', desc: "The most popular suburb for people who want the Charleston lifestyle with more space. Good amenities and a short bridge ride to downtown. The fastest-growing part of the metro for a reason." },
       { name: 'James Island & West Ashley', desc: "More affordable than the peninsula, with genuine community character and quick access to Folly Beach. Where many long-term Charleston residents actually live." },
     ],
@@ -3248,7 +3248,7 @@ const DESTINATIONS = [
     neighborhoods: [
       { name: 'Sea Point & Green Point', desc: "The Atlantic Seaboard urban strip — the Sea Point Promenade, excellent restaurants, walkable and genuinely cosmopolitan. The most popular area for expats and long-term international residents." },
       { name: 'Claremont & Newlands', desc: "The established Southern Suburbs — leafy, spacious, excellent healthcare access. More car-dependent than Sea Point but significantly more space for the price. Where many long-term international residents end up." },
-      { name: "Muizenberg & Simon's Town", desc: "The False Bay coast — the bohemian surf neighborhood of Muizenberg and the historic naval village of Simon"s Town. Meaningfully lower prices than the Atlantic Seaboard and a different kind of Cape Town character.' },
+      { name: "Muizenberg & Simon's Town", desc: "The False Bay coast — the bohemian surf neighborhood of Muizenberg and the historic naval village of Simon's Town. Meaningfully lower prices than the Atlantic Seaboard and a different kind of Cape Town character." },
     ],
     weatherMatch: [2, 0],            // mild Mediterranean, warm
     settingMatch: [0, 2, 3],         // beach, mountains, city
