@@ -291,7 +291,10 @@
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       activeRegion = btn.dataset.region;
-      render();
+      allDestinations.forEach(d => {
+      if (['East Asia','South Asia','Southeast Asia'].includes(d.region)) d.region = 'Asia';
+    });
+    render();
     });
 
     // Load data
