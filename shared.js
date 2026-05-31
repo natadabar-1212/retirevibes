@@ -108,6 +108,7 @@
     var match = (window.location.pathname.split('/').pop() || '').match(/^destination-(.+)\.html$/);
     if (!match) return;
     var slug = match[1];
+    if (slug === 'detail') return; // destination-detail.html sets its own homesHref via page JS
     document.querySelectorAll('a[href*="real-estate"], a[href*="browse-homes"]').forEach(function (a) {
       a.href = 'destinations/' + slug + '/real-estate/';
     });
