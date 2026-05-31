@@ -462,6 +462,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-domestic.html',
     browseHomesPage: 'browse-homes-domestic.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Condado & Ocean Park", desc: "The beach neighborhoods east of Old San Juan — the most established area for long-term expats and mainland transplants. Condado has the hotels and restaurants; Ocean Park is quieter and more residential. Both have direct beach access and a walkable commercial strip." },
+      { name: "Old San Juan", desc: "The pastel colonial city on the isthmus — cobblestone streets, 16th-century fortifications, the best restaurants and bars in Puerto Rico. The most atmospheric address on the island and increasingly in demand. Tourist-adjacent on weekends but genuinely livable during the week." },
+      { name: "Santurce & Miramar", desc: "The arts and gentrification district just south of Condado — the best street art, independent restaurants, and nightlife in Puerto Rico. More affordable than Condado and rapidly improving. Where the creative community and younger long-term residents have settled." },
+    ],
     weatherMatch: [0],             // warm/sunny (tropical)
     settingMatch: [0, 3],          // beach, city
     paceMatch: [3, 0, 2],          // social, active, relaxed
@@ -488,6 +493,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "West End & West Bay", desc: "The most developed end of the island — the best diving, the most restaurants and bars, the highest concentration of long-term expats. West Bay has the famous beach; West End has the village atmosphere. Where most international buyers look first and where most end up." },
+      { name: "Sandy Bay & Pristine Bay", desc: "The middle of the island — quieter than the West End, home to the Institute for Marine Sciences, and the Pristine Bay resort community for buyers who want a more managed environment. More residential character than the tourist zone." },
+      { name: "French Harbour & Brick Bay", desc: "The local commercial center and the quieter eastern reaches — where most Honduran residents live, with genuine local market and fishing village character. More affordable than the West End and less tourist-adjacent. For buyers who want the island lifestyle without the expat bubble." },
+    ],
     weatherMatch: [0],             // warm/sunny (tropical)
     settingMatch: [0, 4],          // beach, small town
     paceMatch: [0, 2, 3],          // active, relaxed, social
@@ -677,6 +687,11 @@ const DESTINATIONS = [
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
     // Scoring
+    neighborhoods: [
+      { name: "Casco Viejo", desc: "The UNESCO-listed colonial quarter on the peninsula — the most atmospheric neighborhood in Panama City and the fastest-rising real estate market in Central America. Restaurants, galleries, rooftop bars, and genuine historic character. More expensive than anywhere else in the city and worth understanding the tourist density before committing." },
+      { name: "El Cangrejo & Bella Vista", desc: "The established residential neighborhoods in the city center — the most popular area for long-term expats who want city infrastructure without Casco Viejo prices. Good restaurants, walkable, close to hospitals and international schools. Where most American retirees in Panama City actually live." },
+      { name: "Costa del Este & Santa Maria", desc: "The modern planned communities east of the center — newer construction, good security, golf, and the most US-style amenity infrastructure in Panama. More car-dependent but popular with buyers who want the Panama tax advantages with a familiar lifestyle." },
+    ],
     weatherMatch: [0],            // warm/sunny (tropical)
     settingMatch: [3, 0, 4],      // city, beach access, small-town Casco
     paceMatch: [3, 0, 2],         // social, active, relaxed
@@ -1436,6 +1451,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "San Pedro Town", desc: "The only real town on the island — golf carts instead of cars, the main tourist strip, the best restaurants, and the most walkable daily life in Belize. The most practical base for new arrivals and where the majority of services and infrastructure are concentrated." },
+      { name: "North Ambergris", desc: "The development corridor north of the lagoon — accessible only by water taxi or golf cart bridge, quieter than the town, newer villa and condo developments. Popular with buyers who want beach access and modern amenities with less of the town noise. Prices have risen significantly with demand." },
+      { name: "South Ambergris & Secret Beach", desc: "The southern and western reaches of the island — the calm lagoon side at Secret Beach has become the fastest-growing real estate area in Belize. More affordable than the reef side, good for swimming, and a genuinely relaxed pace that feels different from the tourist-facing town." },
+    ],
     weatherMatch: [0],
     settingMatch: [0, 4],
     paceMatch: [0, 2, 3],
@@ -1462,6 +1482,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?name=Las%20Terrenas',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "El Portillo & Playa Bonita", desc: "The beach areas east of the town center — the most popular addresses for long-term expats in Las Terrenas. Direct beach access, villa communities, beachfront restaurants. Where most European and American buyers end up after scouting the area." },
+      { name: "Town Center & Pueblo de los Pescadores", desc: "The commercial heart and the original fishing village — the best restaurants, the market, the European cafe culture that makes Las Terrenas feel unlike anywhere else in the Caribbean. More urban than the beach areas but genuinely livable and walkable." },
+      { name: "Coson & Los Nomadas", desc: "The quieter western reaches — less developed, more affordable, more local character. Popular with buyers who want Las Terrenas proximity at lower prices. The beach at Coson is among the best on the Samana peninsula." },
+    ],
     weatherMatch: [0],
     settingMatch: [0, 4, 5],
     paceMatch: [2, 3, 1],
@@ -1488,6 +1513,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Platinum Coast (St James & St Peter)", desc: "The prestigious west coast — Sandy Lane, Holetown, the calmest beaches on the island. The most expensive real estate in Barbados and the most established international community. Where the island's luxury villa market is concentrated. Worth understanding the cost reality before you fall for the lifestyle." },
+      { name: "Holetown & Speightstown", desc: "The west coast towns with genuine local character — Holetown has the best shopping and restaurants outside Bridgetown; Speightstown to the north is smaller, more authentic, and increasingly popular with buyers who want the Platinum Coast without the premium. The fish market in Speightstown is worth a visit." },
+      { name: "Christ Church & South Coast", desc: "The more affordable and more lively south coast — St Lawrence Gap nightlife, Oistins fish fry on Fridays, beach access, and prices significantly below the west coast. Where most expat residents who are not on the Platinum Coast tend to live. More tourist-adjacent but more affordable and more social." },
+    ],
     weatherMatch: [0],
     settingMatch: [0, 4],
     paceMatch: [2, 3, 0],
@@ -1514,6 +1544,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-domestic.html',
     browseHomesPage: 'browse-homes-domestic.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Christiansted", desc: "The historic Danish colonial town — the best restaurants and bars in the US Virgin Islands, waterfront access, the fort and the boardwalk. The most walkable and most atmospheric address on St Croix. Increasingly popular with buyers who want historic character and a genuine Caribbean town experience." },
+      { name: "Frederiksted & West End", desc: "The quieter town on the west coast — better sunsets, the pier for cruise ships, a more laid-back pace than Christiansted. More affordable and less tourist-adjacent. Where residents who have been on the island for years tend to appreciate the pace." },
+      { name: "Shoys & East End", desc: "The residential areas on the east side — larger properties, good reef diving, a quieter lifestyle. Popular with buyers who want space and natural access. The Buck Island reef is just offshore and the east end roads are among the most scenic on the island." },
+    ],
     weatherMatch: [0],
     settingMatch: [0, 4, 3],
     paceMatch: [2, 3, 0],
@@ -1540,6 +1575,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?name=Turks%20%26%20Caicos',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Grace Bay & Providenciales", desc: "The main island and the famous beach — consistently ranked among the world's best beaches, excellent snorkeling, a well-developed tourist and expat infrastructure. The center of real estate activity in Turks and Caicos and the most expensive. Where most buyers start and where most end up." },
+      { name: "Long Bay & Leeward", desc: "The calmer sides of Providenciales — Long Bay is the kiteboarding destination with lower prices than Grace Bay; Leeward has marina access and more established residential communities. Worth visiting both before committing to the Grace Bay premium." },
+      { name: "South Caicos & Grand Turk", desc: "The outer islands — Grand Turk is the capital, smaller and more local; South Caicos is the most authentic fishing village experience in the archipelago. Significantly more affordable than Providenciales and genuinely undeveloped. For buyers who want real Caribbean isolation." },
+    ],
     weatherMatch: [0],
     settingMatch: [0],
     paceMatch: [2, 0, 3],
@@ -1566,6 +1606,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?name=Grenada',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "St George's & The Carenage", desc: "The capital and its horseshoe harbor — the most atmospheric town in the Eastern Caribbean, genuinely walkable, the best local food, the Saturday market. Living in St George's gives you daily access to the kind of Caribbean town that has largely disappeared elsewhere." },
+      { name: "Grand Anse", desc: "The long beach south of the capital — the most popular destination for international buyers and long-term residents. Good infrastructure, direct beach access, the best hotels and restaurants outside the capital. Where most expats who come to Grenada end up." },
+      { name: "Lance aux Epines & True Blue", desc: "The residential peninsulas south of Grand Anse — quieter, more established, marina access at Port Louis. Popular with buyers who want a Grenada home with space and water access. The medical school community nearby adds English-speaking infrastructure." },
+    ],
     weatherMatch: [0],
     settingMatch: [0, 2, 5],
     paceMatch: [2, 0, 3],
@@ -1618,6 +1663,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?name=Cayman%20Islands',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Seven Mile Beach Corridor", desc: "The most famous beach in the Caribbean and the address most international buyers are looking for — high-rise condos, beachfront villas, the best restaurants in the islands. The most expensive real estate in the Caribbean and consistently in demand. Know the price before you fall in love with the view." },
+      { name: "George Town & Camana Bay", desc: "The capital and the planned town development — practical, walkable in Camana Bay, excellent services and healthcare, the financial district. More urban than the beach corridor but the most practical base for day-to-day living. Camana Bay in particular is well-designed and livable." },
+      { name: "East End & Bodden Town", desc: "The quieter eastern districts — more local Caymanian character, lower prices, the blow holes geological feature, diving on the unspoiled east wall. For buyers who want the Cayman Islands tax advantages and security without the Seven Mile Beach premium. A genuinely different island experience." },
+    ],
     weatherMatch: [0],
     settingMatch: [0, 3],
     paceMatch: [0, 3, 2],
@@ -1827,6 +1877,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Downtown Boquete & Los Establos", desc: "The compact town center in the Chiriqui highlands — the central plaza, the best cafes and restaurants, the weekly Tuesday market. The most walkable part of Boquete and the most in demand. Small enough that downtown is genuinely central to everything." },
+      { name: "Jaramillo & Alto Boquete", desc: "The highland residential areas above the town — coffee farms, flower nurseries, mountain views, and the cooler temperatures that make Boquete famous. Where most of the established expat community has built homes. More car-dependent but the setting is exceptional." },
+      { name: "Palmira & Valle Escondido", desc: "The gated community option and the surrounding valley — Valle Escondido is the most established resort-style community in Boquete with managed amenities. Palmira is more local and more affordable. For buyers who want the Boquete lifestyle with organized infrastructure." },
+    ],
     weatherMatch: [2, 3],
     settingMatch: [2, 5, 4],
     paceMatch: [0, 2, 3],
@@ -2387,6 +2442,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?name=Gold%20Coast',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Surfers Paradise & Broadbeach", desc: "The beach and entertainment spine of the Gold Coast — the skyline, the surf, the casino, and a lively pace that divides people cleanly. Surfers Paradise is the most iconic and most tourist-adjacent; Broadbeach is the more livable alternative with better restaurants and a slightly quieter energy." },
+      { name: "Burleigh Heads & Miami", desc: "The lifestyle alternative to the main strip — Burleigh Heads has the best surf break on the coast and a genuine village character that has attracted a creative community. Miami QLD (not Florida) is more affordable and increasingly popular. Where Gold Coast residents who want lifestyle over nightlife tend to live." },
+      { name: "Robina & Upper Coomera", desc: "The inland residential areas — more affordable, family-oriented, good schools and hospitals. Less beach lifestyle than the strip but significantly more house for the money. Where buyers who want the Gold Coast climate and infrastructure without the premium of beachfront living tend to look." },
+    ],
     weatherMatch: [0, 2],          // warm/sunny, mild
     settingMatch: [0, 3],          // beach, city
     paceMatch: [0, 3, 2],          // active, social, relaxed
@@ -2553,6 +2613,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-sunshine-coast.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Noosa Heads & Noosaville", desc: "The most prestigious address on the Sunshine Coast — Noosa National Park, the Hastings Street restaurant strip, the river and the surf beach in the same postcode. Among the most expensive real estate in Queensland and consistently in demand from Melbourne and Sydney buyers." },
+      { name: "Caloundra & Kings Beach", desc: "The southern entry to the Sunshine Coast — more affordable than Noosa, good beach access, improving restaurant scene, direct train service to Brisbane. Popular with buyers who want the Sunshine Coast lifestyle at accessible prices." },
+      { name: "Buderim & Montville Hinterland", desc: "The elevated hinterland above the coast — cooler temperatures, views to the ocean, the best farmers markets and artisan food scene in the region. More car-dependent than the beach strip but with a quality of daily life that many long-term residents prefer to the coast." },
+    ],
     weatherMatch: [0, 2],
     settingMatch: [0, 5, 2],
     paceMatch: [0, 2, 3],
@@ -2579,6 +2644,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-queenstown.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Queenstown Town Center & Frankton", desc: "The lakefront town center and the commercial area toward the airport — the most walkable part of Queenstown, the best restaurants and shops, the gondola and the Skyline above. The most expensive real estate in New Zealand outside Auckland. Worth understanding the seasonal tourist intensity before committing to living here." },
+      { name: "Kelvin Heights & Jack's Point", desc: "The residential peninsulas and the planned golf community south of the lake — quieter, more space, mountain and lake views from almost every property. Where most long-term Queenstown residents actually live when they can afford to buy. Jack's Point has the best new development in the region." },
+      { name: "Arrowtown & Arrow River", desc: "The gold rush village 20 minutes from Queenstown — one of the best-preserved historic towns in New Zealand, autumn colors that attract photographers from across the country, and prices meaningfully lower than Queenstown proper. The right choice for buyers who want the region without the ski resort intensity." },
+    ],
     weatherMatch: [1, 3],
     settingMatch: [2, 1],
     paceMatch: [0, 2],
@@ -2636,6 +2706,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-wanaka.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Wanaka Town Center & Lake Wanaka", desc: "The small lakefront town center — the best cafes and restaurants in the Wanaka area, the famous tree in the lake, and the Saturday market. More intimate than Queenstown by design and increasingly popular with buyers who specifically want the lower-key version of the same lakes-and-mountains lifestyle." },
+      { name: "Hawea & Lake Hawea", desc: "The quieter lake 15 minutes from Wanaka — lower prices, genuine small community character, similar outdoor access. Where buyers who want the Wanaka region at a lower price point tend to look. The lake itself is arguably more beautiful and less photographed than Wanaka." },
+      { name: "Albert Town & Luggate", desc: "The residential areas along the Clutha River between Wanaka and Queenstown — more affordable than either town, good daily services in Albert Town, and easy access to both ski fields. Popular with buyers who want the Central Otago lifestyle at prices that are still accessible." },
+    ],
     weatherMatch: [1, 3],
     settingMatch: [1, 2, 4],
     paceMatch: [0, 2, 1],
@@ -3319,6 +3394,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?id=perth',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Cottesloe & Swanbourne", desc: "The premium beach suburbs on the Indian Ocean — Cottesloe beach is the most iconic in Perth, Swanbourne is the adjacent and slightly quieter residential alternative. The most expensive addresses in the city outside Dalkeith. Worth knowing the price before falling for the lifestyle." },
+      { name: "Fremantle & North Fremantle", desc: "The historic port city at the mouth of the Swan River — the best food market in Western Australia, genuine history, a creative community, and direct beach and river access. More affordable than Cottesloe and genuinely walkable. Where Perth buyers who want character over prestige tend to look." },
+      { name: "Mount Lawley & Subiaco", desc: "The established inner suburbs east and west of the city — heritage homes, excellent local shopping strips, good transit to the CBD. Mount Lawley has the best cafe culture in Perth; Subiaco has the best markets and the most developed commercial street. Both are consistently popular with buyers who want livable inner Perth." },
+    ],
     weatherMatch: [0, 2],
     settingMatch: [0, 3, 5],
     paceMatch: [0, 2, 3],
