@@ -429,6 +429,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?name=Halifax',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "North End & Peninsula", desc: "The walkable urban core stretching up the Halifax Peninsula — the North End has the best independent restaurant and bar scene in the city, the Hydrostone district has some of the best post-1917 architecture, and the whole peninsula is walkable in a way that most Canadian cities cannot claim. The most in-demand part of the city and priced accordingly." },
+      { name: "South End & Point Pleasant", desc: "The established residential neighborhoods near Dalhousie and the Point Pleasant Park waterfront — heritage homes, excellent daily infrastructure, the most prestigious addresses in Halifax. Popular with academics and professionals who want proximity to the universities and the hospital." },
+      { name: "Dartmouth & Eastern Passage", desc: "The communities across the harbor — connected by ferry, more affordable than the peninsula, and increasingly popular as Halifax prices have risen. Dartmouth has a genuine arts and food scene developing rapidly. Where buyers who want Halifax lifestyle at lower prices tend to look." },
+    ],
     weatherMatch: [1, 3],          // four seasons, cool/crisp
     settingMatch: [0, 3, 1],       // coastal, city, lake/river
     paceMatch: [2, 3, 1],          // relaxed, social, creative
@@ -889,6 +894,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Zona Romantica & Los Muertos", desc: "The original expat neighborhood — cobblestone streets, the Malecon, Los Muertos beach, the best restaurants in the city. The most walkable and most in-demand part of Puerto Vallarta for long-term residents. Prices have risen significantly with international demand but the quality of daily life remains exceptional." },
+      { name: "Marina Vallarta & Hotel Zone", desc: "The modern marina development north of the city center — yacht berths, golf, international restaurants, high-rise condos. More resort-style than the Romantica and popular with buyers who want modern amenities and managed building stock. Less character but more reliable infrastructure." },
+      { name: "Versalles & 5 de Diciembre", desc: "The local residential neighborhoods between the tourist zones — where Puerto Vallarta actually lives. More affordable, genuine Mexican character, excellent local food. Popular with long-term expats who have moved past the tourist-zone experience and want to live more like locals." },
+    ],
     weatherMatch: [0],             // warm/sunny year-round
     settingMatch: [0, 3, 2],       // beach, city, mountains/jungle
     paceMatch: [3, 0, 2],          // social, active, relaxed
@@ -1005,6 +1015,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "My Khe Beach & Son Tra", desc: "The long beach strip and the peninsula — the most popular area for long-term expats in Da Nang. Direct beach access, sea breeze, and the most developed restaurant and cafe scene in the city. The Son Tra peninsula above has some of the most dramatic coastal scenery in Vietnam." },
+      { name: "Han River & City Center", desc: "The urban core on both sides of the Han River — good transit, the Dragon Bridge, the best street food, and the most practical daily infrastructure. More residential than the beach strip but genuinely walkable and well-connected." },
+      { name: "Ngu Hanh Son & Non Nuoc", desc: "The marble mountains area south of the city — quieter, more local, closer to Hoi An for day trips. Popular with buyers who want a Da Nang base with easier access to the ancient town. Lower prices than the beach strip with a more residential character." },
+    ],
     weatherMatch: [0, 2],          // warm/sunny, mild in some months
     settingMatch: [0, 2, 3],       // beach, mountains, city
     paceMatch: [0, 2, 1],          // active, relaxed, creative
@@ -1196,6 +1211,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?name=Vancouver',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Kitsilano & Point Grey", desc: "The west side beach neighborhoods — Kits Beach, the best coffee shops in the city, mountain and ocean views on clear days. The most popular area for American expats and long-term foreign residents. Among the most expensive real estate in Canada. Worth understanding the price before you fall in love." },
+      { name: "Commercial Drive & Mount Pleasant", desc: "The east side creative neighborhoods — more affordable than the west side, genuine community character, excellent restaurants and cafes. Where the city actually lives. Prices have risen significantly but remain meaningfully below Kitsilano and the West End." },
+      { name: "North Shore: North Vancouver & West Vancouver", desc: "The mountain communities across Burrard Inlet — ski access in winter, hiking from your door year-round, quieter pace than the city, and some of the most dramatic scenery in North America. More car-dependent than the city but the quality of outdoor life is exceptional." },
+    ],
     weatherMatch: [2, 1],
     settingMatch: [0, 2, 3],
     paceMatch: [0, 1, 3],
@@ -1248,6 +1268,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?name=Qu%C3%A9bec%20City',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Old Quebec (Vieux-Quebec)", desc: "The UNESCO-listed walled city — the Chateau Frontenac above, the Plains of Abraham nearby, the most atmospheric address in Canada. Apartments within the walls are rare and expensive. Worth several days here in winter to understand whether the cold and the tourist density work for year-round living." },
+      { name: "Montcalm & Saint-Jean-Baptiste", desc: "The residential neighborhoods immediately outside the old walls — lively restaurants and bars on Grande Allee, a genuine community feel, and the most practical daily infrastructure close to the historic center. Where long-term Quebec City residents tend to live." },
+      { name: "Sainte-Foy & Sillery", desc: "The western suburbs — the university, good hospitals, larger apartments, and more affordable prices than the old city. Popular with families and buyers who want Quebec City lifestyle with better everyday practicality. Less atmospheric but genuinely livable." },
+    ],
     weatherMatch: [1, 3],
     settingMatch: [3, 4],
     paceMatch: [1, 3, 2],
@@ -1274,6 +1299,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?name=Ottawa',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Glebe & Old Ottawa South", desc: "The most walkable and desirable neighborhoods in the city — Bank Street shops and restaurants, the Rideau Canal for skating in winter and cycling in summer, heritage homes, and a genuine community feel. The most expensive residential real estate in Ottawa and consistently in demand." },
+      { name: "Westboro & Wellington West", desc: "The hip west-end neighborhoods that have gentrified rapidly over the past decade — independent boutiques, excellent cafes, good transit. More affordable than the Glebe with a younger energy and comparable walkability. Where Ottawa buyers who got priced out of the Glebe tend to land." },
+      { name: "Centretown & Little Italy", desc: "The urban core neighborhoods close to Parliament Hill — denser, more affordable, excellent transit access. Where professionals and government workers live. Preston Street has the best Italian food in the city. The right choice for buyers who want urban Ottawa at accessible prices." },
+    ],
     weatherMatch: [1, 3],
     settingMatch: [3, 1],
     paceMatch: [1, 0, 3],
@@ -1647,6 +1677,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Ajijic Centro", desc: "The cobblestone village center on the lakeshore — the church plaza, the malecon, the best restaurants and galleries in the Lake Chapala area. The most atmospheric address and the most expensive. Worth several days here to understand whether the increasingly international character of the village suits what you are looking for." },
+      { name: "La Floresta & West Ajijic", desc: "The established residential areas west of the village center — more space, better views toward the mountains, quieter streets. Where most long-term expat residents have settled. The Lake Chapala Society is nearby. More practical for daily life than the village core." },
+      { name: "Chapala Town & San Antonio Tlayacapan", desc: "The larger town east of Ajijic and the village between them — more affordable, more Mexican in character, and genuinely livable. Chapala has better everyday services and a local market that Ajijic lacks. Worth considering if the Ajijic premium feels steep." },
+    ],
     weatherMatch: [2, 0],
     settingMatch: [1, 4],
     paceMatch: [2, 3, 1],
@@ -2267,6 +2302,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?name=H%E1%BB%99i%20An',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Ancient Town & Cam Nam", desc: "The UNESCO World Heritage ancient town — lantern-lit streets, the Japanese covered bridge, tailors and silk shops. The most atmospheric place to live in Vietnam. Increasingly expensive and tourist-adjacent but genuinely irreplaceable in character. Cam Nam island adjacent to the old town is more residential and more affordable." },
+      { name: "An Bang Beach & Cua Dai", desc: "The beach village north of the ancient town — the most popular area for long-term expats in Hoi An. Direct beach access, beachfront restaurants, villa rentals, and a quieter pace than the old town. Where most Western residents who have settled in Hoi An actually live." },
+      { name: "Thanh Ha & Tra Que", desc: "The villages west of the ancient town — pottery workshops in Thanh Ha, organic herb gardens in Tra Que. More local, more affordable, and genuinely traditional in character. Popular with buyers who want the Hoi An lifestyle at lower prices while living among Vietnamese rather than tourists." },
+    ],
     weatherMatch: [0, 2],
     settingMatch: [0, 4, 1],
     paceMatch: [2, 1, 3],
@@ -3094,6 +3134,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?id=los-cabos',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Cabo San Lucas & Pedregal", desc: "The resort end of the corridor — the marina, the nightlife, the famous arch at Land's End. Pedregal above the marina is where the highest-end private homes are concentrated. The most tourist-adjacent part of Los Cabos and the most expensive. Best understood as a resort destination rather than a retirement neighborhood." },
+      { name: "San Jose del Cabo & Zona Hotelera", desc: "The more authentic end of the corridor — the colonial art district, the church plaza, the estuary. San Jose has a genuinely livable historic center and the cultural calendar that Cabo San Lucas lacks. More practical for daily life with better local character." },
+      { name: "The Corridor & East Cape", desc: "The stretch between the two towns and the rugged East Cape beyond — resort developments, golf communities, quieter beaches. Where buyers who want Los Cabos real estate without the tourist density of either town tend to look. More car-dependent but significant value relative to the established resort zones." },
+    ],
     weatherMatch: [0],
     settingMatch: [0, 2, 4],
     paceMatch: [0, 2, 3],
@@ -3146,6 +3191,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?id=guadalajara',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Providencia & Andares", desc: "The most popular expat neighborhoods in the city — tree-lined streets, excellent restaurants, proximity to the US Consulate, and the best commercial infrastructure in Guadalajara. More expensive than the historic center but with the amenity level that most American expats are looking for." },
+      { name: "Tlaquepaque & Tonala", desc: "The artisan towns that have been absorbed into the metro area — the best crafts, ceramics, and furniture market in Mexico, with a genuine cultural character that feels distinct from the city. Popular with buyers who want Guadalajara proximity with a village pace." },
+      { name: "Colonia Americana & Lafayette", desc: "The historic residential neighborhoods between the old city and Providencia — Art Deco buildings, the best cafes in the city, walkable to both the historic center and the modern commercial areas. Gentrifying rapidly. Where the creative and cultural energy of Guadalajara is concentrated." },
+    ],
     weatherMatch: [2, 0],
     settingMatch: [3, 4],
     paceMatch: [1, 3, 2],
@@ -3205,6 +3255,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?id=ho-chi-minh-city',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Thao Dien & District 2", desc: "The undisputed expat hub — leafy streets across the river from the center, international schools, Western restaurants, yoga studios, and condo developments with pools and gyms. Where most American expats live in Ho Chi Minh City. More expensive than the rest of the city but by far the most practical for new arrivals." },
+      { name: "District 1 & Ben Thanh", desc: "The city center — the best restaurants and street food, the Notre-Dame Cathedral, the central market. More urban and less residential than Thao Dien but genuinely walkable and exciting. Where buyers who want city energy over expat comfort tend to look." },
+      { name: "Binh Thanh & Phu Nhuan", desc: "The local residential districts between the center and District 2 — more affordable, more Vietnamese in character, good transit and daily services. Where long-term expats who want to live more like local residents tend to migrate after their first year in the city." },
+    ],
     weatherMatch: [0],
     settingMatch: [3],
     paceMatch: [1, 3, 0],
@@ -3318,6 +3373,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Canggu & Berawa", desc: "The surf and creative district on the southwest coast — the best cafes, coworking spaces, and yoga studios on the island, the Batu Bolong beach, and a population that is heavily weighted toward remote workers and long-term expats. The most in-demand area for international residents and the fastest-rising prices. Worth a month here before you commit." },
+      { name: "Ubud & Surrounding Villages", desc: "The cultural heart of Bali in the rice terraces of the interior — the Monkey Forest, the morning market, the best traditional dance performances, and a pace that is genuinely different from the coast. Popular with retirees who want immersion in Balinese culture and a cooler climate than the beach towns." },
+      { name: "Seminyak & Oberoi", desc: "The established upscale beach zone between Kuta and Canggu — long-standing villa developments, excellent restaurants, the most developed expat infrastructure on the island. More expensive than Canggu and less trendy, but with a proven track record and stable rental demand that newer areas cannot yet claim." },
+    ],
     weatherMatch: [0],               // tropical year-round
     settingMatch: [2, 5, 0],         // mountains/terraces, countryside, beach
     paceMatch: [2, 1, 0],            // relaxed, creative, active
@@ -3346,6 +3406,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?name=Fukuoka',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Hakata & Tenjin", desc: "The two city centers — Hakata is the business and transport hub around the bullet train station; Tenjin is the shopping and entertainment district. Together they form the most walkable and most connected part of the city. The most practical base for new arrivals and where transit access is best." },
+      { name: "Ohori & Yakuin", desc: "The residential neighborhoods around Ohori Park and the Yakuin dining and bar street — the most popular areas for long-term residents who want neighborhood life with excellent restaurants and the park for daily walks. More expensive than the eastern suburbs but with genuinely high quality of daily life." },
+      { name: "Itoshima & Seaside", desc: "The coastal area west of the city — beaches, organic farms, weekend markets, and a growing community of remote workers and lifestyle migrants who want the Fukuoka base without the city density. More car-dependent but with a quality of outdoor life that the city center cannot offer." },
+    ],
     weatherMatch: [2, 1],            // mild/temperate, four seasons
     settingMatch: [3, 0],             // city, coastal
     paceMatch: [1, 3, 2],            // creative, social, relaxed
@@ -3374,6 +3439,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?name=Marrakech',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "The Medina & Mouassine", desc: "The UNESCO-listed old city — souks, riads, the Djemaa el-Fna square, and one of the most sensory urban environments in the world. Living in a riad inside the medina is genuinely extraordinary. Also genuinely complicated: narrow streets, tourist density, noise from the square. Spend a week before deciding." },
+      { name: "Gueliz (Ville Nouvelle)", desc: "The French colonial new town built outside the medina walls — wide boulevards, modern apartments, good restaurants and cafes, easier everyday logistics. Where most long-term foreign residents actually live. More practical than the medina with better infrastructure and lower noise levels." },
+      { name: "Hivernage & Semlalia", desc: "The upscale neighborhoods between Gueliz and the Palmeraie — luxury villas, boutique hotels, the best restaurants in the city. More expensive and more spacious than Gueliz. Popular with buyers who want a Marrakech home with a pool and a walled garden at prices that remain favorable by European standards." },
+    ],
     weatherMatch: [0],               // warm/sunny (hot summers, mild winters)
     settingMatch: [3, 4, 2],         // city, small-town medina feel, mountains nearby
     paceMatch: [1, 2, 3],            // creative, relaxed, social
@@ -3761,6 +3831,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trips.html',
+    neighborhoods: [
+      { name: "Karen & Langata", desc: "The established expat suburbs in the south — large plots, green space, good security, and the Karen Blixen legacy that gives the area its particular atmosphere. The most popular addresses for long-term foreign residents and the most expensive. Close to the national park, which means wildlife genuinely visible from the neighborhood." },
+      { name: "Lavington & Westlands", desc: "The residential and commercial neighborhoods west of the center — good restaurants and shops in Westlands, quieter residential streets in Lavington. More affordable than Karen and more connected to the business and social life of the city. Where the diplomatic community and established professionals tend to live." },
+      { name: "Kilimani & Kileleshwa", desc: "The mid-range residential neighborhoods between Westlands and Karen — more affordable than either, genuine neighborhood character, good everyday services. Where buyers who want a Nairobi home at an accessible price without sacrificing safety or amenity access tend to look." },
+    ],
     weatherMatch: [2],               // mild/temperate year-round (highland climate, ~70°F)
     settingMatch: [3, 4, 5],         // city, small-town neighborhoods, open landscape nearby
     paceMatch: [0, 1, 3],            // active, mixed, social
@@ -3787,6 +3862,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trips.html',
+    neighborhoods: [
+      { name: "Stone Town", desc: "The UNESCO-listed historic port city — Arabic, Indian, and African architecture layered over centuries of trade, the best food on the island, the old fort and the spice market. Living in Stone Town is genuinely unique. Also the most practical base for accessing the rest of the island. Worth a full week before deciding." },
+      { name: "Nungwi & Kendwa", desc: "The northern beach villages — the most popular destination on the island for long-term stays and villa rentals. Nungwi has the best snorkeling and the most developed tourist infrastructure; Kendwa is slightly quieter. Both offer a pace that is genuinely different from Stone Town." },
+      { name: "Matemwe & Paje", desc: "The east coast — kitesurfing at Paje, the best coral reef snorkeling at Matemwe, and a quieter pace than the north. More affordable and less developed than Nungwi, with a growing community of long-term expats who prefer the windward coast." },
+    ],
     weatherMatch: [0],               // warm/sunny tropical year-round
     settingMatch: [0, 4, 3],         // beach (primary), small town Stone Town, city character
     paceMatch: [2, 3, 1],            // slow/easy (primary), social, mixed
