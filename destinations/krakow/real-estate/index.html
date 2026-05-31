@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com https://www.google-analytics.com data: blob:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com;">
+<title>Find a Home in Kraków — Real Estate Guide for Retirees | RetireVibes</title>
+<meta name="description" content="Renting and buying in Kraków, Poland: neighborhoods, price ranges, legal basics for Americans, and where to find real listings. A RetireVibes real estate guide." />
+<link rel="canonical" href="https://www.retirevibes.com/destinations/krakow/real-estate/" />
+<meta property="og:title" content="Find a Home in Kraków | RetireVibes" />
+<meta property="og:description" content="Neighborhoods, price ranges, rent vs. buy, and legal basics for Americans retiring in Kraków." />
+<meta property="og:url" content="https://www.retirevibes.com/destinations/krakow/real-estate/" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="RetireVibes" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../shared.css" />
+<style>
+  :root {
+    --cream: #FBF6EE; --cream-soft: #F4ECDD;
+    --terracotta: #C97B5A; --terracotta-dark: #A8593A;
+    --teal: #1B3A4B; --teal-soft: #2E5468;
+    --gold: #C8A064; --gold-soft: #E4C998;
+    --sage: #93A89A; --warm-gray: #7A6E5F;
+    --white: #FFFFFF;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--cream); color: var(--teal); font-family: var(--sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+  /* Nav */
+  .nav { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; padding: 18px 48px; background: rgba(251,246,238,.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(27,58,75,.06); }
+  .wordmark { font-family: var(--serif); font-size: 24px; color: var(--teal); letter-spacing: -.01em; text-decoration: none; }
+  .wordmark em { color: var(--terracotta); font-style: normal; }
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-links a { color: var(--teal); text-decoration: none; font-size: 15px; font-weight: 500; }
+  .nav-links a:hover { color: var(--terracotta); }
+  .nav-cta { padding: 12px 22px; background: var(--teal); color: var(--white) !important; border-radius: 999px; font-size: 14px; transition: all .25s ease; }
+  .nav-cta:hover { background: var(--terracotta); }
+
+  /* Hero */
+  .hero { position: relative; min-height: 580px; display: flex; align-items: flex-end; padding: 0 48px 72px; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center 55%; }
+  .hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg,rgba(27,58,75,.1) 0%,rgba(27,58,75,.78) 100%); }
+  .hero-inner { position: relative; z-index: 2; max-width: 760px; }
+  .hero-kicker { display: inline-flex; align-items: center; gap: 10px; padding: 8px 18px; background: rgba(251,246,238,.15); border: 1px solid rgba(255,255,255,.25); border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 22px; backdrop-filter: blur(6px); }
+  .hero-kicker::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--gold-soft); }
+  .hero h1 { font-family: var(--serif); font-size: 60px; line-height: 1.04; letter-spacing: -.02em; color: var(--white); margin-bottom: 20px; }
+  .hero h1 em { font-style: italic; color: var(--gold-soft); }
+  .hero-sub { font-size: 18px; line-height: 1.55; color: rgba(255,255,255,.82); max-width: 540px; margin-bottom: 36px; }
+  .hero-btns { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 10px; padding: 18px 36px; background: var(--terracotta); color: var(--white); border-radius: 999px; font-family: var(--sans); font-size: 16px; font-weight: 500; cursor: pointer; transition: all .25s ease; text-decoration: none; }
+  .btn-primary:hover { background: var(--terracotta-dark); transform: translateY(-1px); }
+  .btn-ghost { display: inline-flex; align-items: center; gap: 10px; padding: 17px 30px; background: rgba(255,255,255,.12); color: var(--white); border: 1px solid rgba(255,255,255,.3); border-radius: 999px; font-family: var(--sans); font-size: 15px; font-weight: 500; text-decoration: none; transition: all .25s ease; }
+  .btn-ghost:hover { background: rgba(255,255,255,.2); }
+  .hero-partner { margin-top: 16px; font-size: 12px; color: rgba(255,255,255,.45); letter-spacing: .06em; }
+
+  /* Section shared */
+  .section-label { font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--warm-gray); font-weight: 500; margin-bottom: 14px; }
+  .section-headline { font-family: var(--serif); font-size: 46px; color: var(--teal); line-height: 1.1; letter-spacing: -.015em; margin-bottom: 16px; }
+  .section-headline em { color: var(--terracotta); font-style: italic; }
+  .section-sub { font-size: 18px; color: var(--teal-soft); line-height: 1.6; max-width: 640px; margin-bottom: 56px; }
+
+  /* Neighborhoods */
+  .neighborhoods { background: var(--cream-soft); padding: 96px 48px; }
+  .neighborhoods-inner { max-width: 1240px; margin: 0 auto; }
+  .hood-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; }
+  .hood-card { background: var(--white); border-radius: 16px; padding: 32px 30px; border: 1px solid rgba(27,58,75,.07); display: grid; grid-template-columns: 1fr auto; gap: 0 16px; align-items: start; }
+  .hood-card-main { grid-column: 1; }
+  .hood-vibe { grid-column: 2; display: inline-block; padding: 5px 12px; border-radius: 999px; font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; margin-top: 2px; }
+  .vibe-calm { background: rgba(147,168,154,.18); color: #4A7A5A; }
+  .vibe-lively { background: rgba(201,123,90,.14); color: var(--terracotta-dark); }
+  .vibe-local { background: rgba(200,160,100,.18); color: #8A6020; }
+  .vibe-coastal { background: rgba(27,58,75,.1); color: var(--teal); }
+  .hood-name { font-family: var(--serif); font-size: 26px; color: var(--teal); letter-spacing: -.01em; margin-bottom: 10px; }
+  .hood-desc { font-size: 14px; line-height: 1.65; color: var(--teal-soft); margin-bottom: 16px; }
+  .hood-stats { display: flex; gap: 20px; flex-wrap: wrap; }
+  .hood-stat { font-size: 13px; color: var(--warm-gray); }
+  .hood-stat strong { color: var(--teal); font-weight: 600; }
+
+  /* Price bands */
+  .price-bands { background: var(--teal); padding: 96px 48px; }
+  .price-bands-inner { max-width: 1240px; margin: 0 auto; }
+  .band-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+  .band-card { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: 16px; padding: 30px 26px; }
+  .band-range { font-family: var(--serif); font-size: 32px; color: var(--gold-soft); letter-spacing: -.01em; margin-bottom: 6px; }
+  .band-label { font-size: 13px; font-weight: 600; color: rgba(255,255,255,.5); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 20px; }
+  .band-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .band-list li { font-size: 14px; color: rgba(255,255,255,.8); line-height: 1.5; padding-left: 16px; position: relative; }
+  .band-list li::before { content: "→"; position: absolute; left: 0; color: var(--gold-soft); font-size: 12px; top: 2px; }
+
+  /* Rent vs Buy */
+  .rent-vs-buy { background: var(--cream); padding: 96px 48px; }
+  .rent-vs-buy-inner { max-width: 1240px; margin: 0 auto; }
+  .rvb-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .rvb-card { border-radius: 16px; padding: 38px 34px; border: 1px solid rgba(27,58,75,.1); }
+  .rvb-card.rent { background: var(--white); }
+  .rvb-card.buy { background: var(--cream-soft); }
+  .rvb-title { font-family: var(--serif); font-size: 32px; color: var(--teal); letter-spacing: -.01em; margin-bottom: 8px; }
+  .rvb-subtitle { font-size: 14px; color: var(--warm-gray); font-weight: 500; margin-bottom: 24px; }
+  .rvb-points { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+  .rvb-points li { font-size: 15px; line-height: 1.55; color: var(--teal-soft); padding-left: 20px; position: relative; }
+  .rvb-points li::before { position: absolute; left: 0; top: 2px; font-size: 13px; }
+  .rvb-card.rent .rvb-points li::before { content: "✓"; color: #4A7A5A; }
+  .rvb-card.buy .rvb-points li::before { content: "✓"; color: var(--terracotta); }
+  .rvb-note { font-size: 13px; color: var(--warm-gray); line-height: 1.55; background: rgba(27,58,75,.04); border-radius: 10px; padding: 14px 16px; }
+
+  /* Legal */
+  .legal-band { background: #122631; padding: 80px 48px; }
+  .legal-band-inner { max-width: 1240px; margin: 0 auto; }
+  .legal-band .section-label { color: rgba(255,255,255,.4); }
+  .legal-band .section-headline { color: var(--white); font-size: 38px; }
+  .legal-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 40px; }
+  .legal-card { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.09); border-radius: 14px; padding: 26px 24px; }
+  .legal-icon { font-size: 26px; margin-bottom: 14px; }
+  .legal-title { font-family: var(--serif); font-size: 20px; color: var(--gold-soft); margin-bottom: 10px; }
+  .legal-body { font-size: 13px; line-height: 1.65; color: rgba(255,255,255,.7); }
+  .legal-disclaimer { margin-top: 32px; font-size: 13px; color: rgba(255,255,255,.35); line-height: 1.6; max-width: 720px; }
+
+  /* Main CTA */
+  .main-cta { background: var(--cream-soft); padding: 100px 48px; text-align: center; }
+  .main-cta-inner { max-width: 680px; margin: 0 auto; }
+  .main-cta .section-label { text-align: center; }
+  .cta-headline { font-family: var(--serif); font-size: 52px; color: var(--teal); line-height: 1.08; letter-spacing: -.02em; margin-bottom: 18px; }
+  .cta-headline em { color: var(--terracotta); font-style: italic; }
+  .cta-sub { font-size: 18px; color: var(--teal-soft); line-height: 1.6; margin-bottom: 40px; }
+  .cta-btns { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+  .btn-teal { display: inline-flex; align-items: center; gap: 10px; padding: 18px 36px; background: var(--teal); color: var(--white); border-radius: 999px; font-family: var(--sans); font-size: 16px; font-weight: 500; text-decoration: none; transition: all .25s ease; }
+  .btn-teal:hover { background: var(--teal-soft); transform: translateY(-1px); }
+  .btn-outline { display: inline-flex; align-items: center; gap: 10px; padding: 17px 30px; background: transparent; color: var(--teal); border: 1.5px solid rgba(27,58,75,.25); border-radius: 999px; font-family: var(--sans); font-size: 15px; font-weight: 500; text-decoration: none; transition: all .25s ease; }
+  .btn-outline:hover { border-color: var(--teal); }
+  .cta-partner-note { margin-top: 20px; font-size: 12px; color: var(--warm-gray); }
+  .cta-partner-note a { color: var(--warm-gray); }
+
+  /* Also consider */
+  .also { background: var(--teal); padding: 88px 48px; }
+  .also-inner { max-width: 1240px; margin: 0 auto; }
+  .also .section-label { color: rgba(255,255,255,.45); }
+  .also-headline { font-family: var(--serif); font-size: 40px; color: var(--white); letter-spacing: -.015em; margin-bottom: 40px; }
+  .also-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+  .also-card { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 14px; padding: 28px 26px; transition: all .25s ease; text-decoration: none; display: block; }
+  .also-card:hover { background: rgba(255,255,255,.09); transform: translateY(-2px); }
+  .also-tag { font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 12px; opacity: .8; }
+  .also-title { font-family: var(--serif); font-size: 22px; color: var(--white); margin-bottom: 8px; letter-spacing: -.01em; }
+  .also-desc { font-size: 13px; color: rgba(255,255,255,.65); line-height: 1.55; margin-bottom: 16px; }
+  .also-link { font-size: 13px; color: var(--gold-soft); font-weight: 500; }
+
+  /* Footer */
+  footer { background: #0E2130; padding: 48px; }
+  .footer-inner { max-width: 1240px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+  .footer-tag { font-size: 13px; color: rgba(255,255,255,.35); margin-top: 6px; }
+  .footer-links { display: flex; gap: 28px; flex-wrap: wrap; }
+  .footer-links a { font-size: 14px; color: rgba(255,255,255,.45); text-decoration: none; }
+  .footer-links a:hover { color: rgba(255,255,255,.75); }
+  .footer-legal { max-width: 1240px; margin: 32px auto 0; padding-top: 28px; border-top: 1px solid rgba(255,255,255,.06); font-size: 12px; color: rgba(255,255,255,.25); line-height: 1.6; }
+
+  /* Responsive */
+  @media (max-width: 980px) {
+    .nav { padding: 16px 24px; }
+    .hero { padding: 0 24px 56px; min-height: 480px; }
+    .hero h1 { font-size: 40px; }
+    .neighborhoods, .price-bands, .rent-vs-buy, .legal-band, .main-cta, .also { padding: 72px 24px; }
+    .hood-grid { grid-template-columns: 1fr; }
+    .band-grid { grid-template-columns: 1fr; gap: 16px; }
+    .rvb-grid { grid-template-columns: 1fr; }
+    .legal-grid { grid-template-columns: 1fr; }
+    .also-grid { grid-template-columns: 1fr; }
+    .section-headline { font-size: 34px; }
+    footer { padding: 36px 22px 32px; }
+    .footer-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="wordmark" href="../../homepage-mockup.html">Retire<em>Vibes</em></a>
+  <div class="nav-links">
+    <a href="../../destinations.html">Destinations</a>
+    <a href="../../my-retirevibes.html">My RetireVibes</a>
+    <a class="nav-cta" href="../../quiz.html">Find my RetireVibes →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg" style="background-image: url('../../images/krakow.jpg')"></div>
+  <div class="hero-inner">
+    <div class="hero-kicker">Real Estate Guide · International</div>
+    <h1>Find your home in <em>Kraków</em></h1>
+    <p class="hero-sub">Real listings, real neighborhoods, no obligation. Browse what's actually available in Kraków before you commit to anything.</p>
+    <div class="hero-btns">
+      <a class="btn-primary" href="https://www.otodom.pl/pl/wyniki/wynajem/mieszkanie/krakw" target="_blank" rel="noopener noreferrer">
+        Browse Kraków listings →
+      </a>
+      <a class="btn-ghost" href="../../destination-detail.html?id=krakow">Back to Kraków guide</a>
+    </div>
+    <p class="hero-partner">Listings via Otodom · Updated regularly</p>
+  </div>
+</section>
+
+<!-- NEIGHBORHOODS -->
+<section class="neighborhoods">
+  <div class="neighborhoods-inner">
+    <p class="section-label">Know the city before you search</p>
+    <h2 class="section-headline">Kraków's neighborhoods,<br><em>honestly described</em></h2>
+    <p class="section-sub">Kraków isn't one place. The right neighborhood depends on how you want to live — not just which one looks best in photos.</p>
+    <div class="hood-grid">
+      <p style="color:var(--warm-gray)">Neighborhood details coming soon.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICE BANDS -->
+<section class="price-bands">
+  <div class="price-bands-inner">
+    <p class="section-label" style="color:rgba(255,255,255,0.45)">What your budget gets you</p>
+    <h2 class="section-headline" style="color:var(--white)">Kraków real estate,<br><em style="color:var(--gold-soft)">by the numbers</em></h2>
+    <p class="section-sub" style="color:rgba(255,255,255,0.7)">These ranges are based on current market data. Prices fluctuate — use these as a planning anchor, not a quote.</p>
+    <div class="band-grid">
+      
+      <div class="band-card">
+        <div class="band-range">$500/mo–$700/mo</div>
+        <div class="band-label">Budget renting</div>
+        <ul class="band-list">
+          <li>1–2 bedroom apartment in a local or up-and-coming neighborhood</li>
+          <li>Local amenities nearby; may require a short commute to main centers</li>
+          <li>Older building stock is common at this range — inspect carefully</li>
+          <li>Furnished options exist, especially in expat-popular areas</li>
+          <li>Good base to explore while you decide on your preferred neighborhood</li>
+        </ul>
+      </div>
+      <div class="band-card">
+        <div class="band-range">$650/mo–$1K/mo</div>
+        <div class="band-label">Comfortable renting</div>
+        <ul class="band-list">
+          <li>2-bedroom in a central or established neighborhood</li>
+          <li>More likely to find modern finishes, AC, and reliable utilities</li>
+          <li>Expat-friendly: furnished options, English-speaking landlords common</li>
+          <li>Walkable to restaurants, markets, and services in most cities</li>
+          <li>Views, outdoor space, or premium amenities available at the higher end</li>
+        </ul>
+      </div>
+      <div class="band-card">
+        <div class="band-range">~$180K</div>
+        <div class="band-label">Buying</div>
+        <ul class="band-list">
+          <li>2BR in a central or riverside neighborhood</li>
+          <li>Budget 8–15% above purchase price for taxes, legal fees, and closing costs</li>
+          <li>Work with a local property attorney to understand ownership rules for foreigners</li>
+          <li>Renting first for at least a year before buying is the consensus advice of the expat community</li>
+          <li>Prices can vary significantly by neighborhood — the number above is a market anchor, not a quote</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RENT VS BUY -->
+
+    <section class="rent-vs-buy">
+      <div class="rent-vs-buy-inner">
+        <p class="section-label">The big decision</p>
+        <h2 class="section-headline">Rent first.<br><em>Almost always.</em></h2>
+        <p class="section-sub">This isn't financial advice — it's the consistent experience of the expat community: don't buy before you've lived somewhere for at least a year.</p>
+        <div class="rvb-grid">
+          <div class="rvb-card rent">
+            <h3 class="rvb-title">Renting first</h3>
+            <p class="rvb-subtitle">The path most expats recommend</p>
+            <ul class="rvb-points">
+              <li>You discover what neighborhood actually fits your lifestyle — not just what looked good in photos</li>
+              <li>You have time to understand local bureaucracy before committing to a purchase transaction</li>
+              <li>You keep your options open: if the vibe doesn't hold up in year one, you leave</li>
+              <li>No transfer taxes, no notary fees, no property manager search</li>
+              <li>Long-term furnished rentals are available in most international expat destinations</li>
+            </ul>
+            <div class="rvb-note">Typical lease terms vary by country. Most international markets offer 6–12 month initial leases, often furnished. Deposits typically 1–2 months rent.</div>
+          </div>
+          <div class="rvb-card buy">
+            <h3 class="rvb-title">Buying when you're ready</h3>
+            <p class="rvb-subtitle">Worth it for the right circumstances</p>
+            <ul class="rvb-points">
+              <li>You've lived in the area for at least a year and you're genuinely confident</li>
+              <li>You have a local real estate attorney (not just an agent) and understand the legal ownership structure for foreigners in this country</li>
+              <li>You've worked out the US tax implications of owning foreign property with a qualified expat advisor</li>
+              <li>You have a realistic budget that includes transaction costs, which can be 8–15% above purchase price internationally</li>
+              <li>You're not buying as an investment — you're buying because this is where you want to live</li>
+            </ul>
+            <div class="rvb-note">Transaction costs vary significantly by country. In some markets, the buyer pays transfer tax; in others, the seller does. Your attorney will clarify before you commit.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- LEGAL & VISA -->
+<section class="legal-band">
+  <div class="legal-band-inner">
+    <p class="section-label">Before you sign anything</p>
+    <h2 class="section-headline">Three things every American needs to know</h2>
+    <div class="legal-grid">
+      
+      <div class="legal-card">
+        <div class="legal-icon">🏦</div>
+        <h3 class="legal-title">You still file US taxes abroad</h3>
+        <p class="legal-body">The US taxes worldwide income regardless of where you live. The Foreign Earned Income Exclusion (FEIE) and Foreign Tax Credit can help, but this is complicated when you add Social Security, pension distributions, and investment income. An advisor who specializes in US expat taxation is not optional — this is different from standard tax prep.</p>
+      </div>
+      
+      <div class="legal-card">
+        <div class="legal-icon">🏠</div>
+        <h3 class="legal-title">Residency options for Americans in Poland</h3>
+        <p class="legal-body">Most countries have some form of residency permit for financially independent foreigners — often called a retirement visa, passive income visa, or financially independent person visa. Requirements vary widely. Verify current income thresholds, health insurance requirements, and application timelines with a local immigration attorney before building plans around any specific program.</p>
+      </div>
+      
+      <div class="legal-card">
+        <div class="legal-icon">📋</div>
+        <h3 class="legal-title">Property ownership for Americans</h3>
+        <p class="legal-body">Rules for foreign property ownership vary significantly by country. Some allow full freehold ownership; others restrict foreigners to leasehold or require local partnerships. A local property lawyer is essential for any purchase — real estate agents do not provide legal services. Renting first is the lowest-risk way to evaluate a place before committing to ownership.</p>
+      </div>
+    </div>
+    <p class="legal-disclaimer">This is context, not legal or tax advice. Property transactions and residency in Poland require professional guidance from a local attorney and a US expat tax advisor.</p>
+  </div>
+</section>
+
+<!-- MAIN CTA -->
+<section class="main-cta">
+  <div class="main-cta-inner">
+    <p class="section-label">Start looking</p>
+    <h2 class="cta-headline">Ready to see what's<br>actually <em>available?</em></h2>
+    <p class="cta-sub">Otodom is Poland's largest property platform, with listings in Warsaw, Kraków, and beyond.</p>
+    <div class="cta-btns">
+      <a class="btn-primary" href="https://www.otodom.pl/pl/wyniki/wynajem/mieszkanie/krakw" target="_blank" rel="noopener noreferrer">
+        Browse Kraków rentals →
+      </a>
+      <a class="btn-teal" href="https://www.otodom.pl/pl/wyniki/sprzedaz/mieszkanie/krakw" target="_blank" rel="noopener noreferrer">
+        Browse to buy
+      </a>
+      <a class="btn-outline" href="../../scouting-trips.html">Plan a scouting trip first</a>
+    </div>
+    <p class="cta-partner-note">We link to Otodom because it's the best tool for the job. We may earn a referral fee if you connect with a listing agent through our link. <a href="../../terms-of-service.html">Affiliate disclosure</a>.</p>
+  </div>
+</section>
+
+<!-- ALSO CONSIDER -->
+<section class="also">
+  <div class="also-inner">
+    <p class="section-label" style="color:rgba(255,255,255,0.45)">Don't stop here</p>
+    <h2 class="also-headline">You'll also want these</h2>
+    <div class="also-grid">
+      <a class="also-card" href="../../scouting-trips.html">
+        <div class="also-tag">Step 1</div>
+        <h3 class="also-title">Plan a scouting trip</h3>
+        <p class="also-desc">Walk the neighborhoods before you sign anything. See if the vibe holds up in person before you commit to anything.</p>
+        <span class="also-link">Plan my trip →</span>
+      </a>
+      <a class="also-card" href="../../advisor-international.html">
+        <div class="also-tag">Step 2</div>
+        <h3 class="also-title">Talk to an expat advisor</h3>
+        <p class="also-desc">US taxation abroad, visa planning, account restructuring before you move. You need someone who has done this before.</p>
+        <span class="also-link">Find an advisor →</span>
+      </a>
+      <a class="also-card" href="../../destination-detail.html?id=krakow">
+        <div class="also-tag">The full picture</div>
+        <h3 class="also-title">Back to the Kraków guide</h3>
+        <p class="also-desc">Cost of living, healthcare, day-in-the-life, and everything else you need to know about retiring in Kraków.</p>
+        <span class="also-link">Read the full guide →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a class="wordmark" href="../../homepage-mockup.html" style="font-size:20px;">Retire<em>Vibes</em></a>
+      <p class="footer-tag">Good RetireVibes only.</p>
+    </div>
+    <div class="footer-links">
+      <a href="../../destinations.html">Destinations</a>
+      <a href="../../homepage-mockup.html#how-it-works">How it works</a>
+      <a href="../../find-an-advisor.html">Find an advisor</a>
+      <a href="../../scouting-trips.html">Scouting trips</a>
+      <a href="../../my-retirevibes.html">My RetireVibes</a>
+    </div>
+  </div>
+  <p class="footer-legal">© 2025 RetireVibes. For informational and inspirational purposes only. We are not financial advisors, tax advisors, immigration attorneys, or real estate agents. Always verify current visa requirements, tax rules, and property regulations with licensed professionals. Destination costs and real estate prices are estimates based on publicly available data and are subject to change.</p>
+</footer>
+<script src="../../shared.js"></script>
+</body>
+</html>
