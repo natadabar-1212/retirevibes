@@ -507,6 +507,11 @@ const DESTINATIONS = [
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
     // Scoring
+    neighborhoods: [
+      { name: "Estrela, Lapa & Campo de Ourique", desc: "The most established residential neighborhoods in Lisbon — wide streets, local cafes, excellent daily infrastructure, and a quieter pace than the tourist-heavy center. Where long-term expats who know the city well tend to settle. Campo de Ourique has one of the best markets in the city." },
+      { name: "Alvalade & Avenidas Novas", desc: "The leafy middle-class neighborhoods north of the Avenida da Liberdade — proper residential character, good transit, and a mix of families and professionals. More affordable than Estrela and less tourist-adjacent. Where Lisbon actually lives." },
+      { name: "Arroios & Intendente", desc: "The gentrifying eastern neighborhoods that still offer genuine value — diverse, walkable, close to the city center, and changing fast. Where buyers who want Lisbon authenticity without Alfama prices tend to look. Arroios has among the best rental yields in the city." },
+    ],
     weatherMatch: [2, 0],         // mild/temperate (primary), warm/sunny
     settingMatch: [0, 3],         // coastal, city
     paceMatch: [1, 3, 0, 2],      // creative, social, active, relaxed
@@ -534,6 +539,11 @@ const DESTINATIONS = [
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
     // Scoring
+    neighborhoods: [
+      { name: "Eixample & El Pla del Remei", desc: "The elegant central grid — wide boulevards, the Modernist market, excellent restaurants and transit. The most desirable address in Valencia for international buyers and priced accordingly. Where most American expats start and where many stay." },
+      { name: "Ruzafa & Russafa", desc: "The creative neighborhood south of the center — independent cafes, street art, the best brunch scene in the city. Increasingly popular with younger expats and long-term residents who want neighborhood energy without the Eixample premium." },
+      { name: "Cabanyal & The Beach District", desc: "The historic fishing neighborhood stretching to the Mediterranean — under significant renovation, improving fast, and still meaningfully more affordable than the center. Beach access without the resort pricing. Worth a morning visit before you decide." },
+    ],
     weatherMatch: [0, 2],         // warm/sunny (primary), mild
     settingMatch: [0, 3],         // beach, city
     paceMatch: [2, 3, 0, 1],      // relaxed, social, active, creative
@@ -561,6 +571,11 @@ const DESTINATIONS = [
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
     // Scoring
+    neighborhoods: [
+      { name: "Centro Historico & Jalatlaco", desc: "The colonial center and the most beautiful small neighborhood in the city — cobblestone lanes, bougainvillea on every corner, the zocalo a short walk away. Jalatlaco is what most people picture when they dream of Oaxaca: quiet, colorful, genuine. Also the most expensive and most in demand." },
+      { name: "Colonia Reforma & Ninos Heroes", desc: "The residential neighborhoods extending north from the historic center — practical, walkable to the markets and the zocalo, better value per square meter. Where long-term expat residents tend to live once they know the city well enough to prioritize daily convenience over maximum atmosphere." },
+      { name: "San Felipe del Agua & Colonia del Valle", desc: "The quieter residential neighborhoods at the base of the mountains north of the city — cooler temperatures, larger properties, more green space. Popular with buyers who want the Oaxaca lifestyle with more space and less urban density." },
+    ],
     weatherMatch: [2, 0],         // mild (highland), warm
     settingMatch: [3, 4],         // city, small town
     paceMatch: [1, 2],            // creative/cultural (primary), relaxed
@@ -764,6 +779,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Oltrarno", desc: "The left bank neighborhood south of the Arno — artisan workshops, local restaurants, a genuine Florentine community that has resisted full gentrification. The most livable part of the historic city for long-term residents who want authenticity without the tourist density of the center." },
+      { name: "Campo di Marte & Gavinana", desc: "The residential neighborhoods east of the center — good transit, local markets, reasonable prices compared to the historic core. Where Florentines live. Less atmospheric than Oltrarno but significantly more practical for daily life and meaningfully more affordable." },
+      { name: "Rifredi & Novoli", desc: "The northwestern residential areas near the university hospital — the best rental yields in the city, newer building stock, and a diverse community. The value end of the Florence market for buyers who want income potential alongside personal use." },
+    ],
     weatherMatch: [2, 1],          // mild/temperate, four seasons
     settingMatch: [3, 1],          // city, river
     paceMatch: [1, 2, 3],          // creative, relaxed, social
@@ -818,6 +838,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Centro Historico", desc: "The cobblestone colonial heart — the Parroquia church, the Jardin, the best restaurants and galleries in the city. The most expensive neighborhood and the most atmospheric. Where most new arrivals want to be and where the weekend energy is highest. Walk it on a Tuesday morning to see the pace that most residents actually live." },
+      { name: "Colonia Guadalupe & Ojo de Agua", desc: "The residential neighborhoods adjacent to the historic center — quieter streets, local markets, a genuine community feel. More affordable than the Centro while remaining walkable to everything. Where the expat community that has been in San Miguel for a decade tends to settle." },
+      { name: "Los Frailes & Salida a Celaya", desc: "The newer developments east of the historic center — more space, lower prices, newer construction. Less character than the colonial neighborhoods but practical for buyers who want a San Miguel address with more modern infrastructure." },
+    ],
     weatherMatch: [2, 0],          // mild (highland spring), warm
     settingMatch: [3, 4],          // city, small town feel
     paceMatch: [1, 2, 3],          // creative, relaxed, social
@@ -924,6 +949,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "George Town & Pulau Tikus", desc: "The UNESCO heritage city and the adjacent residential neighborhood that most expats call home — Pulau Tikus has the best daily infrastructure, good healthcare access, and the comfortable balance of local and international that makes Penang work. George Town itself is the most atmospheric but increasingly tourist-heavy on weekends." },
+      { name: "Tanjong Tokong & Tanjong Bungah", desc: "The northern coastal neighborhoods — expat-friendly condos, sea views, good schools, and access to the beaches of Batu Ferringhi further north. Popular with families and professional expats. More suburban than George Town but with better space for the price." },
+      { name: "Batu Ferringhi", desc: "The beach strip on the north coast — resort hotels, independent guesthouses, and a beachside pace that is genuinely different from the city. Further from the urban infrastructure of George Town but the right choice for buyers who want to wake up with the South China Sea outside their window." },
+    ],
     weatherMatch: [0],             // warm/sunny (tropical)
     settingMatch: [0, 3, 4],       // coastal, city, small town
     paceMatch: [1, 2, 3],          // creative, relaxed, social
@@ -1556,6 +1586,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "5th Avenue Corridor & Centro", desc: "The walkable pedestrian spine of the city — restaurants, boutiques, access to the beach. The most tourist-adjacent neighborhood and the most in demand for short-term rentals. Long-term residents find it noisy but the convenience is real. Worth a full week before deciding whether the energy works for you year-round." },
+      { name: "Playacar", desc: "The gated community south of the town center — all-inclusive resorts and private residential sections, good security, golf course, beach club access. The resort-living option within Playa. More expensive than the center but with a quieter, more controlled environment that many retirees specifically seek." },
+      { name: "Calle 38 Norte & Colonia Centro Norte", desc: "The residential blocks north of the tourist center — more local, more affordable, still walkable to the beach and the 5th Avenue. Where long-term residents and expats who have found their footing in Playa tend to live once they move past the tourist-zone experience." },
+    ],
     weatherMatch: [0],
     settingMatch: [0, 3],
     paceMatch: [3, 0, 2],
@@ -1771,6 +1806,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?name=Alicante',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Playa de San Juan & El Campello", desc: "The long beach strip north of the city — modern residential towers, a genuine coastal lifestyle, excellent infrastructure for retirees. One of the most popular areas for long-term international residents in the Costa Blanca. Good restaurants, easy transit to the city center, and the Mediterranean outside your door." },
+      { name: "El Ensanche & Centro", desc: "The walkable city center — the castle hill above, the Explanada palm promenade below. More urban than the beach strip but with everything walkable. Prices are rising as Valencia-priced-out buyers discover Alicante. Still meaningfully more affordable than anywhere comparable on the Spanish coast." },
+      { name: "San Vicente & Santa Barbara", desc: "The residential inland neighborhoods — more affordable, more local, good everyday services without the beach premium. Where most long-term Alicante residents actually live. An honest look at daily life in the city before committing to a beach-view premium." },
+    ],
     weatherMatch: [0, 2],
     settingMatch: [0, 3],
     paceMatch: [2, 3, 0],
@@ -1797,6 +1837,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Vinohrady & Zizkov", desc: "The most popular neighborhoods for long-term expats — Art Nouveau apartment buildings, excellent restaurants and cafes, walkable to the center without being in it. Vinohrady is the more established and expensive; Zizkov is grittier, cheaper, and increasingly sought after by buyers who got priced out of Vinohrady." },
+      { name: "Dejvice & Bubenec", desc: "The leafy diplomatic quarter northwest of the center — embassies, larger apartments, quieter streets, and a more international community. Popular with families and established expats who want space and greenery without sacrificing city access." },
+      { name: "Karlin & Holesovice", desc: "The eastern neighborhoods undergoing the fastest transformation in the city — Karlin has risen dramatically in both price and quality over the past decade; Holesovice is where the arts scene and creative energy has moved. Where buyers who want value and upside tend to look." },
+    ],
     weatherMatch: [1, 3],
     settingMatch: [3, 1],
     paceMatch: [1, 3, 2],
@@ -1823,6 +1868,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "District V & VII (Inner City & Jewish Quarter)", desc: "The historic center and the ruin bar district — the most atmospheric part of Budapest and the most in-demand for short-term rentals. Long-term residents find it noisy, but the architecture and walkability are genuinely exceptional. Worth a full week before deciding whether the energy suits daily life." },
+      { name: "District II & XII (Buda Hills)", desc: "The residential hillside neighborhoods across the Danube — larger apartments, green surroundings, quieter streets, and the most established expat community in the city. More expensive than Pest but the quality of daily life is high and the views from the hills are worth it." },
+      { name: "District IX & XI (South Pest & Buda Flatlands)", desc: "The more affordable residential alternatives — District IX around Ferencvaros has gentrified significantly, District XI offers good value near the technical university. Where buyers who want Budapest lifestyle at lower prices tend to look." },
+    ],
     weatherMatch: [1, 3],          // four seasons (primary — cold winters -2°C avg Jan), cool/crisp
     settingMatch: [3, 1],
     paceMatch: [1, 3, 2],
@@ -1880,6 +1930,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?name=Krak%C3%B3w',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Stare Miasto & Kazimierz", desc: "The Old Town and the former Jewish quarter — one of the best-preserved medieval city centers in Europe, and Kazimierz is the cultural and nightlife hub that has attracted international residents for two decades. The most expensive part of Krakow but still remarkably affordable by Western European standards." },
+      { name: "Podgorze & Zablocie", desc: "The south bank neighborhood across the Vistula — the most active gentrification zone in the city, with new restaurants, galleries, and converted industrial spaces. Where buyers who want Krakow value with upside tend to look. Prices are rising but still accessible." },
+      { name: "Krowodrza & Bronowice", desc: "The residential western neighborhoods — quieter, more local, good transit connections to the center. Popular with academics and long-term residents who want neighborhood life without the tourist density of the Old Town or the nightlife energy of Kazimierz." },
+    ],
     weatherMatch: [1, 3],
     settingMatch: [3, 1],
     paceMatch: [1, 3, 2],
@@ -2095,6 +2150,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?name=Kuala%20Lumpur',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Mont Kiara & Dutamas", desc: "The primary expat enclave — international schools, Western restaurants, high-specification condos, and an English-speaking community. The most practical place to land as a new arrival and the most expensive. Where most American expats in KL start and where families tend to stay." },
+      { name: "KLCC & Bukit Bintang", desc: "The city center around the Petronas Towers and the main shopping and entertainment corridor — walkable, central, spectacular skyline. More urban and less residential than Mont Kiara but excellent for buyers who want city energy and transit access." },
+      { name: "Bangsar & Damansara Heights", desc: "The established upscale residential neighborhoods south of the city center — good restaurants, local feel, excellent healthcare access. Popular with long-term expats who want to live more like Kuala Lumpur residents and less like they are in an expat bubble." },
+    ],
     weatherMatch: [0],
     settingMatch: [3],
     paceMatch: [1, 3, 0],
@@ -2499,6 +2559,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?id=nice',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Vieux-Nice & the Old Town", desc: "The Baroque Italian-influenced old quarter — daily market on the Cours Saleya, narrow painted streets, the best food in the city. Noisy and tourist-adjacent but genuinely special. Where you want to spend your first week to understand what Nice is." },
+      { name: "Carre d'Or & Mont Boron", desc: "The premium addresses — the Golden Square around Avenue de la Californie for grand Belle Epoque apartments, Mont Boron for hillside villas with sea views. The most expensive real estate on the French Riviera outside Monaco. Worth knowing even if you will not buy here, to calibrate what you are comparing against." },
+      { name: "Liberation & Carre de Riquier", desc: "The residential neighborhoods north and east of the center — more affordable than the seafront, genuine local markets, good transit. Where long-term Nice residents live when they want real neighborhood life without the tourist-zone pricing." },
+    ],
     weatherMatch: [0, 2],           // warm/sunny, mild
     settingMatch: [0, 3],            // beach, city
     paceMatch: [1, 3, 2],            // creative, social, relaxed
@@ -2525,6 +2590,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?id=bordeaux',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Chartrons & Bacalan", desc: "The wine merchant quarter along the Garonne — Sunday market, wine bars, antique shops, a village atmosphere within the city. Chartrons is the most popular neighborhood for long-term expats in Bordeaux, with good restaurants and a walkable pace. Bacalan to the north is the more affordable and still-gentrifying alternative." },
+      { name: "Saint-Pierre & Vieux Bordeaux", desc: "The historic UNESCO-listed center — Place de la Bourse, the water mirror, the pedestrian shopping streets. The most atmospheric part of the city and the most expensive. Worth spending a full week here to understand whether the central energy suits long-term living." },
+      { name: "Nansouty & Saint-Genès", desc: "The established residential neighborhoods south of the center — larger apartments, local markets, quieter streets, and prices that are more accessible than the historic core. Where Bordeaux families live. The honest choice for buyers who want the Bordeaux lifestyle at a sustainable price." },
+    ],
     weatherMatch: [2, 1],            // mild/temperate, some seasons
     settingMatch: [3, 1, 5],         // city, river, countryside
     paceMatch: [1, 2, 3],            // creative, relaxed, social
@@ -2694,6 +2764,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?id=seville',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Triana & Los Remedios", desc: "Triana across the Guadalquivir is the most authentically Sevillano neighborhood — flamenco roots, ceramics workshops, riverside tapas bars. Los Remedios is the more residential version next door: quieter streets, lower tourist density, excellent daily life. The two together make the strongest case for living west of the river." },
+      { name: "El Arenal & Santa Cruz", desc: "The historic center adjacent to the cathedral and the Alcazar — the most atmospheric and most tourist-adjacent neighborhoods in the city. Santa Cruz in particular is beautiful but crowded. Worth walking extensively before deciding whether the weekend noise works for you." },
+      { name: "Nervion & San Pablo", desc: "The residential middle ground east of the center — practical, well-connected, home to the football stadium and good everyday services. More affordable than the historic center with a genuinely local character. Where families and long-term residents tend to live." },
+    ],
     weatherMatch: [0, 2],
     settingMatch: [3, 1],            // city, river
     paceMatch: [1, 3, 2],
@@ -2720,6 +2795,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?id=granada',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Albaicin & Sacromonte", desc: "The Moorish quarter climbing the hill opposite the Alhambra — whitewashed lanes, cave houses in Sacromonte, the best views in the city. The most atmospheric neighborhood in Granada and increasingly expensive. Worth spending several days here before deciding whether the steep streets work for daily life." },
+      { name: "El Realejo & Centro", desc: "The former Jewish quarter at the base of the Alhambra hill — more residential than the tourist-heavy Santa Ana, good restaurants, walkable to everything. The practical alternative to the Albaicin with most of the atmosphere and better everyday access." },
+      { name: "Zaidin & Armilla", desc: "The southern residential neighborhoods where Granada actually lives — local markets, genuine neighborhood character, and prices well below the historic center. Less atmospheric but far more affordable and practical for long-term living. Worth a visit to understand the real cost of Granada life." },
+    ],
     weatherMatch: [1, 0],          // four seasons (primary — hot summers 40°C+, cold winters at 738m), warm
     settingMatch: [3, 2, 4],
     paceMatch: [1, 2, 3],
