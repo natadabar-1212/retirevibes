@@ -475,7 +475,7 @@
       "region": "Unknown",
       "status": "active",
       "featured": true,
-      "tagline": "A Caribbean island with US citizenship, Medicare, Social Security — and a tax structure that has turned heads worldwide.",
+      "tagline": "US citizenship, Medicare, and Social Security — with Caribbean weather, a Spanish colonial capital, and a tax structure that has turned heads worldwide.",
       "hero_image": "",
       "filters": {
         "climate": "NEEDS_REVIEW",
@@ -1051,7 +1051,7 @@
       "region": "Central America",
       "status": "active",
       "featured": true,
-      "tagline": "Pura vida isn't just a saying — it's what happens when you wake up to a volcano view, howler monkeys, and a healthcare system that actually works.",
+      "tagline": "Volcano views, howler monkeys at dawn, and a healthcare system that actually works — pura vida turns out to be a literal description.",
       "hero_image": "",
       "filters": {
         "climate": "NEEDS_REVIEW",
@@ -1087,7 +1087,7 @@
       "region": "Southeast Asia",
       "status": "active",
       "featured": false,
-      "tagline": "Asia's food capital, a UNESCO heritage city, and a Malaysia My Second Home visa that makes it one of the easiest places in the world to retire legally.",
+      "tagline": "Asia's undisputed food capital, a UNESCO heritage city where Hokkien, Malay, and colonial British layers are still legible on every street, and a visa that makes staying legally straightforward.",
       "hero_image": "",
       "filters": {
         "climate": "NEEDS_REVIEW",
@@ -1771,7 +1771,7 @@
       "region": "Caribbean",
       "status": "active",
       "featured": false,
-      "tagline": "All the Caribbean — turquoise water, reef snorkeling, rum culture — with the full rights and infrastructure of a US territory.",
+      "tagline": "Quieter than St. Thomas, wilder than you'd expect, and close enough to the mainland to feel manageable — the largest US Virgin Island, and the most underrated.",
       "hero_image": "",
       "filters": {
         "climate": "NEEDS_REVIEW",
@@ -2599,7 +2599,7 @@
       "region": "Europe",
       "status": "active",
       "featured": false,
-      "tagline": "Italy at half the price of Tuscany — medieval hill villages, Apennine ski slopes, Adriatic beaches, and some of Italy's least-discovered wine country.",
+      "tagline": "Medieval hill villages, Apennine ski slopes, Adriatic beaches, and wine country that Tuscany's tourists haven't found yet.",
       "hero_image": "",
       "filters": {
         "climate": "NEEDS_REVIEW",
@@ -3355,7 +3355,7 @@
       "region": "Europe",
       "status": "active",
       "featured": false,
-      "tagline": "Italy's heel — Baroque cities of honey-gold stone, trulli houses in the Valle d'Itria, two coastlines, masseria farmhouse living, and the most affordable corner of the Bel Paese.",
+      "tagline": "Whitewashed trulli houses, masserie farmhouses, baroque Lecce, and a coastline that hasn't been fully discovered yet.",
       "hero_image": "",
       "filters": {
         "climate": "NEEDS_REVIEW",
@@ -3391,7 +3391,7 @@
       "region": "Europe",
       "status": "active",
       "featured": false,
-      "tagline": "The Mediterranean's largest island — Greek temples, Baroque towns rebuilt after volcanic earthquakes, Mount Etna visible from the coast, and the lowest cost of living in all of Italy.",
+      "tagline": "Greek temples, Arab-Norman architecture, Etna on the horizon, and a food culture so distinct it barely feels like the rest of Italy.",
       "hero_image": "",
       "filters": {
         "climate": "NEEDS_REVIEW",
@@ -3427,7 +3427,7 @@
       "region": "Europe",
       "status": "active",
       "featured": false,
-      "tagline": "Greece's largest island — Venetian harbors, Europe's longest gorge, olive groves that have been producing oil for 4,000 years, and a Cretan culture so rich it has its own dialect and its own music.",
+      "tagline": "Minoan palaces, a 500km coastline split between dramatic gorges and turquoise coves, and an island big enough to find a corner that's still yours.",
       "hero_image": "",
       "filters": {
         "climate": "NEEDS_REVIEW",
@@ -4723,7 +4723,7 @@
       "region": "Oceania",
       "status": "active",
       "featured": false,
-      "tagline": "Sauvignon Blanc country at the top of the South Island — inland vineyards, the fjord-like Sounds, and a rural New Zealand pace that's hard to find anywhere else.",
+      "tagline": "Sauvignon Blanc vines as far as you can see, the Marlborough Sounds for days off, and a ferry crossing to Wellington that makes the South Island feel connected.",
       "hero_image": "",
       "filters": {
         "climate": "NEEDS_REVIEW",
