@@ -362,7 +362,7 @@ const DESTINATIONS = [
     scoutingPage: 'scouting-trip.html',
     neighborhoods: [
       { name: 'Historic District & Downtown', desc: "America's oldest city at its most atmospheric — cobblestone streets, Spanish colonial architecture, Flagler College, the bayfront. Living here is genuinely special and increasingly expensive. Weekday mornings are as peaceful as anywhere in Florida." },
-      { name: 'Anastasia Island', desc: 'Cross the Bridge of Lions and you're on barrier island time — St. Augustine Beach, quieter streets with genuine neighborhood character. A short drive to the historic center but a different pace entirely.' },
+      { name: 'Anastasia Island', desc: 'Cross the Bridge of Lions and you\'re on barrier island time — St. Augustine Beach, quieter streets with genuine neighborhood character. A short drive to the historic center but a different pace entirely.' },
       { name: 'Vilano Beach & Ponte Vedra Corridor', desc: 'North of the historic center — a real beach, less foot traffic, and prices that have softened from recent highs. More inventory and a slightly different coastal lifestyle.' },
     ],
     weatherMatch: [0, 2],          // warm/sunny, mild
