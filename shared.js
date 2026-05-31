@@ -99,3 +99,16 @@
   });
 
 })();
+
+  /* ─── Destination real-estate link ────────────────────────── */
+  // On any destination-[slug].html page, auto-set the real estate
+  // handoff link to destinations/[slug]/real-estate/ so static
+  // pages never need manual href updates.
+  (function () {
+    var match = (window.location.pathname.split('/').pop() || '').match(/^destination-(.+)\.html$/);
+    if (!match) return;
+    var slug = match[1];
+    document.querySelectorAll('a[href*="real-estate"], a[href*="browse-homes"]').forEach(function (a) {
+      a.href = 'destinations/' + slug + '/real-estate/';
+    });
+  })();
