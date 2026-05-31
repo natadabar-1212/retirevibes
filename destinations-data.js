@@ -241,6 +241,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-domestic.html',
     browseHomesPage: 'browse-homes-domestic.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: 'Historic Eastside & Canyon Road', desc: 'The most atmospheric part of the city — adobe homes, gallery-lined streets, walking distance to the Plaza. This is what people picture when they imagine Santa Fe. It commands the highest prices in the market. Walk it on a weekday morning before you decide.' },
+      { name: 'Museum Hill & Old Santa Fe Trail', desc: 'Quieter and slightly more residential than the Eastside, easy access to the major museums and a short drive to the Plaza. Popular with retirees who want the Santa Fe experience without being directly on the tourist circuit.' },
+      { name: 'Southside & Baca Street Arts District', desc: 'Where most Santa Fe residents actually live — more affordable, more diverse, and closer to everyday services. The Baca Street area has studios and galleries that give it genuine character without the Canyon Road prices.' },
+    ],
     weatherMatch: [1, 3],          // four seasons (primary — cold snowy winters at 7,000ft), cool/crisp
     settingMatch: [2, 4, 3],       // mountains, small town, city
     paceMatch: [1, 2, 0],          // creative, relaxed, active
@@ -267,6 +272,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-domestic.html',
     browseHomesPage: 'browse-homes-domestic.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: 'Old Mill District & Downtown', desc: 'The walkable urban core along the Deschutes River — the Old Mill shopping and restaurant district, Sawyer Park, the river trail system. The most in-demand location in Bend and the most expensive.' },
+      { name: 'Northwest Crossing', desc: 'The nationally-recognized new urbanist neighborhood — a real neighborhood center with cafés and shops, tree-lined streets, and a community feel unusual in a city this size.' },
+      { name: 'Southeast Bend & Eastside', desc: 'The value zone — newer construction at lower price points, closer to the medical center and major retail. Less character than the Old Mill area but significantly more house for the money.' },
+    ],
     weatherMatch: [1, 2],          // four seasons, mild/temperate
     settingMatch: [2, 1, 5],       // mountains, lake/river, countryside
     paceMatch: [0, 2, 1],          // active, relaxed, creative
@@ -293,6 +303,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-domestic.html',
     browseHomesPage: 'browse-homes-domestic.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: 'Downtown & West End', desc: 'The walkable core — Falls Park, Main Street dining, the Peace Center. If you want to walk to everything, this is it. Prices reflect the demand but remain accessible compared to coastal alternatives.' },
+      { name: 'North Main', desc: 'The established residential neighborhood just north of downtown — craftsman homes, tree-lined streets, walkable to the food and arts scene. Consistently one of the most desirable neighborhoods in the city.' },
+      { name: 'Augusta Road', desc: 'South of downtown, Augusta Road is the corridor for independent shops and restaurants with a neighborhood feel. Genuinely walkable without the downtown premium.' },
+    ],
     weatherMatch: [1, 2],          // four seasons, mild
     settingMatch: [4, 3, 2],       // small town, city, mountains
     paceMatch: [0, 3, 1, 2],       // active, social, creative, relaxed
@@ -345,6 +360,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-domestic.html',
     browseHomesPage: 'browse-homes-domestic.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: 'Historic District & Downtown', desc: "America's oldest city at its most atmospheric — cobblestone streets, Spanish colonial architecture, Flagler College, the bayfront. Living here is genuinely special and increasingly expensive. Weekday mornings are as peaceful as anywhere in Florida." },
+      { name: 'Anastasia Island', desc: 'Cross the Bridge of Lions and you're on barrier island time — St. Augustine Beach, quieter streets with genuine neighborhood character. A short drive to the historic center but a different pace entirely.' },
+      { name: 'Vilano Beach & Ponte Vedra Corridor', desc: 'North of the historic center — a real beach, less foot traffic, and prices that have softened from recent highs. More inventory and a slightly different coastal lifestyle.' },
+    ],
     weatherMatch: [0, 2],          // warm/sunny, mild
     settingMatch: [0, 4, 3],       // beach, small town, city
     paceMatch: [2, 1, 3],          // relaxed, creative, social
@@ -373,6 +393,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?name=Victoria',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: 'Fairfield & Gonzales', desc: 'The most walkable neighborhood in Victoria — Beacon Hill Park, Cook Street Village cafés, the Dallas Road waterfront. Consistently ranked the best place to live in the city and priced to reflect it.' },
+      { name: 'James Bay', desc: 'The peninsula south of the inner harbor — flat, walkable, heritage homes and condos popular with retirees. The Dallas Road cliffs give you ocean views and a daily walking route that most cities would charge admission for.' },
+      { name: 'Oak Bay & Saanich East', desc: 'The established residential areas east of the city center — larger lots, quieter streets, strong community infrastructure skewing heavily toward retirees. Less walking-distance convenience than Fairfield but excellent housing stock.' },
+    ],
     weatherMatch: [2, 1],          // mild/temperate (primary), some seasons
     settingMatch: [0, 3, 4],       // coastal, city, small town
     paceMatch: [2, 0, 3, 1],       // relaxed, active, social, creative
@@ -651,6 +676,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: 'Centro Histórico', desc: 'The revitalized city center — the Picasso Museum, Calle Larios, the Alcazaba fortress above. Walkable, dense, increasingly expensive as international demand has driven prices up. The most atmospheric place to live but also the noisiest and most tourist-adjacent.' },
+      { name: 'Malagueta & El Limonar', desc: 'Malagueta sits along the beachfront promenade east of the port — sea views, good restaurants, upscale apartments. El Limonar further east is quieter with larger properties and a more residential pace.' },
+      { name: 'Pedregalejo & El Palo', desc: 'The old fishing neighborhoods east of the city — authentic, local, affordable relative to the center. Walk the chiringuito strip any evening and you'll understand why expats who know Málaga well end up here.' },
+    ],
     weatherMatch: [0, 2],          // warm/sunny (primary), mild
     settingMatch: [0, 3],          // beach, city
     paceMatch: [2, 3, 1, 0],       // relaxed, social, creative, active
@@ -677,6 +707,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: 'Lagos & Western Algarve', desc: 'The western Algarve draws buyers who want dramatic Atlantic coastline and a more genuine local character. Lagos has a real town center, good restaurants, and a younger expat community. Prices are rising faster here than anywhere else in the region.' },
+      { name: 'Vilamoura, Loulé & The Golden Triangle', desc: 'The most established part of the Algarve for international buyers — marina lifestyle, golf, excellent infrastructure. Prices are the highest in the region, but so is the resale market depth.' },
+      { name: 'Tavira & Eastern Algarve', desc: 'The quietest and most affordable part of the Algarve — genuine Portuguese town life, beautiful river estuary. Tavira consistently ranks as one of the most livable towns in Portugal for retirees who want to actually integrate.' },
+    ],
     weatherMatch: [0, 2],          // warm/sunny, mild
     settingMatch: [0, 5, 4],       // beach, countryside, small town
     paceMatch: [2, 0, 3],          // relaxed, active, social
@@ -1705,6 +1740,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: 'Eixample', desc: 'The modernist grid district at the center of the city — Gaudí buildings, wide boulevards, excellent transit. The most practical neighborhood for a new arrival and the most expensive. Most American expats who stay long-term start here.' },
+      { name: 'Gràcia', desc: 'The neighborhood that feels like a village — narrow streets, squares with terrace cafés, local markets, a genuine community. Where people who have lived in Barcelona for a year tend to migrate toward.' },
+      { name: 'Poblenou & Sant Martí', desc: 'The old industrial district turned creative quarter — more space, newer buildings, better value per square meter than Eixample. Direct beach access and a growing restaurant scene.' },
+    ],
     weatherMatch: [0, 2],
     settingMatch: [0, 3],
     paceMatch: [1, 3, 0, 2],
@@ -1809,6 +1849,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: 'São Martinho & Santo António', desc: 'The most popular residential areas for expats and long-term residents — quieter than the city center, good supermarkets and services, better value per square meter. Most people who move to Funchal and stay end up here.' },
+      { name: 'Historic Center & Zona Velha', desc: 'The character-rich old town — mosaic pavements, tile-fronted buildings, the famous cable car. Higher rents and weekend tourist noise, but the quality of daily life in the lanes around the Sé cathedral is genuinely hard to replicate.' },
+      { name: 'Marina & Lido Strip', desc: 'The modern waterfront zone — good for a rental base while you explore the island, but most people who settle long-term migrate to quieter neighborhoods after a year.' },
+    ],
     weatherMatch: [2, 0],
     settingMatch: [2, 0, 4],
     paceMatch: [0, 2, 1],
@@ -1887,6 +1932,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?name=Paphos',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: 'Tala & Peyia Hills', desc: 'The hillside villages above Paphos — panoramic views over Coral Bay, a strong established expat community, villas with pools at prices that feel reasonable compared to comparable Mediterranean alternatives. Where most long-term international residents end up.' },
+      { name: 'Universal & Chloraka', desc: 'The residential neighborhoods between the old town and the sea — practical, walkable to services, popular with year-round residents. The most livable part of Paphos for daily life without the tourist noise of the waterfront.' },
+      { name: 'Kato Paphos Waterfront', desc: 'The harbor area — the most tourist-adjacent but also the most convenient for restaurants and sea access. Good for a rental base while you scout the area; most buyers migrate to the hills once they know where they want to be.' },
+    ],
     weatherMatch: [0, 2],
     settingMatch: [0, 3, 4],
     paceMatch: [2, 3, 0],
@@ -2281,6 +2331,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?name=Hobart',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: 'Battery Point & Sandy Bay', desc: 'The heritage heart of the city — Victorian cottages, harbor views, Salamanca Market a short walk away. One of the best-preserved historic neighborhoods in Australia and priced accordingly.' },
+      { name: 'Lindisfarne & Rosny', desc: 'The eastern shore across the Derwent — a marina, a village shopping strip, river views, and prices meaningfully lower than the western shore. Consistently the best value neighborhood in greater Hobart.' },
+      { name: 'North Hobart & Glebe', desc: 'The inner-city alternative — a genuine restaurant and bar strip on Elizabeth Street, proximity to the hospital and university, walkable character with a mix of period homes and newer apartments.' },
+    ],
     weatherMatch: [1, 3],
     settingMatch: [2, 0, 3],
     paceMatch: [1, 0, 2],
@@ -2385,6 +2440,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-tauranga.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: 'Mount Maunganui', desc: 'The beach strip at the harbor entrance — surf beach, the Mount walking track, excellent cafés. The most desirable address in the Bay of Plenty and the most expensive. Worth visiting first to understand what the Tauranga lifestyle looks like at its best.' },
+      { name: 'Bethlehem & The Lakes', desc: 'The established retirement-friendly suburbs west of the city center — good shopping, multiple retirement villages, easy access to the hospital. Where most retirees who have done their research end up.' },
+      { name: 'Papamoa', desc: 'The long beach suburb stretching south — newer development, more space, lower prices than the Mount, and direct beach access. A quieter lifestyle with good everyday services.' },
+    ],
     weatherMatch: [2, 0],
     settingMatch: [0, 1, 4],
     paceMatch: [2, 0, 3],
@@ -2491,6 +2551,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?id=montpellier',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "L'Écusson Historic Center", desc: "The fully pedestrianized medieval core — Place de la Comédie, the covered market, centuries-old architecture. Atmospheric and walkable but dense and noisy. The most expensive neighborhood per square meter." },
+      { name: 'Boutonnet & Les Beaux-Arts', desc: 'The residential neighborhoods north of the Écusson — quieter streets, genuine neighborhood character, some of the best rental yields in France. Popular with academics and long-term expats who want proximity without being in the middle of it.' },
+      { name: 'Port Marianne & Antigone', desc: 'The modern eastern quarter — wider streets, newer buildings with elevators and parking. More practical than atmospheric, excellent value and well connected by tram to the rest of the city.' },
+    ],
     weatherMatch: [0, 2],
     settingMatch: [3, 0, 4],
     paceMatch: [1, 3, 2],
@@ -2683,6 +2748,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-domestic.html',
     browseHomesPage: 'browse-homes-domestic.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: 'The Peninsula & Historic District', desc: 'The most iconic and expensive part of Charleston — Rainbow Row, the Battery, Church Street. Living here means immersion in one of America's great historic cities. It also means tourist foot traffic, limited parking, and prices that reflect the demand.' },
+      { name: 'Mount Pleasant', desc: 'The most popular suburb for people who want the Charleston lifestyle with more space. Good amenities and a short bridge ride to downtown. The fastest-growing part of the metro for a reason.' },
+      { name: 'James Island & West Ashley', desc: 'More affordable than the peninsula, with genuine community character and quick access to Folly Beach. Where many long-term Charleston residents actually live.' },
+    ],
     weatherMatch: [0, 2],
     settingMatch: [0, 3, 4],
     paceMatch: [2, 1, 3],
@@ -2761,6 +2831,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-domestic.html',
     browseHomesPage: 'browse-homes-domestic.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: 'Historic Downtown & Brooklyn Arts District', desc: 'The walkable heart of Wilmington — Cape Fear riverfront, independent restaurants, the arts district. The most atmospheric part of the city and increasingly popular with retirees who want an urban lifestyle. Inventory is limited and moves fast.' },
+      { name: 'Wrightsville Beach & Landfall', desc: 'The coastal premium — Wrightsville Beach is one of the best barrier island communities on the East Coast. Both command significantly higher prices than the mainland, but the beach access is genuine.' },
+      { name: "Midtown & Porter's Neck", desc: 'The practical middle ground — good access to downtown and the beach without the premium of either. Midtown has the services and daily infrastructure that makes a city livable.' },
+    ],
     weatherMatch: [1, 2],          // four seasons (primary — cold winters, hot humid summers), mild
     settingMatch: [0, 3, 4],
     paceMatch: [2, 1, 3],
@@ -2787,6 +2862,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-domestic.html',
     browseHomesPage: 'browse-homes-domestic.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: 'Downtown & Ancestor Square', desc: 'The historic heart of the city — walkable, genuinely charming, with the best restaurant and arts scene St. George has to offer. Older homes with character at prices below the new development communities.' },
+      { name: 'Desert Color & SunRiver', desc: 'The master-planned resort communities at the southern end of the metro — pools, pickleball, golf, trails. Built specifically for the lifestyle most retirees are seeking.' },
+      { name: 'Bloomington Hills & Green Valley', desc: 'Established residential neighborhoods with red-rock views and good trail access. More affordable than the newer resort communities with a quieter, more settled character.' },
+    ],
     weatherMatch: [0, 2],
     settingMatch: [2, 5, 3],
     paceMatch: [0, 2, 3],
@@ -3165,6 +3245,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?name=Cape%20Town',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: 'Sea Point & Green Point', desc: 'The Atlantic Seaboard urban strip — the Sea Point Promenade, excellent restaurants, walkable and genuinely cosmopolitan. The most popular area for expats and long-term international residents.' },
+      { name: 'Claremont & Newlands', desc: 'The established Southern Suburbs — leafy, spacious, excellent healthcare access. More car-dependent than Sea Point but significantly more space for the price. Where many long-term international residents end up.' },
+      { name: "Muizenberg & Simon's Town", desc: 'The False Bay coast — the bohemian surf neighborhood of Muizenberg and the historic naval village of Simon's Town. Meaningfully lower prices than the Atlantic Seaboard and a different kind of Cape Town character.' },
+    ],
     weatherMatch: [2, 0],            // mild Mediterranean, warm
     settingMatch: [0, 2, 3],         // beach, mountains, city
     paceMatch: [0, 1, 2],            // active, creative, relaxed
@@ -3222,6 +3307,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-domestic.html',
     browseHomesPage: 'browse-homes-domestic.html',
     scoutingPage: 'scouting-trips.html',
+    neighborhoods: [
+      { name: 'Historic Downtown & Southside', desc: 'The walkable urban core — Route 66, independent restaurants and breweries, the Amtrak station. The most atmospheric part of the city and the most expensive. Where you want to spend a weekend before deciding if Flagstaff is your city.' },
+      { name: 'University Heights & Sunnyside', desc: 'Established residential neighborhoods close to downtown with mature trees and a genuine neighborhood feel. More affordable than new construction and closer to daily amenities.' },
+      { name: 'Continental Country Club & East Side', desc: 'The more suburban eastern neighborhoods — newer construction, more space, lower price per square foot. Less walkable but quieter, with easy access to the national forest trails that define outdoor life in Flagstaff.' },
+    ],
     weatherMatch: [3, 1],            // cool/crisp (primary — 7,000ft elevation), four seasons
     settingMatch: [2, 4, 5],         // mountains, small town, countryside/forest
     paceMatch: [0, 1, 2],            // active, mixed, slow/easy
@@ -3248,6 +3338,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-domestic.html',
     browseHomesPage: 'browse-homes-domestic.html',
     scoutingPage: 'scouting-trips.html',
+    neighborhoods: [
+      { name: 'Historic Core & Lithia Park', desc: 'The walkable heart of Ashland — the Oregon Shakespeare Festival theaters, the Lithia Park creek corridor, independent restaurants and bookshops. The most atmospheric part of the city and the most expensive.' },
+      { name: 'Hillside Neighborhoods & North Mountain', desc: 'The elevated residential streets above the downtown core — views of the valley, mature landscaping, and the quiet that a small mountain city should have. Where long-term Ashland residents tend to live.' },
+      { name: 'Mountain Meadows & South Ashland', desc: 'The purpose-built 55+ community and surrounding southern neighborhoods — newer construction, single-level options, community amenities, and easy access to the hospital.' },
+    ],
     weatherMatch: [2, 3],            // mild/temperate (primary), cool/crisp winters
     settingMatch: [4, 2, 5],         // small town (primary), mountains, countryside
     paceMatch: [1, 2, 3],            // mixed, slow/easy, social
@@ -3276,6 +3371,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trips.html',
+    neighborhoods: [
+      { name: 'Pinhão & Upper Douro', desc: 'The heart of port wine country — the most dramatic section of the valley, surrounded by terraced vineyards. Properties here are typically quintas and rural estates. Spend a week before you decide the isolation suits your lifestyle.' },
+      { name: 'Lamego & Peso da Régua', desc: 'The largest towns in the valley — real services, a hospital, weekly markets. More accessible than the upper valley and popular with buyers who want the Douro setting with practical infrastructure.' },
+      { name: 'Lower Douro & Baião', desc: 'The transition zone between wine country and Porto — more affordable, still beautiful, and within an hour of the city. Where buyers who want the landscape without full rural isolation tend to look.' },
+    ],
     weatherMatch: [2, 1],            // mild/temperate, four seasons (hot summers, cool winters)
     settingMatch: [5, 1, 4],         // countryside (primary), river/lake, small town
     paceMatch: [2, 1, 3],            // slow/easy (primary), mixed, social
@@ -3354,6 +3454,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trips.html',
+    neighborhoods: [
+      { name: 'Ennis & Surrounds', desc: 'The county town with proper city infrastructure — good shops, restaurants, a hospital, and bus connections to Limerick and Galway. The most practical place to base yourself while you explore the county.' },
+      { name: 'Lahinch & Doolin Coast', desc: 'The wild Atlantic west — surf beach at Lahinch, the Cliffs of Moher nearby, traditional music sessions in Doolin. Beautiful and increasingly popular. Isolated from services; honest about that trade-off.' },
+      { name: 'Killaloe & Lough Derg', desc: 'The quieter southeast on the Shannon river — watersports, pubs with river views, a genuinely local community. More affordable than coastal Clare and closer to Limerick city for urban infrastructure.' },
+    ],
     weatherMatch: [3, 2],            // cool/crisp (primary — Atlantic), mild
     settingMatch: [5, 0, 4],         // countryside (primary), coastal, small town
     paceMatch: [2, 3, 1],            // slow/easy, social, mixed
@@ -3380,6 +3485,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trips.html',
+    neighborhoods: [
+      { name: 'Chipping Campden & Northern Cotswolds', desc: 'Arguably the best-preserved high street in England, walking distance to the Cotswold Way, a genuine community year-round. One of the most sought-after addresses in the region. Visit on a weekday in November to see what daily life looks like off-season.' },
+      { name: 'Bourton-on-the-Water & Central Cotswolds', desc: 'The most visited villages in the region — beautiful but heavily tourist-adjacent from Easter to October. Lower prices than the north but more seasonal noise. Easy access to Cheltenham or Oxford.' },
+      { name: 'Stroud & The Five Valleys', desc: 'The working alternative — a genuinely independent town with a strong arts scene and the best farmers market in the southwest. More affordable than the famous villages with better everyday amenities.' },
+    ],
     weatherMatch: [3, 1],            // cool/crisp (primary), four seasons
     settingMatch: [5, 4, 2],         // countryside (primary), small town, gentle hills
     paceMatch: [2, 1, 3],            // slow/easy, mixed, social
@@ -3432,6 +3542,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trips.html',
+    neighborhoods: [
+      { name: 'Perugia & Surrounds', desc: 'The regional capital — a proper city with a university, good hospital, airport connections, and a lively cultural scene. The right base if you want real city infrastructure with the Umbrian countryside 20 minutes away.' },
+      { name: 'Lake Trasimeno & Panicale', desc: "The western lake district — gentle landscape, good cycling, and a long-established foreign resident community that has quietly made this one of Italy's best-kept secrets." },
+      { name: 'Assisi, Spoleto & Southern Umbria', desc: 'The spiritual and festival corridor — Assisi for extraordinary frescoes, Spoleto for the arts festival and dramatic aqueduct. More tourist-adjacent but with genuine historic depth.' },
+    ],
     weatherMatch: [2, 1],            // mild/temperate, four seasons
     settingMatch: [5, 4, 2],         // countryside (primary), small town, gentle hills
     paceMatch: [2, 1, 3],            // slow/easy, mixed, social
@@ -3460,6 +3575,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trips.html',
+    neighborhoods: [
+      { name: 'Historic Town Center & Dorp Street', desc: 'The oak-lined core — Cape Dutch architecture, the best restaurants in the winelands, walking distance to everything. Expensive by South African standards but extraordinary value by international ones.' },
+      { name: 'Paradyskloof & De Zalze', desc: 'The premium residential and estate communities south of the town center — security, golf, walking trails through the vineyards. Where most international buyers who relocate long-term end up.' },
+      { name: 'Franschhoek Valley', desc: "Twenty minutes from Stellenbosch — arguably better restaurants and a smaller town center. Consider both before committing." },
+    ],
     weatherMatch: [2, 0],            // mild/temperate Mediterranean (primary), warm sunny summers
     settingMatch: [5, 4, 2],         // countryside/wine country, small town, mountains
     paceMatch: [1, 2, 3],            // mixed, slow/easy, social
@@ -3538,6 +3658,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trips.html',
+    neighborhoods: [
+      { name: 'Grand Baie & The North', desc: 'The most developed part of the island for international residents — best restaurant and shopping infrastructure, largest expat community, widest range of approved foreign-buyer developments. The most practical base for daily life.' },
+      { name: 'Tamarin & Black River', desc: 'The west coast surf community — more relaxed and local-feeling than Grand Baie. The Black River Gorges national park nearby and a growing food and wellness scene.' },
+      { name: 'Beau Champ & East Coast', desc: 'The quieter windward side — more affordable developments, less tourist infrastructure. Rewards buyers who want space, privacy, and lower entry prices than the north and west.' },
+    ],
     weatherMatch: [0, 2],            // warm/sunny (primary), mild in winter months
     settingMatch: [0, 4, 5],         // beach (primary), small town, open countryside
     paceMatch: [2, 1, 3],            // slow/easy, mixed, social
@@ -3566,6 +3691,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trips.html',
+    neighborhoods: [
+      { name: 'Blenheim Town', desc: 'The regional service center — good hospital, shops, easy access to the vineyards. The most practical place to base daily life in Marlborough with among the most accessible prices in the South Island.' },
+      { name: 'Picton & Queen Charlotte Sound', desc: 'The ferry gateway and entry to the Marlborough Sounds — a genuine small-town waterfront with good restaurants and a year-round community. Properties have water views at prices lower than comparable waterfront in the North Island.' },
+      { name: 'Marlborough Sounds', desc: 'Remote waterfront properties accessible by boat — genuinely unique in New Zealand. Road-accessible Sounds properties offer a practical middle ground for buyers who want the setting without full isolation.' },
+    ],
     weatherMatch: [1, 3],            // four seasons (primary), cool/crisp winters
     settingMatch: [5, 1, 4],         // countryside/wine country (primary), water/sounds, small town
     paceMatch: [2, 1, 0],            // slow/easy, mixed, active
