@@ -201,7 +201,32 @@ I reviewed: `CLAUDE.md`, `RetireVibes_Product_Brief.md` (v1.2), `SESSION_HANDOFF
     - All 5 are also cross-referenced as thumbnails on each other's "Similar places" sections.
     - **Source guidance:** Unsplash (free, high-res) — search each city name. Target: landscape orientation, 1600×900px minimum, depicting the destination's signature landmark or landscape. Download and place in `/images/` at project root. Owner: **Natalie**. Effort: XS per image (search + download).
 
-65. **"How to find a home in [City]" — destination-specific real estate guides for all ~110 destinations** — Decided 2026-05-28. Porto's `browse-homes-international.html` is the structural model, but each destination needs its own page, not a shared generic one. Each page must include: (1) a **Renting** section covering the local rental market, typical lease terms, what to watch out for, neighborhood guidance, and rent ranges; (2) a **Buying** section covering legal standing for foreign buyers, ownership structures (fideicommiso in Mexico, EU property rights in Portugal, etc.), price ranges by neighborhood, the buying process step-by-step, and common pitfalls; (3) embedded affiliate listing links (Idealista, Inmuebles24, Zillow, Realtor.com, Redfin, or local equivalent — source appropriate to the destination). The buying/renting nuances must be genuinely specific to each location — no copy-paste with substituted city names. This is a large content initiative and will be the longest-lead item in the product. Owner: **content-editorial + product + affiliate-partnerships** (affiliate links must be in place per destination). Effort: L per destination × ~110 destinations. Start with the top 10–15 most-matched destinations (cross-reference `destinations-data.js` scoring). Porto already has a version; evaluate whether it meets the new buying/renting standard or needs a rebuild. See also item 57 (hand-crafted destination pages).
+65. **"How to find a home in [City]" — destination-specific real estate guides for all 132 destinations** — **INFRASTRUCTURE COMPLETE (2026-05-31).** Architecture agreed by PM, SEO, and CTO agents:
+    - **URL structure:** `/destinations/[slug]/real-estate/` (e.g., `/destinations/porto/real-estate/`)
+    - **Generator script:** `generate-real-estate.js` at project root — reads `destinations-data.js`, outputs `destinations/[slug]/real-estate/index.html` for all 132 destinations
+    - **Template model:** Porto page voice and structure (honest, specific, destination-first)
+    - **Per-page content:** neighborhoods (from destinations-data.js), price bands (from housing data), rent vs. buy section, legal/visa info (country-specific, ~15 legal templates covering all regions), correct affiliate listings platform per country
+    - **destination-detail.html updated** — `homesHref` now points to `destinations/${dest.id}/real-estate/` for all dynamic destinations
+    - **vercel.json updated** — 301 redirect: `/browse-homes-international.html` → `/destinations/porto/real-estate/`
+    - **301 for domestic:** `/browse-homes-domestic.html` covers Asheville + Sarasota (two destinations) — leave live until both have dedicated pages, then redirect to each respectively
+
+    **⚠️ ACTION REQUIRED — run the generator:**
+    ```
+    cd "/Users/nataliebarnes/Documents/Claude/Projects/Retire Vibes app"
+    node generate-real-estate.js
+    ```
+    This creates all 132 pages instantly. Then commit + push.
+
+    **⚠️ ACTION REQUIRED — update 4 static destination pages:**
+    In `destination-porto.html`, `destination-merida.html`, `destination-asheville.html`, `destination-sarasota.html` — find the real estate handoff card link and update it to the new URL:
+    - Porto: `href="destinations/porto/real-estate/"`
+    - Mérida: `href="destinations/merida/real-estate/"`
+    - Asheville: `href="destinations/asheville/real-estate/"`
+    - Sarasota: `href="destinations/sarasota/real-estate/"`
+
+    **Content depth:** Porto gets the full hand-crafted treatment (4 neighborhoods with EUR prices, detailed legal). All other destinations get real content (correct city, neighborhoods from data, price bands, appropriate legal template, correct listings platform). Content can be deepened destination-by-destination post-launch.
+
+    Owner: **Natalie (run script + commit) + content-editorial (deepen content over time)**. Effort: XS to ship infrastructure; L ongoing to deepen content per destination. Priority: **P0 — launch blocker** (confirmed 2026-05-31).
 
 ---
 

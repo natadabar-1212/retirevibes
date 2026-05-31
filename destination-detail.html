@@ -544,7 +544,7 @@
     const isIntl = dest.isInternational;
     const lang = isIntl ? getLanguageInfo(dest) : null;
     const advisorHref = isIntl ? 'advisor-international.html' : 'advisor-domestic.html';
-    const homesHref = isIntl ? 'browse-homes-international.html' : 'browse-homes-domestic.html';
+    const homesHref = `destinations/${dest.id}/real-estate/`;
     const advisorLabel = isIntl ? 'Talk to an international advisor' : 'Talk to a US retirement advisor';
     const advisorDesc = isIntl
       ? 'Retiring internationally involves tax treaties, currency, and foreign account reporting. Get matched with a fiduciary who specializes in retirement abroad.'

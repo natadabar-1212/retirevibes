@@ -8,6 +8,39 @@
 
 ---
 
+## Session Protocol — Read This First Every Chat
+
+**At the start of every session, Claude must:**
+
+1. **Read `launch-readiness-checklist.md`** — this is the living backlog. Know what's P0/P1/P2/P3 and what's done vs. open before doing anything.
+2. **Check project memory** at `/Users/nataliebarnes/Library/Application Support/Claude/local-agent-mode-sessions/8ddcbcc8-2bd2-4fc8-9459-bf37c1a4888a/ac53809d-db4d-4cee-9a90-aa5fe94f106b/spaces/ae6b7f2c-dd5c-42a9-a40e-bdb6e8f1f0de/memory/MEMORY.md` for cross-session context.
+3. **Know the agent roster** — 12 agent files live in `/agents/`. Read the relevant file before responding in that role.
+
+**Agent roster and when to invoke each:**
+
+| Agent file | Invoke when |
+|-----------|-------------|
+| `agents/product.md` | Product decisions, scope, prioritization, what to build next |
+| `agents/project-manager.md` | Status checks, blockers, launch coordination, backlog reviews |
+| `agents/cto.md` | Technical decisions, stack questions, architecture |
+| `agents/design-lead.md` | Visual direction, layout, photo curation, accessibility |
+| `agents/brand-copy-editor.md` | Any copy review, enforcing no-money-claims rule |
+| `agents/content-editorial.md` | Long-form content, destination guides, Inspiration Hub |
+| `agents/marketing-lead.md` | Channels, campaigns, launch strategy, social |
+| `agents/seo-aeo-specialist.md` | Search visibility, meta tags, AI assistant discoverability |
+| `agents/analytics-lead.md` | Funnel measurement, GA4, A/B tests |
+| `agents/devops-security.md` | Deploys, Vercel, security, attack surface |
+| `agents/legal-compliance.md` | Financial-advice line, FTC, privacy law, affiliate disclosure |
+| `agents/affiliate-partnerships.md` | Revenue partners, advisor program |
+
+**Natalie doesn't need to explicitly say "act as X agent."** If she asks a question clearly in one agent's domain (e.g., SEO, legal, copy review), read that agent file and respond in that role automatically. Tell her which hat you're wearing.
+
+**At the end of any session where decisions were made or tasks were completed:**
+
+Propose an update to `launch-readiness-checklist.md` before writing it. One confirmation — then update.
+
+---
+
 ## What RetireVibes Is
 
 A vibe-driven retirement discovery web app for Americans aged 40–55. Users take a 7-question quiz about lifestyle preferences → get matched with their top 3 retirement destinations (US and international) → explore destination deep-dives → get handed off to affiliate partners (advisor, real estate, travel) when ready to act.

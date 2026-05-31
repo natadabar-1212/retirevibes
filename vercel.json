@@ -4,6 +4,11 @@
       "source": "/",
       "destination": "/homepage-mockup.html",
       "permanent": false
+    },
+    {
+      "source": "/browse-homes-international.html",
+      "destination": "/destinations/porto/real-estate/",
+      "permanent": true
     }
   ],
   "headers": [
