@@ -79,6 +79,7 @@
   .hood-stats { display: flex; gap: 20px; flex-wrap: wrap; }
   .hood-stat { font-size: 13px; color: var(--warm-gray); }
   .hood-stat strong { color: var(--teal); font-weight: 600; }
+  .hood-stat-block { display: block; margin-top: 4px; }
 
   /* Price bands */
   .price-bands { background: var(--teal); padding: 96px 48px; }
@@ -139,7 +140,7 @@
   .also-inner { max-width: 1240px; margin: 0 auto; }
   .also .section-label { color: rgba(255,255,255,.45); }
   .also-headline { font-family: var(--serif); font-size: 40px; color: var(--white); letter-spacing: -.015em; margin-bottom: 40px; }
-  .also-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+  .also-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
   .also-card { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 14px; padding: 28px 26px; transition: all .25s ease; text-decoration: none; display: block; }
   .also-card:hover { background: rgba(255,255,255,.09); transform: translateY(-2px); }
   .also-tag { font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 12px; opacity: .8; }
@@ -189,7 +190,7 @@
 <section class="hero">
   <div class="hero-bg" style="background-image: url('../../../../images/asheville.jpg')"></div>
   <div class="hero-inner">
-    <div class="hero-kicker">Real Estate Guide · US Domestic</div>
+    <div class="hero-kicker">Real Estate Guide · North Carolina, USA</div>
     <h1>Find your home in <em>Asheville</em></h1>
     <p class="hero-sub">Real listings, real neighborhoods, no obligation. Browse what's actually available in Asheville before you commit to anything.</p>
     <div class="hero-btns">
@@ -214,12 +215,12 @@
       
       <div class="hood-card">
         <div class="hood-card-main">
-          <h3 class="hood-name">West Asheville</h3>
-          <span class="hood-vibe vibe-upscale">Upscale</span>
-          <p class="hood-desc">The most livable residential neighborhood — eclectic, walkable, more affordable than downtown. Great coffee shops, local restaurants, and a genuine community feel. Spend a weekday morning here.</p>
+          <h3 class="hood-name">North Asheville & Kenilworth</h3>
+          <span class="hood-vibe vibe-simple">Simple & Comfortable</span>
+          <p class="hood-desc">Quieter, more established residential areas popular with retirees. Good for understanding what daily life looks like outside the tourist core — and what housing stock and prices actually look like.</p>
           <div class="hood-stats">
-            <span class="hood-stat"><strong>Est. rent:</strong> $1,550–$2,500/mo</span>
-            <span class="hood-stat"><strong>Buy from:</strong> ~$420K</span>
+            <span class="hood-stat"><strong>Est. rent:</strong> $1,000–$1,600/mo</span>
+            <span class="hood-stat hood-stat-block"><strong>Buy from:</strong> ~$420K</span>
           </div>
         </div>
       </div>
@@ -231,19 +232,19 @@
           <p class="hood-desc">Start here to understand the creative energy the city is known for. The River Arts District shows you how an old industrial strip becomes a cultural anchor. Walk it on a weekend afternoon.</p>
           <div class="hood-stats">
             <span class="hood-stat"><strong>Est. rent:</strong> $1,350–$2,050/mo</span>
-            <span class="hood-stat"><strong>Buy from:</strong> ~$420K</span>
+            <span class="hood-stat hood-stat-block"><strong>Buy from:</strong> ~$420K</span>
           </div>
         </div>
       </div>
 
       <div class="hood-card">
         <div class="hood-card-main">
-          <h3 class="hood-name">North Asheville & Kenilworth</h3>
-          <span class="hood-vibe vibe-simple">Simple & Comfortable</span>
-          <p class="hood-desc">Quieter, more established residential areas popular with retirees. Good for understanding what daily life looks like outside the tourist core — and what housing stock and prices actually look like.</p>
+          <h3 class="hood-name">West Asheville</h3>
+          <span class="hood-vibe vibe-upscale">Upscale</span>
+          <p class="hood-desc">The most livable residential neighborhood — eclectic, walkable, more affordable than downtown. Great coffee shops, local restaurants, and a genuine community feel. Spend a weekday morning here.</p>
           <div class="hood-stats">
-            <span class="hood-stat"><strong>Est. rent:</strong> $1,000–$1,600/mo</span>
-            <span class="hood-stat"><strong>Buy from:</strong> ~$420K</span>
+            <span class="hood-stat"><strong>Est. rent:</strong> $1,550–$2,500/mo</span>
+            <span class="hood-stat hood-stat-block"><strong>Buy from:</strong> ~$420K</span>
           </div>
         </div>
       </div>
@@ -400,6 +401,7 @@
       </a>
 
     </div>
+    <p style="text-align:center; margin-top:32px; font-size:14px; color:rgba(255,255,255,0.5);">Not sure Asheville is right for you? <a href="../../../../results-page-mockup.html" style="color:var(--gold-soft);">See your other matches →</a></p>
   </div>
 </section>
 

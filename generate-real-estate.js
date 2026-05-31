@@ -568,13 +568,21 @@ function getNeighborhoodsHTML(dest) {
     { rentLow: roundTo(rentAmt * 0.55, 50),  rentHigh: roundTo(rentAmt * 0.9, 50) },   // neighborhood 3 — value/local area
   ];
 
-  const vibes = ['vibe-upscale', 'vibe-comfortable', 'vibe-simple', 'vibe-luxury'];
-  const vibeLabels = ['Upscale', 'Comfortable with Extras', 'Simple & Comfortable', 'Luxury'];
+  const vibes = ['vibe-simple', 'vibe-comfortable', 'vibe-upscale', 'vibe-luxury'];
+  const vibeLabels = ['Simple & Comfortable', 'Comfortable with Extras', 'Upscale', 'Luxury'];
 
-  return dest.neighborhoods.map((n, i) => {
-    const r = ranges[i] || ranges[2];
-    const vibe = vibes[i % vibes.length];
-    const vibeLabel = vibeLabels[i % vibeLabels.length];
+  // Sort neighborhoods by estimated rent ascending so labels match price reality
+  const sortedNeighborhoods = [...dest.neighborhoods].sort((a, b) => {
+    const aIdx = dest.neighborhoods.indexOf(a);
+    const bIdx = dest.neighborhoods.indexOf(b);
+    return (ranges[aIdx] || ranges[2]).rentLow - (ranges[bIdx] || ranges[2]).rentLow;
+  });
+
+  return sortedNeighborhoods.map((n, i) => {
+    const origIdx = dest.neighborhoods.indexOf(n);
+    const r = ranges[origIdx] || ranges[2];
+    const vibe = vibes[Math.min(i, vibes.length - 1)];
+    const vibeLabel = vibeLabels[Math.min(i, vibeLabels.length - 1)];
     const isDomestic = !dest.isInternational;
     const currency = isDomestic ? '$' : '$';
 
@@ -590,7 +598,7 @@ function getNeighborhoodsHTML(dest) {
           <p class="hood-desc">${n.desc}</p>
           <div class="hood-stats">
             <span class="hood-stat"><strong>Est. rent:</strong> ${rentLowFmt}–${rentHighFmt}/mo</span>
-            <span class="hood-stat"><strong>Buy from:</strong> ${dest.housing ? dest.housing.buy : 'varies'}</span>
+            <span class="hood-stat hood-stat-block"><strong>Buy from:</strong> ${dest.housing ? dest.housing.buy : 'varies'}</span>
           </div>
         </div>
       </div>`;
@@ -805,6 +813,7 @@ const PAGE_CSS = `
   .hood-stats { display: flex; gap: 20px; flex-wrap: wrap; }
   .hood-stat { font-size: 13px; color: var(--warm-gray); }
   .hood-stat strong { color: var(--teal); font-weight: 600; }
+  .hood-stat-block { display: block; margin-top: 4px; }
 
   /* Price bands */
   .price-bands { background: var(--teal); padding: 96px 48px; }
@@ -865,7 +874,7 @@ const PAGE_CSS = `
   .also-inner { max-width: 1240px; margin: 0 auto; }
   .also .section-label { color: rgba(255,255,255,.45); }
   .also-headline { font-family: var(--serif); font-size: 40px; color: var(--white); letter-spacing: -.015em; margin-bottom: 40px; }
-  .also-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+  .also-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
   .also-card { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 14px; padding: 28px 26px; transition: all .25s ease; text-decoration: none; display: block; }
   .also-card:hover { background: rgba(255,255,255,.09); transform: translateY(-2px); }
   .also-tag { font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 12px; opacity: .8; }
@@ -987,7 +996,7 @@ function generatePage(dest) {
 <section class="hero">
   <div class="hero-bg" style="background-image: url('${heroBg}')"></div>
   <div class="hero-inner">
-    <div class="hero-kicker">Real Estate Guide · ${regionLabel}</div>
+    <div class="hero-kicker">Real Estate Guide · ${dest.region}</div>
     <h1>${heroH1}</h1>
     <p class="hero-sub">${heroSub}</p>
     <div class="hero-btns">
@@ -1082,6 +1091,7 @@ ${rentVsBuyHTML}
       </a>
 
     </div>
+    <p style="text-align:center; margin-top:32px; font-size:14px; color:rgba(255,255,255,0.5);">Not sure ${dest.name} is right for you? <a href="../../../../results-page-mockup.html" style="color:var(--gold-soft);">See your other matches →</a></p>
   </div>
 </section>
 
