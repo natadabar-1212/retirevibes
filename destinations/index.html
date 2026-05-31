@@ -247,7 +247,6 @@
       const isFeatured = d.featured || FEATURED_SLUGS.has(d.slug);
       return `
         <div class="dest-card">
-          ${isFeatured ? '<span class="card-badge">Featured</span>' : ''}
           <div class="card-region">${d.region || ''}</div>
           <div class="card-name">${d.display_name}</div>
           <div class="card-country">${d.country}</div>
