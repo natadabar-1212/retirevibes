@@ -28,7 +28,7 @@
           "meta_title": "Porto Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Porto's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/porto/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
@@ -64,7 +64,7 @@
           "meta_title": "Mérida Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Mérida's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/merida/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
@@ -100,7 +100,7 @@
           "meta_title": "Asheville Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Asheville's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/asheville/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
@@ -136,7 +136,7 @@
           "meta_title": "Sarasota Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Sarasota's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/sarasota/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
@@ -172,7 +172,7 @@
           "meta_title": "Chiang Mai Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Chiang Mai's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/chiang-mai/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
@@ -208,7 +208,7 @@
           "meta_title": "Medellín Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Medellín's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/medellin/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
@@ -244,7 +244,7 @@
           "meta_title": "Santa Fe Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Santa Fe's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/santa-fe/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
@@ -280,7 +280,7 @@
           "meta_title": "Bend Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Bend's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/bend/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
@@ -316,7 +316,7 @@
           "meta_title": "Greenville Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Greenville's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/greenville-sc/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
@@ -352,7 +352,7 @@
           "meta_title": "Sedona Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Sedona's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/sedona/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
@@ -388,7 +388,7 @@
           "meta_title": "St. Augustine Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore St. Augustine's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/st-augustine/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
@@ -424,7 +424,7 @@
           "meta_title": "Victoria Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Victoria's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/victoria-bc/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
@@ -460,7 +460,7 @@
           "meta_title": "Halifax Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Halifax's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/halifax/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
@@ -496,7 +496,7 @@
           "meta_title": "Puerto Rico Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Puerto Rico's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/puerto-rico/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
@@ -532,7 +532,7 @@
           "meta_title": "Roatán Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Roatán's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/roatan/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
@@ -568,7 +568,7 @@
           "meta_title": "Lisbon Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Lisbon's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/lisbon/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
@@ -604,7 +604,7 @@
           "meta_title": "Valencia Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Valencia's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/valencia/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
@@ -640,7 +640,7 @@
           "meta_title": "Oaxaca Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Oaxaca's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/oaxaca/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
@@ -676,7 +676,7 @@
           "meta_title": "Chattanooga Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Chattanooga's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/chattanooga/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
@@ -712,7 +712,7 @@
           "meta_title": "Tucson Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Tucson's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/tucson/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
@@ -748,7 +748,7 @@
           "meta_title": "Panama City Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Panama City's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/panama-city/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
@@ -784,7 +784,7 @@
           "meta_title": "Málaga Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Málaga's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/malaga/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
@@ -820,7 +820,7 @@
           "meta_title": "Algarve Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Algarve's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/algarve/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
@@ -856,7 +856,7 @@
           "meta_title": "Athens Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Athens's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/athens/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
@@ -892,7 +892,7 @@
           "meta_title": "Florence Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Florence's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/florence/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
@@ -928,7 +928,7 @@
           "meta_title": "Split Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Split's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/split/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
@@ -964,7 +964,7 @@
           "meta_title": "San Miguel de Allende Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore San Miguel de Allende's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/san-miguel/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
@@ -1000,7 +1000,7 @@
           "meta_title": "Puerto Vallarta Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Puerto Vallarta's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/puerto-vallarta/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
@@ -1036,7 +1036,7 @@
           "meta_title": "Cuenca Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Cuenca's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/cuenca/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
@@ -1072,7 +1072,7 @@
           "meta_title": "Central Valley, Costa Rica Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Central Valley, Costa Rica's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/costa-rica/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
@@ -1085,7 +1085,7 @@
       "display_name": "Penang",
       "country": "Malaysia",
       "region": "Southeast Asia",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Asia's food capital, a UNESCO heritage city, and a Malaysia My Second Home visa that makes it one of the easiest places in the world to retire legally.",
       "hero_image": "",
@@ -1100,7 +1100,7 @@
         "meta_title": "Retire in Penang, Malaysia | RetireVibes",
         "meta_description": "Asia's food capital, a UNESCO heritage city, and a Malaysia My Second Home visa that makes it one of the easiest places in the world to retire legally.",
         "canonical_url": "/destinations/penang/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -1108,11 +1108,11 @@
           "meta_title": "Penang Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Penang's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/penang/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -1121,7 +1121,7 @@
       "display_name": "Da Nang",
       "country": "Vietnam",
       "region": "Southeast Asia",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Long white sand beaches, the ancient town of Hội An thirty minutes south, and a cost of living that feels almost implausible.",
       "hero_image": "",
@@ -1136,7 +1136,7 @@
         "meta_title": "Retire in Da Nang, Vietnam | RetireVibes",
         "meta_description": "Long white sand beaches, the ancient town of Hội An thirty minutes south, and a cost of living that feels almost implausible.",
         "canonical_url": "/destinations/da-nang/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -1144,11 +1144,11 @@
           "meta_title": "Da Nang Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Da Nang's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/da-nang/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -1157,7 +1157,7 @@
       "display_name": "Naples",
       "country": "United States",
       "region": "North America",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "The Gulf Coast's most refined city — powdery white sand, world-class dining, and a slower, more elegant take on Florida sunshine.",
       "hero_image": "",
@@ -1172,7 +1172,7 @@
         "meta_title": "Retire in Naples, United States | RetireVibes",
         "meta_description": "The Gulf Coast's most refined city — powdery white sand, world-class dining, and a slower, more elegant take on Florida sunshine.",
         "canonical_url": "/destinations/naples-fl/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -1180,11 +1180,11 @@
           "meta_title": "Naples Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Naples's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/naples-fl/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -1193,7 +1193,7 @@
       "display_name": "Boise",
       "country": "United States",
       "region": "North America",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "A mid-sized city with a river running through it, 100 miles of foothills trails, and a downtown food scene that keeps winning national attention.",
       "hero_image": "",
@@ -1208,7 +1208,7 @@
         "meta_title": "Retire in Boise, United States | RetireVibes",
         "meta_description": "A mid-sized city with a river running through it, 100 miles of foothills trails, and a downtown food scene that keeps winning national attention.",
         "canonical_url": "/destinations/boise/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -1216,11 +1216,11 @@
           "meta_title": "Boise Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Boise's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/boise/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -1229,7 +1229,7 @@
       "display_name": "Fort Collins",
       "country": "United States",
       "region": "North America",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "A Colorado State University town where craft beer was practically invented — and where the Rockies are close enough to feel like a daily presence.",
       "hero_image": "",
@@ -1244,7 +1244,7 @@
         "meta_title": "Retire in Fort Collins, United States | RetireVibes",
         "meta_description": "A Colorado State University town where craft beer was practically invented — and where the Rockies are close enough to feel like a daily presence.",
         "canonical_url": "/destinations/fort-collins/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -1252,11 +1252,11 @@
           "meta_title": "Fort Collins Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Fort Collins's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/fort-collins/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -1265,7 +1265,7 @@
       "display_name": "Scottsdale",
       "country": "United States",
       "region": "North America",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "330 days of sun, world-class golf and spas, and a desert landscape that manages to feel both dramatic and serene.",
       "hero_image": "",
@@ -1280,7 +1280,7 @@
         "meta_title": "Retire in Scottsdale, United States | RetireVibes",
         "meta_description": "330 days of sun, world-class golf and spas, and a desert landscape that manages to feel both dramatic and serene.",
         "canonical_url": "/destinations/scottsdale/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -1288,11 +1288,11 @@
           "meta_title": "Scottsdale Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Scottsdale's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/scottsdale/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -1301,7 +1301,7 @@
       "display_name": "Burlington",
       "country": "United States",
       "region": "North America",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Vermont's lakeside gem — a walkable Church Street, Lake Champlain at your doorstep, and the kind of genuine four seasons that reminds you autumn is real.",
       "hero_image": "",
@@ -1316,7 +1316,7 @@
         "meta_title": "Retire in Burlington, United States | RetireVibes",
         "meta_description": "Vermont's lakeside gem — a walkable Church Street, Lake Champlain at your doorstep, and the kind of genuine four seasons that reminds you autumn is real.",
         "canonical_url": "/destinations/burlington-vt/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -1324,11 +1324,11 @@
           "meta_title": "Burlington Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Burlington's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/burlington-vt/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -1337,7 +1337,7 @@
       "display_name": "Fredericksburg",
       "country": "United States",
       "region": "North America",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Bluebonnet fields, a German heritage Main Street, and 50+ wineries within 30 minutes — Texas wine country done exactly right.",
       "hero_image": "",
@@ -1352,7 +1352,7 @@
         "meta_title": "Retire in Fredericksburg, United States | RetireVibes",
         "meta_description": "Bluebonnet fields, a German heritage Main Street, and 50+ wineries within 30 minutes — Texas wine country done exactly right.",
         "canonical_url": "/destinations/fredericksburg-tx/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -1360,11 +1360,11 @@
           "meta_title": "Fredericksburg Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Fredericksburg's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/fredericksburg-tx/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -1373,7 +1373,7 @@
       "display_name": "Vancouver",
       "country": "Canada",
       "region": "North America",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Mountains meet ocean in North America's most cosmopolitan Pacific city — and somehow, it manages to feel both world-class and deeply livable.",
       "hero_image": "",
@@ -1388,7 +1388,7 @@
         "meta_title": "Retire in Vancouver, Canada | RetireVibes",
         "meta_description": "Mountains meet ocean in North America's most cosmopolitan Pacific city — and somehow, it manages to feel both world-class and deeply livable.",
         "canonical_url": "/destinations/vancouver/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -1396,11 +1396,11 @@
           "meta_title": "Vancouver Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Vancouver's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/vancouver/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -1409,7 +1409,7 @@
       "display_name": "Kelowna",
       "country": "Canada",
       "region": "North America",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Canada's wine country on a warm Okanagan lake — more sunshine than Vancouver, a thriving food scene, and ski hills within an hour.",
       "hero_image": "",
@@ -1424,7 +1424,7 @@
         "meta_title": "Retire in Kelowna, Canada | RetireVibes",
         "meta_description": "Canada's wine country on a warm Okanagan lake — more sunshine than Vancouver, a thriving food scene, and ski hills within an hour.",
         "canonical_url": "/destinations/kelowna/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -1432,11 +1432,11 @@
           "meta_title": "Kelowna Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Kelowna's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/kelowna/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -1445,7 +1445,7 @@
       "display_name": "Québec City",
       "country": "Canada",
       "region": "North America",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "A UNESCO World Heritage walled city with the energy of Paris and the safety of Canada — where French culture runs so deep it's been here since 1608.",
       "hero_image": "",
@@ -1460,7 +1460,7 @@
         "meta_title": "Retire in Québec City, Canada | RetireVibes",
         "meta_description": "A UNESCO World Heritage walled city with the energy of Paris and the safety of Canada — where French culture runs so deep it's been here since 1608.",
         "canonical_url": "/destinations/quebec-city/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -1468,11 +1468,11 @@
           "meta_title": "Québec City Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Québec City's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/quebec-city/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -1481,7 +1481,7 @@
       "display_name": "Ottawa",
       "country": "Canada",
       "region": "North America",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Canada's capital city — world-class museums free to enter, the Rideau Canal for skating in winter and cycling in summer, and a bilingual culture that keeps it interesting.",
       "hero_image": "",
@@ -1496,7 +1496,7 @@
         "meta_title": "Retire in Ottawa, Canada | RetireVibes",
         "meta_description": "Canada's capital city — world-class museums free to enter, the Rideau Canal for skating in winter and cycling in summer, and a bilingual culture that keeps it interesting.",
         "canonical_url": "/destinations/ottawa/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -1504,11 +1504,11 @@
           "meta_title": "Ottawa Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Ottawa's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/ottawa/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -1517,7 +1517,7 @@
       "display_name": "Canmore",
       "country": "Canada",
       "region": "North America",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Banff National Park on your doorstep, the Canadian Rockies as your wallpaper, and a mountain town that somehow feels both adventurous and grounded.",
       "hero_image": "",
@@ -1532,7 +1532,7 @@
         "meta_title": "Retire in Canmore, Canada | RetireVibes",
         "meta_description": "Banff National Park on your doorstep, the Canadian Rockies as your wallpaper, and a mountain town that somehow feels both adventurous and grounded.",
         "canonical_url": "/destinations/canmore/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -1540,11 +1540,11 @@
           "meta_title": "Canmore Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Canmore's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/canmore/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -1553,7 +1553,7 @@
       "display_name": "Charlottetown",
       "country": "Canada",
       "region": "North America",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Red sand beaches, lobster suppers, Anne of Green Gables country, and the kind of island unhurriedness that coastal living was always supposed to feel like.",
       "hero_image": "",
@@ -1568,7 +1568,7 @@
         "meta_title": "Retire in Charlottetown, Canada | RetireVibes",
         "meta_description": "Red sand beaches, lobster suppers, Anne of Green Gables country, and the kind of island unhurriedness that coastal living was always supposed to feel like.",
         "canonical_url": "/destinations/charlottetown/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -1576,11 +1576,11 @@
           "meta_title": "Charlottetown Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Charlottetown's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/charlottetown/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -1589,7 +1589,7 @@
       "display_name": "Niagara-on-the-Lake",
       "country": "Canada",
       "region": "North America",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Ontario wine country in a perfectly preserved 19th-century town — weekend theater, world-class Icewine, and the Falls twenty minutes away when guests visit.",
       "hero_image": "",
@@ -1604,7 +1604,7 @@
         "meta_title": "Retire in Niagara-on-the-Lake, Canada | RetireVibes",
         "meta_description": "Ontario wine country in a perfectly preserved 19th-century town — weekend theater, world-class Icewine, and the Falls twenty minutes away when guests visit.",
         "canonical_url": "/destinations/niagara-on-the-lake/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -1612,11 +1612,11 @@
           "meta_title": "Niagara-on-the-Lake Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Niagara-on-the-Lake's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/niagara-on-the-lake/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -1625,7 +1625,7 @@
       "display_name": "Nanaimo",
       "country": "Canada",
       "region": "North America",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Vancouver Island living at half the price of Victoria — ocean kayaking, old-growth rainforests, and a ferry ride from the city when you need it.",
       "hero_image": "",
@@ -1640,7 +1640,7 @@
         "meta_title": "Retire in Nanaimo, Canada | RetireVibes",
         "meta_description": "Vancouver Island living at half the price of Victoria — ocean kayaking, old-growth rainforests, and a ferry ride from the city when you need it.",
         "canonical_url": "/destinations/nanaimo/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -1648,11 +1648,11 @@
           "meta_title": "Nanaimo Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Nanaimo's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/nanaimo/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -1661,7 +1661,7 @@
       "display_name": "Ambergris Caye",
       "country": "Belize",
       "region": "Central America",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "English-speaking, US dollar, world-class reef diving — and a Belizean island life so easy it has a dedicated retirement visa program.",
       "hero_image": "",
@@ -1676,7 +1676,7 @@
         "meta_title": "Retire in Ambergris Caye, Belize | RetireVibes",
         "meta_description": "English-speaking, US dollar, world-class reef diving — and a Belizean island life so easy it has a dedicated retirement visa program.",
         "canonical_url": "/destinations/ambergris-caye/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -1684,11 +1684,11 @@
           "meta_title": "Ambergris Caye Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Ambergris Caye's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/ambergris-caye/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -1697,7 +1697,7 @@
       "display_name": "Las Terrenas",
       "country": "Dominican Republic",
       "region": "Caribbean",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "A French-inflected Caribbean town on the Samaná Peninsula — coconut-lined beaches, whale-watching season, and a creative European expat scene.",
       "hero_image": "",
@@ -1712,7 +1712,7 @@
         "meta_title": "Retire in Las Terrenas, Dominican Republic | RetireVibes",
         "meta_description": "A French-inflected Caribbean town on the Samaná Peninsula — coconut-lined beaches, whale-watching season, and a creative European expat scene.",
         "canonical_url": "/destinations/las-terrenas/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -1720,11 +1720,11 @@
           "meta_title": "Las Terrenas Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Las Terrenas's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/las-terrenas/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -1733,7 +1733,7 @@
       "display_name": "Barbados",
       "country": "Barbados",
       "region": "Caribbean",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "The Caribbean's most established English-speaking island — cricket, rum punch, pink sand beaches, and a Barbados Welcome Stamp that makes long stays easy.",
       "hero_image": "",
@@ -1748,7 +1748,7 @@
         "meta_title": "Retire in Barbados, Barbados | RetireVibes",
         "meta_description": "The Caribbean's most established English-speaking island — cricket, rum punch, pink sand beaches, and a Barbados Welcome Stamp that makes long stays easy.",
         "canonical_url": "/destinations/barbados/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -1756,11 +1756,11 @@
           "meta_title": "Barbados Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Barbados's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/barbados/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -1769,7 +1769,7 @@
       "display_name": "St. Croix",
       "country": "US Virgin Islands",
       "region": "Unknown",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "All the Caribbean — turquoise water, reef snorkeling, rum culture — with the full rights and infrastructure of a US territory.",
       "hero_image": "",
@@ -1784,7 +1784,7 @@
         "meta_title": "Retire in St. Croix, US Virgin Islands | RetireVibes",
         "meta_description": "All the Caribbean — turquoise water, reef snorkeling, rum culture — with the full rights and infrastructure of a US territory.",
         "canonical_url": "/destinations/st-croix/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -1792,11 +1792,11 @@
           "meta_title": "St. Croix Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore St. Croix's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/st-croix/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -1805,7 +1805,7 @@
       "display_name": "Turks & Caicos",
       "country": "Turks and Caicos Islands",
       "region": "Unknown",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Consistently rated the world's best beach — Grace Bay's turquoise water is not an exaggeration, and the Permanent Residency by Investment program opens the door.",
       "hero_image": "",
@@ -1820,7 +1820,7 @@
         "meta_title": "Retire in Turks & Caicos, Turks and Caicos Islands | RetireVibes",
         "meta_description": "Consistently rated the world's best beach — Grace Bay's turquoise water is not an exaggeration, and the Permanent Residency by Investment program opens the door.",
         "canonical_url": "/destinations/turks-caicos/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -1828,11 +1828,11 @@
           "meta_title": "Turks & Caicos Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Turks & Caicos's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/turks-caicos/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -1841,7 +1841,7 @@
       "display_name": "Grenada",
       "country": "Grenada",
       "region": "Caribbean",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "The Spice Isle — nutmeg, cocoa, and a retiree-friendly island that's both genuinely beautiful and genuinely unhurried.",
       "hero_image": "",
@@ -1856,7 +1856,7 @@
         "meta_title": "Retire in Grenada, Grenada | RetireVibes",
         "meta_description": "The Spice Isle — nutmeg, cocoa, and a retiree-friendly island that's both genuinely beautiful and genuinely unhurried.",
         "canonical_url": "/destinations/grenada/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -1864,11 +1864,11 @@
           "meta_title": "Grenada Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Grenada's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/grenada/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -1877,7 +1877,7 @@
       "display_name": "St. Kitts",
       "country": "Saint Kitts and Nevis",
       "region": "Unknown",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "A volcanic island with a UNESCO fortress, a narrow-gauge railway, and a citizenship by investment program that's been trusted by expats for 40 years.",
       "hero_image": "",
@@ -1892,7 +1892,7 @@
         "meta_title": "Retire in St. Kitts, Saint Kitts and Nevis | RetireVibes",
         "meta_description": "A volcanic island with a UNESCO fortress, a narrow-gauge railway, and a citizenship by investment program that's been trusted by expats for 40 years.",
         "canonical_url": "/destinations/st-kitts/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -1900,11 +1900,11 @@
           "meta_title": "St. Kitts Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore St. Kitts's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/st-kitts/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -1913,7 +1913,7 @@
       "display_name": "Cayman Islands",
       "country": "Cayman Islands",
       "region": "Caribbean",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Seven Mile Beach, zero income tax, and an island with the financial infrastructure to match its crystal-clear water.",
       "hero_image": "",
@@ -1928,7 +1928,7 @@
         "meta_title": "Retire in Cayman Islands, Cayman Islands | RetireVibes",
         "meta_description": "Seven Mile Beach, zero income tax, and an island with the financial infrastructure to match its crystal-clear water.",
         "canonical_url": "/destinations/cayman-islands/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -1936,11 +1936,11 @@
           "meta_title": "Cayman Islands Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Cayman Islands's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/cayman-islands/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -1949,7 +1949,7 @@
       "display_name": "Playa del Carmen",
       "country": "Mexico",
       "region": "Latin America",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "A walkable Fifth Avenue, Caribbean turquoise at your doorstep, cenotes an hour inland, and a Riviera Maya lifestyle at a fraction of what it costs to visit.",
       "hero_image": "",
@@ -1964,7 +1964,7 @@
         "meta_title": "Retire in Playa del Carmen, Mexico | RetireVibes",
         "meta_description": "A walkable Fifth Avenue, Caribbean turquoise at your doorstep, cenotes an hour inland, and a Riviera Maya lifestyle at a fraction of what it costs to visit.",
         "canonical_url": "/destinations/playa-del-carmen/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -1972,11 +1972,11 @@
           "meta_title": "Playa del Carmen Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Playa del Carmen's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/playa-del-carmen/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -1985,7 +1985,7 @@
       "display_name": "Ajijic & Lake Chapala",
       "country": "Mexico",
       "region": "Latin America",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Mexico's largest freshwater lake, perfect spring-like weather, and the largest American expat community in Mexico — all in a sleepy lakeside village.",
       "hero_image": "",
@@ -2000,7 +2000,7 @@
         "meta_title": "Retire in Ajijic & Lake Chapala, Mexico | RetireVibes",
         "meta_description": "Mexico's largest freshwater lake, perfect spring-like weather, and the largest American expat community in Mexico — all in a sleepy lakeside village.",
         "canonical_url": "/destinations/ajijic/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -2008,11 +2008,11 @@
           "meta_title": "Ajijic & Lake Chapala Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Ajijic & Lake Chapala's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/ajijic/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -2021,7 +2021,7 @@
       "display_name": "Cartagena",
       "country": "Colombia",
       "region": "Latin America",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "A UNESCO Caribbean port city where bougainvillea spills over colonial walls and the cumbia plays until dawn — Colombia's most romantic city.",
       "hero_image": "",
@@ -2036,7 +2036,7 @@
         "meta_title": "Retire in Cartagena, Colombia | RetireVibes",
         "meta_description": "A UNESCO Caribbean port city where bougainvillea spills over colonial walls and the cumbia plays until dawn — Colombia's most romantic city.",
         "canonical_url": "/destinations/cartagena/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -2044,11 +2044,11 @@
           "meta_title": "Cartagena Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Cartagena's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/cartagena/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -2057,7 +2057,7 @@
       "display_name": "Montevideo",
       "country": "Uruguay",
       "region": "Latin America",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "South America's most progressive capital — a 22km coastal promenade, world-class asado culture, and a stability that makes Uruguay the Switzerland of the region.",
       "hero_image": "",
@@ -2072,7 +2072,7 @@
         "meta_title": "Retire in Montevideo, Uruguay | RetireVibes",
         "meta_description": "South America's most progressive capital — a 22km coastal promenade, world-class asado culture, and a stability that makes Uruguay the Switzerland of the region.",
         "canonical_url": "/destinations/montevideo/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -2080,11 +2080,11 @@
           "meta_title": "Montevideo Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Montevideo's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/montevideo/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -2093,7 +2093,7 @@
       "display_name": "Buenos Aires",
       "country": "Argentina",
       "region": "Latin America",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Tango, Malbec, steak at midnight, and a European-style capital so large and layered that you could spend years still discovering it.",
       "hero_image": "",
@@ -2108,7 +2108,7 @@
         "meta_title": "Retire in Buenos Aires, Argentina | RetireVibes",
         "meta_description": "Tango, Malbec, steak at midnight, and a European-style capital so large and layered that you could spend years still discovering it.",
         "canonical_url": "/destinations/buenos-aires/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -2116,11 +2116,11 @@
           "meta_title": "Buenos Aires Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Buenos Aires's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/buenos-aires/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -2129,7 +2129,7 @@
       "display_name": "Lake Atitlán",
       "country": "Guatemala",
       "region": "Central America",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Aldous Huxley called it \"the most beautiful lake in the world.\" The three volcanoes on its shore haven't changed. The cost of living still hasn't caught up.",
       "hero_image": "",
@@ -2144,7 +2144,7 @@
         "meta_title": "Retire in Lake Atitlán, Guatemala | RetireVibes",
         "meta_description": "Aldous Huxley called it \"the most beautiful lake in the world.\" The three volcanoes on its shore haven't changed. The cost of living still hasn't caught up.",
         "canonical_url": "/destinations/lake-atitlan/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -2152,11 +2152,11 @@
           "meta_title": "Lake Atitlán Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Lake Atitlán's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/lake-atitlan/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -2165,7 +2165,7 @@
       "display_name": "Boquete",
       "country": "Panama",
       "region": "Central America",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Cloud forest coffee country at 4,000 feet — Panama's pensionado visa discounts, perpetual spring weather, and a hiking scene the whole expat world knows about.",
       "hero_image": "",
@@ -2180,7 +2180,7 @@
         "meta_title": "Retire in Boquete, Panama | RetireVibes",
         "meta_description": "Cloud forest coffee country at 4,000 feet — Panama's pensionado visa discounts, perpetual spring weather, and a hiking scene the whole expat world knows about.",
         "canonical_url": "/destinations/boquete/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -2188,11 +2188,11 @@
           "meta_title": "Boquete Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Boquete's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/boquete/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -2201,7 +2201,7 @@
       "display_name": "Barcelona",
       "country": "Spain",
       "region": "Europe",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Gaudí's city — where the architecture is surreal, the food is world-class, the beaches are a 20-minute walk from the Gothic Quarter, and the lifestyle simply does not exist anywhere else.",
       "hero_image": "",
@@ -2216,7 +2216,7 @@
         "meta_title": "Retire in Barcelona, Spain | RetireVibes",
         "meta_description": "Gaudí's city — where the architecture is surreal, the food is world-class, the beaches are a 20-minute walk from the Gothic Quarter, and the lifestyle simply does not exist anywhere else.",
         "canonical_url": "/destinations/barcelona/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -2224,11 +2224,11 @@
           "meta_title": "Barcelona Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Barcelona's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/barcelona/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -2237,7 +2237,7 @@
       "display_name": "Alicante",
       "country": "Spain",
       "region": "Europe",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "320 days of sun, a castle on the hill, palm-lined beach promenades, and a cost of living that remains among the lowest of any Mediterranean city.",
       "hero_image": "",
@@ -2252,7 +2252,7 @@
         "meta_title": "Retire in Alicante, Spain | RetireVibes",
         "meta_description": "320 days of sun, a castle on the hill, palm-lined beach promenades, and a cost of living that remains among the lowest of any Mediterranean city.",
         "canonical_url": "/destinations/alicante/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -2260,11 +2260,11 @@
           "meta_title": "Alicante Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Alicante's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/alicante/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -2273,7 +2273,7 @@
       "display_name": "Prague",
       "country": "Czech Republic",
       "region": "Europe",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Arguably the most beautiful city in Europe — medieval towers, a river lined with baroque palaces, world-class opera for next to nothing, and a beer culture that's both serious and joyful.",
       "hero_image": "",
@@ -2288,7 +2288,7 @@
         "meta_title": "Retire in Prague, Czech Republic | RetireVibes",
         "meta_description": "Arguably the most beautiful city in Europe — medieval towers, a river lined with baroque palaces, world-class opera for next to nothing, and a beer culture that's both serious and joyful.",
         "canonical_url": "/destinations/prague/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -2296,11 +2296,11 @@
           "meta_title": "Prague Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Prague's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/prague/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -2309,7 +2309,7 @@
       "display_name": "Budapest",
       "country": "Hungary",
       "region": "Europe",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "A city split by the Danube — Buda's castle on one side, Pest's ruin bars and Art Nouveau grandeur on the other — with world-famous thermal baths in between.",
       "hero_image": "",
@@ -2324,7 +2324,7 @@
         "meta_title": "Retire in Budapest, Hungary | RetireVibes",
         "meta_description": "A city split by the Danube — Buda's castle on one side, Pest's ruin bars and Art Nouveau grandeur on the other — with world-famous thermal baths in between.",
         "canonical_url": "/destinations/budapest/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -2332,11 +2332,11 @@
           "meta_title": "Budapest Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Budapest's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/budapest/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -2345,7 +2345,7 @@
       "display_name": "Funchal",
       "country": "Portugal",
       "region": "Europe",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "An island of eternal spring in the Atlantic — volcanic peaks, laurel forest hikes, levada walks, and a warmth that draws everyone from Churchill to modern retirees.",
       "hero_image": "",
@@ -2360,7 +2360,7 @@
         "meta_title": "Retire in Funchal, Portugal | RetireVibes",
         "meta_description": "An island of eternal spring in the Atlantic — volcanic peaks, laurel forest hikes, levada walks, and a warmth that draws everyone from Churchill to modern retirees.",
         "canonical_url": "/destinations/funchal/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -2368,11 +2368,11 @@
           "meta_title": "Funchal Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Funchal's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/funchal/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -2381,7 +2381,7 @@
       "display_name": "Kraków",
       "country": "Poland",
       "region": "Europe",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Europe's most intact medieval market square, a royal castle, jazz clubs that run all night, and a cost of living that makes other European cities look expensive.",
       "hero_image": "",
@@ -2396,7 +2396,7 @@
         "meta_title": "Retire in Kraków, Poland | RetireVibes",
         "meta_description": "Europe's most intact medieval market square, a royal castle, jazz clubs that run all night, and a cost of living that makes other European cities look expensive.",
         "canonical_url": "/destinations/krakow/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -2404,11 +2404,11 @@
           "meta_title": "Kraków Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Kraków's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/krakow/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -2417,7 +2417,7 @@
       "display_name": "Tbilisi",
       "country": "Georgia",
       "region": "Middle East & Africa",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "A Silk Road city where natural wine was invented, sulphur baths have been running for 500 years, and you can stay for a full year with zero visa requirements.",
       "hero_image": "",
@@ -2432,7 +2432,7 @@
         "meta_title": "Retire in Tbilisi, Georgia | RetireVibes",
         "meta_description": "A Silk Road city where natural wine was invented, sulphur baths have been running for 500 years, and you can stay for a full year with zero visa requirements.",
         "canonical_url": "/destinations/tbilisi/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -2440,11 +2440,11 @@
           "meta_title": "Tbilisi Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Tbilisi's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/tbilisi/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -2453,7 +2453,7 @@
       "display_name": "Paphos",
       "country": "Cyprus",
       "region": "Europe",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Where Aphrodite was born — a Mediterranean island with 340 days of sun, EU membership, and a retirement visa program that's been welcoming British and American expats for decades.",
       "hero_image": "",
@@ -2468,7 +2468,7 @@
         "meta_title": "Retire in Paphos, Cyprus | RetireVibes",
         "meta_description": "Where Aphrodite was born — a Mediterranean island with 340 days of sun, EU membership, and a retirement visa program that's been welcoming British and American expats for decades.",
         "canonical_url": "/destinations/paphos/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -2476,11 +2476,11 @@
           "meta_title": "Paphos Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Paphos's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/paphos/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -2489,7 +2489,7 @@
       "display_name": "Valletta",
       "country": "Malta",
       "region": "Europe",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Europe's smallest capital is also one of its most beautiful — a baroque UNESCO city on a Mediterranean island where English is an official language and the Grand Harbour never gets old.",
       "hero_image": "",
@@ -2504,7 +2504,7 @@
         "meta_title": "Retire in Valletta, Malta | RetireVibes",
         "meta_description": "Europe's smallest capital is also one of its most beautiful — a baroque UNESCO city on a Mediterranean island where English is an official language and the Grand Harbour never gets old.",
         "canonical_url": "/destinations/valletta/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -2512,11 +2512,11 @@
           "meta_title": "Valletta Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Valletta's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/valletta/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -2525,7 +2525,7 @@
       "display_name": "Ljubljana",
       "country": "Slovenia",
       "region": "Europe",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Europe's greenest capital — a car-free medieval center, a castle on the hill, the Julian Alps an hour away, and an outdoor culture that puts the rest of Europe to shame.",
       "hero_image": "",
@@ -2540,7 +2540,7 @@
         "meta_title": "Retire in Ljubljana, Slovenia | RetireVibes",
         "meta_description": "Europe's greenest capital — a car-free medieval center, a castle on the hill, the Julian Alps an hour away, and an outdoor culture that puts the rest of Europe to shame.",
         "canonical_url": "/destinations/ljubljana/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -2548,11 +2548,11 @@
           "meta_title": "Ljubljana Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Ljubljana's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/ljubljana/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -2561,7 +2561,7 @@
       "display_name": "Kotor",
       "country": "Montenegro",
       "region": "Europe",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "A medieval walled city inside a fjord-like bay — Montenegro's hidden gem where the Adriatic meets the mountains and everything still feels genuinely discovered.",
       "hero_image": "",
@@ -2576,7 +2576,7 @@
         "meta_title": "Retire in Kotor, Montenegro | RetireVibes",
         "meta_description": "A medieval walled city inside a fjord-like bay — Montenegro's hidden gem where the Adriatic meets the mountains and everything still feels genuinely discovered.",
         "canonical_url": "/destinations/kotor/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -2584,11 +2584,11 @@
           "meta_title": "Kotor Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Kotor's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/kotor/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -2597,7 +2597,7 @@
       "display_name": "Abruzzo",
       "country": "Italy",
       "region": "Europe",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Italy at half the price of Tuscany — medieval hill villages, Apennine ski slopes, Adriatic beaches, and some of Italy's least-discovered wine country.",
       "hero_image": "",
@@ -2612,7 +2612,7 @@
         "meta_title": "Retire in Abruzzo, Italy | RetireVibes",
         "meta_description": "Italy at half the price of Tuscany — medieval hill villages, Apennine ski slopes, Adriatic beaches, and some of Italy's least-discovered wine country.",
         "canonical_url": "/destinations/abruzzo/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -2620,11 +2620,11 @@
           "meta_title": "Abruzzo Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Abruzzo's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/abruzzo/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -2633,7 +2633,7 @@
       "display_name": "Hua Hin",
       "country": "Thailand",
       "region": "Southeast Asia",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Thailand's royal resort town — a more refined alternative to Pattaya, a quieter pace than Bangkok, and a golf-and-beach lifestyle that has attracted Thai royalty for a century.",
       "hero_image": "",
@@ -2648,7 +2648,7 @@
         "meta_title": "Retire in Hua Hin, Thailand | RetireVibes",
         "meta_description": "Thailand's royal resort town — a more refined alternative to Pattaya, a quieter pace than Bangkok, and a golf-and-beach lifestyle that has attracted Thai royalty for a century.",
         "canonical_url": "/destinations/hua-hin/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -2656,11 +2656,11 @@
           "meta_title": "Hua Hin Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Hua Hin's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/hua-hin/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -2669,7 +2669,7 @@
       "display_name": "Kuala Lumpur",
       "country": "Malaysia",
       "region": "Southeast Asia",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "A world-class cosmopolitan city with the cost of a small one — Petronas Towers, incredible street food, English-speaking, and the Malaysia My Second Home visa literally built for retirees.",
       "hero_image": "",
@@ -2684,7 +2684,7 @@
         "meta_title": "Retire in Kuala Lumpur, Malaysia | RetireVibes",
         "meta_description": "A world-class cosmopolitan city with the cost of a small one — Petronas Towers, incredible street food, English-speaking, and the Malaysia My Second Home visa literally built for retirees.",
         "canonical_url": "/destinations/kuala-lumpur/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -2692,11 +2692,11 @@
           "meta_title": "Kuala Lumpur Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Kuala Lumpur's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/kuala-lumpur/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -2705,7 +2705,7 @@
       "display_name": "Taipei",
       "country": "Taiwan",
       "region": "East Asia",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Asia's most livable city — extraordinary night markets, mountain hiking from the city center, world-class public transit, and a safety record that makes it one of the most comfortable cities on earth.",
       "hero_image": "",
@@ -2720,7 +2720,7 @@
         "meta_title": "Retire in Taipei, Taiwan | RetireVibes",
         "meta_description": "Asia's most livable city — extraordinary night markets, mountain hiking from the city center, world-class public transit, and a safety record that makes it one of the most comfortable cities on earth.",
         "canonical_url": "/destinations/taipei/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -2728,11 +2728,11 @@
           "meta_title": "Taipei Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Taipei's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/taipei/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -2741,7 +2741,7 @@
       "display_name": "Hội An",
       "country": "Vietnam",
       "region": "Southeast Asia",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "A UNESCO ancient town where paper lanterns reflect on the river at night, the tailor shops turn around bespoke clothing in 24 hours, and the food is among the best in all of Southeast Asia.",
       "hero_image": "",
@@ -2756,7 +2756,7 @@
         "meta_title": "Retire in Hội An, Vietnam | RetireVibes",
         "meta_description": "A UNESCO ancient town where paper lanterns reflect on the river at night, the tailor shops turn around bespoke clothing in 24 hours, and the food is among the best in all of Southeast Asia.",
         "canonical_url": "/destinations/hoi-an/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -2764,11 +2764,11 @@
           "meta_title": "Hội An Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Hội An's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/hoi-an/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -2777,7 +2777,7 @@
       "display_name": "Galle",
       "country": "Sri Lanka",
       "region": "South Asia",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "A Dutch colonial fort city on the southern tip of Sri Lanka — boutique hotels in 400-year-old buildings, whale-watching season, and an island that feels genuinely undiscovered.",
       "hero_image": "",
@@ -2792,7 +2792,7 @@
         "meta_title": "Retire in Galle, Sri Lanka | RetireVibes",
         "meta_description": "A Dutch colonial fort city on the southern tip of Sri Lanka — boutique hotels in 400-year-old buildings, whale-watching season, and an island that feels genuinely undiscovered.",
         "canonical_url": "/destinations/galle/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -2800,11 +2800,11 @@
           "meta_title": "Galle Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Galle's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/galle/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -2813,7 +2813,7 @@
       "display_name": "Cebu",
       "country": "Philippines",
       "region": "Southeast Asia",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "The Philippines' most livable city — English spoken everywhere, some of the clearest diving water in Asia, a Special Retiree's Resident Visa, and an island-hopping scene you'd pay thousands to visit on vacation.",
       "hero_image": "",
@@ -2828,7 +2828,7 @@
         "meta_title": "Retire in Cebu, Philippines | RetireVibes",
         "meta_description": "The Philippines' most livable city — English spoken everywhere, some of the clearest diving water in Asia, a Special Retiree's Resident Visa, and an island-hopping scene you'd pay thousands to visit on vacation.",
         "canonical_url": "/destinations/cebu/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -2836,11 +2836,11 @@
           "meta_title": "Cebu Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Cebu's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/cebu/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -2849,7 +2849,7 @@
       "display_name": "Gold Coast",
       "country": "Australia",
       "region": "Oceania",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "The Aussie dream made real — 57km of white beach, 300 days of sunshine, world-class healthcare, and a lifestyle that puts outdoor living at the center of everything.",
       "hero_image": "",
@@ -2864,7 +2864,7 @@
         "meta_title": "Retire in Gold Coast, Australia | RetireVibes",
         "meta_description": "The Aussie dream made real — 57km of white beach, 300 days of sunshine, world-class healthcare, and a lifestyle that puts outdoor living at the center of everything.",
         "canonical_url": "/destinations/gold-coast/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -2872,11 +2872,11 @@
           "meta_title": "Gold Coast Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Gold Coast's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/gold-coast/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -2885,7 +2885,7 @@
       "display_name": "Nelson",
       "country": "New Zealand",
       "region": "Oceania",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "New Zealand's sunniest city — where golden beaches meet apple orchards, and the Marlborough wine country is an hour away.",
       "hero_image": "",
@@ -2900,7 +2900,7 @@
         "meta_title": "Retire in Nelson, New Zealand | RetireVibes",
         "meta_description": "New Zealand's sunniest city — where golden beaches meet apple orchards, and the Marlborough wine country is an hour away.",
         "canonical_url": "/destinations/nelson-nz/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -2908,11 +2908,11 @@
           "meta_title": "Nelson Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Nelson's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/nelson-nz/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -2921,7 +2921,7 @@
       "display_name": "Byron Bay",
       "country": "Australia",
       "region": "Oceania",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Australia's most magnetic beach town — a creative, wellness-first culture, the country's most easterly lighthouse, and a laid-back pace that has been pulling people off the corporate treadmill for decades.",
       "hero_image": "",
@@ -2936,7 +2936,7 @@
         "meta_title": "Retire in Byron Bay, Australia | RetireVibes",
         "meta_description": "Australia's most magnetic beach town — a creative, wellness-first culture, the country's most easterly lighthouse, and a laid-back pace that has been pulling people off the corporate treadmill for decades.",
         "canonical_url": "/destinations/byron-bay/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -2944,11 +2944,11 @@
           "meta_title": "Byron Bay Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Byron Bay's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/byron-bay/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -2957,7 +2957,7 @@
       "display_name": "Adelaide",
       "country": "Australia",
       "region": "Oceania",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Australia's festival city and wine capital — McLaren Vale and the Barossa Valley on your doorstep, beaches twenty minutes from downtown, and costs well below Sydney or Melbourne.",
       "hero_image": "",
@@ -2972,7 +2972,7 @@
         "meta_title": "Retire in Adelaide, Australia | RetireVibes",
         "meta_description": "Australia's festival city and wine capital — McLaren Vale and the Barossa Valley on your doorstep, beaches twenty minutes from downtown, and costs well below Sydney or Melbourne.",
         "canonical_url": "/destinations/adelaide/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -2980,11 +2980,11 @@
           "meta_title": "Adelaide Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Adelaide's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/adelaide/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -2993,7 +2993,7 @@
       "display_name": "Hobart",
       "country": "Australia",
       "region": "Oceania",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "A compact harbour city at the edge of the world — MONA museum, Salamanca market, Mount Wellington hiking from the city, and a cool-climate creativity that gives Hobart a personality entirely its own.",
       "hero_image": "",
@@ -3008,7 +3008,7 @@
         "meta_title": "Retire in Hobart, Australia | RetireVibes",
         "meta_description": "A compact harbour city at the edge of the world — MONA museum, Salamanca market, Mount Wellington hiking from the city, and a cool-climate creativity that gives Hobart a personality entirely its own.",
         "canonical_url": "/destinations/hobart/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -3016,11 +3016,11 @@
           "meta_title": "Hobart Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Hobart's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/hobart/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -3029,7 +3029,7 @@
       "display_name": "Cairns",
       "country": "Australia",
       "region": "Oceania",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "The Great Barrier Reef on one side, the Daintree Rainforest on the other — Cairns sits between two of the world's great natural wonders, and somehow still feels unhurried.",
       "hero_image": "",
@@ -3044,7 +3044,7 @@
         "meta_title": "Retire in Cairns, Australia | RetireVibes",
         "meta_description": "The Great Barrier Reef on one side, the Daintree Rainforest on the other — Cairns sits between two of the world's great natural wonders, and somehow still feels unhurried.",
         "canonical_url": "/destinations/cairns/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -3052,11 +3052,11 @@
           "meta_title": "Cairns Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Cairns's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/cairns/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -3065,7 +3065,7 @@
       "display_name": "Sunshine Coast",
       "country": "Australia",
       "region": "Oceania",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Queensland's most livable stretch of coast — Noosa's national park walks, patrolled surf beaches, a genuine food culture, and an hour from Brisbane when city life calls.",
       "hero_image": "",
@@ -3080,7 +3080,7 @@
         "meta_title": "Retire in Sunshine Coast, Australia | RetireVibes",
         "meta_description": "Queensland's most livable stretch of coast — Noosa's national park walks, patrolled surf beaches, a genuine food culture, and an hour from Brisbane when city life calls.",
         "canonical_url": "/destinations/sunshine-coast/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -3088,11 +3088,11 @@
           "meta_title": "Sunshine Coast Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Sunshine Coast's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/sunshine-coast/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -3101,7 +3101,7 @@
       "display_name": "Queenstown",
       "country": "New Zealand",
       "region": "Oceania",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "The adventure capital of the world — bungee jumping, ski fields, lake cruises, and fjords within reach, in a setting so dramatic it still doesn't look quite real.",
       "hero_image": "",
@@ -3116,7 +3116,7 @@
         "meta_title": "Retire in Queenstown, New Zealand | RetireVibes",
         "meta_description": "The adventure capital of the world — bungee jumping, ski fields, lake cruises, and fjords within reach, in a setting so dramatic it still doesn't look quite real.",
         "canonical_url": "/destinations/queenstown-nz/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -3124,11 +3124,11 @@
           "meta_title": "Queenstown Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Queenstown's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/queenstown-nz/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -3137,7 +3137,7 @@
       "display_name": "Tauranga",
       "country": "New Zealand",
       "region": "Oceania",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "New Zealand's sunniest and fastest-growing retirement city — a harbour, Mount Maunganui's surf beach, kiwifruit country, and a warm community that keeps drawing Kiwis back from Auckland.",
       "hero_image": "",
@@ -3152,7 +3152,7 @@
         "meta_title": "Retire in Tauranga, New Zealand | RetireVibes",
         "meta_description": "New Zealand's sunniest and fastest-growing retirement city — a harbour, Mount Maunganui's surf beach, kiwifruit country, and a warm community that keeps drawing Kiwis back from Auckland.",
         "canonical_url": "/destinations/tauranga/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -3160,11 +3160,11 @@
           "meta_title": "Tauranga Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Tauranga's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/tauranga/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -3173,7 +3173,7 @@
       "display_name": "Wānaka",
       "country": "New Zealand",
       "region": "Oceania",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Queenstown without the crowds — a glacial lake town in the Southern Alps where the hiking trails start at the waterfront and the pace of life is deliberately, beautifully slow.",
       "hero_image": "",
@@ -3188,7 +3188,7 @@
         "meta_title": "Retire in Wānaka, New Zealand | RetireVibes",
         "meta_description": "Queenstown without the crowds — a glacial lake town in the Southern Alps where the hiking trails start at the waterfront and the pace of life is deliberately, beautifully slow.",
         "canonical_url": "/destinations/wanaka/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -3196,11 +3196,11 @@
           "meta_title": "Wānaka Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Wānaka's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/wanaka/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -3209,7 +3209,7 @@
       "display_name": "Nice",
       "country": "France",
       "region": "Europe",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "The crown jewel of the French Riviera — Belle Époque promenades, Mediterranean beaches, and a climate so perfect the British aristocracy named a road after their habit of walking in it.",
       "hero_image": "",
@@ -3224,7 +3224,7 @@
         "meta_title": "Retire in Nice, France | RetireVibes",
         "meta_description": "The crown jewel of the French Riviera — Belle Époque promenades, Mediterranean beaches, and a climate so perfect the British aristocracy named a road after their habit of walking in it.",
         "canonical_url": "/destinations/nice/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -3232,11 +3232,11 @@
           "meta_title": "Nice Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Nice's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/nice/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -3245,7 +3245,7 @@
       "display_name": "Bordeaux",
       "country": "France",
       "region": "Europe",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "The world's wine capital remade itself into one of France's most livable cities — grand 18th-century limestone architecture, the Garonne River, and 300 wine châteaux within an hour's drive.",
       "hero_image": "",
@@ -3260,7 +3260,7 @@
         "meta_title": "Retire in Bordeaux, France | RetireVibes",
         "meta_description": "The world's wine capital remade itself into one of France's most livable cities — grand 18th-century limestone architecture, the Garonne River, and 300 wine châteaux within an hour's drive.",
         "canonical_url": "/destinations/bordeaux/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -3268,11 +3268,11 @@
           "meta_title": "Bordeaux Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Bordeaux's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/bordeaux/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -3281,7 +3281,7 @@
       "display_name": "Montpellier",
       "country": "France",
       "region": "Europe",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Southern France's sunniest city — 300 days of sunshine, a 30-minute tram to the Mediterranean, one of Europe's oldest universities, and costs a third below Paris.",
       "hero_image": "",
@@ -3296,7 +3296,7 @@
         "meta_title": "Retire in Montpellier, France | RetireVibes",
         "meta_description": "Southern France's sunniest city — 300 days of sunshine, a 30-minute tram to the Mediterranean, one of Europe's oldest universities, and costs a third below Paris.",
         "canonical_url": "/destinations/montpellier/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -3304,11 +3304,11 @@
           "meta_title": "Montpellier Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Montpellier's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/montpellier/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -3317,7 +3317,7 @@
       "display_name": "Lugano",
       "country": "Switzerland",
       "region": "Europe",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Switzerland's Italian soul — a palm-lined lake city in the Italian-speaking canton, where Swiss precision meets Mediterranean dolce vita and the Alps rise behind the bougainvillea.",
       "hero_image": "",
@@ -3332,7 +3332,7 @@
         "meta_title": "Retire in Lugano, Switzerland | RetireVibes",
         "meta_description": "Switzerland's Italian soul — a palm-lined lake city in the Italian-speaking canton, where Swiss precision meets Mediterranean dolce vita and the Alps rise behind the bougainvillea.",
         "canonical_url": "/destinations/lugano/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -3340,11 +3340,11 @@
           "meta_title": "Lugano Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Lugano's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/lugano/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -3353,7 +3353,7 @@
       "display_name": "Puglia",
       "country": "Italy",
       "region": "Europe",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Italy's heel — Baroque cities of honey-gold stone, trulli houses in the Valle d'Itria, two coastlines, masseria farmhouse living, and the most affordable corner of the Bel Paese.",
       "hero_image": "",
@@ -3368,7 +3368,7 @@
         "meta_title": "Retire in Puglia, Italy | RetireVibes",
         "meta_description": "Italy's heel — Baroque cities of honey-gold stone, trulli houses in the Valle d'Itria, two coastlines, masseria farmhouse living, and the most affordable corner of the Bel Paese.",
         "canonical_url": "/destinations/puglia/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -3376,11 +3376,11 @@
           "meta_title": "Puglia Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Puglia's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/puglia/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -3389,7 +3389,7 @@
       "display_name": "Sicily",
       "country": "Italy",
       "region": "Europe",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "The Mediterranean's largest island — Greek temples, Baroque towns rebuilt after volcanic earthquakes, Mount Etna visible from the coast, and the lowest cost of living in all of Italy.",
       "hero_image": "",
@@ -3404,7 +3404,7 @@
         "meta_title": "Retire in Sicily, Italy | RetireVibes",
         "meta_description": "The Mediterranean's largest island — Greek temples, Baroque towns rebuilt after volcanic earthquakes, Mount Etna visible from the coast, and the lowest cost of living in all of Italy.",
         "canonical_url": "/destinations/sicily/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -3412,11 +3412,11 @@
           "meta_title": "Sicily Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Sicily's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/sicily/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -3425,7 +3425,7 @@
       "display_name": "Crete",
       "country": "Greece",
       "region": "Europe",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Greece's largest island — Venetian harbors, Europe's longest gorge, olive groves that have been producing oil for 4,000 years, and a Cretan culture so rich it has its own dialect and its own music.",
       "hero_image": "",
@@ -3440,7 +3440,7 @@
         "meta_title": "Retire in Crete, Greece | RetireVibes",
         "meta_description": "Greece's largest island — Venetian harbors, Europe's longest gorge, olive groves that have been producing oil for 4,000 years, and a Cretan culture so rich it has its own dialect and its own music.",
         "canonical_url": "/destinations/crete/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -3448,11 +3448,11 @@
           "meta_title": "Crete Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Crete's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/crete/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -3461,7 +3461,7 @@
       "display_name": "Seville",
       "country": "Spain",
       "region": "Europe",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Andalusia's passionate capital — flamenco, tapas culture, orange-blossom streets, and 300 days of sun in Spain's most exuberant and genuinely beautiful city.",
       "hero_image": "",
@@ -3476,7 +3476,7 @@
         "meta_title": "Retire in Seville, Spain | RetireVibes",
         "meta_description": "Andalusia's passionate capital — flamenco, tapas culture, orange-blossom streets, and 300 days of sun in Spain's most exuberant and genuinely beautiful city.",
         "canonical_url": "/destinations/seville/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -3484,11 +3484,11 @@
           "meta_title": "Seville Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Seville's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/seville/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -3497,7 +3497,7 @@
       "display_name": "Granada",
       "country": "Spain",
       "region": "Europe",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "The Alhambra palace rises above a city where Moorish culture, university energy, and free tapas with every drink create a quality of life that laughs at its own price tag.",
       "hero_image": "",
@@ -3512,7 +3512,7 @@
         "meta_title": "Retire in Granada, Spain | RetireVibes",
         "meta_description": "The Alhambra palace rises above a city where Moorish culture, university energy, and free tapas with every drink create a quality of life that laughs at its own price tag.",
         "canonical_url": "/destinations/granada/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -3520,11 +3520,11 @@
           "meta_title": "Granada Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Granada's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/granada/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -3533,7 +3533,7 @@
       "display_name": "Charleston",
       "country": "United States",
       "region": "North America",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "America's most beautiful historic city — cobblestone streets, antebellum architecture, Atlantic beaches, and a culinary scene that put Lowcountry cooking on every serious food map.",
       "hero_image": "",
@@ -3548,7 +3548,7 @@
         "meta_title": "Retire in Charleston, United States | RetireVibes",
         "meta_description": "America's most beautiful historic city — cobblestone streets, antebellum architecture, Atlantic beaches, and a culinary scene that put Lowcountry cooking on every serious food map.",
         "canonical_url": "/destinations/charleston-sc/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -3556,11 +3556,11 @@
           "meta_title": "Charleston Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Charleston's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/charleston-sc/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -3569,7 +3569,7 @@
       "display_name": "Palm Springs",
       "country": "United States",
       "region": "North America",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Mid-century modern architecture, 350 days of sun, mountain-ringed desert glamour, and a retirement community that has been perfecting the art of the good life since the Rat Pack era.",
       "hero_image": "",
@@ -3584,7 +3584,7 @@
         "meta_title": "Retire in Palm Springs, United States | RetireVibes",
         "meta_description": "Mid-century modern architecture, 350 days of sun, mountain-ringed desert glamour, and a retirement community that has been perfecting the art of the good life since the Rat Pack era.",
         "canonical_url": "/destinations/palm-springs/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -3592,11 +3592,11 @@
           "meta_title": "Palm Springs Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Palm Springs's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/palm-springs/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -3605,7 +3605,7 @@
       "display_name": "Prescott",
       "country": "United States",
       "region": "North America",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Arizona's mile-high escape — a Victorian courthouse square, ponderosa pine forests, four mild seasons with no desert heat, and one of the most active retirement communities in the entire Southwest.",
       "hero_image": "",
@@ -3620,7 +3620,7 @@
         "meta_title": "Retire in Prescott, United States | RetireVibes",
         "meta_description": "Arizona's mile-high escape — a Victorian courthouse square, ponderosa pine forests, four mild seasons with no desert heat, and one of the most active retirement communities in the entire Southwest.",
         "canonical_url": "/destinations/prescott-az/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -3628,11 +3628,11 @@
           "meta_title": "Prescott Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Prescott's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/prescott-az/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -3641,7 +3641,7 @@
       "display_name": "Wilmington",
       "country": "United States",
       "region": "North America",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "North Carolina's coastal gem — a walkable riverfront historic district, award-winning beaches at Wrightsville and Carolina, and a cost of living that is one of the Southeast's best surprises.",
       "hero_image": "",
@@ -3656,7 +3656,7 @@
         "meta_title": "Retire in Wilmington, United States | RetireVibes",
         "meta_description": "North Carolina's coastal gem — a walkable riverfront historic district, award-winning beaches at Wrightsville and Carolina, and a cost of living that is one of the Southeast's best surprises.",
         "canonical_url": "/destinations/wilmington-nc/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -3664,11 +3664,11 @@
           "meta_title": "Wilmington Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Wilmington's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/wilmington-nc/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -3677,7 +3677,7 @@
       "display_name": "St. George",
       "country": "United States",
       "region": "North America",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Utah's sun belt — red rock canyon country with 300 days of sunshine, Zion National Park 45 minutes away, and consistently the fastest-growing retirement city in America.",
       "hero_image": "",
@@ -3692,7 +3692,7 @@
         "meta_title": "Retire in St. George, United States | RetireVibes",
         "meta_description": "Utah's sun belt — red rock canyon country with 300 days of sunshine, Zion National Park 45 minutes away, and consistently the fastest-growing retirement city in America.",
         "canonical_url": "/destinations/st-george-ut/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -3700,11 +3700,11 @@
           "meta_title": "St. George Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore St. George's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/st-george-ut/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -3713,7 +3713,7 @@
       "display_name": "St. Lucia",
       "country": "Saint Lucia",
       "region": "Unknown",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "The Pitons rise from the sea like twin volcanic cathedrals — St. Lucia's twin UNESCO peaks, black sand beaches, rainforest hiking, and an English-speaking island that is somehow still underpriced for how beautiful it is.",
       "hero_image": "",
@@ -3728,7 +3728,7 @@
         "meta_title": "Retire in St. Lucia, Saint Lucia | RetireVibes",
         "meta_description": "The Pitons rise from the sea like twin volcanic cathedrals — St. Lucia's twin UNESCO peaks, black sand beaches, rainforest hiking, and an English-speaking island that is somehow still underpriced for how beautiful it is.",
         "canonical_url": "/destinations/st-lucia/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -3736,11 +3736,11 @@
           "meta_title": "St. Lucia Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore St. Lucia's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/st-lucia/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -3749,7 +3749,7 @@
       "display_name": "Antigua",
       "country": "Antigua and Barbuda",
       "region": "Unknown",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "365 beaches — one for every day of the year — with English as the first language, zero income tax, and a sailing culture so serious it hosts the Caribbean's premier regatta every April.",
       "hero_image": "",
@@ -3764,7 +3764,7 @@
         "meta_title": "Retire in Antigua, Antigua and Barbuda | RetireVibes",
         "meta_description": "365 beaches — one for every day of the year — with English as the first language, zero income tax, and a sailing culture so serious it hosts the Caribbean's premier regatta every April.",
         "canonical_url": "/destinations/antigua/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -3772,11 +3772,11 @@
           "meta_title": "Antigua Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Antigua's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/antigua/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -3785,7 +3785,7 @@
       "display_name": "Los Cabos",
       "country": "Mexico",
       "region": "Latin America",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Where the desert meets the sea at the tip of Baja — world-class sport fishing, the Arch at Land's End, the Sea of Cortés on one side and Pacific surf on the other.",
       "hero_image": "",
@@ -3800,7 +3800,7 @@
         "meta_title": "Retire in Los Cabos, Mexico | RetireVibes",
         "meta_description": "Where the desert meets the sea at the tip of Baja — world-class sport fishing, the Arch at Land's End, the Sea of Cortés on one side and Pacific surf on the other.",
         "canonical_url": "/destinations/los-cabos/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -3808,11 +3808,11 @@
           "meta_title": "Los Cabos Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Los Cabos's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/los-cabos/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -3821,7 +3821,7 @@
       "display_name": "Mazatlán",
       "country": "Mexico",
       "region": "Latin America",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Mexico's most authentic Pacific city — a magnificently restored historic district, 21km of beach, a world-class malecón, and Pacific coast prices at a fraction of Los Cabos.",
       "hero_image": "",
@@ -3836,7 +3836,7 @@
         "meta_title": "Retire in Mazatlán, Mexico | RetireVibes",
         "meta_description": "Mexico's most authentic Pacific city — a magnificently restored historic district, 21km of beach, a world-class malecón, and Pacific coast prices at a fraction of Los Cabos.",
         "canonical_url": "/destinations/mazatlan/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -3844,11 +3844,11 @@
           "meta_title": "Mazatlán Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Mazatlán's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/mazatlan/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -3857,7 +3857,7 @@
       "display_name": "Guadalajara",
       "country": "Mexico",
       "region": "Latin America",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Mexico's second city and cultural heart — tequila, mariachi, and lucha libre were all born here, and a highland spring climate and world-class hospitals make it Mexico's medical tourism capital.",
       "hero_image": "",
@@ -3872,7 +3872,7 @@
         "meta_title": "Retire in Guadalajara, Mexico | RetireVibes",
         "meta_description": "Mexico's second city and cultural heart — tequila, mariachi, and lucha libre were all born here, and a highland spring climate and world-class hospitals make it Mexico's medical tourism capital.",
         "canonical_url": "/destinations/guadalajara/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -3880,11 +3880,11 @@
           "meta_title": "Guadalajara Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Guadalajara's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/guadalajara/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -3893,7 +3893,7 @@
       "display_name": "Phuket",
       "country": "Thailand",
       "region": "Southeast Asia",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Thailand's island legend — limestone karsts jutting from turquoise Andaman water, the world's most recognized tropical scenery, and a resort lifestyle that can be as simple or as lavish as you want.",
       "hero_image": "",
@@ -3908,7 +3908,7 @@
         "meta_title": "Retire in Phuket, Thailand | RetireVibes",
         "meta_description": "Thailand's island legend — limestone karsts jutting from turquoise Andaman water, the world's most recognized tropical scenery, and a resort lifestyle that can be as simple or as lavish as you want.",
         "canonical_url": "/destinations/phuket/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -3916,11 +3916,11 @@
           "meta_title": "Phuket Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Phuket's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/phuket/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -3929,7 +3929,7 @@
       "display_name": "Ho Chi Minh City",
       "country": "Vietnam",
       "region": "Southeast Asia",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "The city that reinvented itself — French colonial boulevards, street food that challenges all assumptions about what a meal can cost, a speed and energy that feels unmistakably alive, and costs that rewrite what comfortable living needs.",
       "hero_image": "",
@@ -3944,7 +3944,7 @@
         "meta_title": "Retire in Ho Chi Minh City, Vietnam | RetireVibes",
         "meta_description": "The city that reinvented itself — French colonial boulevards, street food that challenges all assumptions about what a meal can cost, a speed and energy that feels unmistakably alive, and costs that rewrite what comfortable living needs.",
         "canonical_url": "/destinations/ho-chi-minh-city/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -3952,11 +3952,11 @@
           "meta_title": "Ho Chi Minh City Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Ho Chi Minh City's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/ho-chi-minh-city/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -3965,7 +3965,7 @@
       "display_name": "Melbourne",
       "country": "Australia",
       "region": "Oceania",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Australia's cultural capital — legendary coffee, hidden laneway bars, world-class galleries, a food scene that tops global rankings, and a European soul transplanted to the Southern Hemisphere.",
       "hero_image": "",
@@ -3980,7 +3980,7 @@
         "meta_title": "Retire in Melbourne, Australia | RetireVibes",
         "meta_description": "Australia's cultural capital — legendary coffee, hidden laneway bars, world-class galleries, a food scene that tops global rankings, and a European soul transplanted to the Southern Hemisphere.",
         "canonical_url": "/destinations/melbourne/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -3988,11 +3988,11 @@
           "meta_title": "Melbourne Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Melbourne's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/melbourne/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -4001,7 +4001,7 @@
       "display_name": "Perth",
       "country": "Australia",
       "region": "Oceania",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "The world's most isolated major city — and because of that isolation, one of its most self-sufficient, with 3,000 hours of sunshine, Indian Ocean beaches, the Swan Valley wine region, and an outdoor quality of life that consistently polls as Australia's happiest.",
       "hero_image": "",
@@ -4016,7 +4016,7 @@
         "meta_title": "Retire in Perth, Australia | RetireVibes",
         "meta_description": "The world's most isolated major city — and because of that isolation, one of its most self-sufficient, with 3,000 hours of sunshine, Indian Ocean beaches, the Swan Valley wine region, and an outdoor quality of life that consistently polls as Australia's happiest.",
         "canonical_url": "/destinations/perth/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -4024,11 +4024,11 @@
           "meta_title": "Perth Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Perth's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/perth/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -4037,7 +4037,7 @@
       "display_name": "Christchurch",
       "country": "New Zealand",
       "region": "Oceania",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "The garden city rebuilt — Christchurch's remarkable post-earthquake reinvention created one of the Southern Hemisphere's most thoughtfully designed cities, with Canterbury Plains, ski fields, and the Akaroa peninsula within an hour.",
       "hero_image": "",
@@ -4052,7 +4052,7 @@
         "meta_title": "Retire in Christchurch, New Zealand | RetireVibes",
         "meta_description": "The garden city rebuilt — Christchurch's remarkable post-earthquake reinvention created one of the Southern Hemisphere's most thoughtfully designed cities, with Canterbury Plains, ski fields, and the Akaroa peninsula within an hour.",
         "canonical_url": "/destinations/christchurch-nz/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -4060,11 +4060,11 @@
           "meta_title": "Christchurch Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Christchurch's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/christchurch-nz/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -4073,7 +4073,7 @@
       "display_name": "Bali",
       "country": "Indonesia",
       "region": "Southeast Asia",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "The world's most romanticized island — terraced rice paddies, Hindu temple smoke, Ubud's art galleries and healing culture, and a way of life so distinctive it makes everywhere else feel a little ordinary.",
       "hero_image": "",
@@ -4088,7 +4088,7 @@
         "meta_title": "Retire in Bali, Indonesia | RetireVibes",
         "meta_description": "The world's most romanticized island — terraced rice paddies, Hindu temple smoke, Ubud's art galleries and healing culture, and a way of life so distinctive it makes everywhere else feel a little ordinary.",
         "canonical_url": "/destinations/bali/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -4096,11 +4096,11 @@
           "meta_title": "Bali Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Bali's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/bali/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -4109,7 +4109,7 @@
       "display_name": "Fukuoka",
       "country": "Japan",
       "region": "East Asia",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Japan's most livable city — a compact waterfront, Hakata ramen that people fly in for, a hot spring an hour away, and the most relaxed pace of any major Japanese city, without the crowds of Tokyo or Kyoto.",
       "hero_image": "",
@@ -4124,7 +4124,7 @@
         "meta_title": "Retire in Fukuoka, Japan | RetireVibes",
         "meta_description": "Japan's most livable city — a compact waterfront, Hakata ramen that people fly in for, a hot spring an hour away, and the most relaxed pace of any major Japanese city, without the crowds of Tokyo or Kyoto.",
         "canonical_url": "/destinations/fukuoka/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -4132,11 +4132,11 @@
           "meta_title": "Fukuoka Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Fukuoka's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/fukuoka/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -4145,7 +4145,7 @@
       "display_name": "Marrakech",
       "country": "Morocco",
       "region": "Middle East & Africa",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "The Red City — ancient medina lanes, riads with courtyard fountains, the Atlas Mountains on the horizon, and a sensory richness that rewards slow living more than anywhere in the Mediterranean world.",
       "hero_image": "",
@@ -4160,7 +4160,7 @@
         "meta_title": "Retire in Marrakech, Morocco | RetireVibes",
         "meta_description": "The Red City — ancient medina lanes, riads with courtyard fountains, the Atlas Mountains on the horizon, and a sensory richness that rewards slow living more than anywhere in the Mediterranean world.",
         "canonical_url": "/destinations/marrakech/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -4168,11 +4168,11 @@
           "meta_title": "Marrakech Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Marrakech's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/marrakech/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -4181,7 +4181,7 @@
       "display_name": "Cape Town",
       "country": "South Africa",
       "region": "Middle East & Africa",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "One of the world's most dramatically beautiful cities — Table Mountain above, the Atlantic and False Bay below, world-class wine country forty minutes away, and an English-speaking culture that makes it immediately livable.",
       "hero_image": "",
@@ -4196,7 +4196,7 @@
         "meta_title": "Retire in Cape Town, South Africa | RetireVibes",
         "meta_description": "One of the world's most dramatically beautiful cities — Table Mountain above, the Atlantic and False Bay below, world-class wine country forty minutes away, and an English-speaking culture that makes it immediately livable.",
         "canonical_url": "/destinations/cape-town/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -4204,11 +4204,11 @@
           "meta_title": "Cape Town Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Cape Town's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/cape-town/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -4217,7 +4217,7 @@
       "display_name": "Accra",
       "country": "Ghana",
       "region": "Unknown",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "West Africa's most livable capital — English-speaking, politically stable, and home to one of the world's most warmly welcoming cultures.",
       "hero_image": "",
@@ -4232,7 +4232,7 @@
         "meta_title": "Retire in Accra, Ghana | RetireVibes",
         "meta_description": "West Africa's most livable capital — English-speaking, politically stable, and home to one of the world's most warmly welcoming cultures.",
         "canonical_url": "/destinations/accra/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -4240,11 +4240,11 @@
           "meta_title": "Accra Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Accra's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/accra/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -4253,7 +4253,7 @@
       "display_name": "Flagstaff",
       "country": "United States",
       "region": "North America",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Mile-high Arizona with four seasons, ponderosa pine forests, and outdoor adventure — the Southwest without the scorching heat.",
       "hero_image": "",
@@ -4268,7 +4268,7 @@
         "meta_title": "Retire in Flagstaff, United States | RetireVibes",
         "meta_description": "Mile-high Arizona with four seasons, ponderosa pine forests, and outdoor adventure — the Southwest without the scorching heat.",
         "canonical_url": "/destinations/flagstaff/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -4276,11 +4276,11 @@
           "meta_title": "Flagstaff Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Flagstaff's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/flagstaff/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -4289,7 +4289,7 @@
       "display_name": "Ashland",
       "country": "United States",
       "region": "North America",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "A world-class Shakespeare festival, organic farms, Crater Lake an hour away, and a small-town arts scene that punches well above its size.",
       "hero_image": "",
@@ -4304,7 +4304,7 @@
         "meta_title": "Retire in Ashland, United States | RetireVibes",
         "meta_description": "A world-class Shakespeare festival, organic farms, Crater Lake an hour away, and a small-town arts scene that punches well above its size.",
         "canonical_url": "/destinations/ashland-or/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -4312,11 +4312,11 @@
           "meta_title": "Ashland Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Ashland's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/ashland-or/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -4325,7 +4325,7 @@
       "display_name": "Douro Valley",
       "country": "Portugal",
       "region": "Europe",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "UNESCO-listed wine country along a serpentine river — terraced vineyards, quintas to rent, and a silence that Porto and Lisbon can't offer.",
       "hero_image": "",
@@ -4340,7 +4340,7 @@
         "meta_title": "Retire in Douro Valley, Portugal | RetireVibes",
         "meta_description": "UNESCO-listed wine country along a serpentine river — terraced vineyards, quintas to rent, and a silence that Porto and Lisbon can't offer.",
         "canonical_url": "/destinations/douro-valley/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -4348,11 +4348,11 @@
           "meta_title": "Douro Valley Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Douro Valley's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/douro-valley/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -4361,7 +4361,7 @@
       "display_name": "Alentejo",
       "country": "Portugal",
       "region": "Europe",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Portugal's vast golden interior — cork forests, whitewashed villages, some of the world's best olive oil, and a quiet that feels genuinely restorative.",
       "hero_image": "",
@@ -4376,7 +4376,7 @@
         "meta_title": "Retire in Alentejo, Portugal | RetireVibes",
         "meta_description": "Portugal's vast golden interior — cork forests, whitewashed villages, some of the world's best olive oil, and a quiet that feels genuinely restorative.",
         "canonical_url": "/destinations/alentejo/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -4384,11 +4384,11 @@
           "meta_title": "Alentejo Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Alentejo's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/alentejo/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -4397,7 +4397,7 @@
       "display_name": "Galicia",
       "country": "Spain",
       "region": "Europe",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "The Spain nobody expects — lush, green, rainy, Celtic-inflected, with dramatic Atlantic coastline and some of Spain's best seafood at the lowest prices.",
       "hero_image": "",
@@ -4412,7 +4412,7 @@
         "meta_title": "Retire in Galicia, Spain | RetireVibes",
         "meta_description": "The Spain nobody expects — lush, green, rainy, Celtic-inflected, with dramatic Atlantic coastline and some of Spain's best seafood at the lowest prices.",
         "canonical_url": "/destinations/galicia/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -4420,11 +4420,11 @@
           "meta_title": "Galicia Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Galicia's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/galicia/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -4433,7 +4433,7 @@
       "display_name": "County Clare",
       "country": "Ireland",
       "region": "Unknown",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "The Cliffs of Moher, the Burren limestone plateau, trad music in every pub, and the English-speaking ease of Ireland — genuinely wild Atlantic landscape.",
       "hero_image": "",
@@ -4448,7 +4448,7 @@
         "meta_title": "Retire in County Clare, Ireland | RetireVibes",
         "meta_description": "The Cliffs of Moher, the Burren limestone plateau, trad music in every pub, and the English-speaking ease of Ireland — genuinely wild Atlantic landscape.",
         "canonical_url": "/destinations/county-clare/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -4456,11 +4456,11 @@
           "meta_title": "County Clare Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore County Clare's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/county-clare/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -4469,7 +4469,7 @@
       "display_name": "The Cotswolds",
       "country": "United Kingdom",
       "region": "Unknown",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Honey-stone villages, rolling English countryside, centuries-old pubs, and market towns that look almost exactly as they did 300 years ago.",
       "hero_image": "",
@@ -4484,7 +4484,7 @@
         "meta_title": "Retire in The Cotswolds, United Kingdom | RetireVibes",
         "meta_description": "Honey-stone villages, rolling English countryside, centuries-old pubs, and market towns that look almost exactly as they did 300 years ago.",
         "canonical_url": "/destinations/cotswolds/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -4492,11 +4492,11 @@
           "meta_title": "The Cotswolds Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore The Cotswolds's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/cotswolds/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -4505,7 +4505,7 @@
       "display_name": "Dordogne",
       "country": "France",
       "region": "Europe",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Prehistoric cave art, medieval bastide villages, foie gras, Bordeaux wines nearby, and a long-established British expat community that's made the infrastructure work.",
       "hero_image": "",
@@ -4520,7 +4520,7 @@
         "meta_title": "Retire in Dordogne, France | RetireVibes",
         "meta_description": "Prehistoric cave art, medieval bastide villages, foie gras, Bordeaux wines nearby, and a long-established British expat community that's made the infrastructure work.",
         "canonical_url": "/destinations/dordogne/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -4528,11 +4528,11 @@
           "meta_title": "Dordogne Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Dordogne's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/dordogne/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -4541,7 +4541,7 @@
       "display_name": "Umbria",
       "country": "Italy",
       "region": "Europe",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Tuscany without the tourists — hilltop medieval towns, olive groves, truffles, and a pace of life that genuinely slows you down.",
       "hero_image": "",
@@ -4556,7 +4556,7 @@
         "meta_title": "Retire in Umbria, Italy | RetireVibes",
         "meta_description": "Tuscany without the tourists — hilltop medieval towns, olive groves, truffles, and a pace of life that genuinely slows you down.",
         "canonical_url": "/destinations/umbria/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -4564,11 +4564,11 @@
           "meta_title": "Umbria Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Umbria's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/umbria/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -4577,7 +4577,7 @@
       "display_name": "Stellenbosch",
       "country": "South Africa",
       "region": "Middle East & Africa",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "South Africa's wine capital — oak-lined streets, Cape Dutch architecture, world-class Cabernet, and a university town energy 45 minutes from Cape Town.",
       "hero_image": "",
@@ -4592,7 +4592,7 @@
         "meta_title": "Retire in Stellenbosch, South Africa | RetireVibes",
         "meta_description": "South Africa's wine capital — oak-lined streets, Cape Dutch architecture, world-class Cabernet, and a university town energy 45 minutes from Cape Town.",
         "canonical_url": "/destinations/stellenbosch/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -4600,11 +4600,11 @@
           "meta_title": "Stellenbosch Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Stellenbosch's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/stellenbosch/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -4613,7 +4613,7 @@
       "display_name": "Nairobi",
       "country": "Kenya",
       "region": "Middle East & Africa",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "A cosmopolitan East African capital at 5,500 feet — mild year-round, wildlife in the city's backyard, and one of Africa's most established expat communities.",
       "hero_image": "",
@@ -4628,7 +4628,7 @@
         "meta_title": "Retire in Nairobi, Kenya | RetireVibes",
         "meta_description": "A cosmopolitan East African capital at 5,500 feet — mild year-round, wildlife in the city's backyard, and one of Africa's most established expat communities.",
         "canonical_url": "/destinations/nairobi/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -4636,11 +4636,11 @@
           "meta_title": "Nairobi Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Nairobi's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/nairobi/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -4649,7 +4649,7 @@
       "display_name": "Zanzibar",
       "country": "Tanzania",
       "region": "Unknown",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Spice-scented Stone Town, turquoise Indian Ocean, and a slow island pace that feels genuinely removed from the world — at a fraction of the Caribbean's cost.",
       "hero_image": "",
@@ -4664,7 +4664,7 @@
         "meta_title": "Retire in Zanzibar, Tanzania | RetireVibes",
         "meta_description": "Spice-scented Stone Town, turquoise Indian Ocean, and a slow island pace that feels genuinely removed from the world — at a fraction of the Caribbean's cost.",
         "canonical_url": "/destinations/zanzibar/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -4672,11 +4672,11 @@
           "meta_title": "Zanzibar Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Zanzibar's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/zanzibar/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -4685,7 +4685,7 @@
       "display_name": "Mauritius",
       "country": "Mauritius",
       "region": "Unknown",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "The Indian Ocean's most polished island — English and French-speaking, world-class infrastructure, a Retired Non-Citizen permit, and lagoons that look like screensavers.",
       "hero_image": "",
@@ -4700,7 +4700,7 @@
         "meta_title": "Retire in Mauritius, Mauritius | RetireVibes",
         "meta_description": "The Indian Ocean's most polished island — English and French-speaking, world-class infrastructure, a Retired Non-Citizen permit, and lagoons that look like screensavers.",
         "canonical_url": "/destinations/mauritius/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -4708,11 +4708,11 @@
           "meta_title": "Mauritius Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Mauritius's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/mauritius/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     },
@@ -4721,7 +4721,7 @@
       "display_name": "Marlborough",
       "country": "New Zealand",
       "region": "Oceania",
-      "status": "coming-soon",
+      "status": "active",
       "featured": false,
       "tagline": "Sauvignon Blanc country at the top of the South Island — inland vineyards, the fjord-like Sounds, and a rural New Zealand pace that's hard to find anywhere else.",
       "hero_image": "",
@@ -4736,7 +4736,7 @@
         "meta_title": "Retire in Marlborough, New Zealand | RetireVibes",
         "meta_description": "Sauvignon Blanc country at the top of the South Island — inland vineyards, the fjord-like Sounds, and a rural New Zealand pace that's hard to find anywhere else.",
         "canonical_url": "/destinations/marlborough-nz/",
-        "noindex": true
+        "noindex": false
       },
       "real_estate": {
         "has_page": false,
@@ -4744,11 +4744,11 @@
           "meta_title": "Marlborough Real Estate for American Retirees — Rent & Buy Guide | RetireVibes",
           "meta_description": "Explore Marlborough's neighborhoods, rent and purchase price ranges, and what American retirees need to know before moving.",
           "canonical_url": "/destinations/marlborough-nz/real-estate/",
-          "noindex": true
+          "noindex": false
         }
       },
       "content_status": {
-        "detail_page_ready": false,
+        "detail_page_ready": true,
         "real_estate_page_ready": false
       }
     }
