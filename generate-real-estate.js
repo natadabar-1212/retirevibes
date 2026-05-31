@@ -586,13 +586,13 @@ function getNeighborhoodsHTML(dest) {
       <div class="hood-card">
         <div class="hood-card-main">
           <h3 class="hood-name">${n.name}</h3>
+          <span class="hood-vibe ${vibe}">${vibeLabel}</span>
           <p class="hood-desc">${n.desc}</p>
           <div class="hood-stats">
             <span class="hood-stat"><strong>Est. rent:</strong> ${rentLowFmt}–${rentHighFmt}/mo</span>
             <span class="hood-stat"><strong>Buy from:</strong> ${dest.housing ? dest.housing.buy : 'varies'}</span>
           </div>
         </div>
-        <span class="hood-vibe ${vibe}">${vibeLabel}</span>
       </div>`;
   }).join('\n');
 }
