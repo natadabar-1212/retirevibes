@@ -949,10 +949,8 @@ function generatePage(dest) {
   const rentVsBuyHTML  = getRentVsBuySection(dest);
 
   // Hero content
-  const heroH1 = `Find your home in <em>${dest.name}</em>`;
-  const heroSub = dest.id === 'porto'
-    ? `Real listings, real neighborhoods, no obligation. Browse what's actually available in Porto before you commit to anything.`
-    : `Real listings, real neighborhoods, no obligation. Browse what's actually available in ${dest.name} before you commit to anything.`;
+  const heroH1 = dest.realEstate?.heroH1 || `Find your home in <em>${dest.name}</em>`;
+  const heroSub = dest.realEstate?.heroSub || `Real listings, real neighborhoods, no obligation. Browse what's actually available in ${dest.name} before you commit to anything.`;
 
   // Legal section
   const legalSectionLabel = isIntl ? 'Before you sign anything' : 'Before you commit';
@@ -1016,7 +1014,7 @@ function generatePage(dest) {
   <div class="neighborhoods-inner">
     <p class="section-label">Know the city before you search</p>
     <h2 class="section-headline">${dest.name}'s neighborhoods,<br><em>honestly described</em></h2>
-    <p class="section-sub">${dest.name} isn't one place. The right neighborhood depends on how you want to live — not just which one looks best in photos.</p>
+    <p class="section-sub">${dest.realEstate?.neighborhoodsIntro || `${dest.name} isn't one place. The right neighborhood depends on how you want to live — not just which one looks best in photos.`}</p>
     <div class="hood-grid">
       ${neighborhoodsHTML}
     </div>
