@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wānaka, New Zealand — RetireVibes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    :root {
+      --cream: #FBF6EE;
+      --cream-soft: #F4ECDD;
+      --terracotta: #C97B5A;
+      --terracotta-dark: #A8593A;
+      --teal: #1B3A4B;
+      --teal-soft: #2E5468;
+      --gold: #C8A064;
+      --gold-soft: #E4C998;
+      --sage: #93A89A;
+      --warm-gray: #7A6E5F;
+      --white: #FFFFFF;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'Inter', -apple-system, system-ui, sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: var(--sans); background: var(--white); color: var(--teal); }
+
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 64px;
+      background: rgba(27,58,75,0.92); backdrop-filter: blur(8px);
+    }
+    .wordmark { font-family: var(--serif); font-size: 22px; color: var(--white); text-decoration: none; letter-spacing: -0.01em; }
+    .wordmark em { color: var(--gold-soft); font-style: italic; }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { color: rgba(255,255,255,0.82); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links .nav-cta { background: var(--terracotta); color: var(--white) !important; padding: 9px 22px; border-radius: 999px; font-weight: 600; transition: background 0.2s !important; }
+    .nav-links .nav-cta:hover { background: var(--terracotta-dark) !important; }
+
+    .hero {
+      position: relative; height: 80vh; min-height: 560px;
+      display: flex; align-items: flex-end; padding-bottom: 60px;
+      background: url('images/wanaka.jpg') center center / cover no-repeat;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,24,32,0.78) 0%, rgba(10,24,32,0.18) 60%, transparent 100%);
+    }
+    .hero-content { position: relative; z-index: 2; padding: 0 64px; max-width: 800px; }
+    .hero h1 { font-family: var(--serif); font-size: 72px; color: var(--white); line-height: 1.02; letter-spacing: -0.02em; margin-bottom: 14px; }
+    .hero-tagline { font-family: var(--serif); font-style: italic; font-size: 20px; color: rgba(255,255,255,0.88); line-height: 1.5; margin-bottom: 28px; max-width: 540px; }
+    .hero-cta { display: inline-block; background: var(--terracotta); color: var(--white); text-decoration: none; font-size: 16px; font-weight: 600; padding: 14px 30px; border-radius: 999px; transition: background 0.2s; }
+    .hero-cta:hover { background: var(--terracotta-dark); }
+    .photo-credit { position: absolute; bottom: 16px; right: 24px; z-index: 2; font-size: 11px; color: rgba(255,255,255,0.45); letter-spacing: 0.06em; text-transform: uppercase; }
+
+    .stats-bar {
+      background: var(--white); border-bottom: 1px solid rgba(27,58,75,0.08);
+      padding: 32px 64px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px;
+    }
+    .stat-label { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 6px; }
+    .stat-value { font-size: 18px; font-weight: 600; color: var(--teal); line-height: 1.2; }
+    .stat-sub { font-size: 13px; color: var(--warm-gray); margin-top: 2px; }
+
+    section { padding: 88px 64px; }
+    .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 16px; }
+    .section-h2 { font-family: var(--serif); font-size: 48px; line-height: 1.08; letter-spacing: -0.015em; margin-bottom: 32px; color: var(--teal); }
+    .section-h2 em { color: var(--terracotta); font-style: italic; }
+
+    .different-section { background: var(--cream); }
+    .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; }
+    .tag { font-size: 13px; font-weight: 500; color: var(--teal); background: var(--white); border: 1px solid rgba(27,58,75,0.12); padding: 7px 16px; border-radius: 999px; }
+    .compare-quote { border-left: 3px solid var(--terracotta); background: rgba(201,123,90,0.05); padding: 28px 32px; border-radius: 0 12px 12px 0; max-width: 720px; }
+    .compare-quote p { font-family: var(--serif); font-style: italic; font-size: 19px; line-height: 1.55; color: var(--teal); }
+
+    .cost-section { background: var(--cream-soft); }
+    .cost-sub { font-size: 17px; color: var(--warm-gray); margin-bottom: 40px; margin-top: -16px; line-height: 1.6; }
+    .cost-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 24px; }
+    .cost-card { background: var(--white); border: 1px solid rgba(27,58,75,0.07); border-radius: 16px; padding: 28px 24px; }
+    .cost-tier { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 14px; }
+    .cost-amount { font-family: var(--serif); font-size: 36px; color: var(--teal); letter-spacing: -0.02em; line-height: 1; }
+    .cost-period { font-size: 13px; color: var(--warm-gray); margin-top: 6px; }
+    .cost-disclaimer { font-size: 12px; color: var(--warm-gray); line-height: 1.6; max-width: 680px; font-style: italic; }
+
+    .practical-section { background: var(--white); }
+    .practical-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .practical-card { background: var(--cream); border: 1px solid rgba(27,58,75,0.07); border-radius: 16px; padding: 32px 28px; }
+    .practical-icon { font-size: 28px; margin-bottom: 14px; }
+    .practical-type { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 10px; }
+    .practical-title { font-family: var(--serif); font-size: 22px; color: var(--teal); margin-bottom: 12px; line-height: 1.2; }
+    .practical-body { font-size: 14px; color: var(--warm-gray); line-height: 1.65; }
+
+    .nextsteps-section { background: var(--teal); padding: 88px 64px; }
+    .nextsteps-section .section-label { color: rgba(255,255,255,0.5); }
+    .nextsteps-section .section-h2 { color: var(--white); margin-bottom: 48px; }
+    .nextsteps-section .section-h2 em { color: var(--gold-soft); }
+    .nextsteps-sub { font-size: 17px; color: rgba(255,255,255,0.65); margin-top: -32px; margin-bottom: 48px; line-height: 1.6; }
+    .nextsteps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .nextstep-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 32px 28px; transition: background 0.25s; }
+    .nextstep-card:hover { background: rgba(255,255,255,0.11); }
+    .nextstep-type { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 14px; }
+    .nextstep-title { font-family: var(--serif); font-size: 22px; color: var(--white); margin-bottom: 14px; line-height: 1.2; }
+    .nextstep-body { font-size: 14px; color: rgba(255,255,255,0.62); line-height: 1.65; margin-bottom: 24px; }
+    .nextstep-link { display: inline-block; font-size: 14px; font-weight: 600; color: var(--gold-soft); text-decoration: none; transition: color 0.2s; }
+    .nextstep-link:hover { color: var(--white); }
+
+    .similar-section { background: var(--white); }
+    .similar-sub { font-size: 17px; color: var(--warm-gray); margin-top: -16px; margin-bottom: 40px; }
+    .similar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .similar-card { border-radius: 16px; overflow: hidden; text-decoration: none; color: inherit; border: 1px solid rgba(27,58,75,0.07); transition: transform 0.25s, box-shadow 0.25s; }
+    .similar-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(27,58,75,0.1); }
+    .similar-img { width: 100%; height: 200px; object-fit: cover; display: block; background: var(--cream-soft); }
+    .similar-body { padding: 20px 22px 22px; }
+    .similar-region { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 6px; }
+    .similar-name { font-family: var(--serif); font-size: 22px; color: var(--teal); margin-bottom: 8px; }
+    .similar-tagline { font-size: 13px; color: var(--warm-gray); line-height: 1.55; margin-bottom: 12px; }
+    .similar-cost { font-size: 13px; font-weight: 500; color: var(--terracotta); }
+
+    .footer { background: var(--teal); color: rgba(255,255,255,0.55); padding: 40px 64px; display: flex; align-items: center; justify-content: space-between; }
+    .footer-wordmark { font-family: var(--serif); font-size: 20px; color: var(--white); text-decoration: none; }
+    .footer-wordmark em { color: var(--gold-soft); font-style: italic; }
+    .footer-links { display: flex; gap: 32px; }
+    .footer-links a { font-size: 13px; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy { font-size: 12px; }
+
+    @media (max-width: 980px) {
+      .nav { padding: 0 24px; }
+      .hero { padding-bottom: 40px; }
+      .hero-content { padding: 0 24px; }
+      .hero h1 { font-size: 48px; }
+      .stats-bar { padding: 24px; grid-template-columns: repeat(2, 1fr); }
+      section { padding: 60px 24px; }
+      .nextsteps-section { padding: 60px 24px; }
+      .cost-grid { grid-template-columns: repeat(2, 1fr); }
+      .practical-grid, .nextsteps-grid, .similar-grid { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; gap: 24px; padding: 32px 24px; text-align: center; }
+      .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="wordmark" href="homepage-mockup.html">Retire<em>Vibes</em></a>
+    <div class="nav-links">
+      <a href="homepage-mockup.html#destinations">Destinations</a>
+      <a href="my-retirevibes.html">My RetireVibes</a>
+      <a href="results-page-mockup.html" class="nav-cta">Take the quiz →</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Wānaka</h1>
+      <p class="hero-tagline">Queenstown without the crowds — a glacial lake town in the Southern Alps where the hiking trails start at the waterfront and the pace of life is deliberately, beautifully slow.</p>
+      <a href="#different" class="hero-cta">Start exploring →</a>
+    </div>
+    <span class="photo-credit">Lake Wānaka and Mount Aspiring, New Zealand</span>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-label">Est. Monthly Cost</div>
+      <div class="stat-value">~NZ$3,700</div>
+      <div class="stat-sub">Rent ~NZ$2,400/mo included</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-label">Housing · Buy</div>
+      <div class="stat-value">~NZ$860K</div>
+      <div class="stat-sub">2BR home near the lake</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-label">Region</div>
+      <div class="stat-value">Otago</div>
+      <div class="stat-sub">New Zealand 🇳🇿</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-label">Visa &amp; Residency</div>
+      <div class="stat-value">Visitor / Retirement Visa</div>
+      <div class="stat-sub">Details below</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-label">Language</div>
+      <div class="stat-value">English</div>
+      <div class="stat-sub">No language barrier</div>
+    </div>
+  </div>
+
+  <section id="different" class="different-section">
+    <div class="section-label">Why it works</div>
+    <h2 class="section-h2">What makes <em>Wānaka</em> different</h2>
+    <div class="tags">
+      <span class="tag">Glacial lake town</span>
+      <span class="tag">Southern Alps</span>
+      <span class="tag">Four seasons</span>
+      <span class="tag">World-class hiking</span>
+      <span class="tag">Small mountain community</span>
+      <span class="tag">English-speaking</span>
+    </div>
+    <div class="compare-quote">
+      <p>Queenstown's quieter, more intimate neighbour — the same jaw-dropping Southern Alps scenery and world-class ski fields, in a town that has deliberately kept its small-community feel and slower pace. Lake Wānaka at dawn is one of the great views of the southern hemisphere.</p>
+    </div>
+  </section>
+
+  <section class="cost-section">
+    <div class="section-label">Cost of Living</div>
+    <h2 class="section-h2">What life in <em>Wānaka</em> costs</h2>
+    <p class="cost-sub">Four lifestyle tiers — pick the one that matches how you want to live.</p>
+    <div class="cost-grid">
+      <div class="cost-card">
+        <div class="cost-tier">Simple &amp; Comfortable</div>
+        <div class="cost-amount">~NZ$2,800</div>
+        <div class="cost-period">per month</div>
+      </div>
+      <div class="cost-card">
+        <div class="cost-tier">Comfortable with Extras</div>
+        <div class="cost-amount">~NZ$3,700</div>
+        <div class="cost-period">per month</div>
+      </div>
+      <div class="cost-card">
+        <div class="cost-tier">Upscale &amp; Enjoyable</div>
+        <div class="cost-amount">~NZ$4,900</div>
+        <div class="cost-period">per month</div>
+      </div>
+      <div class="cost-card">
+        <div class="cost-tier">Luxury</div>
+        <div class="cost-amount">~NZ$7,000</div>
+        <div class="cost-period">per month</div>
+      </div>
+    </div>
+    <p class="cost-disclaimer">Estimates cover housing, food, utilities, transportation, and a reasonable entertainment budget. Figures are in New Zealand dollars and are illustrative — actual costs vary by suburb, lifestyle choices, and exchange rates. These are not financial advice.</p>
+  </section>
+
+  <section class="practical-section">
+    <div class="section-label">Practical Basics</div>
+    <h2 class="section-h2">Getting there &amp; getting settled</h2>
+    <div class="practical-grid">
+      <div class="practical-card">
+        <div class="practical-icon">✈️</div>
+        <div class="practical-type">Getting there</div>
+        <div class="practical-title">Via Queenstown or Christchurch</div>
+        <p class="practical-body">Wānaka has no commercial airport — the closest is Queenstown (ZQN), a 45-minute drive through the Crown Range or via SH6. Fly from the US to Auckland, then connect domestically to Queenstown. Christchurch is a longer option — 3 hours by road through the dramatic Lindis Pass. Most residents consider Queenstown Airport their gateway, with Air New Zealand, Jetstar, and Qantas serving it from Auckland and Australian cities.</p>
+      </div>
+      <div class="practical-card">
+        <div class="practical-icon">📋</div>
+        <div class="practical-type">Visa &amp; Residency</div>
+        <div class="practical-title">Visitor Visa / Temporary Retirement Visa</div>
+        <p class="practical-body">US citizens can stay in New Zealand for up to 90 days without a visa. For longer-term living, the Temporary Retirement Visa requires NZ$750,000 invested in New Zealand plus NZ$60,000 in annual income — it's renewable every two years. The Investor 2 visa requires NZ$3M invested over 4 years. New Zealand's immigration rules are detailed; a registered immigration adviser is worth engaging before you make firm plans.</p>
+      </div>
+      <div class="practical-card">
+        <div class="practical-icon">🏥</div>
+        <div class="practical-type">Healthcare</div>
+        <div class="practical-title">ACC + Private Insurance Recommended</div>
+        <p class="practical-body">New Zealand's ACC covers accident-related treatment for all visitors at no cost — important in an adventure-sport town like Wānaka. For non-accident illness, public hospital care requires residency. Private health insurance is essential for Americans. The nearest full hospital is Dunstan Hospital in Clyde (35 minutes) and Lakes District in Frankton near Queenstown; Southern Cross Health Insurance is the major NZ private insurer.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="nextsteps-section">
+    <div class="section-label">Next Steps</div>
+    <h2 class="section-h2">Ready to take <em>Wānaka</em> further?</h2>
+    <p class="nextsteps-sub">You've found the vibe. Here's how to start turning it into a real plan.</p>
+    <div class="nextsteps-grid">
+      <div class="nextstep-card">
+        <div class="nextstep-type">Financial Planning</div>
+        <div class="nextstep-title">Talk to an international advisor</div>
+        <p class="nextstep-body">Retiring internationally involves tax treaties, currency strategy, and foreign asset reporting. Get matched with a fiduciary who specializes in retirement abroad.</p>
+        <a href="advisor-international.html" class="nextstep-link">How to find an advisor →</a>
+      </div>
+      <div class="nextstep-card">
+        <div class="nextstep-type">Real Estate</div>
+        <div class="nextstep-title">How to find a home in Wānaka</div>
+        <p class="nextstep-body">Renting versus buying, the areas worth knowing — Wānaka township, Albert Town, Luggate — and what foreign buyers need to understand about NZ's Overseas Investment Act before searching listings.</p>
+        <a href="browse-homes-international.html" class="nextstep-link">How to find a home →</a>
+      </div>
+      <div class="nextstep-card">
+        <div class="nextstep-type">Scouting</div>
+        <div class="nextstep-title">Plan a scouting trip</div>
+        <p class="nextstep-body">Walk the lakefront at dawn, hike to Roys Peak, spend a morning in Albert Town away from the tourist strip. Then drive to Queenstown to compare — and judge which pace actually feels right for you.</p>
+        <a href="scouting-trip.html" class="nextstep-link">How to scout →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="similar-section">
+    <div class="section-label">Also Consider</div>
+    <h2 class="section-h2">Similar places to explore</h2>
+    <p class="similar-sub">Other New Zealand destinations in the same region that might be worth a look.</p>
+    <div class="similar-grid">
+      <a href="destination-queenstown.html" class="similar-card">
+        <img class="similar-img" src="images/queenstown-nz.jpg" alt="Queenstown, New Zealand" />
+        <div class="similar-body">
+          <div class="similar-region">🇳🇿 South Island, New Zealand</div>
+          <div class="similar-name">Queenstown</div>
+          <p class="similar-tagline">The adventure capital of the world — The Remarkables, Lake Wakatipu, and Fiordland in a setting so dramatic it still doesn't look quite real.</p>
+          <div class="similar-cost">Comfortable lifestyle: ~NZ$4,300/mo</div>
+        </div>
+      </a>
+      <a href="destination-nelson.html" class="similar-card">
+        <img class="similar-img" src="images/nelson-nz.jpg" alt="Nelson, New Zealand" />
+        <div class="similar-body">
+          <div class="similar-region">🇳🇿 South Island, New Zealand</div>
+          <div class="similar-name">Nelson</div>
+          <p class="similar-tagline">New Zealand's sunniest city — gateway to Abel Tasman National Park, Marlborough wine country, and some of the southern hemisphere's most spectacular hiking.</p>
+          <div class="similar-cost">Comfortable lifestyle: ~NZ$3,800/mo</div>
+        </div>
+      </a>
+      <a href="destination-tauranga.html" class="similar-card">
+        <img class="similar-img" src="images/tauranga.jpg" alt="Tauranga, New Zealand" />
+        <div class="similar-body">
+          <div class="similar-region">🇳🇿 Bay of Plenty, New Zealand</div>
+          <div class="similar-name">Tauranga</div>
+          <p class="similar-tagline">NZ's fastest-growing retirement city — a harbour, Mount Maunganui's surf beach, and a warm community that keeps drawing Kiwis back from Auckland.</p>
+          <div class="similar-cost">Comfortable lifestyle: ~NZ$3,500/mo</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <a class="footer-wordmark" href="homepage-mockup.html">Retire<em>Vibes</em></a>
+    <div class="footer-links">
+      <a href="homepage-mockup.html#destinations">Destinations</a>
+      <a href="homepage-mockup.html#how-it-works">How it works</a>
+      <a href="find-an-advisor.html">Find an advisor</a>
+      <a href="scouting-trips.html">Scouting trips</a>
+      <a href="my-retirevibes.html">My RetireVibes</a>
+    </div>
+    <span class="footer-copy">© 2026 RetireVibes. Cost estimates are for informational purposes only and are not financial advice.</span>
+  </footer>
+
+  <script src="shared.js"></script>
+</body>
+</html>
