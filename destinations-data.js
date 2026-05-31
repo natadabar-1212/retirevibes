@@ -175,6 +175,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: 'Nimmanhaemin & Suthep', desc: 'The most popular district for long-term expats — boutique hotels, third-wave coffee, international restaurants. The closest thing to a Western lifestyle infrastructure outside Bangkok. The most expensive neighborhood and consistently most in demand.' },
+      { name: 'Old City & Riverside', desc: 'The historic moated center and Ping River corridor — temples, traditional markets, the Night Bazaar. More atmospheric than Nimmanhaemin and less expensive, but noisier and more tourist-adjacent.' },
+      { name: 'Hang Dong & South Chiang Mai', desc: 'The expat residential corridor south of the city — larger houses, private pools, international schools, significantly more space for the price. Where most families land once they trade location for space.' },
+    ],
     // Scoring
     weatherMatch: [0, 2],         // warm/sunny (primary), mild in cool season
     settingMatch: [2, 3, 4],      // mountains, city, small-town neighborhoods
@@ -202,6 +207,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: 'El Poblado', desc: 'The premium expat district — international restaurants, reliable infrastructure, English-speaking services. More expensive than anywhere else in Medellín but still a fraction of comparable neighborhoods in Mexico City or Bogotá. Where most Americans start and many stay.' },
+      { name: 'Laureles & Estadio', desc: 'The established middle-class neighborhood west of the river — genuinely walkable, more Colombian in character than El Poblado, excellent food scene, and prices 20-30% lower. Where people migrate toward after their first year.' },
+      { name: 'Envigado & Sabaneta', desc: 'The municipalities immediately south — lower prices than El Poblado, good infrastructure, quieter residential character. Popular with buyers who want space and value once they have established their footing in the city.' },
+    ],
     // Scoring
     weatherMatch: [2, 0],         // mild/temperate (primary - eternal spring), warm
     settingMatch: [3, 2],         // city, mountains
@@ -552,6 +562,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-domestic.html',
     browseHomesPage: 'browse-homes-domestic.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: 'NorthShore', desc: 'The walkable riverfront neighborhood that most clearly explains why people are moving to Chattanooga. Independent restaurants, the pedestrian bridge to downtown, access to the Tennessee Riverwalk. The most desirable address in the city and priced accordingly.' },
+      { name: 'St. Elmo', desc: 'The hillside neighborhood at the base of Lookout Mountain — restored Victorian homes, the Incline Railway, a genuine small-town main street. Popular with buyers who want character and easy mountain access.' },
+      { name: 'Highland Park', desc: 'The value play — centrally located, genuinely walkable, and the fastest-appreciating neighborhood in the city. Where people buy when NorthShore prices feel too high, and feel smug about it a year later.' },
+    ],
     // Scoring
     weatherMatch: [1, 2],         // four seasons, mild
     settingMatch: [2, 1, 3, 4],   // mountains, lake/river, city, small town
