@@ -903,7 +903,7 @@ const PAGE_CSS = `
 function getHeroBg(dest) {
   // Use the destination's own photo if it's a local image, else Unsplash fallback
   if (dest.photo && !dest.photo.startsWith('http')) {
-    return `../../${dest.photo}`;
+    return `../../../${dest.photo}`;
   }
   // Fallback Unsplash based on setting/country
   const unsplashFallbacks = {
@@ -928,9 +928,9 @@ function generatePage(dest) {
   const listings  = getListings(dest);
   const legal     = getLegalSection(dest);
   const isIntl    = dest.isInternational;
-  const advisorPage = isIntl ? '../../advisor-international.html' : '../../advisor-domestic.html';
-  const scoutingPage = isIntl ? '../../scouting-trips.html' : '../../scouting-trip-domestic.html';
-  const destPage  = `../../destination-detail.html?id=${dest.id}`;
+  const advisorPage = isIntl ? '../../../advisor-international.html' : '../../../advisor-domestic.html';
+  const scoutingPage = isIntl ? '../../../scouting-trips.html' : '../../../scouting-trip-domestic.html';
+  const destPage  = `../../../destination-detail.html?id=${dest.id}`;
   const heroBg    = getHeroBg(dest);
   const regionLabel = isIntl ? 'International' : 'US Domestic';
   const neighborhoodsHTML = dest.id === 'porto'
@@ -968,18 +968,18 @@ function generatePage(dest) {
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../../shared.css" />
+<link rel="stylesheet" href="../../../shared.css" />
 <style>${PAGE_CSS}</style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav class="nav">
-  <a class="wordmark" href="../../homepage-mockup.html">Retire<em>Vibes</em></a>
+  <a class="wordmark" href="../../../homepage-mockup.html">Retire<em>Vibes</em></a>
   <div class="nav-links">
-    <a href="../../homepage-mockup.html#destinations">Destinations</a>
-    <a href="../../my-retirevibes.html">My RetireVibes</a>
-    <a class="nav-cta" href="../../quiz.html">Find my RetireVibes →</a>
+    <a href="../../../homepage-mockup.html#destinations">Destinations</a>
+    <a href="../../../my-retirevibes.html">My RetireVibes</a>
+    <a class="nav-cta" href="../../../quiz.html">Find my RetireVibes →</a>
   </div>
 </nav>
 
@@ -1056,7 +1056,7 @@ ${rentVsBuyHTML}
       </a>
       <a class="btn-outline" href="${scoutingPage}">Plan a scouting trip first</a>
     </div>
-    <p class="cta-partner-note">We link to ${listings.platform} because it's the best tool for the job. We may earn a referral fee if you connect with a listing agent through our link. <a href="../../terms-of-service.html">Affiliate disclosure</a>.</p>
+    <p class="cta-partner-note">We link to ${listings.platform} because it's the best tool for the job. We may earn a referral fee if you connect with a listing agent through our link. <a href="../../../terms-of-service.html">Affiliate disclosure</a>.</p>
   </div>
 </section>
 
@@ -1089,20 +1089,20 @@ ${rentVsBuyHTML}
 <footer>
   <div class="footer-inner">
     <div>
-      <a class="wordmark" href="../../homepage-mockup.html" style="font-size:20px;">Retire<em>Vibes</em></a>
+      <a class="wordmark" href="../../../homepage-mockup.html" style="font-size:20px;">Retire<em>Vibes</em></a>
       <p class="footer-tag">Good RetireVibes only.</p>
     </div>
     <div class="footer-links">
-      <a href="../../homepage-mockup.html#destinations">Destinations</a>
-      <a href="../../homepage-mockup.html#how-it-works">How it works</a>
-      <a href="../../find-an-advisor.html">Find an advisor</a>
-      <a href="../../scouting-trips.html">Scouting trips</a>
-      <a href="../../my-retirevibes.html">My RetireVibes</a>
+      <a href="../../../homepage-mockup.html#destinations">Destinations</a>
+      <a href="../../../homepage-mockup.html#how-it-works">How it works</a>
+      <a href="../../../find-an-advisor.html">Find an advisor</a>
+      <a href="../../../scouting-trips.html">Scouting trips</a>
+      <a href="../../../my-retirevibes.html">My RetireVibes</a>
     </div>
   </div>
   <p class="footer-legal">© 2025 RetireVibes. For informational and inspirational purposes only. We are not financial advisors, tax advisors, immigration attorneys, or real estate agents. Always verify current visa requirements, tax rules, and property regulations with licensed professionals. Destination costs and real estate prices are estimates based on publicly available data and are subject to change.</p>
 </footer>
-<script src="../../shared.js"></script>
+<script src="../../../shared.js"></script>
 </body>
 </html>`;
 }
