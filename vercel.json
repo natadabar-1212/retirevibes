@@ -9,6 +9,11 @@
       "source": "/browse-homes-international.html",
       "destination": "/destinations/porto/real-estate/",
       "permanent": true
+    },
+    {
+      "source": "/find-an-advisor.html",
+      "destination": "/advisor-domestic.html",
+      "permanent": true
     }
   ],
   "headers": [

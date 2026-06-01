@@ -172,6 +172,22 @@
     .cta-right { align-items: flex-start; }
     .footer-inner { flex-direction: column; align-items: flex-start; }
   }
+
+  /* ─── Where to search ─── */
+  .where-to-search { background: var(--teal); padding: 80px 48px; }
+  .where-inner { max-width: 1100px; margin: 0 auto; }
+  .where-to-search .section-label { color: rgba(255,255,255,0.45); }
+  .where-headline { font-family: var(--serif); font-size: 42px; color: var(--white); line-height: 1.12; letter-spacing: -0.015em; margin-bottom: 14px; }
+  .where-headline em { color: var(--terracotta); font-style: italic; }
+  .where-lead { font-size: 17px; color: rgba(255,255,255,0.72); line-height: 1.6; max-width: 640px; margin-bottom: 48px; }
+  .where-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; margin-bottom: 36px; }
+  .where-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 28px 26px; }
+  .where-card h3 { font-family: var(--serif); font-size: 22px; color: var(--white); margin-bottom: 4px; }
+  .where-url { font-size: 13px; color: var(--gold-soft); margin-bottom: 12px; }
+  .where-card p { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.6; }
+  .where-tip { background: rgba(255,255,255,0.06); border-left: 3px solid var(--gold); border-radius: 0 10px 10px 0; padding: 18px 20px; font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.6; }
+  .where-tip a { color: var(--gold-soft); }
+  @media (max-width: 700px) { .where-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -330,10 +346,43 @@
       <p>SmartAsset matches you with fiduciary advisors near you — for free. When you fill out the form, mention the destination you're considering. It helps them prep for a more useful first conversation.</p>
     </div>
     <div class="cta-right">
-      <a class="btn-primary" href="find-an-advisor.html?type=domestic">Find my advisor <span class="arrow">→</span></a>
-      <span class="partner-badge">RetireVibes advisor network</span>
+      <a class="btn-primary" href="#where-to-search" onclick="document.querySelector('.where-to-search').scrollIntoView({behavior:'smooth'});return false;">Find a fee-only fiduciary →</a>
     </div>
     <p class="fiduciary-note"><strong>A note from RetireVibes:</strong> We found the place — that's our job. The financial math is yours to do, ideally with someone who's legally required to help you do it well. We don't earn referral fees that would change what we recommend here. We just think talking to a fiduciary early is almost always worth it.</p>
+  </div>
+</section>
+
+<!-- ─── WHERE TO SEARCH ─── -->
+<section class="where-to-search">
+  <div class="where-inner">
+    <span class="section-label">Where to look</span>
+    <h2 class="where-headline">The right places to find <em>fee-only fiduciary advisors</em></h2>
+    <p class="where-lead">Skip the Google search. These directories are specifically designed for people looking for fee-only, fiduciary advisors — the only kind worth hiring for retirement planning.</p>
+    <div class="where-grid">
+      <div class="where-card">
+        <h3>NAPFA</h3>
+        <p class="where-url">napfa.org</p>
+        <p>The National Association of Personal Financial Advisors. Every member is fee-only — no commissions, no conflicts. Use their "Find an Advisor" tool to search by location and specialty. This is the gold standard directory for fee-only advisors.</p>
+      </div>
+      <div class="where-card">
+        <h3>Garrett Planning Network</h3>
+        <p class="where-url">garrettplanningnetwork.com</p>
+        <p>Fee-only advisors who work by the hour or project. Good if you want a second opinion or a one-time retirement plan without committing to an ongoing AUM relationship. Particularly useful if you are early in your research.</p>
+      </div>
+      <div class="where-card">
+        <h3>XY Planning Network</h3>
+        <p class="where-url">xyplanningnetwork.com</p>
+        <p>Fee-only planners, many of whom specialize in retirement and pre-retirement planning. Many work remotely — useful if you are planning a move and need someone comfortable with interstate or cross-border complexity.</p>
+      </div>
+      <div class="where-card">
+        <h3>CFP Board</h3>
+        <p class="where-url">cfp.net/find-a-cfp-professional</p>
+        <p>The official search tool for Certified Financial Planners. Lets you verify credentials and check for any disciplinary history. Use this to confirm anyone you are considering actually holds their CFP in good standing.</p>
+      </div>
+    </div>
+    <div class="where-tip">
+      <strong>Before you book a meeting with anyone:</strong> Run their name through <a href="https://brokercheck.finra.org" target="_blank" rel="noopener noreferrer">FINRA BrokerCheck (brokercheck.finra.org)</a> to check their registration status, any customer complaints, and disciplinary history. Free, takes two minutes, non-negotiable.
+    </div>
   </div>
 </section>
 
@@ -347,7 +396,7 @@
     <div class="footer-links">
       <a href="destinations.html">Destinations</a>
       <a href="homepage-mockup.html#how-it-works">How it works</a>
-      <a href="find-an-advisor.html">Find an advisor</a>
+      <a href="advisor-domestic.html">Find an advisor</a>
       <a href="scouting-trips.html">Scouting trips</a>
       <a href="my-retirevibes.html">My RetireVibes</a>
     </div>
