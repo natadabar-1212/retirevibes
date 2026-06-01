@@ -971,6 +971,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Escazu & Santa Ana", desc: "The most established expat communities in the Central Valley — the best hospitals, international schools, American-style shopping, and English-speaking services. More expensive than other valley options but with the infrastructure level most Americans look for when considering a permanent move." },
+      { name: "Atenas & Grecia", desc: "The small agricultural towns west of San Jose — consistently cited for having some of the best weather in the world, genuine Costa Rican community character, and prices significantly below the San Jose metro. Popular with retirees who want authentic slow-living rather than expat-bubble convenience." },
+      { name: "San Jose Metro (Barrio Escalante)", desc: "The urban alternative — Barrio Escalante has the best restaurant and cafe scene in Central America, walkable streets, and a cosmopolitan energy unusual in the region. More urban than most retirees want but worth understanding before deciding between city and suburb." },
+    ],
     weatherMatch: [2, 0],          // mild/temperate (Central Valley), warm in coastal areas
     settingMatch: [2, 5, 4],       // mountains, countryside, small town
     paceMatch: [0, 2, 1],          // active, relaxed, creative
@@ -1063,6 +1068,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-domestic.html',
     browseHomesPage: 'browse-homes-domestic.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Old Naples & Port Royal", desc: "The historic downtown and the most exclusive waterfront neighborhood in Southwest Florida — Third Street South shopping, Fifth Avenue South dining, walking distance to the beach. Old Naples is genuinely walkable and beautiful. Port Royal is where serious wealth has concentrated for decades. Understand the price reality before you fall for the lifestyle." },
+      { name: "Pelican Bay & North Naples", desc: "The established resort community and the northern residential corridor — Pelican Bay has private beach access, tram service to the beach, and a managed environment that many retirees specifically seek. North Naples extends further with newer construction and more affordable options while keeping Ritz-Carlton-adjacent infrastructure." },
+      { name: "East Naples & Golden Gate", desc: "The more affordable inland neighborhoods — significantly lower prices than the beach side, good everyday services, and easy access to the beaches without paying the waterfront premium. Where most Naples residents who are not independently wealthy actually live." },
+    ],
     weatherMatch: [0],
     settingMatch: [0, 3],
     paceMatch: [2, 3, 0],
@@ -1089,6 +1099,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-domestic.html',
     browseHomesPage: 'browse-homes-domestic.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "North End & Hyde Park", desc: "The most walkable and desirable neighborhood in Boise — craftsman homes, mature trees, the Hyde Park commercial strip, easy access to the Boise Foothills trails. Consistently the most in-demand address in the city and priced to reflect it. Walk Hyde Park on a Saturday morning to understand what Boise is at its best." },
+      { name: "Bench & Southeast Boise", desc: "The established residential plateau south of downtown — more affordable than the North End, good everyday services, the best parks in the city. Where most Boise families live. Less trendy than the North End but genuinely livable with strong community character." },
+      { name: "Downtown & Depot Bench", desc: "The walkable urban core and the neighborhood above the train depot — the best restaurants and bars in the city, the Saturday farmers market, proximity to the Greenbelt. The most urban lifestyle Boise offers and increasingly popular with buyers who want to walk to everything." },
+    ],
     weatherMatch: [1, 0],
     settingMatch: [2, 1, 3],
     paceMatch: [0, 1, 2],
@@ -1115,6 +1130,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-domestic.html',
     browseHomesPage: 'browse-homes-domestic.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Old Town & Midtown", desc: "The historic downtown and the adjacent residential neighborhoods — College Avenue walkability, the best independent restaurants in the city, access to the Poudre River trail. The most in-demand part of Fort Collins and the most expensive. Where buyers who want genuine walkability tend to look." },
+      { name: "Prospect & Harmony Corridor", desc: "The established neighborhoods south of the downtown core — good everyday services, proximity to the hospital, more affordable than Old Town while remaining convenient. Where most long-term Fort Collins residents live when they want practical daily infrastructure." },
+      { name: "Timnath & Severance", desc: "The newer communities at the edge of the Fort Collins metro — more space, lower prices, newer construction. More car-dependent but with the Front Range mountain backdrop that makes northern Colorado so appealing. For buyers who want the Fort Collins climate and access at accessible prices." },
+    ],
     weatherMatch: [1, 3],          // four seasons (primary — cold snowy winters at 5,000ft), cool/crisp
     settingMatch: [2, 4, 3],
     paceMatch: [0, 1, 3],
@@ -1172,6 +1192,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-domestic.html',
     browseHomesPage: 'browse-homes-domestic.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Hill Section & South End", desc: "The residential neighborhoods on the hill above the waterfront — Victorian homes, walking distance to Church Street and the lakefront, the best views of Lake Champlain and the Adirondacks. The most desirable addresses in Burlington. The South End has the arts district and the best new restaurant scene." },
+      { name: "New North End & Winooski", desc: "The residential northern neighborhoods and the adjacent small city — more affordable than the Hill Section, good everyday services, direct access to the Bike Path. Winooski is the most diverse and fastest-changing community in Vermont, with excellent restaurants and lower prices than Burlington proper." },
+      { name: "Shelburne & South Burlington", desc: "The suburban communities south of the city — more space, good schools, lower prices than Burlington proper, and easy access to the city. Shelburne has the best farmland scenery in the Champlain Valley and one of the most livable town centers in Vermont." },
+    ],
     weatherMatch: [1, 3],
     settingMatch: [1, 2, 4],
     paceMatch: [0, 1, 3],
@@ -1198,6 +1223,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-domestic.html',
     browseHomesPage: 'browse-homes-domestic.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Historic District & Main Street", desc: "The German colonial downtown — Main Street shops and restaurants, the Vereins Kirche, the Pioneer Museum. The most walkable and most in-demand part of Fredericksburg. Weekend tourist traffic is significant but weekday mornings have a genuinely peaceful small-town quality." },
+      { name: "West End & Live Oak Hills", desc: "The established residential areas west of the downtown core — larger lots, Hill Country views, quieter streets. More affordable than the historic district and popular with buyers who want the Fredericksburg address with more space. Easy walking or cycling distance to Main Street." },
+      { name: "Stonewall & Luckenbach Area", desc: "The small communities east of Fredericksburg along the Pedernales River corridor — wine country, peach orchards, genuine Hill Country rural character. More land for the money than Fredericksburg proper. For buyers who want acreage in the Texas Hill Country within driving distance of town infrastructure." },
+    ],
     weatherMatch: [0, 2],
     settingMatch: [5, 4],
     paceMatch: [2, 1, 3],
@@ -1257,6 +1287,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?name=Kelowna',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Downtown & Pandosy Village", desc: "The lakefront downtown and the restaurant strip to the south — City Park beach access, the Saturday farmers market, walkable restaurants and cafes. The most urban part of Kelowna and increasingly in demand as the city grows. Pandosy Village has the best independent restaurant scene outside downtown." },
+      { name: "Lower Mission & Lakeshore", desc: "The established lakefront neighborhood south of downtown — the best beach access in Kelowna, established homes, excellent restaurants along Lakeshore Road. Where most long-term Kelowna residents who want the lake lifestyle live. More expensive than the hills but the daily quality of life is exceptional." },
+      { name: "Upper Mission & Black Mountain", desc: "The hillside neighborhoods above the city — Okanagan Lake views, newer homes, more space for the price. More car-dependent than the lakefront but with the vineyard and orchard scenery that defines the Okanagan. Popular with buyers who want space and views at prices below the lakeshore premium." },
+    ],
     weatherMatch: [1, 0],          // four seasons (primary — cold winters, hot dry summers), warm
     settingMatch: [1, 2, 4],
     paceMatch: [0, 2, 1],
@@ -1345,6 +1380,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?name=Canmore',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Town Center & Quarry Lake", desc: "The compact downtown and the lake neighborhood adjacent to it — Main Street shops and restaurants, Quarry Lake for swimming and ice skating, and the most walkable part of one of Canada's most spectacular small towns. The most expensive real estate in Canmore and consistently in demand." },
+      { name: "Three Sisters & Peaks of Grassi", desc: "The residential neighborhoods north and east of the downtown core — mountain views from almost every property, quiet streets, and the trail network accessible from your door. More space than the downtown core at slightly lower prices. Where most long-term Canmore residents live." },
+      { name: "Cougar Creek & Stewart Creek", desc: "The newer residential areas at the edges of the town — more affordable than the established neighborhoods, newer construction, and the same extraordinary mountain setting. For buyers who want Canmore quality of life at accessible prices." },
+    ],
     weatherMatch: [1, 3],
     settingMatch: [2, 5],
     paceMatch: [0, 2],
@@ -1371,6 +1411,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?name=Charlottetown',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Downtown & Victoria Row", desc: "The compact capital city center — Victoria Row is one of the best pedestrian streets in Atlantic Canada, Province House is around the corner, and the whole downtown is walkable in 20 minutes. The most livable small city center in the Maritimes. Worth spending a full week here in summer and winter before you decide." },
+      { name: "West Royalty & East Royalty", desc: "The residential suburban areas east and west of the downtown core — more affordable than the urban neighborhoods, newer construction, good everyday services. Where most Charlottetown families live. Easy access to the downtown by bike or car." },
+      { name: "Stratford & Cornwall", desc: "The communities across the Hillsborough River and west of the city — genuine small-town character, lower prices than Charlottetown proper, and easy access to the city. Popular with buyers who want more space and lower prices while remaining close to the urban infrastructure." },
+    ],
     weatherMatch: [1, 3],
     settingMatch: [0, 4, 5],
     paceMatch: [2, 3, 1],
@@ -1397,6 +1442,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?name=Niagara-on-the-Lake',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Old Town", desc: "The historic heart — Queen Street shops and restaurants, the Shaw Festival theaters, the Georgian architecture that makes this one of the best-preserved 19th-century towns in North America. The most atmospheric address and the most expensive. Weekend tourist traffic is heavy in summer; early mornings and November through April reveal a genuinely quiet town." },
+      { name: "St Davids & Queenston", desc: "The village communities west of the town center — wine country roads, the escarpment above, quieter streets. More affordable than Old Town and popular with buyers who want the Niagara region lifestyle with less tourist adjacency. Queenston has historical significance as the original Loyalist settlement." },
+      { name: "Virgil & Glendale", desc: "The residential communities north of the town center — the most practical and affordable part of the Niagara-on-the-Lake area for everyday living. Good access to services and the QEW for Toronto connections. Where most local residents who work in the region actually live." },
+    ],
     weatherMatch: [1, 2],
     settingMatch: [1, 4, 5],
     paceMatch: [2, 1, 3],
@@ -1423,6 +1473,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?name=Nanaimo',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Old City Quarter & Harbourfront", desc: "The walkable downtown and the harbor — the commercial street, the waterfront boardwalk, the ferry terminal to Vancouver. The most animated part of Nanaimo and the most practical base for new arrivals. More affordable than comparable neighborhoods in Victoria with genuine waterfront character." },
+      { name: "North Nanaimo & Departure Bay", desc: "The established residential neighborhoods in the north end — the best beach in the city at Departure Bay, good schools, more suburban character than the downtown core. Popular with families and retirees who want space and beach access at prices well below the Victoria market." },
+      { name: "South Nanaimo & Cedar", desc: "The quieter southern areas approaching the rural Cowichan Valley corridor — more affordable, more space, genuine small-community feel in Cedar. For buyers who want Vancouver Island lifestyle at genuinely accessible prices." },
+    ],
     weatherMatch: [2, 1],
     settingMatch: [0, 2, 4],
     paceMatch: [0, 2, 1],
@@ -1637,6 +1692,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?name=St.%20Kitts',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Basseterre & South Peninsula", desc: "The capital and the resort corridor on the southeastern peninsula — Basseterre has the local market, the Circus, and genuine Caribbean town life. The South Peninsula has the most popular beaches and the majority of tourist infrastructure. The contrast between the two is worth experiencing before deciding where to focus." },
+      { name: "Frigate Bay", desc: "The main resort zone on the isthmus connecting the main island to the South Peninsula — beach on both the Atlantic and Caribbean sides, the most established restaurant and bar strip, the closest thing to a neighborhood for long-term expats. More expensive than the rest of the island but with the best amenity access." },
+      { name: "Ottley's & The Windward Coast", desc: "The quieter north and east of the island — plantation estate conversions, local fishing villages, genuine rural Caribbean character. More affordable and more local than the South Peninsula. For buyers who want St Kitts as a base for quiet Caribbean living rather than resort access." },
+    ],
     weatherMatch: [0],
     settingMatch: [0, 2, 4],
     paceMatch: [2, 3, 0],
@@ -1851,6 +1911,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?name=Lake%20Atitl%C3%A1n',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Panajachel", desc: "The main town and transportation hub on the northern shore — the most practical base for new arrivals, the most services, the ferry connections to all other villages. More tourist-adjacent than the smaller villages but the necessary starting point for understanding the lake before choosing where to settle." },
+      { name: "San Marcos La Laguna & San Pedro La Laguna", desc: "The spiritual and social villages on the western shore — San Marcos has the yoga retreat and meditation center reputation; San Pedro has the best backpacker energy and language schools. Both have established long-term expat communities and very affordable living." },
+      { name: "Santa Cruz & Jaibalito", desc: "The most remote and least accessible villages on the lake — accessible only by boat, minimal tourist infrastructure, genuine indigenous Mayan community character. For buyers who want the Lake Atitlan landscape at the most affordable prices and who are genuinely comfortable with isolation from services." },
+    ],
     weatherMatch: [2],
     settingMatch: [1, 2, 4],
     paceMatch: [2, 1],
@@ -2158,6 +2223,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?name=Valletta',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Valletta City & Floriana", desc: "The UNESCO-listed capital — one of the smallest and most compact capital cities in the world, genuinely walkable, the best restaurants and bars in Malta along Republic Street. Valletta has been transformed into a genuine cultural capital since its 2018 European Capital of Culture year. Floriana is the adjacent town with lower prices and local character." },
+      { name: "Sliema & St Julian's", desc: "The modern commercial and nightlife district across the harbor from Valletta — the most popular area for expats and long-term foreign residents, excellent shopping and restaurants, sea promenade. More expensive than Valletta and less historic but the most practical base for day-to-day living." },
+      { name: "Mdina & Rabat", desc: "The silent city on the hill and the adjacent town — Mdina is the medieval walled capital, population 300, no cars allowed. The most atmospheric address in Malta and genuinely quiet. Rabat below has the catacombs and the everyday services that Mdina lacks. For buyers who want to live inside Maltese history." },
+    ],
     weatherMatch: [0, 2],
     settingMatch: [0, 3],
     paceMatch: [1, 2, 3],
@@ -2246,6 +2316,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Pescara & Montesilvano", desc: "The Adriatic coast city and the beach strip to the north — the most urban and best-connected part of Abruzzo, with the regional airport, good hospitals, and daily amenities. More practical for year-round living than the mountain towns and significantly more affordable than comparable coastal cities further south." },
+      { name: "L'Aquila & Gran Sasso", desc: "The regional capital in the mountains — rebuilt after the 2009 earthquake with EU funds, genuinely affordable, and surrounded by the highest peak in the Apennines. A strong university city with a young population. For buyers who want authentic Italian mountain living at prices that feel from another era." },
+      { name: "Chieti & Lanciano", desc: "The hill towns of the Sangro Valley — historic character, local markets, affordable villas, and proximity to both the Adriatic coast and the national park. The best value in Abruzzo for buyers who want a genuine rural Italian base without full mountain isolation." },
+    ],
     weatherMatch: [1, 2],
     settingMatch: [2, 0, 5],
     paceMatch: [2, 0, 1],
@@ -2274,6 +2349,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?name=Hua%20Hin',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Hua Hin Town Center & Cicada Market", desc: "The original royal resort town — the night market, the railway station, the best seafood restaurants in Thailand, and the most walkable part of the city. More local than the resort hotels but with genuine character and good daily infrastructure. The right base for understanding Hua Hin before choosing where to live." },
+      { name: "Khao Takiab & South Hua Hin", desc: "The southern neighborhoods below the hill temple — quieter beaches, more residential character, villa communities. More affordable than the central areas and popular with buyers who want a Hua Hin home with space and privacy without the resort zone pricing." },
+      { name: "Black Mountain & Western Development Corridor", desc: "The golf and villa developments in the hills west of the city — golf courses, modern villa estates, expat-focused amenities. More car-dependent than the city center but with the resort lifestyle infrastructure that attracts most Western buyers to Hua Hin." },
+    ],
     weatherMatch: [0],
     settingMatch: [0, 4],
     paceMatch: [2, 0, 3],
@@ -2331,6 +2411,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Da'an & Xinyi", desc: "The established expat neighborhoods in the center of the city — Da'an has the best parks, independent cafes, and international schools; Xinyi is the modern commercial district with Taipei 101. The most practical and most in-demand area for long-term foreign residents. Excellent transit access to the rest of the city." },
+      { name: "Tianmu & Shilin", desc: "The northern residential area popular with the diplomatic community and long-term expats — a strong English-speaking community, international schools, American grocery stores, and a quieter suburban character than the city center. The most established foreign resident neighborhood in Taipei." },
+      { name: "Tamsui & New Taipei Coast", desc: "The historic riverside town at the end of the red line — old streets, sunset views over the river mouth, significantly lower prices than Taipei proper. Popular with buyers who want the Taipei metro area at lower prices with genuine character. Good transit connection back to the city." },
+    ],
     weatherMatch: [2, 0],          // mild/temperate (primary — cool winters ~15°C), warm humid summers
     settingMatch: [3, 2],
     paceMatch: [1, 3, 0],
@@ -2388,6 +2473,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?name=Galle',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Galle Fort", desc: "The UNESCO-listed Dutch colonial fort — one of the best-preserved colonial citadels in Asia, boutique hotels converted from colonial mansions, artisan shops and excellent restaurants within the walls. Living inside the fort is genuinely special and increasingly expensive. Crowded with day visitors but quiet in the evenings." },
+      { name: "Unawatuna & Jungle Beach", desc: "The beach communities east of the fort — the most popular beach destination in southern Sri Lanka, good snorkeling, established guesthouses and restaurants. More tourist-adjacent than the fort but the beach access is excellent and prices remain low by any global standard." },
+      { name: "Weligama & Mirissa", desc: "The surf and whale watching villages west of Galle — Weligama is the best beginner surf break in Sri Lanka; Mirissa has the whale watching boats. More local character than the immediate Galle area and lower prices. Popular with buyers who want the southern coast lifestyle at the most accessible prices." },
+    ],
     weatherMatch: [0],
     settingMatch: [0, 3, 4],
     paceMatch: [2, 0, 1],
@@ -2414,6 +2504,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?name=Cebu',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Cebu City & IT Park", desc: "The commercial center of the Visayas — the best hospitals in the region, international schools, a genuine urban lifestyle with good English and established expat infrastructure. IT Park has modern condos and international restaurants. The most practical base for a long-term move to Cebu." },
+      { name: "Mactan Island", desc: "The resort island connected to Cebu City by bridge — the international airport, beach resorts, villa communities, and a more relaxed pace than the city. Popular with buyers who want beach access and resort infrastructure while remaining connected to the city's services and healthcare." },
+      { name: "Lapu-Lapu & Cordova", desc: "The quieter residential areas on Mactan — more affordable than the resort zones, more local character, good access to both the beach and the city via the bridge. Where long-term expats who want practical Cebu living without resort pricing tend to settle." },
+    ],
     weatherMatch: [0],
     settingMatch: [0, 3],
     paceMatch: [3, 0, 2],
@@ -2473,6 +2568,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-nelson.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Nelson City Center & Tahuna Beach", desc: "The compact city center and the adjacent beach suburb — the Saturday market, the best independent cafes in the South Island outside Christchurch, walkable streets, and Tahuna Beach for swimming. The most livable small city in New Zealand by many measures and the sunniest in the country." },
+      { name: "Richmond & Wakefield", desc: "The commercial suburb and the rural village south of Nelson — more affordable than Nelson proper, excellent services in Richmond, and the orchards and vineyards of the Waimea Plains extending south. Popular with families and buyers who want Nelson region lifestyle at lower prices." },
+      { name: "Motueka & Golden Bay", desc: "The horticulture town and the remote bay at the top of the South Island — Motueka is more affordable than Nelson with good services; Golden Bay beyond the Takaka Hill is genuinely remote but home to a long-established alternative community and extraordinary landscape. The most accessible prices in the Nelson region." },
+    ],
     weatherMatch: [2, 1],          // mild/temperate, some seasons
     settingMatch: [0, 2, 4],       // coastal, mountains, small town
     paceMatch: [0, 1, 2],          // active, creative, relaxed
@@ -2499,6 +2599,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?name=Byron%20Bay',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Byron Bay Town Center & Main Beach", desc: "The most famous beach town in Australia — the lighthouse, the main break, the Saturday markets, and a lifestyle that has attracted creative people for 50 years. Also among the most expensive real estate in regional Australia after a decade of Sydney and Melbourne money arriving. Worth understanding the price reality." },
+      { name: "Bangalow & Federal", desc: "The hinterland villages 15 minutes inland — the best alternative to Byron prices, genuine small-town character, excellent cafes and restaurants. Bangalow in particular has a high street that rivals anything in the region. Where buyers who want the Byron lifestyle without the Byron price tend to look." },
+      { name: "Suffolk Park & Broken Head", desc: "The quieter southern alternative to the main town — more residential, lower prices, beach access at a break that has a fraction of the Main Beach crowd. Where long-term Byron residents live when they want the lifestyle without the tourist-zone energy of the center." },
+    ],
     weatherMatch: [0, 2],
     settingMatch: [0, 5, 4],
     paceMatch: [2, 0, 1],
@@ -2587,6 +2692,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?name=Cairns',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Cairns City & Esplanade", desc: "The compact city center and the waterfront esplanade — the lagoon pool, the best restaurants in the city, walking distance to the marina for Great Barrier Reef day trips. More urban than most visitors expect and genuinely livable year-round despite the tropical heat." },
+      { name: "Edge Hill & Whitfield", desc: "The established residential neighborhoods on the edge of the rainforest above the city — cooler than the waterfront, walking access to the Cairns Botanic Gardens and the rainforest walking tracks, genuine neighborhood character. The most desirable residential addresses in the city." },
+      { name: "Smithfield & Redlynch", desc: "The northern residential corridor toward Palm Cove — more affordable than Edge Hill, newer construction, good schools and services. Where most Cairns families live. Easy access to the northern beaches that make Cairns living exceptional." },
+    ],
     weatherMatch: [0],
     settingMatch: [0, 2, 5],
     paceMatch: [0, 2, 3],
@@ -2834,6 +2944,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?id=lugano',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Lugano City Center & Paradiso", desc: "The lakefront city and the southern suburb — the pedestrian zone along Via Nassa, the funicular up Monte San Salvatore, the best hotels and restaurants in the Swiss-Italian region. Lugano is compact enough that the center genuinely functions for daily life. Paradiso has the best lakeview apartments at slightly lower prices than the city center." },
+      { name: "Collina d'Oro & Montagnola", desc: "The hilltop municipality above Lugano — panoramic views over the lake, larger properties, rural tranquility within 15 minutes of the city. Where serious buyers who want the Lugano lifestyle with space tend to look. More affordable than the city center per square meter with superior settings." },
+      { name: "Ticino Lakeside Villages (Morcote, Gandria)", desc: "The villages along the lake south of Lugano — Morcote has been called the most beautiful village in Switzerland; Gandria is accessible only by boat or a steep path. Both are genuinely extraordinary settings at prices below the city. For buyers who want the Swiss-Italian lake lifestyle at the most atmospheric addresses." },
+    ],
     weatherMatch: [2, 0],            // mild/temperate (warmest in Switzerland)
     settingMatch: [1, 2, 3],         // lake, mountains, city
     paceMatch: [2, 1, 3],
@@ -2862,6 +2977,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?id=puglia',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Ostuni & Valle d'Itria", desc: "The white city on the hill and the trulli valley below — Ostuni is the most photogenic town in Puglia, the Valle d'Itria trulli landscape is genuinely unique in the world. The most in-demand area for international buyers in the region. Prices have risen significantly but remain extraordinary value by Northern European or American standards." },
+      { name: "Lecce & Salento", desc: "The baroque city and the peninsula extending south to two seas — Lecce has the most spectacular baroque architecture in Italy and a genuine university city energy. The Salento coast below has the clearest water in the Adriatic. The most practical base for daily city life in Puglia." },
+      { name: "Alberobello & Locorotondo", desc: "The trullo capital and the circular hill town of Locorotondo — Alberobello has the UNESCO-listed trullo neighborhood that most people picture when they think of Puglia. More tourist-adjacent than the Valle d'Itria villages but the setting is genuinely remarkable. Locorotondo is smaller, quieter, and overlooked." },
+    ],
     weatherMatch: [0, 2],
     settingMatch: [0, 5, 4],         // beach, countryside, small town
     paceMatch: [2, 1, 0],
@@ -2888,6 +3008,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?id=sicily',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Palermo & Mondello", desc: "The capital and the beach suburb — Palermo is one of Italy's most complex and overlooked cities, with Arab-Norman architecture, the best street food in the country, and a pace that is genuinely Sicilian. Mondello is the beach 11km north. More affordable than the east coast and the most urban Sicily experience." },
+      { name: "Catania & Taormina", desc: "The baroque city at the base of Etna and the clifftop tourist town above the sea — Catania is the most practical city in Sicily with good infrastructure; Taormina is the most photogenic and the most expensive. The east coast has the best connections to the rest of Italy." },
+      { name: "Syracuse (Siracusa) & Val di Noto", desc: "The Greek city of extraordinary antiquity and the baroque towns of the southeastern corner — Syracuse has Ortigia, one of the most beautiful islands in the Mediterranean. Val di Noto towns (Noto, Ragusa, Modica) are UNESCO-listed and offer the best value for buyers who want Sicilian character at accessible prices." },
+    ],
     weatherMatch: [0, 2],
     settingMatch: [0, 2, 3],
     paceMatch: [2, 1, 3],
@@ -2916,6 +3041,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?id=crete',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Heraklion & Amoudara", desc: "The capital and the western beach suburb — practical, well-connected, the international airport, the best hospitals on the island. Less charming than the western Crete towns but the most livable for year-round residents who need consistent services. Amoudara has direct beach access and lower prices than the city center." },
+      { name: "Chania & Apokoronas", desc: "The most beautiful town in Crete and the rural hinterland to the east — Chania old harbor is one of the most atmospheric settings in Greece. Apokoronas is the olive grove countryside 20 minutes away: lower prices, quieter pace, pool villas. The western Crete combination that most international buyers are looking for." },
+      { name: "Rethymno & Bali", desc: "The Venetian harbor town in the center of the island and the resort cove east of it — Rethymno has the best preserved old town of any Cretan city and a genuine university community. Bali is the small bay resort most popular with longer-stay visitors. Both offer the Cretan lifestyle at prices below the western end." },
+    ],
     weatherMatch: [0, 2],
     settingMatch: [0, 2, 4],
     paceMatch: [0, 2, 1],
@@ -3039,6 +3169,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-domestic.html',
     browseHomesPage: 'browse-homes-domestic.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Downtown Palm Springs & Movie Colony", desc: "The walkable center and the historic celebrity neighborhood — Palm Canyon Drive shops and restaurants, the museum, mid-century modern homes where Hollywood royalty once lived. The most atmospheric and most expensive part of the city. Worth a full week in January when the design fairs and festivals make clear why people specifically choose Palm Springs." },
+      { name: "South Palm Springs & Deepwell", desc: "The residential neighborhoods south of downtown — more space, lower prices, pool homes that define the Palm Springs lifestyle. More car-dependent than downtown but with the architecture and outdoor living that the city is famous for. Where most full-time residents actually live." },
+      { name: "Cathedral City & Rancho Mirage", desc: "The neighboring communities in the Coachella Valley — more affordable than Palm Springs proper, good everyday services, the same desert climate and mountain backdrop. Cathedral City in particular has improved significantly and offers genuine value for buyers who want the Palm Springs area at lower prices." },
+    ],
     weatherMatch: [0],
     settingMatch: [2, 5, 3],
     paceMatch: [2, 3, 1],
@@ -3065,6 +3200,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-domestic.html',
     browseHomesPage: 'browse-homes-domestic.html',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Courthouse Plaza & Whiskey Row", desc: "The Victorian downtown and the famous bar street — the most walkable part of Arizona's most livable small city. Courthouse Plaza is genuinely beautiful, the surrounding neighborhoods have Victorian homes, and the elevation keeps summers genuinely cool. The most in-demand address in the city and priced accordingly." },
+      { name: "Prescott Valley & Chino Valley", desc: "The commercial suburbs and the ranch land communities — more affordable than Prescott proper, good everyday services in Prescott Valley, genuine rural character in Chino Valley. Where most Prescott area residents who are not retired on significant income actually live." },
+      { name: "Thumb Butte & Watson Lake", desc: "The residential neighborhoods with direct access to the Granite Dells and the Prescott National Forest — trail access from your door, views of the boulder formations, and the outdoor lifestyle that defines Prescott. More expensive than the suburban areas but the access to the landscape is exceptional." },
+    ],
     weatherMatch: [1, 3],          // four seasons (primary — cold winters at 5,400ft), cool/crisp
     settingMatch: [2, 4],
     paceMatch: [0, 2, 3],
@@ -3155,6 +3295,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?id=st-lucia',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Rodney Bay & Gros Islet", desc: "The northern resort corridor — the marina, the best restaurants and nightlife on the island, the Friday night jump-up in Gros Islet village. The most developed area for tourism and expat living. Where most long-term foreign residents base themselves for the practical convenience." },
+      { name: "Cap Estate", desc: "The premium residential development at the northern tip of the island — gated villa communities, the best golf course in the Eastern Caribbean, quieter than Rodney Bay, sea views. Where buyers with significant budgets tend to look when they want privacy and managed infrastructure." },
+      { name: "Marigot Bay & Soufriere", desc: "The most atmospheric parts of the island — Marigot Bay is the most photographed bay in the Caribbean; Soufriere is below the Pitons with the best diving. Both are in the south, more remote from the airport, and more genuinely local in character. For buyers who want the real St Lucia rather than the resort corridor." },
+    ],
     weatherMatch: [0],
     settingMatch: [0, 2, 4],
     paceMatch: [2, 0, 3],
@@ -3181,6 +3326,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?id=antigua',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "English Harbour & Nelson's Dockyard", desc: "The historic naval base and the sailing capital of the Caribbean — the dockyard that was Nelson's base, the best yacht charter scene in the region, and a community of sailors and yacht owners that gives the area a genuinely international character. The most atmospheric address in Antigua." },
+      { name: "Jolly Harbour & Valley Road", desc: "The west coast marina community and the residential corridor — Jolly Harbour has its own beach, shopping, and marina infrastructure. The most established expat neighborhood on the island with good services and easy beach access. Popular with buyers who want a managed community environment." },
+      { name: "Falmouth & Half Moon Bay", desc: "The quieter eastern side of the island — Falmouth Harbour is the alternative anchorage to English Harbour; Half Moon Bay is one of the best beaches in the Caribbean. Less developed than the west coast and more affordable. For buyers who want Antigua away from the marina scene." },
+    ],
     weatherMatch: [0],
     settingMatch: [0, 4],
     paceMatch: [0, 2, 3],
@@ -3240,6 +3390,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?id=mazatlan',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Centro Historico & Olas Altas", desc: "The colonial old city and the original promenade beach — the Machado Plaza, the Angela Peralta theater, the best restaurants in the city in the Pueblo Bonito. The most atmospheric part of Mazatlan and the most affordable for buyers who want character. Increasingly popular as an alternative to San Miguel de Allende for cultural retirement living." },
+      { name: "Zona Dorada", desc: "The golden zone resort strip — the most tourist-adjacent area, the major hotels, the aquarium. More practical for short stays than long-term living but with good everyday services and beach access. Where buyers who want resort amenities without Old Mazatlan prices tend to look." },
+      { name: "Marina El Cid & Sabalo Country", desc: "The northern marina and residential corridor — newer development, good security, marina access, and a quieter pace than the tourist zones. Popular with American buyers who want a Mazatlan home with boating access and the infrastructure of a managed community." },
+    ],
     weatherMatch: [0],
     settingMatch: [0, 3, 4],
     paceMatch: [2, 3, 1],
@@ -3425,6 +3580,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?id=christchurch-nz',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Merivale & St Albans", desc: "The established residential neighborhoods north of the city center — the best independent shopping and restaurant strip in the city along Merivale Mall, heritage homes, good schools. The most desirable addresses in Christchurch and priced to reflect the post-earthquake rebuild quality." },
+      { name: "Sumner & Lyttelton", desc: "The beach suburb and the historic port village in the Port Hills — Sumner is the best beach in greater Christchurch with a genuine village feel; Lyttelton has the best cafe and restaurant scene per capita in New Zealand. Both are 20 minutes from the city center with a distinctly different character." },
+      { name: "Addington & Sydenham", desc: "The inner-city neighborhoods south of the CBD — the most affordable close-in suburbs, rapid gentrification post-earthquake, excellent transit access. Where buyers who want Christchurch lifestyle at the lowest prices in the inner city tend to look." },
+    ],
     weatherMatch: [1, 2],
     settingMatch: [3, 2, 5],
     paceMatch: [0, 1, 2],
@@ -3581,6 +3741,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'destination-detail.html?name=Accra',
     scoutingPage: 'scouting-trip.html',
+    neighborhoods: [
+      { name: "Osu & Cantonments", desc: "The most popular area for long-term expats — Oxford Street restaurants and nightlife in Osu, the diplomatic enclave of Cantonments nearby. Good security, English-speaking services, the most walkable part of Accra outside East Legon. Where most American expats and NGO workers begin and where many stay." },
+      { name: "East Legon & Trasacco Valley", desc: "The established residential communities on the eastern edge of the city — gated estates, newer construction, better security infrastructure, and the best international schools. More expensive than Osu and more car-dependent but with the living standards most Western expatriates are looking for." },
+      { name: "Dzorwulu & Abelemkpe", desc: "The residential neighborhoods between the city center and the airport — more affordable than East Legon, good everyday services, well-connected. Where professionals and mid-income expats tend to live. Genuine neighborhood character and lower prices than the premium zones." },
+    ],
     weatherMatch: [0],               // warm/sunny tropical year-round
     settingMatch: [3, 0, 4],         // city, beach/coast, small-town neighborhoods
     paceMatch: [3, 1, 2],            // social first, creative, relaxed
@@ -3707,6 +3872,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trips.html',
+    neighborhoods: [
+      { name: "Evora & Surrounds", desc: "The UNESCO-listed walled city and the most practical base in the Alentejo — Roman temple, medieval walls, the bone chapel, and a university city that keeps it genuinely alive year-round. The best restaurants in the region, good healthcare, and properties at a fraction of Lisbon prices." },
+      { name: "Comporta & Melides", desc: "The Atlantic coast that has quietly become one of the most fashionable rural addresses in Europe — rice paddies behind the dunes, horses on the beach, the best waves in Portugal outside of Nazare. Prices have risen dramatically as Lisbon money has arrived but remain below comparable Atlantic coast in France or Spain." },
+      { name: "Beja & Moura", desc: "The deep Alentejo south — the most affordable part of the region, genuinely rural, the best olive oil and cork landscapes in Portugal. For buyers who want the Alentejo countryside at prices that are still remarkable by any European standard. An hour from the Algarve, two hours from Lisbon." },
+    ],
     weatherMatch: [2, 0],            // mild/temperate, warm summers
     settingMatch: [5, 4, 2],         // countryside (primary), small town, open landscape
     paceMatch: [2, 1],               // slow/easy (primary), mixed
@@ -3733,6 +3903,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trips.html',
+    neighborhoods: [
+      { name: "Santiago de Compostela", desc: "The cathedral city at the end of the Camino — one of the great pilgrimage cities in the world, a UNESCO-listed old quarter, a genuine university city with a young population, and the most walkable small city in Spain. The best base for exploring Galicia and increasingly popular with buyers who want Spain at its most distinct." },
+      { name: "A Coruna & Vigo", desc: "The two main cities of the Galician coast — A Coruna has the glass-fronted buildings of the old city and one of the best swimming beaches of any Spanish city; Vigo is the largest city in the region with the best seafood market in Europe (the Mercado da Pedra). Both offer genuine urban amenities at prices well below Madrid or Barcelona." },
+      { name: "Rias Baixas Wine Country & Cambados", desc: "The estuary coast south of Vigo — Albariño wine country, the town of Cambados, the Rias themselves with their mussel and oyster rafts. One of the best pieces of coastal countryside in Europe and almost entirely unknown outside Spain. Properties are affordable and the quality of the local food and wine is extraordinary." },
+    ],
     weatherMatch: [2, 3],            // mild/temperate (primary — green, rainy, Atlantic), cool/crisp secondary
     settingMatch: [5, 0, 4],         // countryside, coastal, small town
     paceMatch: [2, 1, 3],            // slow/easy, mixed, social
@@ -3821,6 +3996,11 @@ const DESTINATIONS = [
     advisorPage: 'advisor-international.html',
     browseHomesPage: 'browse-homes-international.html',
     scoutingPage: 'scouting-trips.html',
+    neighborhoods: [
+      { name: "Sarlat-la-Caneda & Black Perigord", desc: "The medieval market town and the most touristed part of the Dordogne — the most intact medieval town center in France, the Saturday market, and the Vezere valley prehistoric cave paintings nearby. Tourist-heavy in July and August but genuinely peaceful from September to June." },
+      { name: "Bergerac & Perigord Blanc", desc: "The wine city and the whiter limestone country west of Sarlat — more affordable than the Black Perigord, genuine wine culture, the Bergerac airport with direct UK flights. Popular with British buyers for decades and now attracting American attention. The best entry-level market in the Dordogne region." },
+      { name: "Issigeac & Villages of the Purple Perigord", desc: "The medieval bastide village and the surrounding wine country bordering Lot-et-Garonne — the Sunday market at Issigeac is one of the best in southwest France. Properties here are among the most affordable in the entire Dordogne region with genuinely rural character." },
+    ],
     weatherMatch: [2, 1],            // mild/temperate, four seasons (warm summers, cool winters)
     settingMatch: [5, 4, 1],         // countryside (primary), small town, river
     paceMatch: [2, 1],               // slow/easy (primary), mixed
