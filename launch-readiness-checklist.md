@@ -201,34 +201,18 @@ I reviewed: `CLAUDE.md`, `RetireVibes_Product_Brief.md` (v1.2), `SESSION_HANDOFF
     - All 5 are also cross-referenced as thumbnails on each other's "Similar places" sections.
     - **Source guidance:** Unsplash (free, high-res) — search each city name. Target: landscape orientation, 1600×900px minimum, depicting the destination's signature landmark or landscape. Download and place in `/images/` at project root. Owner: **Natalie**. Effort: XS per image (search + download).
 
-65. **"How to find a home in [City]" — destination-specific real estate guides for all 132 destinations** — **INFRASTRUCTURE COMPLETE (2026-05-31).** Architecture agreed by PM, SEO, and CTO agents:
-    - **URL structure:** `/destinations/[slug]/real-estate/` (e.g., `/destinations/porto/real-estate/`)
-    - **Generator script:** `generate-real-estate.js` at project root — reads `destinations-data.js`, outputs `destinations/[slug]/real-estate/index.html` for all 132 destinations
-    - **Template model:** Porto page voice and structure (honest, specific, destination-first)
-    - **Per-page content:** neighborhoods (from destinations-data.js), price bands (from housing data), rent vs. buy section, legal/visa info (country-specific, ~15 legal templates covering all regions), correct affiliate listings platform per country
-    - **destination-detail.html updated** — `homesHref` now points to `destinations/${dest.id}/real-estate/` for all dynamic destinations
-    - **vercel.json updated** — 301 redirect: `/browse-homes-international.html` → `/destinations/porto/real-estate/`
-    - **301 for domestic:** `/browse-homes-domestic.html` covers Asheville + Sarasota (two destinations) — leave live until both have dedicated pages, then redirect to each respectively
-
-    **⚠️ ACTION REQUIRED — run the generator:**
-    ```
-    cd "/Users/nataliebarnes/Documents/Claude/Projects/Retire Vibes app"
-    node generate-real-estate.js
-    ```
-    This creates all 132 pages instantly. Then commit + push.
-
-    **⚠️ ACTION REQUIRED — update 4 static destination pages:**
-    In `destination-porto.html`, `destination-merida.html`, `destination-asheville.html`, `destination-sarasota.html` — find the real estate handoff card link and update it to the new URL:
-    - Porto: `href="destinations/porto/real-estate/"`
-    - Mérida: `href="destinations/merida/real-estate/"`
-    - Asheville: `href="destinations/asheville/real-estate/"`
-    - Sarasota: `href="destinations/sarasota/real-estate/"`
-
-    **Content depth:** Porto gets the full hand-crafted treatment (4 neighborhoods with EUR prices, detailed legal). All other destinations get real content (correct city, neighborhoods from data, price bands, appropriate legal template, correct listings platform). Content can be deepened destination-by-destination post-launch.
-
-    Owner: **Natalie (run script + commit) + content-editorial (deepen content over time)**. Effort: XS to ship infrastructure; L ongoing to deepen content per destination. Priority: **P0 — launch blocker** (confirmed 2026-05-31).
+~~65. **"How to find a home in [City]" — destination-specific real estate guides for all 132 destinations**~~ ✅ **DONE (2026-05-31)**
+    - 132 pages live at `/destinations/[slug]/real-estate/`
+    - All pages have: hero, 3 neighborhood cards with researched copy, price bands, rent vs buy, legal/visa section
+    - All 132 destinations have `neighborhoods` arrays in `destinations-data.js` with real copy
+    - `realEstate` data object in `destinations-data.js` for custom hero copy (Porto complete; others use template fallback)
+    - Generator: `generate-real-estate.js` at project root — run `node generate-real-estate.js` to regenerate all pages
+    - Advisor footer links point to `advisor-domestic.html`; international destinations route to `advisor-international.html`
+    - Content deepening ongoing: add `realEstate.heroSub` + `realEstate.neighborhoodsIntro` per destination over time
 
 ---
+
+68. ~~**Advisor page consolidation**~~ ✅ **DONE (2026-05-31)** — `advisor-domestic.html` is the canonical domestic advisor page (includes directory: NAPFA, Garrett, XY Planning, CFP Board). `advisor-international.html` is the canonical international page. `find-an-advisor.html` 301 redirects to `advisor-domestic.html`. No featured advisors in v1 — featured program is post-launch.
 
 ## Open questions only Natalie can answer
 
