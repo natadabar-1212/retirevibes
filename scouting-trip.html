@@ -598,7 +598,7 @@
 
 <!-- ─── HERO ─── -->
 <section class="hero">
-  <div class="hero-bg"></div>
+  <div id="hero-bg" class="hero-bg"></div>
   <div class="hero-inner">
     <div class="hero-kicker">Before you commit</div>
     <h1>Go live there <em>first</em>.</h1>
@@ -822,7 +822,7 @@
 
   <div class="stay-grid">
     <div class="stay-photo">
-      <div class="stay-photo-cap">A street in Porto, Portugal</div>
+      <div id="stay-photo-cap" class="stay-photo-cap">A street in Porto, Portugal</div>
     </div>
     <div class="stay-content">
       <div>
@@ -896,14 +896,27 @@
     </div>
     <div class="footer-links">
       <a href="destinations.html">Destinations</a>
-      <a href="homepage-mockup.html#how-it-works">How it works</a>
-      <a href="find-an-advisor.html">Find an advisor</a>
-      <a href="scouting-trips.html">Scouting trips</a>
       <a href="my-retirevibes.html">My RetireVibes</a>
     </div>
   </div>
   <p class="footer-meta">RetireVibes is not a financial advisor. Cost estimates are illustrative; for retirement planning, talk to a fiduciary. Accommodation and flight links go to third-party partners — we may earn a referral fee at no cost to you.</p>
 </footer>
+<script src="destinations-data.js"></script>
+<script>
+(function() {
+  if (typeof DESTINATIONS === 'undefined') return;
+  var params = new URLSearchParams(window.location.search);
+  var slug = params.get('id') || 'porto';
+  var dest = DESTINATIONS.find(function(d) { return d.id === slug; });
+  if (!dest) return;
+
+  var heroBg = document.getElementById('hero-bg');
+  if (heroBg && dest.photo) heroBg.style.backgroundImage = "url('" + dest.photo + "')";
+
+  var cap = document.getElementById('stay-photo-cap');
+  if (cap) cap.textContent = 'A street in ' + dest.name + ', ' + dest.country;
+})();
+</script>
 <script src="shared.js"></script>
 
 </body>

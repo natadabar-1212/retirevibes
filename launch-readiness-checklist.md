@@ -266,3 +266,7 @@ This is a real timeline for a solo founder, not a fantasy one. If any of the P0 
 - Add new items at the bottom of their tier; don't renumber.
 - Anything sitting >30 days with no movement: kill or defend at the weekly review.
 - Update **[VERIFY]** items as you confirm current state.
+
+## Backlog additions (2026-05-31)
+
+66. **Wire Expedia + Booking.com affiliate links on scouting page** — `scouting-trip.html` is personalized by `?id=` param but affiliate links are currently generic (Booking.com goes to Porto; Expedia goes to generic flights page). Once Natalie has affiliate accounts set up, swap in properly tracked affiliate URLs per destination. Expedia deep-link slugs (`/lp/flights/us/pt/porto` etc.) need to be verified per destination before adding to `destinations-data.js`. Owner: **affiliate-partnerships + cto**. Effort: S (once affiliate accounts exist).
