@@ -270,3 +270,20 @@ This is a real timeline for a solo founder, not a fantasy one. If any of the P0 
 ## Backlog additions (2026-05-31)
 
 66. **Wire Expedia + Booking.com affiliate links on scouting page** — `scouting-trip.html` is personalized by `?id=` param but affiliate links are currently generic (Booking.com goes to Porto; Expedia goes to generic flights page). Once Natalie has affiliate accounts set up, swap in properly tracked affiliate URLs per destination. Expedia deep-link slugs (`/lp/flights/us/pt/porto` etc.) need to be verified per destination before adding to `destinations-data.js`. Owner: **affiliate-partnerships + cto**. Effort: S (once affiliate accounts exist).
+
+## Updates 2026-06-01
+
+~~15. **Affiliate disclosure on every page with affiliate links**~~ ✅ **DONE (2026-06-01)**
+    - `scouting-trip-detail.html` — disclosures already present; updated from Booking.com to Expedia branding; internal variable names cleaned up
+    - `browse-homes-domestic.html` — false SmartAsset/Zillow/Redfin referral disclosure replaced with accurate no-relationship note
+    - `browse-homes-international.html` — false Idealista referral disclosure replaced with accurate no-relationship note
+    - `find-an-advisor.html` — false SmartAsset referral disclosure removed
+    - SmartAsset removed site-wide (privacy-policy.html, advisor-domestic.html, results-matcher.js, find-an-advisor.html) — no affiliate relationship exists
+
+~~66. **Wire Expedia + Booking.com affiliate links on scouting page**~~ ✅ **DONE (2026-06-01)**
+    - `scouting-trip-detail.html` uses `https://expedia.com/affiliate/hDqrJfC` for both stays and flights CTAs across all 132 destinations
+    - Booking.com removed entirely — Expedia Creator Program link used as single travel affiliate
+    - `browse-homes-international.html` Expedia link updated to affiliate link
+    - Impact marketplace application was declined (account under "Family Travel Inspo"); re-apply under RetireVibes post-launch for better tracking
+
+69. **Investigate SmartAsset affiliate program** — SmartAsset removed from site in v1 (no active affiliate relationship). Post-launch: evaluate SmartAsset's publisher program as a catch-all advisor referral once RetireVibes has traffic to offer. Owner: **affiliate-partnerships**. Effort: S to investigate.
