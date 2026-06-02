@@ -289,7 +289,6 @@
         <h4>Talk to a retirement advisor</h4>
         <p>${advisorDesc}</p>
         <a class="cta" href="${advisorLink}">Find an advisor →</a>
-        <span class="partner">via SmartAsset</span>
       </div>
       <div class="handoff-card">
         <div class="icon-wrap">
