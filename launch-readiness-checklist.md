@@ -100,7 +100,7 @@ I reviewed: `CLAUDE.md`, `RetireVibes_Product_Brief.md` (v1.2), `SESSION_HANDOFF
 
 ### Known data / matching issues
 
-28. **Geography index bug in quiz** (per `retirevibes_code_files.md`) — `questions.js` shows 6 geography options but `results-matcher.js` expects Asia at index 6. Currently Asia is being stored as index 5 (Australia/NZ). Fix: add `value: 6` to Asia option in `questions.js` and update click handler to use `o.value ?? i`. **[VERIFY]** this bug still exists. Owner: **product + cto**. Effort: XS to fix; matters for quiz accuracy.
+28. ~~**Geography index bug in quiz**~~ ✅ **ALREADY FIXED** — (per `retirevibes_code_files.md`) — `questions.js` shows 6 geography options but `results-matcher.js` expects Asia at index 6. Currently Asia is being stored as index 5 (Australia/NZ). Fix: add `value: 6` to Asia option in `questions.js` and update click handler to use `o.value ?? i`. **[VERIFY]** this bug still exists. Owner: **product + cto**. Effort: XS to fix; matters for quiz accuracy.
 
 29. **Australia/NZ destinations orphaned** — 10 AusNZ destinations in `destinations-data.js` but no quiz UI to select that region. Decision: restore the option or remove the destinations. Owner: **product**. Effort: XS.
 
