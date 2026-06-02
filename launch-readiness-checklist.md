@@ -41,7 +41,7 @@ I reviewed: `CLAUDE.md`, `RetireVibes_Product_Brief.md` (v1.2), `SESSION_HANDOFF
 
 6. ~~**SSL + DNS hygiene**~~ ✅ **DONE** — both domains green, auto-renewing cert.
 
-7. **CI/CD with preview environments** — Vercel auto-deploys on push to GitHub. Rollback procedure: not formally documented. Owner: **devops-security + cto**. Effort: S.
+7. ~~**CI/CD with preview environments**~~ ✅ **DONE (2026-06-01)** — Vercel auto-deploys on push to GitHub. Rollback procedure documented in `rollback-procedure.md` (Vercel dashboard promote, git revert, hard reset as last resort).
 
 ### Email + auth — DEFERRED TO V2
 
