@@ -57,7 +57,7 @@ I reviewed: `CLAUDE.md`, `RetireVibes_Product_Brief.md` (v1.2), `SESSION_HANDOFF
 
 16. ~~**Advisor directory disclosure**~~ ✅ **DONE** — fake advisors removed, directory cleaned up.
 
-17. **Cookie consent banner** — GA4 is confirmed (not Plausible). A lightweight banner is needed for EU visitors. Effort: S. Owner: **devops-security + legal-compliance**.
+17. ~~**Cookie consent banner**~~ ⏸ **DEFERRED — not needed for v1** — GDPR applies based on visitor location, not destinations mentioned on the site. RetireVibes audience is US-based; US privacy laws do not require a cookie banner for analytics. Revisit if GA4 shows >5% EU traffic post-launch.
 
 18. ~~**Email opt-in compliance**~~ ⏸ **DEFERRED** — no email capture in v1.
 
@@ -287,3 +287,4 @@ This is a real timeline for a solo founder, not a fantasy one. If any of the P0 
     - Impact marketplace application was declined (account under "Family Travel Inspo"); re-apply under RetireVibes post-launch for better tracking
 
 69. **Investigate SmartAsset affiliate program** — SmartAsset removed from site in v1 (no active affiliate relationship). Post-launch: evaluate SmartAsset's publisher program as a catch-all advisor referral once RetireVibes has traffic to offer. Owner: **affiliate-partnerships**. Effort: S to investigate.
+
