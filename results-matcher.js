@@ -279,7 +279,7 @@
     const homesPartner = top.isInternational ? 'via Idealista / local partner' : 'via Zillow / Realtor.com';
     const browseLink = top.browseHomesPage || (top.isInternational ? 'browse-homes-international.html' : 'browse-homes-domestic.html');
     const advisorLink = top.advisorPage || (top.isInternational ? 'advisor-international.html' : 'advisor-domestic.html');
-    const scoutLink = (top.id === 'porto') ? 'scouting-trip.html' : ('scouting-trip-detail.html?id=' + top.id);
+    const scoutLink = top.isInternational ? 'scouting-trip-detail.html?id=' + top.id : 'scouting-trip-domestic.html?city=' + top.id;
 
     return `
       <div class="handoff-card">
