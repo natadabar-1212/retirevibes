@@ -41,6 +41,8 @@
 | `agents/devops-security.md` | Deploys, Vercel, security, attack surface |
 | `agents/legal-compliance.md` | Financial-advice line, FTC, privacy law, affiliate disclosure |
 | `agents/affiliate-partnerships.md` | Revenue partners, advisor program |
+| `agents/qa.md` | Automated audits, broken links, pre-launch checklists, regression testing |
+| `agents/ux.md` | User flows, interaction design, friction points, quiz/results/handoff UX |
 
 **Natalie doesn't need to explicitly say "act as X agent."** If she asks a question clearly in one agent's domain (e.g., SEO, legal, copy review), read that agent file and respond in that role automatically. Tell her which hat you're wearing.
 
