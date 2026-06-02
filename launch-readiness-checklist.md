@@ -152,9 +152,9 @@ I reviewed: `CLAUDE.md`, `RetireVibes_Product_Brief.md` (v1.2), `SESSION_HANDOFF
 
 ## P2 — Strong nice-to-have. Launch without these if needed; add fast after.
 
-48. **Homepage destination cards clickable** (wrap in `<a>`). **[VERIFY]** — may already be fixed since SESSION_HANDOFF was written. Owner: **product**. Effort: XS.
+48. ~~**Homepage destination cards clickable**~~ ✅ **ALREADY DONE** — cards wrapped in dest-card-link anchors. (wrap in `<a>`). **[VERIFY]** — may already be fixed since SESSION_HANDOFF was written. Owner: **product**. Effort: XS.
 
-49. **Add "Learn more" links to #2 and #3 reveal cards** on results page (the deep-dive pages now exist). Owner: **product**. Effort: XS.
+49. ~~**Add "Learn more" links to #2 and #3 reveal cards**~~ ✅ **ALREADY DONE** — learnLink wired in buildCard() for all ranks. on results page (the deep-dive pages now exist). Owner: **product**. Effort: XS.
 
 50. **Newsletter signup somewhere visible** (homepage footer + Inspiration page when it exists). This is the retention engine — every day without an opt-in surface is leads lost. Owner: **marketing-lead + product**. Effort: S.
 
@@ -162,9 +162,9 @@ I reviewed: `CLAUDE.md`, `RetireVibes_Product_Brief.md` (v1.2), `SESSION_HANDOFF
 
 52. ~~**Featured advisor program**~~ ⏸ **DEFERRED POST-LAUNCH** — `find-an-advisor.html` will be informational only in v1. No featured/recommended advisors in first phase. Named advisors in the current file are placeholders and will be removed. Page educates users on what to look for and routes to SmartAsset as catch-all. Featured advisor program (paid placements) is a post-launch revenue initiative once real traffic exists to offer partners. Owner: **affiliate-partnerships** — post-launch.
 
-53. **Mérida scouting trip page** (a real one, not just a Booking link). Owner: **content-editorial**. Effort: M.
+53. ~~**Mérida scouting trip page**~~ ✅ **DONE (2026-06-01)** — routes to scouting-trip-detail.html?id=merida; real content in scouting-data.js. (a real one, not just a Booking link). Owner: **content-editorial**. Effort: M.
 
-54. **Domestic scouting trip pages** (Asheville, Sarasota) — `scouting-trip-domestic.html` exists; verify content is real and city-aware. Owner: **content-editorial + product**. Effort: S-M depending on current state.
+54. ~~**Domestic scouting trip pages**~~ ✅ **DONE** — scouting-trip-domestic.html has real Asheville + Sarasota content; all domestic destinations route correctly. (Asheville, Sarasota) — `scouting-trip-domestic.html` exists; verify content is real and city-aware. Owner: **content-editorial + product**. Effort: S-M depending on current state.
 
 55. **Inspiration Hub MVP** — even a 3-piece launch (one destination spotlight, one expat interview, one comparison piece) is enough to start the retention loop. Owner: **content-editorial + design-lead + product**. Effort: L.
 
