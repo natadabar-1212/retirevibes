@@ -258,9 +258,7 @@
   function getBookingLinks(dest) {
     const search = encodeURIComponent(dest.name + ', ' + dest.country);
     const bookingUrl = 'https://www.booking.com/searchresults.html?ss=' + search;
-    const flightsUrl = dest.isInternational
-      ? 'https://www.expedia.com/lp/flights/us/' + encodeURIComponent(dest.country.toLowerCase().replace(/\s+/g, '-')) + '/' + encodeURIComponent(dest.name.toLowerCase().replace(/\s+/g, '-'))
-      : 'https://www.expedia.com/Flights-Search?trip=roundtrip&leg1=from:United%20States,to:' + encodeURIComponent(dest.name);
+    const flightsUrl = 'https://expedia.com/affiliate/hDqrJfC';
     return { bookingUrl, flightsUrl };
   }
 
