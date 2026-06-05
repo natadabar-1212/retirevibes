@@ -986,7 +986,7 @@ function generatePage(dest) {
   <div class="nav-links">
     <a href="../../../../homepage-mockup.html#destinations">Destinations</a>
     <a href="../../../../my-retirevibes.html">My RetireVibes</a>
-    <a class="nav-cta" href="../../../../quiz.html">Find my RetireVibes →</a>
+    <a class="nav-cta" href="../../../../quiz.html">Find my RetireVibes</a>
   </div>
 </nav>
 
@@ -998,8 +998,8 @@ function generatePage(dest) {
     <h1>${heroH1}</h1>
     <p class="hero-sub">${heroSub}</p>
     <div class="hero-btns">
-      <a class="btn-primary" href="${listings.rent}" target="_blank" rel="noopener noreferrer">Rent in ${dest.name} <span aria-hidden="true">→</span></a>
-      <a class="btn-ghost" href="${listings.buy}" target="_blank" rel="noopener noreferrer">Buy in ${dest.name} <span aria-hidden="true">→</span>
+      <a class="btn-primary" href="${listings.rent}" target="_blank" rel="noopener noreferrer">Rent in ${dest.name}</a>
+      <a class="btn-ghost" href="${listings.buy}" target="_blank" rel="noopener noreferrer">Buy in ${dest.name}
       </a>
     </div>
 
@@ -1052,9 +1052,9 @@ ${rentVsBuyHTML}
     <h2 class="cta-headline">Ready to see what's<br>actually <em>available?</em></h2>
     <p class="cta-sub">${listings.note}</p>
     <div class="cta-btns">
-      <a class="btn-primary" href="${listings.rent}" target="_blank" rel="noopener noreferrer">Rent in ${dest.name} <span aria-hidden="true">→</span>
+      <a class="btn-primary" href="${listings.rent}" target="_blank" rel="noopener noreferrer">Rent in ${dest.name}
       </a>
-      <a class="btn-teal" href="${listings.buy}" target="_blank" rel="noopener noreferrer">Buy in ${dest.name} <span aria-hidden="true">→</span></a>
+      <a class="btn-teal" href="${listings.buy}" target="_blank" rel="noopener noreferrer">Buy in ${dest.name}</a>
       <a class="btn-outline" href="${scoutingPage}">Plan a scouting trip first</a>
     </div>
     <p class="cta-partner-note">We link to ${listings.platform} because it's the best tool for the job. We may earn a referral fee if you connect with a listing agent through our link. <a href="../../../../terms-of-service.html">Affiliate disclosure</a>.</p>
