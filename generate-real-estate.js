@@ -42,7 +42,10 @@ function fmtMo(n) { return fmt(n) + '/mo'; }
 
 /** Return slug: "Playa del Carmen" -> "playa-del-carmen" */
 function slug(name) {
-  return name.toLowerCase().replace(/[\s,]+/g, '-').replace(/[^a-z0-9-]/g, '');
+  return name.toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')  // strip diacritics (é→e, á→a, etc.)
+    .replace(/[\s,]+/g, '-')
+    .replace(/[^a-z0-9-]/g, '');
 }
 
 // ─── Listings platform by country ─────────────────────────────────────────────
@@ -79,8 +82,8 @@ function getListings(dest) {
     },
     'Mexico': {
       platform: 'Inmuebles24', note: "Inmuebles24 is Mexico's leading property search platform, with listings from individual owners and agencies.",
-      rent: `https://www.inmuebles24.com/propiedades-en-renta-en-${s}.html`,
-      buy:  `https://www.inmuebles24.com/propiedades-en-venta-en-${s}.html`,
+      rent: (() => { const state = slug((dest.region || '').split(',')[0]); return `https://www.inmuebles24.com/propiedades-en-renta-en-${s},${state}.html`; })(),
+      buy:  (() => { const state = slug((dest.region || '').split(',')[0]); return `https://www.inmuebles24.com/propiedades-en-venta-en-${s},${state}.html`; })(),
     },
     'Colombia': {
       platform: 'FincaRaíz', note: "FincaRaíz is Colombia's largest property platform, covering rentals and purchases in all major cities.",
