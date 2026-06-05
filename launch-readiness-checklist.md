@@ -281,3 +281,24 @@ This is a real timeline for a solo founder, not a fantasy one. If any of the P0 
 
 69. **Investigate SmartAsset affiliate program** — SmartAsset removed from site in v1 (no active affiliate relationship). Post-launch: evaluate SmartAsset's publisher program as a catch-all advisor referral once RetireVibes has traffic to offer. Owner: **affiliate-partnerships**. Effort: S to investigate.
 
+## Updates 2026-06-04
+
+**Batch 1 verifications (all found already done):**
+- ~~Item 23~~ ✅ **VERIFIED DONE** — Share modal fully implemented: copy link, mailto, native Web Share API, dynamic quote, Escape/outside-click dismiss.
+- ~~Item 24~~ ✅ **VERIFIED DONE** — No href="#" dead links remain on any destination page.
+- ~~Item 28~~ ✅ **VERIFIED DONE** — Geography bug confirmed fixed in quiz.js line 168 (`o.value !== undefined ? o.value : i`).
+- ~~Item 29~~ ✅ **VERIFIED DONE** — AusNZ in quiz UI (value:5); all 5 hero images confirmed in /images/.
+- ~~Item 67~~ ✅ **VERIFIED DONE** — All 5 Australia images confirmed: gold-coast.jpg, byron-bay.jpg, adelaide.jpg, hobart.jpg, cairns.jpg.
+
+**Batch 2 — new work shipped:**
+- ~~Item 38~~ ✅ **DONE (2026-06-04)** — Schema markup added: WebSite+Organization (homepage), WebApplication (quiz), FAQPage (advisor-international, advisor-domestic), Place dynamic injection (destination-detail.html).
+
+**Browser testing bugs found and fixed:**
+70. ~~**CSP blocking GA4/GTM image beacons**~~ ✅ **FIXED (2026-06-04)** — Added `https://www.googletagmanager.com` to `img-src` directive on 10 pages. GA4 events now fire correctly everywhere.
+71. ~~**"Browse all destinations" linking to homepage**~~ ✅ **FIXED (2026-06-04)** — Fixed on results-page-mockup.html, my-retirevibes.html, scouting-trip-detail.html. All now point to `/destinations/` (the directory).
+72. ~~**Mérida real estate 404 on "Buy in Mérida"**~~ ✅ **FIXED (2026-06-04)** — Slug function in generate-real-estate.js was stripping accented chars (Mérida → mrida). Fixed to use dest.id. Regenerated all 132 real estate pages.
+73. ~~**Arrows in button CTAs**~~ ✅ **FIXED (2026-06-04)** — Removed → from all button CTAs (btn-primary, btn-ghost, btn-teal, nav-cta) site-wide. Text links retain arrows. 151 files updated + real estate pages regenerated.
+
+**Repo hygiene:**
+74. ~~**Personal files in /images/**~~ ✅ **FIXED (2026-06-04)** — PDFs, skill files, personal HTML files removed from repo. .gitignore updated to block *.pdf, *.skill, *.zip. Global gitignore set on Natalie's Mac covering *.pdf, *.skill, *.zip, *.xlsx, *.docx, *.pages, *.numbers, *.key. Firefox download location fixed.
+75. ~~**CSP connect-src blocking GTM on real estate pages**~~ ✅ **FIXED (2026-06-04)** — generate-real-estate.js CSP was missing `https://www.googletagmanager.com` in both img-src and connect-src. Fixed in generator; all 132 real estate pages regenerated.
