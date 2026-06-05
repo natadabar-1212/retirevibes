@@ -26,3 +26,12 @@ package-lock.json
 
 # Session handoff (internal working doc)
 SESSION_HANDOFF.md
+
+# Personal / downloaded files — never commit these
+*.pdf
+*.skill
+*.zip
+
+# Non-image files that don't belong in /images/
+images/*.html
+images/*.js
