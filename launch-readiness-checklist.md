@@ -77,9 +77,9 @@ I reviewed: `CLAUDE.md`, `RetireVibes_Product_Brief.md` (v1.2), `SESSION_HANDOFF
 
 22. ~~**Asheville + Sarasota scouting handoffs**~~ ✅ **DONE (2026-05-26)** — both route to `scouting-trip-domestic.html?city=asheville` and `?city=sarasota`.
 
-23. **"Share my match" button on results page** — needs a working share modal (copy link / native share / mailto). Owner: **product + design-lead**. Effort: S.
+23. ~~**"Share my match" button on results page**~~ ✅ **DONE (2026-06-04)** — Verified fully implemented: copy link (clipboard API + fallback), mailto, native Web Share API (shown only when available), dynamic quote with actual match name, Escape + outside-click dismiss.
 
-24. **In-content resource links** (Medigap guide, D7 walkthrough, tax comparison, insurance risk guide) — currently `href="#"`. Either build the content, link to vetted external resources, or remove the links pre-launch. Owner: **content-editorial**. Effort: M-L depending on choice.
+24. ~~**In-content resource links**~~ ✅ **DONE (2026-06-04)** — Verified no `href="#"` dead links remain on any destination page. Already cleaned up.
 
 ### Missing pages
 
@@ -87,7 +87,7 @@ I reviewed: `CLAUDE.md`, `RetireVibes_Product_Brief.md` (v1.2), `SESSION_HANDOFF
 
 26. ~~**FAQ page**~~ ⏸ **DEFERRED to v1.1** — same as above. Account-management questions go away with email deferral; revisit once traffic reveals what users actually ask.
 
-27. **Resources page** — placeholder. Curated directory of external tools with transparent affiliate relationships. Owner: **content-editorial + affiliate-partnerships**. Effort: M.
+27. ~~**Resources page**~~ ⏸ **REMOVED FROM SCOPE** — affiliate resources surfaced contextually on destination/scouting pages. Not linked from anywhere; no user need confirmed. Cut permanently.
 
 ### Handoff card standardization
 
@@ -100,9 +100,9 @@ I reviewed: `CLAUDE.md`, `RetireVibes_Product_Brief.md` (v1.2), `SESSION_HANDOFF
 
 ### Known data / matching issues
 
-28. ~~**Geography index bug in quiz**~~ ✅ **ALREADY FIXED** — (per `retirevibes_code_files.md`) — `questions.js` shows 6 geography options but `results-matcher.js` expects Asia at index 6. Currently Asia is being stored as index 5 (Australia/NZ). Fix: add `value: 6` to Asia option in `questions.js` and update click handler to use `o.value ?? i`. **[VERIFY]** this bug still exists. Owner: **product + cto**. Effort: XS to fix; matters for quiz accuracy.
+28. ~~**Geography index bug in quiz**~~ ✅ **VERIFIED FIXED (2026-06-04)** — `quiz.js` line 168 uses `o.value !== undefined ? o.value : i`, so Asia correctly stores as index 6. Confirmed in code.
 
-29. **Australia/NZ destinations orphaned** — 10 AusNZ destinations in `destinations-data.js` but no quiz UI to select that region. Decision: restore the option or remove the destinations. Owner: **product**. Effort: XS.
+29. ~~**Australia/NZ destinations orphaned**~~ ✅ **RESOLVED (2026-06-04)** — AusNZ option IS in quiz UI (`value: 5`), images confirmed in `/images/` for all 5 pages. No action needed.
 
 ### Audit fixes from the May 4 report (P1/P2 items still likely open)
 
@@ -124,7 +124,7 @@ I reviewed: `CLAUDE.md`, `RetireVibes_Product_Brief.md` (v1.2), `SESSION_HANDOFF
 
 37. ~~**Sitemap.xml + robots.txt**~~ ✅ **DONE** — `sitemap.xml`, `robots.txt`, and `vercel.json` created. robots.txt disallows the template/shim files. vercel.json redirects `/` → `/homepage-mockup.html` and sets security headers site-wide.
 
-38. **Schema markup** on destination pages (`Place`, `FAQPage` where applicable, `Article` for content). Owner: **seo-aeo-specialist**. Effort: S.
+38. ~~**Schema markup**~~ ✅ **DONE (2026-06-04)** — `WebSite`+`Organization` on homepage; `WebApplication` on quiz.html; `FAQPage` on advisor-international.html and advisor-domestic.html; `Place` dynamically injected on destination-detail.html per destination.
 
 39. ~~**Fix the quiz URL**~~ ✅ **DONE** — canonical URL is now `/quiz.html`; old `/mockups/vibe-quiz.html` redirects to it.
 
@@ -156,7 +156,7 @@ I reviewed: `CLAUDE.md`, `RetireVibes_Product_Brief.md` (v1.2), `SESSION_HANDOFF
 
 49. ~~**Add "Learn more" links to #2 and #3 reveal cards**~~ ✅ **ALREADY DONE** — learnLink wired in buildCard() for all ranks. on results page (the deep-dive pages now exist). Owner: **product**. Effort: XS.
 
-50. **Newsletter signup somewhere visible** (homepage footer + Inspiration page when it exists). This is the retention engine — every day without an opt-in surface is leads lost. Owner: **marketing-lead + product**. Effort: S.
+50. ~~**Newsletter signup somewhere visible**~~ ⏸ **REMOVED FROM SCOPE** — no newsletter in v1. Email collection deferred to v2 with attorney review. Revisit when Inspiration Hub is built.
 
 51. **Welcome email when an account is created** — first impression. Owner: **content-editorial + brand-copy-editor + cto** (email service). Effort: S to draft; M to wire.
 
@@ -192,14 +192,7 @@ I reviewed: `CLAUDE.md`, `RetireVibes_Product_Brief.md` (v1.2), `SESSION_HANDOFF
 
 66. **Audit and validate Canadian destination pages** — `destination-canmore.html`, `destination-kelowna.html`, `destination-niagara-on-the-lake.html`, `destination-vancouver.html`, `destination-victoria.html` were created as static files. Now that the strategy is confirmed (individual researched pages for all destinations — see item 57), these are the right format. **Action needed:** verify each page has genuinely researched, location-specific content (not placeholder text), matches the Porto template structure, and that its data aligns with `destinations-data.js`. Replace any stub sections before linking them in the site. Owner: **content-editorial**. Effort: S per page to audit; M per page to rewrite if content is thin.
 
-67. **Hero images for 5 new Australia destination pages** — Created 2026-05-30. The following pages reference local image files that don't exist yet and will show blank hero sections until images are in place:
-    - `images/gold-coast.jpg` — used by `destination-gold-coast.html` (hero + similar-places thumbnail)
-    - `images/byron-bay.jpg` — used by `destination-byron-bay.html` (hero + similar-places thumbnail)
-    - `images/adelaide.jpg` — used by `destination-adelaide.html` (hero + similar-places thumbnail)
-    - `images/hobart.jpg` — used by `destination-hobart.html` (hero + similar-places thumbnail)
-    - `images/cairns.jpg` — used by `destination-cairns.html` (hero + similar-places thumbnail)
-    - All 5 are also cross-referenced as thumbnails on each other's "Similar places" sections.
-    - **Source guidance:** Unsplash (free, high-res) — search each city name. Target: landscape orientation, 1600×900px minimum, depicting the destination's signature landmark or landscape. Download and place in `/images/` at project root. Owner: **Natalie**. Effort: XS per image (search + download).
+67. ~~**Hero images for 5 new Australia destination pages**~~ ✅ **DONE (2026-06-04)** — All 5 images confirmed present in `/images/`: gold-coast.jpg, byron-bay.jpg, adelaide.jpg, hobart.jpg, cairns.jpg.
 
 ~~65. **"How to find a home in [City]" — destination-specific real estate guides for all 132 destinations**~~ ✅ **DONE (2026-05-31)**
     - 132 pages live at `/destinations/[slug]/real-estate/`

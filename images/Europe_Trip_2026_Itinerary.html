@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barnes Family · Europe 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F7F3EE;
+    --warm-white: #FDFBF8;
+    --ink: #1A1714;
+    --muted: #7A7068;
+    --accent-gold: #C4A35A;
+    --accent-terracotta: #C4674A;
+    --accent-sage: #7A9E87;
+    --accent-blue: #4A6E8A;
+    --border: #E2DAD0;
+    --italy: #C4674A;
+    --spain: #C4A35A;
+    --portugal: #4A6E8A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  /* COVER */
+  .cover {
+    background: var(--ink);
+    color: var(--cream);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse at 20% 50%, rgba(196,163,90,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(74,110,138,0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at 60% 80%, rgba(196,103,74,0.08) 0%, transparent 50%);
+  }
+
+  .cover-route {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    margin-bottom: 32px;
+    position: relative;
+  }
+
+  .cover h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(52px, 8vw, 96px);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    position: relative;
+  }
+
+  .cover h1 em {
+    font-style: italic;
+    color: var(--accent-gold);
+  }
+
+  .cover-sub {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(247,243,238,0.5);
+    margin-bottom: 60px;
+    position: relative;
+  }
+
+  .cover-cities {
+    display: flex;
+    gap: 0;
+    align-items: center;
+    position: relative;
+  }
+
+  .cover-city {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(247,243,238,0.6);
+    padding: 0 20px;
+  }
+
+  .cover-divider {
+    width: 20px;
+    height: 1px;
+    background: var(--accent-gold);
+    opacity: 0.4;
+  }
+
+  .cover-dates {
+    margin-top: 20px;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: rgba(247,243,238,0.35);
+    text-transform: uppercase;
+    position: relative;
+  }
+
+  /* MAIN CONTENT */
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 40px 80px;
+  }
+
+  /* SECTION HEADERS */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 70px 0 40px;
+  }
+
+  .section-flag {
+    font-size: 32px;
+    flex-shrink: 0;
+  }
+
+  .section-title-block {}
+
+  .section-country {
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+
+  .section-city {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+
+  .section-city.italy { color: var(--italy); }
+  .section-city.spain { color: var(--spain); }
+  .section-city.portugal { color: var(--portugal); }
+
+  .section-dates {
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--muted);
+    margin-top: 4px;
+    letter-spacing: 0.05em;
+  }
+
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* DAY CARDS */
+  .day {
+    margin-bottom: 2px;
+    border: 1px solid var(--border);
+    background: var(--warm-white);
+    overflow: hidden;
+  }
+
+  .day-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding: 20px 28px 16px;
+    border-bottom: 1px solid var(--border);
+    background: var(--warm-white);
+  }
+
+  .day-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--ink);
+  }
+
+  .day-date {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .day-body {
+    padding: 20px 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* EVENT ROWS */
+  .event {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .event-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .event-icon.flight { background: rgba(74,110,138,0.1); }
+  .event-icon.hotel { background: rgba(196,163,90,0.1); }
+  .event-icon.food { background: rgba(196,103,74,0.1); }
+  .event-icon.activity { background: rgba(122,158,135,0.1); }
+  .event-icon.train { background: rgba(74,110,138,0.1); }
+  .event-icon.car { background: rgba(122,158,135,0.1); }
+  .event-icon.lounge { background: rgba(196,163,90,0.1); }
+  .event-icon.note { background: rgba(196,103,74,0.08); }
+
+  .event-content {}
+
+  .event-title {
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+
+  .event-detail {
+    font-size: 12.5px;
+    color: var(--muted);
+    margin-top: 2px;
+    line-height: 1.5;
+  }
+
+  .event-detail strong {
+    color: var(--ink);
+    font-weight: 400;
+  }
+
+  .tag {
+    display: inline-block;
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  .tag.confirmed { background: rgba(122,158,135,0.15); color: var(--accent-sage); }
+  .tag.warning { background: rgba(196,103,74,0.12); color: var(--accent-terracotta); }
+  .tag.book { background: rgba(196,163,90,0.15); color: var(--accent-gold); }
+  .tag.flexible { background: rgba(122,122,122,0.1); color: var(--muted); }
+
+  .alert {
+    background: rgba(196,103,74,0.07);
+    border-left: 3px solid var(--accent-terracotta);
+    padding: 10px 14px;
+    border-radius: 0 4px 4px 0;
+    font-size: 12px;
+    color: var(--accent-terracotta);
+    margin-top: 4px;
+  }
+
+  /* DIVIDER between days */
+  .day-divider {
+    height: 8px;
+  }
+
+  /* TRANSIT BLOCK */
+  .transit {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 28px 40px;
+    margin: 40px 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .transit-from, .transit-to {
+    flex: 1;
+  }
+
+  .transit-city {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 300;
+  }
+
+  .transit-time {
+    font-size: 11px;
+    color: rgba(247,243,238,0.5);
+    letter-spacing: 0.1em;
+    margin-top: 2px;
+  }
+
+  .transit-arrow {
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .transit-arrow-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--accent-gold);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+  }
+
+  .transit-arrow-line::before,
+  .transit-arrow-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--accent-gold);
+    opacity: 0.4;
+  }
+
+  .transit-detail {
+    font-size: 10px;
+    color: rgba(247,243,238,0.4);
+    text-align: center;
+    margin-top: 4px;
+    letter-spacing: 0.08em;
+  }
+
+  /* QUICK REF */
+  .quick-ref {
+    margin-top: 70px;
+    padding-top: 50px;
+    border-top: 1px solid var(--border);
+  }
+
+  .quick-ref-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 300;
+    margin-bottom: 32px;
+  }
+
+  .ref-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .ref-card {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    padding: 20px 24px;
+  }
+
+  .ref-card-title {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+
+  .ref-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+  }
+
+  .ref-item:last-child { border-bottom: none; }
+
+  .ref-item-label { color: var(--ink); font-weight: 400; }
+  .ref-item-value { color: var(--muted); font-size: 12px; text-align: right; max-width: 55%; }
+
+  .ref-item-value.mono {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    color: var(--ink);
+  }
+
+  /* CANCELLATION BOX */
+  .cancel-box {
+    background: #fff8f6;
+    border: 1px solid rgba(196,103,74,0.3);
+    padding: 24px 28px;
+    margin-top: 16px;
+  }
+
+  .cancel-box-title {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-terracotta);
+    margin-bottom: 16px;
+  }
+
+  .cancel-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(196,103,74,0.15);
+    font-size: 13.5px;
+    gap: 20px;
+  }
+
+  .cancel-item:last-child { border-bottom: none; }
+  
+  .cancel-item span:first-child {
+    color: var(--ink);
+    font-weight: 400;
+    flex: 1;
+  }
+  
+  .cancel-item span:last-child {
+    color: var(--accent-terracotta);
+    font-weight: 500;
+    font-size: 13px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  /* LINKS */
+  .event-link {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--accent-blue);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(74,110,138,0.3);
+    margin-top: 4px;
+    transition: border-color 0.2s;
+  }
+  .event-link:hover { border-color: var(--accent-blue); }
+  .event-link + .event-link { margin-left: 12px; }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 60px 40px;
+    background: var(--ink);
+    color: rgba(247,243,238,0.3);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .footer em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--accent-gold);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  @media print {
+    .cover { min-height: auto; padding: 60px 40px; }
+    body { font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-route">Barnes Family · Summer 2026</div>
+  <h1>A European<br><em>Journey</em></h1>
+  <div class="cover-sub">Florence · Madrid · Porto · Lisbon</div>
+  <div class="cover-cities">
+    <span class="cover-city">Florence</span>
+    <div class="cover-divider"></div>
+    <span class="cover-city">Madrid</span>
+    <div class="cover-divider"></div>
+    <span class="cover-city">Porto</span>
+    <div class="cover-divider"></div>
+    <span class="cover-city">Lisbon</span>
+  </div>
+  <div class="cover-dates">June 10 – 24, 2026 · Family of 4 + Guest</div>
+</div>
+
+<!-- MAIN -->
+<div class="container">
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- NEW YORK LAYOVER -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="section-header">
+    <div class="section-flag">🗽</div>
+    <div class="section-title-block">
+      <div class="section-country">United States</div>
+      <div class="section-city" style="color: var(--ink);">New York</div>
+      <div class="section-dates">June 10 · JFK Layover</div>
+    </div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="day">
+    <div class="day-header">
+      <div class="day-label">Wednesday, June 10</div>
+      <div class="day-date">Departure Day</div>
+    </div>
+    <div class="day-body">
+      <div class="event">
+        <div class="event-icon flight">✈️</div>
+        <div class="event-content">
+          <div class="event-title">AA 2187 · Miami → Charlotte</div>
+          <div class="event-detail">Departs MIA <strong>6:20 AM</strong> → Arrives CLT 8:34 AM · Economy · Seats 11A–D</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon flight">✈️</div>
+        <div class="event-content">
+          <div class="event-title">AA 374 · Charlotte → New York JFK</div>
+          <div class="event-detail">Departs CLT <strong>9:25 AM</strong> → Arrives JFK 11:27 AM · Economy · Seats 22A–D · Confirmation: <strong>KFNJCZ</strong></div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon lounge">🛋️</div>
+        <div class="event-content">
+          <div class="event-title">Lounge · Terminal 1, JFK</div>
+          <div class="event-detail"><strong>All 4 family members have their own Priority Pass</strong> — free entry for everyone ✅ · Mom pays ~$35 guest fee added to one of your accounts · Take AirTrain landside from T8 → T1, collect Brussels Airlines boarding passes, then clear T1 security before heading to lounge</div>
+          <div class="event-detail" style="margin-top:6px"><strong>🥇 Primary: Air France Lounge</strong> (Gate 1, far end of concourse) · Nicest lounge — 2 floors, great buffet, Clarins spa, skyline views · <strong>Must arrive before 2:30 PM</strong> — access often restricted 2:30–9:00 PM due to capacity · Aim to be in lounge by 12:30–1:00 PM</div>
+          <div class="event-detail" style="margin-top:6px"><strong>🥈 Backup: Lufthansa Business Lounge</strong> (Gates 2–3) · Less crowded, no afternoon capacity blackout reported · Open 9:00 AM–12:00 AM · Use this if Air France turns you away</div>
+          <div class="alert">⚠️ Once airside in T1 you cannot move to another terminal — stay in T1 lounges until boarding</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon flight">✈️</div>
+        <div class="event-content">
+          <div class="event-title">Brussels Airlines SN 502 · JFK → Brussels<span class="tag confirmed">Terminal 1</span></div>
+          <div class="event-detail">Departs JFK <strong>6:10 PM</strong> → Arrives BRU 7:40 AM (+1 day) · Premium Economy · 10h 50m</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon flight">✈️</div>
+        <div class="event-content">
+          <div class="event-title">Brussels Airlines SN 3139 · Brussels → Florence</div>
+          <div class="event-detail">Departs BRU <strong>9:10 AM</strong> → Arrives FLR 11:00 AM · Economy · 1h 50m · Layover in Brussels: 1h 30m · ⚠️ Layover is short — skip lounge, head straight to gate. Note: Brussels lounge (THE LOFT) is under renovation until Summer 2026.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- FLORENCE -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="section-header">
+    <div class="section-flag">🇮🇹</div>
+    <div class="section-title-block">
+      <div class="section-country">Italy</div>
+      <div class="section-city italy">Florence</div>
+      <div class="section-dates">June 11 – 14 · Luxury Villa in the Florentine Hills</div>
+    </div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="day">
+    <div class="day-header">
+      <div class="day-label">Thursday, June 11</div>
+      <div class="day-date">Arrival Day</div>
+    </div>
+    <div class="day-body">
+      <div class="event">
+        <div class="event-icon flight">✈️</div>
+        <div class="event-content">
+          <div class="event-title">Arrive Florence (FLR) · 11:00 AM</div>
+          <div class="event-detail">Collect luggage · Pick up rental car at airport</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon food">🥪</div>
+        <div class="event-content">
+          <div class="event-title">Lunch · All'Antico Vinaio</div>
+          <div class="event-detail">Via dei Neri 65, Florence · Famous Florentine sandwiches · Stop en route from airport to villa</div>
+          <a href="https://www.allanticovinaio.com" target="_blank" class="event-link">🔗 Website</a>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon car">🚗</div>
+        <div class="event-content">
+          <div class="event-title">Drive to Villa · Tuscany</div>
+          <div class="event-detail">Via Delle Cinque Vie, 63, Florence · Check-in from <strong>4:00 PM</strong></div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon hotel">🏡</div>
+        <div class="event-content">
+          <div class="event-title">Luxury Villa in the Florentine Hills<span class="tag confirmed">Confirmed</span></div>
+          <div class="event-detail">Vrbo · Reservation: <strong>HA-3CFFCX</strong> · No front desk — contact host ahead of time · Free cancellation until May 28</div>
+          <a href="https://www.vrbo.com/1137514ha" target="_blank" class="event-link">🔗 Vrbo Property Listing (HA-3CFFCX)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-divider"></div>
+
+  <div class="day">
+    <div class="day-header">
+      <div class="day-label">Friday, June 12</div>
+      <div class="day-date">Family Day in Tuscany</div>
+    </div>
+    <div class="day-body">
+      <div class="event">
+        <div class="event-icon activity">🌿</div>
+        <div class="event-content">
+          <div class="event-title">Family Day · Tuscany</div>
+          <div class="event-detail">Relaxed day with family in the Tuscan countryside · Meals with family at villa and surroundings</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-divider"></div>
+
+  <div class="day">
+    <div class="day-header">
+      <div class="day-label">Saturday, June 13</div>
+      <div class="day-date">Wedding Day</div>
+    </div>
+    <div class="day-body">
+      <div class="event">
+        <div class="event-icon activity">💐</div>
+        <div class="event-content">
+          <div class="event-title">Wedding · Tuscany</div>
+          <div class="event-detail">Wedding celebration · Dining at venue with family</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-divider"></div>
+
+  <div class="day">
+    <div class="day-header">
+      <div class="day-label">Sunday, June 14</div>
+      <div class="day-date">Departure to Madrid</div>
+    </div>
+    <div class="day-body">
+      <div class="event">
+        <div class="event-icon hotel">🏡</div>
+        <div class="event-content">
+          <div class="event-title">Villa Checkout · 11:00 AM</div>
+          <div class="event-detail">Return rental car at Florence airport · Mom stays in Florence with family</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon lounge">🛋️</div>
+        <div class="event-content">
+          <div class="event-title">Lounge · Florence Airport (FLR)</div>
+          <div class="event-detail"><strong>VIP Club Lounge</strong> · 1st Floor airside after security · Open 5:00 AM–9:00 PM · All 4 family members free via Priority Pass ✅ · Small but comfortable — a quiet retreat before your 12:30 PM flight · No guest fee needed (mom stays in Florence)</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon flight">✈️</div>
+        <div class="event-content">
+          <div class="event-title">Vueling VY1496 · Florence → Madrid</div>
+          <div class="event-detail">Departs FLR <strong>12:30 PM</strong> → Arrives MAD 3:10 PM · Direct · Economy · 2h 40m · Booking ref: <strong>EHT8WP</strong></div>
+          <a href="https://www.vueling.com/en" target="_blank" class="event-link">🔗 Vueling Website</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- MADRID -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="section-header">
+    <div class="section-flag">🇪🇸</div>
+    <div class="section-title-block">
+      <div class="section-country">Spain</div>
+      <div class="section-city spain">Madrid</div>
+      <div class="section-dates">June 14 – 17 · Hotel Regina, Alcalá 19</div>
+    </div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="day">
+    <div class="day-header">
+      <div class="day-label">Sunday, June 14</div>
+      <div class="day-date">Arrival Day</div>
+    </div>
+    <div class="day-body">
+      <div class="event">
+        <div class="event-icon flight">✈️</div>
+        <div class="event-content">
+          <div class="event-title">Arrive Madrid · 3:10 PM</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon hotel">🏨</div>
+        <div class="event-content">
+          <div class="event-title">Hotel Regina<span class="tag confirmed">Confirmed</span></div>
+          <div class="event-detail">Check-in from <strong>2:00 PM</strong> · Alcalá 19, Madrid City Center · Booking: <strong>5138884080</strong> · PIN: 2326 · Breakfast included · 2 Superior Connected rooms · Free cancellation until June 13</div>
+          <a href="https://www.hotelreginamadrid.com/en/" target="_blank" class="event-link">🔗 Hotel Website</a>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon food">🍽️</div>
+        <div class="event-content">
+          <div class="event-title">Dinner · Cadaqués<span class="tag confirmed">7:00 PM</span></div>
+          <div class="event-detail">Reservation confirmed</div>
+          <a href="https://restaurantecadaques.com/en/" target="_blank" class="event-link">🔗 Website</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-divider"></div>
+
+  <div class="day">
+    <div class="day-header">
+      <div class="day-label">Monday, June 15</div>
+      <div class="day-date">Bernabéu + Retiro Park</div>
+    </div>
+    <div class="day-body">
+      <div class="event">
+        <div class="event-icon activity">⚽</div>
+        <div class="event-content">
+          <div class="event-title">Santiago Bernabéu Stadium Tour<span class="tag book">Book Online</span></div>
+          <div class="event-detail">Morning · ~2 hours · Adults €15, under 14 €12 · Book in advance — sells out in summer · Includes trophy room, museum, panoramic views</div>
+          <a href="https://www.realmadrid.com/sites/en/tour-bernabeu" target="_blank" class="event-link">🔗 Book Official Tour</a>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon food">🥗</div>
+        <div class="event-content">
+          <div class="event-title">Lunch · Magasand</div>
+          <div class="event-detail">Calle Columela, 4 · Creative sandwiches and salads · Grab to go and picnic in Retiro Park</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon activity">🌳</div>
+        <div class="event-content">
+          <div class="event-title">Retiro Park</div>
+          <div class="event-detail">Afternoon · Rent a rowboat on the lake · Stroll the gardens and Crystal Palace</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon food">🍽️</div>
+        <div class="event-content">
+          <div class="event-title">Dinner · Botín<span class="tag confirmed">8:00 PM</span></div>
+          <div class="event-detail">Calle de Cuchilleros 17 · Reservation confirmed</div>
+          <div class="alert">⚠️ €100 no-show fee if cancelled less than 12 hours before. Do not miss this reservation.</div>
+          <a href="https://botin.es/en/" target="_blank" class="event-link">🔗 Website</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-divider"></div>
+
+  <div class="day">
+    <div class="day-header">
+      <div class="day-label">Tuesday, June 16</div>
+      <div class="day-date">Prado + San Miguel + Gran Vía</div>
+    </div>
+    <div class="day-body">
+      <div class="event">
+        <div class="event-icon activity">🎨</div>
+        <div class="event-content">
+          <div class="event-title">Prado Museum<span class="tag book">Book Online</span></div>
+          <div class="event-detail">Morning · Opens 10:00 AM · ~1.5–2 hours · Book in advance — sells out in June · One of the world's greatest art museums</div>
+          <a href="https://www.museodelprado.es/en/visit-the-prado/online-tickets" target="_blank" class="event-link">🔗 Book Tickets</a>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon food">🍢</div>
+        <div class="event-content">
+          <div class="event-title">Lunch · Mercado de San Miguel</div>
+          <div class="event-detail">Plaza de San Miguel · Midday · Madrid's famous gourmet market · Tapas, fresh seafood, jamón, wine</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon activity">🛍️</div>
+        <div class="event-content">
+          <div class="event-title">Shopping · Gran Vía</div>
+          <div class="event-detail">Afternoon · Zara, Mango, H&M, El Corte Inglés · Madrid's iconic main shopping street</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon food">🍽️</div>
+        <div class="event-content">
+          <div class="event-title">Dinner · Ten con Ten<span class="tag confirmed">7:30 PM</span></div>
+          <div class="event-detail">Reservation confirmed</div>
+          <a href="https://restaurantetenconten.com/?lang=en" target="_blank" class="event-link">🔗 Website</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-divider"></div>
+
+  <div class="day">
+    <div class="day-header">
+      <div class="day-label">Wednesday, June 17</div>
+      <div class="day-date">Flexible Morning · Departure to Porto</div>
+    </div>
+    <div class="day-body">
+      <div class="event">
+        <div class="event-icon activity">☕</div>
+        <div class="event-content">
+          <div class="event-title">Flexible Morning</div>
+          <div class="event-detail">Revisit Mercado de San Miguel · Wander the city · Or relax before travel day</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon hotel">🏨</div>
+        <div class="event-content">
+          <div class="event-title">Hotel Regina Checkout · 12:00 PM</div>
+          <div class="event-detail">Head to airport by <strong>2:30–3:00 PM</strong></div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon lounge">🛋️</div>
+        <div class="event-content">
+          <div class="event-title">Lounge · Madrid Barajas (MAD)</div>
+          <div class="event-detail"><strong>⚠️ Cibeles VIP Lounge (Terminal 1)</strong> is Priority Pass accessible but reserved for <strong>non-Schengen flights only</strong> · Your Ryanair flight to Porto is within the Schengen zone — you may not be able to access the lounge · Confirm at the airport when you check in · If denied, head to the gate and grab food/drinks in the terminal</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon flight">✈️</div>
+        <div class="event-content">
+          <div class="event-title">Ryanair FR5482 · Madrid → Porto</div>
+          <div class="event-detail">Departs MAD <strong>5:30 PM</strong> → Arrives OPO 5:50 PM · Direct · Economy · 1h 20m · Booking ref: <strong>K7J39R</strong></div>
+          <a href="https://www.ryanair.com/en/us" target="_blank" class="event-link">🔗 Ryanair Website</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- PORTO -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="section-header">
+    <div class="section-flag">🇵🇹</div>
+    <div class="section-title-block">
+      <div class="section-country">Portugal</div>
+      <div class="section-city portugal">Porto</div>
+      <div class="section-dates">June 17 – 20 · Porto River Hotel, Rua dos Canastreiros 50</div>
+    </div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="day">
+    <div class="day-header">
+      <div class="day-label">Wednesday, June 17</div>
+      <div class="day-date">Arrival Day</div>
+    </div>
+    <div class="day-body">
+      <div class="event">
+        <div class="event-icon flight">✈️</div>
+        <div class="event-content">
+          <div class="event-title">Arrive Porto (OPO) · 5:50 PM</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon hotel">🏨</div>
+        <div class="event-content">
+          <div class="event-title">Porto River Hotel<span class="tag confirmed">Confirmed</span></div>
+          <div class="event-detail">Check-in from <strong>3:00 PM</strong> · 2-Bedroom Apartment, River View · Confirmation: <strong>3959928547</strong> · Continental breakfast included · First payment ~€525 due May 28</div>
+          <a href="https://www.portoriver.pt/" target="_blank" class="event-link">🔗 Hotel Website</a>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon food">🍽️</div>
+        <div class="event-content">
+          <div class="event-title">Dinner · Taberna Filha da Mãe Preta</div>
+          <div class="event-detail">Rua dos Canastreiros 26 · Right on your street · Fresh seafood, octopus rice · Rated 4.8 ⭐</div>
+          <a href="https://www.tripadvisor.com/Restaurant_Review-g189180-d7648404-Reviews-Taberna_Filha_da_Mae_Preta-Porto_Porto_District_Northern_Portugal.html" target="_blank" class="event-link">🔗 Tripadvisor</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-divider"></div>
+
+  <div class="day">
+    <div class="day-header">
+      <div class="day-label">Thursday, June 18</div>
+      <div class="day-date">Wine Caves + Livraria Lello + Shopping</div>
+    </div>
+    <div class="day-body">
+      <div class="event">
+        <div class="event-icon activity">🍷</div>
+        <div class="event-content">
+          <div class="event-title">Graham's Lodge Wine Cave Tour<span class="tag book">Book in Advance</span></div>
+          <div class="event-detail">Morning · Vila Nova de Gaia · Walk across Dom Luís I Bridge · Guided tour with port wine tasting · ~2 hours</div>
+          <a href="https://www.grahams-port.com/visit-us/lodge-tours/" target="_blank" class="event-link">🔗 Book Tour</a>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon food">🍽️</div>
+        <div class="event-content">
+          <div class="event-title">Lunch · Vinum at Graham's Lodge<span class="tag book">Reserve Ahead</span></div>
+          <div class="event-detail">On-site restaurant at Graham's Lodge · Stunning panoramic views over the Douro River and Porto skyline</div>
+          <a href="https://www.grahams-port.com/vinum/" target="_blank" class="event-link">🔗 Reserve at Vinum</a>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon activity">📚</div>
+        <div class="event-content">
+          <div class="event-title">Livraria Lello Bookshop<span class="tag book">Book Timed Entry</span></div>
+          <div class="event-detail">Afternoon · One of the most beautiful bookshops in the world · Inspired Harry Potter · Book at lellolivros.com — sells out fast in June</div>
+          <a href="https://www.livrarialello.pt/en/visit-us" target="_blank" class="event-link">🔗 Book Timed Entry</a>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon activity">🛍️</div>
+        <div class="event-content">
+          <div class="event-title">Shopping · Rua de Santa Catarina</div>
+          <div class="event-detail">Late afternoon · Porto's main shopping street · If time: quick stop at São Bento train station to see the famous azulejo tile panels</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon food">🍽️</div>
+        <div class="event-content">
+          <div class="event-title">Dinner · Pata Gorda<span class="tag confirmed">7:30 PM</span></div>
+          <div class="event-detail">Rua Dr. Melo Leote 13 · ~10 min Uber/Bolt from hotel · Innovative Portuguese cuisine · Monthly changing handwritten menu · Intimate open kitchen · Rated 4.7 ⭐ · ~€40 per person · Reservation confirmed</div>
+          <a href="https://www.thefork.com/restaurant/pata-gorda-r812904" target="_blank" class="event-link">🔗 TheFork</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-divider"></div>
+
+  <div class="day">
+    <div class="day-header">
+      <div class="day-label">Friday, June 19</div>
+      <div class="day-date">Mercado do Bolhão + Ribeira</div>
+    </div>
+    <div class="day-body">
+      <div class="event">
+        <div class="event-icon activity">🛒</div>
+        <div class="event-content">
+          <div class="event-title">Mercado do Bolhão</div>
+          <div class="event-detail">Morning · Porto's famous historic market, recently renovated · Browse local produce, fresh seafood, Portuguese snacks and souvenirs</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon food">🍽️</div>
+        <div class="event-content">
+          <div class="event-title">Lunch · Mercado do Bolhão</div>
+          <div class="event-detail">Eat at the market stalls · Try traditional Portuguese snacks and local specialties</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon activity">🌊</div>
+        <div class="event-content">
+          <div class="event-title">Explore Ribeira Waterfront</div>
+          <div class="event-detail">Afternoon · Walk along the Douro River · Cross Dom Luís I Bridge for views · Relax at a riverside café</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon food">🍽️</div>
+        <div class="event-content">
+          <div class="event-title">Dinner · Federica Ribeira<span class="tag confirmed">Reserved</span></div>
+          <div class="event-detail">Rua de Cima do Muro 22 · 2 min walk from hotel · Beautiful Douro River views · Italian cuisine, fresh pasta and pizza · Rated 4.8 ⭐ · Reserve in advance!</div>
+          <a href="https://www.federica.pt/" target="_blank" class="event-link">🔗 Website</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-divider"></div>
+
+  <div class="day">
+    <div class="day-header">
+      <div class="day-label">Saturday, June 20</div>
+      <div class="day-date">Easy Morning · Departure to Lisbon</div>
+    </div>
+    <div class="day-body">
+      <div class="event">
+        <div class="event-icon activity">☕</div>
+        <div class="event-content">
+          <div class="event-title">Relaxed Morning</div>
+          <div class="event-detail">Continental breakfast at hotel · Stroll along the Douro riverfront</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon hotel">🏨</div>
+        <div class="event-content">
+          <div class="event-title">Porto River Hotel Checkout · 12:00 PM</div>
+          <div class="event-detail">Head to Porto Campanhã station · Note: street in front of hotel open to general traffic 6:30–11 AM only — taxi permitted all day</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon train">🚄</div>
+        <div class="event-content">
+          <div class="event-title">High-Speed Train #184 · Porto → Lisbon<span class="tag confirmed">Business Class</span></div>
+          <div class="event-detail">Porto Campanhã departs <strong>2:40 PM</strong> → Lisbon Oriente arrives <strong>5:22 PM</strong> · Business Class · Wi-Fi, Power socket, TV · 4 tickets · Booking: <strong>RN-202603-2318821</strong> · Ref: FIN-202603-3673723 · Paid $260 USD · Booked via Rail Ninja</div>
+          <a href="https://rail.ninja" target="_blank" class="event-link">🔗 Rail Ninja</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- LISBON -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="section-header">
+    <div class="section-flag">🇵🇹</div>
+    <div class="section-title-block">
+      <div class="section-country">Portugal</div>
+      <div class="section-city portugal">Lisbon</div>
+      <div class="section-dates">June 20 – 24 · Airbnb, Praça Dom Luís I · Hosted by Alexandra</div>
+    </div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="day">
+    <div class="day-header">
+      <div class="day-label">Saturday, June 20</div>
+      <div class="day-date">Arrival Day</div>
+    </div>
+    <div class="day-body">
+      <div class="event">
+        <div class="event-icon train">🚄</div>
+        <div class="event-content">
+          <div class="event-title">Arrive Lisbon Oriente · 5:22 PM</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon hotel">🏠</div>
+        <div class="event-content">
+          <div class="event-title">Airbnb · Home in Lisbon<span class="tag confirmed">Confirmed</span></div>
+          <div class="event-detail">Check-in from <strong>3:00 PM</strong> · Praça Dom Luís I area · Hosted by Alexandra · Checkout June 24 at 11:00 AM</div>
+          <a href="https://www.airbnb.com/rooms/1233397673307404293" target="_blank" class="event-link">🔗 Airbnb Listing</a>
+          <div class="alert">⚠️ Flight departs 5:55 AM on June 24 — leave Airbnb by 3:30 AM. Let Alexandra know in advance about your early departure.</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon food">🍽️</div>
+        <div class="event-content">
+          <div class="event-title">Dinner · Time Out Market</div>
+          <div class="event-detail">Relaxed arrival night dinner · Close to Airbnb · Wide variety of Lisbon's best food in one space</div>
+          <a href="https://www.timeoutmarket.com/lisboa/en/" target="_blank" class="event-link">🔗 Website</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-divider"></div>
+
+  <div class="day">
+    <div class="day-header">
+      <div class="day-label">Sunday, June 21</div>
+      <div class="day-date">Day Trip · Sintra + Cascais</div>
+    </div>
+    <div class="day-body">
+      <div class="event">
+        <div class="event-icon train">🚂</div>
+        <div class="event-content">
+          <div class="event-title">Train to Sintra · Morning</div>
+          <div class="event-detail">From Cais do Sodré station · ~40 min · Explore the fairy tale palaces — Pena Palace, Quinta da Regaleira · Book palace tickets in advance!</div>
+          <a href="https://www.parquesdesintra.pt/en/" target="_blank" class="event-link">🔗 Book Sintra Palace Tickets</a>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon train">🚂</div>
+        <div class="event-content">
+          <div class="event-title">Train to Cascais · Afternoon</div>
+          <div class="event-detail">Short ride from Sintra · Beach, town stroll, Atlantic views</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon food">🍽️</div>
+        <div class="event-content">
+          <div class="event-title">Dinner · JNcQUOI Avenida 🎉 Father's Day<span class="tag book">Book Late May</span></div>
+          <div class="event-detail">Perfect Father's Day dinner! · Reservations only open a few weeks out — check back in late May and book immediately · One of Lisbon's most celebrated restaurants</div>
+          <a href="https://www.jncquoi.com/en/restaurants/avenida/1746/" target="_blank" class="event-link">🔗 Website & Reservations</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-divider"></div>
+
+  <div class="day">
+    <div class="day-header">
+      <div class="day-label">Monday, June 22</div>
+      <div class="day-date">Belém + LX Factory + Chiado + Tram 28</div>
+    </div>
+    <div class="day-body">
+      <div class="event">
+        <div class="event-icon activity">🗼</div>
+        <div class="event-content">
+          <div class="event-title">Belém · Morning</div>
+          <div class="event-detail">Uber/Bolt from Airbnb · Belém Tower + Jerónimos Monastery + famous Pastéis de Belém custard tarts 🥐 · ~half day</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon activity">🏭</div>
+        <div class="event-content">
+          <div class="event-title">LX Factory · Midday</div>
+          <div class="event-detail">Converted warehouse complex · Independent shops, street art, great lunch options · Very popular with teens</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon activity">🚋</div>
+        <div class="event-content">
+          <div class="event-title">Tram 28 Ride · Afternoon</div>
+          <div class="event-detail">Lisbon's iconic vintage yellow tram · Scenic ride through historic neighborhoods · Fun experience for the family</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon activity">🛍️</div>
+        <div class="event-content">
+          <div class="event-title">Shopping · Chiado Neighborhood</div>
+          <div class="event-detail">Wander Chiado and Rua Augusta · Boutiques, Portuguese brands, great atmosphere</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon food">🍽️</div>
+        <div class="event-content">
+          <div class="event-title">Dinner · Downunder by Justin Jennings<span class="tag confirmed">7:00 PM</span></div>
+          <div class="event-detail">Reservation confirmed · Rua dos Industriais 21, São Bento</div>
+          <a href="https://downunder.pt" target="_blank" class="event-link">🔗 Website</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-divider"></div>
+
+  <div class="day">
+    <div class="day-header">
+      <div class="day-label">Tuesday, June 23</div>
+      <div class="day-date">Free Roam · Last Evening in Lisbon</div>
+    </div>
+    <div class="day-body">
+      <div class="event">
+        <div class="event-icon activity">🌇</div>
+        <div class="event-content">
+          <div class="event-title">Free Roam · Lisbon</div>
+          <div class="event-detail">Revisit favorite spots · Relaxed day — early night recommended given 3:30 AM departure tomorrow</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon food">🍽️</div>
+        <div class="event-content">
+          <div class="event-title">Dinner · Flexible<span class="tag flexible">TBD</span></div>
+          <div class="event-detail">Last dinner in Lisbon · Keep it relaxed — early night strongly recommended given 3:30 AM departure tomorrow</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon note">⚠️</div>
+        <div class="event-content">
+          <div class="event-title">Early Night — 3:30 AM Wake Up!</div>
+          <div class="event-detail">Leave Airbnb by <strong>3:30 AM</strong> · Let Alexandra know about early departure · Head to Lisbon Airport Terminal 1</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-divider"></div>
+
+  <div class="day">
+    <div class="day-header">
+      <div class="day-label">Wednesday, June 24</div>
+      <div class="day-date">Departure Day · Lisbon → Miami</div>
+    </div>
+    <div class="day-body">
+      <div class="event">
+        <div class="event-icon flight">✈️</div>
+        <div class="event-content">
+          <div class="event-title">Swiss Air LX 2083 · Lisbon → Zurich</div>
+          <div class="event-detail">Departs LIS <strong>5:55 AM</strong> → Arrives ZRH 9:55 AM · Economy · Airbus A321NEO · Terminal 1 · 3h 00m</div>
+          <div class="alert">⚠️ Lisbon ANA Lounge opens at 6:00 AM — your 5:55 AM departure means you'll be through security and at the gate before the lounge even opens. No lounge access here — plan to grab anything you need before leaving the Airbnb or at the airport.</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon flight">✈️</div>
+        <div class="event-content">
+          <div class="event-title">Swiss Air LX 064 · Zurich → Miami<span class="tag confirmed">Premium Economy</span></div>
+          <div class="event-detail">Departs ZRH <strong>1:00 PM</strong> → Arrives MIA 5:25 PM · Premium Economy · Boeing 777-300ER · 10h 25m · Layover in Zurich: 3h 05m · Meal & snack served</div>
+          <div class="alert">💡 <strong>3h 05m Zurich layover — great lounge opportunity!</strong> Use your Priority Pass to access the <strong>Aspire Lounge at Gate E (Midfield Terminal)</strong> — the best Priority Pass lounge at ZRH. Located above Gate E52, non-Schengen area (perfect for your Miami flight). Take the automated Skymetro train from the main terminal to Gate E, then follow signs. Highlights: outdoor sky deck with stunning views of the Swiss Alps, great food & drinks, comfortable seating. All 4 family members free via Priority Pass ✅ — a perfect way to end the trip! 🇨🇭</div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-icon activity">🏠</div>
+        <div class="event-content">
+          <div class="event-title">Welcome Home, Barnes Family! 🎉</div>
+          <div class="event-detail">Arrive Miami · 5:25 PM</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- QUICK REFERENCE -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="quick-ref">
+    <div class="quick-ref-title">Quick Reference</div>
+
+    <div class="ref-grid">
+
+      <div class="ref-card">
+        <div class="ref-card-title">🏨 Accommodations</div>
+        <div class="ref-item">
+          <span class="ref-item-label">Florence Villa (Vrbo)</span>
+          <span class="ref-item-value mono">HA-3CFFCX</span>
+        </div>
+        <div class="ref-item">
+          <span class="ref-item-label">Hotel Regina Madrid</span>
+          <span class="ref-item-value mono">5138884080 · PIN 2326</span>
+        </div>
+        <div class="ref-item">
+          <span class="ref-item-label">Porto River Hotel</span>
+          <span class="ref-item-value mono">3959928547</span>
+        </div>
+        <div class="ref-item">
+          <span class="ref-item-label">Lisbon Airbnb</span>
+          <span class="ref-item-value">Hosted by Alexandra</span>
+        </div>
+      </div>
+
+      <div class="ref-card">
+        <div class="ref-card-title">✈️ Flights</div>
+        <div class="ref-item">
+          <span class="ref-item-label">MIA → JFK (AA)</span>
+          <span class="ref-item-value mono">KFNJCZ</span>
+        </div>
+        <div class="ref-item">
+          <span class="ref-item-label">JFK → FLR (Brussels)</span>
+          <span class="ref-item-value">Jun 10 · 6:10 PM</span>
+        </div>
+        <div class="ref-item">
+          <span class="ref-item-label">FLR → MAD (Vueling)</span>
+          <span class="ref-item-value mono">EHT8WP</span>
+        </div>
+        <div class="ref-item">
+          <span class="ref-item-label">MAD → OPO (Ryanair)</span>
+          <span class="ref-item-value mono">K7J39R</span>
+        </div>
+        <div class="ref-item">
+          <span class="ref-item-label">OPO → LIS (Train #184)</span>
+          <span class="ref-item-value mono">RN-202603-2318821</span>
+        </div>
+        <div class="ref-item">
+          <span class="ref-item-label">LIS → MIA (Swiss)</span>
+          <span class="ref-item-value">Jun 24 · 5:55 AM</span>
+        </div>
+      </div>
+
+      <div class="ref-card">
+        <div class="ref-card-title">🍽️ Restaurant Reservations</div>
+        <div class="ref-item">
+          <span class="ref-item-label">Cadaqués, Madrid</span>
+          <span class="ref-item-value">Jun 14 · 7:00 PM ✅</span>
+        </div>
+        <div class="ref-item">
+          <span class="ref-item-label">Botín, Madrid</span>
+          <span class="ref-item-value">Jun 15 · 8:00 PM ✅ ⚠️</span>
+        </div>
+        <div class="ref-item">
+          <span class="ref-item-label">Ten con Ten, Madrid</span>
+          <span class="ref-item-value">Jun 16 · 7:30 PM ✅</span>
+        </div>
+        <div class="ref-item">
+          <span class="ref-item-label">Federica Ribeira, Porto</span>
+          <span class="ref-item-value">Jun 19 · Reserved ✅</span>
+        </div>
+        <div class="ref-item">
+          <span class="ref-item-label">Downunder, Lisbon</span>
+          <span class="ref-item-value">Jun 22 · 7:00 PM ✅</span>
+        </div>
+        <div class="ref-item">
+          <span class="ref-item-label">JNcQUOI Avenida, Lisbon 🎉</span>
+          <span class="ref-item-value">Jun 21 · Father's Day · Book late May</span>
+        </div>
+      </div>
+
+      <div class="ref-card">
+        <div class="ref-card-title">📋 Things To Book</div>
+        <div class="ref-item">
+          <span class="ref-item-label">Priority Pass enrollment</span>
+          <span class="ref-item-value">All 4 members enrolled ✅</span>
+        </div>
+        <div class="ref-item">
+          <span class="ref-item-label">Bernabéu Stadium tour</span>
+          <span class="ref-item-value">realmadrid.com · Jun 15</span>
+        </div>
+        <div class="ref-item">
+          <span class="ref-item-label">Prado Museum tickets</span>
+          <span class="ref-item-value">museodelprado.es · Jun 16</span>
+        </div>
+        <div class="ref-item">
+          <span class="ref-item-label">Graham's wine cave tour</span>
+          <span class="ref-item-value">grahams-port.com · Jun 18</span>
+        </div>
+        <div class="ref-item">
+          <span class="ref-item-label">Vinum restaurant (Graham's)</span>
+          <span class="ref-item-value">Reserve ahead · Jun 18</span>
+        </div>
+        <div class="ref-item">
+          <span class="ref-item-label">Livraria Lello timed entry</span>
+          <span class="ref-item-value">lellolivros.com · Jun 18</span>
+        </div>
+        <div class="ref-item">
+          <span class="ref-item-label">Sintra palace tickets</span>
+          <span class="ref-item-value">Book ahead · Jun 21</span>
+        </div>
+        <div class="ref-item">
+          <span class="ref-item-label">Pata Gorda dinner</span>
+          <span class="ref-item-value">7:30 PM · Jun 18 ✅</span>
+        </div>
+        <div class="ref-item">
+          <span class="ref-item-label">JNcQUOI Avenida dinner</span>
+          <span class="ref-item-value">Book late May · Jun 21 · Father's Day</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="cancel-box" style="margin-top: 16px;">
+      <div class="cancel-box-title">⚠️ Key Deadlines & Warnings</div>
+      <div class="cancel-item">
+        <span>Florence Villa — Free cancellation deadline</span>
+        <span>May 28, 2026 · 7:00 PM</span>
+      </div>
+      <div class="cancel-item">
+        <span>Porto River Hotel — First payment due</span>
+        <span>~May 28, 2026 · €525.29</span>
+      </div>
+      <div class="cancel-item">
+        <span>Hotel Regina Madrid — Free cancellation deadline</span>
+        <span>June 12, 2026 · 11:59 PM</span>
+      </div>
+      <div class="cancel-item">
+        <span>Botín, Madrid — No-show fee</span>
+        <span>€100 if cancelled &lt;12 hrs before</span>
+      </div>
+      <div class="cancel-item">
+        <span>Lisbon Airbnb — Leave for airport</span>
+        <span>June 24 · 3:30 AM</span>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <em>Bon Voyage, Barnes Family</em>
+  June 10 – 24, 2026 · Miami → Florence → Madrid → Porto → Lisbon → Miami
+</div>
+
+</body>
+</html>

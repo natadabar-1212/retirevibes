@@ -514,6 +514,35 @@
       if (id === 'ogUrl' && el) el.setAttribute('content', pageUrl);
     });
 
+    // ─── Inject Place schema markup ───────────────────────────
+    var existingSchema = document.getElementById('dest-schema');
+    if (existingSchema) existingSchema.remove();
+    var schema = {
+      '@context': 'https://schema.org',
+      '@type': 'Place',
+      'name': dest.name + ', ' + dest.country,
+      'description': fullDesc,
+      'url': pageUrl,
+      'image': ogImg,
+      'address': {
+        '@type': 'PostalAddress',
+        'addressLocality': dest.name,
+        'addressCountry': dest.country
+      }
+    };
+    if (dest.costPerMonth && dest.costPerMonth[1]) {
+      schema['additionalProperty'] = {
+        '@type': 'PropertyValue',
+        'name': 'Estimated monthly cost of living',
+        'value': '~$' + dest.costPerMonth[1].toLocaleString() + '/mo (comfortable lifestyle)'
+      };
+    }
+    var schemaEl = document.createElement('script');
+    schemaEl.id = 'dest-schema';
+    schemaEl.type = 'application/ld+json';
+    schemaEl.textContent = JSON.stringify(schema);
+    document.head.appendChild(schemaEl);
+
     const lifestyleLabels = LIFESTYLE;
     const cost1 = dest.costPerMonth[1] ? '~$' + dest.costPerMonth[1].toLocaleString() : '—';
     const costEntries = Object.entries(dest.costPerMonth);

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com https://www.google-analytics.com data: blob:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://api.emailjs.com;">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com https://www.google-analytics.com https://www.googletagmanager.com data: blob:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://api.emailjs.com;">
 <title>RetireVibes — Find Where Retirement Feels Right</title>
 <meta name="google-site-verification" content="QBatl5RyGD6jgyeZ3MYaJt7T71qEAvs7TscXw3zToO0" />
 <meta name="description" content="Take the 2-minute RetireVibes quiz and discover your top 3 retirement destinations — US and international — matched to your lifestyle, climate, and vibe. No financial info needed." />
@@ -590,6 +590,35 @@
     .quote-text { font-size: 17px; }
   }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "name": "RetireVibes",
+      "url": "https://www.retirevibes.com",
+      "description": "Vibe-driven retirement destination discovery for Americans 40–55. Take the quiz, find your match.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.retirevibes.com/destinations.html?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "Organization",
+      "name": "RetireVibes",
+      "url": "https://www.retirevibes.com",
+      "logo": "https://www.retirevibes.com/images/retirevibes-logo.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "retirevibes@gmail.com",
+        "contactType": "customer support"
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
