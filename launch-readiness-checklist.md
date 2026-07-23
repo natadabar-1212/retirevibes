@@ -1,7 +1,7 @@
 # RetireVibes — Launch Readiness Checklist
 
 **Compiled by:** Project Manager agent
-**Date:** 2026-05-21 | **Last updated:** 2026-05-28
+**Date:** 2026-05-21 | **Last updated:** 2026-07-22
 **Status of this doc:** Living document — review weekly, prune monthly.
 
 ---
@@ -73,7 +73,7 @@ I reviewed: `CLAUDE.md`, `RetireVibes_Product_Brief.md` (v1.2), `SESSION_HANDOFF
 
 20. ~~**Wire Porto scouting trip handoff**~~ ✅ **DONE (2026-05-26)** — routes to `scouting-trip.html`.
 
-21. **Mérida scouting trip handoff** — currently routes to `scouting-trips.html` (general guide) as interim fix. Full Mérida-specific scouting page still needed. **Strategy locked: never route directly to Booking.com — editorial wrapper required.** Owner: **product + content-editorial**. Effort: M.
+21. ~~**Mérida scouting trip handoff**~~ ✅ **DONE — VERIFIED 2026-07-22** — resolved by item 53. `destination-detail.html` routes international destinations to `scouting-trip-detail.html?id=[id]`; `scouting-data.js` has fully researched Mérida content (best months, 3 neighborhood guides). Was already fixed on 2026-06-01, just never struck here.
 
 22. ~~**Asheville + Sarasota scouting handoffs**~~ ✅ **DONE (2026-05-26)** — both route to `scouting-trip-domestic.html?city=asheville` and `?city=sarasota`.
 
@@ -146,7 +146,7 @@ I reviewed: `CLAUDE.md`, `RetireVibes_Product_Brief.md` (v1.2), `SESSION_HANDOFF
 
 46. **Real-device QA** — test script created at `qa-device-test-script.md`. Run on iPhone (recent), iPhone (older), Android, iPad. Covers: nav, homepage, quiz flow end-to-end, save modal, share, destination pages. Owner: **Natalie**. Effort: 30–45 min per device.
 
-47. **Browser test** — test script created at `qa-browser-test-script.md`. Run on Safari (highest priority), Chrome, Firefox, Edge. Covers quiz, results, save/share modals, Porto destination page, JS error check. Known gotchas documented (backdrop-filter, aspect-ratio, localStorage in Safari private mode). Owner: **Natalie**. Effort: 30–45 min total.
+47. **Browser test** — ⚠️ **PARTIALLY DONE (verified 2026-07-22)**: the 2026-06-04 session was an effective Chrome pass — 4 real bugs found and fixed (CSP/GA4, broken links, Mérida 404, arrow glyphs). **Remaining: Safari (highest priority), Firefox, Edge** — script at `qa-browser-test-script.md`, issue log still empty. Known gotchas documented (backdrop-filter, aspect-ratio, localStorage in Safari private mode). Owner: **Natalie**. Effort: ~30 min remaining.
 
 ---
 
@@ -190,7 +190,7 @@ I reviewed: `CLAUDE.md`, `RetireVibes_Product_Brief.md` (v1.2), `SESSION_HANDOFF
 
 63. **Magic-link as full session restore** vs. ephemeral access — current implementation passes state in the URL. Fine for launch; consider proper session tokens later.
 
-66. **Audit and validate Canadian destination pages** — `destination-canmore.html`, `destination-kelowna.html`, `destination-niagara-on-the-lake.html`, `destination-vancouver.html`, `destination-victoria.html` were created as static files. Now that the strategy is confirmed (individual researched pages for all destinations — see item 57), these are the right format. **Action needed:** verify each page has genuinely researched, location-specific content (not placeholder text), matches the Porto template structure, and that its data aligns with `destinations-data.js`. Replace any stub sections before linking them in the site. Owner: **content-editorial**. Effort: S per page to audit; M per page to rewrite if content is thin.
+66. ~~**Audit and validate Canadian destination pages**~~ ✖️ **KILLED (2026-07-22) — MOOT.** All 5 static Canadian pages were archived to `archive/legacy-destination-pages/` (along with all 94 legacy static pages). Canadian destinations are served by `destination-detail.html?id=[slug]` from `destinations-data.js`, which has genuinely researched content (spot-checked Canmore: real housing figures, cost tiers, location-specific copy). No action needed.
 
 67. ~~**Hero images for 5 new Australia destination pages**~~ ✅ **DONE (2026-06-04)** — All 5 images confirmed present in `/images/`: gold-coast.jpg, byron-bay.jpg, adelaide.jpg, hobart.jpg, cairns.jpg.
 
@@ -213,10 +213,10 @@ These block sequencing. Answer first.
 
 - ~~**Is retirevibes.com registered?**~~ ✅ Yes — live on Vercel, SSL green.
 - ~~**Are the four featured advisors real, signed partners?**~~ ✅ Resolved — v1 advisor page is informational only, no featured advisors. Featured program is post-launch.
-- **What's the realistic launch date?** Still unconfirmed. Vacation noted as a near-term constraint (~18 days from 2026-05-25).
-- **What's the launch budget?** Still unconfirmed.
-- **Soft launch or hard launch?** Still unconfirmed.
-- **Pinterest / Facebook / paid social — comfortable running ads yourself, or want an outside marketer?** Still unconfirmed.
+- **What's the realistic launch date?** ⚠️ Still unconfirmed — open 58 days as of 2026-07-22.
+- **What's the launch budget?** ⚠️ Still unconfirmed — open 58 days.
+- **Soft launch or hard launch?** ⚠️ Still unconfirmed — open 58 days.
+- **Pinterest / Facebook / paid social — comfortable running ads yourself, or want an outside marketer?** ⚠️ Still unconfirmed — open 58 days.
 
 ---
 
@@ -302,3 +302,23 @@ This is a real timeline for a solo founder, not a fantasy one. If any of the P0 
 **Repo hygiene:**
 74. ~~**Personal files in /images/**~~ ✅ **FIXED (2026-06-04)** — PDFs, skill files, personal HTML files removed from repo. .gitignore updated to block *.pdf, *.skill, *.zip. Global gitignore set on Natalie's Mac covering *.pdf, *.skill, *.zip, *.xlsx, *.docx, *.pages, *.numbers, *.key. Firefox download location fixed.
 75. ~~**CSP connect-src blocking GTM on real estate pages**~~ ✅ **FIXED (2026-06-04)** — generate-real-estate.js CSP was missing `https://www.googletagmanager.com` in both img-src and connect-src. Fixed in generator; all 132 real estate pages regenerated.
+
+## Updates 2026-07-22 — PM verification pass
+
+**Verified and struck:** item 21 (Mérida scouting — was done 06-01, never struck), item 66 Canadian-pages audit (moot — static pages archived; dynamic pages have researched content).
+
+**Item 47 rescoped:** Chrome effectively passed 06-04; Safari/Firefox/Edge still owed. Item 46 (real-device QA) unchanged — no runs logged, still open, owner Natalie.
+
+**Cross-checked `qa-findings-2026-06-01.md`** ("to be fixed next session") against current files. Fixed since then: Porto redirect in scouting-trip-detail ✅, extra nav link ✅, untracked links in scouting-trip.html ✅ (now Expedia affiliate), browse-homes-international scouting CTA ✅, footers standardized on 17 pages ✅. Three items slipped through — added below as new backlog items:
+
+76. ~~🔴 **Booking.com links still live on `scouting-trip-domestic.html`**~~ ✅ **FIXED (2026-07-22)** — all 4 data URLs (`bookingUrl` + `stayBookingUrl` × Asheville/Sarasota) swapped to `https://expedia.com/affiliate/hDqrJfC`; hardcoded default button text ("Search Asheville on Booking.com →") and the footer affiliate disclosure ("Accommodation links go to Booking.com") updated to Expedia. Verified zero Booking.com URLs/text remain site-wide (only the `.booking-btn` CSS class name persists, harmless). Domestic scouting clicks are now tracked.
+
+77. **`destinations.html` footer is the old 5-link format** — P2. Only page not standardized (has "How it works · Find an advisor · Scouting trips"; also links to `find-an-advisor.html`, which now 301s). Standardize to the current footer. Owner: **product**. Effort: XS.
+
+78. **13 destinations missing from `scouting-data.js`** (119 of 132) — P2. They fall back to generic scouting content, which works but is thin. Decision needed: acceptable for launch, or add entries? Owner: **content-editorial**. Effort: S–M.
+
+79. **`href="#"` on results-page email share option** (line 1314) — P3. Functional via onclick; cosmetic cleanup to `javascript:void(0)`. Effort: XS.
+
+**Doc hygiene note:** numbering has collisions (two item 61s, two item 66s). Per doc rules, not renumbering — new items start at 76.
+
+**Stale-item review (>30 days):** items 46/47 defended (launch-blocking QA, owner Natalie). Item 19 (attorney) stays P2, gated on email capture / paid placements / marketing spend. The four open questions above are now the oldest blockers in the project (58 days).
