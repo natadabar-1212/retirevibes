@@ -54,6 +54,7 @@ const QUESTIONS = [
       { emoji: '🏛️', label: 'Europe',                   value: 4 },
       { emoji: '🦘', label: 'Australia & New Zealand',   value: 5 },
       { emoji: '🏯', label: 'Asia',                      value: 6 },
+      { emoji: '🌍', label: 'Africa',                    value: 7 },
     ]
   },
   {

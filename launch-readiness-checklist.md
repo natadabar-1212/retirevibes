@@ -331,6 +331,18 @@ Ran full automated audit (broken links, href=#, missing images, nav/footer consi
 
 **Remaining before soft launch:** manual browser pass (Safari-first, items 46/47) + real-device pass on iPhone, then the four open questions. Automated layer is now clean.
 
+## Updates 2026-07-22 (batch 3) — scenario-based matcher testing
+
+Headless-browser testing (Playwright) was attempted but the sandbox lacks browser system libraries (no root to install), so full-DOM automation isn't possible here — that layer is deferred to the Claude-in-Chrome pass on the live site. Instead, ran the real matching engine (`results-matcher.js` scoring + ranking + vibe-label logic against live `destinations-data.js`) in Node across 10 user personas including edge cases.
+
+**Matcher test result: 10/10 pass.** Every persona returned 3 matches, zero errors. Geography hard-gate held in every case (no destination surfaced outside the user's selected regions). Multi-region users correctly got one-per-region variety. Minimalist (weather+geo only) and everything-maxed personas both handled gracefully. Vibe labels sensible throughout. Personas covered: intl warm/Europe, domestic mountains/US, Mexico/LatAm, Asia, multi-region variety, conflicting weather-vs-geography, "anywhere"/no-filter, Caribbean, minimalist, everything-maxed.
+
+**Data completeness: 132/132 pass.** Every destination has all required scoring fields (geographyOptions, weatherMatch, settingMatch, paceMatch, priorityMatch), all 4 cost tiers, unique IDs. Region coverage: Europe 36, US 24, Mex/LatAm 18, AusNZ 14, Asia 13, Caribbean 12, Canada 10, Africa 7.
+
+83. ~~**7 African destinations orphaned**~~ ✅ **FIXED (2026-07-22)** — added "Africa" option (🌍, value 7) to the quiz geography question in `mockups/quiz/questions.js`. Scoring code already supported value 7, so no matcher change needed. Verified: an Africa-selecting persona now returns Mauritius / Zanzibar / Marrakech, correctly gated to region 7. All 7 African destinations (Marrakech, Cape Town, Accra, Stellenbosch, Nairobi, Zanzibar, Mauritius) can now surface. Quiz geography now offers all 7 regions (0–6 + Africa=7). **Note:** update CLAUDE.md quiz spec — it still says Africa was removed.
+
+**Behavior note (not a bug):** when a user's weather and geography answers conflict (e.g. "warm & sunny" + "Canada"), geography wins — it's a hard gate. Persona F asked for warm + Canada and got Canadian mountain towns. Correct by design, but worth knowing the results won't honor the impossible half of the request.
+
 **Doc hygiene note:** numbering has collisions (two item 61s, two item 66s). Per doc rules, not renumbering — new items start at 76.
 
 **Stale-item review (>30 days):** items 46/47 defended (launch-blocking QA, owner Natalie). Item 19 (attorney) stays P2, gated on email capture / paid placements / marketing spend. The four open questions above are now the oldest blockers in the project (58 days).
