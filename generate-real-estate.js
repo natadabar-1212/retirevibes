@@ -780,7 +780,7 @@ const PAGE_CSS = `
   /* Hero */
   .hero { position: relative; min-height: 580px; display: flex; align-items: flex-end; padding: 0 48px 72px; overflow: hidden; }
   .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center 55%; }
-  .hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg,rgba(27,58,75,.1) 0%,rgba(27,58,75,.78) 100%); }
+  .hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg,rgba(27,58,75,0) 0%,rgba(27,58,75,.10) 30%,rgba(27,58,75,.48) 62%,rgba(27,58,75,.88) 100%); }
   .hero-inner { position: relative; z-index: 2; max-width: 1240px; width: 100%; }
   .hero-kicker { display: inline-flex; align-items: center; gap: 10px; padding: 8px 18px; background: rgba(251,246,238,.15); border: 1px solid rgba(255,255,255,.25); border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 22px; backdrop-filter: blur(6px); }
   .hero-kicker::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--gold-soft); }

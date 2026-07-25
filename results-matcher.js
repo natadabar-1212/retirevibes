@@ -426,7 +426,10 @@
 
     // ── Save results to localStorage so My RetireVibes can display them ──
     try {
-      const vibeLabel = getVibeLabel(answers);
+      // Prefer the vibe label the quiz already generated (rv_vibe_label) so a user
+      // never sees two different labels for themselves. Fall back to getVibeLabel only
+      // when landing on results without having gone through the quiz.
+      const vibeLabel = localStorage.getItem('rv_vibe_label') || getVibeLabel(answers);
       const profile   = generateProfileText();
       const topThree  = ranked.slice(0, 3).map(d => ({
         name:         d.name,
