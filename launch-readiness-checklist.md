@@ -313,11 +313,23 @@ This is a real timeline for a solo founder, not a fantasy one. If any of the P0 
 
 76. ~~🔴 **Booking.com links still live on `scouting-trip-domestic.html`**~~ ✅ **FIXED (2026-07-22)** — all 4 data URLs (`bookingUrl` + `stayBookingUrl` × Asheville/Sarasota) swapped to `https://expedia.com/affiliate/hDqrJfC`; hardcoded default button text ("Search Asheville on Booking.com →") and the footer affiliate disclosure ("Accommodation links go to Booking.com") updated to Expedia. Verified zero Booking.com URLs/text remain site-wide (only the `.booking-btn` CSS class name persists, harmless). Domestic scouting clicks are now tracked. **Shipped + deployed 2026-07-22** (commit 2625c45, pushed to main → Vercel auto-deploy).
 
-77. **`destinations.html` footer is the old 5-link format** — P2. Only page not standardized (has "How it works · Find an advisor · Scouting trips"; also links to `find-an-advisor.html`, which now 301s). Standardize to the current footer. Owner: **product**. Effort: XS.
+77. ~~**`destinations.html` footer is the old 5-link format**~~ ✅ **FIXED (2026-07-22)** — trimmed to the standard slim footer (Destinations · My RetireVibes) + Privacy/Terms legal links. Removed the stale `find-an-advisor.html` link (was 301-ing).
 
 78. **13 destinations missing from `scouting-data.js`** (119 of 132) — P2. They fall back to generic scouting content, which works but is thin. Decision needed: acceptable for launch, or add entries? Owner: **content-editorial**. Effort: S–M.
 
 79. **`href="#"` on results-page email share option** (line 1314) — P3. Functional via onclick; cosmetic cleanup to `javascript:void(0)`. Effort: XS.
+
+## Updates 2026-07-22 (batch 2) — automated QA audit + fixes
+
+Ran full automated audit (broken links, href=#, missing images, nav/footer consistency, affiliate integrity, archived-file refs, data completeness) across 24 root pages + 133 generated pages. Clean except three real issues, all fixed same session:
+
+80. ~~🟡 **Mobile nav broken on both Browse-homes pages**~~ ✅ **FIXED (2026-07-22)** — `browse-homes-domestic.html` and `browse-homes-international.html` loaded `shared.js` (injects hamburger) but not `shared.css` (styles it + mobile dropdown). Added the `shared.css` `<link>` to both. Mobile nav now functional.
+
+81. ~~🟡 **`destination-coming-soon.html` had no mobile nav**~~ ✅ **FIXED (2026-07-22)** — page was missing both shared files; inline nav links are hidden on mobile with no hamburger to reveal them. Added `shared.css` to head + `shared.js` before `</body>`.
+
+82. ~~🟠 **Privacy Policy + Terms links missing from most footers**~~ ✅ **FIXED (2026-07-22)** — legal links were only on homepage + legal pages. Added a `.footer-legal-links` rule to `shared.css` (once) and injected the Privacy/Terms block into all 12 remaining page footers. Every page now links Privacy + Terms. **Doc drift noted:** CLAUDE.md still describes the old 5-link footer; the live standard is the slim "Destinations · My RetireVibes" + legal links. CLAUDE.md footer spec (conventions #7) should be updated to match.
+
+**Remaining before soft launch:** manual browser pass (Safari-first, items 46/47) + real-device pass on iPhone, then the four open questions. Automated layer is now clean.
 
 **Doc hygiene note:** numbering has collisions (two item 61s, two item 66s). Per doc rules, not renumbering — new items start at 76.
 
