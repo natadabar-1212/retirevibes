@@ -379,7 +379,7 @@ Drove the live deployed site (retirevibes.com) end to end in a real Chrome brows
 
 86. ~~🟠 **Generated real-estate pages missing Privacy/Terms footer links**~~ ✅ **FIXED (2026-07-22)** — added a `footer-legal-links` block (Privacy Policy + Terms, contrast-tuned for the dark footer) to `generate-real-estate.js` and regenerated all 132 pages. Verified 132/132 now link Privacy + Terms.
 
-87. **International real-estate handoff still points to Porto** — ⏳ OPEN (P2, product decision). Deferred — "Explore [City] homes" for non-Porto international matches still routes to the Porto guide. Bigger routing change; not addressed in this batch.
+87. ~~**International real-estate handoff pointed to Porto**~~ ✅ **FIXED (2026-07-22)** — `results-matcher.js` results-page handoff now routes international matches to their own generated real-estate page (`destinations/{id}/real-estate/`) instead of `browse-homes-international.html` (which redirected to Porto). Partner label changed from Europe-specific "via Idealista / local partner" to generic "via local listing partners." Verified slug mapping for all international destinations (incl. accented names: Mérida→merida, Medellín→medellin) and confirmed target pages exist. Note: `destination-detail.html` already routed correctly to `destinations/{id}/real-estate/` — no change needed there; results page and destination pages are now consistent.
 
 **Note:** dead `openSaveModal`/`submitSave` function definitions remain in results/detail JS but are fully unreachable (no DOM, no callers). Inert; can be pruned in a later cleanup.
 

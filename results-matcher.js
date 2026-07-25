@@ -276,8 +276,8 @@
     const homesDesc = top.isInternational
       ? `Real listings — apartments, houses, and condos in ${top.name}. No commitment, just curiosity.`
       : `Active listings in ${top.name} — from starter homes to waterfront estates. See what the market looks like.`;
-    const homesPartner = top.isInternational ? 'via Idealista / local partner' : 'via Zillow / Realtor.com';
-    const browseLink = top.browseHomesPage || (top.isInternational ? 'browse-homes-international.html' : 'browse-homes-domestic.html');
+    const homesPartner = top.isInternational ? 'via local listing partners' : 'via Zillow / Realtor.com';
+    const browseLink = top.browseHomesPage || (top.isInternational ? ('destinations/' + top.id + '/real-estate/') : 'browse-homes-domestic.html');
     const advisorLink = top.advisorPage || (top.isInternational ? 'advisor-international.html' : 'advisor-domestic.html');
     const scoutLink = top.isInternational ? 'scouting-trip-detail.html?id=' + top.id : 'scouting-trip-domestic.html?city=' + top.id;
 
