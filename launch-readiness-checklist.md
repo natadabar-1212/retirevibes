@@ -389,3 +389,19 @@ Drove the live deployed site (retirevibes.com) end to end in a real Chrome brows
 **Doc hygiene note:** numbering has collisions (two item 61s, two item 66s). Per doc rules, not renumbering — new items start at 76.
 
 **Stale-item review (>30 days):** items 46/47 defended (launch-blocking QA, owner Natalie). Item 19 (attorney) stays P2, gated on email capture / paid placements / marketing spend. The four open questions above are now the oldest blockers in the project (58 days).
+
+## Updates 2026-07-22 (batch 6) — design/UX review items
+
+Full-site design + UX review completed (Design Lead + UX Lead hats). Verdict: **Ship, with a short polish pass** — nothing launch-blocking; the polish pass is a "before hard launch / before marketing spend" set, not a soft-launch gate. Full detail in `design-ux-review-2026-07.md`. Items below map the review's priority recommendations to the backlog.
+
+88. **Standardize hero text scrim for legibility** — P1 (pre-hard-launch). Small kicker/breadcrumb text over hero photos (destination + scouting pages, e.g. "← Back to Mauritius", "Northern Portugal") disappears against bright image areas. Add one consistent bottom gradient scrim in the shared hero treatment so small overlay text clears 4.5:1 regardless of photo. Owner: **design-lead**. Effort: S (~2 hrs). Highest impact per hour of the review.
+
+89. **Older-audience readability pass** — P1 (pre-hard-launch). Audience skews 50+; research says larger type + stronger contrast is a usability requirement. Bump base body to 16–17px site-wide; contrast-audit every `--warm-gray`-on-`--cream` instance that carries real information (labels, captions, fineprint) and darken where it fails 4.5:1; confirm 44×44px touch targets on mobile. Owner: **design-lead**. Effort: M (~half day).
+
+90. **Fix two consistency drifts** — P2. (a) Nav CTA label differs by page: "Take the quiz" (scouting) vs "Find my RetireVibes" (home/destination) — standardize one label in the nav everywhere (spec says nav CTA is locked). (b) Two vibe-label generators can disagree for the same user ("Village Wanderer" via quiz vs "The Simplicity Seeker" loading results directly) — unify on the quiz's `rv_vibe_label`. Owner: **brand-copy-editor (label choice) + cto (implementation)**. Effort: S (~1 hr).
+
+91. **Test an immersive homepage hero** — P3 (post-soft-launch, A/B). Homepage hero is text-on-cream while inner pages are image-rich; the 2025 travel-design trend is immersive visual storytelling from the first screen. Test a signature hero image or slow-rotating destination set behind the headline — hypothesis to measure, not a mandate (minimal hero may convert fine). Owner: **design-lead + analytics-lead**. Effort: M.
+
+92. **Design micro-fixes** — P3. Suppress "City, City" for city-states where destination name == country (Mauritius, Barbados, Malta, Singapore, etc.) in share quote + subhead; confirm the advisor "Where to find one ↓" button arrow is an intentional scroll affordance (not a stray arrow); confirm Q1's lighter headline color/weight is intentional vs Q2–Q7. Owner: **design-lead + cto**. Effort: S.
+
+**Design review — what's already strong (no action):** quiz UX (best-in-class), results reveal + confetti, photography standard, editorial voice, cost-framing discipline, white-space rhythm. Competitive position (vs International Living / Nomad List / 55places) is emotional + editorial — the moat to protect.
