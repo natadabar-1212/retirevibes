@@ -343,6 +343,46 @@ Headless-browser testing (Playwright) was attempted but the sandbox lacks browse
 
 **Behavior note (not a bug):** when a user's weather and geography answers conflict (e.g. "warm & sunny" + "Canada"), geography wins — it's a hard gate. Persona F asked for warm + Canada and got Canadian mountain towns. Correct by design, but worth knowing the results won't honor the impossible half of the request.
 
+## Updates 2026-07-22 (batch 4) — live Chrome QA pass (Claude in Chrome)
+
+Drove the live deployed site (retirevibes.com) end to end in a real Chrome browser as the Africa persona (warm / small-town / Africa / slow / comfortable+ / rent / community+peace+health).
+
+**Passing (verified live):**
+- Homepage: redirect `retirevibes.com` → homepage works, DM Serif Display renders, 3-link nav, no console errors.
+- Quiz: all 7 questions render with illustrated cards; single-select auto-advances; multi-select shows Next + selection state; progress dots correct.
+- **Africa path (item 83) works end to end LIVE** — Africa appears as the 7th geography option; selecting it returned Mauritius (#1, with confetti), Zanzibar (#2), Marrakech (#3) — all three previously-orphaned destinations, all correctly gated. Order exactly matched the Node prediction.
+- Reveal mechanic: reverse countdown #3→#2→#1 with confetti finale; vibe label "Village Wanderer" generated; "Match X of 3" indicator.
+- Profile text accurately reflects all answers.
+- Save modal: opens, email field, Escape dismisses cleanly.
+- Share modal: Copy link / Email / native Share, dynamic top-match quote.
+- **Mobile-nav fix (items 80/81) verified live** — `shared.css` + `shared.js` now load on browse-homes (both) and coming-soon; hamburger element injects (display:none on desktop, reveals ≤980px). Note: could not capture a true mobile-width screenshot (the browser tool captures at fixed desktop resolution), so visual mobile rendering still belongs on Natalie's real-device pass (item 46).
+
+**New findings from the live pass:**
+
+84. 🔴 **Email capture is LIVE on the results page — contradicts the v1 "no email collection" decision (P0 to resolve).** The save modal (heart → "Save [City]" email form) AND the "Email me my matches" button both collect email on the live results page. Strategic decision on line 13 says v1 ships WITHOUT email collection (saves/magic-link/Resend all deferred to v2) specifically to avoid CCPA/GDPR/CAN-SPAM burden. Either (a) these must be disabled/hidden for v1, or (b) if email capture stays, **attorney review (item 19) becomes launch-blocking again.** Owner: **Natalie + legal-compliance + product**. This is the single most launch-relevant finding.
+
+85. 🟠 **"via Booking.com" still on the results-page scouting handoff** — `results-matcher.js` line 309 hardcodes `<span class="partner">via Booking.com</span>`. Survived the "Booking.com removed entirely" sweep (items 76/276). The link itself routes to the editorial scouting page correctly; only the caption is wrong. Fix: change to "via Expedia" or remove. Owner: **cto**. Effort: XS.
+
+86. 🟠 **132 generated real-estate pages lack the Privacy/Terms footer links** — batch-2 (item 82) added them to the 12 root pages only. The generated `/destinations/[slug]/real-estate/` pages have `shared.css` but not `footer-legal-links`. Fix: add the block to `generate-real-estate.js` and regenerate. Owner: **cto**. Effort: S.
+
+87. 🟠 **International real-estate handoff points everyone to Porto** — for all non-Porto international matches (including the newly-unlocked Africa destinations), the "Explore [City] homes" card routes to `browse-homes-international.html`, which 301-redirects to `/destinations/porto/real-estate/`. A Mauritius user lands on the Porto real-estate guide; the "via Idealista" partner label is Europe-only and irrelevant for Africa/Asia/Caribbean. Partly a consequence of unlocking Africa (item 83). Decision: route international handoffs to the destination's own generated real-estate page, or make the copy generic. Owner: **product + cto**. Effort: M.
+
+**Cosmetic:** city-state matches render "Mauritius, Mauritius" (name==country) in the share quote and card subhead — affects Mauritius, Barbados, Malta, Singapore, etc. Low priority.
+
+## Updates 2026-07-22 (batch 5) — email capture removed + handoff/footer fixes
+
+**Decision (Natalie, 2026-07-22): v1 collects NO email. Saves are session/device (localStorage) only.** Implemented site-wide:
+
+84. ~~🔴 **Email capture on results page**~~ ✅ **FIXED (2026-07-22)** — removed the email save-modal HTML from `results-page-mockup.html`, `destination-detail.html` (covers all ~110 dynamic destination pages), and `destination-coming-soon.html`. Neutered `toggleSave`/`handleSave` on all three so the heart saves silently to `localStorage` with no email gate (homepage + my-retirevibes were already session-only). Replaced the "Want these in your inbox? / Email me my matches" card on the results page with a "Keep your favorites" card (heart-to-save, links to My RetireVibes). Removed the EmailJS + magic-link script includes from destination-detail. **Verified: zero `<input type="email">` and zero reachable save-modal triggers site-wide.** The share modal (copy link / email-to-friend via mailto / native share) is retained — it sends nothing to RetireVibes. **This clears the CCPA/GDPR/CAN-SPAM exposure that would have made attorney review (item 19) launch-blocking.**
+
+85. ~~🟠 **"via Booking.com" on results handoff**~~ ✅ **FIXED (2026-07-22)** — `results-matcher.js` line 309 now reads "via Expedia". Also cleaned two other user-facing Booking.com mentions: privacy-policy.html partner list (removed Booking.com, kept Expedia) and a scouting-trip.html search tip (Booking.com → Expedia). Booking.com now appears in zero user-facing pages.
+
+86. ~~🟠 **Generated real-estate pages missing Privacy/Terms footer links**~~ ✅ **FIXED (2026-07-22)** — added a `footer-legal-links` block (Privacy Policy + Terms, contrast-tuned for the dark footer) to `generate-real-estate.js` and regenerated all 132 pages. Verified 132/132 now link Privacy + Terms.
+
+87. **International real-estate handoff still points to Porto** — ⏳ OPEN (P2, product decision). Deferred — "Explore [City] homes" for non-Porto international matches still routes to the Porto guide. Bigger routing change; not addressed in this batch.
+
+**Note:** dead `openSaveModal`/`submitSave` function definitions remain in results/detail JS but are fully unreachable (no DOM, no callers). Inert; can be pruned in a later cleanup.
+
 **Doc hygiene note:** numbering has collisions (two item 61s, two item 66s). Per doc rules, not renumbering — new items start at 76.
 
 **Stale-item review (>30 days):** items 46/47 defended (launch-blocking QA, owner Natalie). Item 19 (attorney) stays P2, gated on email capture / paid placements / marketing spend. The four open questions above are now the oldest blockers in the project (58 days).

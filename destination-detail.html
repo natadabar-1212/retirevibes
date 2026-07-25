@@ -777,12 +777,7 @@
   window.handleSave = function (name) {
     try {
       const saved = JSON.parse(localStorage.getItem('rv_saved') || '{}');
-      if (!saved.email) {
-        // No account yet — open modal to capture email
-        openSaveModal({ type: 'first-save', name: name });
-        return;
-      }
-      // Account exists — silent toggle
+      // v1: no email capture — save silently to this device only.
       saved.destinations = saved.destinations || [];
       if (saved.destinations.includes(name)) {
         saved.destinations = saved.destinations.filter(d => d !== name);
@@ -939,31 +934,7 @@
   }
 </style>
 
-<div class="modal-overlay" id="saveModal" role="dialog" aria-modal="true" aria-labelledby="saveModalTitle">
-  <div class="modal-card">
-    <button class="modal-close" onclick="closeSaveModal()" aria-label="Close">×</button>
-    <div id="saveForm">
-      <p class="modal-eyebrow">Save your RetireVibes</p>
-      <h2 class="modal-title" id="saveModalTitle">Save <em>this place</em>.</h2>
-      <p class="modal-sub" id="saveModalSub">Just need your email so we can keep this saved for you. No password — come back anytime.</p>
-      <form onsubmit="submitSave(event)">
-        <label for="save-email" class="sr-only">Email address</label>
-        <input type="email" id="save-email" name="email" placeholder="your@email.com" required class="modal-input" autocomplete="email" />
-        <button type="submit" class="modal-submit">Save it →</button>
-      </form>
-      <p class="modal-fineprint">No password to remember. Just save and come back anytime.</p>
-    </div>
-    <div id="saveSuccess" hidden>
-      <div class="modal-success-block">
-        <div class="modal-success-icon" aria-hidden="true">✓</div>
-        <p class="modal-eyebrow">Saved</p>
-        <h2 class="modal-title">All set.</h2>
-        <p class="modal-sub" id="saveSuccessSub">Come back anytime to see everything you're keeping an eye on.</p>
-        <button class="modal-submit" onclick="closeSaveModal()">Keep exploring</button>
-      </div>
-    </div>
-  </div>
-</div>
+<!-- Save modal removed for v1 — no email collection. Saves are session/localStorage only. -->
 
 <script>
   // Wire up modal dismiss on backdrop click + Escape key
@@ -975,8 +946,6 @@
   });
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script src="magic-link.js"></script>
 <script src="shared.js"></script>
 </body>
 </html>

@@ -178,30 +178,7 @@
 </footer>
 
 <!-- ═══ SAVE MODAL ═══ -->
-<div class="modal-overlay" id="saveModal" role="dialog" aria-modal="true">
-  <div class="modal-card">
-    <button class="modal-close" onclick="closeSaveModal()" aria-label="Close">×</button>
-    <div id="saveForm">
-      <p class="modal-eyebrow">Save your RetireVibes</p>
-      <h2 class="modal-title" id="saveModalTitle">Save <em>this place</em>.</h2>
-      <p class="modal-sub" id="saveModalSub">Just need your email so we can save this for you. No password — come back anytime to see your saved places.</p>
-      <form onsubmit="submitSave(event)">
-        <input type="email" name="email" placeholder="your@email.com" required class="modal-input" autocomplete="email" />
-        <button type="submit" class="modal-submit">Save it →</button>
-      </form>
-      <p class="modal-fineprint">No password to remember. Just save and come back anytime.</p>
-    </div>
-    <div id="saveSuccess" hidden>
-      <div class="modal-success-block">
-        <div class="modal-success-icon">✓</div>
-        <p class="modal-eyebrow">Saved</p>
-        <h2 class="modal-title">All set.</h2>
-        <p class="modal-sub" id="saveSuccessSub">Saved to your RetireVibes. Come back anytime to see everything you're keeping an eye on.</p>
-        <button class="modal-submit" onclick="closeSaveModal()">Keep exploring</button>
-      </div>
-    </div>
-  </div>
-</div>
+<!-- Save modal removed for v1 — no email collection. Saves are session/localStorage only. -->
 
 <script>
   // Shared destination metadata — when a destination is added, drop a row here.
@@ -308,7 +285,7 @@
     if (!name) return;
     let saved = {};
     try { saved = JSON.parse(localStorage.getItem('rv_saved') || '{}'); } catch(e) {}
-    if (!saved.email) { openSaveModal({type:'first-save', name: name}); return; }
+    // v1: no email capture — save silently to this device only.
     saved.destinations = saved.destinations || [];
     if (saved.destinations.includes(name)) { saved.destinations = saved.destinations.filter(d => d !== name); }
     else { saved.destinations.push(name); }

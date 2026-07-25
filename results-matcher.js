@@ -306,7 +306,7 @@
         <h4>Plan a scouting trip</h4>
         <p>Spend 7–10 days living like a local. Walk the neighborhoods, eat where locals eat, see if the vibe holds up in person.</p>
         <a class="cta" href="${scoutLink}">Plan my trip →</a>
-        <span class="partner">via Booking.com</span>
+        <span class="partner">via Expedia</span>
       </div>`;
   }
 

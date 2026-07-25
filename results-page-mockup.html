@@ -935,9 +935,9 @@
 
     <div class="save-share">
       <div class="save-share-card">
-        <h4>Want these in your inbox?</h4>
-        <p>We'll email your matches plus a link to come back anytime — and let you know when costs, visa rules, or new matches change. No password needed.</p>
-        <button class="btn" onclick="openSaveModal({type:'email-results'})">Email me my matches</button>
+        <h4>Keep your favorites</h4>
+        <p>Tap the heart on any match to save it. Your picks stay on this device — come back anytime to pick up right where you left off.</p>
+        <a class="btn" href="my-retirevibes.html">View saved matches</a>
       </div>
       <div class="save-share-card">
         <h4>Share with a friend</h4>
@@ -1135,31 +1135,7 @@
   }
 </style>
 
-<div class="modal-overlay" id="saveModal" role="dialog" aria-modal="true" aria-labelledby="saveModalTitle">
-  <div class="modal-card">
-    <button class="modal-close" onclick="closeSaveModal()" aria-label="Close">×</button>
-    <div id="saveForm">
-      <p class="modal-eyebrow">Save your RetireVibes</p>
-      <h2 class="modal-title" id="saveModalTitle">Send these <em>to your inbox</em>.</h2>
-      <p class="modal-sub" id="saveModalSub">We'll email your matches plus a link to come back anytime — no password needed. We'll also let you know when costs, visa rules, or new matches change.</p>
-      <form onsubmit="submitSave(event)">
-        <label for="save-email" class="sr-only">Email address</label>
-        <input type="email" id="save-email" name="email" placeholder="your@email.com" required class="modal-input" autocomplete="email" />
-        <button type="submit" class="modal-submit" id="saveSubmitBtn">Save it →</button>
-      </form>
-      <p class="modal-fineprint">No password to remember. Just save and come back anytime.</p>
-    </div>
-    <div id="saveSuccess" hidden>
-      <div class="modal-success-block">
-        <div class="modal-success-icon" aria-hidden="true">✓</div>
-        <p class="modal-eyebrow">Saved</p>
-        <h2 class="modal-title">All set.</h2>
-        <p class="modal-sub" id="saveSuccessSub">Check your inbox — we sent your matches plus a link you can use to come back anytime. We'll be in touch when something changes.</p>
-        <button class="modal-submit" onclick="closeSaveModal()">Keep exploring</button>
-      </div>
-    </div>
-  </div>
-</div>
+<!-- Save modal removed for v1 — no email collection. Saves are session/localStorage only. -->
 
 <script>
   let _saveContext = {};
@@ -1422,10 +1398,7 @@
   function toggleSave(name) {
     let saved = {};
     try { saved = JSON.parse(localStorage.getItem('rv_saved') || '{}'); } catch(e) {}
-    if (!saved.email) {
-      openSaveModal({type:'first-save', name: name});
-      return;
-    }
+    // v1: no email capture — save silently to this device only.
     saved.destinations = saved.destinations || [];
     if (saved.destinations.includes(name)) {
       saved.destinations = saved.destinations.filter(d => d !== name);
