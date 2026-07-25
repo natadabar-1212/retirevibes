@@ -18,7 +18,7 @@ This is the existing design system. Don't drift from it without a real reason.
 - `--teal-soft: #2E5468`
 - `--gold: #C8A064`, `--gold-soft: #E4C998` (italic-serif emphasis on dark backgrounds)
 - `--sage: #93A89A`
-- `--warm-gray: #7A6E5F` (secondary text, labels)
+- `--warm-gray: #6A5E4F` (secondary text, labels — darkened 2026-07 to clear WCAG AA 4.5:1 on cream/cream-soft)
 - `--white: #FFFFFF`
 
 **Typography**

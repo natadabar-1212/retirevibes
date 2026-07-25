@@ -90,7 +90,7 @@ All pages use inline `<style>` blocks with these CSS variables:
   --gold: #C8A064;
   --gold-soft: #E4C998;
   --sage: #93A89A;
-  --warm-gray: #7A6E5F;
+  --warm-gray: #6A5E4F;
   --white: #FFFFFF;
   --serif: 'DM Serif Display', Georgia, serif;
   --sans: 'Inter', -apple-system, system-ui, sans-serif;
