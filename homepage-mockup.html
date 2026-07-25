@@ -105,29 +105,41 @@
     display: flex;
     align-items: center;
     overflow: hidden;
-    padding: 56px 48px 64px;
+    min-height: 620px;
+    padding: 72px 48px 80px;
   }
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    /* Warm editorial gradient — no destination photo, no geographic bias */
-    background: linear-gradient(120deg,
-      var(--cream)      0%,
-      #F8F1E5          30%,
-      #F0E3CC          60%,
-      #E4CEAE          82%,
-      #D4BA95         100%);
+  /* Rotating destination imagery — one per region, no single-destination bias */
+  .hero-bg-layer {
+    position: absolute; inset: 0;
+    background-size: cover; background-position: center;
+    opacity: 0; transition: opacity 1.6s ease-in-out;
   }
+  .hero-bg-layer.active { opacity: 1; }
+  .hero-scrim {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(105deg, rgba(27,58,75,0.82) 0%, rgba(27,58,75,0.55) 42%, rgba(27,58,75,0.12) 100%),
+      linear-gradient(180deg, rgba(27,58,75,0) 55%, rgba(27,58,75,0.45) 100%);
+  }
+  .hero-caption {
+    position: absolute; z-index: 2; right: 48px; bottom: 24px;
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(255,255,255,0.72);
+  }
+  .hero-dots { position: absolute; z-index: 2; left: 48px; bottom: 24px; display: flex; gap: 8px; }
+  .hero-dots span { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.35); transition: background 0.3s ease, width 0.3s ease; }
+  .hero-dots span.on { background: var(--gold-soft); width: 20px; border-radius: 999px; }
   .hero-inner {
     position: relative;
     z-index: 2;
     width: 100%;
   }
+  .hero-inner { max-width: 1240px; margin: 0 auto; }
   .hero-kicker {
     font-family: var(--serif);
     font-style: italic;
     font-size: 18px;
-    color: var(--terracotta);
+    color: var(--gold-soft);
     margin-bottom: 18px;
     letter-spacing: 0.01em;
   }
@@ -135,22 +147,26 @@
     font-family: var(--serif);
     font-size: 76px;
     line-height: 1.02;
-    color: var(--teal);
+    color: #fff;
     letter-spacing: -0.02em;
     margin-bottom: 28px;
+    max-width: 900px;
+    text-shadow: 0 2px 24px rgba(0,0,0,0.28);
   }
   .hero-headline em {
     font-style: italic;
-    color: var(--terracotta);
+    color: var(--gold-soft);
   }
   .hero-sub {
     font-size: 19px;
     line-height: 1.55;
-    color: var(--teal-soft);
+    color: rgba(255,255,255,0.92);
     margin-bottom: 36px;
+    max-width: 620px;
+    text-shadow: 0 1px 12px rgba(0,0,0,0.35);
   }
   .hero-sub strong {
-    color: var(--terracotta-dark);
+    color: var(--gold-soft);
     font-weight: 600;
   }
   .hero-cta-row {
@@ -180,9 +196,12 @@
     background: var(--terracotta);
     transform: translateY(-1px);
   }
-.hero-meta {
+  /* Hero CTA pops in terracotta against the photo */
+  .hero .btn-primary { background: var(--terracotta); }
+  .hero .btn-primary:hover { background: var(--terracotta-dark); }
+  .hero-meta {
     font-size: 13px;
-    color: var(--warm-gray);
+    color: rgba(255,255,255,0.8);
     letter-spacing: 0.04em;
   }
 
@@ -562,9 +581,11 @@
     .nav { padding: 14px 22px; }
     .nav-links { gap: 18px; }
     .nav-links a:not(.nav-cta) { display: none; }
-    .hero { padding: 44px 22px 52px; }
+    .hero { padding: 56px 22px 60px; min-height: 500px; }
     .hero-headline { font-size: 48px; }
     .hero-sub { font-size: 17px; }
+    .hero-caption { right: 22px; }
+    .hero-dots { left: 22px; }
     .reframe { padding: 56px 22px; }
     .how { padding: 60px 22px; }
     .mid-cta { padding: 0 22px 56px; }
@@ -632,7 +653,13 @@
 
 <!-- ─── HERO ─── -->
 <section class="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-bg-layer active" data-cap="Ribeira waterfront · Porto, Portugal" style="background-image:url('images/porto.jpg');"></div>
+  <div class="hero-bg-layer" data-cap="Historic center · San Miguel de Allende, Mexico" data-bg="images/san-miguel-de-allende.jpg" style="background-position:center 78%;"></div>
+  <div class="hero-bg-layer" data-cap="Gulf coast · Sarasota, Florida" data-bg="images/sarasota.jpg"></div>
+  <div class="hero-bg-layer" data-cap="Rice terraces · Bali, Indonesia" data-bg="images/bali.jpg"></div>
+  <div class="hero-bg-layer" data-cap="West coast · Barbados" data-bg="images/barbados.jpg"></div>
+  <div class="hero-bg-layer" data-cap="Cape Winelands · Stellenbosch, South Africa" data-bg="images/stellenbosch.jpg"></div>
+  <div class="hero-scrim"></div>
   <div class="hero-inner">
     <p class="hero-kicker">Good RetireVibes only.</p>
     <h1 class="hero-headline">Where in the <em>world</em> should you retire?</h1>
@@ -642,7 +669,8 @@
       <span class="hero-meta">~2 minutes · no signup needed</span>
     </div>
   </div>
-
+  <div class="hero-dots" id="heroDots"></div>
+  <div class="hero-caption" id="heroCap">Ribeira waterfront · Porto, Portugal</div>
 </section>
 
 <!-- ─── REFRAME ─── -->
@@ -904,6 +932,30 @@
   }
 
   document.addEventListener('DOMContentLoaded', updateCardSaveStates);
+</script>
+<script>
+  /* Hero rotation — one destination per region, lazy image load, reduced-motion aware */
+  (function () {
+    var hero = document.querySelector('.hero');
+    if (!hero) return;
+    var layers = Array.prototype.slice.call(hero.querySelectorAll('.hero-bg-layer'));
+    var cap = document.getElementById('heroCap');
+    var dotsWrap = document.getElementById('heroDots');
+    layers.forEach(function (_, i) { var d = document.createElement('span'); if (i === 0) d.className = 'on'; dotsWrap.appendChild(d); });
+    var dots = Array.prototype.slice.call(dotsWrap.children);
+    // Lazy-load the non-first images once the page is idle
+    function hydrate() { layers.forEach(function (l) { var s = l.getAttribute('data-bg'); if (s && !l.style.backgroundImage) l.style.backgroundImage = "url('" + s + "')"; }); }
+    if (window.requestIdleCallback) { requestIdleCallback(hydrate); } else { setTimeout(hydrate, 500); }
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) return; // static first image for reduced-motion users
+    var i = 0;
+    setInterval(function () {
+      layers[i].classList.remove('active'); dots[i].classList.remove('on');
+      i = (i + 1) % layers.length;
+      layers[i].classList.add('active'); dots[i].classList.add('on');
+      if (cap) cap.textContent = layers[i].getAttribute('data-cap');
+    }, 4800);
+  })();
 </script>
 <script src="shared.js"></script>
 

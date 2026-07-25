@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Homepage Hero Preview (Option 1 — rotating imagery) — RetireVibes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --cream: #FBF6EE;
+    --cream-soft: #F4ECDD;
+    --terracotta: #C97B5A;
+    --terracotta-dark: #A8593A;
+    --teal: #1B3A4B;
+    --teal-soft: #2E5468;
+    --gold: #C8A064;
+    --gold-soft: #E4C998;
+    --warm-gray: #6A5E4F;
+    --white: #FFFFFF;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--cream); color: var(--teal); font-family: var(--sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+  /* preview banner */
+  .preview-note { background: var(--teal); color: var(--gold-soft); font-size: 13px; letter-spacing: 0.02em; text-align: center; padding: 8px 16px; font-family: var(--sans); }
+  .preview-note strong { color: #fff; }
+
+  /* ─── Nav ─── */
+  .nav { position: relative; z-index: 10; display: flex; align-items: center; justify-content: space-between; padding: 18px 48px; background: rgba(251,246,238,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(27,58,75,0.06); }
+  .wordmark { font-family: var(--serif); font-size: 24px; color: var(--teal); text-decoration: none; letter-spacing: -0.01em; }
+  .wordmark em { color: var(--terracotta); font-style: normal; }
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-links a { color: var(--teal); text-decoration: none; font-size: 15px; font-weight: 500; }
+  .nav-cta { padding: 12px 22px; background: var(--teal); color: var(--white) !important; border-radius: 999px; font-size: 14px; }
+
+  /* ─── Hero (Option 1: rotating imagery) ─── */
+  .hero { position: relative; display: flex; align-items: center; overflow: hidden; min-height: 620px; padding: 72px 48px 80px; }
+  .hero-bg-layer {
+    position: absolute; inset: 0;
+    background-size: cover; background-position: center;
+    opacity: 0; transition: opacity 1.6s ease-in-out;
+  }
+  .hero-bg-layer.active { opacity: 1; }
+  /* Scrim: darker at bottom-left where the text sits, clearer top-right so the photo breathes */
+  .hero-scrim {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(105deg, rgba(27,58,75,0.82) 0%, rgba(27,58,75,0.55) 42%, rgba(27,58,75,0.12) 100%),
+      linear-gradient(180deg, rgba(27,58,75,0) 55%, rgba(27,58,75,0.45) 100%);
+  }
+  .hero-inner { position: relative; z-index: 2; width: 100%; max-width: 1240px; margin: 0 auto; }
+  .hero-kicker { font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--gold-soft); margin-bottom: 18px; }
+  .hero-headline { font-family: var(--serif); font-size: 76px; line-height: 1.02; color: #fff; letter-spacing: -0.02em; margin-bottom: 26px; max-width: 900px; text-shadow: 0 2px 24px rgba(0,0,0,0.28); }
+  .hero-headline em { font-style: italic; color: var(--gold-soft); }
+  .hero-sub { font-size: 19px; line-height: 1.55; color: rgba(255,255,255,0.92); margin-bottom: 36px; max-width: 620px; text-shadow: 0 1px 12px rgba(0,0,0,0.35); }
+  .hero-sub strong { color: var(--gold-soft); font-weight: 600; }
+  .hero-cta-row { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 10px; padding: 18px 36px; background: var(--terracotta); color: var(--white); border: none; border-radius: 999px; font-family: var(--sans); font-size: 16px; font-weight: 500; cursor: pointer; transition: all 0.25s ease; text-decoration: none; }
+  .btn-primary:hover { background: var(--terracotta-dark); transform: translateY(-1px); }
+  .hero-meta { font-size: 13px; color: rgba(255,255,255,0.8); letter-spacing: 0.04em; }
+
+  /* Rotating location caption (bottom-right, magazine style) */
+  .hero-caption { position: absolute; z-index: 2; right: 48px; bottom: 26px; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.72); }
+
+  /* Dots showing rotation */
+  .hero-dots { position: absolute; z-index: 2; left: 48px; bottom: 26px; display: flex; gap: 8px; }
+  .hero-dots span { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.35); transition: background 0.3s ease, width 0.3s ease; }
+  .hero-dots span.on { background: var(--gold-soft); width: 20px; border-radius: 999px; }
+
+  .reframe { background: var(--cream-soft); padding: 72px 48px; text-align: center; }
+  .reframe .label { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--warm-gray); font-weight: 500; margin-bottom: 14px; }
+  .reframe h2 { font-family: var(--serif); font-size: 44px; color: var(--teal); letter-spacing: -0.015em; }
+  .reframe h2 em { color: var(--terracotta); font-style: italic; }
+
+  @media (max-width: 980px) { .nav-links a:not(.nav-cta) { display: none; } }
+  @media (max-width: 760px) {
+    .hero { padding: 44px 22px 60px; min-height: 520px; }
+    .hero-headline { font-size: 44px; }
+    .hero-sub { font-size: 17px; }
+    .hero-caption { right: 22px; }
+    .hero-dots { left: 22px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-bg-layer { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="preview-note"><strong>PREVIEW — Option 1: rotating hero imagery.</strong> Not live. Cycles 6 regions (no single-destination bias). Reduced-motion users see a single static image.</div>
+
+<nav class="nav">
+  <a class="wordmark" href="#">Retire<em>Vibes</em></a>
+  <div class="nav-links">
+    <a href="#">Destinations</a>
+    <a href="#">My RetireVibes</a>
+    <a class="nav-cta" href="#">Find my RetireVibes</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg-layer active" data-cap="Ribeira waterfront · Porto, Portugal" style="background-image:url('https://www.retirevibes.com/images/porto.jpg');"></div>
+  <div class="hero-bg-layer" data-cap="Historic center · San Miguel de Allende, Mexico" style="background-image:url('https://www.retirevibes.com/images/san-miguel-de-allende.jpg');background-position:center 78%;"></div>
+  <div class="hero-bg-layer" data-cap="Gulf coast · Sarasota, Florida" style="background-image:url('https://www.retirevibes.com/images/sarasota.jpg');"></div>
+  <div class="hero-bg-layer" data-cap="Rice terraces · Bali, Indonesia" style="background-image:url('https://www.retirevibes.com/images/bali.jpg');"></div>
+  <div class="hero-bg-layer" data-cap="West coast · Barbados" style="background-image:url('https://www.retirevibes.com/images/barbados.jpg');"></div>
+  <div class="hero-bg-layer" data-cap="Cape Winelands · Stellenbosch, South Africa" style="background-image:url('https://www.retirevibes.com/images/stellenbosch.jpg');"></div>
+  <div class="hero-scrim"></div>
+
+  <div class="hero-inner">
+    <p class="hero-kicker">Good RetireVibes only.</p>
+    <h1 class="hero-headline">Where in the <em>world</em> should you retire?</h1>
+    <p class="hero-sub">Take our vibe quiz and discover your top destinations — from coastal Portugal to the Yucatán to your own backyard — places that feel like <strong>the life you've been imagining</strong>.</p>
+    <div class="hero-cta-row">
+      <a class="btn-primary" href="#">Find my RetireVibes</a>
+      <span class="hero-meta">~2 minutes · no signup needed</span>
+    </div>
+  </div>
+
+  <div class="hero-dots" id="dots"></div>
+  <div class="hero-caption" id="cap">Ribeira waterfront · Porto, Portugal</div>
+</section>
+
+<section class="reframe">
+  <p class="label">A quick reframe</p>
+  <h2>Retirement isn't one place. <em>It's your place.</em></h2>
+</section>
+
+<script>
+  (function () {
+    var layers = Array.prototype.slice.call(document.querySelectorAll('.hero-bg-layer'));
+    var cap = document.getElementById('cap');
+    var dotsWrap = document.getElementById('dots');
+    layers.forEach(function (_, i) {
+      var d = document.createElement('span');
+      if (i === 0) d.className = 'on';
+      dotsWrap.appendChild(d);
+    });
+    var dots = Array.prototype.slice.call(dotsWrap.children);
+    var i = 0;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) return; // static first image for reduced-motion users
+    setInterval(function () {
+      layers[i].classList.remove('active'); dots[i].classList.remove('on');
+      i = (i + 1) % layers.length;
+      layers[i].classList.add('active'); dots[i].classList.add('on');
+      cap.textContent = layers[i].getAttribute('data-cap');
+    }, 4800);
+  })();
+</script>
+
+</body>
+</html>
