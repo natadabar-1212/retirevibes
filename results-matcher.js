@@ -277,7 +277,12 @@
       ? `Real listings — apartments, houses, and condos in ${top.name}. No commitment, just curiosity.`
       : `Active listings in ${top.name} — from starter homes to waterfront estates. See what the market looks like.`;
     const homesPartner = top.isInternational ? 'via local listing partners' : 'via Zillow / Realtor.com';
-    const browseLink = top.browseHomesPage || (top.isInternational ? ('destinations/' + top.id + '/real-estate/') : 'browse-homes-domestic.html');
+    // International: always route to the destination's own generated real-estate page.
+    // (Ignore the legacy browseHomesPage override — it points international matches at the
+    //  Porto-redirecting page, and 5 NZ entries at archived pages that no longer exist.)
+    const browseLink = top.isInternational
+      ? ('destinations/' + top.id + '/real-estate/')
+      : (top.browseHomesPage || 'browse-homes-domestic.html');
     const advisorLink = top.advisorPage || (top.isInternational ? 'advisor-international.html' : 'advisor-domestic.html');
     const scoutLink = top.isInternational ? 'scouting-trip-detail.html?id=' + top.id : 'scouting-trip-domestic.html?city=' + top.id;
 
