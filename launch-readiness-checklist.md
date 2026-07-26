@@ -429,6 +429,19 @@ Full-site design + UX review completed (Design Lead + UX Lead hats). Verdict: **
 
 97. **Quiz artwork refresh** — P3 (design), partially done.
     - ~~De-dupe the hammock~~ ✅ **DONE (2026-07-22)** — verified in the actual SVGs that the one genuine near-duplicate was the hammock (Q4 "Take it slow" = q3.relaxed AND Q7 "Peace" = q8.peace were both hammock-between-supports-with-sun). Redrew `q8.peace` as a distinct calm scene (still water, lone tree, low sun + reflection, two birds) in the same flat/warm style. Q4 keeps the hammock. The other flagged "repeats" were checked and are actually distinct: Q4 "Social first" (set dinner table + wine) vs Q7 "Community" (three standing figures); Q4 "On the go" (cyclist) vs Q7 "Adventure" (mountain figure) — no change needed.
-    - **Still open:** replace the "?" signpost ("Not sure yet", q6.notSure — the one clip-art-ish/juvenile moment), and enrich the 3–4 flattest scenes (lifestyle house tiers, some housing options). Owner: **design-lead**. Effort: S–M.
+    - ~~Replace the "?" signpost~~ ✖️ **KEPT (2026-07-22) — Natalie's call.** Reviewed a dashed-outline-house alternative; Natalie prefers the existing "?" signpost for "Not sure yet." No change. Not a defect — closed by preference.
+    - **Still open (optional):** enrich the 3–4 flattest scenes (lifestyle house tiers, some housing options). Owner: **design-lead**. Effort: S–M. Low priority.
+
+## Updates 2026-07-22 (batch 9) — full-site link crawl + mobile static QA
+
+Automated crawl of all real pages: **18 root + 132 real-estate + 1 destinations index = 151 pages.**
+
+**Links — clean.** 3,380 internal links extracted and resolved with browser-style path clamping: **0 broken.** 0 references to archived pages. Only 1 `href="#"` (results-page email-share, cosmetic, item 79). Dynamic/scenario links verified: all 132 destinations resolve for `destination-detail.html?id=`, `scouting-trip-detail.html?id=`, and `/destinations/{id}/real-estate/`. External property portals are country-correct (Portugal→Idealista.pt, US→Zillow, Mexico→Inmuebles24, Indonesia→Rumah123, Ireland→Daft, etc.) via the generator's country map; all 132 real-estate pages carry a listing portal. ~51 external domains linked (localized property portals + Expedia + FINRA BrokerCheck + Google Fonts) — all appropriate.
+
+99. ~~🟠 **Browse-homes pages non-responsive on mobile**~~ ✅ **FIXED (2026-07-22)** — `browse-homes-international.html` and `browse-homes-domestic.html` had **zero `@media` rules**, so their 2- and 3-column grids (neighborhoods, price bands, compare cards, "also" cards) would not collapse on a phone → cramped/overflow. Added a `max-width:760px` block to each collapsing all content grids to a single column and tightening 48px side padding to 22px. Verified every other real page already has a mobile breakpoint (quiz responsive CSS is in `mockups/quiz/styles.css` @900px). Static checks also passed: viewport meta on all pages, no non-responsive `<table>`s, images are CSS backgrounds (`cover`, no `<img>` overflow).
+
+100. **Real-estate pages use `../../../../` (4-up) where `../../../` (3) suffices** — 🟢 P3 cleanup. 132 generated pages; works today via browser/CDN root-clamping (verified live), but technically one `../` too many. Fix in `generate-real-estate.js` + regenerate whenever convenient. Owner: **cto**.
+
+**⚠️ Not verifiable from here — needs real-device pass (items 46/47):** true mobile *visual* rendering (text overlap, legibility, images cut off at 390px). The browser tool renders at a fixed 1440px viewport regardless of window resize, so visual mobile QA could not be performed. Static analysis caught the one structural gap (item 99); everything else visual is Natalie's real-phone pass. **Recommend: run the browse-homes pages first on a real phone to confirm the new breakpoints landed well.**
 
 98. **Quiz housekeeping** — P3 (cleanup). Prune unused artwork in `option-scenes.js` (geography `q4` set, partner/solo `q7` set, `q3.mix`), the unused `slider` question type in `quiz.js`, and vestigial `sceneKey` fields. Owner: **cto**. Effort: S.

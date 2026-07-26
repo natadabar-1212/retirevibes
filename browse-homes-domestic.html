@@ -588,6 +588,16 @@
     color: rgba(255,255,255,0.25);
     line-height: 1.6;
   }
+
+  /* ─── Mobile (added 2026-07-22 — page previously had no responsive rules) ─── */
+  @media (max-width: 760px) {
+    .nav { padding: 14px 22px; }
+    .hero { padding: 0 22px 52px; min-height: 500px; }
+    .hero h1 { font-size: 42px; }
+    .hero-sub { font-size: 17px; }
+    .dest-compare, .what-to-look, .rent-vs-buy, .agent-tip, .main-cta, .also { padding-left: 22px; padding-right: 22px; }
+    .compare-grid, .look-grid, .rvb-grid, .agent-tip-inner, .also-grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>

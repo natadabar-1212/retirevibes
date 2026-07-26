@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Quiz artwork — "Not sure yet" redraw</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{--cream:#FBF6EE;--terracotta:#C97B5A;--teal:#1B3A4B;--warm-gray:#6A5E4F;--serif:'DM Serif Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--cream);color:var(--teal);font-family:var(--sans);padding:32px 40px 60px;}
+  h1{font-family:var(--serif);font-size:36px;letter-spacing:-0.015em;margin-bottom:6px;}
+  h1 em{color:var(--terracotta);font-style:italic;}
+  .intro{font-size:15px;color:var(--warm-gray);max-width:760px;line-height:1.6;margin-bottom:26px;}
+  .row{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;max-width:660px;}
+  .card{border-radius:14px;overflow:hidden;border:1px solid rgba(27,58,75,0.08);box-shadow:0 2px 12px rgba(27,58,75,0.06);}
+  .art{position:relative;aspect-ratio:4/3;}
+  .art svg{position:absolute;inset:0;width:100%;height:100%;display:block;}
+  .art .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(27,58,75,0) 45%,rgba(27,58,75,0.55) 100%);}
+  .art .label{position:absolute;left:14px;bottom:11px;color:#fff;font-weight:600;font-size:15px;z-index:2;text-shadow:0 1px 6px rgba(0,0,0,0.4);}
+  .tag{padding:9px 14px;font-size:12px;font-weight:600;}
+  .before{color:#A8593A;}
+  .after{color:#C97B5A;}
+</style>
+</head>
+<body>
+  <h1>"Not sure yet" — <em>redraw</em></h1>
+  <p class="intro">On the housing question, "Not sure yet" was a signpost with three "?" boards — the most clip-art-ish illustration in the quiz. The redraw keeps the same sky/ground palette as the other housing options (Own, Rent, Resort), but draws the house as a <strong>dashed outline</strong> — a home still taking shape. Reads "undecided" without a literal question mark.</p>
+  <div class="row">
+    <div class="card"><div class="art" id="a1"></div><div class="tag before">BEFORE — signpost with "?"</div></div>
+    <div class="card"><div class="art" id="a2"></div><div class="tag after">AFTER — a home taking shape</div></div>
+  </div>
+
+<script>
+  var oldSign = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+    <rect width="400" height="300" fill="#E8C9A0"/>
+    <g transform="translate(200,170)">
+      <rect x="-6" y="0" width="12" height="80" fill="#5C4A2A"/>
+      <rect x="-50" y="-50" width="100" height="40" fill="#FAF4ED" stroke="#5C4A2A" stroke-width="3"/>
+      <rect x="-50" y="-100" width="100" height="40" fill="#FAF4ED" stroke="#5C4A2A" stroke-width="3"/>
+      <rect x="-50" y="-150" width="100" height="40" fill="#FAF4ED" stroke="#5C4A2A" stroke-width="3"/>
+      <text x="0" y="-122" text-anchor="middle" font-family="serif" font-size="22" font-weight="bold" fill="#5C4A2A">?</text>
+      <text x="0" y="-72" text-anchor="middle" font-family="serif" font-size="22" font-weight="bold" fill="#5C4A2A">?</text>
+      <text x="0" y="-22" text-anchor="middle" font-family="serif" font-size="22" font-weight="bold" fill="#5C4A2A">?</text>
+    </g>
+  </svg>`;
+  var newHouse = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+    <rect width="400" height="220" fill="#B8CBD4"/>
+    <rect y="220" width="400" height="80" fill="#A8B888"/>
+    <circle cx="312" cy="64" r="20" fill="#F9E1B0" opacity="0.8"/>
+    <ellipse cx="200" cy="221" rx="86" ry="9" fill="#5C4A2A" opacity="0.12"/>
+    <g transform="translate(130,110)" fill="none" stroke="#3D5A6C" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="9 8" opacity="0.9">
+      <polygon points="0,0 70,-40 140,0"/>
+      <rect x="0" y="0" width="140" height="110"/>
+      <rect x="60" y="58" width="22" height="52"/>
+      <rect x="20" y="24" width="26" height="26"/>
+      <rect x="94" y="24" width="26" height="26"/>
+    </g>
+  </svg>`;
+  document.getElementById('a1').innerHTML = oldSign + '<span class="scrim"></span><span class="label">Not sure yet</span>';
+  document.getElementById('a2').innerHTML = newHouse + '<span class="scrim"></span><span class="label">Not sure yet</span>';
+</script>
+</body>
+</html>

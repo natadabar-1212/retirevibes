@@ -581,6 +581,18 @@
     color: rgba(255,255,255,0.25);
     line-height: 1.6;
   }
+
+  /* ─── Mobile (added 2026-07-22 — page previously had no responsive rules) ─── */
+  @media (max-width: 760px) {
+    .nav { padding: 14px 22px; }
+    .hero { padding: 0 22px 52px; min-height: 500px; }
+    .hero h1 { font-size: 42px; }
+    .hero-sub { font-size: 17px; }
+    .neighborhoods, .price-bands, .rent-vs-buy, .legal-band, .main-cta, .also { padding-left: 22px; padding-right: 22px; }
+    .hood-grid, .band-grid, .rvb-grid, .legal-grid, .also-grid { grid-template-columns: 1fr; }
+    .hood-card { grid-template-columns: 1fr; }
+    .hood-vibe { grid-column: 1; justify-self: start; margin-top: 10px; }
+  }
 </style>
 </head>
 <body>
