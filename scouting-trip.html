@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com https://www.google-analytics.com https://www.googletagmanager.com data: blob:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://api.emailjs.com;">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com https://www.google-analytics.com https://www.googletagmanager.com data: blob:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com;">
 <title>Plan a Retirement Scouting Trip — See It Before You Decide | RetireVibes</title>
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -823,9 +823,7 @@
   <h2 class="section-headline">Don't stay in a hotel. <em>Stay like a resident.</em></h2>
 
   <div class="stay-grid">
-    <div class="stay-photo">
-      <div id="stay-photo-cap" class="stay-photo-cap">A street in Porto, Portugal</div>
-    </div>
+    <div class="stay-photo"></div>
     <div class="stay-content">
       <div>
         <p class="stay-rec-label">The single most important tip</p>
@@ -919,8 +917,6 @@
   var heroBg = document.getElementById('hero-bg');
   if (heroBg && dest.photo) heroBg.style.backgroundImage = "url('" + dest.photo + "')";
 
-  var cap = document.getElementById('stay-photo-cap');
-  if (cap) cap.textContent = 'A street in ' + dest.name + ', ' + dest.country;
 })();
 </script>
 <script src="shared.js"></script>

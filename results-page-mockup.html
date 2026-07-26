@@ -1141,93 +1141,6 @@
 
 <!-- Save modal removed for v1 — no email collection. Saves are session/localStorage only. -->
 
-<script>
-  let _saveContext = {};
-  function openSaveModal(context) {
-    _saveContext = context || {};
-    const modal = document.getElementById('saveModal');
-    modal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    const titleEl = document.getElementById('saveModalTitle');
-    const subEl = document.getElementById('saveModalSub');
-    const successSub = document.getElementById('saveSuccessSub');
-    const submitBtn = document.getElementById('saveSubmitBtn');
-    if (_saveContext.type === 'first-save' && _saveContext.name) {
-      titleEl.textContent = '';
-      titleEl.appendChild(document.createTextNode('Save '));
-      const _titleEm = document.createElement('em'); _titleEm.textContent = _saveContext.name;
-      titleEl.appendChild(_titleEm);
-      titleEl.appendChild(document.createTextNode('.'));
-      subEl.textContent = "Just need your email so we can save " + _saveContext.name + " for you. No password — come back anytime to see your saved places.";
-      successSub.textContent = _saveContext.name + " is saved to your RetireVibes. Come back anytime to see everything you're keeping an eye on.";
-      if (submitBtn) submitBtn.textContent = 'Save it →';
-    } else {
-      titleEl.textContent = '';
-      titleEl.appendChild(document.createTextNode('Email me '));
-      const _titleEm2 = document.createElement('em'); _titleEm2.textContent = 'my results';
-      titleEl.appendChild(_titleEm2);
-      titleEl.appendChild(document.createTextNode('.'));
-      subEl.textContent = "We'll send your matches to your inbox plus a link to come back anytime — no password needed. We'll also let you know when costs, visa rules, or new matches change.";
-      successSub.textContent = "Check your inbox — we sent your matches plus a link you can use to come back anytime. We'll be in touch when something changes.";
-      if (submitBtn) submitBtn.textContent = 'Email me my matches →';
-    }
-    document.getElementById('saveForm').hidden = false;
-    document.getElementById('saveSuccess').hidden = true;
-  }
-  function closeSaveModal() {
-    document.getElementById('saveModal').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  function submitSave(e) {
-    e.preventDefault();
-    const email = e.target.email.value;
-    let saved = {};
-    try { saved = JSON.parse(localStorage.getItem('rv_saved') || '{}'); } catch(err) {}
-    const wasNewAccount = !saved.email;
-    saved.email = email;
-    if (wasNewAccount) saved.account_created_at = new Date().toISOString();
-    saved.saved_at = new Date().toISOString();
-    if (_saveContext.type === 'first-save' && _saveContext.name) {
-      saved.destinations = saved.destinations || [];
-      if (!saved.destinations.includes(_saveContext.name)) saved.destinations.push(_saveContext.name);
-    } else {
-      saved.matches_saved = true;
-    }
-    try { localStorage.setItem('rv_saved', JSON.stringify(saved)); } catch(err) {}
-    document.getElementById('saveForm').hidden = true;
-    document.getElementById('saveSuccess').hidden = false;
-    document.querySelectorAll('.save-btn[data-name]').forEach(b => {
-      const name = b.dataset.name;
-      if ((saved.destinations || []).includes(name)) {
-        b.innerHTML = '<span class="heart">✓</span> Saved';
-      }
-    });
-    if (typeof updateSaveHeartStates === 'function') updateSaveHeartStates();
-    // Send magic link email
-    if (window.sendMagicLinkEmail) sendMagicLinkEmail(email, saved);
-  }
-  document.addEventListener('DOMContentLoaded', function() {
-    const modal = document.getElementById('saveModal');
-    if (modal) {
-      modal.addEventListener('click', function(e) {
-        if (e.target === modal) closeSaveModal();
-      });
-    }
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && modal && modal.classList.contains('open')) closeSaveModal();
-    });
-    try {
-      const saved = JSON.parse(localStorage.getItem('rv_saved') || '{}');
-      document.querySelectorAll('.save-btn').forEach(b => {
-        const txt = (b.textContent || '').trim();
-        const m = txt.match(/Save (.+)/);
-        if (m && saved.destinations && saved.destinations.includes(m[1].trim())) {
-          b.innerHTML = '<span class="heart">✓</span> Saved';
-        }
-      });
-    } catch(err) {}
-  });
-</script>
 
 <!-- ═══ SHARE MODAL ═══ -->
 <style>
@@ -1418,7 +1331,6 @@
 
 <script src="destinations-data.js"></script>
 <script src="results-matcher.js"></script>
-<script src="magic-link.js"></script>
 <script src="shared.js"></script>
 
 </body>

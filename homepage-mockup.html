@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com https://www.google-analytics.com https://www.googletagmanager.com data: blob:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://api.emailjs.com;">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com https://www.google-analytics.com https://www.googletagmanager.com data: blob:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com;">
 <title>RetireVibes — Find Where Retirement Feels Right</title>
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -124,11 +124,6 @@
     background:
       linear-gradient(105deg, rgba(27,58,75,0.82) 0%, rgba(27,58,75,0.55) 42%, rgba(27,58,75,0.12) 100%),
       linear-gradient(180deg, rgba(27,58,75,0) 55%, rgba(27,58,75,0.45) 100%);
-  }
-  .hero-caption {
-    position: absolute; z-index: 2; right: 48px; bottom: 24px;
-    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
-    color: rgba(255,255,255,0.72);
   }
   .hero-dots { position: absolute; z-index: 2; left: 48px; bottom: 24px; display: flex; gap: 8px; }
   .hero-dots span { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.35); transition: background 0.3s ease, width 0.3s ease; }
@@ -588,7 +583,6 @@
     .hero { padding: 56px 22px 60px; min-height: 500px; }
     .hero-headline { font-size: 48px; }
     .hero-sub { font-size: 17px; }
-    .hero-caption { right: 22px; }
     .hero-dots { left: 22px; }
     .reframe { padding: 56px 22px; }
     .how { padding: 60px 22px; }
@@ -674,7 +668,6 @@
     </div>
   </div>
   <div class="hero-dots" id="heroDots"></div>
-  <div class="hero-caption" id="heroCap">Ribeira waterfront · Porto, Portugal</div>
 </section>
 
 <!-- ─── REFRAME ─── -->
@@ -943,7 +936,6 @@
     var hero = document.querySelector('.hero');
     if (!hero) return;
     var layers = Array.prototype.slice.call(hero.querySelectorAll('.hero-bg-layer'));
-    var cap = document.getElementById('heroCap');
     var dotsWrap = document.getElementById('heroDots');
     layers.forEach(function (_, i) { var d = document.createElement('span'); if (i === 0) d.className = 'on'; dotsWrap.appendChild(d); });
     var dots = Array.prototype.slice.call(dotsWrap.children);
@@ -957,7 +949,6 @@
       layers[i].classList.remove('active'); dots[i].classList.remove('on');
       i = (i + 1) % layers.length;
       layers[i].classList.add('active'); dots[i].classList.add('on');
-      if (cap) cap.textContent = layers[i].getAttribute('data-cap');
     }, 4800);
   })();
 </script>

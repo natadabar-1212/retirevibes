@@ -627,7 +627,6 @@
             <a class="plan-link" href="#next-steps">Start exploring →</a>
           </div>
         </div>
-        <div class="hero-photo-cap">${dest.photoCap}</div>
       </section>
 
       <!-- Stats strip -->
@@ -802,63 +801,7 @@
     } catch (e) {}
   };
 
-  // Make modal functions available to inline onclick handlers
-  window.openSaveModal = openSaveModal;
-  window.closeSaveModal = closeSaveModal;
-  window.submitSave = submitSave;
-
-  function openSaveModal(context) {
-    _saveContext = context || {};
-    const modal = document.getElementById('saveModal');
-    if (!modal) return;
-    modal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    const titleEl = document.getElementById('saveModalTitle');
-    const subEl   = document.getElementById('saveModalSub');
-    const successSub = document.getElementById('saveSuccessSub');
-    if (_saveContext.type === 'first-save' && _saveContext.name) {
-      titleEl.innerHTML  = 'Save <em>' + _saveContext.name + '</em>.';
-      subEl.textContent  = 'Just need your email so we can save ' + _saveContext.name + ' for you. No password — come back anytime to see your saved places.';
-      successSub.textContent = _saveContext.name + ' is saved to your RetireVibes. Come back anytime to see everything you\'re keeping an eye on.';
-    } else {
-      titleEl.innerHTML  = 'Email me <em>my results</em>.';
-      subEl.textContent  = 'We\'ll send your matches to your inbox plus a link to come back anytime — no password needed.';
-      successSub.textContent = 'Check your inbox — we sent your matches plus a link you can use to come back anytime.';
-    }
-    document.getElementById('saveForm').hidden = false;
-    document.getElementById('saveSuccess').hidden = true;
-  }
-
-  function closeSaveModal() {
-    const modal = document.getElementById('saveModal');
-    if (modal) modal.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  function submitSave(e) {
-    e.preventDefault();
-    const email = e.target.email.value;
-    let saved = {};
-    try { saved = JSON.parse(localStorage.getItem('rv_saved') || '{}'); } catch(err) {}
-    const wasNewAccount = !saved.email;
-    saved.email = email;
-    if (wasNewAccount) saved.account_created_at = new Date().toISOString();
-    saved.saved_at = new Date().toISOString();
-    if (_saveContext.type === 'first-save' && _saveContext.name) {
-      saved.destinations = saved.destinations || [];
-      if (!saved.destinations.includes(_saveContext.name)) saved.destinations.push(_saveContext.name);
-    } else {
-      saved.matches_saved = true;
-    }
-    try { localStorage.setItem('rv_saved', JSON.stringify(saved)); } catch(err) {}
-    document.getElementById('saveForm').hidden = true;
-    document.getElementById('saveSuccess').hidden = false;
-    if (_saveContext.name) updateSaveState(_saveContext.name);
-    // Send magic link email
-    if (window.sendMagicLinkEmail) sendMagicLinkEmail(email, saved);
-  }
-
-  let _saveContext = {};
+  // v1: no email capture. Saving is session/device-only (localStorage, no PII). Save UI = heart via toggleSave/updateSaveState below.
 
   // ─── Init ─────────────────────────────────────────────────
   if (typeof DESTINATIONS === 'undefined') {
