@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Quiz artwork — de-dupe the hammock</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{--cream:#FBF6EE;--terracotta:#C97B5A;--teal:#1B3A4B;--warm-gray:#6A5E4F;--serif:'DM Serif Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--cream);color:var(--teal);font-family:var(--sans);padding:32px 40px 60px;}
+  h1{font-family:var(--serif);font-size:36px;letter-spacing:-0.015em;margin-bottom:6px;}
+  h1 em{color:var(--terracotta);font-style:italic;}
+  .intro{font-size:15px;color:var(--warm-gray);max-width:760px;line-height:1.6;margin-bottom:26px;}
+  .row{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px;}
+  .card{border-radius:14px;overflow:hidden;border:1px solid rgba(27,58,75,0.08);box-shadow:0 2px 12px rgba(27,58,75,0.06);}
+  .art{position:relative;aspect-ratio:4/3;}
+  .art svg{position:absolute;inset:0;width:100%;height:100%;display:block;}
+  .art .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(27,58,75,0) 45%,rgba(27,58,75,0.55) 100%);}
+  .art .label{position:absolute;left:14px;bottom:11px;color:#fff;font-weight:600;font-size:15px;z-index:2;text-shadow:0 1px 6px rgba(0,0,0,0.4);}
+  .tag{padding:9px 14px;font-size:12px;font-weight:600;letter-spacing:0.02em;}
+  .keep{color:#4A7A5A;}
+  .before{color:#A8593A;}
+  .after{color:#C97B5A;}
+</style>
+</head>
+<body>
+  <h1>De-duping the <em>hammock</em></h1>
+  <p class="intro">Q4 "Take it slow" and Q7 "Peace &amp; simplicity" were both hammock scenes — the clearest cross-question repeat. Q4 keeps the hammock (it's the pace of doing nothing); Q7 gets a new calm-but-distinct scene: still water, a lone tree, a low sun. Same palette and flat style, but no longer a twin. If you like the new one I'll drop it in.</p>
+  <div class="row">
+    <div class="card">
+      <div class="art" id="a1"></div>
+      <div class="tag keep">Q4 · Take it slow — UNCHANGED</div>
+    </div>
+    <div class="card">
+      <div class="art" id="a2"></div>
+      <div class="tag before">Q7 · Peace — BEFORE (twin hammock)</div>
+    </div>
+    <div class="card">
+      <div class="art" id="a3"></div>
+      <div class="tag after">Q7 · Peace — AFTER (new)</div>
+    </div>
+  </div>
+
+<script>
+  var hammock = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+    <rect width="400" height="300" fill="#E8C9A0"/>
+    <rect y="220" width="400" height="80" fill="#8A6E3F"/>
+    <g transform="translate(70,180)"><rect x="-3" y="0" width="6" height="60" fill="#5C4A2A"/></g>
+    <g transform="translate(330,180)"><rect x="-3" y="0" width="6" height="60" fill="#5C4A2A"/></g>
+    <path d="M70,200 Q200,260 330,200" stroke="#FAF4ED" stroke-width="14" fill="none" stroke-linecap="round"/>
+    <path d="M75,200 Q200,250 325,200" stroke="#E8D9C4" stroke-width="3" fill="none"/>
+    <circle cx="200" cy="232" r="12" fill="#1F2D3D"/>
+    <ellipse cx="200" cy="232" rx="22" ry="6" fill="#1F2D3D" opacity="0.4"/>
+    <circle cx="340" cy="60" r="25" fill="#F9E1B0"/>
+  </svg>`;
+  var oldPeace = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+    <rect width="400" height="300" fill="#F2A365"/>
+    <rect y="200" width="400" height="100" fill="#4A8BA8" opacity="0.72"/>
+    <rect x="70" y="105" width="7" height="132" fill="#5C4A2A"/>
+    <path d="M73,110 Q22,85 2,56 Q32,78 73,105 Z" fill="#7A8A60"/>
+    <path d="M73,110 Q30,74 16,44 Q46,68 73,105 Z" fill="#A8B888"/>
+    <path d="M73,110 Q118,84 138,55 Q115,78 73,105 Z" fill="#7A8A60"/>
+    <rect x="323" y="105" width="7" height="132" fill="#5C4A2A"/>
+    <path d="M326,110 Q278,84 258,55 Q283,78 326,105 Z" fill="#7A8A60"/>
+    <path d="M326,110 Q368,82 388,58 Q364,78 326,105 Z" fill="#A8B888"/>
+    <path d="M73,155 Q200,190 326,155" stroke="#D4A574" stroke-width="16" fill="none" stroke-linecap="round"/>
+    <path d="M78,155 Q200,186 321,155" stroke="#F2E8DC" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <ellipse cx="200" cy="177" rx="50" ry="10" fill="#F9E1B0" opacity="0.75"/>
+    <circle cx="200" cy="58" r="34" fill="#F9E1B0"/>
+  </svg>`;
+  var newPeace = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+    <rect width="400" height="300" fill="#EAD0A6"/>
+    <rect y="188" width="400" height="112" fill="#5E93A8"/>
+    <circle cx="205" cy="150" r="30" fill="#F9E1B0"/>
+    <circle cx="205" cy="150" r="46" fill="#F9E1B0" opacity="0.18"/>
+    <rect x="193" y="188" width="24" height="96" fill="#F9E1B0" opacity="0.30"/>
+    <path d="M118,214 Q205,221 292,214" stroke="#EAF2F0" stroke-width="2.5" fill="none" opacity="0.5"/>
+    <path d="M140,238 Q205,244 270,238" stroke="#EAF2F0" stroke-width="2.5" fill="none" opacity="0.4"/>
+    <path d="M0,188 Q55,181 108,188 L108,201 Q54,195 0,201 Z" fill="#7A8A60"/>
+    <rect x="52" y="150" width="5" height="40" fill="#3D5A6C"/>
+    <circle cx="54" cy="150" r="16" fill="#5E7350"/>
+    <circle cx="45" cy="158" r="11" fill="#6E845C"/>
+    <circle cx="63" cy="156" r="11" fill="#6E845C"/>
+    <path d="M300,78 q7,-6 14,0 q7,-6 14,0" stroke="#5C4A2A" stroke-width="2.5" fill="none" opacity="0.7"/>
+    <path d="M332,98 q5,-4 10,0 q5,-4 10,0" stroke="#5C4A2A" stroke-width="2" fill="none" opacity="0.55"/>
+  </svg>`;
+  document.getElementById('a1').innerHTML = hammock + '<span class="scrim"></span><span class="label">Take it slow</span>';
+  document.getElementById('a2').innerHTML = oldPeace + '<span class="scrim"></span><span class="label">Peace &amp; simplicity</span>';
+  document.getElementById('a3').innerHTML = newPeace + '<span class="scrim"></span><span class="label">Peace &amp; simplicity</span>';
+</script>
+</body>
+</html>

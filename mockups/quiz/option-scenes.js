@@ -589,21 +589,20 @@ const OPTION_SCENES = {
       </g>
     </svg>`,
     peace: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
-      <rect width="400" height="300" fill="#F2A365"/>
-      <rect y="200" width="400" height="100" fill="#4A8BA8" opacity="0.72"/>
-      <path d="M100,200 Q200,195 300,200 L300,214 Q200,210 100,214 Z" fill="#F9E1B0" opacity="0.38"/>
-      <rect x="70" y="105" width="7" height="132" fill="#5C4A2A"/>
-      <path d="M73,110 Q22,85 2,56 Q32,78 73,105 Z" fill="#7A8A60"/>
-      <path d="M73,110 Q30,74 16,44 Q46,68 73,105 Z" fill="#A8B888"/>
-      <path d="M73,110 Q118,84 138,55 Q115,78 73,105 Z" fill="#7A8A60"/>
-      <rect x="323" y="105" width="7" height="132" fill="#5C4A2A"/>
-      <path d="M326,110 Q278,84 258,55 Q283,78 326,105 Z" fill="#7A8A60"/>
-      <path d="M326,110 Q368,82 388,58 Q364,78 326,105 Z" fill="#A8B888"/>
-      <path d="M73,155 Q200,190 326,155" stroke="#D4A574" stroke-width="16" fill="none" stroke-linecap="round"/>
-      <path d="M78,155 Q200,186 321,155" stroke="#F2E8DC" stroke-width="5" fill="none" stroke-linecap="round"/>
-      <ellipse cx="200" cy="177" rx="50" ry="10" fill="#F9E1B0" opacity="0.75"/>
-      <circle cx="200" cy="58" r="34" fill="#F9E1B0"/>
-      <circle cx="200" cy="58" r="50" fill="#F9E1B0" opacity="0.18"/>
+      <rect width="400" height="300" fill="#EAD0A6"/>
+      <rect y="188" width="400" height="112" fill="#5E93A8"/>
+      <circle cx="205" cy="150" r="30" fill="#F9E1B0"/>
+      <circle cx="205" cy="150" r="46" fill="#F9E1B0" opacity="0.18"/>
+      <rect x="193" y="188" width="24" height="96" fill="#F9E1B0" opacity="0.30"/>
+      <path d="M118,214 Q205,221 292,214" stroke="#EAF2F0" stroke-width="2.5" fill="none" opacity="0.5"/>
+      <path d="M140,238 Q205,244 270,238" stroke="#EAF2F0" stroke-width="2.5" fill="none" opacity="0.4"/>
+      <path d="M0,188 Q55,181 108,188 L108,201 Q54,195 0,201 Z" fill="#7A8A60"/>
+      <rect x="52" y="150" width="5" height="40" fill="#3D5A6C"/>
+      <circle cx="54" cy="150" r="16" fill="#5E7350"/>
+      <circle cx="45" cy="158" r="11" fill="#6E845C"/>
+      <circle cx="63" cy="156" r="11" fill="#6E845C"/>
+      <path d="M300,78 q7,-6 14,0 q7,-6 14,0" stroke="#5C4A2A" stroke-width="2.5" fill="none" opacity="0.7"/>
+      <path d="M332,98 q5,-4 10,0 q5,-4 10,0" stroke="#5C4A2A" stroke-width="2" fill="none" opacity="0.55"/>
     </svg>`,
     purpose: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
       <rect width="400" height="300" fill="#FAF4ED"/>
