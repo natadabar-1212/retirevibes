@@ -423,9 +423,9 @@ Full-site design + UX review completed (Design Lead + UX Lead hats). Verdict: **
 
 **Quiz review (full detail in `quiz-review-2026-07.md`)** — quiz is strong; polish items below, none block soft launch:
 
-95. **Rename Q4 "Socialite" → "Social first"** — P2 (brand/copy). "Socialite" describes a person, not a pace, and carries an off-voice wealthy-party connotation. Quick copy fix in `mockups/quiz/questions.js`. Owner: **brand-copy-editor**.
+95. ~~**Rename Q4 "Socialite" → "Social first"**~~ ✅ **FIXED (2026-07-22)** — `mockups/quiz/questions.js`: label "Socialite" → "Social first" (and emoji 🥂 → 👥) so it describes a pace, not a wealthy-party person-type. (The dinner-table art still repeats with Q7 Community — that's covered by the item 97 artwork refresh.)
 
-96. **Quiz focus management on question advance** — P1 (accessibility, pre-hard-launch). Focus isn't moved when a question auto-advances, so keyboard/screen-reader users lose their place. Move focus to the question `<h2>` (tabindex=-1 + .focus()) after render; also `aria-hidden` the decorative `.img-svg`. Owner: **cto + ux**. Effort: S.
+96. ~~**Quiz focus management on question advance**~~ ✅ **FIXED (2026-07-22)** — `mockups/quiz/quiz.js`: question `<h2 class="q-title">` now has `tabindex="-1"` and receives `.focus({preventScroll:true})` after each render, so keyboard + screen-reader users keep their place on advance (auto-advance or Next) and the new question is announced. Also added `aria-hidden="true"` to the decorative `.img-svg` artwork. Both files pass syntax check.
 
 97. **Quiz artwork refresh** — P3 (design). Leans slightly sterile/repetitive, not juvenile. Priorities: de-duplicate scenes reused across Q4/Q7 (hammock, dinner table, mountain/hiker), replace the "?" signpost ("Not sure yet"), enrich the 3–4 flattest scenes. Owner: **design-lead**. Effort: M.
 

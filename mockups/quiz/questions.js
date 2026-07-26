@@ -70,7 +70,7 @@ const QUESTIONS = [
       { emoji: '🏃', label: 'On the go',    svg: OPTION_SCENES.q3.active },
       { emoji: '☕', label: 'Mix it up',    svg: OPTION_SCENES.q3.creative },
       { emoji: '🌿', label: 'Take it slow', svg: OPTION_SCENES.q3.relaxed },
-      { emoji: '🥂', label: 'Socialite',    svg: OPTION_SCENES.q3.social },
+      { emoji: '👥', label: 'Social first', svg: OPTION_SCENES.q3.social },
     ]
   },
   {

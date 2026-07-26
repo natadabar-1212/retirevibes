@@ -170,8 +170,8 @@ function renderQuestion(idx) {
             ? Array.isArray(selected) && selected.includes(val)
             : selected === val;
           const art = o.svg
-            ? `<span class="img-svg">${o.svg}</span>`
-            : (o.img ? `<span class="img-svg" style="background-image: url('${o.img}');"></span>` : '');
+            ? `<span class="img-svg" aria-hidden="true">${o.svg}</span>`
+            : (o.img ? `<span class="img-svg" aria-hidden="true" style="background-image: url('${o.img}');"></span>` : '');
           return `
             <button class="option-image ${isSel ? 'selected' : ''}" data-i="${i}" aria-pressed="${isSel ? 'true' : 'false'}">
               ${art}
@@ -206,7 +206,7 @@ function renderQuestion(idx) {
 
   left.innerHTML = `
     <div class="q-num">${q.part} · Q${idx + 1}</div>
-    <h2 class="q-title">${q.title}</h2>
+    <h2 class="q-title" tabindex="-1">${q.title}</h2>
     ${q.hint ? `<p class="q-hint">${q.hint}</p>` : ''}
     ${body}
     <div class="nav-row">
@@ -222,6 +222,11 @@ function renderQuestion(idx) {
 
   stage.appendChild(left);
   stage.appendChild(right);
+
+  // Move focus to the new question heading so keyboard + screen-reader users
+  // don't lose their place when a question advances (auto-advance or Next).
+  const titleEl = left.querySelector('.q-title');
+  if (titleEl) titleEl.focus({ preventScroll: true });
 
   // Wire up
   if (q.type === 'slider') {

@@ -36,16 +36,21 @@
 <script src="https://www.retirevibes.com/mockups/quiz/questions.js"></script>
 <script>
   var root = document.getElementById('root');
-  (window.QUESTIONS || []).forEach(function(q, qi){
-    if(!q.useImages) return;
-    var sec=document.createElement('div'); sec.className='q';
-    var cards = q.options.map(function(o){
-      return '<div class="card"><span class="img-svg">'+(o.svg||'')+'</span><span class="scrim"></span><span class="label">'+o.label+'</span></div>';
-    }).join('');
-    sec.innerHTML='<div class="q-label">'+q.part+' · Q'+(qi+1)+'</div><h2>'+q.title+'</h2><div class="cards">'+cards+'</div>';
-    root.appendChild(sec);
-  });
-  if(!window.QUESTIONS){ root.innerHTML='<p style="color:#A8593A">Could not load quiz data (needs internet to pull the live scripts).</p>'; }
+  try {
+    // QUESTIONS is a top-level `const` in questions.js — accessible by bare name, not via window.
+    if (typeof QUESTIONS === 'undefined') throw new Error('quiz scripts did not load');
+    QUESTIONS.forEach(function (q, qi) {
+      if (!q.useImages) return;
+      var sec = document.createElement('div'); sec.className = 'q';
+      var cards = q.options.map(function (o) {
+        return '<div class="card"><span class="img-svg">' + (o.svg || '') + '</span><span class="scrim"></span><span class="label">' + o.label + '</span></div>';
+      }).join('');
+      sec.innerHTML = '<div class="q-label">' + q.part + ' · Q' + (qi + 1) + '</div><h2>' + q.title + '</h2><div class="cards">' + cards + '</div>';
+      root.appendChild(sec);
+    });
+  } catch (e) {
+    root.innerHTML = '<p style="color:#A8593A">Could not render artwork (' + e.message + '). Needs internet to pull retirevibes.com/mockups/quiz scripts.</p>';
+  }
 </script>
 </body>
 </html>
