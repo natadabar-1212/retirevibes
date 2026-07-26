@@ -35,3 +35,4 @@ SESSION_HANDOFF.md
 # Non-image files that don't belong in /images/
 images/*.html
 images/*.js
+*.bak

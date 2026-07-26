@@ -55,240 +55,240 @@ function getListings(dest) {
   const s = dest.id;  // use dest.id (pre-slugged, handles accents correctly) not slug(city)
 
   const map = {
-    'United States': {
-      platform: 'Zillow', note: "Zillow is the US standard for rental and purchase listings — updated daily.",
-      rent: `https://www.zillow.com/homes/for_rent/${encodeURIComponent(city + ' ' + (dest.region || ''))}_rb/`,
-      buy:  `https://www.zillow.com/homes/for_sale/${encodeURIComponent(city + ' ' + (dest.region || ''))}_rb/`,
+    "United States": {
+      platform: "Zillow", note: "Zillow is the US standard for rental and purchase listings — updated daily.",
+      rent: "https://www.zillow.com/homes/for_rent/",
+      buy:  "https://www.zillow.com/homes/for_sale/",
     },
-    'United States Territory': {
-      platform: 'Zillow', note: "Zillow covers US territories including Puerto Rico and the US Virgin Islands.",
-      rent: `https://www.zillow.com/homes/for_rent/${s}_rb/`,
-      buy:  `https://www.zillow.com/homes/for_sale/${s}_rb/`,
+    "United States Territory": {
+      platform: "Zillow", note: "Zillow covers US territories including Puerto Rico and the US Virgin Islands.",
+      rent: "https://www.zillow.com/homes/for_rent/",
+      buy:  "https://www.zillow.com/homes/for_sale/",
     },
-    'Canada': {
-      platform: 'Realtor.ca', note: "Realtor.ca is Canada's official MLS platform, run by the Canadian Real Estate Association.",
-      rent: `https://www.realtor.ca/map#ZoomLevel=12&Center=${encodeURIComponent(city + ', Canada')}`,
-      buy:  `https://www.realtor.ca/map#ZoomLevel=12&Center=${encodeURIComponent(city + ', Canada')}`,
+    "Canada": {
+      platform: "Realtor.ca", note: "Realtor.ca is Canada's official MLS platform, run by the Canadian Real Estate Association.",
+      rent: "https://www.realtor.ca/",
+      buy:  "https://www.realtor.ca/",
     },
-    'Portugal': {
-      platform: 'Idealista', note: "Idealista is Portugal's largest property platform. Real listings, updated daily.",
-      rent: `https://www.idealista.pt/en/arrendar-casas/${s}-distrito/?ordem=publicado-decrescente`,
-      buy:  `https://www.idealista.pt/en/comprar-casas/${s}-distrito/`,
+    "Portugal": {
+      platform: "Idealista", note: "Idealista is Portugal's largest property platform. Real listings, updated daily.",
+      rent: "https://www.idealista.pt/en/arrendar-casas/",
+      buy:  "https://www.idealista.pt/en/comprar-casas/",
     },
-    'Spain': {
-      platform: 'Idealista', note: "Idealista is Spain's leading property platform with coverage across all major cities.",
-      rent: `https://www.idealista.com/en/alquiler-viviendas/${s}/`,
-      buy:  `https://www.idealista.com/en/venta-viviendas/${s}/`,
+    "Spain": {
+      platform: "Idealista", note: "Idealista is Spain's leading property platform with coverage across all major cities.",
+      rent: "https://www.idealista.com/en/alquiler-viviendas/",
+      buy:  "https://www.idealista.com/en/venta-viviendas/",
     },
-    'Mexico': {
-      platform: 'Inmuebles24', note: "Inmuebles24 is Mexico's leading property search platform, with listings from individual owners and agencies.",
-      rent: (() => { const state = slug((dest.region || '').split(',')[0]); return `https://www.inmuebles24.com/propiedades-en-renta-en-${s},${state}.html`; })(),
-      buy:  (() => { const state = slug((dest.region || '').split(',')[0]); return `https://www.inmuebles24.com/propiedades-en-venta-en-${s},${state}.html`; })(),
+    "Mexico": {
+      platform: "Inmuebles24", note: "Inmuebles24 is Mexico's leading property search platform, with listings from individual owners and agencies.",
+      rent: "https://www.inmuebles24.com/",
+      buy:  "https://www.inmuebles24.com/",
     },
-    'Colombia': {
-      platform: 'FincaRaíz', note: "FincaRaíz is Colombia's largest property platform, covering rentals and purchases in all major cities.",
-      rent: `https://www.fincaraiz.com.co/arriendo/casa-y-apartamento/${s}/`,
-      buy:  `https://www.fincaraiz.com.co/venta/casa-y-apartamento/${s}/`,
+    "Colombia": {
+      platform: "FincaRaíz", note: "FincaRaíz is Colombia's largest property platform, covering rentals and purchases in all major cities.",
+      rent: "https://www.fincaraiz.com.co/",
+      buy:  "https://www.fincaraiz.com.co/",
     },
-    'Panama': {
-      platform: 'Encuentra24', note: "Encuentra24 is Panama's primary real estate platform with residential and commercial listings.",
-      rent: `https://www.encuentra24.com/panama-en/real-estate-for-rent-residential/${s}`,
-      buy:  `https://www.encuentra24.com/panama-en/real-estate-for-sale-residential/${s}`,
+    "Panama": {
+      platform: "Encuentra24", note: "Encuentra24 is Panama's primary real estate platform with residential and commercial listings.",
+      rent: "https://www.encuentra24.com/panama-en/real-estate-for-rent-residential",
+      buy:  "https://www.encuentra24.com/panama-en/real-estate-for-sale-residential",
     },
-    'Costa Rica': {
-      platform: 'Encuentra24', note: "Encuentra24 covers Costa Rica's rental and purchase market with English-language search.",
-      rent: `https://www.encuentra24.com/costa-rica-en/real-estate-for-rent-residential/${s}`,
-      buy:  `https://www.encuentra24.com/costa-rica-en/real-estate-for-sale-residential/${s}`,
+    "Costa Rica": {
+      platform: "Encuentra24", note: "Encuentra24 covers Costa Rica's rental and purchase market with English-language search.",
+      rent: "https://www.encuentra24.com/costa-rica-en/real-estate-for-rent-residential",
+      buy:  "https://www.encuentra24.com/costa-rica-en/real-estate-for-sale-residential",
     },
-    'Guatemala': {
-      platform: 'Encuentra24', note: "Encuentra24 covers Guatemala's rental and property purchase market.",
-      rent: `https://www.encuentra24.com/guatemala-en/real-estate-for-rent-residential/${s}`,
-      buy:  `https://www.encuentra24.com/guatemala-en/real-estate-for-sale-residential/${s}`,
+    "Guatemala": {
+      platform: "Encuentra24", note: "Encuentra24 covers Guatemala's rental and property purchase market.",
+      rent: "https://www.encuentra24.com/guatemala-en/real-estate-for-rent-residential",
+      buy:  "https://www.encuentra24.com/guatemala-en/real-estate-for-sale-residential",
     },
-    'Belize': {
-      platform: 'RE/MAX Belize', note: "RE/MAX Belize is the most established property platform in the country, with English-language listings.",
-      rent: `https://remax-belize.com/listings/?for=for-rent`,
-      buy:  `https://remax-belize.com/listings/?for=for-sale`,
+    "Belize": {
+      platform: "RE/MAX Belize", note: "RE/MAX Belize is the most established property platform in the country, with English-language listings.",
+      rent: "https://remax-belize.com/listings/?for=for-rent",
+      buy:  "https://remax-belize.com/listings/?for=for-sale",
     },
-    'Honduras': {
-      platform: 'Encuentra24', note: "Encuentra24 covers Honduras's property rental and purchase market.",
-      rent: `https://www.encuentra24.com/honduras-en/real-estate-for-rent-residential/${s}`,
-      buy:  `https://www.encuentra24.com/honduras-en/real-estate-for-sale-residential/${s}`,
+    "Honduras": {
+      platform: "Encuentra24", note: "Encuentra24 covers Honduras's property rental and purchase market.",
+      rent: "https://www.encuentra24.com/honduras-en/real-estate-for-rent-residential",
+      buy:  "https://www.encuentra24.com/honduras-en/real-estate-for-sale-residential",
     },
-    'Ecuador': {
-      platform: 'Plusvalía', note: "Plusvalía is Ecuador's leading real estate platform with coverage in Cuenca and other expat cities.",
-      rent: `https://www.plusvalia.com/arriendo/inmuebles/en-${s}/`,
-      buy:  `https://www.plusvalia.com/venta/inmuebles/en-${s}/`,
+    "Ecuador": {
+      platform: "Plusvalía", note: "Plusvalía is Ecuador's leading real estate platform with coverage in Cuenca and other expat cities.",
+      rent: "https://www.plusvalia.com/",
+      buy:  "https://www.plusvalia.com/",
     },
-    'Uruguay': {
-      platform: 'MercadoLibre', note: "MercadoLibre is Uruguay's primary classifieds platform with broad property coverage.",
-      rent: `https://www.mercadolibre.com.uy/inmuebles/alquiler/apartamentos/${s}`,
-      buy:  `https://www.mercadolibre.com.uy/inmuebles/venta/apartamentos/${s}`,
+    "Uruguay": {
+      platform: "MercadoLibre", note: "MercadoLibre is Uruguay's primary classifieds platform with broad property coverage.",
+      rent: "https://www.mercadolibre.com.uy/inmuebles/alquiler/apartamentos/",
+      buy:  "https://www.mercadolibre.com.uy/inmuebles/venta/apartamentos/",
     },
-    'Argentina': {
-      platform: 'ZonaProp', note: "ZonaProp is Argentina's largest real estate platform.",
-      rent: `https://www.zonaprop.com.ar/departamentos-alquiler-${s}.html`,
-      buy:  `https://www.zonaprop.com.ar/departamentos-venta-${s}.html`,
+    "Argentina": {
+      platform: "ZonaProp", note: "ZonaProp is Argentina's largest real estate platform.",
+      rent: "https://www.zonaprop.com.ar/departamentos-alquiler.html",
+      buy:  "https://www.zonaprop.com.ar/departamentos-venta.html",
     },
-    'Dominican Republic': {
-      platform: 'Properati', note: "Properati covers the Dominican Republic's rental and purchase market with broad English-language coverage.",
-      rent: `https://www.properati.com.do/properties/rent/${s}/`,
-      buy:  `https://www.properati.com.do/properties/sale/${s}/`,
+    "Dominican Republic": {
+      platform: "Properati", note: "Properati covers the Dominican Republic's rental and purchase market with broad English-language coverage.",
+      rent: "https://www.properati.com.do/",
+      buy:  "https://www.properati.com.do/",
     },
-    'Italy': {
-      platform: 'Immobiliare.it', note: "Immobiliare.it is Italy's largest property platform, with listings across all major cities and regions.",
-      rent: `https://www.immobiliare.it/affitto-case/${s}/`,
-      buy:  `https://www.immobiliare.it/vendita-case/${s}/`,
+    "Italy": {
+      platform: "Immobiliare.it", note: "Immobiliare.it is Italy's largest property platform, with listings across all major cities and regions.",
+      rent: "https://www.immobiliare.it/",
+      buy:  "https://www.immobiliare.it/",
     },
-    'France': {
-      platform: 'SeLoger', note: "SeLoger is France's most comprehensive property search platform for rentals and purchases.",
-      rent: `https://www.seloger.com/list.htm?idtypebien=1&idtt=1&tri=initial&ci=${encodeURIComponent(city)}`,
-      buy:  `https://www.seloger.com/list.htm?idtypebien=1&idtt=2&tri=initial&ci=${encodeURIComponent(city)}`,
+    "France": {
+      platform: "SeLoger", note: "SeLoger is France's most comprehensive property search platform for rentals and purchases.",
+      rent: "https://www.seloger.com/",
+      buy:  "https://www.seloger.com/",
     },
-    'Greece': {
-      platform: 'Spitogatos', note: "Spitogatos is Greece's leading property platform with residential listings across the country.",
-      rent: `https://www.spitogatos.gr/en/rent/apartments/${s}`,
-      buy:  `https://www.spitogatos.gr/en/buy/apartments/${s}`,
+    "Greece": {
+      platform: "Spitogatos", note: "Spitogatos is Greece's leading property platform with residential listings across the country.",
+      rent: "https://www.spitogatos.gr/en",
+      buy:  "https://www.spitogatos.gr/en",
     },
-    'Croatia': {
-      platform: 'Njuskalo', note: "Njuskalo is Croatia's most widely used property and classifieds platform.",
-      rent: `https://www.njuskalo.hr/iznajmljivanje-stanova/${s}`,
-      buy:  `https://www.njuskalo.hr/prodaja-stanova/${s}`,
+    "Croatia": {
+      platform: "Njuskalo", note: "Njuskalo is Croatia's most widely used property and classifieds platform.",
+      rent: "https://www.njuskalo.hr/iznajmljivanje-stanova",
+      buy:  "https://www.njuskalo.hr/prodaja-stanova",
     },
-    'Czech Republic': {
-      platform: 'Sreality', note: "Sreality is the Czech Republic's leading property platform, with an English-language search option.",
-      rent: `https://www.sreality.cz/en/search/renting/apartments/${s}`,
-      buy:  `https://www.sreality.cz/en/search/for-sale/apartments/${s}`,
+    "Czech Republic": {
+      platform: "Sreality", note: "Sreality is the Czech Republic's leading property platform, with an English-language search option.",
+      rent: "https://www.sreality.cz/en/search/renting/apartments",
+      buy:  "https://www.sreality.cz/en/search/for-sale/apartments",
     },
-    'Hungary': {
-      platform: 'Ingatlan.com', note: "Ingatlan.com is Hungary's primary property platform.",
-      rent: `https://ingatlan.com/lista/kiado+lakas+${s}`,
-      buy:  `https://ingatlan.com/lista/elado+lakas+${s}`,
+    "Hungary": {
+      platform: "Ingatlan.com", note: "Ingatlan.com is Hungary's primary property platform.",
+      rent: "https://ingatlan.com/lista/kiado+lakas",
+      buy:  "https://ingatlan.com/lista/elado+lakas",
     },
-    'Poland': {
-      platform: 'Otodom', note: "Otodom is Poland's largest property platform, with listings in Warsaw, Kraków, and beyond.",
-      rent: `https://www.otodom.pl/pl/wyniki/wynajem/mieszkanie/${s}`,
-      buy:  `https://www.otodom.pl/pl/wyniki/sprzedaz/mieszkanie/${s}`,
+    "Poland": {
+      platform: "Otodom", note: "Otodom is Poland's largest property platform, with listings in Warsaw, Kraków, and beyond.",
+      rent: "https://www.otodom.pl/pl/wyniki/wynajem/mieszkanie",
+      buy:  "https://www.otodom.pl/pl/wyniki/sprzedaz/mieszkanie",
     },
-    'Georgia': {
-      platform: 'MyHome.ge', note: "MyHome.ge is Georgia's most comprehensive property platform with English-language search.",
-      rent: `https://www.myhome.ge/en/s/rent-apartment-${s}`,
-      buy:  `https://www.myhome.ge/en/s/buy-apartment-${s}`,
+    "Georgia": {
+      platform: "MyHome.ge", note: "MyHome.ge is Georgia's most comprehensive property platform with English-language search.",
+      rent: "https://www.myhome.ge/en",
+      buy:  "https://www.myhome.ge/en",
     },
-    'Cyprus': {
-      platform: 'Bazaraki', note: "Bazaraki is Cyprus's leading classifieds and real estate platform, with English listings.",
-      rent: `https://www.bazaraki.com/real-estate/apartments/rent/`,
-      buy:  `https://www.bazaraki.com/real-estate/apartments/sale/`,
+    "Cyprus": {
+      platform: "Bazaraki", note: "Bazaraki is Cyprus's leading classifieds and real estate platform, with English listings.",
+      rent: "https://www.bazaraki.com/real-estate/apartments/rent/",
+      buy:  "https://www.bazaraki.com/real-estate/apartments/sale/",
     },
-    'Malta': {
-      platform: 'Frank Salt Real Estate', note: "Frank Salt Real Estate is Malta's most established property listing platform.",
-      rent: `https://www.franksalt.com.mt/properties/?type=to-let&property_type=apartment`,
-      buy:  `https://www.franksalt.com.mt/properties/?type=for-sale&property_type=apartment`,
+    "Malta": {
+      platform: "Frank Salt Real Estate", note: "Frank Salt Real Estate is Malta's most established property listing platform.",
+      rent: "https://www.franksalt.com.mt/properties/?type=to-let&property_type=apartment",
+      buy:  "https://www.franksalt.com.mt/properties/?type=for-sale&property_type=apartment",
     },
-    'Slovenia': {
-      platform: 'Nepremicnine.net', note: "Nepremicnine.net is Slovenia's primary property listing platform.",
-      rent: `https://www.nepremicnine.net/oglasi-najem/stanovanja/`,
-      buy:  `https://www.nepremicnine.net/oglasi-prodaja/stanovanja/`,
+    "Slovenia": {
+      platform: "Nepremicnine.net", note: "Nepremicnine.net is Slovenia's primary property listing platform.",
+      rent: "https://www.nepremicnine.net/oglasi-najem/stanovanja/",
+      buy:  "https://www.nepremicnine.net/oglasi-prodaja/stanovanja/",
     },
-    'Montenegro': {
-      platform: 'Montenegro Prospects', note: "Montenegro Prospects is a leading English-language real estate platform covering the Adriatic coast.",
-      rent: `https://montenegroprospects.com/property-for-rent/`,
-      buy:  `https://montenegroprospects.com/property-for-sale/`,
+    "Montenegro": {
+      platform: "Montenegro Prospects", note: "Montenegro Prospects is a leading English-language real estate platform covering the Adriatic coast.",
+      rent: "https://montenegroprospects.com/property-for-rent/",
+      buy:  "https://montenegroprospects.com/property-for-sale/",
     },
-    'Switzerland': {
-      platform: 'Homegate', note: "Homegate is Switzerland's leading property platform for rentals and purchases.",
-      rent: `https://www.homegate.ch/en/rent/real-estate/country-switzerland`,
-      buy:  `https://www.homegate.ch/en/buy/real-estate/country-switzerland`,
+    "Switzerland": {
+      platform: "Homegate", note: "Homegate is Switzerland's leading property platform for rentals and purchases.",
+      rent: "https://www.homegate.ch/en/rent/real-estate/country-switzerland",
+      buy:  "https://www.homegate.ch/en/buy/real-estate/country-switzerland",
     },
-    'Ireland': {
-      platform: 'Daft.ie', note: "Daft.ie is Ireland's dominant property platform for rentals and sales.",
-      rent: `https://www.daft.ie/property-for-rent/${s}`,
-      buy:  `https://www.daft.ie/property-for-sale/${s}`,
+    "Ireland": {
+      platform: "Daft.ie", note: "Daft.ie is Ireland's dominant property platform for rentals and sales.",
+      rent: "https://www.daft.ie/property-for-rent/",
+      buy:  "https://www.daft.ie/property-for-sale/",
     },
-    'United Kingdom': {
-      platform: 'Rightmove', note: "Rightmove is the UK's largest property platform for rentals and purchases.",
-      rent: `https://www.rightmove.co.uk/property-to-rent/search.html?searchLocation=${encodeURIComponent(city)}`,
-      buy:  `https://www.rightmove.co.uk/property-for-sale/search.html?searchLocation=${encodeURIComponent(city)}`,
+    "United Kingdom": {
+      platform: "Rightmove", note: "Rightmove is the UK's largest property platform for rentals and purchases.",
+      rent: "https://www.rightmove.co.uk/",
+      buy:  "https://www.rightmove.co.uk/",
     },
-    'Thailand': {
-      platform: 'DDProperty', note: "DDProperty is Thailand's leading property marketplace with listings across the country.",
-      rent: `https://www.ddproperty.com/en/property-for-rent/1-${s}`,
-      buy:  `https://www.ddproperty.com/en/property-for-sale/1-${s}`,
+    "Thailand": {
+      platform: "DDProperty", note: "DDProperty is Thailand's leading property marketplace with listings across the country.",
+      rent: "https://www.ddproperty.com/en/property-for-rent",
+      buy:  "https://www.ddproperty.com/en/property-for-sale",
     },
-    'Malaysia': {
-      platform: 'PropertyGuru Malaysia', note: "PropertyGuru Malaysia is the country's leading property search platform with English listings.",
-      rent: `https://www.propertyguru.com.my/property-for-rent?freetext=${encodeURIComponent(city)}`,
-      buy:  `https://www.propertyguru.com.my/property-for-sale?freetext=${encodeURIComponent(city)}`,
+    "Malaysia": {
+      platform: "PropertyGuru Malaysia", note: "PropertyGuru Malaysia is the country's leading property search platform with English listings.",
+      rent: "https://www.propertyguru.com.my/property-for-rent",
+      buy:  "https://www.propertyguru.com.my/property-for-sale",
     },
-    'Vietnam': {
-      platform: 'Dot Property', note: "Dot Property covers Vietnam's rental and purchase market with English-language listings.",
-      rent: `https://www.dotproperty.com.vn/properties-for-rent/search?keyword=${encodeURIComponent(city)}`,
-      buy:  `https://www.dotproperty.com.vn/properties-for-sale/search?keyword=${encodeURIComponent(city)}`,
+    "Vietnam": {
+      platform: "Dot Property", note: "Dot Property covers Vietnam's rental and purchase market with English-language listings.",
+      rent: "https://www.dotproperty.com.vn/properties-for-rent",
+      buy:  "https://www.dotproperty.com.vn/properties-for-sale",
     },
-    'Indonesia': {
-      platform: 'Rumah123', note: "Rumah123 is Indonesia's leading property platform, widely used in Bali and other expat areas.",
-      rent: `https://www.rumah123.com/sewa/${s}/`,
-      buy:  `https://www.rumah123.com/jual/${s}/`,
+    "Indonesia": {
+      platform: "Rumah123", note: "Rumah123 is Indonesia's leading property platform, widely used in Bali and other expat areas.",
+      rent: "https://www.rumah123.com/sewa/",
+      buy:  "https://www.rumah123.com/jual/",
     },
-    'Philippines': {
-      platform: 'Lamudi Philippines', note: "Lamudi Philippines is a leading property platform with English-language listings.",
-      rent: `https://www.lamudi.com.ph/rent/`,
-      buy:  `https://www.lamudi.com.ph/buy/`,
+    "Philippines": {
+      platform: "Lamudi Philippines", note: "Lamudi Philippines is a leading property platform with English-language listings.",
+      rent: "https://www.lamudi.com.ph/rent/",
+      buy:  "https://www.lamudi.com.ph/buy/",
     },
-    'Japan': {
-      platform: 'Suumo', note: "Suumo is Japan's largest property platform. Note: most listings require a Japanese-speaking agent — work with an expat-friendly agency.",
-      rent: `https://suumo.jp/jj/chintai/ichiran/FR301FC001/?ar=030&bs=040`,
-      buy:  `https://suumo.jp/jj/bukken/ichiran/JJ012FC001/?ar=030&bs=010`,
+    "Japan": {
+      platform: "Suumo", note: "Suumo is Japan's largest property platform. Note: most listings require a Japanese-speaking agent — work with an expat-friendly agency.",
+      rent: "https://suumo.jp/jj/chintai/ichiran/FR301FC001/?ar=030&bs=040",
+      buy:  "https://suumo.jp/jj/bukken/ichiran/JJ012FC001/?ar=030&bs=010",
     },
-    'Taiwan': {
-      platform: '591.com.tw', note: "591.com.tw is Taiwan's primary platform for rentals and property sales.",
-      rent: `https://rent.591.com.tw/`,
-      buy:  `https://sale.591.com.tw/`,
+    "Taiwan": {
+      platform: "591.com.tw", note: "591.com.tw is Taiwan's primary platform for rentals and property sales.",
+      rent: "https://rent.591.com.tw/",
+      buy:  "https://sale.591.com.tw/",
     },
-    'Sri Lanka': {
-      platform: 'LankaPropertyWeb', note: "LankaPropertyWeb is Sri Lanka's primary property listing platform.",
-      rent: `https://www.lankapropertyweb.com/for-rent/`,
-      buy:  `https://www.lankapropertyweb.com/for-sale/`,
+    "Sri Lanka": {
+      platform: "LankaPropertyWeb", note: "LankaPropertyWeb is Sri Lanka's primary property listing platform.",
+      rent: "https://www.lankapropertyweb.com/for-rent/",
+      buy:  "https://www.lankapropertyweb.com/for-sale/",
     },
-    'Australia': {
-      platform: 'Domain', note: "Domain is one of Australia's two leading property platforms with rental and sales listings.",
-      rent: `https://www.domain.com.au/rent/?suburb=${encodeURIComponent(city)}`,
-      buy:  `https://www.domain.com.au/sale/?suburb=${encodeURIComponent(city)}`,
+    "Australia": {
+      platform: "Domain", note: "Domain is one of Australia's two leading property platforms with rental and sales listings.",
+      rent: "https://www.domain.com.au/rent/",
+      buy:  "https://www.domain.com.au/sale/",
     },
-    'New Zealand': {
-      platform: 'Trade Me Property', note: "Trade Me Property is New Zealand's most-used platform for residential rentals and sales.",
-      rent: `https://www.trademe.co.nz/a/property/residential/rent?search_string=${encodeURIComponent(city)}`,
-      buy:  `https://www.trademe.co.nz/a/property/residential/sale?search_string=${encodeURIComponent(city)}`,
+    "New Zealand": {
+      platform: "Trade Me Property", note: "Trade Me Property is New Zealand's most-used platform for residential rentals and sales.",
+      rent: "https://www.trademe.co.nz/a/property/residential/rent",
+      buy:  "https://www.trademe.co.nz/a/property/residential/sale",
     },
-    'Morocco': {
-      platform: 'Mubawab', note: "Mubawab is Morocco's leading property platform with listings in English, French, and Arabic.",
-      rent: `https://www.mubawab.ma/en/sc/apartments:rent/${s}:p:1`,
-      buy:  `https://www.mubawab.ma/en/sc/apartments:sale/${s}:p:1`,
+    "Morocco": {
+      platform: "Mubawab", note: "Mubawab is Morocco's leading property platform with listings in English, French, and Arabic.",
+      rent: "https://www.mubawab.ma/en",
+      buy:  "https://www.mubawab.ma/en",
     },
-    'South Africa': {
-      platform: 'Property24', note: "Property24 is South Africa's largest property listing platform.",
-      rent: `https://www.property24.com/for-rent/search?SearchText=${encodeURIComponent(city)}`,
-      buy:  `https://www.property24.com/for-sale/search?SearchText=${encodeURIComponent(city)}`,
+    "South Africa": {
+      platform: "Property24", note: "Property24 is South Africa's largest property listing platform.",
+      rent: "https://www.property24.com/",
+      buy:  "https://www.property24.com/",
     },
-    'Kenya': {
-      platform: 'BuyRentKenya', note: "BuyRentKenya is the country's primary English-language property platform.",
-      rent: `https://www.buyrentkenya.com/rent`,
-      buy:  `https://www.buyrentkenya.com/buy`,
+    "Kenya": {
+      platform: "BuyRentKenya", note: "BuyRentKenya is the country's primary English-language property platform.",
+      rent: "https://www.buyrentkenya.com/rent",
+      buy:  "https://www.buyrentkenya.com/buy",
     },
-    'Tanzania': {
-      platform: 'Lamudi Tanzania', note: "Lamudi Tanzania is the primary English-language property platform covering Tanzania.",
-      rent: `https://www.lamudi.co.tz/for-rent/`,
-      buy:  `https://www.lamudi.co.tz/for-sale/`,
+    "Tanzania": {
+      platform: "Lamudi Tanzania", note: "Lamudi Tanzania is the primary English-language property platform covering Tanzania.",
+      rent: "https://www.lamudi.co.tz/for-rent/",
+      buy:  "https://www.lamudi.co.tz/for-sale/",
     },
-    'Ghana': {
-      platform: 'Meqasa', note: "Meqasa is Ghana's largest property platform with rental and sale listings.",
-      rent: `https://www.meqasa.com/properties-for-rent`,
-      buy:  `https://www.meqasa.com/properties-for-sale`,
+    "Ghana": {
+      platform: "Meqasa", note: "Meqasa is Ghana's largest property platform with rental and sale listings.",
+      rent: "https://www.meqasa.com/properties-for-rent",
+      buy:  "https://www.meqasa.com/properties-for-sale",
     },
-    'Mauritius': {
-      platform: 'Lexpress Property', note: "Lexpress Property is Mauritius's primary real estate platform with English listings.",
-      rent: `https://property.lexpress.mu/en/property/for-rent/`,
-      buy:  `https://property.lexpress.mu/en/property/for-sale/`,
+    "Mauritius": {
+      platform: "Lexpress Property", note: "Lexpress Property is Mauritius's primary real estate platform with English listings.",
+      rent: "https://property.lexpress.mu/en/property/for-rent/",
+      buy:  "https://property.lexpress.mu/en/property/for-sale/",
     },
   };
 
