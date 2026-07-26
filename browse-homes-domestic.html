@@ -101,7 +101,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(170deg, rgba(27,58,75,0.05) 0%, rgba(27,58,75,0.78) 100%);
+    background: linear-gradient(180deg, rgba(27,58,75,0) 0%, rgba(27,58,75,0.12) 30%, rgba(27,58,75,0.55) 62%, rgba(27,58,75,0.9) 100%), linear-gradient(90deg, rgba(27,58,75,0.62) 0%, rgba(27,58,75,0.24) 42%, rgba(27,58,75,0) 72%);
   }
   .hero-inner {
     position: relative;
@@ -131,7 +131,7 @@
     border-radius: 50%;
     background: var(--gold-soft);
   }
-  .hero h1 {
+  .hero h1 { text-shadow: 0 2px 20px rgba(0,0,0,0.45);
     font-family: var(--serif);
     font-size: 64px;
     line-height: 1.03;
@@ -140,7 +140,7 @@
     margin-bottom: 20px;
   }
   .hero h1 em { font-style: italic; color: var(--gold-soft); }
-  .hero-sub {
+  .hero-sub { text-shadow: 0 1px 12px rgba(0,0,0,0.5);
     font-size: 19px;
     line-height: 1.55;
     color: rgba(255,255,255,0.82);
@@ -593,8 +593,8 @@
   @media (max-width: 760px) {
     .nav { padding: 14px 22px; }
     .hero { padding: 0 22px 52px; min-height: 500px; }
-    .hero h1 { font-size: 42px; }
-    .hero-sub { font-size: 17px; }
+    .hero h1 { text-shadow: 0 2px 20px rgba(0,0,0,0.45); font-size: 42px; }
+    .hero-sub { text-shadow: 0 1px 12px rgba(0,0,0,0.5); font-size: 17px; }
     .dest-compare, .what-to-look, .rent-vs-buy, .agent-tip, .main-cta, .also { padding-left: 22px; padding-right: 22px; }
     .compare-grid, .look-grid, .rvb-grid, .agent-tip-inner, .also-grid { grid-template-columns: 1fr; }
   }
