@@ -284,7 +284,8 @@
       ? ('destinations/' + top.id + '/real-estate/')
       : (top.browseHomesPage || 'browse-homes-domestic.html');
     const advisorLink = top.advisorPage || (top.isInternational ? 'advisor-international.html' : 'advisor-domestic.html');
-    const scoutLink = top.isInternational ? 'scouting-trip-detail.html?id=' + top.id : 'scouting-trip-domestic.html?city=' + top.id;
+    // Unified: every destination gets its own data-driven scouting page (adapts domestic vs international).
+    const scoutLink = 'scouting-trip-detail.html?id=' + top.id;
 
     return `
       <div class="handoff-card">

@@ -941,7 +941,7 @@ function generatePage(dest) {
   const legal     = getLegalSection(dest);
   const isIntl    = dest.isInternational;
   const advisorPage = isIntl ? '../../../../advisor-international.html' : '../../../../advisor-domestic.html';
-  const scoutingPage = isIntl ? '../../../../scouting-trips.html' : '../../../../scouting-trip-domestic.html';
+  const scoutingPage = `../../../../scouting-trip-detail.html?id=${dest.id}`;
   const destPage  = `../../../../destination-detail.html?id=${dest.id}`;
   const heroBg    = getHeroBg(dest);
   const regionLabel = isIntl ? 'International' : 'US Domestic';
