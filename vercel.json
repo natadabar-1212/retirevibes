@@ -14,6 +14,16 @@
       "source": "/find-an-advisor.html",
       "destination": "/advisor-domestic.html",
       "permanent": true
+    },
+    {
+      "source": "/destinations.html",
+      "destination": "/destinations/",
+      "permanent": true
+    },
+    {
+      "source": "/destination-coming-soon.html",
+      "destination": "/destinations/",
+      "permanent": true
     }
   ],
   "headers": [

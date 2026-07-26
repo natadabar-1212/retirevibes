@@ -444,4 +444,17 @@ Automated crawl of all real pages: **18 root + 132 real-estate + 1 destinations 
 
 **⚠️ Not verifiable from here — needs real-device pass (items 46/47):** true mobile *visual* rendering (text overlap, legibility, images cut off at 390px). The browser tool renders at a fixed 1440px viewport regardless of window resize, so visual mobile QA could not be performed. Static analysis caught the one structural gap (item 99); everything else visual is Natalie's real-phone pass. **Recommend: run the browse-homes pages first on a real phone to confirm the new breakpoints landed well.**
 
+## Updates 2026-07-22 (batch 10) — destinations page consolidation (PM + CTO)
+
+**Bug (found by Natalie):** Málaga looked different depending on entry point. Root cause: two competing all-destinations pages. The nav "Destinations" pointed to `destinations.html` — a **hand-coded 30-card page with 26 cards linking to `destination-coming-soon.html`** (sparse placeholder) — while "Browse all destinations" pointed to the data-driven `/destinations/` (all 132, search/filter), where Málaga was `featured` and linked to the real detail page. Both listings used an obsolete "featured → detail, else → coming-soon" rule left over from when only a few destinations had pages; all 132 have full detail pages now, so `coming-soon` is dead.
+
+101. ~~🟠 **Two competing destinations pages + obsolete coming-soon placeholder**~~ ✅ **FIXED (2026-07-22).** **CTO decision:** keep the data-driven `/destinations/` as the single canonical listing; retire the hand-coded duplicate — with 301 redirects (don't break URLs). Executed:
+    - `destinations/index.html` — `cardLink()` now always returns `/destination-detail.html?id={slug}` (dropped the featured/coming-soon branch); every one of the 132 cards links to its real detail page. Footer self-link fixed.
+    - Repointed the nav/footer "Destinations" link `destinations.html` → `/destinations/` across 12 pages (standardized the previously-inconsistent nav).
+    - `my-retirevibes.html` — remapped all 27 saved-destination `coming-soon?name=` URLs → `destination-detail.html?id={slug}` (name→slug from `destinations-data.js`, all 27 resolved).
+    - **Archived** `destinations.html` + `destination-coming-soon.html` → `archive/legacy-destination-pages/`.
+    - **`vercel.json`** — added 301 redirects `/destinations.html → /destinations/` and `/destination-coming-soon.html → /destinations/` (preserves SEO/bookmarks per CTO rule "don't break URLs").
+    - **Verified:** full re-crawl = **0 broken links**; zero live references to the archived pages; `vercel.json` valid.
+    - **Minor follow-up (not blocking):** the 132 generated real-estate pages' footer "Destinations" link points to `homepage-mockup.html#destinations` (works; not the new canonical `/destinations/`). Repoint in `generate-real-estate.js` + regenerate whenever convenient. Owner: **cto**.
+
 98. **Quiz housekeeping** — P3 (cleanup). Prune unused artwork in `option-scenes.js` (geography `q4` set, partner/solo `q7` set, `q3.mix`), the unused `slider` question type in `quiz.js`, and vestigial `sceneKey` fields. Owner: **cto**. Effort: S.

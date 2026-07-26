@@ -217,7 +217,7 @@
   <footer>
     <div class="footer-logo">Retire<em>Vibes</em></div>
     <div class="footer-links">
-      <a href="../destinations.html">Destinations</a>
+      <a href="/destinations/">Destinations</a>
       <a href="../my-retirevibes.html">My RetireVibes</a>
     </div>
     <p class="footer-legal">© 2025 RetireVibes. For informational and inspirational purposes only. We are not financial advisors, tax advisors, immigration attorneys, or real estate agents. Always verify current visa requirements, tax rules, and property regulations with licensed professionals.</p>
@@ -236,10 +236,8 @@
     let activeRegion = 'all';
 
     function cardLink(d) {
-      if (d.featured || FEATURED_SLUGS.has(d.slug)) {
-        return `/destination-detail.html?id=${encodeURIComponent(d.slug)}`;
-      }
-      return `/destination-coming-soon.html?name=${encodeURIComponent(d.display_name)}`;
+      // All destinations have full detail pages now — always link to the real page.
+      return `/destination-detail.html?id=${encodeURIComponent(d.slug)}`;
     }
 
     function renderCard(d) {
