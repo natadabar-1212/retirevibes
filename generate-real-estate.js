@@ -601,7 +601,7 @@ function getNeighborhoodsHTML(dest) {
           <p class="hood-desc">${n.desc}</p>
           <div class="hood-stats">
             <span class="hood-stat"><strong>Est. rent:</strong> ${rentLowFmt}–${rentHighFmt}/mo</span>
-            <span class="hood-stat hood-stat-block"><strong>Buy from:</strong> ${dest.housing ? dest.housing.buy : 'varies'}</span>
+            <span class="hood-stat"><strong>Buy from:</strong> ${dest.housing ? dest.housing.buy : 'varies'}</span>
           </div>
         </div>
       </div>`;
@@ -816,7 +816,6 @@ const PAGE_CSS = `
   .hood-stats { display: flex; gap: 20px; flex-wrap: wrap; }
   .hood-stat { font-size: 13px; color: var(--warm-gray); }
   .hood-stat strong { color: var(--teal); font-weight: 600; }
-  .hood-stat-block { display: block; margin-top: 4px; }
 
   /* Price bands */
   .price-bands { background: var(--teal); padding: 96px 48px; }
