@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Quiz Artwork Review — RetireVibes</title>
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{--cream:#FBF6EE;--cream-soft:#F4ECDD;--terracotta:#C97B5A;--teal:#1B3A4B;--gold-soft:#E4C998;--warm-gray:#6A5E4F;--serif:'DM Serif Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--cream);color:var(--teal);font-family:var(--sans);padding:32px 40px 60px;}
+  h1{font-family:var(--serif);font-size:38px;letter-spacing:-0.015em;margin-bottom:6px;}
+  h1 em{color:var(--terracotta);font-style:italic;}
+  .intro{font-size:15px;color:var(--warm-gray);max-width:760px;line-height:1.6;margin-bottom:8px;}
+  .q{margin-top:40px;}
+  .q-label{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--warm-gray);font-weight:600;margin-bottom:4px;}
+  .q h2{font-family:var(--serif);font-size:24px;margin-bottom:16px;}
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;}
+  .card{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/3;border:1px solid rgba(27,58,75,0.08);box-shadow:0 2px 12px rgba(27,58,75,0.06);}
+  .card .img-svg,.card .img-svg svg{position:absolute;inset:0;width:100%;height:100%;display:block;}
+  .card .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(27,58,75,0) 45%,rgba(27,58,75,0.6) 100%);}
+  .card .label{position:absolute;left:14px;bottom:12px;color:#fff;font-weight:600;font-size:15px;z-index:2;text-shadow:0 1px 6px rgba(0,0,0,0.4);}
+  .note{margin-top:6px;font-size:12.5px;color:var(--warm-gray);}
+</style>
+</head>
+<body>
+  <h1>Quiz artwork <em>review</em></h1>
+  <p class="intro">Every illustrated answer card in the quiz, pulled live from the same source the quiz uses. Look for anything that reads too <strong>juvenile</strong> (stick-figures, literal icons) or too <strong>sterile</strong> (flat, generic, forgettable), or where the art repeats across questions.</p>
+  <div id="root"></div>
+
+<script src="https://www.retirevibes.com/mockups/quiz/option-scenes.js"></script>
+<script src="https://www.retirevibes.com/mockups/quiz/questions.js"></script>
+<script>
+  var root = document.getElementById('root');
+  (window.QUESTIONS || []).forEach(function(q, qi){
+    if(!q.useImages) return;
+    var sec=document.createElement('div'); sec.className='q';
+    var cards = q.options.map(function(o){
+      return '<div class="card"><span class="img-svg">'+(o.svg||'')+'</span><span class="scrim"></span><span class="label">'+o.label+'</span></div>';
+    }).join('');
+    sec.innerHTML='<div class="q-label">'+q.part+' · Q'+(qi+1)+'</div><h2>'+q.title+'</h2><div class="cards">'+cards+'</div>';
+    root.appendChild(sec);
+  });
+  if(!window.QUESTIONS){ root.innerHTML='<p style="color:#A8593A">Could not load quiz data (needs internet to pull the live scripts).</p>'; }
+</script>
+</body>
+</html>

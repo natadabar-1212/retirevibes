@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Favicon Concepts — RetireVibes</title>
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{--cream:#FBF6EE;--cream-soft:#F4ECDD;--terracotta:#C97B5A;--terracotta-dark:#A8593A;--teal:#1B3A4B;--gold:#C8A064;--gold-soft:#E4C998;--warm-gray:#6A5E4F;--serif:'DM Serif Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--cream);color:var(--teal);font-family:var(--sans);padding:32px 40px 60px;}
+  h1{font-family:var(--serif);font-size:38px;letter-spacing:-0.015em;margin-bottom:6px;}
+  h1 em{color:var(--terracotta);font-style:italic;}
+  .intro{font-size:15px;color:var(--warm-gray);max-width:720px;line-height:1.6;margin-bottom:28px;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px;}
+  .card{background:#fff;border:1px solid rgba(27,58,75,0.08);border-radius:16px;padding:22px;box-shadow:0 2px 14px rgba(27,58,75,0.05);}
+  .name{font-weight:600;font-size:15px;margin-bottom:2px;}
+  .desc{font-size:12.5px;color:var(--warm-gray);line-height:1.5;margin-bottom:16px;min-height:34px;}
+  .sizes{display:flex;align-items:center;gap:18px;}
+  .big{width:72px;height:72px;border-radius:16px;overflow:hidden;flex-shrink:0;}
+  .big svg{width:100%;height:100%;display:block;}
+  /* browser-tab mock showing the real 16px size */
+  .tab{display:flex;align-items:center;gap:7px;background:var(--cream-soft);border:1px solid rgba(27,58,75,0.1);border-radius:8px 8px 0 0;padding:8px 12px;font-size:12px;color:var(--teal);max-width:170px;}
+  .tab .fav{width:16px;height:16px;border-radius:4px;overflow:hidden;flex-shrink:0;}
+  .tab .fav svg{width:100%;height:100%;display:block;}
+  .tab .t{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .swatchrow{display:flex;gap:6px;margin-top:14px;}
+  .swatchrow span{width:16px;height:16px;border-radius:4px;}
+</style>
+</head>
+<body>
+  <h1>Favicon <em>concepts</em></h1>
+  <p class="intro">Six directions in the brand palette + serif. Each shows large (72px) and at true favicon size (16px, in a browser-tab mock) — because the real test is whether it reads at 16px. Tell me which direction you like and I'll produce the actual favicon files (.svg + .ico + apple-touch) and wire them into every page.</p>
+  <div class="grid" id="grid"></div>
+
+<script>
+  // Shared SVG building blocks
+  function letter(bg, fg, ch, italicV){
+    return `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100" height="100" rx="22" fill="${bg}"/>
+      <text x="50" y="52" text-anchor="middle" dominant-baseline="central" font-family="DM Serif Display, Georgia, serif" font-size="66" fill="${fg}">${ch}</text>
+    </svg>`;
+  }
+  function monogram(bg){
+    return `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100" height="100" rx="22" fill="${bg}"/>
+      <text x="30" y="54" text-anchor="middle" dominant-baseline="central" font-family="DM Serif Display, Georgia, serif" font-size="52" fill="#1B3A4B">R</text>
+      <text x="68" y="54" text-anchor="middle" dominant-baseline="central" font-family="DM Serif Display, Georgia, serif" font-size="52" font-style="italic" fill="#C97B5A">V</text>
+    </svg>`;
+  }
+  function sun(bg){
+    return `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100" height="100" rx="22" fill="${bg}"/>
+      <clipPath id="c"><rect width="100" height="100" rx="22"/></clipPath>
+      <g clip-path="url(#c)">
+        <circle cx="50" cy="60" r="24" fill="#E4C998"/>
+        <circle cx="50" cy="60" r="24" fill="#C8A064" opacity="0.0"/>
+        <path d="M0,70 Q50,58 100,70 L100,100 L0,100 Z" fill="#C97B5A"/>
+        <path d="M0,80 Q50,72 100,80 L100,100 L0,100 Z" fill="#A8593A"/>
+      </g>
+    </svg>`;
+  }
+  function pin(bg){
+    return `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100" height="100" rx="22" fill="${bg}"/>
+      <path d="M50 24 C36 24 26 34 26 48 C26 66 50 82 50 82 C50 82 74 66 74 48 C74 34 64 24 50 24 Z" fill="#C97B5A"/>
+      <circle cx="50" cy="47" r="10" fill="${bg==='#1B3A4B'?'#FBF6EE':'#1B3A4B'}"/>
+    </svg>`;
+  }
+  function horizon(bg){
+    return `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100" height="100" rx="22" fill="${bg}"/>
+      <clipPath id="h"><rect width="100" height="100" rx="22"/></clipPath>
+      <g clip-path="url(#h)">
+        <circle cx="50" cy="44" r="17" fill="#E4C998"/>
+        <path d="M0,60 Q30,50 55,60 T100,58 L100,100 L0,100 Z" fill="#93A89A"/>
+        <path d="M0,74 Q40,66 70,74 T100,72 L100,100 L0,100 Z" fill="#1B3A4B" opacity="0.85"/>
+      </g>
+    </svg>`;
+  }
+
+  var concepts = [
+    ['R — cream on teal','Serif R from the wordmark. Highest contrast, cleanest read at 16px. The safe, classic choice.', letter('#1B3A4B','#FBF6EE','R')],
+    ['R — cream on terracotta','Same letter, warmer. Terracotta is the brand accent, so it feels more "RetireVibes" and less corporate.', letter('#C97B5A','#FBF6EE','R')],
+    ['RV monogram','R (teal) + italic V (terracotta) — the full wordmark idea. Most brand-complete, but two letters get tight at 16px.', monogram('#FBF6EE')],
+    ['Sun rising','Warm sun over a terracotta horizon — evokes a new chapter without golf-sunset cliché. Symbol, not letter.', sun('#1B3A4B')],
+    ['Location pin','Discovery/place mark in terracotta. Clear meaning, but more "travel app" than editorial.', pin('#1B3A4B')],
+    ['Horizon + sun','Gold sun over sage/teal hills. Calm, editorial, landscape-forward. Prettiest large; softest at 16px.', horizon('#FBF6EE')]
+  ];
+  var grid = document.getElementById('grid');
+  concepts.forEach(function(c){
+    var card=document.createElement('div'); card.className='card';
+    card.innerHTML =
+      '<div class="name">'+c[0]+'</div>'+
+      '<div class="desc">'+c[1]+'</div>'+
+      '<div class="sizes"><div class="big">'+c[2]+'</div>'+
+      '<div class="tab"><div class="fav">'+c[2]+'</div><span class="t">RetireVibes</span></div></div>';
+    grid.appendChild(card);
+  });
+</script>
+</body>
+</html>

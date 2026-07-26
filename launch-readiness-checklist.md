@@ -416,3 +416,17 @@ Full-site design + UX review completed (Design Lead + UX Lead hats). Verdict: **
 93. ~~🔴 **All 24 domestic destinations routed to a 2-city scouting page**~~ ✅ **FIXED (2026-07-22)** — root cause of the item-54 regression. `scouting-trip-domestic.html` only had Asheville + Sarasota; the other 22 domestic destinations showed Asheville content under a mismatched URL (found on Puerto Rico). Fix: unified all destinations — domestic and international — onto the data-driven `scouting-trip-detail.html?id=X`, which already adapts framing (Medicare vs expat healthcare, domestic vs international flights) and already has `scouting-data.js` entries for 22/24 domestic (Flagstaff + Ashland use a generic-but-correct-city fallback). Changed 3 routing points: `destination-detail.html`, `results-matcher.js` (results-page handoff had the same bug for domestic #1 matches), and `generate-real-estate.js` (real-estate "Plan a scouting trip" link → each destination's own page; 132 pages regenerated). Verified zero `scouting-trip-domestic` references remain site-wide. **`scouting-trip-domestic.html` is now orphaned** — safe to delete in a later cleanup. Also noted: the stale `scoutingPage` override field in `destinations-data.js` (all domestic → 'scouting-trip.html') is now moot/ignored — prune later.
 
 **QA process note:** my 2026-07-22 live Chrome pass only tested the international (Mauritius) scouting path, which used the good page — so the domestic breakage slipped through. Added to the manual test plan: test at least one domestic non-Asheville/Sarasota scouting handoff.
+
+## Updates 2026-07-22 (batch 8) — favicon + quiz review
+
+94. ~~**No favicon**~~ ✅ **SHIPPED (2026-07-22)** — site had no favicon at all. Created a set from the chosen concept (cream serif "R" on terracotta, matching the wordmark): `favicon.svg` (scalable), `favicon.ico` (16/32/48), `favicon-16/32.png`, `apple-touch-icon.png` (180). Wired root-absolute (`/favicon.svg` etc.) into all 28 root pages + `generate-real-estate.js` (132 pages regenerated) — 100% coverage. Rendered with a bold serif; matches DM Serif Display closely at favicon scale.
+
+**Quiz review (full detail in `quiz-review-2026-07.md`)** — quiz is strong; polish items below, none block soft launch:
+
+95. **Rename Q4 "Socialite" → "Social first"** — P2 (brand/copy). "Socialite" describes a person, not a pace, and carries an off-voice wealthy-party connotation. Quick copy fix in `mockups/quiz/questions.js`. Owner: **brand-copy-editor**.
+
+96. **Quiz focus management on question advance** — P1 (accessibility, pre-hard-launch). Focus isn't moved when a question auto-advances, so keyboard/screen-reader users lose their place. Move focus to the question `<h2>` (tabindex=-1 + .focus()) after render; also `aria-hidden` the decorative `.img-svg`. Owner: **cto + ux**. Effort: S.
+
+97. **Quiz artwork refresh** — P3 (design). Leans slightly sterile/repetitive, not juvenile. Priorities: de-duplicate scenes reused across Q4/Q7 (hammock, dinner table, mountain/hiker), replace the "?" signpost ("Not sure yet"), enrich the 3–4 flattest scenes. Owner: **design-lead**. Effort: M.
+
+98. **Quiz housekeeping** — P3 (cleanup). Prune unused artwork in `option-scenes.js` (geography `q4` set, partner/solo `q7` set, `q3.mix`), the unused `slider` question type in `quiz.js`, and vestigial `sceneKey` fields. Owner: **cto**. Effort: S.
