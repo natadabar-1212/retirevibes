@@ -28,6 +28,67 @@
     }
   };
 
+  /* ─── Global link tracking (internal + external) ───────────────
+     One delegated listener covers every <a> on any page that loads
+     shared.js. Fires:
+       link_click      — internal navigation / anchors
+       outbound_click  — any link to a different host
+       affiliate_click — partner handoffs (property portals, travel,
+                         advisor), with a category, so Handoff CTR
+                         (core-loop step 4) is a first-class metric.
+     No PII is sent — link text/URLs on this site are static UI. */
+  (function () {
+    // Non-partner external hosts (fonts, tag manager, CDNs) — excluded
+    // from affiliate_click but still counted as outbound_click.
+    var UTILITY_HOSTS = [
+      'fonts.googleapis.com', 'fonts.gstatic.com', 'googletagmanager.com',
+      'google-analytics.com', 'analytics.google.com', 'cdn.jsdelivr.net',
+      'api.emailjs.com', 'schema.org', 'www.w3.org'
+    ];
+    var TRAVEL_HOSTS  = ['booking.com', 'expedia.com'];
+    var ADVISOR_HOSTS = ['smartasset.com'];
+
+    function bareHost(h) { return (h || '').replace(/^www\./, ''); }
+    function inList(host, list) {
+      var b = bareHost(host);
+      return list.some(function (d) { return b === d || b.endsWith('.' + d); });
+    }
+
+    document.addEventListener('click', function (e) {
+      var a = e.target && e.target.closest ? e.target.closest('a') : null;
+      if (!a) return;
+      var href = a.getAttribute('href') || '';
+      if (!href || href === '#' || /^javascript:/i.test(href)) return; // skip dead/JS anchors; real #section jumps fall through as internal link_click
+
+      var text = (a.textContent || '').trim().slice(0, 80);
+      var page = window.location.pathname;
+
+      // mailto:/tel: — count as a link_click with the scheme
+      if (/^(mailto|tel):/i.test(href)) {
+        window.rvTrack('link_click', { link_url: href, link_text: text, page_path: page, link_type: href.split(':')[0] });
+        return;
+      }
+
+      var url;
+      try { url = new URL(href, window.location.href); } catch (err) { return; }
+      var outbound = url.host !== window.location.host;
+
+      if (!outbound) {
+        window.rvTrack('link_click', { link_url: url.pathname + url.search + url.hash, link_text: text, page_path: page });
+        return;
+      }
+
+      window.rvTrack('outbound_click', { link_domain: bareHost(url.host), link_url: url.href, link_text: text, page_path: page });
+
+      if (!inList(url.host, UTILITY_HOSTS)) {
+        var category = inList(url.host, TRAVEL_HOSTS) ? 'travel'
+                     : inList(url.host, ADVISOR_HOSTS) ? 'advisor'
+                     : 'real_estate';
+        window.rvTrack('affiliate_click', { partner: bareHost(url.host), category: category, link_url: url.href, page_path: page });
+      }
+    }, false);
+  })();
+
   /* ─── Hamburger menu ───────────────────────────────────────── */
   const nav      = document.querySelector('.nav');
   const navLinks = document.querySelector('.nav-links');

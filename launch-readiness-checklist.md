@@ -473,6 +473,21 @@ Automated crawl of all real pages: **18 root + 132 real-estate + 1 destinations 
 105. ~~🟠 **Real-estate neighborhood cards: "Buy from" misaligned with "Est. rent"**~~ ✅ **FIXED (2026-07-25)** — Natalie flagged on Mérida; affected **all 131 generic pages** (not Porto, which uses plain stats). Cause: the generic template gave the "Buy from" stat an extra `hood-stat-block` class (`display:block; margin-top:4px`); inside the `.hood-stats` flex row that 4px top margin nudged "Buy from" down out of baseline alignment with "Est. rent." Removed the `hood-stat-block` class + its now-unused CSS rule so both stats sit on one clean baseline (matching Porto). Regenerated all 132 pages; grep confirms `hood-stat-block` gone from generator + every page. Owner: **cto/design-lead**.
     - **Follow-up (2026-07-25, design-lead):** Natalie noticed a residual *sub-pixel* drift. Root cause: `.hood-stats` flex row used the default `align-items: stretch` (top-aligns items) and `.hood-stat` had no explicit `line-height` (inherited body ~1.6), so the two stats weren't sharing an identical line box. Set `.hood-stats { align-items: baseline; }` + `.hood-stat { line-height: 1.5; }` — baseline alignment pins the text baselines exactly. System-level fix in the shared generator template; regenerated all 132. Verdict: **Ship**.
 
+## Updates 2026-07-25 (batch 13) — analytics: track all links + quiz (analytics-lead + cto)
+
+**Context:** GA4 was already installed in `shared.js` (Measurement ID `G-W19300JTXV`) with an `rvTrack(event, props)` helper — but nothing called it for links, and two funnel pages weren't even loading it. Natalie asked to track all links (internal + external) and the quiz.
+
+106. ~~🟠 **No link tracking; results page had zero analytics**~~ ✅ **DONE (2026-07-25).**
+    - **Global link tracker (shared.js):** one delegated `document` click listener → nearest `<a>`. Because every real page loads shared.js, this covers all links everywhere in one place. Events (all `snake_case`, no PII):
+      - `link_click` — internal navigation + `#section` anchors + `mailto:`/`tel:` (props: `link_url`, `link_text`, `page_path`, optional `link_type`).
+      - `outbound_click` — any different-host link (props: `link_domain`, `link_url`, `link_text`, `page_path`).
+      - `affiliate_click` — partner handoffs, **fires in addition to** outbound_click so Handoff CTR (core-loop step 4) is a first-class metric (props: `partner`, `category` ∈ {`real_estate`,`travel`,`advisor`}, `link_url`, `page_path`). Utility hosts (fonts, tag-manager, jsDelivr, EmailJS) are excluded from affiliate_click. Verified classifier against real hrefs: Zillow/Idealista/Domain→real_estate, Booking/Expedia→travel, SmartAsset→advisor, fonts→outbound-only.
+      - Bare `#` and `javascript:` links are skipped.
+    - **`results-page-mockup.html`** — was loading **no** shared.js/gtag at all (the top funnel + handoff page was sending nothing, not even a pageview). Added `<script src="shared.js"></script>` before `</body>` → now tracks pageview + all handoff clicks. (No `.nav`, so shared.js injects no hamburger — safe.)
+    - **Quiz** — already fires `quiz_start`, `quiz_question_complete{question_number}`, `quiz_complete`, `vibe_label_generated{vibe_label}` in `mockups/quiz/quiz.js`, and `quiz.html` loads shared.js, so these were already live. Verified.
+    - `shared.js` passes `node -c`. Owner: **analytics-lead/cto**.
+    - **Recommended in GA4 (Natalie, one-time in the dashboard):** mark `quiz_complete` and `affiliate_click` as **Key events (conversions)**. **Next easy add (Save step, not yet wired):** `destination_saved` on heart-click + `email_captured` — the one core-loop step still uninstrumented.
+
 ## Phase 1 / Phase 2 (post-launch, logged — do not block launch)
 
 - **Phase 1 — affiliate integrations** (owner: affiliate-partnerships + cto). Replace stopgap base URLs with **tracked affiliate URLs** from portal referral programs (Idealista, Zillow, Realtor.com, Domain, etc.) — correct by construction and revenue-generating. Sequence by market size.
