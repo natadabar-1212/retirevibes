@@ -614,6 +614,7 @@ function getPortoNeighborhoodsHTML() {
       <div class="hood-card">
         <div class="hood-card-main">
           <h3 class="hood-name">Foz do Douro</h3>
+          <span class="hood-vibe vibe-upscale">Upscale</span>
           <p class="hood-desc">Where the river meets the Atlantic. Broad avenues, sea air, and a strong expat community. This is the neighborhood most Americans end up in — and for good reason. Grocery stores, pharmacies, English-friendly cafés. The tradeoff: it's Porto's most expensive neighborhood, and it can feel a little international-bubble-ish if that's not what you're looking for.</p>
           <div class="hood-stats">
             <span class="hood-stat"><strong>1BR rent:</strong> $975–1,500/mo</span>
@@ -621,11 +622,11 @@ function getPortoNeighborhoodsHTML() {
             <span class="hood-stat"><strong>Buy from:</strong> ~$300K</span>
           </div>
         </div>
-        <span class="hood-vibe vibe-upscale">Upscale</span>
       </div>
       <div class="hood-card">
         <div class="hood-card-main">
           <h3 class="hood-name">Cedofeita</h3>
+          <span class="hood-vibe vibe-comfortable">Comfortable with Extras</span>
           <p class="hood-desc">The creative quarter. Independent bookshops, galleries, the best independent restaurants in the city. More bohemian, younger energy than Foz — you'll still find retirees here, but they tend to be the kind who want to be embedded in the city rather than above it. Excellent transit connections, walkable to downtown.</p>
           <div class="hood-stats">
             <span class="hood-stat"><strong>1BR rent:</strong> $810–1,200/mo</span>
@@ -633,11 +634,11 @@ function getPortoNeighborhoodsHTML() {
             <span class="hood-stat"><strong>Buy from:</strong> ~$260K</span>
           </div>
         </div>
-        <span class="hood-vibe vibe-comfortable">Comfortable with Extras</span>
       </div>
       <div class="hood-card">
         <div class="hood-card-main">
           <h3 class="hood-name">Bonfim</h3>
+          <span class="hood-vibe vibe-simple">Simple &amp; Comfortable</span>
           <p class="hood-desc">The sleeper pick. Porto's most rapidly gentrifying neighborhood — still genuinely Portuguese, with old ladies on balconies and local tascas, but with a growing café scene and renovated apartments at prices that feel like a secret. Hilly, so factor that in. Early adopters here tend to feel very smug about their choice within six months.</p>
           <div class="hood-stats">
             <span class="hood-stat"><strong>1BR rent:</strong> $700–1,025/mo</span>
@@ -645,11 +646,11 @@ function getPortoNeighborhoodsHTML() {
             <span class="hood-stat"><strong>Buy from:</strong> ~$220K</span>
           </div>
         </div>
-        <span class="hood-vibe vibe-simple">Simple &amp; Comfortable</span>
       </div>
       <div class="hood-card">
         <div class="hood-card-main">
           <h3 class="hood-name">Matosinhos</h3>
+          <span class="hood-vibe vibe-luxury">Luxury</span>
           <p class="hood-desc">Technically a separate municipality, but a 15-minute metro ride from downtown Porto and increasingly popular with expats for exactly that reason. On the beach. Fish market two blocks away. More space for less money. If you don't need to be in the city every day and want to wake up to the Atlantic, this is worth a serious look.</p>
           <div class="hood-stats">
             <span class="hood-stat"><strong>1BR rent:</strong> $750–1,150/mo</span>
@@ -657,7 +658,6 @@ function getPortoNeighborhoodsHTML() {
             <span class="hood-stat"><strong>Buy from:</strong> ~$240K</span>
           </div>
         </div>
-        <span class="hood-vibe vibe-luxury">Luxury</span>
       </div>`;
 }
 
