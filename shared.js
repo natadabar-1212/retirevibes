@@ -46,7 +46,7 @@
       'api.emailjs.com', 'schema.org', 'www.w3.org'
     ];
     var TRAVEL_HOSTS  = ['booking.com', 'expedia.com'];
-    var ADVISOR_HOSTS = ['smartasset.com'];
+    var ADVISOR_HOSTS = ['smartasset.com', 'napfa.org', 'xyplanningnetwork.com', 'garrettplanningnetwork.com', 'cfp.net'];
 
     function bareHost(h) { return (h || '').replace(/^www\./, ''); }
     function inList(host, list) {

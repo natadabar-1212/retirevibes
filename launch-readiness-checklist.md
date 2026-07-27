@@ -492,6 +492,8 @@ Automated crawl of all real pages: **18 root + 132 real-estate + 1 destinations 
     - `shared.js` passes `node -c`. Owner: **analytics-lead/cto**.
     - **Recommended in GA4 (Natalie, one-time in the dashboard):** mark `quiz_complete` and `affiliate_click` as **Key events (conversions)**. **Next easy add (Save step, not yet wired):** `destination_saved` on heart-click + `email_captured` — the one core-loop step still uninstrumented.
 
+108. ~~**Advisor-directory reference URLs were plain text**~~ ✅ **DONE (2026-07-25)** — Natalie: make the four "where to find an advisor" directory URLs clickable. Hyperlinked NAPFA, XY Planning Network, Garrett Planning Network, and CFP Board across all 3 pages that show them (`advisor-domestic.html`, `advisor-international.html`, `find-an-advisor.html` — 12 links total), `target="_blank" rel="noopener"`, with a subtle underline-on-hover on the existing terracotta `.where-url`. All four URLs resolution-verified live first. Also added these four domains to `shared.js` `ADVISOR_HOSTS` so their clicks classify as `affiliate_click{category:'advisor'}` rather than the default. No FTC disclosure needed (non-affiliate reference directories). Owner: **design-lead/analytics-lead**.
+
 ## Phase 1 / Phase 2 (post-launch, logged — do not block launch)
 
 - **Phase 1 — affiliate integrations** (owner: affiliate-partnerships + cto). Replace stopgap base URLs with **tracked affiliate URLs** from portal referral programs (Idealista, Zillow, Realtor.com, Domain, etc.) — correct by construction and revenue-generating. Sequence by market size.
