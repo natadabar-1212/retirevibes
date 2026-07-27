@@ -9,13 +9,13 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.retirevibes.com/quiz.html</loc>
+    <loc>https://www.retirevibes.com/quiz</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.retirevibes.com/results-page-mockup.html</loc>
+    <loc>https://www.retirevibes.com/results-page-mockup</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -23,25 +23,25 @@
 
   <!-- Destination pages -->
   <url>
-    <loc>https://www.retirevibes.com/destination-porto.html</loc>
+    <loc>https://www.retirevibes.com/destination-porto</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.retirevibes.com/destination-merida.html</loc>
+    <loc>https://www.retirevibes.com/destination-merida</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.retirevibes.com/destination-asheville.html</loc>
+    <loc>https://www.retirevibes.com/destination-asheville</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.retirevibes.com/destination-sarasota.html</loc>
+    <loc>https://www.retirevibes.com/destination-sarasota</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -49,19 +49,19 @@
 
   <!-- Advisor + handoff pages -->
   <url>
-    <loc>https://www.retirevibes.com/find-an-advisor.html</loc>
+    <loc>https://www.retirevibes.com/find-an-advisor</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.retirevibes.com/advisor-international.html</loc>
+    <loc>https://www.retirevibes.com/advisor-international</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.retirevibes.com/advisor-domestic.html</loc>
+    <loc>https://www.retirevibes.com/advisor-domestic</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -69,13 +69,13 @@
 
   <!-- Real estate -->
   <url>
-    <loc>https://www.retirevibes.com/browse-homes-international.html</loc>
+    <loc>https://www.retirevibes.com/browse-homes-international</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.retirevibes.com/browse-homes-domestic.html</loc>
+    <loc>https://www.retirevibes.com/browse-homes-domestic</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -83,13 +83,13 @@
 
   <!-- Scouting trips -->
   <url>
-    <loc>https://www.retirevibes.com/scouting-trip.html</loc>
+    <loc>https://www.retirevibes.com/scouting-trip</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.retirevibes.com/scouting-trip-domestic.html</loc>
+    <loc>https://www.retirevibes.com/scouting-trip-domestic</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -97,7 +97,7 @@
 
   <!-- Account -->
   <url>
-    <loc>https://www.retirevibes.com/my-retirevibes.html</loc>
+    <loc>https://www.retirevibes.com/my-retirevibes</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -105,13 +105,13 @@
 
   <!-- Legal -->
   <url>
-    <loc>https://www.retirevibes.com/privacy-policy.html</loc>
+    <loc>https://www.retirevibes.com/privacy-policy</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.retirevibes.com/terms-of-service.html</loc>
+    <loc>https://www.retirevibes.com/terms-of-service</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

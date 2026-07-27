@@ -1,4 +1,5 @@
 {
+  "cleanUrls": true,
   "redirects": [
     {
       "source": "/homepage-mockup.html",
@@ -12,7 +13,7 @@
     },
     {
       "source": "/find-an-advisor.html",
-      "destination": "/advisor-domestic.html",
+      "destination": "/advisor-domestic",
       "permanent": true
     },
     {
