@@ -143,7 +143,7 @@
   /* ─── Active nav state ─────────────────────────────────────── */
   // Get current page filename (e.g. "find-an-advisor.html")
   var page = window.location.pathname.split('/').pop();
-  if (!page || page === '') page = 'homepage-mockup.html';
+  if (!page || page === '') page = 'index.html';
 
   document.querySelectorAll('.nav-links a').forEach(function (link) {
     var href = link.getAttribute('href') || '';

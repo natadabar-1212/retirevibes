@@ -1,9 +1,9 @@
 {
   "redirects": [
     {
-      "source": "/",
-      "destination": "/homepage-mockup.html",
-      "permanent": false
+      "source": "/homepage-mockup.html",
+      "destination": "/",
+      "permanent": true
     },
     {
       "source": "/browse-homes-international.html",

@@ -158,9 +158,9 @@ Two shared files handle nav behavior across all pages. **Every page links to bot
 
 ```html
 <nav class="nav">
-  <a class="wordmark" href="homepage-mockup.html">Retire<em>Vibes</em></a>
+  <a class="wordmark" href="index.html">Retire<em>Vibes</em></a>
   <div class="nav-links">
-    <a href="homepage-mockup.html#destinations">Destinations</a>
+    <a href="index.html#destinations">Destinations</a>
     <a href="my-retirevibes.html">My RetireVibes</a>
     <a href="results-page-mockup.html" class="nav-cta">Take the quiz →</a>
   </div>
@@ -174,7 +174,7 @@ Two shared files handle nav behavior across all pages. **Every page links to bot
 Destinations · How it works · Find an advisor · Scouting trips · My RetireVibes
 ```
 
-- "How it works" → `homepage-mockup.html#how-it-works`
+- "How it works" → `index.html#how-it-works`
 - "Find an advisor" → `find-an-advisor.html` (general guidance page + advisor directory)
 - "Scouting trips" → `scouting-trips.html` (general tips page, NOT the Porto-specific `scouting-trip.html`)
 
@@ -188,7 +188,7 @@ All files are at the project root unless noted.
 
 | File | Purpose | Status |
 |------|---------|--------|
-| `homepage-mockup.html` | Homepage — hero, "how it works" explainer, 6 destination cards, quiz CTA | ✅ Built |
+| `index.html` | Homepage — hero, "how it works" explainer, 6 destination cards, quiz CTA | ✅ Built |
 | `mockups/vibe-quiz.html` | The 8-question quiz (one question per screen) | ✅ Built (in `mockups/` subfolder) |
 | `results-page-mockup.html` | Results page — reverse countdown reveal (#3→#2→#1), profile panel, handoff cards, save/share modal | ✅ Built |
 | `my-retirevibes.html` | Saved matches / account page | ✅ Built |
@@ -421,7 +421,7 @@ Americans 40–55. Key emotional state: **anxiety, not curiosity.** 53% of 55–
 ├── shared.js                          ← nav behaviour: hamburger + active detection
 ├── results-matcher.js                 ← quiz matching algorithm (reads rv_quiz_answers, scores all destinations)
 ├── destinations-data.js               ← all ~95+ destination profiles with scoring weights
-├── homepage-mockup.html
+├── index.html
 ├── results-page-mockup.html
 ├── my-retirevibes.html
 ├── destination-porto.html
