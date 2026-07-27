@@ -1,8 +1,22 @@
 # RetireVibes — Launch Readiness Checklist
 
 **Compiled by:** Project Manager agent
-**Date:** 2026-05-21 | **Last updated:** 2026-07-22
+**Date:** 2026-05-21 | **Last updated:** 2026-07-25
 **Status of this doc:** Living document — review weekly, prune monthly.
+
+---
+
+## ⭐ NEXT SESSION — start here (added 2026-07-25)
+
+**Kickoff task (Natalie's request):** As **marketing-lead**, *refine the Pinterest strategy and start creating pins.* Plan: refine boards (by vibe + by destination) → write opening pin captions with real hooks (route through Brand/Copy, enforce no-money-claims-about-user) → map each pin to its landing URL (quiz vs. destination page) → set cadence → then build pins. Lead with the flagship six (Porto, Mérida, Asheville, Sarasota, Chiang Mai, Medellín — strongest imagery). Full GTM context in `RetireVibes_GTM_Plan.md`.
+
+**Ask Natalie at kickoff:** did the Pinterest website-claim verify? is the handle `pinterest.com/retirevibes` set?
+
+**Facts to remember:**
+- **RetireVibes contact/account email = `retirevibes@gmail.com`** (used site-wide in privacy/terms/schema; the address for Pinterest + other account signups). `hello@retirevibes.com` is only a Resend "from" address, not a real inbox.
+- Logo/profile mark for social = `retirevibes-logo-pinterest.png` (cream "R" on terracotta, 800×800).
+- **Launch status:** all launch-blocking QA + the P0 (email capture) are cleared; site is soft-launch-ready. Remaining pre-launch items are business decisions only (launch date, budget, soft-vs-hard, paid social). Agreed approach = **soft launch first** (organic, watch the funnel ~2–3 weeks, then scale to paid).
+- **Open decisions parked (item 112 + last session):** (a) remove the `/find-an-advisor` redirect bug? (b) add optional `quiz_question_view` event? Both awaiting Natalie's go.
 
 ---
 
