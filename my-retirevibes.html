@@ -697,16 +697,6 @@
     <div id="savedContent"></div>
   </section>
 
-  <!-- BROWSER STORAGE NOTICE -->
-  <div class="account-row">
-    <div class="account-info">
-      Your matches and saved places are stored in this browser only. Clear your cache or switch devices and they'll be gone.
-    </div>
-    <div class="account-actions">
-      <button onclick="clearAll()">Clear my data</button>
-    </div>
-  </div>
-
 </main>
 
 <!-- ─── FOOTER ─── -->
@@ -1045,17 +1035,6 @@
 
     container.appendChild(gridDiv);
   }
-
-  /* ── Clear all data ────────────────────────────────────────── */
-  window.clearAll = function() {
-    if (confirm('Clear your quiz results and saved places from this browser?')) {
-      try { localStorage.removeItem('rv_saved'); } catch(e) {}
-      try { localStorage.removeItem('rv_vibe_label'); } catch(e) {}
-      try { localStorage.removeItem('rv_quiz_matches'); } catch(e) {}
-      try { localStorage.removeItem('rv_quiz_answers'); } catch(e) {}
-      window.location.href = 'homepage-mockup.html';
-    }
-  };
 
   /* ── Page hero ─────────────────────────────────────────────── */
   function renderHero(matchData) {
