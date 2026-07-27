@@ -728,6 +728,7 @@
   </div>
 </footer>
 
+<script src="destinations-data.js"></script>
 <script>
 (function () {
 
@@ -789,6 +790,27 @@
     'Canmore':         { region: 'Alberta, Canada · Rocky Mountains', flag: '🇨🇦 Canada',            vibe: 'Banff National Park at your doorstep. The kind of mountain town people move to and never leave.', cost: '~$4,400/mo', photo: 'https://images.unsplash.com/photo-1465188035480-cf3a60801ea5?auto=format&fit=crop&w=900&q=80', url: 'destination-detail.html?id=canmore' },
     'Costa Rica':      { region: 'Central America · Pura Vida',       flag: '🇨🇷 Costa Rica',        vibe: 'Rainforest, Pacific coast, stable democracy, and the most genuinely happy country on the index.', cost: '~$2,800/mo', photo: 'https://images.unsplash.com/photo-1518638150340-f706e86654de?auto=format&fit=crop&w=900&q=80', url: 'destination-detail.html?id=costa-rica' }
   };
+
+  /* ── Canonical lookup (single source of truth = destinations-data.js) ──
+     Ensures the image (and region/vibe/cost) for a destination is identical
+     everywhere it appears — saved places, quiz results, destination pages.
+     Falls back to the legacy RV_DESTINATIONS table only if data isn't loaded. */
+  function canonicalInfo(name) {
+    if (typeof DESTINATIONS === 'undefined' || !Array.isArray(DESTINATIONS)) return null;
+    var key = String(name || '').trim();
+    var bare = key.split(',')[0].trim();
+    var dest = DESTINATIONS.find(function (x) { return x.name === key || x.name === bare; });
+    if (!dest) return null;
+    var tier = dest.costPerMonth && dest.costPerMonth[2];
+    return {
+      region: dest.region + (dest.tags && dest.tags[0] ? ' · ' + dest.tags[0] : ''),
+      flag:   (dest.flag ? dest.flag + ' ' : '') + (dest.country || ''),
+      vibe:   dest.tagline || '',
+      cost:   tier ? '~$' + Number(tier).toLocaleString() + '/mo' : '',
+      photo:  dest.photo || '',
+      url:    dest.page || ('destination-detail.html?id=' + dest.id)
+    };
+  }
 
   /* ── LocalStorage helpers ──────────────────────────────────── */
   function getSaved() {
@@ -858,7 +880,7 @@
     // Use createElement — never inject localStorage data via innerHTML
     grid.textContent = '';
     matches.forEach(function(m, i) {
-      const d = RV_DESTINATIONS[m.name] || {};
+      const d = canonicalInfo(m.name) || RV_DESTINATIONS[m.name] || {};
       const photo   = m.photo || d.photo || '';
       const flag    = m.flag  || d.flag  || '';
       const region  = m.region || d.region || '';
@@ -951,7 +973,7 @@
     gridDiv.className = 'saved-grid';
 
     dests.forEach(function(name) {
-      const d = RV_DESTINATIONS[name] || { region: '', flag: '', vibe: '', cost: '', photo: '', url: '#' };
+      const d = canonicalInfo(name) || RV_DESTINATIONS[name] || { region: '', flag: '', vibe: '', cost: '', photo: '', url: '#' };
       const hasPage = d.url && d.url !== '#';
 
       const article = document.createElement('article');
